@@ -1,0 +1,205 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sudoku.Graphics</name>
+    </assembly>
+    <members>
+        <member name="T:Sudoku.Concepts.Cell">
+            <summary>
+            Represents a cell coordinate. The cell will be designed inside a grid. If for a puzzle type that will display outside labels,
+            the value can be negative or greater than logical count of rows and columns.
+            </summary>
+            <param name="Row">Indicates the row index.</param>
+            <param name="Column">Indicates the column index.</param>
+        </member>
+        <member name="M:Sudoku.Concepts.Cell.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Represents a cell coordinate. The cell will be designed inside a grid. If for a puzzle type that will display outside labels,
+            the value can be negative or greater than logical count of rows and columns.
+            </summary>
+            <param name="Row">Indicates the row index.</param>
+            <param name="Column">Indicates the column index.</param>
+        </member>
+        <member name="P:Sudoku.Concepts.Cell.Row">
+            <summary>Indicates the row index.</summary>
+        </member>
+        <member name="P:Sudoku.Concepts.Cell.Column">
+            <summary>Indicates the column index.</summary>
+        </member>
+        <member name="T:Sudoku.Graphics.Canvas">
+            <summary>
+            Represents a canvas object that allows you drawing items onto it.
+            </summary>
+            <param name="mapper"><inheritdoc cref="P:Sudoku.Graphics.Canvas.Mapper" path="/summary"/></param>
+        </member>
+        <member name="M:Sudoku.Graphics.Canvas.#ctor(Sudoku.Graphics.PointMapper)">
+            <summary>
+            Represents a canvas object that allows you drawing items onto it.
+            </summary>
+            <param name="mapper"><inheritdoc cref="P:Sudoku.Graphics.Canvas.Mapper" path="/summary"/></param>
+        </member>
+        <member name="F:Sudoku.Graphics.Canvas._surface">
+            <summary>
+            Indicates the backing surface.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Canvas._isDisposed">
+            <summary>
+            Indicates whether the object has already been disposed.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Canvas.#ctor(System.Single,System.Single,System.Int32,System.Int32)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Graphics.Canvas"/> object via the specified information.
+            </summary>
+            <param name="cellSize"><inheritdoc cref="P:Sudoku.Graphics.Canvas.CellSize" path="/summary"/></param>
+            <param name="margin"><inheritdoc cref="P:Sudoku.Graphics.Canvas.Margin" path="/summary"/></param>
+            <param name="rowsCount"><inheritdoc cref="P:Sudoku.Graphics.Canvas.RowsCount" path="/summary"/></param>
+            <param name="columnsCount"><inheritdoc cref="P:Sudoku.Graphics.Canvas.ColumnsCount" path="/summary"/></param>
+        </member>
+        <member name="P:Sudoku.Graphics.Canvas.Margin">
+            <inheritdoc cref="P:Sudoku.Graphics.PointMapper.Margin"/>
+        </member>
+        <member name="P:Sudoku.Graphics.Canvas.CellSize">
+            <inheritdoc cref="P:Sudoku.Graphics.PointMapper.CellSize"/>
+        </member>
+        <member name="P:Sudoku.Graphics.Canvas.RowsCount">
+            <inheritdoc cref="P:Sudoku.Graphics.PointMapper.RowsCount"/>
+        </member>
+        <member name="P:Sudoku.Graphics.Canvas.ColumnsCount">
+            <inheritdoc cref="P:Sudoku.Graphics.PointMapper.ColumnsCount"/>
+        </member>
+        <member name="P:Sudoku.Graphics.Canvas.ReservedUpCellsCount">
+            <summary>
+            Indicates reserved number of cells reserved from upside of the grid.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Canvas.ReservedDownCellsCount">
+            <summary>
+            Indicates reserved number of cells reserved from downside of the grid.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Canvas.ReservedLeftCellsCount">
+            <summary>
+            Indicates reserved number of cells reserved from leftside of the grid.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Canvas.ReservedRightCellsCount">
+            <summary>
+            Indicates reserved number of cells reserved from rightside of the grid.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Canvas.Mapper">
+            <summary>
+            Indicates the mapper instance.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Canvas.BackingCanvas">
+            <summary>
+            Indicates the backing canvas.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Canvas.Clear(SkiaSharp.SKColor)">
+            <summary>
+            Clears the canvas via the specified color.
+            </summary>
+            <param name="color">The color.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.Canvas.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Canvas.Export(System.String,Sudoku.Graphics.CanvasExportingOptions)">
+            <summary>
+            Export the current canvas into target file.
+            </summary>
+            <param name="path">The file path. The extension specified will be used as output file format.</param>
+            <param name="options">The options.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.Canvas.GetFormatFromExtension(System.String)">
+            <summary>
+            Returns <see cref="T:SkiaSharp.SKEncodedImageFormat"/> from extension string.
+            </summary>
+            <param name="extension">The file extesnsion.</param>
+            <returns>The target format.</returns>
+            <exception cref="T:System.NotSupportedException">Throws when the target format is not supported.</exception>
+        </member>
+        <member name="T:Sudoku.Graphics.CanvasExportingOptions">
+            <summary>
+            Represents exporting options.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.CanvasExportingOptions.Default">
+            <summary>
+            Indicates the default options.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.CanvasExportingOptions.Quality">
+            <summary>
+            Indicates the quality. Range 0..100. Default 80.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.PointMapper">
+            <summary>
+            Represents a point mapper instance.
+            </summary>
+            <param name="cellSize"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.CellSize" path="/summary"/></param>
+            <param name="margin"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.Margin" path="/summary"/></param>
+            <param name="rowsCount"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.RowsCount" path="/summary"/></param>
+            <param name="columnsCount"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.ColumnsCount" path="/summary"/></param>
+        </member>
+        <member name="M:Sudoku.Graphics.PointMapper.#ctor(System.Single,System.Single,System.Int32,System.Int32)">
+            <summary>
+            Represents a point mapper instance.
+            </summary>
+            <param name="cellSize"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.CellSize" path="/summary"/></param>
+            <param name="margin"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.Margin" path="/summary"/></param>
+            <param name="rowsCount"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.RowsCount" path="/summary"/></param>
+            <param name="columnsCount"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.ColumnsCount" path="/summary"/></param>
+        </member>
+        <member name="P:Sudoku.Graphics.PointMapper.CellSize">
+            <summary>
+            Indicates cell size of pixels.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.PointMapper.Margin">
+            <summary>
+            Indicates margin (pixel size of empty spaces between the fact sudoku grid and borders of the picture).
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.PointMapper.RowsCount">
+            <summary>
+            Indicates the number of rows. The number of rows should be an absolute value,
+            including reserved regions (used by drawing outside-like puzzles).
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.PointMapper.ColumnsCount">
+            <summary>
+            Indiactes the number of columns. The number of columns should be an absolute value,
+            including reserved regions (used by drawing outside-like puzzles).
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.PointMapper.GridSize">
+            <summary>
+            Indicates grid size <see cref="T:SkiaSharp.SKRect"/> instance.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.PointMapper.FullSize">
+            <summary>
+            Indicates full canvas size <see cref="T:SkiaSharp.SKRect"/> instance.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.PointMapper.FullSizeInteger">
+            <summary>
+            Indicates full canvas size <see cref="T:SkiaSharp.SKRect"/> instance, in integer format.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.PointMapper.GetTopLeftPoint(System.Int32,System.Int32)">
+            <summary>
+            Returns top-left position (point) of the specified absolute row and column absolute index.
+            </summary>
+            <param name="absoluteRowIndex">Absolute row index.</param>
+            <param name="absoluteColumnIndex">Absolute column index.</param>
+            <returns>The point instance that represents the target top-left position.</returns>
+        </member>
+    </members>
+</doc>
