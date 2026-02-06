@@ -119,9 +119,57 @@
         <member name="P:Sudoku.Graphics.CanvasExportingOptions.Sudoku#Graphics#IOptionsProvider{Sudoku#Graphics#CanvasExportingOptions}#DefaultInstance">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.DefaultGridLineTemplate">
+            <summary>
+            Represents a default grid line template.
+            </summary>
+            <param name="rowsCount"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.RowsCount" path="/summary"/></param>
+            <param name="columnsCount"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.ColumnsCount" path="/summary"/></param>
+            <param name="outsideBlank"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.OutsideBlank" path="/summary"/></param>
+            <param name="mapper"><inheritdoc cref="P:Sudoku.Graphics.GridLineTemplate.Mapper" path="/summary"/></param>
+        </member>
+        <member name="M:Sudoku.Graphics.DefaultGridLineTemplate.#ctor(Sudoku.Graphics.PointMapper,System.Int32,System.Int32,Sudoku.Graphics.ReservedOutsideBlank)">
+            <summary>
+            Represents a default grid line template.
+            </summary>
+            <param name="rowsCount"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.RowsCount" path="/summary"/></param>
+            <param name="columnsCount"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.ColumnsCount" path="/summary"/></param>
+            <param name="outsideBlank"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.OutsideBlank" path="/summary"/></param>
+            <param name="mapper"><inheritdoc cref="P:Sudoku.Graphics.GridLineTemplate.Mapper" path="/summary"/></param>
+        </member>
+        <member name="P:Sudoku.Graphics.DefaultGridLineTemplate.RowsCount">
+            <summary>
+            Indicates the number of rows.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.DefaultGridLineTemplate.ColumnsCount">
+            <summary>
+            Indicates the number of columns.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.DefaultGridLineTemplate.OutsideBlank">
+            <summary>
+            Indicates the outside blank.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.DefaultGridLineTemplate.DrawLines(SkiaSharp.SKCanvas)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.GridLineTemplate">
             <summary>
             Represents grid line template type that draws lines onto a canvas via the specified configuration.
+            </summary>
+            <param name="mapper"><inheritdoc cref="P:Sudoku.Graphics.GridLineTemplate.Mapper" path="/summary"/></param>
+        </member>
+        <member name="M:Sudoku.Graphics.GridLineTemplate.#ctor(Sudoku.Graphics.PointMapper)">
+            <summary>
+            Represents grid line template type that draws lines onto a canvas via the specified configuration.
+            </summary>
+            <param name="mapper"><inheritdoc cref="P:Sudoku.Graphics.GridLineTemplate.Mapper" path="/summary"/></param>
+        </member>
+        <member name="P:Sudoku.Graphics.GridLineTemplate.Mapper">
+            <summary>
+            Indicates the mapper instance.
             </summary>
         </member>
         <member name="M:Sudoku.Graphics.GridLineTemplate.DrawLines(SkiaSharp.SKCanvas)">
@@ -203,6 +251,62 @@
             <param name="absoluteRowIndex">Absolute row index.</param>
             <param name="absoluteColumnIndex">Absolute column index.</param>
             <returns>The point instance that represents the target top-left position.</returns>
+        </member>
+        <member name="T:Sudoku.Graphics.ReservedOutsideBlank">
+            <summary>
+            Represents an encapsulated type that describes the number of cell units reserved to be empty
+            in drawing on the border of grid in a canvas.
+            </summary>
+            <param name="Up">
+            Indicates the number of cell units upside the canvas that will be reserved as blank in drawing.
+            </param>
+            <param name="Down">
+            Indicates the number of cell units downside the canvas that will be reserved as blank in drawing.
+            </param>
+            <param name="Left">
+            Indicates the number of cell units leftside the canvas that will be reserved as blank in drawing.
+            </param>
+            <param name="Right">
+            Indicates the number of cell units rightside the canvas that will be reserved as blank in drawing.
+            </param>
+        </member>
+        <member name="M:Sudoku.Graphics.ReservedOutsideBlank.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Represents an encapsulated type that describes the number of cell units reserved to be empty
+            in drawing on the border of grid in a canvas.
+            </summary>
+            <param name="Up">
+            Indicates the number of cell units upside the canvas that will be reserved as blank in drawing.
+            </param>
+            <param name="Down">
+            Indicates the number of cell units downside the canvas that will be reserved as blank in drawing.
+            </param>
+            <param name="Left">
+            Indicates the number of cell units leftside the canvas that will be reserved as blank in drawing.
+            </param>
+            <param name="Right">
+            Indicates the number of cell units rightside the canvas that will be reserved as blank in drawing.
+            </param>
+        </member>
+        <member name="P:Sudoku.Graphics.ReservedOutsideBlank.Up">
+            <summary>
+            Indicates the number of cell units upside the canvas that will be reserved as blank in drawing.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.ReservedOutsideBlank.Down">
+            <summary>
+            Indicates the number of cell units downside the canvas that will be reserved as blank in drawing.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.ReservedOutsideBlank.Left">
+            <summary>
+            Indicates the number of cell units leftside the canvas that will be reserved as blank in drawing.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.ReservedOutsideBlank.Right">
+            <summary>
+            Indicates the number of cell units rightside the canvas that will be reserved as blank in drawing.
+            </summary>
         </member>
     </members>
 </doc>
