@@ -125,16 +125,16 @@
             </summary>
             <param name="rowsCount"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.RowsCount" path="/summary"/></param>
             <param name="columnsCount"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.ColumnsCount" path="/summary"/></param>
-            <param name="outsideBlank"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.OutsideBlank" path="/summary"/></param>
+            <param name="vector"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.Vector" path="/summary"/></param>
             <param name="mapper"><inheritdoc cref="P:Sudoku.Graphics.GridLineTemplate.Mapper" path="/summary"/></param>
         </member>
-        <member name="M:Sudoku.Graphics.DefaultGridLineTemplate.#ctor(Sudoku.Graphics.PointMapper,System.Int32,System.Int32,Sudoku.Graphics.ReservedOutsideBlank)">
+        <member name="M:Sudoku.Graphics.DefaultGridLineTemplate.#ctor(Sudoku.Graphics.PointMapper,System.Int32,System.Int32,Sudoku.Graphics.DirectionVector)">
             <summary>
             Represents a default grid line template.
             </summary>
             <param name="rowsCount"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.RowsCount" path="/summary"/></param>
             <param name="columnsCount"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.ColumnsCount" path="/summary"/></param>
-            <param name="outsideBlank"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.OutsideBlank" path="/summary"/></param>
+            <param name="vector"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.Vector" path="/summary"/></param>
             <param name="mapper"><inheritdoc cref="P:Sudoku.Graphics.GridLineTemplate.Mapper" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Graphics.DefaultGridLineTemplate.RowsCount">
@@ -147,12 +147,113 @@
             Indicates the number of columns.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.DefaultGridLineTemplate.OutsideBlank">
+        <member name="P:Sudoku.Graphics.DefaultGridLineTemplate.Vector">
             <summary>
-            Indicates the outside blank.
+            Indicates the vector as outside blank.
             </summary>
         </member>
         <member name="M:Sudoku.Graphics.DefaultGridLineTemplate.DrawLines(SkiaSharp.SKCanvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Direction">
+            <summary>
+            Represents a direction.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Direction.None">
+            <summary>
+            Indicates the placeholder of this type.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Direction.Up">
+            <summary>
+            Indicates up direction.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Direction.Down">
+            <summary>
+            Indicates down direction.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Direction.Left">
+            <summary>
+            Indicates left direction.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Direction.Right">
+            <summary>
+            Indicates right direction.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.DirectionVector">
+            <summary>
+            Represents an encapsulated type of a quadruple of <see cref="T:System.Int32"/> values, indicating direction offsets.
+            </summary>
+            <param name="Up">Indicates upside offsets.</param>
+            <param name="Down">Indicates downside offsets.</param>
+            <param name="Left">Indicates leftside offsets.</param>
+            <param name="Right">Indicates rightside offsets.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.DirectionVector.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Represents an encapsulated type of a quadruple of <see cref="T:System.Int32"/> values, indicating direction offsets.
+            </summary>
+            <param name="Up">Indicates upside offsets.</param>
+            <param name="Down">Indicates downside offsets.</param>
+            <param name="Left">Indicates leftside offsets.</param>
+            <param name="Right">Indicates rightside offsets.</param>
+        </member>
+        <member name="P:Sudoku.Graphics.DirectionVector.Up">
+            <summary>Indicates upside offsets.</summary>
+        </member>
+        <member name="P:Sudoku.Graphics.DirectionVector.Down">
+            <summary>Indicates downside offsets.</summary>
+        </member>
+        <member name="P:Sudoku.Graphics.DirectionVector.Left">
+            <summary>Indicates leftside offsets.</summary>
+        </member>
+        <member name="P:Sudoku.Graphics.DirectionVector.Right">
+            <summary>Indicates rightside offsets.</summary>
+        </member>
+        <member name="M:Sudoku.Graphics.DirectionVector.GetValue(Sudoku.Graphics.Direction)">
+            <summary>
+            Returns the value at the specified direction.
+            </summary>
+            <param name="direction">The direction.</param>
+            <returns>Result value.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Throws when <paramref name="direction"/> is not defined or <see cref="F:Sudoku.Graphics.Direction.None"/>.
+            </exception>
+            <seealso cref="F:Sudoku.Graphics.Direction.None"/>
+        </member>
+        <member name="M:Sudoku.Graphics.DirectionVector.Equals(Sudoku.Graphics.DirectionVector@)">
+            <inheritdoc cref="M:System.IEquatable`1.Equals(`0)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.DirectionVector.GetHashCode">
+            <inheritdoc cref="M:System.Object.GetHashCode"/>
+        </member>
+        <member name="M:Sudoku.Graphics.DirectionVector.op_Addition(Sudoku.Graphics.DirectionVector@,Sudoku.Graphics.DirectionVector@)">
+            <inheritdoc cref="M:System.Numerics.IAdditionOperators`3.op_Addition(`0,`1)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.DirectionVector.op_CheckedAddition(Sudoku.Graphics.DirectionVector@,Sudoku.Graphics.DirectionVector@)">
+            <inheritdoc cref="M:System.Numerics.IAdditionOperators`3.op_CheckedAddition(`0,`1)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.DirectionVector.op_Subtraction(Sudoku.Graphics.DirectionVector@,Sudoku.Graphics.DirectionVector@)">
+            <inheritdoc cref="M:System.Numerics.ISubtractionOperators`3.op_Subtraction(`0,`1)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.DirectionVector.op_CheckedSubtraction(Sudoku.Graphics.DirectionVector@,Sudoku.Graphics.DirectionVector@)">
+            <inheritdoc cref="M:System.Numerics.ISubtractionOperators`3.op_CheckedSubtraction(`0,`1)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.DirectionVector.System#Numerics#IAdditionOperators{Sudoku#Graphics#DirectionVector,Sudoku#Graphics#DirectionVector,Sudoku#Graphics#DirectionVector}#op_Addition(Sudoku.Graphics.DirectionVector,Sudoku.Graphics.DirectionVector)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.DirectionVector.System#Numerics#IAdditionOperators{Sudoku#Graphics#DirectionVector,Sudoku#Graphics#DirectionVector,Sudoku#Graphics#DirectionVector}#op_CheckedAddition(Sudoku.Graphics.DirectionVector,Sudoku.Graphics.DirectionVector)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.DirectionVector.System#Numerics#ISubtractionOperators{Sudoku#Graphics#DirectionVector,Sudoku#Graphics#DirectionVector,Sudoku#Graphics#DirectionVector}#op_Subtraction(Sudoku.Graphics.DirectionVector,Sudoku.Graphics.DirectionVector)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.DirectionVector.System#Numerics#ISubtractionOperators{Sudoku#Graphics#DirectionVector,Sudoku#Graphics#DirectionVector,Sudoku#Graphics#DirectionVector}#op_CheckedSubtraction(Sudoku.Graphics.DirectionVector,Sudoku.Graphics.DirectionVector)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.GridLineTemplate">
@@ -251,62 +352,6 @@
             <param name="absoluteRowIndex">Absolute row index.</param>
             <param name="absoluteColumnIndex">Absolute column index.</param>
             <returns>The point instance that represents the target top-left position.</returns>
-        </member>
-        <member name="T:Sudoku.Graphics.ReservedOutsideBlank">
-            <summary>
-            Represents an encapsulated type that describes the number of cell units reserved to be empty
-            in drawing on the border of grid in a canvas.
-            </summary>
-            <param name="Up">
-            Indicates the number of cell units upside the canvas that will be reserved as blank in drawing.
-            </param>
-            <param name="Down">
-            Indicates the number of cell units downside the canvas that will be reserved as blank in drawing.
-            </param>
-            <param name="Left">
-            Indicates the number of cell units leftside the canvas that will be reserved as blank in drawing.
-            </param>
-            <param name="Right">
-            Indicates the number of cell units rightside the canvas that will be reserved as blank in drawing.
-            </param>
-        </member>
-        <member name="M:Sudoku.Graphics.ReservedOutsideBlank.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
-            <summary>
-            Represents an encapsulated type that describes the number of cell units reserved to be empty
-            in drawing on the border of grid in a canvas.
-            </summary>
-            <param name="Up">
-            Indicates the number of cell units upside the canvas that will be reserved as blank in drawing.
-            </param>
-            <param name="Down">
-            Indicates the number of cell units downside the canvas that will be reserved as blank in drawing.
-            </param>
-            <param name="Left">
-            Indicates the number of cell units leftside the canvas that will be reserved as blank in drawing.
-            </param>
-            <param name="Right">
-            Indicates the number of cell units rightside the canvas that will be reserved as blank in drawing.
-            </param>
-        </member>
-        <member name="P:Sudoku.Graphics.ReservedOutsideBlank.Up">
-            <summary>
-            Indicates the number of cell units upside the canvas that will be reserved as blank in drawing.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.ReservedOutsideBlank.Down">
-            <summary>
-            Indicates the number of cell units downside the canvas that will be reserved as blank in drawing.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.ReservedOutsideBlank.Left">
-            <summary>
-            Indicates the number of cell units leftside the canvas that will be reserved as blank in drawing.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.ReservedOutsideBlank.Right">
-            <summary>
-            Indicates the number of cell units rightside the canvas that will be reserved as blank in drawing.
-            </summary>
         </member>
     </members>
 </doc>

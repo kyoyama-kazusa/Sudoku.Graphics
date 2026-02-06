@@ -1,6 +1,4 @@
-﻿using SkiaSharp;
-
-namespace Sudoku.Graphics;
+﻿namespace Sudoku.Graphics;
 
 /// <summary>
 /// Represents grid line template type that draws lines onto a canvas via the specified configuration.

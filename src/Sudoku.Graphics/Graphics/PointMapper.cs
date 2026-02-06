@@ -1,8 +1,4 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
-using SkiaSharp;
-
-namespace Sudoku.Graphics;
+﻿namespace Sudoku.Graphics;
 
 /// <summary>
 /// Represents a point mapper instance.
