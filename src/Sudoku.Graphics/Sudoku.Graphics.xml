@@ -83,6 +83,13 @@
             </summary>
             <param name="color">The color.</param>
         </member>
+        <member name="M:Sudoku.Graphics.Canvas.Clear(Sudoku.Graphics.CanvasDrawingOptions)">
+            <summary>
+            Clears the canvas via a color, specified by property <see cref="P:Sudoku.Graphics.CanvasDrawingOptions.BackgroundColor"/>.
+            </summary>
+            <param name="options">The options provider.</param>
+            <seealso cref="P:Sudoku.Graphics.CanvasDrawingOptions.BackgroundColor"/>
+        </member>
         <member name="M:Sudoku.Graphics.Canvas.Dispose">
             <inheritdoc/>
         </member>
@@ -100,6 +107,25 @@
             <param name="extension">The file extesnsion.</param>
             <returns>The target format.</returns>
             <exception cref="T:System.NotSupportedException">Throws when the target format is not supported.</exception>
+        </member>
+        <member name="T:Sudoku.Graphics.CanvasDrawingOptions">
+            <summary>
+            Represents drawing options.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.CanvasDrawingOptions.Default">
+            <summary>
+            Indicates the default instance.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.BackgroundColor">
+            <summary>
+            Represents background color. By default it's equivalent value of color <see cref="F:SkiaSharp.SKColors.White"/>.
+            </summary>
+            <seealso cref="F:SkiaSharp.SKColors.White"/>
+        </member>
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.Sudoku#Graphics#IOptionsProvider{Sudoku#Graphics#CanvasDrawingOptions}#DefaultInstance">
+            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.CanvasExportingOptions">
             <summary>
@@ -352,6 +378,95 @@
             <param name="absoluteRowIndex">Absolute row index.</param>
             <param name="absoluteColumnIndex">Absolute column index.</param>
             <returns>The point instance that represents the target top-left position.</returns>
+        </member>
+        <member name="T:Sudoku.Graphics.SerializableColor">
+            <summary>
+            Represents a serializable color.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.SerializableColor._mask">
+            <summary>
+            Indicates the mask.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.#ctor(System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Graphics.SerializableColor"/> instance via the specified values of RGBA.
+            </summary>
+            <param name="red">The red value.</param>
+            <param name="green">The green value.</param>
+            <param name="blue">The blue value.</param>
+            <param name="alpha">The alpha value. By default it's 255.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.#ctor(SkiaSharp.SKColor)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Graphics.SerializableColor"/> instance via the equivalent <see cref="T:SkiaSharp.SKColor"/> instance.
+            </summary>
+            <param name="color">The color.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.#ctor(System.UInt32)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Graphics.SerializableColor"/> instance via the specified mask.
+            </summary>
+            <param name="mask">The mask.</param>
+        </member>
+        <member name="P:Sudoku.Graphics.SerializableColor.Red">
+            <summary>
+            Indicates red value.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.SerializableColor.Green">
+            <summary>
+            Indicates green value.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.SerializableColor.Blue">
+            <summary>
+            Indicates blue value.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.SerializableColor.Alpha">
+            <summary>
+            Indicates alpha value.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.Deconstruct(System.Byte@,System.Byte@,System.Byte@)">
+            <summary>
+            Deconstruct instance into multiple values.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.Deconstruct(System.Byte@,System.Byte@,System.Byte@,System.Byte@)">
+            <inheritdoc cref="M:Sudoku.Graphics.SerializableColor.Deconstruct(System.Byte@,System.Byte@,System.Byte@)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.Equals(Sudoku.Graphics.SerializableColor)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.GetHashCode">
+            <inheritdoc cref="M:System.Object.GetHashCode"/>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.ToString">
+            <inheritdoc cref="M:System.Object.ToString"/>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.op_Equality(Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.op_Inequality(Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.op_Implicit(SkiaSharp.SKColor)~Sudoku.Graphics.SerializableColor">
+            <summary>
+            Implicit cast from <see cref="T:SkiaSharp.SKColor"/> to <see cref="T:Sudoku.Graphics.SerializableColor"/>.
+            </summary>
+            <param name="color">The original value.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.op_Implicit(Sudoku.Graphics.SerializableColor)~SkiaSharp.SKColor">
+            <summary>
+            Implicit cast from <see cref="T:Sudoku.Graphics.SerializableColor"/> to <see cref="T:SkiaSharp.SKColor"/>.
+            </summary>
+            <param name="color">The original value.</param>
         </member>
     </members>
 </doc>
