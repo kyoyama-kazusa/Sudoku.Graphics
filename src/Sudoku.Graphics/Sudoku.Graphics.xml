@@ -4,28 +4,6 @@
         <name>Sudoku.Graphics</name>
     </assembly>
     <members>
-        <member name="T:Sudoku.Concepts.Cell">
-            <summary>
-            Represents a cell coordinate. The cell will be designed inside a grid. If for a puzzle type that will display outside labels,
-            the value can be negative or greater than logical count of rows and columns.
-            </summary>
-            <param name="Row">Indicates the row index.</param>
-            <param name="Column">Indicates the column index.</param>
-        </member>
-        <member name="M:Sudoku.Concepts.Cell.#ctor(System.Int32,System.Int32)">
-            <summary>
-            Represents a cell coordinate. The cell will be designed inside a grid. If for a puzzle type that will display outside labels,
-            the value can be negative or greater than logical count of rows and columns.
-            </summary>
-            <param name="Row">Indicates the row index.</param>
-            <param name="Column">Indicates the column index.</param>
-        </member>
-        <member name="P:Sudoku.Concepts.Cell.Row">
-            <summary>Indicates the row index.</summary>
-        </member>
-        <member name="P:Sudoku.Concepts.Cell.Column">
-            <summary>Indicates the column index.</summary>
-        </member>
         <member name="T:Sudoku.Graphics.Canvas">
             <summary>
             Represents a canvas object that allows you drawing items onto it.
@@ -136,6 +114,31 @@
         <member name="P:Sudoku.Graphics.CanvasExportingOptions.Quality">
             <summary>
             Indicates the quality. Range 0..100. Default 80.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.CanvasExportingOptions.Sudoku#Graphics#IOptionsProvider{Sudoku#Graphics#CanvasExportingOptions}#DefaultInstance">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.GridLineTemplate">
+            <summary>
+            Represents grid line template type that draws lines onto a canvas via the specified configuration.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.GridLineTemplate.DrawLines(SkiaSharp.SKCanvas)">
+            <summary>
+            Try to draw lines onto the target canvas.
+            </summary>
+            <param name="canvas">The canvas object to receive drawn items.</param>
+        </member>
+        <member name="T:Sudoku.Graphics.IOptionsProvider`1">
+            <summary>
+            Defines an options type.
+            </summary>
+            <typeparam name="TSelf">The type itself.</typeparam>
+        </member>
+        <member name="P:Sudoku.Graphics.IOptionsProvider`1.DefaultInstance">
+            <summary>
+            Indicates the default options instance.
             </summary>
         </member>
         <member name="T:Sudoku.Graphics.PointMapper">

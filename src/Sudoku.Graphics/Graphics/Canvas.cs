@@ -1,4 +1,8 @@
-﻿namespace Sudoku.Graphics;
+﻿using System;
+using System.IO;
+using SkiaSharp;
+
+namespace Sudoku.Graphics;
 
 /// <summary>
 /// Represents a canvas object that allows you drawing items onto it.
