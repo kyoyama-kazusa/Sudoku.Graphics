@@ -1,4 +1,4 @@
-﻿// This project only test for APIs.
+﻿// This project only tests for APIs.
 //
 // I don't usually use NUnit or XUnit test-related packages,
 // so I just use a console project to test for them.
