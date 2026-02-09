@@ -77,28 +77,17 @@
             Indicates the backing canvas.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.Canvas.Clear(SkiaSharp.SKColor)">
-            <summary>
-            Clears the canvas via the specified color.
-            </summary>
-            <param name="color">The color.</param>
+        <member name="M:Sudoku.Graphics.Canvas.FillBackground(SkiaSharp.SKColor)">
+            <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Canvas.Clear(Sudoku.Graphics.CanvasDrawingOptions)">
-            <summary>
-            Clears the canvas via a color, specified by property <see cref="P:Sudoku.Graphics.CanvasDrawingOptions.BackgroundColor"/>.
-            </summary>
-            <param name="options">The options provider.</param>
-            <seealso cref="P:Sudoku.Graphics.CanvasDrawingOptions.BackgroundColor"/>
+        <member name="M:Sudoku.Graphics.Canvas.FillBackground(Sudoku.Graphics.CanvasDrawingOptions)">
+            <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Canvas.Dispose">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Canvas.Export(System.String,Sudoku.Graphics.CanvasExportingOptions)">
-            <summary>
-            Export the current canvas into target file.
-            </summary>
-            <param name="path">The file path. The extension specified will be used as output file format.</param>
-            <param name="options">The options.</param>
+            <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Canvas.GetFormatFromExtension(System.String)">
             <summary>
@@ -304,6 +293,41 @@
             Try to draw lines onto the target canvas.
             </summary>
             <param name="canvas">The canvas object to receive drawn items.</param>
+        </member>
+        <member name="T:Sudoku.Graphics.ICanavs">
+            <summary>
+            Represents a canvas object.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.ICanvasExportMethods">
+            <summary>
+            Represents a canvas object that supports exporting methods.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.ICanvasExportMethods.Export(System.String,Sudoku.Graphics.CanvasExportingOptions)">
+            <summary>
+            Export the current canvas into target file.
+            </summary>
+            <param name="path">The file path. The extension specified will be used as output file format.</param>
+            <param name="options">The options.</param>
+        </member>
+        <member name="T:Sudoku.Graphics.ICanvasFillBackgroundMethods">
+            <summary>
+            Represents a canvas object that supports filling background methods.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.ICanvasFillBackgroundMethods.FillBackground(SkiaSharp.SKColor)">
+            <summary>
+            Clears the canvas via the specified color.
+            </summary>
+            <param name="color">The color.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.ICanvasFillBackgroundMethods.FillBackground(Sudoku.Graphics.CanvasDrawingOptions)">
+            <summary>
+            Clears the canvas via a color, specified by property <see cref="P:Sudoku.Graphics.CanvasDrawingOptions.BackgroundColor"/>.
+            </summary>
+            <param name="options">The options provider.</param>
+            <seealso cref="P:Sudoku.Graphics.CanvasDrawingOptions.BackgroundColor"/>
         </member>
         <member name="T:Sudoku.Graphics.IOptionsProvider`1">
             <summary>

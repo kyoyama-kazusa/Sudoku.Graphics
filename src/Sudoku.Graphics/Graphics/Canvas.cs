@@ -4,7 +4,7 @@
 /// Represents a canvas object that allows you drawing items onto it.
 /// </summary>
 /// <param name="mapper"><inheritdoc cref="Mapper" path="/summary"/></param>
-public sealed class Canvas(PointMapper mapper) : IDisposable
+public sealed class Canvas(PointMapper mapper) : ICanavs
 {
 	/// <summary>
 	/// Indicates the backing surface.
@@ -73,18 +73,11 @@ public sealed class Canvas(PointMapper mapper) : IDisposable
 	private SKCanvas BackingCanvas => _surface.Canvas;
 
 
-	/// <summary>
-	/// Clears the canvas via the specified color.
-	/// </summary>
-	/// <param name="color">The color.</param>
-	public void Clear(SKColor color) => BackingCanvas.Clear(color);
+	/// <inheritdoc/>
+	public void FillBackground(SKColor color) => BackingCanvas.Clear(color);
 
-	/// <summary>
-	/// Clears the canvas via a color, specified by property <see cref="CanvasDrawingOptions.BackgroundColor"/>.
-	/// </summary>
-	/// <param name="options">The options provider.</param>
-	/// <seealso cref="CanvasDrawingOptions.BackgroundColor"/>
-	public void Clear(CanvasDrawingOptions? options = null)
+	/// <inheritdoc/>
+	public void FillBackground(CanvasDrawingOptions? options = null)
 	{
 		options ??= CanvasDrawingOptions.Default;
 		BackingCanvas.Clear(options.BackgroundColor);
@@ -99,11 +92,7 @@ public sealed class Canvas(PointMapper mapper) : IDisposable
 		_isDisposed = true;
 	}
 
-	/// <summary>
-	/// Export the current canvas into target file.
-	/// </summary>
-	/// <param name="path">The file path. The extension specified will be used as output file format.</param>
-	/// <param name="options">The options.</param>
+	/// <inheritdoc/>
 	public void Export(string path, CanvasExportingOptions? options = null)
 	{
 		options ??= CanvasExportingOptions.Default;
