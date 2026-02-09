@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents exporting options.
 /// </summary>
-public sealed class CanvasExportingOptions
+public sealed class CanvasExportingOptions : IOptionsProvider<CanvasExportingOptions>
 {
 	/// <summary>
 	/// Indicates the default options.
@@ -15,4 +15,8 @@ public sealed class CanvasExportingOptions
 	/// Indicates the quality. Range 0..100. Default 80.
 	/// </summary>
 	public int Quality { get; init; } = 80;
+
+
+	/// <inheritdoc/>
+	static CanvasExportingOptions IOptionsProvider<CanvasExportingOptions>.DefaultInstance => Default;
 }

@@ -79,6 +79,17 @@ public sealed class Canvas(PointMapper mapper) : IDisposable
 	/// <param name="color">The color.</param>
 	public void Clear(SKColor color) => BackingCanvas.Clear(color);
 
+	/// <summary>
+	/// Clears the canvas via a color, specified by property <see cref="CanvasDrawingOptions.BackgroundColor"/>.
+	/// </summary>
+	/// <param name="options">The options provider.</param>
+	/// <seealso cref="CanvasDrawingOptions.BackgroundColor"/>
+	public void Clear(CanvasDrawingOptions? options = null)
+	{
+		options ??= CanvasDrawingOptions.Default;
+		BackingCanvas.Clear(options.BackgroundColor);
+	}
+
 	/// <inheritdoc/>
 	public void Dispose()
 	{

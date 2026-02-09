@@ -1,0 +1,472 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sudoku.Graphics</name>
+    </assembly>
+    <members>
+        <member name="T:Sudoku.Graphics.Canvas">
+            <summary>
+            Represents a canvas object that allows you drawing items onto it.
+            </summary>
+            <param name="mapper"><inheritdoc cref="P:Sudoku.Graphics.Canvas.Mapper" path="/summary"/></param>
+        </member>
+        <member name="M:Sudoku.Graphics.Canvas.#ctor(Sudoku.Graphics.PointMapper)">
+            <summary>
+            Represents a canvas object that allows you drawing items onto it.
+            </summary>
+            <param name="mapper"><inheritdoc cref="P:Sudoku.Graphics.Canvas.Mapper" path="/summary"/></param>
+        </member>
+        <member name="F:Sudoku.Graphics.Canvas._surface">
+            <summary>
+            Indicates the backing surface.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Canvas._isDisposed">
+            <summary>
+            Indicates whether the object has already been disposed.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Canvas.#ctor(System.Single,System.Single,System.Int32,System.Int32)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Graphics.Canvas"/> object via the specified information.
+            </summary>
+            <param name="cellSize"><inheritdoc cref="P:Sudoku.Graphics.Canvas.CellSize" path="/summary"/></param>
+            <param name="margin"><inheritdoc cref="P:Sudoku.Graphics.Canvas.Margin" path="/summary"/></param>
+            <param name="rowsCount"><inheritdoc cref="P:Sudoku.Graphics.Canvas.RowsCount" path="/summary"/></param>
+            <param name="columnsCount"><inheritdoc cref="P:Sudoku.Graphics.Canvas.ColumnsCount" path="/summary"/></param>
+        </member>
+        <member name="P:Sudoku.Graphics.Canvas.Margin">
+            <inheritdoc cref="P:Sudoku.Graphics.PointMapper.Margin"/>
+        </member>
+        <member name="P:Sudoku.Graphics.Canvas.CellSize">
+            <inheritdoc cref="P:Sudoku.Graphics.PointMapper.CellSize"/>
+        </member>
+        <member name="P:Sudoku.Graphics.Canvas.RowsCount">
+            <inheritdoc cref="P:Sudoku.Graphics.PointMapper.RowsCount"/>
+        </member>
+        <member name="P:Sudoku.Graphics.Canvas.ColumnsCount">
+            <inheritdoc cref="P:Sudoku.Graphics.PointMapper.ColumnsCount"/>
+        </member>
+        <member name="P:Sudoku.Graphics.Canvas.ReservedUpCellsCount">
+            <summary>
+            Indicates reserved number of cells reserved from upside of the grid.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Canvas.ReservedDownCellsCount">
+            <summary>
+            Indicates reserved number of cells reserved from downside of the grid.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Canvas.ReservedLeftCellsCount">
+            <summary>
+            Indicates reserved number of cells reserved from leftside of the grid.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Canvas.ReservedRightCellsCount">
+            <summary>
+            Indicates reserved number of cells reserved from rightside of the grid.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Canvas.Mapper">
+            <summary>
+            Indicates the mapper instance.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Canvas.BackingCanvas">
+            <summary>
+            Indicates the backing canvas.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Canvas.Clear(SkiaSharp.SKColor)">
+            <summary>
+            Clears the canvas via the specified color.
+            </summary>
+            <param name="color">The color.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.Canvas.Clear(Sudoku.Graphics.CanvasDrawingOptions)">
+            <summary>
+            Clears the canvas via a color, specified by property <see cref="P:Sudoku.Graphics.CanvasDrawingOptions.BackgroundColor"/>.
+            </summary>
+            <param name="options">The options provider.</param>
+            <seealso cref="P:Sudoku.Graphics.CanvasDrawingOptions.BackgroundColor"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Canvas.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Canvas.Export(System.String,Sudoku.Graphics.CanvasExportingOptions)">
+            <summary>
+            Export the current canvas into target file.
+            </summary>
+            <param name="path">The file path. The extension specified will be used as output file format.</param>
+            <param name="options">The options.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.Canvas.GetFormatFromExtension(System.String)">
+            <summary>
+            Returns <see cref="T:SkiaSharp.SKEncodedImageFormat"/> from extension string.
+            </summary>
+            <param name="extension">The file extesnsion.</param>
+            <returns>The target format.</returns>
+            <exception cref="T:System.NotSupportedException">Throws when the target format is not supported.</exception>
+        </member>
+        <member name="T:Sudoku.Graphics.CanvasDrawingOptions">
+            <summary>
+            Represents drawing options.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.CanvasDrawingOptions.Default">
+            <summary>
+            Indicates the default instance.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.BackgroundColor">
+            <summary>
+            Represents background color. By default it's equivalent value of color <see cref="F:SkiaSharp.SKColors.White"/>.
+            </summary>
+            <seealso cref="F:SkiaSharp.SKColors.White"/>
+        </member>
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.Sudoku#Graphics#IOptionsProvider{Sudoku#Graphics#CanvasDrawingOptions}#DefaultInstance">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.CanvasExportingOptions">
+            <summary>
+            Represents exporting options.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.CanvasExportingOptions.Default">
+            <summary>
+            Indicates the default options.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.CanvasExportingOptions.Quality">
+            <summary>
+            Indicates the quality. Range 0..100. Default 80.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.CanvasExportingOptions.Sudoku#Graphics#IOptionsProvider{Sudoku#Graphics#CanvasExportingOptions}#DefaultInstance">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.DefaultGridLineTemplate">
+            <summary>
+            Represents a default grid line template.
+            </summary>
+            <param name="rowsCount"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.RowsCount" path="/summary"/></param>
+            <param name="columnsCount"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.ColumnsCount" path="/summary"/></param>
+            <param name="vector"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.Vector" path="/summary"/></param>
+            <param name="mapper"><inheritdoc cref="P:Sudoku.Graphics.GridLineTemplate.Mapper" path="/summary"/></param>
+        </member>
+        <member name="M:Sudoku.Graphics.DefaultGridLineTemplate.#ctor(Sudoku.Graphics.PointMapper,System.Int32,System.Int32,Sudoku.Graphics.DirectionVector)">
+            <summary>
+            Represents a default grid line template.
+            </summary>
+            <param name="rowsCount"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.RowsCount" path="/summary"/></param>
+            <param name="columnsCount"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.ColumnsCount" path="/summary"/></param>
+            <param name="vector"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.Vector" path="/summary"/></param>
+            <param name="mapper"><inheritdoc cref="P:Sudoku.Graphics.GridLineTemplate.Mapper" path="/summary"/></param>
+        </member>
+        <member name="P:Sudoku.Graphics.DefaultGridLineTemplate.RowsCount">
+            <summary>
+            Indicates the number of rows.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.DefaultGridLineTemplate.ColumnsCount">
+            <summary>
+            Indicates the number of columns.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.DefaultGridLineTemplate.Vector">
+            <summary>
+            Indicates the vector as outside blank.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.DefaultGridLineTemplate.DrawLines(SkiaSharp.SKCanvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Direction">
+            <summary>
+            Represents a direction.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Direction.None">
+            <summary>
+            Indicates the placeholder of this type.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Direction.Up">
+            <summary>
+            Indicates up direction.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Direction.Down">
+            <summary>
+            Indicates down direction.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Direction.Left">
+            <summary>
+            Indicates left direction.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Direction.Right">
+            <summary>
+            Indicates right direction.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.DirectionVector">
+            <summary>
+            Represents an encapsulated type of a quadruple of <see cref="T:System.Int32"/> values, indicating direction offsets.
+            </summary>
+            <param name="Up">Indicates upside offsets.</param>
+            <param name="Down">Indicates downside offsets.</param>
+            <param name="Left">Indicates leftside offsets.</param>
+            <param name="Right">Indicates rightside offsets.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.DirectionVector.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Represents an encapsulated type of a quadruple of <see cref="T:System.Int32"/> values, indicating direction offsets.
+            </summary>
+            <param name="Up">Indicates upside offsets.</param>
+            <param name="Down">Indicates downside offsets.</param>
+            <param name="Left">Indicates leftside offsets.</param>
+            <param name="Right">Indicates rightside offsets.</param>
+        </member>
+        <member name="P:Sudoku.Graphics.DirectionVector.Up">
+            <summary>Indicates upside offsets.</summary>
+        </member>
+        <member name="P:Sudoku.Graphics.DirectionVector.Down">
+            <summary>Indicates downside offsets.</summary>
+        </member>
+        <member name="P:Sudoku.Graphics.DirectionVector.Left">
+            <summary>Indicates leftside offsets.</summary>
+        </member>
+        <member name="P:Sudoku.Graphics.DirectionVector.Right">
+            <summary>Indicates rightside offsets.</summary>
+        </member>
+        <member name="M:Sudoku.Graphics.DirectionVector.GetValue(Sudoku.Graphics.Direction)">
+            <summary>
+            Returns the value at the specified direction.
+            </summary>
+            <param name="direction">The direction.</param>
+            <returns>Result value.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Throws when <paramref name="direction"/> is not defined or <see cref="F:Sudoku.Graphics.Direction.None"/>.
+            </exception>
+            <seealso cref="F:Sudoku.Graphics.Direction.None"/>
+        </member>
+        <member name="M:Sudoku.Graphics.DirectionVector.Equals(Sudoku.Graphics.DirectionVector@)">
+            <inheritdoc cref="M:System.IEquatable`1.Equals(`0)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.DirectionVector.GetHashCode">
+            <inheritdoc cref="M:System.Object.GetHashCode"/>
+        </member>
+        <member name="M:Sudoku.Graphics.DirectionVector.op_Addition(Sudoku.Graphics.DirectionVector@,Sudoku.Graphics.DirectionVector@)">
+            <inheritdoc cref="M:System.Numerics.IAdditionOperators`3.op_Addition(`0,`1)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.DirectionVector.op_CheckedAddition(Sudoku.Graphics.DirectionVector@,Sudoku.Graphics.DirectionVector@)">
+            <inheritdoc cref="M:System.Numerics.IAdditionOperators`3.op_CheckedAddition(`0,`1)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.DirectionVector.op_Subtraction(Sudoku.Graphics.DirectionVector@,Sudoku.Graphics.DirectionVector@)">
+            <inheritdoc cref="M:System.Numerics.ISubtractionOperators`3.op_Subtraction(`0,`1)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.DirectionVector.op_CheckedSubtraction(Sudoku.Graphics.DirectionVector@,Sudoku.Graphics.DirectionVector@)">
+            <inheritdoc cref="M:System.Numerics.ISubtractionOperators`3.op_CheckedSubtraction(`0,`1)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.DirectionVector.System#Numerics#IAdditionOperators{Sudoku#Graphics#DirectionVector,Sudoku#Graphics#DirectionVector,Sudoku#Graphics#DirectionVector}#op_Addition(Sudoku.Graphics.DirectionVector,Sudoku.Graphics.DirectionVector)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.DirectionVector.System#Numerics#IAdditionOperators{Sudoku#Graphics#DirectionVector,Sudoku#Graphics#DirectionVector,Sudoku#Graphics#DirectionVector}#op_CheckedAddition(Sudoku.Graphics.DirectionVector,Sudoku.Graphics.DirectionVector)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.DirectionVector.System#Numerics#ISubtractionOperators{Sudoku#Graphics#DirectionVector,Sudoku#Graphics#DirectionVector,Sudoku#Graphics#DirectionVector}#op_Subtraction(Sudoku.Graphics.DirectionVector,Sudoku.Graphics.DirectionVector)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.DirectionVector.System#Numerics#ISubtractionOperators{Sudoku#Graphics#DirectionVector,Sudoku#Graphics#DirectionVector,Sudoku#Graphics#DirectionVector}#op_CheckedSubtraction(Sudoku.Graphics.DirectionVector,Sudoku.Graphics.DirectionVector)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.GridLineTemplate">
+            <summary>
+            Represents grid line template type that draws lines onto a canvas via the specified configuration.
+            </summary>
+            <param name="mapper"><inheritdoc cref="P:Sudoku.Graphics.GridLineTemplate.Mapper" path="/summary"/></param>
+        </member>
+        <member name="M:Sudoku.Graphics.GridLineTemplate.#ctor(Sudoku.Graphics.PointMapper)">
+            <summary>
+            Represents grid line template type that draws lines onto a canvas via the specified configuration.
+            </summary>
+            <param name="mapper"><inheritdoc cref="P:Sudoku.Graphics.GridLineTemplate.Mapper" path="/summary"/></param>
+        </member>
+        <member name="P:Sudoku.Graphics.GridLineTemplate.Mapper">
+            <summary>
+            Indicates the mapper instance.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.GridLineTemplate.DrawLines(SkiaSharp.SKCanvas)">
+            <summary>
+            Try to draw lines onto the target canvas.
+            </summary>
+            <param name="canvas">The canvas object to receive drawn items.</param>
+        </member>
+        <member name="T:Sudoku.Graphics.IOptionsProvider`1">
+            <summary>
+            Defines an options type.
+            </summary>
+            <typeparam name="TSelf">The type itself.</typeparam>
+        </member>
+        <member name="P:Sudoku.Graphics.IOptionsProvider`1.DefaultInstance">
+            <summary>
+            Indicates the default options instance.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.PointMapper">
+            <summary>
+            Represents a point mapper instance.
+            </summary>
+            <param name="cellSize"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.CellSize" path="/summary"/></param>
+            <param name="margin"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.Margin" path="/summary"/></param>
+            <param name="rowsCount"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.RowsCount" path="/summary"/></param>
+            <param name="columnsCount"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.ColumnsCount" path="/summary"/></param>
+        </member>
+        <member name="M:Sudoku.Graphics.PointMapper.#ctor(System.Single,System.Single,System.Int32,System.Int32)">
+            <summary>
+            Represents a point mapper instance.
+            </summary>
+            <param name="cellSize"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.CellSize" path="/summary"/></param>
+            <param name="margin"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.Margin" path="/summary"/></param>
+            <param name="rowsCount"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.RowsCount" path="/summary"/></param>
+            <param name="columnsCount"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.ColumnsCount" path="/summary"/></param>
+        </member>
+        <member name="P:Sudoku.Graphics.PointMapper.CellSize">
+            <summary>
+            Indicates cell size of pixels.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.PointMapper.Margin">
+            <summary>
+            Indicates margin (pixel size of empty spaces between the fact sudoku grid and borders of the picture).
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.PointMapper.RowsCount">
+            <summary>
+            Indicates the number of rows. The number of rows should be an absolute value,
+            including reserved regions (used by drawing outside-like puzzles).
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.PointMapper.ColumnsCount">
+            <summary>
+            Indiactes the number of columns. The number of columns should be an absolute value,
+            including reserved regions (used by drawing outside-like puzzles).
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.PointMapper.GridSize">
+            <summary>
+            Indicates grid size <see cref="T:SkiaSharp.SKRect"/> instance.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.PointMapper.FullSize">
+            <summary>
+            Indicates full canvas size <see cref="T:SkiaSharp.SKRect"/> instance.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.PointMapper.FullSizeInteger">
+            <summary>
+            Indicates full canvas size <see cref="T:SkiaSharp.SKRect"/> instance, in integer format.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.PointMapper.GetTopLeftPoint(System.Int32,System.Int32)">
+            <summary>
+            Returns top-left position (point) of the specified absolute row and column absolute index.
+            </summary>
+            <param name="absoluteRowIndex">Absolute row index.</param>
+            <param name="absoluteColumnIndex">Absolute column index.</param>
+            <returns>The point instance that represents the target top-left position.</returns>
+        </member>
+        <member name="T:Sudoku.Graphics.SerializableColor">
+            <summary>
+            Represents a serializable color.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.SerializableColor._mask">
+            <summary>
+            Indicates the mask.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.#ctor(System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Graphics.SerializableColor"/> instance via the specified values of RGBA.
+            </summary>
+            <param name="red">The red value.</param>
+            <param name="green">The green value.</param>
+            <param name="blue">The blue value.</param>
+            <param name="alpha">The alpha value. By default it's 255.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.#ctor(SkiaSharp.SKColor)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Graphics.SerializableColor"/> instance via the equivalent <see cref="T:SkiaSharp.SKColor"/> instance.
+            </summary>
+            <param name="color">The color.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.#ctor(System.UInt32)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Graphics.SerializableColor"/> instance via the specified mask.
+            </summary>
+            <param name="mask">The mask.</param>
+        </member>
+        <member name="P:Sudoku.Graphics.SerializableColor.Red">
+            <summary>
+            Indicates red value.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.SerializableColor.Green">
+            <summary>
+            Indicates green value.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.SerializableColor.Blue">
+            <summary>
+            Indicates blue value.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.SerializableColor.Alpha">
+            <summary>
+            Indicates alpha value.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.Deconstruct(System.Byte@,System.Byte@,System.Byte@)">
+            <summary>
+            Deconstruct instance into multiple values.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.Deconstruct(System.Byte@,System.Byte@,System.Byte@,System.Byte@)">
+            <inheritdoc cref="M:Sudoku.Graphics.SerializableColor.Deconstruct(System.Byte@,System.Byte@,System.Byte@)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.Equals(Sudoku.Graphics.SerializableColor)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.GetHashCode">
+            <inheritdoc cref="M:System.Object.GetHashCode"/>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.ToString">
+            <inheritdoc cref="M:System.Object.ToString"/>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.op_Equality(Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.op_Inequality(Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.op_Implicit(SkiaSharp.SKColor)~Sudoku.Graphics.SerializableColor">
+            <summary>
+            Implicit cast from <see cref="T:SkiaSharp.SKColor"/> to <see cref="T:Sudoku.Graphics.SerializableColor"/>.
+            </summary>
+            <param name="color">The original value.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.op_Implicit(Sudoku.Graphics.SerializableColor)~SkiaSharp.SKColor">
+            <summary>
+            Implicit cast from <see cref="T:Sudoku.Graphics.SerializableColor"/> to <see cref="T:SkiaSharp.SKColor"/>.
+            </summary>
+            <param name="color">The original value.</param>
+        </member>
+    </members>
+</doc>

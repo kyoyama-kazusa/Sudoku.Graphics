@@ -1,7 +1,8 @@
 <Solution>
   <Folder Name="/Solution Items/">
     <File Path=".editorconfig" />
+    <File Path="README.md" />
   </Folder>
-  <Project Path="Sudoku.Graphics.ApiTesterConsole/Sudoku.Graphics.ApiTesterConsole.csproj" Id="7de8eb3e-9f63-4280-8642-48cb47b45bce" />
-  <Project Path="Sudoku.Graphics/Sudoku.Graphics.csproj" />
+  <Project Path="src/Sudoku.Graphics.ApiTesterConsole/Sudoku.Graphics.ApiTesterConsole.csproj" Id="7de8eb3e-9f63-4280-8642-48cb47b45bce" />
+  <Project Path="src/Sudoku.Graphics/Sudoku.Graphics.csproj" />
 </Solution>
