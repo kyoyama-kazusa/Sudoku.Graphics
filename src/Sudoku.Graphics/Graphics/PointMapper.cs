@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a point mapper instance.
 /// </summary>
-/// <param name="cellSize"><inheritdoc cref="CellSize" path="/summary"/></param>
+/// <param name="cellSize"><inheritdoc cref="CellWidthAndHeight" path="/summary"/></param>
 /// <param name="margin"><inheritdoc cref="Margin" path="/summary"/></param>
 /// <param name="rowsCount"><inheritdoc cref="RowsCount" path="/summary"/></param>
 /// <param name="columnsCount"><inheritdoc cref="ColumnsCount" path="/summary"/></param>
@@ -11,9 +11,9 @@
 public sealed class PointMapper(float cellSize, float margin, int rowsCount, int columnsCount)
 {
 	/// <summary>
-	/// Indicates cell size of pixels.
+	/// Indicates cell width and height of pixels. By design, cell width is equal to cell height.
 	/// </summary>
-	public required float CellSize { get; init; } = cellSize;
+	public required float CellWidthAndHeight { get; init; } = cellSize;
 
 	/// <summary>
 	/// Indicates margin (pixel size of empty spaces between the fact sudoku grid and borders of the picture).
@@ -35,7 +35,7 @@ public sealed class PointMapper(float cellSize, float margin, int rowsCount, int
 	/// <summary>
 	/// Indicates grid size <see cref="SKRect"/> instance.
 	/// </summary>
-	public SKRect GridSize => SKRect.Create(CellSize * ColumnsCount, CellSize * RowsCount);
+	public SKRect GridSize => SKRect.Create(CellWidthAndHeight * ColumnsCount, CellWidthAndHeight * RowsCount);
 
 	/// <summary>
 	/// Indicates full canvas size <see cref="SKRect"/> instance.
@@ -46,11 +46,20 @@ public sealed class PointMapper(float cellSize, float margin, int rowsCount, int
 	/// Indicates full canvas size <see cref="SKRect"/> instance, in integer format.
 	/// </summary>
 	public SKRectI FullSizeInteger
-		=> SKRectI.Create(
-			(int)Math.Round(GridSize.Width + 2 * Margin),
-			(int)Math.Round(GridSize.Height + 2 * Margin)
-		);
+		=> SKRectI.Create((int)Math.Round(GridSize.Width + 2 * Margin), (int)Math.Round(GridSize.Height + 2 * Margin));
 
+
+	/// <summary>
+	/// Returns center position (point) of the specified absolute row and column absolute index.
+	/// </summary>
+	/// <param name="absoluteRowIndex">Absolute row index.</param>
+	/// <param name="absoluteColumnIndex">Absolute column index.</param>
+	/// <returns>The point instance that represents the target center position.</returns>
+	public SKPoint GetCenterPoint(int absoluteRowIndex, int absoluteColumnIndex)
+	{
+		var topLeft = GetTopLeftPoint(absoluteRowIndex, absoluteColumnIndex);
+		return topLeft - new SKPoint(CellWidthAndHeight / 2, CellWidthAndHeight / 2);
+	}
 
 	/// <summary>
 	/// Returns top-left position (point) of the specified absolute row and column absolute index.
@@ -59,5 +68,41 @@ public sealed class PointMapper(float cellSize, float margin, int rowsCount, int
 	/// <param name="absoluteColumnIndex">Absolute column index.</param>
 	/// <returns>The point instance that represents the target top-left position.</returns>
 	public SKPoint GetTopLeftPoint(int absoluteRowIndex, int absoluteColumnIndex)
-		=> new(CellSize * absoluteColumnIndex + Margin, CellSize * absoluteRowIndex + Margin);
+		=> new(CellWidthAndHeight * absoluteRowIndex + Margin, CellWidthAndHeight * absoluteColumnIndex + Margin);
+
+	/// <summary>
+	/// Returns top-right position (point) of the specified absolute row and column absolute index.
+	/// </summary>
+	/// <param name="absoluteRowIndex">Absolute row index.</param>
+	/// <param name="absoluteColumnIndex">Absolute column index.</param>
+	/// <returns>The point instance that represents the target top-right position.</returns>
+	public SKPoint GetTopRightPoint(int absoluteRowIndex, int absoluteColumnIndex)
+	{
+		var topLeft = GetTopLeftPoint(absoluteRowIndex, absoluteColumnIndex);
+		return topLeft + new SKPoint(0, CellWidthAndHeight);
+	}
+
+	/// <summary>
+	/// Returns bottom-left position (point) of the specified absolute row and column absolute index.
+	/// </summary>
+	/// <param name="absoluteRowIndex">Absolute row index.</param>
+	/// <param name="absoluteColumnIndex">Absolute column index.</param>
+	/// <returns>The point instance that represents the target bottom-left position.</returns>
+	public SKPoint GetBottomLeftPoint(int absoluteRowIndex, int absoluteColumnIndex)
+	{
+		var topLeft = GetTopLeftPoint(absoluteRowIndex, absoluteColumnIndex);
+		return topLeft + new SKPoint(CellWidthAndHeight, 0);
+	}
+
+	/// <summary>
+	/// Returns bottom-right position (point) of the specified absolute row and column absolute index.
+	/// </summary>
+	/// <param name="absoluteRowIndex">Absolute row index.</param>
+	/// <param name="absoluteColumnIndex">Absolute column index.</param>
+	/// <returns>The point instance that represents the target bottom-right position.</returns>
+	public SKPoint GetBottomRightPoint(int absoluteRowIndex, int absoluteColumnIndex)
+	{
+		var topLeft = GetTopLeftPoint(absoluteRowIndex, absoluteColumnIndex);
+		return topLeft + new SKPoint(CellWidthAndHeight, CellWidthAndHeight);
+	}
 }

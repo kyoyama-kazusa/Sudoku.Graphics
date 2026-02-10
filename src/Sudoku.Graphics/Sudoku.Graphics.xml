@@ -39,7 +39,7 @@
             <inheritdoc cref="P:Sudoku.Graphics.PointMapper.Margin"/>
         </member>
         <member name="P:Sudoku.Graphics.Canvas.CellSize">
-            <inheritdoc cref="P:Sudoku.Graphics.PointMapper.CellSize"/>
+            <inheritdoc cref="P:Sudoku.Graphics.PointMapper.CellWidthAndHeight"/>
         </member>
         <member name="P:Sudoku.Graphics.Canvas.RowsCount">
             <inheritdoc cref="P:Sudoku.Graphics.PointMapper.RowsCount"/>
@@ -83,6 +83,9 @@
         <member name="M:Sudoku.Graphics.Canvas.FillBackground(Sudoku.Graphics.CanvasDrawingOptions)">
             <inheritdoc/>
         </member>
+        <member name="M:Sudoku.Graphics.Canvas.DrawLines(Sudoku.Graphics.CanvasDrawingOptions)">
+            <inheritdoc/>
+        </member>
         <member name="M:Sudoku.Graphics.Canvas.Dispose">
             <inheritdoc/>
         </member>
@@ -107,11 +110,49 @@
             Indicates the default instance.
             </summary>
         </member>
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.GridBorderRoundedRectangleCornerRadius">
+            <summary>
+            Indicates corner radius ratio of rounded rectangle of border lines, relative to cell size. By default it's 0.12.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.ThinLineWidth">
+            <summary>
+            Indicates stroke thickness ratio of thin lines, relative to cell size. By default it's 0.015.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.ThickLineWidth">
+            <summary>
+            Indicates stroke thickness ratio of thick lines, relative to cell size. By default it's 0.06.
+            </summary>
+        </member>
         <member name="P:Sudoku.Graphics.CanvasDrawingOptions.BackgroundColor">
             <summary>
             Represents background color. By default it's equivalent value of color <see cref="F:SkiaSharp.SKColors.White"/>.
             </summary>
             <seealso cref="F:SkiaSharp.SKColors.White"/>
+        </member>
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.ThinLineColor">
+            <summary>
+            Represents thin line color. By default it's equivalent value of color <see cref="F:SkiaSharp.SKColors.Black"/>.
+            </summary>
+            <seealso cref="F:SkiaSharp.SKColors.Black"/>
+        </member>
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.ThickLineColor">
+            <summary>
+            Represents thick line color. By default it's equivalent value of color <see cref="F:SkiaSharp.SKColors.Black"/>.
+            </summary>
+            <seealso cref="F:SkiaSharp.SKColors.Black"/>
+        </member>
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.GridLineTemplate">
+            <summary>
+            Represents grid line template to be drawn. By default it will be initialized as a <see cref="T:Sudoku.Graphics.DefaultGridLineTemplate"/>
+            like this:
+            <code>
+            <c><see langword="new"/> <see cref="T:Sudoku.Graphics.DefaultGridLineTemplate"/>(9, 9, 3, 3, <see cref="F:Sudoku.Graphics.DirectionVector.Zero"/>)</c>
+            </code>
+            </summary>
+            <seealso cref="T:Sudoku.Graphics.DefaultGridLineTemplate"/>
+            <seealso cref="F:Sudoku.Graphics.DirectionVector.Zero"/>
         </member>
         <member name="P:Sudoku.Graphics.CanvasDrawingOptions.Sudoku#Graphics#IOptionsProvider{Sudoku#Graphics#CanvasDrawingOptions}#DefaultInstance">
             <inheritdoc/>
@@ -140,17 +181,19 @@
             </summary>
             <param name="rowsCount"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.RowsCount" path="/summary"/></param>
             <param name="columnsCount"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.ColumnsCount" path="/summary"/></param>
+            <param name="rowBlockSize"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.RowBlockSize" path="/summary"/></param>
+            <param name="columnBlockSize"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.ColumnBlockSize" path="/summary"/></param>
             <param name="vector"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.Vector" path="/summary"/></param>
-            <param name="mapper"><inheritdoc cref="P:Sudoku.Graphics.GridLineTemplate.Mapper" path="/summary"/></param>
         </member>
-        <member name="M:Sudoku.Graphics.DefaultGridLineTemplate.#ctor(Sudoku.Graphics.PointMapper,System.Int32,System.Int32,Sudoku.Graphics.DirectionVector)">
+        <member name="M:Sudoku.Graphics.DefaultGridLineTemplate.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,Sudoku.Graphics.DirectionVector)">
             <summary>
             Represents a default grid line template.
             </summary>
             <param name="rowsCount"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.RowsCount" path="/summary"/></param>
             <param name="columnsCount"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.ColumnsCount" path="/summary"/></param>
+            <param name="rowBlockSize"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.RowBlockSize" path="/summary"/></param>
+            <param name="columnBlockSize"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.ColumnBlockSize" path="/summary"/></param>
             <param name="vector"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.Vector" path="/summary"/></param>
-            <param name="mapper"><inheritdoc cref="P:Sudoku.Graphics.GridLineTemplate.Mapper" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Graphics.DefaultGridLineTemplate.RowsCount">
             <summary>
@@ -162,12 +205,22 @@
             Indicates the number of columns.
             </summary>
         </member>
+        <member name="P:Sudoku.Graphics.DefaultGridLineTemplate.RowBlockSize">
+            <summary>
+            Indicates the number of rows in a rectangular block.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.DefaultGridLineTemplate.ColumnBlockSize">
+            <summary>
+            Indicates the number of columns in a rectangular block.
+            </summary>
+        </member>
         <member name="P:Sudoku.Graphics.DefaultGridLineTemplate.Vector">
             <summary>
             Indicates the vector as outside blank.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.DefaultGridLineTemplate.DrawLines(SkiaSharp.SKCanvas)">
+        <member name="M:Sudoku.Graphics.DefaultGridLineTemplate.DrawLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.Direction">
@@ -230,6 +283,11 @@
         <member name="P:Sudoku.Graphics.DirectionVector.Right">
             <summary>Indicates rightside offsets.</summary>
         </member>
+        <member name="F:Sudoku.Graphics.DirectionVector.Zero">
+            <summary>
+            Indicates the instance whose members are initialized zero.
+            </summary>
+        </member>
         <member name="M:Sudoku.Graphics.DirectionVector.GetValue(Sudoku.Graphics.Direction)">
             <summary>
             Returns the value at the specified direction.
@@ -271,33 +329,46 @@
         <member name="M:Sudoku.Graphics.DirectionVector.System#Numerics#ISubtractionOperators{Sudoku#Graphics#DirectionVector,Sudoku#Graphics#DirectionVector,Sudoku#Graphics#DirectionVector}#op_CheckedSubtraction(Sudoku.Graphics.DirectionVector,Sudoku.Graphics.DirectionVector)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.Converter">
+            <summary>
+            Represents a JSON converter object that converts <see cref="T:Sudoku.Graphics.DirectionVector"/> instances.
+            </summary>
+            <seealso cref="T:Sudoku.Graphics.DirectionVector"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Converter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Converter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.Graphics.DirectionVector,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.GridLineTemplate">
             <summary>
             Represents grid line template type that draws lines onto a canvas via the specified configuration.
             </summary>
-            <param name="mapper"><inheritdoc cref="P:Sudoku.Graphics.GridLineTemplate.Mapper" path="/summary"/></param>
         </member>
-        <member name="M:Sudoku.Graphics.GridLineTemplate.#ctor(Sudoku.Graphics.PointMapper)">
-            <summary>
-            Represents grid line template type that draws lines onto a canvas via the specified configuration.
-            </summary>
-            <param name="mapper"><inheritdoc cref="P:Sudoku.Graphics.GridLineTemplate.Mapper" path="/summary"/></param>
-        </member>
-        <member name="P:Sudoku.Graphics.GridLineTemplate.Mapper">
-            <summary>
-            Indicates the mapper instance.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Graphics.GridLineTemplate.DrawLines(SkiaSharp.SKCanvas)">
+        <member name="M:Sudoku.Graphics.GridLineTemplate.DrawLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
             <summary>
             Try to draw lines onto the target canvas.
             </summary>
+            <param name="mapper">The mapper instance.</param>
             <param name="canvas">The canvas object to receive drawn items.</param>
+            <param name="options">The options.</param>
         </member>
         <member name="T:Sudoku.Graphics.ICanavs">
             <summary>
             Represents a canvas object.
             </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.ICanvasDrawLinesMethods">
+            <summary>
+            Represents a canvas object that supports line-drawing methods.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.ICanvasDrawLinesMethods.DrawLines(Sudoku.Graphics.CanvasDrawingOptions)">
+            <summary>
+            Try to draw lines using the specified template.
+            </summary>
+            <param name="options">The options that provides template to draw.</param>
         </member>
         <member name="T:Sudoku.Graphics.ICanvasExportMethods">
             <summary>
@@ -344,7 +415,7 @@
             <summary>
             Represents a point mapper instance.
             </summary>
-            <param name="cellSize"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.CellSize" path="/summary"/></param>
+            <param name="cellSize"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.CellWidthAndHeight" path="/summary"/></param>
             <param name="margin"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.Margin" path="/summary"/></param>
             <param name="rowsCount"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.RowsCount" path="/summary"/></param>
             <param name="columnsCount"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.ColumnsCount" path="/summary"/></param>
@@ -353,14 +424,14 @@
             <summary>
             Represents a point mapper instance.
             </summary>
-            <param name="cellSize"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.CellSize" path="/summary"/></param>
+            <param name="cellSize"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.CellWidthAndHeight" path="/summary"/></param>
             <param name="margin"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.Margin" path="/summary"/></param>
             <param name="rowsCount"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.RowsCount" path="/summary"/></param>
             <param name="columnsCount"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.ColumnsCount" path="/summary"/></param>
         </member>
-        <member name="P:Sudoku.Graphics.PointMapper.CellSize">
+        <member name="P:Sudoku.Graphics.PointMapper.CellWidthAndHeight">
             <summary>
-            Indicates cell size of pixels.
+            Indicates cell width and height of pixels. By design, cell width is equal to cell height.
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.PointMapper.Margin">
@@ -395,6 +466,14 @@
             Indicates full canvas size <see cref="T:SkiaSharp.SKRect"/> instance, in integer format.
             </summary>
         </member>
+        <member name="M:Sudoku.Graphics.PointMapper.GetCenterPoint(System.Int32,System.Int32)">
+            <summary>
+            Returns center position (point) of the specified absolute row and column absolute index.
+            </summary>
+            <param name="absoluteRowIndex">Absolute row index.</param>
+            <param name="absoluteColumnIndex">Absolute column index.</param>
+            <returns>The point instance that represents the target center position.</returns>
+        </member>
         <member name="M:Sudoku.Graphics.PointMapper.GetTopLeftPoint(System.Int32,System.Int32)">
             <summary>
             Returns top-left position (point) of the specified absolute row and column absolute index.
@@ -402,6 +481,121 @@
             <param name="absoluteRowIndex">Absolute row index.</param>
             <param name="absoluteColumnIndex">Absolute column index.</param>
             <returns>The point instance that represents the target top-left position.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.PointMapper.GetTopRightPoint(System.Int32,System.Int32)">
+            <summary>
+            Returns top-right position (point) of the specified absolute row and column absolute index.
+            </summary>
+            <param name="absoluteRowIndex">Absolute row index.</param>
+            <param name="absoluteColumnIndex">Absolute column index.</param>
+            <returns>The point instance that represents the target top-right position.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.PointMapper.GetBottomLeftPoint(System.Int32,System.Int32)">
+            <summary>
+            Returns bottom-left position (point) of the specified absolute row and column absolute index.
+            </summary>
+            <param name="absoluteRowIndex">Absolute row index.</param>
+            <param name="absoluteColumnIndex">Absolute column index.</param>
+            <returns>The point instance that represents the target bottom-left position.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.PointMapper.GetBottomRightPoint(System.Int32,System.Int32)">
+            <summary>
+            Returns bottom-right position (point) of the specified absolute row and column absolute index.
+            </summary>
+            <param name="absoluteRowIndex">Absolute row index.</param>
+            <param name="absoluteColumnIndex">Absolute column index.</param>
+            <returns>The point instance that represents the target bottom-right position.</returns>
+        </member>
+        <member name="T:Sudoku.Graphics.Ratio">
+            <summary>
+            Represents a ratio value.
+            </summary>
+            <param name="value">The value.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Throws when the argument <paramref name="value"/> is greater than 1 or less than 0.
+            </exception>
+        </member>
+        <member name="M:Sudoku.Graphics.Ratio.#ctor(System.Single)">
+            <summary>
+            Represents a ratio value.
+            </summary>
+            <param name="value">The value.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Throws when the argument <paramref name="value"/> is greater than 1 or less than 0.
+            </exception>
+        </member>
+        <member name="P:Sudoku.Graphics.Ratio.Value">
+            <summary>
+            Indicates the value.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Ratio.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Ratio.Equals(Sudoku.Graphics.Ratio)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Ratio.Measure(System.Single)">
+            <summary>
+            Measure the fact value
+            (i.e. performs the formula <c><paramref name="value"/> * <see langword="this"/>.RatioValue</c>).
+            </summary>
+            <param name="value">The original value.</param>
+            <returns>The target value measured.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.Ratio.CompareTo(Sudoku.Graphics.Ratio)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Ratio.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Ratio.ToString">
+            <inheritdoc cref="M:System.Object.ToString"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Ratio.ToString(System.String)">
+            <inheritdoc cref="M:System.Double.ToString(System.String)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Ratio.op_Equality(Sudoku.Graphics.Ratio,Sudoku.Graphics.Ratio)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Ratio.op_Inequality(Sudoku.Graphics.Ratio,Sudoku.Graphics.Ratio)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Ratio.op_GreaterThan(Sudoku.Graphics.Ratio,Sudoku.Graphics.Ratio)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Ratio.op_GreaterThanOrEqual(Sudoku.Graphics.Ratio,Sudoku.Graphics.Ratio)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Ratio.op_LessThan(Sudoku.Graphics.Ratio,Sudoku.Graphics.Ratio)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Ratio.op_LessThanOrEqual(Sudoku.Graphics.Ratio,Sudoku.Graphics.Ratio)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Ratio.op_Implicit(System.Single)~Sudoku.Graphics.Ratio">
+            <summary>
+            Implicit cast from <see cref="T:System.Single"/> into <see cref="T:Sudoku.Graphics.Ratio"/> value.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.Ratio.op_Explicit(Sudoku.Graphics.Ratio)~System.Single">
+            <summary>
+            Explicit cast from <see cref="T:Sudoku.Graphics.Ratio"/> into <see cref="T:System.Single"/> value.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="T:Sudoku.Graphics.Converter">
+            <summary>
+            Represents a JSON converter for <see cref="T:Sudoku.Graphics.Ratio"/> instances.
+            </summary>
+            <seealso cref="T:Sudoku.Graphics.Ratio"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Converter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Converter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.Graphics.Ratio,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.SerializableColor">
             <summary>

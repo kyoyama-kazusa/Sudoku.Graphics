@@ -33,8 +33,8 @@ public sealed class Canvas(PointMapper mapper) : ICanavs
 	/// <inheritdoc cref="PointMapper.Margin"/>
 	public float Margin => Mapper.Margin;
 
-	/// <inheritdoc cref="PointMapper.CellSize"/>
-	public float CellSize => Mapper.CellSize;
+	/// <inheritdoc cref="PointMapper.CellWidthAndHeight"/>
+	public float CellSize => Mapper.CellWidthAndHeight;
 
 	/// <inheritdoc cref="PointMapper.RowsCount"/>
 	public int RowsCount => Mapper.RowsCount;
@@ -78,9 +78,13 @@ public sealed class Canvas(PointMapper mapper) : ICanavs
 
 	/// <inheritdoc/>
 	public void FillBackground(CanvasDrawingOptions? options = null)
+		=> FillBackground((options ?? CanvasDrawingOptions.Default).BackgroundColor);
+
+	/// <inheritdoc/>
+	public void DrawLines(CanvasDrawingOptions? options = null)
 	{
 		options ??= CanvasDrawingOptions.Default;
-		BackingCanvas.Clear(options.BackgroundColor);
+		options.GridLineTemplate.DrawLines(Mapper, BackingCanvas, options);
 	}
 
 	/// <inheritdoc/>

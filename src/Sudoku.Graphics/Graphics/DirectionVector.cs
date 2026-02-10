@@ -7,11 +7,18 @@
 /// <param name="Down">Indicates downside offsets.</param>
 /// <param name="Left">Indicates leftside offsets.</param>
 /// <param name="Right">Indicates rightside offsets.</param>
+[JsonConverter(typeof(Converter))]
 public readonly record struct DirectionVector(int Up, int Down, int Left, int Right) :
 	IAdditionOperators<DirectionVector, DirectionVector, DirectionVector>,
 	IEqualityOperators<DirectionVector, DirectionVector, bool>,
 	ISubtractionOperators<DirectionVector, DirectionVector, DirectionVector>
 {
+	/// <summary>
+	/// Indicates the instance whose members are initialized zero.
+	/// </summary>
+	public static readonly DirectionVector Zero = new(0, 0, 0, 0);
+
+
 	/// <summary>
 	/// Returns the value at the specified direction.
 	/// </summary>
@@ -80,4 +87,25 @@ public readonly record struct DirectionVector(int Up, int Down, int Left, int Ri
 	/// <inheritdoc/>
 	static DirectionVector ISubtractionOperators<DirectionVector, DirectionVector, DirectionVector>.operator checked -(DirectionVector left, DirectionVector right)
 		=> checked(left - right);
+}
+
+/// <summary>
+/// Represents a JSON converter object that converts <see cref="DirectionVector"/> instances.
+/// </summary>
+/// <seealso cref="DirectionVector"/>
+file sealed class Converter : JsonConverter<DirectionVector>
+{
+	/// <inheritdoc/>
+	public override DirectionVector Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+	{
+		var array = JsonSerializer.Deserialize<int[]>(ref reader, options);
+		return array is [var up, var down, var left, var right] ? new(up, down, left, right) : throw new JsonException();
+	}
+
+	/// <inheritdoc/>
+	public override void Write(Utf8JsonWriter writer, DirectionVector value, JsonSerializerOptions options)
+	{
+		var (up, down, left, right) = value;
+		JsonSerializer.Serialize(writer, (int[])[up, down, left, right], options);
+	}
 }

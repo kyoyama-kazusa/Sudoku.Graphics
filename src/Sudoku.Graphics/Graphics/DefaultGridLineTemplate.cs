@@ -5,10 +5,16 @@
 /// </summary>
 /// <param name="rowsCount"><inheritdoc cref="RowsCount" path="/summary"/></param>
 /// <param name="columnsCount"><inheritdoc cref="ColumnsCount" path="/summary"/></param>
+/// <param name="rowBlockSize"><inheritdoc cref="RowBlockSize" path="/summary"/></param>
+/// <param name="columnBlockSize"><inheritdoc cref="ColumnBlockSize" path="/summary"/></param>
 /// <param name="vector"><inheritdoc cref="Vector" path="/summary"/></param>
-/// <param name="mapper"><inheritdoc cref="GridLineTemplate.Mapper" path="/summary"/></param>
-public sealed class DefaultGridLineTemplate(PointMapper mapper, int rowsCount, int columnsCount, DirectionVector vector) :
-	GridLineTemplate(mapper)
+public sealed class DefaultGridLineTemplate(
+	int rowsCount,
+	int columnsCount,
+	int rowBlockSize,
+	int columnBlockSize,
+	DirectionVector vector
+) : GridLineTemplate
 {
 	/// <summary>
 	/// Indicates the number of rows.
@@ -21,14 +27,45 @@ public sealed class DefaultGridLineTemplate(PointMapper mapper, int rowsCount, i
 	public int ColumnsCount { get; } = columnsCount;
 
 	/// <summary>
+	/// Indicates the number of rows in a rectangular block.
+	/// </summary>
+	public int RowBlockSize { get; } = rowBlockSize;
+
+	/// <summary>
+	/// Indicates the number of columns in a rectangular block.
+	/// </summary>
+	public int ColumnBlockSize { get; } = columnBlockSize;
+
+	/// <summary>
 	/// Indicates the vector as outside blank.
 	/// </summary>
 	public DirectionVector Vector { get; } = vector;
 
 
 	/// <inheritdoc/>
-	public override void DrawLines(SKCanvas canvas)
+	public override void DrawLines(PointMapper mapper, SKCanvas canvas, CanvasDrawingOptions options)
 	{
-		throw new NotImplementedException();
+		// Draw border rectangle.
+		var path = new SKPath();
+		path.AddRoundRect(
+			new(
+				SKRect.Create(
+					mapper.Margin,
+					mapper.Margin,
+					mapper.GridSize.Width,
+					mapper.GridSize.Height
+				),
+				options.GridBorderRoundedRectangleCornerRadius.Measure(mapper.CellWidthAndHeight)
+			)
+		);
+		using var borderPaint = new SKPaint
+		{
+			Style = SKPaintStyle.Stroke,
+			Color = options.ThickLineColor,
+			StrokeWidth = options.ThickLineWidth.Measure(mapper.CellWidthAndHeight),
+			StrokeCap = SKStrokeCap.Round,
+			IsAntialias = true
+		};
+		canvas.DrawPath(path, borderPaint);
 	}
 }

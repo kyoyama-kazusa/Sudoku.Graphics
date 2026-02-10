@@ -3,18 +3,13 @@
 /// <summary>
 /// Represents grid line template type that draws lines onto a canvas via the specified configuration.
 /// </summary>
-/// <param name="mapper"><inheritdoc cref="Mapper" path="/summary"/></param>
-public abstract class GridLineTemplate(PointMapper mapper)
+public abstract class GridLineTemplate
 {
-	/// <summary>
-	/// Indicates the mapper instance.
-	/// </summary>
-	protected PointMapper Mapper { get; } = mapper;
-
-
 	/// <summary>
 	/// Try to draw lines onto the target canvas.
 	/// </summary>
+	/// <param name="mapper">The mapper instance.</param>
 	/// <param name="canvas">The canvas object to receive drawn items.</param>
-	public abstract void DrawLines(SKCanvas canvas);
+	/// <param name="options">The options.</param>
+	public abstract void DrawLines(PointMapper mapper, SKCanvas canvas, CanvasDrawingOptions options);
 }

@@ -101,5 +101,5 @@ public readonly struct SerializableColor :
 	/// Implicit cast from <see cref="SerializableColor"/> to <see cref="SKColor"/>.
 	/// </summary>
 	/// <param name="color">The original value.</param>
-	public static implicit operator SKColor(SerializableColor color) => new(color._mask);
+	public static implicit operator SKColor(SerializableColor color) => new(color.Red, color.Green, color.Blue, color.Alpha);
 }

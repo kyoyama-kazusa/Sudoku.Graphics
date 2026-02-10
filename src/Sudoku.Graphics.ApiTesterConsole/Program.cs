@@ -13,6 +13,24 @@ using Sudoku.Graphics;
 
 var desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 using var canvas = new Canvas(120, 10, 9, 9);
-canvas.FillBackground(SKColors.White);
+canvas.FillBackground(Options);
+canvas.DrawLines(Options);
 canvas.Export(Path.Combine(desktop, "output.png"), new() { Quality = 100 });
 Console.WriteLine("Okay.");
+
+
+/// <summary>
+/// Provides entry point.
+/// </summary>
+file static partial class Program
+{
+	/// <summary>
+	/// Represents default options.
+	/// </summary>
+	private static readonly CanvasDrawingOptions Options = new()
+	{
+		BackgroundColor = SKColors.White,
+		ThickLineColor = SKColors.Black,
+		GridLineTemplate = new DefaultGridLineTemplate(9, 9, 3, 3, DirectionVector.Zero)
+	};
+}
