@@ -474,97 +474,6 @@
             <param name="absoluteColumnIndex">Absolute column index.</param>
             <returns>The point instance that represents the target bottom-right position.</returns>
         </member>
-        <member name="T:Sudoku.Graphics.Ratio">
-            <summary>
-            Represents a ratio value.
-            </summary>
-            <param name="value">The value.</param>
-            <exception cref="T:System.ArgumentOutOfRangeException">
-            Throws when the argument <paramref name="value"/> is greater than 1 or less than 0.
-            </exception>
-        </member>
-        <member name="M:Sudoku.Graphics.Ratio.#ctor(System.Single)">
-            <summary>
-            Represents a ratio value.
-            </summary>
-            <param name="value">The value.</param>
-            <exception cref="T:System.ArgumentOutOfRangeException">
-            Throws when the argument <paramref name="value"/> is greater than 1 or less than 0.
-            </exception>
-        </member>
-        <member name="P:Sudoku.Graphics.Ratio.Value">
-            <summary>
-            Indicates the value.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Graphics.Ratio.Equals(System.Object)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Ratio.Equals(Sudoku.Graphics.Ratio)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Ratio.Measure(System.Single)">
-            <summary>
-            Measure the fact value
-            (i.e. performs the formula <c><paramref name="value"/> * <see langword="this"/>.RatioValue</c>).
-            </summary>
-            <param name="value">The original value.</param>
-            <returns>The target value measured.</returns>
-        </member>
-        <member name="M:Sudoku.Graphics.Ratio.CompareTo(Sudoku.Graphics.Ratio)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Ratio.GetHashCode">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Ratio.ToString">
-            <inheritdoc cref="M:System.Object.ToString"/>
-        </member>
-        <member name="M:Sudoku.Graphics.Ratio.ToString(System.String)">
-            <inheritdoc cref="M:System.Double.ToString(System.String)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.Ratio.op_Equality(Sudoku.Graphics.Ratio,Sudoku.Graphics.Ratio)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Ratio.op_Inequality(Sudoku.Graphics.Ratio,Sudoku.Graphics.Ratio)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Ratio.op_GreaterThan(Sudoku.Graphics.Ratio,Sudoku.Graphics.Ratio)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Ratio.op_GreaterThanOrEqual(Sudoku.Graphics.Ratio,Sudoku.Graphics.Ratio)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Ratio.op_LessThan(Sudoku.Graphics.Ratio,Sudoku.Graphics.Ratio)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Ratio.op_LessThanOrEqual(Sudoku.Graphics.Ratio,Sudoku.Graphics.Ratio)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Ratio.op_Implicit(System.Single)~Sudoku.Graphics.Ratio">
-            <summary>
-            Implicit cast from <see cref="T:System.Single"/> into <see cref="T:Sudoku.Graphics.Ratio"/> value.
-            </summary>
-            <param name="value">The value.</param>
-        </member>
-        <member name="M:Sudoku.Graphics.Ratio.op_Explicit(Sudoku.Graphics.Ratio)~System.Single">
-            <summary>
-            Explicit cast from <see cref="T:Sudoku.Graphics.Ratio"/> into <see cref="T:System.Single"/> value.
-            </summary>
-            <param name="value">The value.</param>
-        </member>
-        <member name="T:Sudoku.Graphics.Converter">
-            <summary>
-            Represents a JSON converter for <see cref="T:Sudoku.Graphics.Ratio"/> instances.
-            </summary>
-            <seealso cref="T:Sudoku.Graphics.Ratio"/>
-        </member>
-        <member name="M:Sudoku.Graphics.Converter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Converter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.Graphics.Ratio,System.Text.Json.JsonSerializerOptions)">
-            <inheritdoc/>
-        </member>
         <member name="T:Sudoku.Graphics.RectangularBlockLineTemplate">
             <summary>
             Represents a default (rectangular) block line template.
@@ -590,6 +499,109 @@
             </summary>
         </member>
         <member name="M:Sudoku.Graphics.RectangularBlockLineTemplate.DrawLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Scale">
+            <summary>
+            Represents a relative-size value (scaling).
+            </summary>
+            <param name="value">The fact value of a <see cref="T:System.Single"/>.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Throws when the argument <paramref name="value"/> is greater than 1 or less than 0.
+            </exception>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.#ctor(System.Decimal)">
+            <summary>
+            Represents a relative-size value (scaling).
+            </summary>
+            <param name="value">The fact value of a <see cref="T:System.Single"/>.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Throws when the argument <paramref name="value"/> is greater than 1 or less than 0.
+            </exception>
+        </member>
+        <member name="P:Sudoku.Graphics.Scale.Value">
+            <summary>
+            Indicates the value.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.Equals(Sudoku.Graphics.Scale)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.Measure(System.Single)">
+            <summary>
+            Measure the fact value
+            (i.e. performs the formula <c><paramref name="value"/> * <see langword="this"/>.RatioValue</c>).
+            </summary>
+            <param name="value">The original value.</param>
+            <returns>The target value measured.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.CompareTo(Sudoku.Graphics.Scale)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.ToString">
+            <inheritdoc cref="M:System.Object.ToString"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.ToString(System.String)">
+            <inheritdoc cref="M:System.Double.ToString(System.String)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.op_Equality(Sudoku.Graphics.Scale,Sudoku.Graphics.Scale)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.op_Inequality(Sudoku.Graphics.Scale,Sudoku.Graphics.Scale)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.op_GreaterThan(Sudoku.Graphics.Scale,Sudoku.Graphics.Scale)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.op_GreaterThanOrEqual(Sudoku.Graphics.Scale,Sudoku.Graphics.Scale)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.op_LessThan(Sudoku.Graphics.Scale,Sudoku.Graphics.Scale)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.op_LessThanOrEqual(Sudoku.Graphics.Scale,Sudoku.Graphics.Scale)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.op_Implicit(System.Single)~Sudoku.Graphics.Scale">
+            <summary>
+            Implicit cast from <see cref="T:System.Single"/> into <see cref="T:Sudoku.Graphics.Scale"/> value.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.op_Implicit(System.Decimal)~Sudoku.Graphics.Scale">
+            <summary>
+            Implicit cast from <see cref="T:System.Decimal"/> into <see cref="T:Sudoku.Graphics.Scale"/> value.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.op_Explicit(Sudoku.Graphics.Scale)~System.Single">
+            <summary>
+            Explicit cast from <see cref="T:Sudoku.Graphics.Scale"/> into <see cref="T:System.Single"/> value.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.op_Explicit(Sudoku.Graphics.Scale)~System.Decimal">
+            <summary>
+            Explicit cast from <see cref="T:Sudoku.Graphics.Scale"/> into <see cref="T:System.Decimal"/> value.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="T:Sudoku.Graphics.Converter">
+            <summary>
+            Represents a JSON converter for <see cref="T:Sudoku.Graphics.Scale"/> instances.
+            </summary>
+            <seealso cref="T:Sudoku.Graphics.Scale"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Converter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Converter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.Graphics.Scale,System.Text.Json.JsonSerializerOptions)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.SerializableColor">

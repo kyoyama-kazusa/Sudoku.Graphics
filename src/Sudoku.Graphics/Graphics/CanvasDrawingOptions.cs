@@ -14,17 +14,17 @@ public sealed class CanvasDrawingOptions : IOptionsProvider<CanvasDrawingOptions
 	/// <summary>
 	/// Indicates corner radius ratio of rounded rectangle of border lines, relative to cell size. By default it's 0.12.
 	/// </summary>
-	public Ratio GridBorderRoundedRectangleCornerRadius { get; set; } = .12F;
+	public Scale GridBorderRoundedRectangleCornerRadius { get; set; } = .12M;
 
 	/// <summary>
 	/// Indicates stroke thickness ratio of thin lines, relative to cell size. By default it's 0.015.
 	/// </summary>
-	public Ratio ThinLineWidth { get; set; } = .015F;
+	public Scale ThinLineWidth { get; set; } = .015M;
 
 	/// <summary>
 	/// Indicates stroke thickness ratio of thick lines, relative to cell size. By default it's 0.06.
 	/// </summary>
-	public Ratio ThickLineWidth { get; set; } = .06F;
+	public Scale ThickLineWidth { get; set; } = .06M;
 
 	/// <summary>
 	/// Represents background color. By default it's equivalent value of color <see cref="SKColors.White"/>.
