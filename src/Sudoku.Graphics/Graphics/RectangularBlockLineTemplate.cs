@@ -21,6 +21,9 @@ public sealed class RectangularBlockLineTemplate(int rowBlockSize, int columnBlo
 	/// <inheritdoc/>
 	public override void DrawLines(PointMapper mapper, SKCanvas canvas, CanvasDrawingOptions options)
 	{
+		ArgumentException.Assert(mapper.RowsCount % RowBlockSize == 0);
+		ArgumentException.Assert(mapper.ColumnsCount % ColumnBlockSize == 0);
+
 		drawBorderRectangle();
 		drawGridLines();
 

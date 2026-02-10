@@ -4,6 +4,23 @@
         <name>Sudoku.Graphics</name>
     </assembly>
     <members>
+        <member name="T:System.ExceptionExtensions">
+            <summary>
+            Provides extension members on <see cref="T:System.Exception"/>.
+            </summary>
+            <seealso cref="T:System.Exception"/>
+        </member>
+        <member name="M:System.ExceptionExtensions.Assert``1(System.Boolean,System.String)">
+            <inheritdoc cref="M:System.ExceptionExtensions.&lt;G&gt;$A9422F7DB89A57DD264BF6B8B5E1AB6D`1.Assert(System.Boolean,System.String)"/>
+        </member>
+        <member name="M:System.ExceptionExtensions.&lt;G&gt;$A9422F7DB89A57DD264BF6B8B5E1AB6D`1.Assert(System.Boolean,System.String)">
+            <summary>
+            Asserts the condition. If failed, an exception of type <typeparamref name="TException"/> will be thrown,
+            with the specified message shown.
+            </summary>
+            <param name="expression">The expression.</param>
+            <param name="expressionString">The expression string.</param>
+        </member>
         <member name="T:Sudoku.Graphics.BlockLineTemplate">
             <summary>
             Represents a block line template type that draws lines onto a canvas via the specified configuration.
