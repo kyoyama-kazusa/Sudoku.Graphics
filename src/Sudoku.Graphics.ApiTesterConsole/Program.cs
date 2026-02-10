@@ -15,14 +15,14 @@ var desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 using var canvas = new Canvas(
 	cellSize: 120,
 	margin: 10,
-	rowsCount: 6,
-	columnsCount: 6,
-	vector: DirectionVector.Zero,
+	rowsCount: 9,
+	columnsCount: 9,
+	vector: new(3),
 	drawingOptions: new()
 	{
 		BackgroundColor = SKColors.White,
 		ThickLineColor = SKColors.Black,
-		GridLineTemplate = new RectangularBlockLineTemplate(2, 3)
+		GridLineTemplate = new RectangularBlockLineTemplate(3, 3)
 	},
 	exportingOptions: new() { Quality = 100 }
 );

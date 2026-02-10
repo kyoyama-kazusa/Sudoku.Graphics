@@ -72,17 +72,20 @@ public sealed class RectangularBlockLineTemplate(int rowBlockSize, int columnBlo
 				IsAntialias = true
 			};
 
+			// Horizontal lines.
 			for (var i = 1; i < mapper.RowsCount; i++)
 			{
-				// Horizontal lines.
 				var a = mapper.GetTopLeftPoint(mapper.Vector.Up + i, mapper.Vector.Left);
-				var b = a + new SKPoint(mapper.RowsCount * mapper.CellWidthAndHeight, 0);
+				var b = a + new SKPoint(mapper.ColumnsCount * mapper.CellWidthAndHeight, 0);
 				canvas.DrawLine(a, b, i % RowBlockSize == 0 ? thickLinePaint : thinLinePaint);
+			}
 
-				// Vertical lines.
-				a = mapper.GetTopLeftPoint(mapper.Vector.Up, mapper.Vector.Left + i);
-				var c = a + new SKPoint(0, mapper.ColumnsCount * mapper.CellWidthAndHeight);
-				canvas.DrawLine(a, c, i % ColumnBlockSize == 0 ? thickLinePaint : thinLinePaint);
+			// Vertical lines.
+			for (var i = 1; i < mapper.ColumnsCount; i++)
+			{
+				var a = mapper.GetTopLeftPoint(mapper.Vector.Up, mapper.Vector.Left + i);
+				var b = a + new SKPoint(0, mapper.RowsCount * mapper.CellWidthAndHeight);
+				canvas.DrawLine(a, b, i % ColumnBlockSize == 0 ? thickLinePaint : thinLinePaint);
 			}
 		}
 	}
