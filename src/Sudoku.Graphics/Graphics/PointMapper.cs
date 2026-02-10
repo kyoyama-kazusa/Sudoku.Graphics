@@ -7,8 +7,9 @@
 /// <param name="margin"><inheritdoc cref="Margin" path="/summary"/></param>
 /// <param name="rowsCount"><inheritdoc cref="RowsCount" path="/summary"/></param>
 /// <param name="columnsCount"><inheritdoc cref="ColumnsCount" path="/summary"/></param>
+/// <param name="vector"><inheritdoc cref="Vector" path="/summary"/></param>
 [method: SetsRequiredMembers]
-public sealed class PointMapper(float cellSize, float margin, int rowsCount, int columnsCount)
+public sealed class PointMapper(float cellSize, float margin, int rowsCount, int columnsCount, DirectionVector vector)
 {
 	/// <summary>
 	/// Indicates cell width and height of pixels. By design, cell width is equal to cell height.
@@ -33,9 +34,15 @@ public sealed class PointMapper(float cellSize, float margin, int rowsCount, int
 	public required int ColumnsCount { get; init; } = columnsCount;
 
 	/// <summary>
+	/// Indicates empty cells count reserved to be empty.
+	/// </summary>
+	public required DirectionVector Vector { get; init; } = vector;
+
+	/// <summary>
 	/// Indicates grid size <see cref="SKRect"/> instance.
 	/// </summary>
-	public SKRect GridSize => SKRect.Create(CellWidthAndHeight * ColumnsCount, CellWidthAndHeight * RowsCount);
+	public SKRect GridSize
+		=> SKRect.Create(CellWidthAndHeight * (ColumnsCount + Vector.Left), CellWidthAndHeight * (RowsCount + Vector.Up));
 
 	/// <summary>
 	/// Indicates full canvas size <see cref="SKRect"/> instance.

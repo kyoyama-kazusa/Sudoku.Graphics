@@ -20,6 +20,15 @@ public readonly record struct DirectionVector(int Up, int Down, int Left, int Ri
 
 
 	/// <summary>
+	/// Initializes a <see cref="DirectionVector"/> instance via the uniform value.
+	/// </summary>
+	/// <param name="uniform">The uniform value.</param>
+	public DirectionVector(int uniform) : this(uniform, uniform, uniform, uniform)
+	{
+	}
+
+
+	/// <summary>
 	/// Returns the value at the specified direction.
 	/// </summary>
 	/// <param name="direction">The direction.</param>

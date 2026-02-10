@@ -1,9 +1,9 @@
 ﻿namespace Sudoku.Graphics;
 
 /// <summary>
-/// Represents grid line template type that draws lines onto a canvas via the specified configuration.
+/// Represents a block line template type that draws lines onto a canvas via the specified configuration.
 /// </summary>
-public abstract class GridLineTemplate
+public abstract class BlockLineTemplate
 {
 	/// <summary>
 	/// Try to draw lines onto the target canvas.

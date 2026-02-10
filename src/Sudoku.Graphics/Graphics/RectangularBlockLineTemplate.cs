@@ -1,31 +1,12 @@
 ﻿namespace Sudoku.Graphics;
 
 /// <summary>
-/// Represents a default grid line template.
+/// Represents a default (rectangular) block line template.
 /// </summary>
-/// <param name="rowsCount"><inheritdoc cref="RowsCount" path="/summary"/></param>
-/// <param name="columnsCount"><inheritdoc cref="ColumnsCount" path="/summary"/></param>
 /// <param name="rowBlockSize"><inheritdoc cref="RowBlockSize" path="/summary"/></param>
 /// <param name="columnBlockSize"><inheritdoc cref="ColumnBlockSize" path="/summary"/></param>
-/// <param name="vector"><inheritdoc cref="Vector" path="/summary"/></param>
-public sealed class DefaultGridLineTemplate(
-	int rowsCount,
-	int columnsCount,
-	int rowBlockSize,
-	int columnBlockSize,
-	DirectionVector vector
-) : GridLineTemplate
+public sealed class RectangularBlockLineTemplate(int rowBlockSize, int columnBlockSize) : BlockLineTemplate
 {
-	/// <summary>
-	/// Indicates the number of rows.
-	/// </summary>
-	public int RowsCount { get; } = rowsCount;
-
-	/// <summary>
-	/// Indicates the number of columns.
-	/// </summary>
-	public int ColumnsCount { get; } = columnsCount;
-
 	/// <summary>
 	/// Indicates the number of rows in a rectangular block.
 	/// </summary>
@@ -35,11 +16,6 @@ public sealed class DefaultGridLineTemplate(
 	/// Indicates the number of columns in a rectangular block.
 	/// </summary>
 	public int ColumnBlockSize { get; } = columnBlockSize;
-
-	/// <summary>
-	/// Indicates the vector as outside blank.
-	/// </summary>
-	public DirectionVector Vector { get; } = vector;
 
 
 	/// <inheritdoc/>

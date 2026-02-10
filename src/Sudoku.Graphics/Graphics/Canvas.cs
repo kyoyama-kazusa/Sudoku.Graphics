@@ -4,12 +4,19 @@
 /// Represents a canvas object that allows you drawing items onto it.
 /// </summary>
 /// <param name="mapper"><inheritdoc cref="Mapper" path="/summary"/></param>
-public sealed class Canvas(PointMapper mapper) : ICanavs
+/// <param name="drawingOptions"><inheritdoc cref="DrawingOptions" path="/summary"/></param>
+/// <param name="exportingOptions"><inheritdoc cref="ExportingOptions" path="/summary"/></param>
+public sealed class Canvas(
+	PointMapper mapper,
+	CanvasDrawingOptions? drawingOptions = null,
+	CanvasExportingOptions? exportingOptions = null
+) : ICanvas<CanvasDrawingOptions, CanvasExportingOptions>
 {
 	/// <summary>
 	/// Indicates the backing surface.
 	/// </summary>
-	private readonly SKSurface _surface = SKSurface.Create(new SKImageInfo(mapper.FullSizeInteger.Width, mapper.FullSizeInteger.Height));
+	private readonly SKSurface _surface =
+		SKSurface.Create(new SKImageInfo(mapper.FullSizeInteger.Width, mapper.FullSizeInteger.Height));
 
 	/// <summary>
 	/// Indicates whether the object has already been disposed.
@@ -24,8 +31,18 @@ public sealed class Canvas(PointMapper mapper) : ICanavs
 	/// <param name="margin"><inheritdoc cref="Margin" path="/summary"/></param>
 	/// <param name="rowsCount"><inheritdoc cref="RowsCount" path="/summary"/></param>
 	/// <param name="columnsCount"><inheritdoc cref="ColumnsCount" path="/summary"/></param>
-	public Canvas(float cellSize, float margin, int rowsCount, int columnsCount) :
-		this(new(cellSize, margin, rowsCount, columnsCount))
+	/// <param name="vector"><inheritdoc cref="Vector" path="/summary"/></param>
+	/// <param name="drawingOptions"><inheritdoc cref="DrawingOptions" path="/summary"/></param>
+	/// <param name="exportingOptions"><inheritdoc cref="ExportingOptions" path="/summary"/></param>
+	public Canvas(
+		float cellSize,
+		float margin,
+		int rowsCount,
+		int columnsCount,
+		DirectionVector vector,
+		CanvasDrawingOptions? drawingOptions = null,
+		CanvasExportingOptions? exportingOptions = null
+	) : this(new(cellSize, margin, rowsCount, columnsCount, vector), drawingOptions, exportingOptions)
 	{
 	}
 
@@ -42,30 +59,19 @@ public sealed class Canvas(PointMapper mapper) : ICanavs
 	/// <inheritdoc cref="PointMapper.ColumnsCount"/>
 	public int ColumnsCount => Mapper.ColumnsCount;
 
-	/// <summary>
-	/// Indicates reserved number of cells reserved from upside of the grid.
-	/// </summary>
-	public int ReservedUpCellsCount { get; init; }
-
-	/// <summary>
-	/// Indicates reserved number of cells reserved from downside of the grid.
-	/// </summary>
-	public int ReservedDownCellsCount { get; init; }
-
-	/// <summary>
-	/// Indicates reserved number of cells reserved from leftside of the grid.
-	/// </summary>
-	public int ReservedLeftCellsCount { get; init; }
-
-	/// <summary>
-	/// Indicates reserved number of cells reserved from rightside of the grid.
-	/// </summary>
-	public int ReservedRightCellsCount { get; init; }
+	/// <inheritdoc cref="PointMapper.Vector"/>
+	public DirectionVector Vector => Mapper.Vector;
 
 	/// <summary>
 	/// Indicates the mapper instance.
 	/// </summary>
 	public PointMapper Mapper { get; } = mapper;
+
+	/// <inheritdoc/>
+	public CanvasDrawingOptions DrawingOptions { get; } = drawingOptions ?? CanvasDrawingOptions.Default;
+
+	/// <inheritdoc/>
+	public CanvasExportingOptions ExportingOptions { get; } = exportingOptions ?? CanvasExportingOptions.Default;
 
 	/// <summary>
 	/// Indicates the backing canvas.
@@ -74,18 +80,13 @@ public sealed class Canvas(PointMapper mapper) : ICanavs
 
 
 	/// <inheritdoc/>
+	public void FillBackground() => FillBackground(DrawingOptions.BackgroundColor);
+
+	/// <inheritdoc/>
 	public void FillBackground(SKColor color) => BackingCanvas.Clear(color);
 
 	/// <inheritdoc/>
-	public void FillBackground(CanvasDrawingOptions? options = null)
-		=> FillBackground((options ?? CanvasDrawingOptions.Default).BackgroundColor);
-
-	/// <inheritdoc/>
-	public void DrawLines(CanvasDrawingOptions? options = null)
-	{
-		options ??= CanvasDrawingOptions.Default;
-		options.GridLineTemplate.DrawLines(Mapper, BackingCanvas, options);
-	}
+	public void DrawLines() => DrawingOptions.GridLineTemplate.DrawLines(Mapper, BackingCanvas, DrawingOptions);
 
 	/// <inheritdoc/>
 	public void Dispose()
@@ -97,13 +98,11 @@ public sealed class Canvas(PointMapper mapper) : ICanavs
 	}
 
 	/// <inheritdoc/>
-	public void Export(string path, CanvasExportingOptions? options = null)
+	public void Export(string path)
 	{
-		options ??= CanvasExportingOptions.Default;
-
 		var extension = Path.GetExtension(path);
 		using var image = _surface.Snapshot();
-		using var data = image.Encode(GetFormatFromExtension(extension), options.Quality);
+		using var data = image.Encode(GetFormatFromExtension(extension), ExportingOptions.Quality);
 		using var stream = new MemoryStream(data.ToArray());
 		using var fileStream = new FileStream(path, FileMode.Create, FileAccess.Write);
 		stream.CopyTo(fileStream);

@@ -12,25 +12,22 @@ using SkiaSharp;
 using Sudoku.Graphics;
 
 var desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-using var canvas = new Canvas(120, 10, 9, 9);
-canvas.FillBackground(Options);
-canvas.DrawLines(Options);
-canvas.Export(Path.Combine(desktop, "output.png"), new() { Quality = 100 });
-Console.WriteLine("Okay.");
-
-
-/// <summary>
-/// Provides entry point.
-/// </summary>
-file static partial class Program
-{
-	/// <summary>
-	/// Represents default options.
-	/// </summary>
-	private static readonly CanvasDrawingOptions Options = new()
+var vector = new DirectionVector(1);
+using var canvas = new Canvas(
+	cellSize: 120,
+	margin: 10,
+	rowsCount: 9,
+	columnsCount: 9,
+	vector: vector,
+	drawingOptions: new()
 	{
 		BackgroundColor = SKColors.White,
 		ThickLineColor = SKColors.Black,
-		GridLineTemplate = new DefaultGridLineTemplate(9, 9, 3, 3, DirectionVector.Zero)
-	};
-}
+		GridLineTemplate = new RectangularBlockLineTemplate(3, 3)
+	},
+	exportingOptions: new() { Quality = 100 }
+);
+canvas.FillBackground();
+canvas.DrawLines();
+canvas.Export(Path.Combine(desktop, "output.png"));
+Console.WriteLine("Okay.");

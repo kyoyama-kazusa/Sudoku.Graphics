@@ -4,17 +4,34 @@
         <name>Sudoku.Graphics</name>
     </assembly>
     <members>
+        <member name="T:Sudoku.Graphics.BlockLineTemplate">
+            <summary>
+            Represents a block line template type that draws lines onto a canvas via the specified configuration.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.BlockLineTemplate.DrawLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+            <summary>
+            Try to draw lines onto the target canvas.
+            </summary>
+            <param name="mapper">The mapper instance.</param>
+            <param name="canvas">The canvas object to receive drawn items.</param>
+            <param name="options">The options.</param>
+        </member>
         <member name="T:Sudoku.Graphics.Canvas">
             <summary>
             Represents a canvas object that allows you drawing items onto it.
             </summary>
             <param name="mapper"><inheritdoc cref="P:Sudoku.Graphics.Canvas.Mapper" path="/summary"/></param>
+            <param name="drawingOptions"><inheritdoc cref="P:Sudoku.Graphics.Canvas.DrawingOptions" path="/summary"/></param>
+            <param name="exportingOptions"><inheritdoc cref="P:Sudoku.Graphics.Canvas.ExportingOptions" path="/summary"/></param>
         </member>
-        <member name="M:Sudoku.Graphics.Canvas.#ctor(Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.Canvas.#ctor(Sudoku.Graphics.PointMapper,Sudoku.Graphics.CanvasDrawingOptions,Sudoku.Graphics.CanvasExportingOptions)">
             <summary>
             Represents a canvas object that allows you drawing items onto it.
             </summary>
             <param name="mapper"><inheritdoc cref="P:Sudoku.Graphics.Canvas.Mapper" path="/summary"/></param>
+            <param name="drawingOptions"><inheritdoc cref="P:Sudoku.Graphics.Canvas.DrawingOptions" path="/summary"/></param>
+            <param name="exportingOptions"><inheritdoc cref="P:Sudoku.Graphics.Canvas.ExportingOptions" path="/summary"/></param>
         </member>
         <member name="F:Sudoku.Graphics.Canvas._surface">
             <summary>
@@ -26,7 +43,7 @@
             Indicates whether the object has already been disposed.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.Canvas.#ctor(System.Single,System.Single,System.Int32,System.Int32)">
+        <member name="M:Sudoku.Graphics.Canvas.#ctor(System.Single,System.Single,System.Int32,System.Int32,Sudoku.Graphics.DirectionVector,Sudoku.Graphics.CanvasDrawingOptions,Sudoku.Graphics.CanvasExportingOptions)">
             <summary>
             Initializes a <see cref="T:Sudoku.Graphics.Canvas"/> object via the specified information.
             </summary>
@@ -34,6 +51,9 @@
             <param name="margin"><inheritdoc cref="P:Sudoku.Graphics.Canvas.Margin" path="/summary"/></param>
             <param name="rowsCount"><inheritdoc cref="P:Sudoku.Graphics.Canvas.RowsCount" path="/summary"/></param>
             <param name="columnsCount"><inheritdoc cref="P:Sudoku.Graphics.Canvas.ColumnsCount" path="/summary"/></param>
+            <param name="vector"><inheritdoc cref="P:Sudoku.Graphics.Canvas.Vector" path="/summary"/></param>
+            <param name="drawingOptions"><inheritdoc cref="P:Sudoku.Graphics.Canvas.DrawingOptions" path="/summary"/></param>
+            <param name="exportingOptions"><inheritdoc cref="P:Sudoku.Graphics.Canvas.ExportingOptions" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Graphics.Canvas.Margin">
             <inheritdoc cref="P:Sudoku.Graphics.PointMapper.Margin"/>
@@ -47,49 +67,38 @@
         <member name="P:Sudoku.Graphics.Canvas.ColumnsCount">
             <inheritdoc cref="P:Sudoku.Graphics.PointMapper.ColumnsCount"/>
         </member>
-        <member name="P:Sudoku.Graphics.Canvas.ReservedUpCellsCount">
-            <summary>
-            Indicates reserved number of cells reserved from upside of the grid.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Canvas.ReservedDownCellsCount">
-            <summary>
-            Indicates reserved number of cells reserved from downside of the grid.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Canvas.ReservedLeftCellsCount">
-            <summary>
-            Indicates reserved number of cells reserved from leftside of the grid.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Canvas.ReservedRightCellsCount">
-            <summary>
-            Indicates reserved number of cells reserved from rightside of the grid.
-            </summary>
+        <member name="P:Sudoku.Graphics.Canvas.Vector">
+            <inheritdoc cref="P:Sudoku.Graphics.PointMapper.Vector"/>
         </member>
         <member name="P:Sudoku.Graphics.Canvas.Mapper">
             <summary>
             Indicates the mapper instance.
             </summary>
         </member>
+        <member name="P:Sudoku.Graphics.Canvas.DrawingOptions">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Canvas.ExportingOptions">
+            <inheritdoc/>
+        </member>
         <member name="P:Sudoku.Graphics.Canvas.BackingCanvas">
             <summary>
             Indicates the backing canvas.
             </summary>
         </member>
+        <member name="M:Sudoku.Graphics.Canvas.FillBackground">
+            <inheritdoc/>
+        </member>
         <member name="M:Sudoku.Graphics.Canvas.FillBackground(SkiaSharp.SKColor)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Canvas.FillBackground(Sudoku.Graphics.CanvasDrawingOptions)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Canvas.DrawLines(Sudoku.Graphics.CanvasDrawingOptions)">
+        <member name="M:Sudoku.Graphics.Canvas.DrawLines">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Canvas.Dispose">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Canvas.Export(System.String,Sudoku.Graphics.CanvasExportingOptions)">
+        <member name="M:Sudoku.Graphics.Canvas.Export(System.String)">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Canvas.GetFormatFromExtension(System.String)">
@@ -145,14 +154,13 @@
         </member>
         <member name="P:Sudoku.Graphics.CanvasDrawingOptions.GridLineTemplate">
             <summary>
-            Represents grid line template to be drawn. By default it will be initialized as a <see cref="T:Sudoku.Graphics.DefaultGridLineTemplate"/>
+            Represents grid line template to be drawn. By default it will be initialized as a <see cref="T:Sudoku.Graphics.RectangularBlockLineTemplate"/>
             like this:
             <code>
-            <c><see langword="new"/> <see cref="T:Sudoku.Graphics.DefaultGridLineTemplate"/>(9, 9, 3, 3, <see cref="F:Sudoku.Graphics.DirectionVector.Zero"/>)</c>
+            <c><see langword="new"/> <see cref="T:Sudoku.Graphics.RectangularBlockLineTemplate"/>(3, 3)</c>
             </code>
             </summary>
-            <seealso cref="T:Sudoku.Graphics.DefaultGridLineTemplate"/>
-            <seealso cref="F:Sudoku.Graphics.DirectionVector.Zero"/>
+            <seealso cref="T:Sudoku.Graphics.RectangularBlockLineTemplate"/>
         </member>
         <member name="P:Sudoku.Graphics.CanvasDrawingOptions.Sudoku#Graphics#IOptionsProvider{Sudoku#Graphics#CanvasDrawingOptions}#DefaultInstance">
             <inheritdoc/>
@@ -173,54 +181,6 @@
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.CanvasExportingOptions.Sudoku#Graphics#IOptionsProvider{Sudoku#Graphics#CanvasExportingOptions}#DefaultInstance">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Graphics.DefaultGridLineTemplate">
-            <summary>
-            Represents a default grid line template.
-            </summary>
-            <param name="rowsCount"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.RowsCount" path="/summary"/></param>
-            <param name="columnsCount"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.ColumnsCount" path="/summary"/></param>
-            <param name="rowBlockSize"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.RowBlockSize" path="/summary"/></param>
-            <param name="columnBlockSize"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.ColumnBlockSize" path="/summary"/></param>
-            <param name="vector"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.Vector" path="/summary"/></param>
-        </member>
-        <member name="M:Sudoku.Graphics.DefaultGridLineTemplate.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,Sudoku.Graphics.DirectionVector)">
-            <summary>
-            Represents a default grid line template.
-            </summary>
-            <param name="rowsCount"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.RowsCount" path="/summary"/></param>
-            <param name="columnsCount"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.ColumnsCount" path="/summary"/></param>
-            <param name="rowBlockSize"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.RowBlockSize" path="/summary"/></param>
-            <param name="columnBlockSize"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.ColumnBlockSize" path="/summary"/></param>
-            <param name="vector"><inheritdoc cref="P:Sudoku.Graphics.DefaultGridLineTemplate.Vector" path="/summary"/></param>
-        </member>
-        <member name="P:Sudoku.Graphics.DefaultGridLineTemplate.RowsCount">
-            <summary>
-            Indicates the number of rows.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.DefaultGridLineTemplate.ColumnsCount">
-            <summary>
-            Indicates the number of columns.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.DefaultGridLineTemplate.RowBlockSize">
-            <summary>
-            Indicates the number of rows in a rectangular block.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.DefaultGridLineTemplate.ColumnBlockSize">
-            <summary>
-            Indicates the number of columns in a rectangular block.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.DefaultGridLineTemplate.Vector">
-            <summary>
-            Indicates the vector as outside blank.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Graphics.DefaultGridLineTemplate.DrawLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.Direction">
@@ -288,6 +248,12 @@
             Indicates the instance whose members are initialized zero.
             </summary>
         </member>
+        <member name="M:Sudoku.Graphics.DirectionVector.#ctor(System.Int32)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Graphics.DirectionVector"/> instance via the uniform value.
+            </summary>
+            <param name="uniform">The uniform value.</param>
+        </member>
         <member name="M:Sudoku.Graphics.DirectionVector.GetValue(Sudoku.Graphics.Direction)">
             <summary>
             Returns the value at the specified direction.
@@ -341,64 +307,59 @@
         <member name="M:Sudoku.Graphics.Converter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.Graphics.DirectionVector,System.Text.Json.JsonSerializerOptions)">
             <inheritdoc/>
         </member>
-        <member name="T:Sudoku.Graphics.GridLineTemplate">
-            <summary>
-            Represents grid line template type that draws lines onto a canvas via the specified configuration.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Graphics.GridLineTemplate.DrawLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
-            <summary>
-            Try to draw lines onto the target canvas.
-            </summary>
-            <param name="mapper">The mapper instance.</param>
-            <param name="canvas">The canvas object to receive drawn items.</param>
-            <param name="options">The options.</param>
-        </member>
-        <member name="T:Sudoku.Graphics.ICanavs">
+        <member name="T:Sudoku.Graphics.ICanvas`2">
             <summary>
             Represents a canvas object.
             </summary>
+            <typeparam name="TDrawingOptions">Indicates the type of drawing options.</typeparam>
+            <typeparam name="TExportingOptions">Indicates the type of exporting options.</typeparam>
         </member>
-        <member name="T:Sudoku.Graphics.ICanvasDrawLinesMethods">
+        <member name="P:Sudoku.Graphics.ICanvas`2.DrawingOptions">
+            <summary>
+            Indicates drawing options.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.ICanvas`2.ExportingOptions">
+            <summary>
+            Indicates exporting options.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.ICanvasDrawLines">
             <summary>
             Represents a canvas object that supports line-drawing methods.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.ICanvasDrawLinesMethods.DrawLines(Sudoku.Graphics.CanvasDrawingOptions)">
+        <member name="M:Sudoku.Graphics.ICanvasDrawLines.DrawLines">
             <summary>
-            Try to draw lines using the specified template.
+            Try to draw lines.
             </summary>
-            <param name="options">The options that provides template to draw.</param>
         </member>
-        <member name="T:Sudoku.Graphics.ICanvasExportMethods">
+        <member name="T:Sudoku.Graphics.ICanvasExport">
             <summary>
             Represents a canvas object that supports exporting methods.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.ICanvasExportMethods.Export(System.String,Sudoku.Graphics.CanvasExportingOptions)">
+        <member name="M:Sudoku.Graphics.ICanvasExport.Export(System.String)">
             <summary>
             Export the current canvas into target file.
             </summary>
             <param name="path">The file path. The extension specified will be used as output file format.</param>
-            <param name="options">The options.</param>
         </member>
-        <member name="T:Sudoku.Graphics.ICanvasFillBackgroundMethods">
+        <member name="T:Sudoku.Graphics.ICanvasFillBackground">
             <summary>
             Represents a canvas object that supports filling background methods.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.ICanvasFillBackgroundMethods.FillBackground(SkiaSharp.SKColor)">
+        <member name="M:Sudoku.Graphics.ICanvasFillBackground.FillBackground">
+            <summary>
+            Clears the canvas via a color.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.ICanvasFillBackground.FillBackground(SkiaSharp.SKColor)">
             <summary>
             Clears the canvas via the specified color.
             </summary>
             <param name="color">The color.</param>
-        </member>
-        <member name="M:Sudoku.Graphics.ICanvasFillBackgroundMethods.FillBackground(Sudoku.Graphics.CanvasDrawingOptions)">
-            <summary>
-            Clears the canvas via a color, specified by property <see cref="P:Sudoku.Graphics.CanvasDrawingOptions.BackgroundColor"/>.
-            </summary>
-            <param name="options">The options provider.</param>
-            <seealso cref="P:Sudoku.Graphics.CanvasDrawingOptions.BackgroundColor"/>
         </member>
         <member name="T:Sudoku.Graphics.IOptionsProvider`1">
             <summary>
@@ -419,8 +380,9 @@
             <param name="margin"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.Margin" path="/summary"/></param>
             <param name="rowsCount"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.RowsCount" path="/summary"/></param>
             <param name="columnsCount"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.ColumnsCount" path="/summary"/></param>
+            <param name="vector"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.Vector" path="/summary"/></param>
         </member>
-        <member name="M:Sudoku.Graphics.PointMapper.#ctor(System.Single,System.Single,System.Int32,System.Int32)">
+        <member name="M:Sudoku.Graphics.PointMapper.#ctor(System.Single,System.Single,System.Int32,System.Int32,Sudoku.Graphics.DirectionVector)">
             <summary>
             Represents a point mapper instance.
             </summary>
@@ -428,6 +390,7 @@
             <param name="margin"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.Margin" path="/summary"/></param>
             <param name="rowsCount"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.RowsCount" path="/summary"/></param>
             <param name="columnsCount"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.ColumnsCount" path="/summary"/></param>
+            <param name="vector"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.Vector" path="/summary"/></param>
         </member>
         <member name="P:Sudoku.Graphics.PointMapper.CellWidthAndHeight">
             <summary>
@@ -449,6 +412,11 @@
             <summary>
             Indiactes the number of columns. The number of columns should be an absolute value,
             including reserved regions (used by drawing outside-like puzzles).
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.PointMapper.Vector">
+            <summary>
+            Indicates empty cells count reserved to be empty.
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.PointMapper.GridSize">
@@ -595,6 +563,33 @@
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Converter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.Graphics.Ratio,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.RectangularBlockLineTemplate">
+            <summary>
+            Represents a default (rectangular) block line template.
+            </summary>
+            <param name="rowBlockSize"><inheritdoc cref="P:Sudoku.Graphics.RectangularBlockLineTemplate.RowBlockSize" path="/summary"/></param>
+            <param name="columnBlockSize"><inheritdoc cref="P:Sudoku.Graphics.RectangularBlockLineTemplate.ColumnBlockSize" path="/summary"/></param>
+        </member>
+        <member name="M:Sudoku.Graphics.RectangularBlockLineTemplate.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Represents a default (rectangular) block line template.
+            </summary>
+            <param name="rowBlockSize"><inheritdoc cref="P:Sudoku.Graphics.RectangularBlockLineTemplate.RowBlockSize" path="/summary"/></param>
+            <param name="columnBlockSize"><inheritdoc cref="P:Sudoku.Graphics.RectangularBlockLineTemplate.ColumnBlockSize" path="/summary"/></param>
+        </member>
+        <member name="P:Sudoku.Graphics.RectangularBlockLineTemplate.RowBlockSize">
+            <summary>
+            Indicates the number of rows in a rectangular block.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.RectangularBlockLineTemplate.ColumnBlockSize">
+            <summary>
+            Indicates the number of columns in a rectangular block.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.RectangularBlockLineTemplate.DrawLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.SerializableColor">
