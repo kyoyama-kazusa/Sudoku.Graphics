@@ -77,7 +77,7 @@ public sealed class PointMapper(float cellSize, float margin, int rowsCount, int
 	/// <param name="absoluteColumnIndex">Absolute column index.</param>
 	/// <returns>The point instance that represents the target top-left position.</returns>
 	public SKPoint GetTopLeftPoint(int absoluteRowIndex, int absoluteColumnIndex)
-		=> new(CellWidthAndHeight * absoluteRowIndex + Margin, CellWidthAndHeight * absoluteColumnIndex + Margin);
+		=> new(CellWidthAndHeight * absoluteColumnIndex + Margin, CellWidthAndHeight * absoluteRowIndex + Margin);
 
 	/// <summary>
 	/// Returns top-right position (point) of the specified absolute row and column absolute index.
