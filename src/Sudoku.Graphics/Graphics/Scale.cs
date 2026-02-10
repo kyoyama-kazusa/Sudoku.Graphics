@@ -1,7 +1,8 @@
 ﻿namespace Sudoku.Graphics;
 
 /// <summary>
-/// Represents a relative-size value (scaling).
+/// Represents a relative-size value (scaling)
+/// that supports both <see cref="float"/> and <see cref="decimal"/> literal initialization.
 /// </summary>
 /// <param name="value">The fact value of a <see cref="float"/>.</param>
 /// <exception cref="ArgumentOutOfRangeException">

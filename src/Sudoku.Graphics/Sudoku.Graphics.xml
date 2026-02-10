@@ -503,7 +503,8 @@
         </member>
         <member name="T:Sudoku.Graphics.Scale">
             <summary>
-            Represents a relative-size value (scaling).
+            Represents a relative-size value (scaling)
+            that supports both <see cref="T:System.Single"/> and <see cref="T:System.Decimal"/> literal initialization.
             </summary>
             <param name="value">The fact value of a <see cref="T:System.Single"/>.</param>
             <exception cref="T:System.ArgumentOutOfRangeException">
@@ -512,7 +513,8 @@
         </member>
         <member name="M:Sudoku.Graphics.Scale.#ctor(System.Decimal)">
             <summary>
-            Represents a relative-size value (scaling).
+            Represents a relative-size value (scaling)
+            that supports both <see cref="T:System.Single"/> and <see cref="T:System.Decimal"/> literal initialization.
             </summary>
             <param name="value">The fact value of a <see cref="T:System.Single"/>.</param>
             <exception cref="T:System.ArgumentOutOfRangeException">

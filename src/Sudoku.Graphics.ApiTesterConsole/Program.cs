@@ -12,13 +12,12 @@ using SkiaSharp;
 using Sudoku.Graphics;
 
 var desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-var vector = new DirectionVector(1);
 using var canvas = new Canvas(
 	cellSize: 120,
 	margin: 10,
 	rowsCount: 9,
 	columnsCount: 9,
-	vector: vector,
+	vector: DirectionVector.Zero,
 	drawingOptions: new()
 	{
 		BackgroundColor = SKColors.White,

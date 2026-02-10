@@ -41,19 +41,21 @@ public sealed class PointMapper(float cellSize, float margin, int rowsCount, int
 	/// <summary>
 	/// Indicates grid size <see cref="SKRect"/> instance.
 	/// </summary>
-	public SKRect GridSize
-		=> SKRect.Create(CellWidthAndHeight * (ColumnsCount + Vector.Left), CellWidthAndHeight * (RowsCount + Vector.Up));
+	public SKRect GridSize => SKRect.Create(CellWidthAndHeight * ColumnsCount, CellWidthAndHeight * RowsCount);
 
 	/// <summary>
 	/// Indicates full canvas size <see cref="SKRect"/> instance.
 	/// </summary>
-	public SKRect FullSize => SKRect.Create(GridSize.Width + 2 * Margin, GridSize.Height + 2 * Margin);
+	public SKRect FullSize
+		=> SKRect.Create(
+			CellWidthAndHeight * (ColumnsCount + Vector.Left + Vector.Right) + 2 * Margin,
+			CellWidthAndHeight * (RowsCount + Vector.Up + Vector.Down) + 2 * Margin
+		);
 
 	/// <summary>
 	/// Indicates full canvas size <see cref="SKRect"/> instance, in integer format.
 	/// </summary>
-	public SKRectI FullSizeInteger
-		=> SKRectI.Create((int)Math.Round(GridSize.Width + 2 * Margin), (int)Math.Round(GridSize.Height + 2 * Margin));
+	public SKRectI FullSizeInteger => SKRectI.Floor(FullSize);
 
 
 	/// <summary>

@@ -26,8 +26,8 @@ public sealed class RectangularBlockLineTemplate(int rowBlockSize, int columnBlo
 		path.AddRoundRect(
 			new(
 				SKRect.Create(
-					mapper.Margin,
-					mapper.Margin,
+					mapper.Margin + mapper.CellWidthAndHeight * mapper.Vector.Left,
+					mapper.Margin + mapper.CellWidthAndHeight * mapper.Vector.Up,
 					mapper.GridSize.Width,
 					mapper.GridSize.Height
 				),

@@ -7,8 +7,8 @@
 /// <typeparam name="TExportingOptions">Indicates the type of exporting options.</typeparam>
 public interface ICanvas<out TDrawingOptions, out TExportingOptions> :
 	ICanvasDrawLines,
-	ICanvasFillBackground,
 	ICanvasExport,
+	ICanvasFillBackground,
 	IDisposable
 	where TDrawingOptions : notnull, IOptionsProvider<TDrawingOptions>, new()
 	where TExportingOptions : notnull, IOptionsProvider<TExportingOptions>, new()
