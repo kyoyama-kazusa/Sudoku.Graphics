@@ -122,103 +122,43 @@ public sealed class PointMapper(float cellSize, float margin, int rowsCount, int
 	}
 
 	/// <summary>
-	/// Returns center position (point) of the specified absolute row and column absolute index.
+	/// Returns the position (point) of the specified corner type of the specified cell.
 	/// </summary>
-	/// <param name="absoluteRowIndex">Absolute row index.</param>
-	/// <param name="absoluteColumnIndex">Absolute column index.</param>
+	/// <param name="absoluteCellIndex">Absolute cell index.</param>
+	/// <param name="type">The type.</param>
 	/// <returns>The point instance that represents the target center position.</returns>
-	public SKPoint GetCenterPoint(int absoluteRowIndex, int absoluteColumnIndex)
-	{
-		var topLeft = GetTopLeftPoint(absoluteRowIndex, absoluteColumnIndex);
-		return topLeft - new SKPoint(CellWidthAndHeight / 2, CellWidthAndHeight / 2);
-	}
-
-	/// <summary>
-	/// Returns top-left position (point) of the specified absolute cell index.
-	/// </summary>
-	/// <param name="absoluteCellIndex">Absolute cell index.</param>
-	/// <returns>The point instance that represents the target top-left position.</returns>
-	public SKPoint GetTopLeftPoint(int absoluteCellIndex)
+	/// <exception cref="ArgumentOutOfRangeException">
+	/// Throws when <paramref name="type"/> is not defined or <see cref="CellCornerType.None"/>.
+	/// </exception>
+	/// <seealso cref="CellCornerType.None"/>
+	public SKPoint GetPoint(int absoluteCellIndex, CellCornerType type)
 	{
 		var columnsCount = AbsoluteColumnsCount;
-		return GetTopLeftPoint(absoluteCellIndex / columnsCount, absoluteCellIndex % columnsCount);
+		return GetPoint(absoluteCellIndex / columnsCount, absoluteCellIndex % columnsCount, type);
 	}
 
 	/// <summary>
-	/// Returns top-left position (point) of the specified absolute row and column index.
+	/// Returns the position (point) of the specified corner type of the specified cell.
 	/// </summary>
 	/// <param name="absoluteRowIndex">Absolute row index.</param>
 	/// <param name="absoluteColumnIndex">Absolute column index.</param>
-	/// <returns>The point instance that represents the target top-left position.</returns>
-	public SKPoint GetTopLeftPoint(int absoluteRowIndex, int absoluteColumnIndex)
-		=> new(CellWidthAndHeight * absoluteColumnIndex + Margin, CellWidthAndHeight * absoluteRowIndex + Margin);
-
-	/// <summary>
-	/// Returns top-right position (point) of the specified absolute cell index.
-	/// </summary>
-	/// <param name="absoluteCellIndex">Absolute cell index.</param>
-	/// <returns>The point instance that represents the target top-right position.</returns>
-	public SKPoint GetTopRightPoint(int absoluteCellIndex)
+	/// <param name="type">The type.</param>
+	/// <returns>The point instance that represents the target center position.</returns>
+	/// <exception cref="ArgumentOutOfRangeException">
+	/// Throws when <paramref name="type"/> is not defined or <see cref="CellCornerType.None"/>.
+	/// </exception>
+	/// <seealso cref="CellCornerType.None"/>
+	public SKPoint GetPoint(int absoluteRowIndex, int absoluteColumnIndex, CellCornerType type)
 	{
-		var columnsCount = AbsoluteColumnsCount;
-		return GetTopRightPoint(absoluteCellIndex / columnsCount, absoluteCellIndex % columnsCount);
-	}
-
-	/// <summary>
-	/// Returns top-right position (point) of the specified absolute row and column index.
-	/// </summary>
-	/// <param name="absoluteRowIndex">Absolute row index.</param>
-	/// <param name="absoluteColumnIndex">Absolute column index.</param>
-	/// <returns>The point instance that represents the target top-right position.</returns>
-	public SKPoint GetTopRightPoint(int absoluteRowIndex, int absoluteColumnIndex)
-	{
-		var topLeft = GetTopLeftPoint(absoluteRowIndex, absoluteColumnIndex);
-		return topLeft + new SKPoint(CellWidthAndHeight, 0);
-	}
-
-	/// <summary>
-	/// Returns bottom-left position (point) of the specified absolute cell index.
-	/// </summary>
-	/// <param name="absoluteCellIndex">Absolute cell index.</param>
-	/// <returns>The point instance that represents the target bottom-left position.</returns>
-	public SKPoint GetBottomLeftPoint(int absoluteCellIndex)
-	{
-		var columnsCount = AbsoluteColumnsCount;
-		return GetBottomLeftPoint(absoluteCellIndex / columnsCount, absoluteCellIndex % columnsCount);
-	}
-
-	/// <summary>
-	/// Returns bottom-left position (point) of the specified absolute row and column index.
-	/// </summary>
-	/// <param name="absoluteRowIndex">Absolute row index.</param>
-	/// <param name="absoluteColumnIndex">Absolute column index.</param>
-	/// <returns>The point instance that represents the target bottom-left position.</returns>
-	public SKPoint GetBottomLeftPoint(int absoluteRowIndex, int absoluteColumnIndex)
-	{
-		var topLeft = GetTopLeftPoint(absoluteRowIndex, absoluteColumnIndex);
-		return topLeft + new SKPoint(0, CellWidthAndHeight);
-	}
-
-	/// <summary>
-	/// Returns bottom-right position (point) of the specified absolute cell index.
-	/// </summary>
-	/// <param name="absoluteCellIndex">Absolute cell index.</param>
-	/// <returns>The point instance that represents the target bottom-right position.</returns>
-	public SKPoint GetBottomRightPoint(int absoluteCellIndex)
-	{
-		var columnsCount = AbsoluteColumnsCount;
-		return GetBottomRightPoint(absoluteCellIndex / columnsCount, absoluteCellIndex % columnsCount);
-	}
-
-	/// <summary>
-	/// Returns bottom-right position (point) of the specified absolute row and column index.
-	/// </summary>
-	/// <param name="absoluteRowIndex">Absolute row index.</param>
-	/// <param name="absoluteColumnIndex">Absolute column index.</param>
-	/// <returns>The point instance that represents the target bottom-right position.</returns>
-	public SKPoint GetBottomRightPoint(int absoluteRowIndex, int absoluteColumnIndex)
-	{
-		var topLeft = GetTopLeftPoint(absoluteRowIndex, absoluteColumnIndex);
-		return topLeft + new SKPoint(CellWidthAndHeight, CellWidthAndHeight);
+		var topLeft = new SKPoint(CellWidthAndHeight * absoluteColumnIndex + Margin, CellWidthAndHeight * absoluteRowIndex + Margin);
+		return type switch
+		{
+			CellCornerType.Center => topLeft - new SKPoint(CellWidthAndHeight / 2, CellWidthAndHeight / 2),
+			CellCornerType.TopLeft => topLeft,
+			CellCornerType.TopRight => topLeft + new SKPoint(CellWidthAndHeight, 0),
+			CellCornerType.BottomLeft => topLeft + new SKPoint(0, CellWidthAndHeight),
+			CellCornerType.BottomRight => topLeft + new SKPoint(CellWidthAndHeight, CellWidthAndHeight),
+			_ => throw new ArgumentOutOfRangeException(nameof(type))
+		};
 	}
 }

@@ -84,7 +84,7 @@ public sealed class RectangularBlockLineTemplate(int rowBlockSize, int columnBlo
 			// Horizontal lines.
 			for (var i = 1; i < mapper.RowsCount; i++)
 			{
-				var a = mapper.GetTopLeftPoint(mapper.Vector.Up + i, mapper.Vector.Left);
+				var a = mapper.GetPoint(mapper.Vector.Up + i, mapper.Vector.Left, CellCornerType.TopLeft);
 				var b = a + new SKPoint(mapper.ColumnsCount * mapper.CellWidthAndHeight, 0);
 				canvas.DrawLine(a, b, i % RowBlockSize == 0 ? thickLinePaint : thinLinePaint);
 			}
@@ -92,7 +92,7 @@ public sealed class RectangularBlockLineTemplate(int rowBlockSize, int columnBlo
 			// Vertical lines.
 			for (var i = 1; i < mapper.ColumnsCount; i++)
 			{
-				var a = mapper.GetTopLeftPoint(mapper.Vector.Up, mapper.Vector.Left + i);
+				var a = mapper.GetPoint(mapper.Vector.Up, mapper.Vector.Left + i, CellCornerType.TopLeft);
 				var b = a + new SKPoint(0, mapper.RowsCount * mapper.CellWidthAndHeight);
 				canvas.DrawLine(a, b, i % ColumnBlockSize == 0 ? thickLinePaint : thinLinePaint);
 			}

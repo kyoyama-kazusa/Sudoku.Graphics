@@ -200,6 +200,41 @@
         <member name="P:Sudoku.Graphics.CanvasExportingOptions.Sudoku#Graphics#IOptionsProvider{Sudoku#Graphics#CanvasExportingOptions}#DefaultInstance">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.CellCornerType">
+            <summary>
+            Represents a point corner type.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.CellCornerType.None">
+            <summary>
+            Indicates the placeholder of this type.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.CellCornerType.Center">
+            <summary>
+            Indicates center point of the cell.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.CellCornerType.TopLeft">
+            <summary>
+            Indicates top-left point of the cell.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.CellCornerType.TopRight">
+            <summary>
+            Indicates top-right point of the cell.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.CellCornerType.BottomLeft">
+            <summary>
+            Indicates bottom-left point of the cell.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.CellCornerType.BottomRight">
+            <summary>
+            Indicates bottom-right point of the cell.
+            </summary>
+        </member>
         <member name="T:Sudoku.Graphics.Direction">
             <summary>
             Represents a direction.
@@ -523,73 +558,30 @@
             <param name="isCyclic">Indicates whether the cell overflown in the relative grid will be included to be checked or not.</param>
             <returns>Target cell absolute index.</returns>
         </member>
-        <member name="M:Sudoku.Graphics.PointMapper.GetCenterPoint(System.Int32,System.Int32)">
+        <member name="M:Sudoku.Graphics.PointMapper.GetPoint(System.Int32,Sudoku.Graphics.CellCornerType)">
             <summary>
-            Returns center position (point) of the specified absolute row and column absolute index.
+            Returns the position (point) of the specified corner type of the specified cell.
             </summary>
-            <param name="absoluteRowIndex">Absolute row index.</param>
-            <param name="absoluteColumnIndex">Absolute column index.</param>
+            <param name="absoluteCellIndex">Absolute cell index.</param>
+            <param name="type">The type.</param>
             <returns>The point instance that represents the target center position.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Throws when <paramref name="type"/> is not defined or <see cref="F:Sudoku.Graphics.CellCornerType.None"/>.
+            </exception>
+            <seealso cref="F:Sudoku.Graphics.CellCornerType.None"/>
         </member>
-        <member name="M:Sudoku.Graphics.PointMapper.GetTopLeftPoint(System.Int32)">
+        <member name="M:Sudoku.Graphics.PointMapper.GetPoint(System.Int32,System.Int32,Sudoku.Graphics.CellCornerType)">
             <summary>
-            Returns top-left position (point) of the specified absolute cell index.
-            </summary>
-            <param name="absoluteCellIndex">Absolute cell index.</param>
-            <returns>The point instance that represents the target top-left position.</returns>
-        </member>
-        <member name="M:Sudoku.Graphics.PointMapper.GetTopLeftPoint(System.Int32,System.Int32)">
-            <summary>
-            Returns top-left position (point) of the specified absolute row and column index.
+            Returns the position (point) of the specified corner type of the specified cell.
             </summary>
             <param name="absoluteRowIndex">Absolute row index.</param>
             <param name="absoluteColumnIndex">Absolute column index.</param>
-            <returns>The point instance that represents the target top-left position.</returns>
-        </member>
-        <member name="M:Sudoku.Graphics.PointMapper.GetTopRightPoint(System.Int32)">
-            <summary>
-            Returns top-right position (point) of the specified absolute cell index.
-            </summary>
-            <param name="absoluteCellIndex">Absolute cell index.</param>
-            <returns>The point instance that represents the target top-right position.</returns>
-        </member>
-        <member name="M:Sudoku.Graphics.PointMapper.GetTopRightPoint(System.Int32,System.Int32)">
-            <summary>
-            Returns top-right position (point) of the specified absolute row and column index.
-            </summary>
-            <param name="absoluteRowIndex">Absolute row index.</param>
-            <param name="absoluteColumnIndex">Absolute column index.</param>
-            <returns>The point instance that represents the target top-right position.</returns>
-        </member>
-        <member name="M:Sudoku.Graphics.PointMapper.GetBottomLeftPoint(System.Int32)">
-            <summary>
-            Returns bottom-left position (point) of the specified absolute cell index.
-            </summary>
-            <param name="absoluteCellIndex">Absolute cell index.</param>
-            <returns>The point instance that represents the target bottom-left position.</returns>
-        </member>
-        <member name="M:Sudoku.Graphics.PointMapper.GetBottomLeftPoint(System.Int32,System.Int32)">
-            <summary>
-            Returns bottom-left position (point) of the specified absolute row and column index.
-            </summary>
-            <param name="absoluteRowIndex">Absolute row index.</param>
-            <param name="absoluteColumnIndex">Absolute column index.</param>
-            <returns>The point instance that represents the target bottom-left position.</returns>
-        </member>
-        <member name="M:Sudoku.Graphics.PointMapper.GetBottomRightPoint(System.Int32)">
-            <summary>
-            Returns bottom-right position (point) of the specified absolute cell index.
-            </summary>
-            <param name="absoluteCellIndex">Absolute cell index.</param>
-            <returns>The point instance that represents the target bottom-right position.</returns>
-        </member>
-        <member name="M:Sudoku.Graphics.PointMapper.GetBottomRightPoint(System.Int32,System.Int32)">
-            <summary>
-            Returns bottom-right position (point) of the specified absolute row and column index.
-            </summary>
-            <param name="absoluteRowIndex">Absolute row index.</param>
-            <param name="absoluteColumnIndex">Absolute column index.</param>
-            <returns>The point instance that represents the target bottom-right position.</returns>
+            <param name="type">The type.</param>
+            <returns>The point instance that represents the target center position.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Throws when <paramref name="type"/> is not defined or <see cref="F:Sudoku.Graphics.CellCornerType.None"/>.
+            </exception>
+            <seealso cref="F:Sudoku.Graphics.CellCornerType.None"/>
         </member>
         <member name="T:Sudoku.Graphics.RectangularBlockLineTemplate">
             <summary>

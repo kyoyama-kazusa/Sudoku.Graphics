@@ -64,10 +64,10 @@ public sealed class IrregularBlockLineTemplate(params int[][] cellIndexGroups) :
 			// Then draw lines onto it.
 			foreach (var (cell, directions) in lineSegmentsDictionary)
 			{
-				var topLeft = mapper.GetTopLeftPoint(cell);
-				var topRight = mapper.GetTopRightPoint(cell);
-				var bottomLeft = mapper.GetBottomLeftPoint(cell);
-				var bottomRight = mapper.GetBottomRightPoint(cell);
+				var topLeft = mapper.GetPoint(cell, CellCornerType.TopLeft);
+				var topRight = mapper.GetPoint(cell, CellCornerType.TopRight);
+				var bottomLeft = mapper.GetPoint(cell, CellCornerType.BottomLeft);
+				var bottomRight = mapper.GetPoint(cell, CellCornerType.BottomRight);
 				canvas.DrawLine(topLeft, topRight, (directions & Direction.Up) != Direction.None ? thickLinePaint : thinLinePaint);
 				canvas.DrawLine(bottomLeft, bottomRight, (directions & Direction.Down) != Direction.None ? thickLinePaint : thinLinePaint);
 				canvas.DrawLine(topLeft, bottomLeft, (directions & Direction.Left) != Direction.None ? thickLinePaint : thinLinePaint);
