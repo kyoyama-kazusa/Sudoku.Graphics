@@ -282,77 +282,6 @@
         <member name="M:Sudoku.Concepts.Converter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.Concepts.Scale,System.Text.Json.JsonSerializerOptions)">
             <inheritdoc/>
         </member>
-        <member name="T:Sudoku.Graphics.BlockLineTemplate">
-            <summary>
-            Represents a block line template type that draws lines onto a canvas via the specified configuration.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Graphics.BlockLineTemplate.DrawLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
-            <summary>
-            Try to draw lines onto the target canvas.
-            </summary>
-            <param name="mapper">The mapper instance.</param>
-            <param name="canvas">The canvas object to receive drawn items.</param>
-            <param name="options">The options.</param>
-        </member>
-        <member name="T:Sudoku.Graphics.BlockLineTemplates.IrregularBlockLineTemplate">
-            <summary>
-            Represents irregular block line template.
-            </summary>
-            <param name="cellIndexGroups">The cell index groups.</param>
-        </member>
-        <member name="M:Sudoku.Graphics.BlockLineTemplates.IrregularBlockLineTemplate.#ctor(System.Int32[][])">
-            <summary>
-            Represents irregular block line template.
-            </summary>
-            <param name="cellIndexGroups">The cell index groups.</param>
-        </member>
-        <member name="P:Sudoku.Graphics.BlockLineTemplates.IrregularBlockLineTemplate.CellIndexGroups">
-            <summary>
-            Indicates the cell index groups.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.BlockLineTemplates.IrregularBlockLineTemplate.IsCyclicRuleChecked">
-            <summary>
-            Indicates whether cyclic rule will be checked.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Graphics.BlockLineTemplates.IrregularBlockLineTemplate.DrawLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Graphics.BlockLineTemplates.RectangularBlockLineTemplate">
-            <summary>
-            Represents a default (rectangular) block line template.
-            </summary>
-            <param name="rowBlockSize"><inheritdoc cref="P:Sudoku.Graphics.BlockLineTemplates.RectangularBlockLineTemplate.RowBlockSize" path="/summary"/></param>
-            <param name="columnBlockSize"><inheritdoc cref="P:Sudoku.Graphics.BlockLineTemplates.RectangularBlockLineTemplate.ColumnBlockSize" path="/summary"/></param>
-        </member>
-        <member name="M:Sudoku.Graphics.BlockLineTemplates.RectangularBlockLineTemplate.#ctor(System.Int32,System.Int32)">
-            <summary>
-            Represents a default (rectangular) block line template.
-            </summary>
-            <param name="rowBlockSize"><inheritdoc cref="P:Sudoku.Graphics.BlockLineTemplates.RectangularBlockLineTemplate.RowBlockSize" path="/summary"/></param>
-            <param name="columnBlockSize"><inheritdoc cref="P:Sudoku.Graphics.BlockLineTemplates.RectangularBlockLineTemplate.ColumnBlockSize" path="/summary"/></param>
-        </member>
-        <member name="M:Sudoku.Graphics.BlockLineTemplates.RectangularBlockLineTemplate.#ctor(System.Int32)">
-            <summary>
-            Initializes a <see cref="T:Sudoku.Graphics.BlockLineTemplates.RectangularBlockLineTemplate"/> instance via the specified size as uniformed value.
-            </summary>
-            <param name="uniformSize">The uniformed value.</param>
-        </member>
-        <member name="P:Sudoku.Graphics.BlockLineTemplates.RectangularBlockLineTemplate.RowBlockSize">
-            <summary>
-            Indicates the number of rows in a rectangular block.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.BlockLineTemplates.RectangularBlockLineTemplate.ColumnBlockSize">
-            <summary>
-            Indicates the number of columns in a rectangular block.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Graphics.BlockLineTemplates.RectangularBlockLineTemplate.DrawLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
-            <inheritdoc/>
-        </member>
         <member name="T:Sudoku.Graphics.Canvas">
             <summary>
             Represents a canvas object that allows you drawing items onto it.
@@ -491,13 +420,13 @@
         </member>
         <member name="P:Sudoku.Graphics.CanvasDrawingOptions.GridLineTemplate">
             <summary>
-            Represents grid line template to be drawn. By default it will be initialized as a <see cref="T:Sudoku.Graphics.BlockLineTemplates.RectangularBlockLineTemplate"/>
+            Represents grid line template to be drawn. By default it will be initialized as a <see cref="T:Sudoku.Graphics.LineTemplates.StandardLineTemplate"/>
             like this:
             <code>
-            <c><see langword="new"/> <see cref="T:Sudoku.Graphics.BlockLineTemplates.RectangularBlockLineTemplate"/>(3)</c>
+            <c><see langword="new"/> <see cref="T:Sudoku.Graphics.LineTemplates.StandardLineTemplate"/>(3)</c>
             </code>
             </summary>
-            <seealso cref="T:Sudoku.Graphics.BlockLineTemplates.RectangularBlockLineTemplate"/>
+            <seealso cref="T:Sudoku.Graphics.LineTemplates.StandardLineTemplate"/>
         </member>
         <member name="P:Sudoku.Graphics.CanvasDrawingOptions.Sudoku#Graphics#IOptionsProvider{Sudoku#Graphics#CanvasDrawingOptions}#DefaultInstance">
             <inheritdoc/>
@@ -589,6 +518,78 @@
             <summary>
             Indicates the default options instance.
             </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.LineTemplate">
+            <summary>
+            Represents a line template type that draws block (thick) and normal (thin) lines
+            onto a canvas via the specified configuration.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.LineTemplate.DrawLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+            <summary>
+            Try to draw lines onto the target canvas.
+            </summary>
+            <param name="mapper">The mapper instance.</param>
+            <param name="canvas">The canvas object to receive drawn items.</param>
+            <param name="options">The options.</param>
+        </member>
+        <member name="T:Sudoku.Graphics.LineTemplates.IrregularLineTemplate">
+            <summary>
+            Represents irregular line template.
+            </summary>
+            <param name="cellIndexGroups">The cell index groups.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.LineTemplates.IrregularLineTemplate.#ctor(System.Int32[][])">
+            <summary>
+            Represents irregular line template.
+            </summary>
+            <param name="cellIndexGroups">The cell index groups.</param>
+        </member>
+        <member name="P:Sudoku.Graphics.LineTemplates.IrregularLineTemplate.CellIndexGroups">
+            <summary>
+            Indicates the cell index groups.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.LineTemplates.IrregularLineTemplate.IsCyclicRuleChecked">
+            <summary>
+            Indicates whether cyclic rule will be checked.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.LineTemplates.IrregularLineTemplate.DrawLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.LineTemplates.StandardLineTemplate">
+            <summary>
+            Represents a default (rectangular) line template.
+            </summary>
+            <param name="rowBlockSize"><inheritdoc cref="P:Sudoku.Graphics.LineTemplates.StandardLineTemplate.RowBlockSize" path="/summary"/></param>
+            <param name="columnBlockSize"><inheritdoc cref="P:Sudoku.Graphics.LineTemplates.StandardLineTemplate.ColumnBlockSize" path="/summary"/></param>
+        </member>
+        <member name="M:Sudoku.Graphics.LineTemplates.StandardLineTemplate.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Represents a default (rectangular) line template.
+            </summary>
+            <param name="rowBlockSize"><inheritdoc cref="P:Sudoku.Graphics.LineTemplates.StandardLineTemplate.RowBlockSize" path="/summary"/></param>
+            <param name="columnBlockSize"><inheritdoc cref="P:Sudoku.Graphics.LineTemplates.StandardLineTemplate.ColumnBlockSize" path="/summary"/></param>
+        </member>
+        <member name="M:Sudoku.Graphics.LineTemplates.StandardLineTemplate.#ctor(System.Int32)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Graphics.LineTemplates.StandardLineTemplate"/> instance via the specified size as uniformed value.
+            </summary>
+            <param name="uniformSize">The uniformed value.</param>
+        </member>
+        <member name="P:Sudoku.Graphics.LineTemplates.StandardLineTemplate.RowBlockSize">
+            <summary>
+            Indicates the number of rows in a rectangular block.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.LineTemplates.StandardLineTemplate.ColumnBlockSize">
+            <summary>
+            Indicates the number of columns in a rectangular block.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.LineTemplates.StandardLineTemplate.DrawLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.PointMapper">
             <summary>

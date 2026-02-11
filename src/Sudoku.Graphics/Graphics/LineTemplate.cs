@@ -1,12 +1,13 @@
 ﻿namespace Sudoku.Graphics;
 
 /// <summary>
-/// Represents a block line template type that draws lines onto a canvas via the specified configuration.
+/// Represents a line template type that draws block (thick) and normal (thin) lines
+/// onto a canvas via the specified configuration.
 /// </summary>
 [JsonPolymorphic(UnknownDerivedTypeHandling = JsonUnknownDerivedTypeHandling.FailSerialization)]
-[JsonDerivedType(typeof(RectangularBlockLineTemplate), nameof(RectangularBlockLineTemplate))]
-[JsonDerivedType(typeof(IrregularBlockLineTemplate), nameof(IrregularBlockLineTemplate))]
-public abstract class BlockLineTemplate
+[JsonDerivedType(typeof(StandardLineTemplate), nameof(StandardLineTemplate))]
+[JsonDerivedType(typeof(IrregularLineTemplate), nameof(IrregularLineTemplate))]
+public abstract class LineTemplate
 {
 	/// <summary>
 	/// Try to draw lines onto the target canvas.

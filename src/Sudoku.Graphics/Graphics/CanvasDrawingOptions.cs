@@ -45,14 +45,14 @@ public sealed class CanvasDrawingOptions : IOptionsProvider<CanvasDrawingOptions
 	public SerializableColor ThickLineColor { get; set; } = SKColors.Black;
 
 	/// <summary>
-	/// Represents grid line template to be drawn. By default it will be initialized as a <see cref="RectangularBlockLineTemplate"/>
+	/// Represents grid line template to be drawn. By default it will be initialized as a <see cref="StandardLineTemplate"/>
 	/// like this:
 	/// <code>
-	/// <c><see langword="new"/> <see cref="RectangularBlockLineTemplate"/>(3)</c>
+	/// <c><see langword="new"/> <see cref="StandardLineTemplate"/>(3)</c>
 	/// </code>
 	/// </summary>
-	/// <seealso cref="RectangularBlockLineTemplate"/>
-	public BlockLineTemplate GridLineTemplate { get; set; } = new RectangularBlockLineTemplate(3);
+	/// <seealso cref="StandardLineTemplate"/>
+	public LineTemplate GridLineTemplate { get; set; } = new StandardLineTemplate(3);
 
 
 	/// <inheritdoc/>

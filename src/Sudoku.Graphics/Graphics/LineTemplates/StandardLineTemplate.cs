@@ -1,17 +1,17 @@
-﻿namespace Sudoku.Graphics.BlockLineTemplates;
+﻿namespace Sudoku.Graphics.LineTemplates;
 
 /// <summary>
-/// Represents a default (rectangular) block line template.
+/// Represents a default (rectangular) line template.
 /// </summary>
 /// <param name="rowBlockSize"><inheritdoc cref="RowBlockSize" path="/summary"/></param>
 /// <param name="columnBlockSize"><inheritdoc cref="ColumnBlockSize" path="/summary"/></param>
-public sealed class RectangularBlockLineTemplate(int rowBlockSize, int columnBlockSize) : BlockLineTemplate
+public sealed class StandardLineTemplate(int rowBlockSize, int columnBlockSize) : LineTemplate
 {
 	/// <summary>
-	/// Initializes a <see cref="RectangularBlockLineTemplate"/> instance via the specified size as uniformed value.
+	/// Initializes a <see cref="StandardLineTemplate"/> instance via the specified size as uniformed value.
 	/// </summary>
 	/// <param name="uniformSize">The uniformed value.</param>
-	public RectangularBlockLineTemplate(int uniformSize) : this(uniformSize, uniformSize)
+	public StandardLineTemplate(int uniformSize) : this(uniformSize, uniformSize)
 	{
 	}
 

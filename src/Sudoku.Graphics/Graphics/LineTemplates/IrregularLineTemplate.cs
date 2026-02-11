@@ -1,10 +1,10 @@
-﻿namespace Sudoku.Graphics.BlockLineTemplates;
+﻿namespace Sudoku.Graphics.LineTemplates;
 
 /// <summary>
-/// Represents irregular block line template.
+/// Represents irregular line template.
 /// </summary>
 /// <param name="cellIndexGroups">The cell index groups.</param>
-public sealed class IrregularBlockLineTemplate(params int[][] cellIndexGroups) : BlockLineTemplate
+public sealed class IrregularLineTemplate(params int[][] cellIndexGroups) : LineTemplate
 {
 	/// <summary>
 	/// Indicates the cell index groups.
