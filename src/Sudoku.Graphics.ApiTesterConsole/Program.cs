@@ -23,18 +23,21 @@ using var canvas = new Canvas(
 	{
 		BackgroundColor = SKColors.White,
 		ThickLineColor = SKColors.Black,
-		GridLineTemplate = new StandardLineTemplate(3)
-		//GridLineTemplate = new IrregularLineTemplate(
-		//	[0, 1, 2, 9, 10, 11, 12, 21, 22],
-		//	[3, 4, 5, 6, 7, 13, 14, 15, 16],
-		//	[8, 17, 23, 24, 25, 26, 31, 32, 34],
-		//	[18, 19, 20, 27, 36, 45, 54, 55, 56],
-		//	[28, 29, 30, 37, 38, 39, 46, 47, 48],
-		//	[33, 35, 40, 41, 42, 43, 44, 51, 53],
-		//	[57, 58, 63, 64, 65, 66, 72, 73, 74],
-		//	[49, 50, 52, 59, 60, 61, 62, 71, 80],
-		//	[67, 68, 69, 70, 75, 76, 77, 78, 79]
-		//)
+		//GridLineTemplate = new StandardLineTemplate(3)
+		GridLineTemplate = new IrregularLineTemplate
+		{
+			CellIndexGroups = [
+				[0, 1, 2, 9, 10, 11, 12, 21, 22],
+				[3, 4, 5, 6, 7, 13, 14, 15, 16],
+				[8, 17, 23, 24, 25, 26, 31, 32, 34],
+				[18, 19, 20, 27, 36, 45, 54, 55, 56],
+				[28, 29, 30, 37, 38, 39, 46, 47, 48],
+				[33, 35, 40, 41, 42, 43, 44, 51, 53],
+				[57, 58, 63, 64, 65, 66, 72, 73, 74],
+				[49, 50, 52, 59, 60, 61, 62, 71, 80],
+				[67, 68, 69, 70, 75, 76, 77, 78, 79]
+			]
+		}
 	},
 	exportingOptions: new() { Quality = 100 }
 );

@@ -3,13 +3,12 @@
 /// <summary>
 /// Represents irregular line template.
 /// </summary>
-/// <param name="cellIndexGroups">The cell index groups.</param>
-public sealed class IrregularLineTemplate(params int[][] cellIndexGroups) : LineTemplate
+public sealed class IrregularLineTemplate : LineTemplate
 {
 	/// <summary>
-	/// Indicates the cell index groups.
+	/// Indicates the relative cell index groups.
 	/// </summary>
-	public int[][] CellIndexGroups { get; } = cellIndexGroups;
+	public required int[][] CellIndexGroups { get; init; }
 
 	/// <summary>
 	/// Indicates whether cyclic rule will be checked.

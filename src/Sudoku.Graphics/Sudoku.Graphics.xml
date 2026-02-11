@@ -537,17 +537,10 @@
             <summary>
             Represents irregular line template.
             </summary>
-            <param name="cellIndexGroups">The cell index groups.</param>
-        </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.IrregularLineTemplate.#ctor(System.Int32[][])">
-            <summary>
-            Represents irregular line template.
-            </summary>
-            <param name="cellIndexGroups">The cell index groups.</param>
         </member>
         <member name="P:Sudoku.Graphics.LineTemplates.IrregularLineTemplate.CellIndexGroups">
             <summary>
-            Indicates the cell index groups.
+            Indicates the relative cell index groups.
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.LineTemplates.IrregularLineTemplate.IsCyclicRuleChecked">
