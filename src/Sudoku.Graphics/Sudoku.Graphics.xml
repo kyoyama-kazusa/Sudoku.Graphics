@@ -493,7 +493,7 @@
             Represents grid line template to be drawn. By default it will be initialized as a <see cref="T:Sudoku.Graphics.BlockLineTemplates.RectangularBlockLineTemplate"/>
             like this:
             <code>
-            <c><see langword="new"/> <see cref="T:Sudoku.Graphics.BlockLineTemplates.RectangularBlockLineTemplate"/>(3, 3)</c>
+            <c><see langword="new"/> <see cref="T:Sudoku.Graphics.BlockLineTemplates.RectangularBlockLineTemplate"/>(3)</c>
             </code>
             </summary>
             <seealso cref="T:Sudoku.Graphics.BlockLineTemplates.RectangularBlockLineTemplate"/>

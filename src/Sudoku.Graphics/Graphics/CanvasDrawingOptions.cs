@@ -48,11 +48,11 @@ public sealed class CanvasDrawingOptions : IOptionsProvider<CanvasDrawingOptions
 	/// Represents grid line template to be drawn. By default it will be initialized as a <see cref="RectangularBlockLineTemplate"/>
 	/// like this:
 	/// <code>
-	/// <c><see langword="new"/> <see cref="RectangularBlockLineTemplate"/>(3, 3)</c>
+	/// <c><see langword="new"/> <see cref="RectangularBlockLineTemplate"/>(3)</c>
 	/// </code>
 	/// </summary>
 	/// <seealso cref="RectangularBlockLineTemplate"/>
-	public BlockLineTemplate GridLineTemplate { get; set; } = new RectangularBlockLineTemplate(3, 3);
+	public BlockLineTemplate GridLineTemplate { get; set; } = new RectangularBlockLineTemplate(3);
 
 
 	/// <inheritdoc/>
