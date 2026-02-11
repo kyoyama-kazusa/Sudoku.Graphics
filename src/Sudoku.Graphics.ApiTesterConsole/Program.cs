@@ -12,7 +12,7 @@ using SkiaSharp;
 using Sudoku.Graphics;
 using Sudoku.Graphics.BlockLineTemplates;
 
-var desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+var desktop = Environment.DesktopPath;
 using var canvas = new Canvas(
 	cellSize: 120,
 	margin: 10,
@@ -42,3 +42,18 @@ canvas.FillBackground();
 canvas.DrawLines();
 canvas.Export(Path.Combine(desktop, "output.png"));
 Console.WriteLine("Okay.");
+
+
+/// <summary>
+/// Provides main method as entry point of this program.
+/// </summary>
+file static partial class Program
+{
+	extension(Environment)
+	{
+		/// <summary>
+		/// Represents desktop path.
+		/// </summary>
+		public static string DesktopPath => Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+	}
+}

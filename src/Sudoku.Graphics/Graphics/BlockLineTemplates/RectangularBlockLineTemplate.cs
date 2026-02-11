@@ -42,11 +42,11 @@ public sealed class RectangularBlockLineTemplate(int rowBlockSize, int columnBlo
 			var path = new SKPath();
 			path.AddRoundRect(
 				new(
-					SKRectangle.Create(
+					SKRect.Create(
 						mapper.Margin + mapper.CellSize * mapper.Vector.Left,
 						mapper.Margin + mapper.CellSize * mapper.Vector.Up,
-						mapper.GridSizeRectangle.Width,
-						mapper.GridSizeRectangle.Height
+						mapper.GridSize.Width,
+						mapper.GridSize.Height
 					),
 					options.GridBorderRoundedRectangleCornerRadius.Measure(mapper.CellSize)
 				)

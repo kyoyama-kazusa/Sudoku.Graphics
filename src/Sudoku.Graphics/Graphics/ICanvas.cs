@@ -22,4 +22,9 @@ public interface ICanvas<out TDrawingOptions, out TExportingOptions> :
 	/// Indicates exporting options.
 	/// </summary>
 	TExportingOptions ExportingOptions { get; }
+
+	/// <summary>
+	/// Indicates backing canvas.
+	/// </summary>
+	protected internal SKCanvas BackingCanvas { get; }
 }

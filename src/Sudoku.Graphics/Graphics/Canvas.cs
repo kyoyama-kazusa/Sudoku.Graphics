@@ -15,8 +15,7 @@ public sealed class Canvas(
 	/// <summary>
 	/// Indicates the backing surface.
 	/// </summary>
-	private readonly SKSurface _surface =
-		SKSurface.Create(new SKImageInfo(mapper.FullSizeRectangleInteger.Width, mapper.FullSizeRectangleInteger.Height));
+	private readonly SKSurface _surface = SKSurface.Create(SKImageInfo.Create(mapper.FullCanvasSize));
 
 	/// <summary>
 	/// Indicates whether the object has already been disposed.
@@ -73,9 +72,10 @@ public sealed class Canvas(
 	/// <inheritdoc/>
 	public CanvasExportingOptions ExportingOptions { get; } = exportingOptions ?? CanvasExportingOptions.Default;
 
-	/// <summary>
-	/// Indicates the backing canvas.
-	/// </summary>
+	/// <inheritdoc/>
+	SKCanvas ICanvas<CanvasDrawingOptions, CanvasExportingOptions>.BackingCanvas => BackingCanvas;
+
+	/// <inheritdoc cref="ICanvas{TDrawingOptions, TExportingOptions}.BackingCanvas"/>
 	private SKCanvas BackingCanvas => _surface.Canvas;
 
 

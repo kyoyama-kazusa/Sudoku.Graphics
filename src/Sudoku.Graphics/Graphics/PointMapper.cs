@@ -49,20 +49,15 @@ public sealed class PointMapper(float cellSize, float margin, int rowsCount, int
 	public required DirectionVector Vector { get; init; } = vector;
 
 	/// <summary>
-	/// Indicates grid size <see cref="SKRectangle"/> instance.
+	/// Indicates grid size <see cref="SKSize"/> instance.
 	/// </summary>
-	public SKRectangle GridSizeRectangle => SKRectangle.Create(CellSize * ColumnsCount, CellSize * RowsCount);
+	public SKSize GridSize => new(CellSize * ColumnsCount, CellSize * RowsCount);
 
 	/// <summary>
-	/// Indicates full canvas size <see cref="SKRectangle"/> instance.
+	/// Indicates full canvas size <see cref="SKSize"/> instance, in integer format.
 	/// </summary>
-	public SKRectangle FullSizeRectangle
-		=> SKRectangle.Create(CellSize * AbsoluteColumnsCount + 2 * Margin, CellSize * AbsoluteRowsCount + 2 * Margin);
-
-	/// <summary>
-	/// Indicates full canvas size <see cref="SKRectangle"/> instance, in integer format.
-	/// </summary>
-	public SKRectangleInteger FullSizeRectangleInteger => SKRectangleInteger.Floor(FullSizeRectangle);
+	public SKSizeI FullCanvasSize
+		=> new((int)(CellSize * AbsoluteColumnsCount + 2 * Margin), (int)(CellSize * AbsoluteRowsCount + 2 * Margin));
 
 
 	/// <summary>

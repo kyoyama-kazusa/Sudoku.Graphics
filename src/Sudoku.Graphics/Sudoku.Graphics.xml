@@ -417,10 +417,11 @@
         <member name="P:Sudoku.Graphics.Canvas.ExportingOptions">
             <inheritdoc/>
         </member>
+        <member name="P:Sudoku.Graphics.Canvas.Sudoku#Graphics#ICanvas{Sudoku#Graphics#CanvasDrawingOptions,Sudoku#Graphics#CanvasExportingOptions}#BackingCanvas">
+            <inheritdoc/>
+        </member>
         <member name="P:Sudoku.Graphics.Canvas.BackingCanvas">
-            <summary>
-            Indicates the backing canvas.
-            </summary>
+            <inheritdoc cref="P:Sudoku.Graphics.ICanvas`2.BackingCanvas"/>
         </member>
         <member name="M:Sudoku.Graphics.Canvas.FillBackground">
             <inheritdoc/>
@@ -536,6 +537,11 @@
             Indicates exporting options.
             </summary>
         </member>
+        <member name="P:Sudoku.Graphics.ICanvas`2.BackingCanvas">
+            <summary>
+            Indicates backing canvas.
+            </summary>
+        </member>
         <member name="T:Sudoku.Graphics.ICanvasDrawLines">
             <summary>
             Represents a canvas object that supports line-drawing methods.
@@ -641,19 +647,14 @@
             Indicates empty cells count reserved to be empty.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.PointMapper.GridSizeRectangle">
+        <member name="P:Sudoku.Graphics.PointMapper.GridSize">
             <summary>
-            Indicates grid size <see cref="T:SkiaSharp.SKRect"/> instance.
+            Indicates grid size <see cref="T:SkiaSharp.SKSize"/> instance.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.PointMapper.FullSizeRectangle">
+        <member name="P:Sudoku.Graphics.PointMapper.FullCanvasSize">
             <summary>
-            Indicates full canvas size <see cref="T:SkiaSharp.SKRect"/> instance.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.PointMapper.FullSizeRectangleInteger">
-            <summary>
-            Indicates full canvas size <see cref="T:SkiaSharp.SKRect"/> instance, in integer format.
+            Indicates full canvas size <see cref="T:SkiaSharp.SKSize"/> instance, in integer format.
             </summary>
         </member>
         <member name="M:Sudoku.Graphics.PointMapper.ToAbsoluteIndex(System.Int32)">
@@ -809,6 +810,22 @@
             </summary>
             <param name="expression">The expression.</param>
             <param name="expressionString">The expression string.</param>
+        </member>
+        <member name="T:SkiaSharp.SKImageInfoExtensions">
+            <summary>
+            Provides extension members on type <see cref="T:SkiaSharp.SKImageInfo"/>.
+            </summary>
+            <seealso cref="T:SkiaSharp.SKImageInfo"/>
+        </member>
+        <member name="M:SkiaSharp.SKImageInfoExtensions.Create(SkiaSharp.SKSizeI)">
+            <inheritdoc cref="M:SkiaSharp.SKImageInfoExtensions.&lt;G&gt;$8B3168461E3C367922D9AE6ABABEEBB4.Create(SkiaSharp.SKSizeI)"/>
+        </member>
+        <member name="M:SkiaSharp.SKImageInfoExtensions.&lt;G&gt;$8B3168461E3C367922D9AE6ABABEEBB4.Create(SkiaSharp.SKSizeI)">
+            <summary>
+            Creates a <see cref="T:SkiaSharp.SKImageInfo"/> instance via the specified <see cref="T:SkiaSharp.SKSizeI"/> value.
+            </summary>
+            <param name="size">The <see cref="T:SkiaSharp.SKSizeI"/> instance.</param>
+            <returns>An <see cref="T:SkiaSharp.SKImageInfo"/> instance created.</returns>
         </member>
     </members>
 </doc>
