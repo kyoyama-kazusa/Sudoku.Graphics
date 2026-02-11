@@ -8,3 +8,5 @@ global using System.Runtime.CompilerServices;
 global using System.Text.Json;
 global using System.Text.Json.Serialization;
 global using SkiaSharp;
+global using Sudoku.Concepts;
+global using Sudoku.Graphics.BlockLineTemplates;

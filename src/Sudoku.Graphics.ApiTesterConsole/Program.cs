@@ -9,7 +9,9 @@
 using System;
 using System.IO;
 using SkiaSharp;
+using Sudoku.Concepts;
 using Sudoku.Graphics;
+using Sudoku.Graphics.BlockLineTemplates;
 
 var desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 using var canvas = new Canvas(

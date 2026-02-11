@@ -4,22 +4,283 @@
         <name>Sudoku.Graphics</name>
     </assembly>
     <members>
-        <member name="T:System.ExceptionExtensions">
+        <member name="T:Sudoku.Concepts.CellCornerType">
             <summary>
-            Provides extension members on <see cref="T:System.Exception"/>.
+            Represents a point corner type.
             </summary>
-            <seealso cref="T:System.Exception"/>
         </member>
-        <member name="M:System.ExceptionExtensions.Assert``1(System.Boolean,System.String)">
-            <inheritdoc cref="M:System.ExceptionExtensions.&lt;G&gt;$A9422F7DB89A57DD264BF6B8B5E1AB6D`1.Assert(System.Boolean,System.String)"/>
-        </member>
-        <member name="M:System.ExceptionExtensions.&lt;G&gt;$A9422F7DB89A57DD264BF6B8B5E1AB6D`1.Assert(System.Boolean,System.String)">
+        <member name="F:Sudoku.Concepts.CellCornerType.None">
             <summary>
-            Asserts the condition. If failed, an exception of type <typeparamref name="TException"/> will be thrown,
-            with the specified message shown.
+            Indicates the placeholder of this type.
             </summary>
-            <param name="expression">The expression.</param>
-            <param name="expressionString">The expression string.</param>
+        </member>
+        <member name="F:Sudoku.Concepts.CellCornerType.Center">
+            <summary>
+            Indicates center point of the cell.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Concepts.CellCornerType.TopLeft">
+            <summary>
+            Indicates top-left point of the cell.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Concepts.CellCornerType.TopRight">
+            <summary>
+            Indicates top-right point of the cell.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Concepts.CellCornerType.BottomLeft">
+            <summary>
+            Indicates bottom-left point of the cell.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Concepts.CellCornerType.BottomRight">
+            <summary>
+            Indicates bottom-right point of the cell.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Concepts.Direction">
+            <summary>
+            Represents a direction.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Concepts.Direction.None">
+            <summary>
+            Indicates the placeholder of this type.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Concepts.Direction.Up">
+            <summary>
+            Indicates up direction.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Concepts.Direction.Down">
+            <summary>
+            Indicates down direction.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Concepts.Direction.Left">
+            <summary>
+            Indicates left direction.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Concepts.Direction.Right">
+            <summary>
+            Indicates right direction.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Concepts.DirectionExtensions">
+            <summary>
+            Provides extension members on <see cref="T:Sudoku.Concepts.Direction"/>.
+            </summary>
+            <seealso cref="T:Sudoku.Concepts.Direction"/>
+        </member>
+        <member name="M:Sudoku.Concepts.DirectionExtensions.get_AllDirections">
+            <inheritdoc cref="P:Sudoku.Concepts.DirectionExtensions.&lt;G&gt;$749104D4456FB0D99EF3E29FEBD7D504.AllDirections"/>
+        </member>
+        <member name="P:Sudoku.Concepts.DirectionExtensions.&lt;G&gt;$749104D4456FB0D99EF3E29FEBD7D504.AllDirections">
+            <summary>
+            Indicates all directions.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Concepts.DirectionVector">
+            <summary>
+            Represents an encapsulated type of a quadruple of <see cref="T:System.Int32"/> values, indicating direction offsets.
+            </summary>
+            <param name="Up">Indicates upside offsets.</param>
+            <param name="Down">Indicates downside offsets.</param>
+            <param name="Left">Indicates leftside offsets.</param>
+            <param name="Right">Indicates rightside offsets.</param>
+        </member>
+        <member name="M:Sudoku.Concepts.DirectionVector.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Represents an encapsulated type of a quadruple of <see cref="T:System.Int32"/> values, indicating direction offsets.
+            </summary>
+            <param name="Up">Indicates upside offsets.</param>
+            <param name="Down">Indicates downside offsets.</param>
+            <param name="Left">Indicates leftside offsets.</param>
+            <param name="Right">Indicates rightside offsets.</param>
+        </member>
+        <member name="P:Sudoku.Concepts.DirectionVector.Up">
+            <summary>Indicates upside offsets.</summary>
+        </member>
+        <member name="P:Sudoku.Concepts.DirectionVector.Down">
+            <summary>Indicates downside offsets.</summary>
+        </member>
+        <member name="P:Sudoku.Concepts.DirectionVector.Left">
+            <summary>Indicates leftside offsets.</summary>
+        </member>
+        <member name="P:Sudoku.Concepts.DirectionVector.Right">
+            <summary>Indicates rightside offsets.</summary>
+        </member>
+        <member name="F:Sudoku.Concepts.DirectionVector.Zero">
+            <summary>
+            Indicates the instance whose members are initialized zero.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Concepts.DirectionVector.#ctor(System.Int32)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Concepts.DirectionVector"/> instance via the uniform value.
+            </summary>
+            <param name="uniform">The uniform value.</param>
+        </member>
+        <member name="M:Sudoku.Concepts.DirectionVector.GetValue(Sudoku.Concepts.Direction)">
+            <summary>
+            Returns the value at the specified direction.
+            </summary>
+            <param name="direction">The direction.</param>
+            <returns>Result value.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Throws when <paramref name="direction"/> is not defined or <see cref="F:Sudoku.Concepts.Direction.None"/>.
+            </exception>
+            <seealso cref="F:Sudoku.Concepts.Direction.None"/>
+        </member>
+        <member name="M:Sudoku.Concepts.DirectionVector.Equals(Sudoku.Concepts.DirectionVector@)">
+            <inheritdoc cref="M:System.IEquatable`1.Equals(`0)"/>
+        </member>
+        <member name="M:Sudoku.Concepts.DirectionVector.GetHashCode">
+            <inheritdoc cref="M:System.Object.GetHashCode"/>
+        </member>
+        <member name="M:Sudoku.Concepts.DirectionVector.op_Addition(Sudoku.Concepts.DirectionVector@,Sudoku.Concepts.DirectionVector@)">
+            <inheritdoc cref="M:System.Numerics.IAdditionOperators`3.op_Addition(`0,`1)"/>
+        </member>
+        <member name="M:Sudoku.Concepts.DirectionVector.op_CheckedAddition(Sudoku.Concepts.DirectionVector@,Sudoku.Concepts.DirectionVector@)">
+            <inheritdoc cref="M:System.Numerics.IAdditionOperators`3.op_CheckedAddition(`0,`1)"/>
+        </member>
+        <member name="M:Sudoku.Concepts.DirectionVector.op_Subtraction(Sudoku.Concepts.DirectionVector@,Sudoku.Concepts.DirectionVector@)">
+            <inheritdoc cref="M:System.Numerics.ISubtractionOperators`3.op_Subtraction(`0,`1)"/>
+        </member>
+        <member name="M:Sudoku.Concepts.DirectionVector.op_CheckedSubtraction(Sudoku.Concepts.DirectionVector@,Sudoku.Concepts.DirectionVector@)">
+            <inheritdoc cref="M:System.Numerics.ISubtractionOperators`3.op_CheckedSubtraction(`0,`1)"/>
+        </member>
+        <member name="M:Sudoku.Concepts.DirectionVector.System#Numerics#IAdditionOperators{Sudoku#Concepts#DirectionVector,Sudoku#Concepts#DirectionVector,Sudoku#Concepts#DirectionVector}#op_Addition(Sudoku.Concepts.DirectionVector,Sudoku.Concepts.DirectionVector)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Concepts.DirectionVector.System#Numerics#IAdditionOperators{Sudoku#Concepts#DirectionVector,Sudoku#Concepts#DirectionVector,Sudoku#Concepts#DirectionVector}#op_CheckedAddition(Sudoku.Concepts.DirectionVector,Sudoku.Concepts.DirectionVector)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Concepts.DirectionVector.System#Numerics#ISubtractionOperators{Sudoku#Concepts#DirectionVector,Sudoku#Concepts#DirectionVector,Sudoku#Concepts#DirectionVector}#op_Subtraction(Sudoku.Concepts.DirectionVector,Sudoku.Concepts.DirectionVector)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Concepts.DirectionVector.System#Numerics#ISubtractionOperators{Sudoku#Concepts#DirectionVector,Sudoku#Concepts#DirectionVector,Sudoku#Concepts#DirectionVector}#op_CheckedSubtraction(Sudoku.Concepts.DirectionVector,Sudoku.Concepts.DirectionVector)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Concepts.Converter">
+            <summary>
+            Represents a JSON converter object that converts <see cref="T:Sudoku.Concepts.DirectionVector"/> instances.
+            </summary>
+            <seealso cref="T:Sudoku.Concepts.DirectionVector"/>
+        </member>
+        <member name="M:Sudoku.Concepts.Converter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Concepts.Converter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.Concepts.DirectionVector,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Concepts.Scale">
+            <summary>
+            Represents a relative-size value (scaling)
+            that supports both <see cref="T:System.Single"/> and <see cref="T:System.Decimal"/> literal initialization.
+            </summary>
+            <param name="value">The fact value of a <see cref="T:System.Single"/>.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Throws when the argument <paramref name="value"/> is greater than 1 or less than 0.
+            </exception>
+        </member>
+        <member name="M:Sudoku.Concepts.Scale.#ctor(System.Decimal)">
+            <summary>
+            Represents a relative-size value (scaling)
+            that supports both <see cref="T:System.Single"/> and <see cref="T:System.Decimal"/> literal initialization.
+            </summary>
+            <param name="value">The fact value of a <see cref="T:System.Single"/>.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Throws when the argument <paramref name="value"/> is greater than 1 or less than 0.
+            </exception>
+        </member>
+        <member name="P:Sudoku.Concepts.Scale.Value">
+            <summary>
+            Indicates the value.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Concepts.Scale.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Concepts.Scale.Equals(Sudoku.Concepts.Scale)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Concepts.Scale.Measure(System.Single)">
+            <summary>
+            Measure the fact value
+            (i.e. performs the formula <c><paramref name="value"/> * <see langword="this"/>.RatioValue</c>).
+            </summary>
+            <param name="value">The original value.</param>
+            <returns>The target value measured.</returns>
+        </member>
+        <member name="M:Sudoku.Concepts.Scale.CompareTo(Sudoku.Concepts.Scale)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Concepts.Scale.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Concepts.Scale.ToString">
+            <inheritdoc cref="M:System.Object.ToString"/>
+        </member>
+        <member name="M:Sudoku.Concepts.Scale.ToString(System.String)">
+            <inheritdoc cref="M:System.Double.ToString(System.String)"/>
+        </member>
+        <member name="M:Sudoku.Concepts.Scale.op_Equality(Sudoku.Concepts.Scale,Sudoku.Concepts.Scale)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Concepts.Scale.op_Inequality(Sudoku.Concepts.Scale,Sudoku.Concepts.Scale)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Concepts.Scale.op_GreaterThan(Sudoku.Concepts.Scale,Sudoku.Concepts.Scale)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Concepts.Scale.op_GreaterThanOrEqual(Sudoku.Concepts.Scale,Sudoku.Concepts.Scale)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Concepts.Scale.op_LessThan(Sudoku.Concepts.Scale,Sudoku.Concepts.Scale)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Concepts.Scale.op_LessThanOrEqual(Sudoku.Concepts.Scale,Sudoku.Concepts.Scale)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Concepts.Scale.op_Implicit(System.Single)~Sudoku.Concepts.Scale">
+            <summary>
+            Implicit cast from <see cref="T:System.Single"/> into <see cref="T:Sudoku.Concepts.Scale"/> value.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Sudoku.Concepts.Scale.op_Implicit(System.Decimal)~Sudoku.Concepts.Scale">
+            <summary>
+            Implicit cast from <see cref="T:System.Decimal"/> into <see cref="T:Sudoku.Concepts.Scale"/> value.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Sudoku.Concepts.Scale.op_Explicit(Sudoku.Concepts.Scale)~System.Single">
+            <summary>
+            Explicit cast from <see cref="T:Sudoku.Concepts.Scale"/> into <see cref="T:System.Single"/> value.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Sudoku.Concepts.Scale.op_Explicit(Sudoku.Concepts.Scale)~System.Decimal">
+            <summary>
+            Explicit cast from <see cref="T:Sudoku.Concepts.Scale"/> into <see cref="T:System.Decimal"/> value.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="T:Sudoku.Concepts.Converter">
+            <summary>
+            Represents a JSON converter for <see cref="T:Sudoku.Concepts.Scale"/> instances.
+            </summary>
+            <seealso cref="T:Sudoku.Concepts.Scale"/>
+        </member>
+        <member name="M:Sudoku.Concepts.Converter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Concepts.Converter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.Concepts.Scale,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.BlockLineTemplate">
             <summary>
@@ -33,6 +294,64 @@
             <param name="mapper">The mapper instance.</param>
             <param name="canvas">The canvas object to receive drawn items.</param>
             <param name="options">The options.</param>
+        </member>
+        <member name="T:Sudoku.Graphics.BlockLineTemplates.IrregularBlockLineTemplate">
+            <summary>
+            Represents irregular block line template.
+            </summary>
+            <param name="cellIndexGroups">The cell index groups.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.BlockLineTemplates.IrregularBlockLineTemplate.#ctor(System.Int32[][])">
+            <summary>
+            Represents irregular block line template.
+            </summary>
+            <param name="cellIndexGroups">The cell index groups.</param>
+        </member>
+        <member name="F:Sudoku.Graphics.BlockLineTemplates.IrregularBlockLineTemplate._cellIndexGroups">
+            <summary>
+            Indicates the cell index groups.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.BlockLineTemplates.IrregularBlockLineTemplate.IsCyclicRuleChecked">
+            <summary>
+            Indicates whether cyclic rule will be checked.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.BlockLineTemplates.IrregularBlockLineTemplate.DrawLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.BlockLineTemplates.RectangularBlockLineTemplate">
+            <summary>
+            Represents a default (rectangular) block line template.
+            </summary>
+            <param name="rowBlockSize"><inheritdoc cref="P:Sudoku.Graphics.BlockLineTemplates.RectangularBlockLineTemplate.RowBlockSize" path="/summary"/></param>
+            <param name="columnBlockSize"><inheritdoc cref="P:Sudoku.Graphics.BlockLineTemplates.RectangularBlockLineTemplate.ColumnBlockSize" path="/summary"/></param>
+        </member>
+        <member name="M:Sudoku.Graphics.BlockLineTemplates.RectangularBlockLineTemplate.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Represents a default (rectangular) block line template.
+            </summary>
+            <param name="rowBlockSize"><inheritdoc cref="P:Sudoku.Graphics.BlockLineTemplates.RectangularBlockLineTemplate.RowBlockSize" path="/summary"/></param>
+            <param name="columnBlockSize"><inheritdoc cref="P:Sudoku.Graphics.BlockLineTemplates.RectangularBlockLineTemplate.ColumnBlockSize" path="/summary"/></param>
+        </member>
+        <member name="M:Sudoku.Graphics.BlockLineTemplates.RectangularBlockLineTemplate.#ctor(System.Int32)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Graphics.BlockLineTemplates.RectangularBlockLineTemplate"/> instance via the specified size as uniformed value.
+            </summary>
+            <param name="uniformSize">The uniformed value.</param>
+        </member>
+        <member name="P:Sudoku.Graphics.BlockLineTemplates.RectangularBlockLineTemplate.RowBlockSize">
+            <summary>
+            Indicates the number of rows in a rectangular block.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.BlockLineTemplates.RectangularBlockLineTemplate.ColumnBlockSize">
+            <summary>
+            Indicates the number of columns in a rectangular block.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.BlockLineTemplates.RectangularBlockLineTemplate.DrawLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.Canvas">
             <summary>
@@ -60,7 +379,7 @@
             Indicates whether the object has already been disposed.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.Canvas.#ctor(System.Single,System.Single,System.Int32,System.Int32,Sudoku.Graphics.DirectionVector,Sudoku.Graphics.CanvasDrawingOptions,Sudoku.Graphics.CanvasExportingOptions)">
+        <member name="M:Sudoku.Graphics.Canvas.#ctor(System.Single,System.Single,System.Int32,System.Int32,Sudoku.Concepts.DirectionVector,Sudoku.Graphics.CanvasDrawingOptions,Sudoku.Graphics.CanvasExportingOptions)">
             <summary>
             Initializes a <see cref="T:Sudoku.Graphics.Canvas"/> object via the specified information.
             </summary>
@@ -171,13 +490,13 @@
         </member>
         <member name="P:Sudoku.Graphics.CanvasDrawingOptions.GridLineTemplate">
             <summary>
-            Represents grid line template to be drawn. By default it will be initialized as a <see cref="T:Sudoku.Graphics.RectangularBlockLineTemplate"/>
+            Represents grid line template to be drawn. By default it will be initialized as a <see cref="T:Sudoku.Graphics.BlockLineTemplates.RectangularBlockLineTemplate"/>
             like this:
             <code>
-            <c><see langword="new"/> <see cref="T:Sudoku.Graphics.RectangularBlockLineTemplate"/>(3, 3)</c>
+            <c><see langword="new"/> <see cref="T:Sudoku.Graphics.BlockLineTemplates.RectangularBlockLineTemplate"/>(3, 3)</c>
             </code>
             </summary>
-            <seealso cref="T:Sudoku.Graphics.RectangularBlockLineTemplate"/>
+            <seealso cref="T:Sudoku.Graphics.BlockLineTemplates.RectangularBlockLineTemplate"/>
         </member>
         <member name="P:Sudoku.Graphics.CanvasDrawingOptions.Sudoku#Graphics#IOptionsProvider{Sudoku#Graphics#CanvasDrawingOptions}#DefaultInstance">
             <inheritdoc/>
@@ -198,179 +517,6 @@
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.CanvasExportingOptions.Sudoku#Graphics#IOptionsProvider{Sudoku#Graphics#CanvasExportingOptions}#DefaultInstance">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Graphics.CellCornerType">
-            <summary>
-            Represents a point corner type.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Graphics.CellCornerType.None">
-            <summary>
-            Indicates the placeholder of this type.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Graphics.CellCornerType.Center">
-            <summary>
-            Indicates center point of the cell.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Graphics.CellCornerType.TopLeft">
-            <summary>
-            Indicates top-left point of the cell.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Graphics.CellCornerType.TopRight">
-            <summary>
-            Indicates top-right point of the cell.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Graphics.CellCornerType.BottomLeft">
-            <summary>
-            Indicates bottom-left point of the cell.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Graphics.CellCornerType.BottomRight">
-            <summary>
-            Indicates bottom-right point of the cell.
-            </summary>
-        </member>
-        <member name="T:Sudoku.Graphics.Direction">
-            <summary>
-            Represents a direction.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Graphics.Direction.None">
-            <summary>
-            Indicates the placeholder of this type.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Graphics.Direction.Up">
-            <summary>
-            Indicates up direction.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Graphics.Direction.Down">
-            <summary>
-            Indicates down direction.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Graphics.Direction.Left">
-            <summary>
-            Indicates left direction.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Graphics.Direction.Right">
-            <summary>
-            Indicates right direction.
-            </summary>
-        </member>
-        <member name="T:Sudoku.Graphics.DirectionExtensions">
-            <summary>
-            Provides extension members on <see cref="T:Sudoku.Graphics.Direction"/>.
-            </summary>
-            <seealso cref="T:Sudoku.Graphics.Direction"/>
-        </member>
-        <member name="M:Sudoku.Graphics.DirectionExtensions.get_AllDirections">
-            <inheritdoc cref="P:Sudoku.Graphics.DirectionExtensions.&lt;G&gt;$5F9DCE4FD9A940FA4EC51CA91DA0BBC1.AllDirections"/>
-        </member>
-        <member name="P:Sudoku.Graphics.DirectionExtensions.&lt;G&gt;$5F9DCE4FD9A940FA4EC51CA91DA0BBC1.AllDirections">
-            <summary>
-            Indicates all directions.
-            </summary>
-        </member>
-        <member name="T:Sudoku.Graphics.DirectionVector">
-            <summary>
-            Represents an encapsulated type of a quadruple of <see cref="T:System.Int32"/> values, indicating direction offsets.
-            </summary>
-            <param name="Up">Indicates upside offsets.</param>
-            <param name="Down">Indicates downside offsets.</param>
-            <param name="Left">Indicates leftside offsets.</param>
-            <param name="Right">Indicates rightside offsets.</param>
-        </member>
-        <member name="M:Sudoku.Graphics.DirectionVector.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
-            <summary>
-            Represents an encapsulated type of a quadruple of <see cref="T:System.Int32"/> values, indicating direction offsets.
-            </summary>
-            <param name="Up">Indicates upside offsets.</param>
-            <param name="Down">Indicates downside offsets.</param>
-            <param name="Left">Indicates leftside offsets.</param>
-            <param name="Right">Indicates rightside offsets.</param>
-        </member>
-        <member name="P:Sudoku.Graphics.DirectionVector.Up">
-            <summary>Indicates upside offsets.</summary>
-        </member>
-        <member name="P:Sudoku.Graphics.DirectionVector.Down">
-            <summary>Indicates downside offsets.</summary>
-        </member>
-        <member name="P:Sudoku.Graphics.DirectionVector.Left">
-            <summary>Indicates leftside offsets.</summary>
-        </member>
-        <member name="P:Sudoku.Graphics.DirectionVector.Right">
-            <summary>Indicates rightside offsets.</summary>
-        </member>
-        <member name="F:Sudoku.Graphics.DirectionVector.Zero">
-            <summary>
-            Indicates the instance whose members are initialized zero.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Graphics.DirectionVector.#ctor(System.Int32)">
-            <summary>
-            Initializes a <see cref="T:Sudoku.Graphics.DirectionVector"/> instance via the uniform value.
-            </summary>
-            <param name="uniform">The uniform value.</param>
-        </member>
-        <member name="M:Sudoku.Graphics.DirectionVector.GetValue(Sudoku.Graphics.Direction)">
-            <summary>
-            Returns the value at the specified direction.
-            </summary>
-            <param name="direction">The direction.</param>
-            <returns>Result value.</returns>
-            <exception cref="T:System.ArgumentOutOfRangeException">
-            Throws when <paramref name="direction"/> is not defined or <see cref="F:Sudoku.Graphics.Direction.None"/>.
-            </exception>
-            <seealso cref="F:Sudoku.Graphics.Direction.None"/>
-        </member>
-        <member name="M:Sudoku.Graphics.DirectionVector.Equals(Sudoku.Graphics.DirectionVector@)">
-            <inheritdoc cref="M:System.IEquatable`1.Equals(`0)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.DirectionVector.GetHashCode">
-            <inheritdoc cref="M:System.Object.GetHashCode"/>
-        </member>
-        <member name="M:Sudoku.Graphics.DirectionVector.op_Addition(Sudoku.Graphics.DirectionVector@,Sudoku.Graphics.DirectionVector@)">
-            <inheritdoc cref="M:System.Numerics.IAdditionOperators`3.op_Addition(`0,`1)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.DirectionVector.op_CheckedAddition(Sudoku.Graphics.DirectionVector@,Sudoku.Graphics.DirectionVector@)">
-            <inheritdoc cref="M:System.Numerics.IAdditionOperators`3.op_CheckedAddition(`0,`1)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.DirectionVector.op_Subtraction(Sudoku.Graphics.DirectionVector@,Sudoku.Graphics.DirectionVector@)">
-            <inheritdoc cref="M:System.Numerics.ISubtractionOperators`3.op_Subtraction(`0,`1)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.DirectionVector.op_CheckedSubtraction(Sudoku.Graphics.DirectionVector@,Sudoku.Graphics.DirectionVector@)">
-            <inheritdoc cref="M:System.Numerics.ISubtractionOperators`3.op_CheckedSubtraction(`0,`1)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.DirectionVector.System#Numerics#IAdditionOperators{Sudoku#Graphics#DirectionVector,Sudoku#Graphics#DirectionVector,Sudoku#Graphics#DirectionVector}#op_Addition(Sudoku.Graphics.DirectionVector,Sudoku.Graphics.DirectionVector)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.DirectionVector.System#Numerics#IAdditionOperators{Sudoku#Graphics#DirectionVector,Sudoku#Graphics#DirectionVector,Sudoku#Graphics#DirectionVector}#op_CheckedAddition(Sudoku.Graphics.DirectionVector,Sudoku.Graphics.DirectionVector)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.DirectionVector.System#Numerics#ISubtractionOperators{Sudoku#Graphics#DirectionVector,Sudoku#Graphics#DirectionVector,Sudoku#Graphics#DirectionVector}#op_Subtraction(Sudoku.Graphics.DirectionVector,Sudoku.Graphics.DirectionVector)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.DirectionVector.System#Numerics#ISubtractionOperators{Sudoku#Graphics#DirectionVector,Sudoku#Graphics#DirectionVector,Sudoku#Graphics#DirectionVector}#op_CheckedSubtraction(Sudoku.Graphics.DirectionVector,Sudoku.Graphics.DirectionVector)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Graphics.Converter">
-            <summary>
-            Represents a JSON converter object that converts <see cref="T:Sudoku.Graphics.DirectionVector"/> instances.
-            </summary>
-            <seealso cref="T:Sudoku.Graphics.DirectionVector"/>
-        </member>
-        <member name="M:Sudoku.Graphics.Converter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Converter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.Graphics.DirectionVector,System.Text.Json.JsonSerializerOptions)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.ICanvas`2">
@@ -438,31 +584,6 @@
             Indicates the default options instance.
             </summary>
         </member>
-        <member name="T:Sudoku.Graphics.IrregularBlockLineTemplate">
-            <summary>
-            Represents irregular block line template.
-            </summary>
-            <param name="cellIndexGroups">The cell index groups.</param>
-        </member>
-        <member name="M:Sudoku.Graphics.IrregularBlockLineTemplate.#ctor(System.Int32[][])">
-            <summary>
-            Represents irregular block line template.
-            </summary>
-            <param name="cellIndexGroups">The cell index groups.</param>
-        </member>
-        <member name="F:Sudoku.Graphics.IrregularBlockLineTemplate._cellIndexGroups">
-            <summary>
-            Indicates the cell index groups.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.IrregularBlockLineTemplate.IsCyclicRuleChecked">
-            <summary>
-            Indicates whether cyclic rule will be checked.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Graphics.IrregularBlockLineTemplate.DrawLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
-            <inheritdoc/>
-        </member>
         <member name="T:Sudoku.Graphics.PointMapper">
             <summary>
             Represents a point mapper instance.
@@ -473,7 +594,7 @@
             <param name="columnsCount"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.ColumnsCount" path="/summary"/></param>
             <param name="vector"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.Vector" path="/summary"/></param>
         </member>
-        <member name="M:Sudoku.Graphics.PointMapper.#ctor(System.Single,System.Single,System.Int32,System.Int32,Sudoku.Graphics.DirectionVector)">
+        <member name="M:Sudoku.Graphics.PointMapper.#ctor(System.Single,System.Single,System.Int32,System.Int32,Sudoku.Concepts.DirectionVector)">
             <summary>
             Represents a point mapper instance.
             </summary>
@@ -549,7 +670,7 @@
             <param name="absoluteCellIndex">Absolute cell index.</param>
             <returns>The result index.</returns>
         </member>
-        <member name="M:Sudoku.Graphics.PointMapper.GetAdjacentAbsoluteCellWith(System.Int32,Sudoku.Graphics.Direction,System.Boolean)">
+        <member name="M:Sudoku.Graphics.PointMapper.GetAdjacentAbsoluteCellWith(System.Int32,Sudoku.Concepts.Direction,System.Boolean)">
             <summary>
             Gets the adjacent cell at the specified direction of the specified absolute cell index.
             </summary>
@@ -558,7 +679,7 @@
             <param name="isCyclic">Indicates whether the cell overflown in the relative grid will be included to be checked or not.</param>
             <returns>Target cell absolute index.</returns>
         </member>
-        <member name="M:Sudoku.Graphics.PointMapper.GetPoint(System.Int32,Sudoku.Graphics.CellCornerType)">
+        <member name="M:Sudoku.Graphics.PointMapper.GetPoint(System.Int32,Sudoku.Concepts.CellCornerType)">
             <summary>
             Returns the position (point) of the specified corner type of the specified cell.
             </summary>
@@ -566,11 +687,11 @@
             <param name="type">The type.</param>
             <returns>The point instance that represents the target center position.</returns>
             <exception cref="T:System.ArgumentOutOfRangeException">
-            Throws when <paramref name="type"/> is not defined or <see cref="F:Sudoku.Graphics.CellCornerType.None"/>.
+            Throws when <paramref name="type"/> is not defined or <see cref="F:Sudoku.Concepts.CellCornerType.None"/>.
             </exception>
-            <seealso cref="F:Sudoku.Graphics.CellCornerType.None"/>
+            <seealso cref="F:Sudoku.Concepts.CellCornerType.None"/>
         </member>
-        <member name="M:Sudoku.Graphics.PointMapper.GetPoint(System.Int32,System.Int32,Sudoku.Graphics.CellCornerType)">
+        <member name="M:Sudoku.Graphics.PointMapper.GetPoint(System.Int32,System.Int32,Sudoku.Concepts.CellCornerType)">
             <summary>
             Returns the position (point) of the specified corner type of the specified cell.
             </summary>
@@ -579,147 +700,9 @@
             <param name="type">The type.</param>
             <returns>The point instance that represents the target center position.</returns>
             <exception cref="T:System.ArgumentOutOfRangeException">
-            Throws when <paramref name="type"/> is not defined or <see cref="F:Sudoku.Graphics.CellCornerType.None"/>.
+            Throws when <paramref name="type"/> is not defined or <see cref="F:Sudoku.Concepts.CellCornerType.None"/>.
             </exception>
-            <seealso cref="F:Sudoku.Graphics.CellCornerType.None"/>
-        </member>
-        <member name="T:Sudoku.Graphics.RectangularBlockLineTemplate">
-            <summary>
-            Represents a default (rectangular) block line template.
-            </summary>
-            <param name="rowBlockSize"><inheritdoc cref="P:Sudoku.Graphics.RectangularBlockLineTemplate.RowBlockSize" path="/summary"/></param>
-            <param name="columnBlockSize"><inheritdoc cref="P:Sudoku.Graphics.RectangularBlockLineTemplate.ColumnBlockSize" path="/summary"/></param>
-        </member>
-        <member name="M:Sudoku.Graphics.RectangularBlockLineTemplate.#ctor(System.Int32,System.Int32)">
-            <summary>
-            Represents a default (rectangular) block line template.
-            </summary>
-            <param name="rowBlockSize"><inheritdoc cref="P:Sudoku.Graphics.RectangularBlockLineTemplate.RowBlockSize" path="/summary"/></param>
-            <param name="columnBlockSize"><inheritdoc cref="P:Sudoku.Graphics.RectangularBlockLineTemplate.ColumnBlockSize" path="/summary"/></param>
-        </member>
-        <member name="M:Sudoku.Graphics.RectangularBlockLineTemplate.#ctor(System.Int32)">
-            <summary>
-            Initializes a <see cref="T:Sudoku.Graphics.RectangularBlockLineTemplate"/> instance via the specified size as uniformed value.
-            </summary>
-            <param name="uniformSize">The uniformed value.</param>
-        </member>
-        <member name="P:Sudoku.Graphics.RectangularBlockLineTemplate.RowBlockSize">
-            <summary>
-            Indicates the number of rows in a rectangular block.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.RectangularBlockLineTemplate.ColumnBlockSize">
-            <summary>
-            Indicates the number of columns in a rectangular block.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Graphics.RectangularBlockLineTemplate.DrawLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Graphics.Scale">
-            <summary>
-            Represents a relative-size value (scaling)
-            that supports both <see cref="T:System.Single"/> and <see cref="T:System.Decimal"/> literal initialization.
-            </summary>
-            <param name="value">The fact value of a <see cref="T:System.Single"/>.</param>
-            <exception cref="T:System.ArgumentOutOfRangeException">
-            Throws when the argument <paramref name="value"/> is greater than 1 or less than 0.
-            </exception>
-        </member>
-        <member name="M:Sudoku.Graphics.Scale.#ctor(System.Decimal)">
-            <summary>
-            Represents a relative-size value (scaling)
-            that supports both <see cref="T:System.Single"/> and <see cref="T:System.Decimal"/> literal initialization.
-            </summary>
-            <param name="value">The fact value of a <see cref="T:System.Single"/>.</param>
-            <exception cref="T:System.ArgumentOutOfRangeException">
-            Throws when the argument <paramref name="value"/> is greater than 1 or less than 0.
-            </exception>
-        </member>
-        <member name="P:Sudoku.Graphics.Scale.Value">
-            <summary>
-            Indicates the value.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Graphics.Scale.Equals(System.Object)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Scale.Equals(Sudoku.Graphics.Scale)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Scale.Measure(System.Single)">
-            <summary>
-            Measure the fact value
-            (i.e. performs the formula <c><paramref name="value"/> * <see langword="this"/>.RatioValue</c>).
-            </summary>
-            <param name="value">The original value.</param>
-            <returns>The target value measured.</returns>
-        </member>
-        <member name="M:Sudoku.Graphics.Scale.CompareTo(Sudoku.Graphics.Scale)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Scale.GetHashCode">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Scale.ToString">
-            <inheritdoc cref="M:System.Object.ToString"/>
-        </member>
-        <member name="M:Sudoku.Graphics.Scale.ToString(System.String)">
-            <inheritdoc cref="M:System.Double.ToString(System.String)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.Scale.op_Equality(Sudoku.Graphics.Scale,Sudoku.Graphics.Scale)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Scale.op_Inequality(Sudoku.Graphics.Scale,Sudoku.Graphics.Scale)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Scale.op_GreaterThan(Sudoku.Graphics.Scale,Sudoku.Graphics.Scale)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Scale.op_GreaterThanOrEqual(Sudoku.Graphics.Scale,Sudoku.Graphics.Scale)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Scale.op_LessThan(Sudoku.Graphics.Scale,Sudoku.Graphics.Scale)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Scale.op_LessThanOrEqual(Sudoku.Graphics.Scale,Sudoku.Graphics.Scale)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Scale.op_Implicit(System.Single)~Sudoku.Graphics.Scale">
-            <summary>
-            Implicit cast from <see cref="T:System.Single"/> into <see cref="T:Sudoku.Graphics.Scale"/> value.
-            </summary>
-            <param name="value">The value.</param>
-        </member>
-        <member name="M:Sudoku.Graphics.Scale.op_Implicit(System.Decimal)~Sudoku.Graphics.Scale">
-            <summary>
-            Implicit cast from <see cref="T:System.Decimal"/> into <see cref="T:Sudoku.Graphics.Scale"/> value.
-            </summary>
-            <param name="value">The value.</param>
-        </member>
-        <member name="M:Sudoku.Graphics.Scale.op_Explicit(Sudoku.Graphics.Scale)~System.Single">
-            <summary>
-            Explicit cast from <see cref="T:Sudoku.Graphics.Scale"/> into <see cref="T:System.Single"/> value.
-            </summary>
-            <param name="value">The value.</param>
-        </member>
-        <member name="M:Sudoku.Graphics.Scale.op_Explicit(Sudoku.Graphics.Scale)~System.Decimal">
-            <summary>
-            Explicit cast from <see cref="T:Sudoku.Graphics.Scale"/> into <see cref="T:System.Decimal"/> value.
-            </summary>
-            <param name="value">The value.</param>
-        </member>
-        <member name="T:Sudoku.Graphics.Converter">
-            <summary>
-            Represents a JSON converter for <see cref="T:Sudoku.Graphics.Scale"/> instances.
-            </summary>
-            <seealso cref="T:Sudoku.Graphics.Scale"/>
-        </member>
-        <member name="M:Sudoku.Graphics.Converter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Converter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.Graphics.Scale,System.Text.Json.JsonSerializerOptions)">
-            <inheritdoc/>
+            <seealso cref="F:Sudoku.Concepts.CellCornerType.None"/>
         </member>
         <member name="T:Sudoku.Graphics.SerializableColor">
             <summary>
@@ -809,6 +792,23 @@
             Implicit cast from <see cref="T:Sudoku.Graphics.SerializableColor"/> to <see cref="T:SkiaSharp.SKColor"/>.
             </summary>
             <param name="color">The original value.</param>
+        </member>
+        <member name="T:System.ExceptionExtensions">
+            <summary>
+            Provides extension members on <see cref="T:System.Exception"/>.
+            </summary>
+            <seealso cref="T:System.Exception"/>
+        </member>
+        <member name="M:System.ExceptionExtensions.Assert``1(System.Boolean,System.String)">
+            <inheritdoc cref="M:System.ExceptionExtensions.&lt;G&gt;$A9422F7DB89A57DD264BF6B8B5E1AB6D`1.Assert(System.Boolean,System.String)"/>
+        </member>
+        <member name="M:System.ExceptionExtensions.&lt;G&gt;$A9422F7DB89A57DD264BF6B8B5E1AB6D`1.Assert(System.Boolean,System.String)">
+            <summary>
+            Asserts the condition. If failed, an exception of type <typeparamref name="TException"/> will be thrown,
+            with the specified message shown.
+            </summary>
+            <param name="expression">The expression.</param>
+            <param name="expressionString">The expression string.</param>
         </member>
     </members>
 </doc>

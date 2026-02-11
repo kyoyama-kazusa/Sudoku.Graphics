@@ -1,4 +1,4 @@
-﻿namespace Sudoku.Graphics;
+﻿namespace Sudoku.Concepts;
 
 /// <summary>
 /// Represents a direction.

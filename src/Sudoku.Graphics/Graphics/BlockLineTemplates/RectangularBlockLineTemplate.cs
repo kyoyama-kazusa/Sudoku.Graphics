@@ -1,4 +1,4 @@
-﻿namespace Sudoku.Graphics;
+﻿namespace Sudoku.Graphics.BlockLineTemplates;
 
 /// <summary>
 /// Represents a default (rectangular) block line template.

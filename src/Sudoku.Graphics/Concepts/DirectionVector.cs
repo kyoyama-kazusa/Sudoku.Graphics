@@ -1,4 +1,4 @@
-﻿namespace Sudoku.Graphics;
+﻿namespace Sudoku.Concepts;
 
 /// <summary>
 /// Represents an encapsulated type of a quadruple of <see cref="int"/> values, indicating direction offsets.
