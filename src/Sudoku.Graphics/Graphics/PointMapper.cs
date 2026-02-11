@@ -34,6 +34,16 @@ public sealed class PointMapper(float cellSize, float margin, int rowsCount, int
 	public required int ColumnsCount { get; init; } = columnsCount;
 
 	/// <summary>
+	/// Indicates the number of rows in absolute grid.
+	/// </summary>
+	public int AbsoluteRowsCount => RowsCount + Vector.Left + Vector.Right;
+
+	/// <summary>
+	/// Indicates the number of columns in absolute grid.
+	/// </summary>
+	public int AbsoluteColumnsCount => ColumnsCount + Vector.Up + Vector.Down;
+
+	/// <summary>
 	/// Indicates empty cells count reserved to be empty.
 	/// </summary>
 	public required DirectionVector Vector { get; init; } = vector;
@@ -47,16 +57,69 @@ public sealed class PointMapper(float cellSize, float margin, int rowsCount, int
 	/// Indicates full canvas size <see cref="SKRect"/> instance.
 	/// </summary>
 	public SKRect FullSize
-		=> SKRect.Create(
-			CellWidthAndHeight * (ColumnsCount + Vector.Left + Vector.Right) + 2 * Margin,
-			CellWidthAndHeight * (RowsCount + Vector.Up + Vector.Down) + 2 * Margin
-		);
+		=> SKRect.Create(CellWidthAndHeight * AbsoluteColumnsCount + 2 * Margin, CellWidthAndHeight * AbsoluteRowsCount + 2 * Margin);
 
 	/// <summary>
 	/// Indicates full canvas size <see cref="SKRect"/> instance, in integer format.
 	/// </summary>
 	public SKRectI FullSizeInteger => SKRectI.Floor(FullSize);
 
+
+	/// <summary>
+	/// Projects the specified relative cell index into absolute one.
+	/// </summary>
+	/// <param name="relativeCellIndex">Relative cell index.</param>
+	/// <returns>The result index.</returns>
+	public int ToAbsoluteIndex(int relativeCellIndex)
+	{
+		var row = relativeCellIndex / ColumnsCount;
+		var column = relativeCellIndex % ColumnsCount;
+		var resultRow = row + Vector.Up;
+		var resultColumn = column + Vector.Left;
+		return resultRow * AbsoluteColumnsCount + resultColumn;
+	}
+
+	/// <summary>
+	/// Projects the specified absolute cell index into relative one.
+	/// </summary>
+	/// <param name="absoluteCellIndex">Absolute cell index.</param>
+	/// <returns>The result index.</returns>
+	public int ToRelativeIndex(int absoluteCellIndex)
+	{
+		var absoluteColumnsCount = AbsoluteColumnsCount;
+		var row = absoluteCellIndex / absoluteColumnsCount;
+		var column = absoluteCellIndex % absoluteColumnsCount;
+		var resultRow = row - Vector.Up;
+		var resultColumn = column - Vector.Left;
+		return resultRow * ColumnsCount + resultColumn;
+	}
+
+	/// <summary>
+	/// Gets the adjacent cell at the specified direction of the specified absolute cell index.
+	/// </summary>
+	/// <param name="absoluteCellIndex">Absolute cell index.</param>
+	/// <param name="direction">The direction.</param>
+	/// <param name="isCyclic">Indicates whether the cell overflown in the relative grid will be included to be checked or not.</param>
+	/// <returns>Target cell absolute index.</returns>
+	public int GetAdjacentAbsoluteCellWith(int absoluteCellIndex, Direction direction, bool isCyclic)
+	{
+		var rowsCount = AbsoluteRowsCount;
+		var columnsCount = AbsoluteColumnsCount;
+		var row = absoluteCellIndex / columnsCount;
+		var column = absoluteCellIndex % columnsCount;
+		return direction switch
+		{
+			Direction.Up when row >= 1 => (row - 1) * columnsCount + column,
+			Direction.Up when row == 0 && isCyclic => (rowsCount - 1) * columnsCount + column,
+			Direction.Down when row < rowsCount => (row + 1) * columnsCount + column,
+			Direction.Down when row == rowsCount && isCyclic => 0 * columnsCount + column,
+			Direction.Left when column >= 1 => row * columnsCount + column - 1,
+			Direction.Left when column == 0 && isCyclic => row * columnsCount + columnsCount - 1,
+			Direction.Right when column < columnsCount => row * columnsCount + column + 1,
+			Direction.Right when column == columnsCount && isCyclic => row + columnsCount + 0,
+			_ => -1
+		};
+	}
 
 	/// <summary>
 	/// Returns center position (point) of the specified absolute row and column absolute index.
@@ -71,7 +134,18 @@ public sealed class PointMapper(float cellSize, float margin, int rowsCount, int
 	}
 
 	/// <summary>
-	/// Returns top-left position (point) of the specified absolute row and column absolute index.
+	/// Returns top-left position (point) of the specified absolute cell index.
+	/// </summary>
+	/// <param name="absoluteCellIndex">Absolute cell index.</param>
+	/// <returns>The point instance that represents the target top-left position.</returns>
+	public SKPoint GetTopLeftPoint(int absoluteCellIndex)
+	{
+		var columnsCount = AbsoluteColumnsCount;
+		return GetTopLeftPoint(absoluteCellIndex / columnsCount, absoluteCellIndex % columnsCount);
+	}
+
+	/// <summary>
+	/// Returns top-left position (point) of the specified absolute row and column index.
 	/// </summary>
 	/// <param name="absoluteRowIndex">Absolute row index.</param>
 	/// <param name="absoluteColumnIndex">Absolute column index.</param>
@@ -80,7 +154,18 @@ public sealed class PointMapper(float cellSize, float margin, int rowsCount, int
 		=> new(CellWidthAndHeight * absoluteColumnIndex + Margin, CellWidthAndHeight * absoluteRowIndex + Margin);
 
 	/// <summary>
-	/// Returns top-right position (point) of the specified absolute row and column absolute index.
+	/// Returns top-right position (point) of the specified absolute cell index.
+	/// </summary>
+	/// <param name="absoluteCellIndex">Absolute cell index.</param>
+	/// <returns>The point instance that represents the target top-right position.</returns>
+	public SKPoint GetTopRightPoint(int absoluteCellIndex)
+	{
+		var columnsCount = AbsoluteColumnsCount;
+		return GetTopRightPoint(absoluteCellIndex / columnsCount, absoluteCellIndex % columnsCount);
+	}
+
+	/// <summary>
+	/// Returns top-right position (point) of the specified absolute row and column index.
 	/// </summary>
 	/// <param name="absoluteRowIndex">Absolute row index.</param>
 	/// <param name="absoluteColumnIndex">Absolute column index.</param>
@@ -88,11 +173,22 @@ public sealed class PointMapper(float cellSize, float margin, int rowsCount, int
 	public SKPoint GetTopRightPoint(int absoluteRowIndex, int absoluteColumnIndex)
 	{
 		var topLeft = GetTopLeftPoint(absoluteRowIndex, absoluteColumnIndex);
-		return topLeft + new SKPoint(0, CellWidthAndHeight);
+		return topLeft + new SKPoint(CellWidthAndHeight, 0);
 	}
 
 	/// <summary>
-	/// Returns bottom-left position (point) of the specified absolute row and column absolute index.
+	/// Returns bottom-left position (point) of the specified absolute cell index.
+	/// </summary>
+	/// <param name="absoluteCellIndex">Absolute cell index.</param>
+	/// <returns>The point instance that represents the target bottom-left position.</returns>
+	public SKPoint GetBottomLeftPoint(int absoluteCellIndex)
+	{
+		var columnsCount = AbsoluteColumnsCount;
+		return GetBottomLeftPoint(absoluteCellIndex / columnsCount, absoluteCellIndex % columnsCount);
+	}
+
+	/// <summary>
+	/// Returns bottom-left position (point) of the specified absolute row and column index.
 	/// </summary>
 	/// <param name="absoluteRowIndex">Absolute row index.</param>
 	/// <param name="absoluteColumnIndex">Absolute column index.</param>
@@ -100,11 +196,22 @@ public sealed class PointMapper(float cellSize, float margin, int rowsCount, int
 	public SKPoint GetBottomLeftPoint(int absoluteRowIndex, int absoluteColumnIndex)
 	{
 		var topLeft = GetTopLeftPoint(absoluteRowIndex, absoluteColumnIndex);
-		return topLeft + new SKPoint(CellWidthAndHeight, 0);
+		return topLeft + new SKPoint(0, CellWidthAndHeight);
 	}
 
 	/// <summary>
-	/// Returns bottom-right position (point) of the specified absolute row and column absolute index.
+	/// Returns bottom-right position (point) of the specified absolute cell index.
+	/// </summary>
+	/// <param name="absoluteCellIndex">Absolute cell index.</param>
+	/// <returns>The point instance that represents the target bottom-right position.</returns>
+	public SKPoint GetBottomRightPoint(int absoluteCellIndex)
+	{
+		var columnsCount = AbsoluteColumnsCount;
+		return GetBottomRightPoint(absoluteCellIndex / columnsCount, absoluteCellIndex % columnsCount);
+	}
+
+	/// <summary>
+	/// Returns bottom-right position (point) of the specified absolute row and column index.
 	/// </summary>
 	/// <param name="absoluteRowIndex">Absolute row index.</param>
 	/// <param name="absoluteColumnIndex">Absolute column index.</param>

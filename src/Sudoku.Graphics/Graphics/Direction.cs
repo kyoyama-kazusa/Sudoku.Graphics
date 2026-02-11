@@ -3,6 +3,7 @@
 /// <summary>
 /// Represents a direction.
 /// </summary>
+[Flags]
 public enum Direction : byte
 {
 	/// <summary>
@@ -13,20 +14,20 @@ public enum Direction : byte
 	/// <summary>
 	/// Indicates up direction.
 	/// </summary>
-	Up,
+	Up = 1 << 0,
 
 	/// <summary>
 	/// Indicates down direction.
 	/// </summary>
-	Down,
+	Down = 1 << 1,
 
 	/// <summary>
 	/// Indicates left direction.
 	/// </summary>
-	Left,
+	Left = 1 << 2,
 
 	/// <summary>
 	/// Indicates right direction.
 	/// </summary>
-	Right
+	Right = 1 << 3
 }

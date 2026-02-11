@@ -134,3 +134,5 @@ csharp_style_prefer_extended_property_pattern = true:suggestion
 csharp_style_var_when_type_is_apparent = true:silent
 csharp_style_var_for_built_in_types = true:silent
 csharp_style_var_elsewhere = true:silent
+csharp_indent_switch_labels = true
+csharp_indent_case_contents_when_block = false

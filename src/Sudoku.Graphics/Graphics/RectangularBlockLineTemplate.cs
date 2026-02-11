@@ -8,6 +8,15 @@
 public sealed class RectangularBlockLineTemplate(int rowBlockSize, int columnBlockSize) : BlockLineTemplate
 {
 	/// <summary>
+	/// Initializes a <see cref="RectangularBlockLineTemplate"/> instance via the specified size as uniformed value.
+	/// </summary>
+	/// <param name="uniformSize">The uniformed value.</param>
+	public RectangularBlockLineTemplate(int uniformSize) : this(uniformSize, uniformSize)
+	{
+	}
+
+
+	/// <summary>
 	/// Indicates the number of rows in a rectangular block.
 	/// </summary>
 	public int RowBlockSize { get; } = rowBlockSize;
@@ -55,19 +64,19 @@ public sealed class RectangularBlockLineTemplate(int rowBlockSize, int columnBlo
 
 		void drawGridLines()
 		{
-			using var thinLinePaint = new SKPaint
-			{
-				Style = SKPaintStyle.Stroke,
-				Color = options.ThinLineColor,
-				StrokeWidth = options.ThinLineWidth.Measure(mapper.CellWidthAndHeight),
-				StrokeCap = SKStrokeCap.Round,
-				IsAntialias = true
-			};
 			using var thickLinePaint = new SKPaint
 			{
 				Style = SKPaintStyle.Stroke,
 				Color = options.ThickLineColor,
 				StrokeWidth = options.ThickLineWidth.Measure(mapper.CellWidthAndHeight),
+				StrokeCap = SKStrokeCap.Round,
+				IsAntialias = true
+			};
+			using var thinLinePaint = new SKPaint
+			{
+				Style = SKPaintStyle.Stroke,
+				Color = options.ThinLineColor,
+				StrokeWidth = options.ThinLineWidth.Measure(mapper.CellWidthAndHeight),
 				StrokeCap = SKStrokeCap.Round,
 				IsAntialias = true
 			};
