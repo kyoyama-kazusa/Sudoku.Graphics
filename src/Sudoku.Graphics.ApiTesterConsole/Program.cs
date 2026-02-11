@@ -18,7 +18,7 @@ using var canvas = new Canvas(
 	margin: 10,
 	rowsCount: 9,
 	columnsCount: 9,
-	vector: new(3),
+	vector: new(1),
 	drawingOptions: new()
 	{
 		BackgroundColor = SKColors.White,

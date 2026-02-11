@@ -84,6 +84,7 @@ public readonly struct Scale(decimal value) :
 	/// <param name="value">The value.</param>
 	public static implicit operator Scale(decimal value) => new(value);
 
+
 	/// <summary>
 	/// Explicit cast from <see cref="Scale"/> into <see cref="float"/> value.
 	/// </summary>
@@ -107,7 +108,7 @@ file sealed class Converter : JsonConverter<Scale>
 	public override Scale Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
 	{
 		reader.Read();
-		return reader.GetSingle();
+		return reader.GetDecimal();
 	}
 
 	/// <inheritdoc/>
