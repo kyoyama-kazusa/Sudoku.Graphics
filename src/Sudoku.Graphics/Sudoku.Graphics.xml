@@ -656,14 +656,14 @@
             Projects the specified relative cell index into absolute one.
             </summary>
             <param name="relativeCellIndex">Relative cell index.</param>
-            <returns>The result index.</returns>
+            <returns>The result absolute index.</returns>
         </member>
         <member name="M:Sudoku.Graphics.PointMapper.ToRelativeIndex(System.Int32)">
             <summary>
             Projects the specified absolute cell index into relative one.
             </summary>
             <param name="absoluteCellIndex">Absolute cell index.</param>
-            <returns>The result index.</returns>
+            <returns>The result relative index.</returns>
         </member>
         <member name="M:Sudoku.Graphics.PointMapper.GetAdjacentAbsoluteCellWith(System.Int32,Sudoku.Concepts.Direction,System.Boolean)">
             <summary>

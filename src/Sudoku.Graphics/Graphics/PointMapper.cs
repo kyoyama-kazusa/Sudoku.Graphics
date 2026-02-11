@@ -64,8 +64,8 @@ public sealed class PointMapper(float cellSize, float margin, int rowsCount, int
 	/// Projects the specified relative cell index into absolute one.
 	/// </summary>
 	/// <param name="relativeCellIndex">Relative cell index.</param>
-	/// <returns>The result index.</returns>
-	public int ToAbsoluteIndex(int relativeCellIndex)
+	/// <returns>The result absolute index.</returns>
+	public AbsoluteCellIndex ToAbsoluteIndex(RelativeCellIndex relativeCellIndex)
 	{
 		var row = relativeCellIndex / ColumnsCount;
 		var column = relativeCellIndex % ColumnsCount;
@@ -78,8 +78,8 @@ public sealed class PointMapper(float cellSize, float margin, int rowsCount, int
 	/// Projects the specified absolute cell index into relative one.
 	/// </summary>
 	/// <param name="absoluteCellIndex">Absolute cell index.</param>
-	/// <returns>The result index.</returns>
-	public int ToRelativeIndex(int absoluteCellIndex)
+	/// <returns>The result relative index.</returns>
+	public RelativeCellIndex ToRelativeIndex(AbsoluteCellIndex absoluteCellIndex)
 	{
 		var absoluteColumnsCount = AbsoluteColumnsCount;
 		var row = absoluteCellIndex / absoluteColumnsCount;
@@ -96,7 +96,7 @@ public sealed class PointMapper(float cellSize, float margin, int rowsCount, int
 	/// <param name="direction">The direction.</param>
 	/// <param name="isCyclicChecking">Indicates whether the cell overflown in the relative grid will be included to be checked or not.</param>
 	/// <returns>Target cell absolute index.</returns>
-	public int GetAdjacentAbsoluteCellWith(int absoluteCellIndex, Direction direction, bool isCyclicChecking)
+	public int GetAdjacentAbsoluteCellWith(AbsoluteCellIndex absoluteCellIndex, Direction direction, bool isCyclicChecking)
 	{
 		var rowsCount = AbsoluteRowsCount;
 		var columnsCount = AbsoluteColumnsCount;
@@ -126,7 +126,7 @@ public sealed class PointMapper(float cellSize, float margin, int rowsCount, int
 	/// Throws when <paramref name="type"/> is not defined or <see cref="CellCornerType.None"/>.
 	/// </exception>
 	/// <seealso cref="CellCornerType.None"/>
-	public SKPoint GetPoint(int absoluteCellIndex, CellCornerType type)
+	public SKPoint GetPoint(AbsoluteCellIndex absoluteCellIndex, CellCornerType type)
 	{
 		var columnsCount = AbsoluteColumnsCount;
 		return GetPoint(absoluteCellIndex / columnsCount, absoluteCellIndex % columnsCount, type);

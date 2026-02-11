@@ -8,7 +8,7 @@ public sealed class IrregularLineTemplate : LineTemplate
 	/// <summary>
 	/// Indicates the relative cell index groups.
 	/// </summary>
-	public required int[][] CellIndexGroups { get; init; }
+	public required RelativeCellIndex[][] CellIndexGroups { get; init; }
 
 	/// <summary>
 	/// Indicates whether cyclic rule will be checked.
