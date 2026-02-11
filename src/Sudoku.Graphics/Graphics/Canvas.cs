@@ -15,7 +15,7 @@ public sealed class Canvas(
 	/// <summary>
 	/// Indicates the backing surface.
 	/// </summary>
-	private readonly SKSurface _surface = SKSurface.Create(SKImageInfo.Create(mapper.FullCanvasSize));
+	private readonly SKSurface _surface = SKSurface.Create(mapper.FullCanvasSize);
 
 	/// <summary>
 	/// Indicates whether the object has already been disposed.

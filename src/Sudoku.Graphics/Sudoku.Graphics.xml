@@ -811,21 +811,21 @@
             <param name="expression">The expression.</param>
             <param name="expressionString">The expression string.</param>
         </member>
-        <member name="T:SkiaSharp.SKImageInfoExtensions">
+        <member name="T:SkiaSharp.SKSurfaceExtensions">
             <summary>
-            Provides extension members on type <see cref="T:SkiaSharp.SKImageInfo"/>.
+            Provides extension members on type <see cref="T:SkiaSharp.SKSurface"/>.
             </summary>
-            <seealso cref="T:SkiaSharp.SKImageInfo"/>
+            <seealso cref="T:SkiaSharp.SKSurface"/>
         </member>
-        <member name="M:SkiaSharp.SKImageInfoExtensions.Create(SkiaSharp.SKSizeI)">
-            <inheritdoc cref="M:SkiaSharp.SKImageInfoExtensions.&lt;G&gt;$8B3168461E3C367922D9AE6ABABEEBB4.Create(SkiaSharp.SKSizeI)"/>
+        <member name="M:SkiaSharp.SKSurfaceExtensions.Create(SkiaSharp.SKSizeI)">
+            <inheritdoc cref="M:SkiaSharp.SKSurfaceExtensions.&lt;G&gt;$6E34BB781EB7BC68C639917E87502155.Create(SkiaSharp.SKSizeI)"/>
         </member>
-        <member name="M:SkiaSharp.SKImageInfoExtensions.&lt;G&gt;$8B3168461E3C367922D9AE6ABABEEBB4.Create(SkiaSharp.SKSizeI)">
+        <member name="M:SkiaSharp.SKSurfaceExtensions.&lt;G&gt;$6E34BB781EB7BC68C639917E87502155.Create(SkiaSharp.SKSizeI)">
             <summary>
-            Creates a <see cref="T:SkiaSharp.SKImageInfo"/> instance via the specified <see cref="T:SkiaSharp.SKSizeI"/> value.
+            Creates an <see cref="T:SkiaSharp.SKSurface"/> instance via the specified <see cref="T:SkiaSharp.SKSizeI"/> value.
             </summary>
             <param name="size">The <see cref="T:SkiaSharp.SKSizeI"/> instance.</param>
-            <returns>An <see cref="T:SkiaSharp.SKImageInfo"/> instance created.</returns>
+            <returns>An <see cref="T:SkiaSharp.SKSurface"/> instance created.</returns>s
         </member>
     </members>
 </doc>
