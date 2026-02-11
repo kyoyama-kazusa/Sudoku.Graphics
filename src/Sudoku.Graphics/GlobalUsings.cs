@@ -10,3 +10,5 @@ global using System.Text.Json.Serialization;
 global using SkiaSharp;
 global using Sudoku.Concepts;
 global using Sudoku.Graphics.BlockLineTemplates;
+global using SKRectangle = SkiaSharp.SKRect;
+global using SKRectangleInteger = SkiaSharp.SKRectI;

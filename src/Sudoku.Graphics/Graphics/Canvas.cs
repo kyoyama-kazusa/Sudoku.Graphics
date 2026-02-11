@@ -16,7 +16,7 @@ public sealed class Canvas(
 	/// Indicates the backing surface.
 	/// </summary>
 	private readonly SKSurface _surface =
-		SKSurface.Create(new SKImageInfo(mapper.FullSizeInteger.Width, mapper.FullSizeInteger.Height));
+		SKSurface.Create(new SKImageInfo(mapper.FullSizeRectangleInteger.Width, mapper.FullSizeRectangleInteger.Height));
 
 	/// <summary>
 	/// Indicates whether the object has already been disposed.
@@ -50,8 +50,8 @@ public sealed class Canvas(
 	/// <inheritdoc cref="PointMapper.Margin"/>
 	public float Margin => Mapper.Margin;
 
-	/// <inheritdoc cref="PointMapper.CellWidthAndHeight"/>
-	public float CellSize => Mapper.CellWidthAndHeight;
+	/// <inheritdoc cref="PointMapper.CellSize"/>
+	public float CellSize => Mapper.CellSize;
 
 	/// <inheritdoc cref="PointMapper.RowsCount"/>
 	public int RowsCount => Mapper.RowsCount;

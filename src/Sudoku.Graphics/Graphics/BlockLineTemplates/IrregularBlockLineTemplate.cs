@@ -24,7 +24,7 @@ public sealed class IrregularBlockLineTemplate(params int[][] cellIndexGroups) :
 		{
 			Style = SKPaintStyle.Stroke,
 			Color = options.ThickLineColor,
-			StrokeWidth = options.ThickLineWidth.Measure(mapper.CellWidthAndHeight),
+			StrokeWidth = options.ThickLineWidth.Measure(mapper.CellSize),
 			StrokeCap = SKStrokeCap.Round,
 			IsAntialias = true
 		};
@@ -32,7 +32,7 @@ public sealed class IrregularBlockLineTemplate(params int[][] cellIndexGroups) :
 		{
 			Style = SKPaintStyle.Stroke,
 			Color = options.ThinLineColor,
-			StrokeWidth = options.ThinLineWidth.Measure(mapper.CellWidthAndHeight),
+			StrokeWidth = options.ThinLineWidth.Measure(mapper.CellSize),
 			StrokeCap = SKStrokeCap.Round,
 			IsAntialias = true
 		};

@@ -395,7 +395,7 @@
             <inheritdoc cref="P:Sudoku.Graphics.PointMapper.Margin"/>
         </member>
         <member name="P:Sudoku.Graphics.Canvas.CellSize">
-            <inheritdoc cref="P:Sudoku.Graphics.PointMapper.CellWidthAndHeight"/>
+            <inheritdoc cref="P:Sudoku.Graphics.PointMapper.CellSize"/>
         </member>
         <member name="P:Sudoku.Graphics.Canvas.RowsCount">
             <inheritdoc cref="P:Sudoku.Graphics.PointMapper.RowsCount"/>
@@ -588,7 +588,7 @@
             <summary>
             Represents a point mapper instance.
             </summary>
-            <param name="cellSize"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.CellWidthAndHeight" path="/summary"/></param>
+            <param name="cellSize"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.CellSize" path="/summary"/></param>
             <param name="margin"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.Margin" path="/summary"/></param>
             <param name="rowsCount"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.RowsCount" path="/summary"/></param>
             <param name="columnsCount"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.ColumnsCount" path="/summary"/></param>
@@ -598,13 +598,13 @@
             <summary>
             Represents a point mapper instance.
             </summary>
-            <param name="cellSize"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.CellWidthAndHeight" path="/summary"/></param>
+            <param name="cellSize"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.CellSize" path="/summary"/></param>
             <param name="margin"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.Margin" path="/summary"/></param>
             <param name="rowsCount"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.RowsCount" path="/summary"/></param>
             <param name="columnsCount"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.ColumnsCount" path="/summary"/></param>
             <param name="vector"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.Vector" path="/summary"/></param>
         </member>
-        <member name="P:Sudoku.Graphics.PointMapper.CellWidthAndHeight">
+        <member name="P:Sudoku.Graphics.PointMapper.CellSize">
             <summary>
             Indicates cell width and height of pixels. By design, cell width is equal to cell height.
             </summary>
@@ -641,17 +641,17 @@
             Indicates empty cells count reserved to be empty.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.PointMapper.GridSize">
+        <member name="P:Sudoku.Graphics.PointMapper.GridSizeRectangle">
             <summary>
             Indicates grid size <see cref="T:SkiaSharp.SKRect"/> instance.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.PointMapper.FullSize">
+        <member name="P:Sudoku.Graphics.PointMapper.FullSizeRectangle">
             <summary>
             Indicates full canvas size <see cref="T:SkiaSharp.SKRect"/> instance.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.PointMapper.FullSizeInteger">
+        <member name="P:Sudoku.Graphics.PointMapper.FullSizeRectangleInteger">
             <summary>
             Indicates full canvas size <see cref="T:SkiaSharp.SKRect"/> instance, in integer format.
             </summary>
@@ -676,7 +676,7 @@
             </summary>
             <param name="absoluteCellIndex">Absolute cell index.</param>
             <param name="direction">The direction.</param>
-            <param name="isCyclic">Indicates whether the cell overflown in the relative grid will be included to be checked or not.</param>
+            <param name="isCyclicChecking">Indicates whether the cell overflown in the relative grid will be included to be checked or not.</param>
             <returns>Target cell absolute index.</returns>
         </member>
         <member name="M:Sudoku.Graphics.PointMapper.GetPoint(System.Int32,Sudoku.Concepts.CellCornerType)">

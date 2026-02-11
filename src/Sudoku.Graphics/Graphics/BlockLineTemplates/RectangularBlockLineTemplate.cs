@@ -42,20 +42,20 @@ public sealed class RectangularBlockLineTemplate(int rowBlockSize, int columnBlo
 			var path = new SKPath();
 			path.AddRoundRect(
 				new(
-					SKRect.Create(
-						mapper.Margin + mapper.CellWidthAndHeight * mapper.Vector.Left,
-						mapper.Margin + mapper.CellWidthAndHeight * mapper.Vector.Up,
-						mapper.GridSize.Width,
-						mapper.GridSize.Height
+					SKRectangle.Create(
+						mapper.Margin + mapper.CellSize * mapper.Vector.Left,
+						mapper.Margin + mapper.CellSize * mapper.Vector.Up,
+						mapper.GridSizeRectangle.Width,
+						mapper.GridSizeRectangle.Height
 					),
-					options.GridBorderRoundedRectangleCornerRadius.Measure(mapper.CellWidthAndHeight)
+					options.GridBorderRoundedRectangleCornerRadius.Measure(mapper.CellSize)
 				)
 			);
 			using var borderPaint = new SKPaint
 			{
 				Style = SKPaintStyle.Stroke,
 				Color = options.ThickLineColor,
-				StrokeWidth = options.ThickLineWidth.Measure(mapper.CellWidthAndHeight),
+				StrokeWidth = options.ThickLineWidth.Measure(mapper.CellSize),
 				StrokeCap = SKStrokeCap.Round,
 				IsAntialias = true
 			};
@@ -68,7 +68,7 @@ public sealed class RectangularBlockLineTemplate(int rowBlockSize, int columnBlo
 			{
 				Style = SKPaintStyle.Stroke,
 				Color = options.ThickLineColor,
-				StrokeWidth = options.ThickLineWidth.Measure(mapper.CellWidthAndHeight),
+				StrokeWidth = options.ThickLineWidth.Measure(mapper.CellSize),
 				StrokeCap = SKStrokeCap.Round,
 				IsAntialias = true
 			};
@@ -76,7 +76,7 @@ public sealed class RectangularBlockLineTemplate(int rowBlockSize, int columnBlo
 			{
 				Style = SKPaintStyle.Stroke,
 				Color = options.ThinLineColor,
-				StrokeWidth = options.ThinLineWidth.Measure(mapper.CellWidthAndHeight),
+				StrokeWidth = options.ThinLineWidth.Measure(mapper.CellSize),
 				StrokeCap = SKStrokeCap.Round,
 				IsAntialias = true
 			};
@@ -85,7 +85,7 @@ public sealed class RectangularBlockLineTemplate(int rowBlockSize, int columnBlo
 			for (var i = 1; i < mapper.RowsCount; i++)
 			{
 				var a = mapper.GetPoint(mapper.Vector.Up + i, mapper.Vector.Left, CellCornerType.TopLeft);
-				var b = a + new SKPoint(mapper.ColumnsCount * mapper.CellWidthAndHeight, 0);
+				var b = a + new SKPoint(mapper.ColumnsCount * mapper.CellSize, 0);
 				canvas.DrawLine(a, b, i % RowBlockSize == 0 ? thickLinePaint : thinLinePaint);
 			}
 
@@ -93,7 +93,7 @@ public sealed class RectangularBlockLineTemplate(int rowBlockSize, int columnBlo
 			for (var i = 1; i < mapper.ColumnsCount; i++)
 			{
 				var a = mapper.GetPoint(mapper.Vector.Up, mapper.Vector.Left + i, CellCornerType.TopLeft);
-				var b = a + new SKPoint(0, mapper.RowsCount * mapper.CellWidthAndHeight);
+				var b = a + new SKPoint(0, mapper.RowsCount * mapper.CellSize);
 				canvas.DrawLine(a, b, i % ColumnBlockSize == 0 ? thickLinePaint : thinLinePaint);
 			}
 		}

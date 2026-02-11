@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a point mapper instance.
 /// </summary>
-/// <param name="cellSize"><inheritdoc cref="CellWidthAndHeight" path="/summary"/></param>
+/// <param name="cellSize"><inheritdoc cref="CellSize" path="/summary"/></param>
 /// <param name="margin"><inheritdoc cref="Margin" path="/summary"/></param>
 /// <param name="rowsCount"><inheritdoc cref="RowsCount" path="/summary"/></param>
 /// <param name="columnsCount"><inheritdoc cref="ColumnsCount" path="/summary"/></param>
@@ -14,7 +14,7 @@ public sealed class PointMapper(float cellSize, float margin, int rowsCount, int
 	/// <summary>
 	/// Indicates cell width and height of pixels. By design, cell width is equal to cell height.
 	/// </summary>
-	public required float CellWidthAndHeight { get; init; } = cellSize;
+	public required float CellSize { get; init; } = cellSize;
 
 	/// <summary>
 	/// Indicates margin (pixel size of empty spaces between the fact sudoku grid and borders of the picture).
@@ -49,20 +49,20 @@ public sealed class PointMapper(float cellSize, float margin, int rowsCount, int
 	public required DirectionVector Vector { get; init; } = vector;
 
 	/// <summary>
-	/// Indicates grid size <see cref="SKRect"/> instance.
+	/// Indicates grid size <see cref="SKRectangle"/> instance.
 	/// </summary>
-	public SKRect GridSize => SKRect.Create(CellWidthAndHeight * ColumnsCount, CellWidthAndHeight * RowsCount);
+	public SKRectangle GridSizeRectangle => SKRectangle.Create(CellSize * ColumnsCount, CellSize * RowsCount);
 
 	/// <summary>
-	/// Indicates full canvas size <see cref="SKRect"/> instance.
+	/// Indicates full canvas size <see cref="SKRectangle"/> instance.
 	/// </summary>
-	public SKRect FullSize
-		=> SKRect.Create(CellWidthAndHeight * AbsoluteColumnsCount + 2 * Margin, CellWidthAndHeight * AbsoluteRowsCount + 2 * Margin);
+	public SKRectangle FullSizeRectangle
+		=> SKRectangle.Create(CellSize * AbsoluteColumnsCount + 2 * Margin, CellSize * AbsoluteRowsCount + 2 * Margin);
 
 	/// <summary>
-	/// Indicates full canvas size <see cref="SKRect"/> instance, in integer format.
+	/// Indicates full canvas size <see cref="SKRectangle"/> instance, in integer format.
 	/// </summary>
-	public SKRectI FullSizeInteger => SKRectI.Floor(FullSize);
+	public SKRectangleInteger FullSizeRectangleInteger => SKRectangleInteger.Floor(FullSizeRectangle);
 
 
 	/// <summary>
@@ -99,9 +99,9 @@ public sealed class PointMapper(float cellSize, float margin, int rowsCount, int
 	/// </summary>
 	/// <param name="absoluteCellIndex">Absolute cell index.</param>
 	/// <param name="direction">The direction.</param>
-	/// <param name="isCyclic">Indicates whether the cell overflown in the relative grid will be included to be checked or not.</param>
+	/// <param name="isCyclicChecking">Indicates whether the cell overflown in the relative grid will be included to be checked or not.</param>
 	/// <returns>Target cell absolute index.</returns>
-	public int GetAdjacentAbsoluteCellWith(int absoluteCellIndex, Direction direction, bool isCyclic)
+	public int GetAdjacentAbsoluteCellWith(int absoluteCellIndex, Direction direction, bool isCyclicChecking)
 	{
 		var rowsCount = AbsoluteRowsCount;
 		var columnsCount = AbsoluteColumnsCount;
@@ -110,13 +110,13 @@ public sealed class PointMapper(float cellSize, float margin, int rowsCount, int
 		return direction switch
 		{
 			Direction.Up when row >= 1 => (row - 1) * columnsCount + column,
-			Direction.Up when row == 0 && isCyclic => (rowsCount - 1) * columnsCount + column,
+			Direction.Up when row == 0 && isCyclicChecking => (rowsCount - 1) * columnsCount + column,
 			Direction.Down when row < rowsCount => (row + 1) * columnsCount + column,
-			Direction.Down when row == rowsCount && isCyclic => 0 * columnsCount + column,
+			Direction.Down when row == rowsCount && isCyclicChecking => 0 * columnsCount + column,
 			Direction.Left when column >= 1 => row * columnsCount + column - 1,
-			Direction.Left when column == 0 && isCyclic => row * columnsCount + columnsCount - 1,
+			Direction.Left when column == 0 && isCyclicChecking => row * columnsCount + columnsCount - 1,
 			Direction.Right when column < columnsCount => row * columnsCount + column + 1,
-			Direction.Right when column == columnsCount && isCyclic => row + columnsCount + 0,
+			Direction.Right when column == columnsCount && isCyclicChecking => row + columnsCount + 0,
 			_ => -1
 		};
 	}
@@ -150,14 +150,14 @@ public sealed class PointMapper(float cellSize, float margin, int rowsCount, int
 	/// <seealso cref="CellCornerType.None"/>
 	public SKPoint GetPoint(int absoluteRowIndex, int absoluteColumnIndex, CellCornerType type)
 	{
-		var topLeft = new SKPoint(CellWidthAndHeight * absoluteColumnIndex + Margin, CellWidthAndHeight * absoluteRowIndex + Margin);
+		var topLeft = new SKPoint(CellSize * absoluteColumnIndex + Margin, CellSize * absoluteRowIndex + Margin);
 		return type switch
 		{
-			CellCornerType.Center => topLeft - new SKPoint(CellWidthAndHeight / 2, CellWidthAndHeight / 2),
+			CellCornerType.Center => topLeft - new SKPoint(CellSize / 2, CellSize / 2),
 			CellCornerType.TopLeft => topLeft,
-			CellCornerType.TopRight => topLeft + new SKPoint(CellWidthAndHeight, 0),
-			CellCornerType.BottomLeft => topLeft + new SKPoint(0, CellWidthAndHeight),
-			CellCornerType.BottomRight => topLeft + new SKPoint(CellWidthAndHeight, CellWidthAndHeight),
+			CellCornerType.TopRight => topLeft + new SKPoint(CellSize, 0),
+			CellCornerType.BottomLeft => topLeft + new SKPoint(0, CellSize),
+			CellCornerType.BottomRight => topLeft + new SKPoint(CellSize, CellSize),
 			_ => throw new ArgumentOutOfRangeException(nameof(type))
 		};
 	}
