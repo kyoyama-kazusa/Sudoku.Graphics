@@ -3,6 +3,9 @@
 /// <summary>
 /// Represents a block line template type that draws lines onto a canvas via the specified configuration.
 /// </summary>
+[JsonPolymorphic(UnknownDerivedTypeHandling = JsonUnknownDerivedTypeHandling.FailSerialization)]
+[JsonDerivedType(typeof(RectangularBlockLineTemplate), nameof(RectangularBlockLineTemplate))]
+[JsonDerivedType(typeof(IrregularBlockLineTemplate), nameof(IrregularBlockLineTemplate))]
 public abstract class BlockLineTemplate
 {
 	/// <summary>

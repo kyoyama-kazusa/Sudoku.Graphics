@@ -9,7 +9,6 @@
 using System;
 using System.IO;
 using SkiaSharp;
-using Sudoku.Concepts;
 using Sudoku.Graphics;
 using Sudoku.Graphics.BlockLineTemplates;
 
@@ -19,7 +18,7 @@ using var canvas = new Canvas(
 	margin: 10,
 	rowsCount: 9,
 	columnsCount: 9,
-	vector: DirectionVector.Zero,
+	vector: new(3),
 	drawingOptions: new()
 	{
 		BackgroundColor = SKColors.White,

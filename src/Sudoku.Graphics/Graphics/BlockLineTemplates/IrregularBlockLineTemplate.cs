@@ -9,8 +9,7 @@ public sealed class IrregularBlockLineTemplate(params int[][] cellIndexGroups) :
 	/// <summary>
 	/// Indicates the cell index groups.
 	/// </summary>
-	private readonly int[][] _cellIndexGroups = cellIndexGroups;
-
+	public int[][] CellIndexGroups { get; } = cellIndexGroups;
 
 	/// <summary>
 	/// Indicates whether cyclic rule will be checked.
@@ -39,7 +38,7 @@ public sealed class IrregularBlockLineTemplate(params int[][] cellIndexGroups) :
 		};
 
 		// Iterate on each cell index group.
-		foreach (var cellIndices in _cellIndexGroups)
+		foreach (var cellIndices in CellIndexGroups)
 		{
 			var lineSegmentsDictionary = new Dictionary<int, Direction>(
 				from cell in cellIndices

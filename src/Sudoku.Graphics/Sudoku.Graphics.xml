@@ -307,7 +307,7 @@
             </summary>
             <param name="cellIndexGroups">The cell index groups.</param>
         </member>
-        <member name="F:Sudoku.Graphics.BlockLineTemplates.IrregularBlockLineTemplate._cellIndexGroups">
+        <member name="P:Sudoku.Graphics.BlockLineTemplates.IrregularBlockLineTemplate.CellIndexGroups">
             <summary>
             Indicates the cell index groups.
             </summary>
