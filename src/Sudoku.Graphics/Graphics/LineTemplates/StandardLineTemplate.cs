@@ -5,13 +5,13 @@
 /// </summary>
 /// <param name="rowBlockSize"><inheritdoc cref="RowBlockSize" path="/summary"/></param>
 /// <param name="columnBlockSize"><inheritdoc cref="ColumnBlockSize" path="/summary"/></param>
-public sealed class StandardLineTemplate(int rowBlockSize, int columnBlockSize) : LineTemplate
+public sealed class StandardLineTemplate(Relative rowBlockSize, Relative columnBlockSize) : LineTemplate
 {
 	/// <summary>
 	/// Initializes a <see cref="StandardLineTemplate"/> instance via the specified size as uniformed value.
 	/// </summary>
 	/// <param name="uniformSize">The uniformed value.</param>
-	public StandardLineTemplate(int uniformSize) : this(uniformSize, uniformSize)
+	public StandardLineTemplate(Relative uniformSize) : this(uniformSize, uniformSize)
 	{
 	}
 
@@ -19,12 +19,12 @@ public sealed class StandardLineTemplate(int rowBlockSize, int columnBlockSize) 
 	/// <summary>
 	/// Indicates the number of rows in a rectangular block.
 	/// </summary>
-	public int RowBlockSize { get; } = rowBlockSize;
+	public Relative RowBlockSize { get; } = rowBlockSize;
 
 	/// <summary>
 	/// Indicates the number of columns in a rectangular block.
 	/// </summary>
-	public int ColumnBlockSize { get; } = columnBlockSize;
+	public Relative ColumnBlockSize { get; } = columnBlockSize;
 
 
 	/// <inheritdoc/>

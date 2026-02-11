@@ -1,14 +1,15 @@
 ﻿namespace Sudoku.Concepts;
 
 /// <summary>
-/// Represents an encapsulated type of a quadruple of <see cref="int"/> values, indicating direction offsets.
+/// Represents an encapsulated type of a quadruple of <see cref="Relative"/> values,
+/// indicating direction offsets.
 /// </summary>
 /// <param name="Up">Indicates upside offsets.</param>
 /// <param name="Down">Indicates downside offsets.</param>
 /// <param name="Left">Indicates leftside offsets.</param>
 /// <param name="Right">Indicates rightside offsets.</param>
 [JsonConverter(typeof(Converter))]
-public readonly record struct DirectionVector(int Up, int Down, int Left, int Right) :
+public readonly record struct DirectionVector(Relative Up, Relative Down, Relative Left, Relative Right) :
 	IAdditionOperators<DirectionVector, DirectionVector, DirectionVector>,
 	IEqualityOperators<DirectionVector, DirectionVector, bool>,
 	ISubtractionOperators<DirectionVector, DirectionVector, DirectionVector>
@@ -23,7 +24,7 @@ public readonly record struct DirectionVector(int Up, int Down, int Left, int Ri
 	/// Initializes a <see cref="DirectionVector"/> instance via the uniform value.
 	/// </summary>
 	/// <param name="uniform">The uniform value.</param>
-	public DirectionVector(int uniform) : this(uniform, uniform, uniform, uniform)
+	public DirectionVector(Relative uniform) : this(uniform, uniform, uniform, uniform)
 	{
 	}
 
@@ -37,7 +38,7 @@ public readonly record struct DirectionVector(int Up, int Down, int Left, int Ri
 	/// Throws when <paramref name="direction"/> is not defined or <see cref="Direction.None"/>.
 	/// </exception>
 	/// <seealso cref="Direction.None"/>
-	public int GetValue(Direction direction)
+	public Relative GetValue(Direction direction)
 		=> direction switch
 		{
 			Direction.Up => Up,
@@ -107,7 +108,7 @@ file sealed class Converter : JsonConverter<DirectionVector>
 	/// <inheritdoc/>
 	public override DirectionVector Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
 	{
-		var array = JsonSerializer.Deserialize<int[]>(ref reader, options);
+		var array = JsonSerializer.Deserialize<Relative[]>(ref reader, options);
 		return array is [var up, var down, var left, var right] ? new(up, down, left, right) : throw new JsonException();
 	}
 
@@ -115,6 +116,6 @@ file sealed class Converter : JsonConverter<DirectionVector>
 	public override void Write(Utf8JsonWriter writer, DirectionVector value, JsonSerializerOptions options)
 	{
 		var (up, down, left, right) = value;
-		JsonSerializer.Serialize(writer, (int[])[up, down, left, right], options);
+		JsonSerializer.Serialize(writer, (Relative[])[up, down, left, right], options);
 	}
 }

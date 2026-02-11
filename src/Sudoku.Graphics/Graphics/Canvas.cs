@@ -36,8 +36,8 @@ public sealed class Canvas(
 	public Canvas(
 		float cellSize,
 		float margin,
-		int rowsCount,
-		int columnsCount,
+		Absolute rowsCount,
+		Absolute columnsCount,
 		DirectionVector vector,
 		CanvasDrawingOptions? drawingOptions = null,
 		CanvasExportingOptions? exportingOptions = null
@@ -53,10 +53,10 @@ public sealed class Canvas(
 	public float CellSize => Mapper.CellSize;
 
 	/// <inheritdoc cref="PointMapper.RowsCount"/>
-	public int RowsCount => Mapper.RowsCount;
+	public Absolute RowsCount => Mapper.RowsCount;
 
 	/// <inheritdoc cref="PointMapper.ColumnsCount"/>
-	public int ColumnsCount => Mapper.ColumnsCount;
+	public Absolute ColumnsCount => Mapper.ColumnsCount;
 
 	/// <inheritdoc cref="PointMapper.Vector"/>
 	public DirectionVector Vector => Mapper.Vector;

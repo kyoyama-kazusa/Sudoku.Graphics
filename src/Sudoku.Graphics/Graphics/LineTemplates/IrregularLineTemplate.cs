@@ -8,7 +8,7 @@ public sealed class IrregularLineTemplate : LineTemplate
 	/// <summary>
 	/// Indicates the relative cell index groups.
 	/// </summary>
-	public required RelativeCellIndex[][] CellIndexGroups { get; init; }
+	public required Relative[][] CellIndexGroups { get; init; }
 
 	/// <summary>
 	/// Indicates whether cyclic rule will be checked.
@@ -39,7 +39,7 @@ public sealed class IrregularLineTemplate : LineTemplate
 		// Iterate on each cell index group.
 		foreach (var cellIndices in CellIndexGroups)
 		{
-			var lineSegmentsDictionary = new Dictionary<int, Direction>(
+			var lineSegmentsDictionary = new Dictionary<Absolute, Direction>(
 				from cell in cellIndices
 				let absoluteIndex = mapper.ToAbsoluteIndex(cell)
 				select KeyValuePair.Create(absoluteIndex, Direction.Up | Direction.Down | Direction.Left | Direction.Right)

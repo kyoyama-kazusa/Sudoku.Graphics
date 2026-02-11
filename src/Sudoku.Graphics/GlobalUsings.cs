@@ -10,5 +10,5 @@ global using System.Text.Json.Serialization;
 global using SkiaSharp;
 global using Sudoku.Concepts;
 global using Sudoku.Graphics.LineTemplates;
-global using AbsoluteCellIndex = int;
-global using RelativeCellIndex = int;
+global using Absolute = int;
+global using Relative = int;

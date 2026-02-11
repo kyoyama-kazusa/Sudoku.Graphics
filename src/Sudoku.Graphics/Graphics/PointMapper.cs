@@ -9,7 +9,13 @@
 /// <param name="columnsCount"><inheritdoc cref="ColumnsCount" path="/summary"/></param>
 /// <param name="vector"><inheritdoc cref="Vector" path="/summary"/></param>
 [method: SetsRequiredMembers]
-public sealed class PointMapper(float cellSize, float margin, int rowsCount, int columnsCount, DirectionVector vector)
+public sealed class PointMapper(
+	float cellSize,
+	float margin,
+	Absolute rowsCount,
+	Absolute columnsCount,
+	DirectionVector vector
+)
 {
 	/// <summary>
 	/// Indicates cell width and height of pixels. By design, cell width is equal to cell height.
@@ -25,23 +31,23 @@ public sealed class PointMapper(float cellSize, float margin, int rowsCount, int
 	/// Indicates the number of rows. The number of rows should be an absolute value,
 	/// including reserved regions (used by drawing outside-like puzzles).
 	/// </summary>
-	public required int RowsCount { get; init; } = rowsCount;
+	public required Relative RowsCount { get; init; } = rowsCount;
 
 	/// <summary>
 	/// Indiactes the number of columns. The number of columns should be an absolute value,
 	/// including reserved regions (used by drawing outside-like puzzles).
 	/// </summary>
-	public required int ColumnsCount { get; init; } = columnsCount;
+	public required Relative ColumnsCount { get; init; } = columnsCount;
 
 	/// <summary>
 	/// Indicates the number of rows in absolute grid.
 	/// </summary>
-	public int AbsoluteRowsCount => RowsCount + Vector.Left + Vector.Right;
+	public Absolute AbsoluteRowsCount => RowsCount + Vector.Left + Vector.Right;
 
 	/// <summary>
 	/// Indicates the number of columns in absolute grid.
 	/// </summary>
-	public int AbsoluteColumnsCount => ColumnsCount + Vector.Up + Vector.Down;
+	public Absolute AbsoluteColumnsCount => ColumnsCount + Vector.Up + Vector.Down;
 
 	/// <summary>
 	/// Indicates empty cells count reserved to be empty.
@@ -65,7 +71,7 @@ public sealed class PointMapper(float cellSize, float margin, int rowsCount, int
 	/// </summary>
 	/// <param name="relativeCellIndex">Relative cell index.</param>
 	/// <returns>The result absolute index.</returns>
-	public AbsoluteCellIndex ToAbsoluteIndex(RelativeCellIndex relativeCellIndex)
+	public Absolute ToAbsoluteIndex(Relative relativeCellIndex)
 	{
 		var row = relativeCellIndex / ColumnsCount;
 		var column = relativeCellIndex % ColumnsCount;
@@ -79,7 +85,7 @@ public sealed class PointMapper(float cellSize, float margin, int rowsCount, int
 	/// </summary>
 	/// <param name="absoluteCellIndex">Absolute cell index.</param>
 	/// <returns>The result relative index.</returns>
-	public RelativeCellIndex ToRelativeIndex(AbsoluteCellIndex absoluteCellIndex)
+	public Relative ToRelativeIndex(Absolute absoluteCellIndex)
 	{
 		var absoluteColumnsCount = AbsoluteColumnsCount;
 		var row = absoluteCellIndex / absoluteColumnsCount;
@@ -96,7 +102,7 @@ public sealed class PointMapper(float cellSize, float margin, int rowsCount, int
 	/// <param name="direction">The direction.</param>
 	/// <param name="isCyclicChecking">Indicates whether the cell overflown in the relative grid will be included to be checked or not.</param>
 	/// <returns>Target cell absolute index.</returns>
-	public int GetAdjacentAbsoluteCellWith(AbsoluteCellIndex absoluteCellIndex, Direction direction, bool isCyclicChecking)
+	public Absolute GetAdjacentAbsoluteCellWith(Absolute absoluteCellIndex, Direction direction, bool isCyclicChecking)
 	{
 		var rowsCount = AbsoluteRowsCount;
 		var columnsCount = AbsoluteColumnsCount;
@@ -126,7 +132,7 @@ public sealed class PointMapper(float cellSize, float margin, int rowsCount, int
 	/// Throws when <paramref name="type"/> is not defined or <see cref="CellCornerType.None"/>.
 	/// </exception>
 	/// <seealso cref="CellCornerType.None"/>
-	public SKPoint GetPoint(AbsoluteCellIndex absoluteCellIndex, CellCornerType type)
+	public SKPoint GetPoint(Absolute absoluteCellIndex, CellCornerType type)
 	{
 		var columnsCount = AbsoluteColumnsCount;
 		return GetPoint(absoluteCellIndex / columnsCount, absoluteCellIndex % columnsCount, type);
@@ -143,7 +149,7 @@ public sealed class PointMapper(float cellSize, float margin, int rowsCount, int
 	/// Throws when <paramref name="type"/> is not defined or <see cref="CellCornerType.None"/>.
 	/// </exception>
 	/// <seealso cref="CellCornerType.None"/>
-	public SKPoint GetPoint(int absoluteRowIndex, int absoluteColumnIndex, CellCornerType type)
+	public SKPoint GetPoint(Absolute absoluteRowIndex, Absolute absoluteColumnIndex, CellCornerType type)
 	{
 		var topLeft = new SKPoint(CellSize * absoluteColumnIndex + Margin, CellSize * absoluteRowIndex + Margin);
 		return type switch
