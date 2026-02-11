@@ -41,12 +41,12 @@ public sealed class IrregularBlockLineTemplate(params int[][] cellIndexGroups) :
 		// Iterate on each cell index group.
 		foreach (var cellIndices in _cellIndexGroups)
 		{
-			var set = cellIndices.ToHashSet();
 			var lineSegmentsDictionary = new Dictionary<int, Direction>(
 				from cell in cellIndices
 				let absoluteIndex = mapper.ToAbsoluteIndex(cell)
 				select KeyValuePair.Create(absoluteIndex, Direction.Up | Direction.Down | Direction.Left | Direction.Right)
 			);
+			var set = lineSegmentsDictionary.Keys.ToHashSet();
 
 			// Iterate on each cell (absolute), to find for adjacent cells.
 			foreach (var cell in lineSegmentsDictionary.Keys)
