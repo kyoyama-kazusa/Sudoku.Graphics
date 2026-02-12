@@ -22,16 +22,16 @@ public sealed class IrregularLineTemplate : LineTemplate
 		using var thickLinePaint = new SKPaint
 		{
 			Style = SKPaintStyle.Stroke,
-			Color = options.ThickLineColor,
-			StrokeWidth = options.ThickLineWidth.Measure(mapper.CellSize),
+			Color = options.ThickLineColor.Resolve(options),
+			StrokeWidth = options.ThickLineWidth.Resolve(options).Measure(mapper.CellSize),
 			StrokeCap = SKStrokeCap.Round,
 			IsAntialias = true
 		};
 		using var thinLinePaint = new SKPaint
 		{
 			Style = SKPaintStyle.Stroke,
-			Color = options.ThinLineColor,
-			StrokeWidth = options.ThinLineWidth.Measure(mapper.CellSize),
+			Color = options.ThinLineColor.Resolve(options),
+			StrokeWidth = options.ThinLineWidth.Resolve(options).Measure(mapper.CellSize),
 			StrokeCap = SKStrokeCap.Round,
 			IsAntialias = true
 		};

@@ -80,7 +80,7 @@ public sealed class Canvas(
 
 
 	/// <inheritdoc/>
-	public void FillBackground() => FillBackground(DrawingOptions.BackgroundColor);
+	public void FillBackground() => FillBackground(DrawingOptions.BackgroundColor.Resolve(DrawingOptions));
 
 	/// <inheritdoc/>
 	public void FillBackground(SKColor color) => BackingCanvas.Clear(color);

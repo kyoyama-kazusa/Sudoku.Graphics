@@ -48,14 +48,14 @@ public sealed class StandardLineTemplate(Relative rowBlockSize, Relative columnB
 						mapper.GridSize.Width,
 						mapper.GridSize.Height
 					),
-					options.GridBorderRoundedRectangleCornerRadius.Measure(mapper.CellSize)
+					options.GridBorderRoundedRectangleCornerRadius.Resolve(options).Measure(mapper.CellSize)
 				)
 			);
 			using var borderPaint = new SKPaint
 			{
 				Style = SKPaintStyle.Stroke,
-				Color = options.ThickLineColor,
-				StrokeWidth = options.ThickLineWidth.Measure(mapper.CellSize),
+				Color = options.ThickLineColor.Resolve(options),
+				StrokeWidth = options.ThickLineWidth.Resolve(options).Measure(mapper.CellSize),
 				StrokeCap = SKStrokeCap.Round,
 				IsAntialias = true
 			};
@@ -67,16 +67,16 @@ public sealed class StandardLineTemplate(Relative rowBlockSize, Relative columnB
 			using var thickLinePaint = new SKPaint
 			{
 				Style = SKPaintStyle.Stroke,
-				Color = options.ThickLineColor,
-				StrokeWidth = options.ThickLineWidth.Measure(mapper.CellSize),
+				Color = options.ThickLineColor.Resolve(options),
+				StrokeWidth = options.ThickLineWidth.Resolve(options).Measure(mapper.CellSize),
 				StrokeCap = SKStrokeCap.Round,
 				IsAntialias = true
 			};
 			using var thinLinePaint = new SKPaint
 			{
 				Style = SKPaintStyle.Stroke,
-				Color = options.ThinLineColor,
-				StrokeWidth = options.ThinLineWidth.Measure(mapper.CellSize),
+				Color = options.ThinLineColor.Resolve(options),
+				StrokeWidth = options.ThinLineWidth.Resolve(options).Measure(mapper.CellSize),
 				StrokeCap = SKStrokeCap.Round,
 				IsAntialias = true
 			};

@@ -11,6 +11,7 @@ using System.IO;
 using SkiaSharp;
 using Sudoku.Graphics;
 using Sudoku.Graphics.LineTemplates;
+using Sudoku.Serialization;
 
 var desktop = Environment.DesktopPath;
 using var canvas = new Canvas(
@@ -21,8 +22,9 @@ using var canvas = new Canvas(
 	vector: new(1),
 	drawingOptions: new()
 	{
-		BackgroundColor = SKColors.White,
-		ThickLineColor = SKColors.Black,
+		BackgroundColor = Inherited<SerializableColor>.FromValue(SKColors.White),
+		ThickLineColor = Inherited<SerializableColor>.FromValue(SKColors.Black),
+		ThinLineColor = Inherited<SerializableColor>.FromMemberName(nameof(CanvasDrawingOptions.ThickLineColor)),
 		//GridLineTemplate = new StandardLineTemplate(3)
 		GridLineTemplate = new IrregularLineTemplate
 		{

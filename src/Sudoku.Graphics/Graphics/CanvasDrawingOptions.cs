@@ -14,35 +14,35 @@ public sealed class CanvasDrawingOptions : IOptionsProvider<CanvasDrawingOptions
 	/// <summary>
 	/// Indicates corner radius ratio of rounded rectangle of border lines, relative to cell size. By default it's 0.12.
 	/// </summary>
-	public Scale GridBorderRoundedRectangleCornerRadius { get; set; } = .12M;
+	public Inherited<Scale> GridBorderRoundedRectangleCornerRadius { get; set; } = Inherited<Scale>.FromValue(.12M);
 
 	/// <summary>
 	/// Indicates stroke thickness ratio of thin lines, relative to cell size. By default it's 0.015.
 	/// </summary>
-	public Scale ThinLineWidth { get; set; } = .015M;
+	public Inherited<Scale> ThinLineWidth { get; set; } = Inherited<Scale>.FromValue(.015M);
 
 	/// <summary>
 	/// Indicates stroke thickness ratio of thick lines, relative to cell size. By default it's 0.06.
 	/// </summary>
-	public Scale ThickLineWidth { get; set; } = .06M;
+	public Inherited<Scale> ThickLineWidth { get; set; } = Inherited<Scale>.FromValue(.06M);
 
 	/// <summary>
 	/// Represents background color. By default it's equivalent value of color <see cref="SKColors.White"/>.
 	/// </summary>
 	/// <seealso cref="SKColors.White"/>
-	public SerializableColor BackgroundColor { get; set; } = SKColors.White;
+	public Inherited<SerializableColor> BackgroundColor { get; set; } = Inherited<SerializableColor>.FromValue(SKColors.White);
 
 	/// <summary>
 	/// Represents thin line color. By default it's equivalent value of color <see cref="SKColors.Black"/>.
 	/// </summary>
 	/// <seealso cref="SKColors.Black"/>
-	public SerializableColor ThinLineColor { get; set; } = SKColors.Black;
+	public Inherited<SerializableColor> ThinLineColor { get; set; } = Inherited<SerializableColor>.FromValue(SKColors.Black);
 
 	/// <summary>
-	/// Represents thick line color. By default it's equivalent value of color <see cref="SKColors.Black"/>.
+	/// Represents thick line color. By default it's same value inherited from property <see cref="ThinLineColor"/>.
 	/// </summary>
-	/// <seealso cref="SKColors.Black"/>
-	public SerializableColor ThickLineColor { get; set; } = SKColors.Black;
+	/// <seealso cref="ThinLineColor"/>
+	public Inherited<SerializableColor> ThickLineColor { get; set; } = Inherited<SerializableColor>.FromMemberName(nameof(ThinLineColor));
 
 	/// <summary>
 	/// Represents grid line template to be drawn. By default it will be initialized as a <see cref="StandardLineTemplate"/>

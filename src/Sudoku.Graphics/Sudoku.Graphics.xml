@@ -522,9 +522,9 @@
         </member>
         <member name="P:Sudoku.Graphics.CanvasDrawingOptions.ThickLineColor">
             <summary>
-            Represents thick line color. By default it's equivalent value of color <see cref="F:SkiaSharp.SKColors.Black"/>.
+            Represents thick line color. By default it's same value inherited from property <see cref="P:Sudoku.Graphics.CanvasDrawingOptions.ThinLineColor"/>.
             </summary>
-            <seealso cref="F:SkiaSharp.SKColors.Black"/>
+            <seealso cref="P:Sudoku.Graphics.CanvasDrawingOptions.ThinLineColor"/>
         </member>
         <member name="P:Sudoku.Graphics.CanvasDrawingOptions.GridLineTemplate">
             <summary>
@@ -912,6 +912,11 @@
             Represents property name of value to be serialized and deserialized.
             </summary>
         </member>
+        <member name="F:Sudoku.Serialization.Inherited`1.DefaultBindingFlags">
+            <summary>
+            Indicates binding flags on property members while resolving value.
+            </summary>
+        </member>
         <member name="F:Sudoku.Serialization.Inherited`1._reference">
             <summary>
             Indicates the reference path of a property.
@@ -962,7 +967,7 @@
             </summary>
             <typeparam name="TOwner">The type of <paramref name="owner"/>.</typeparam>
             <param name="owner">The owner instance.</param>
-            <param name="maxDepth">The max depth. By default it's 64.</param>
+            <param name="maxDepth">The max depth. By default it's 2.</param>
             <exception cref="T:System.InvalidOperationException">
             Throws when at least one invalid case is encountered:
             <list type="bullet">
@@ -977,6 +982,20 @@
             Returns the real value if the current instance has a value; otherwise, <see langword="default"/>(<typeparamref name="T"/>).
             </summary>
             <returns>The real value or <see langword="default"/>(<typeparamref name="T"/>).</returns>
+        </member>
+        <member name="M:Sudoku.Serialization.Inherited`1.FromMemberName(System.String)">
+            <summary>
+            Creates an <see cref="T:Sudoku.Serialization.Inherited`1"/> instance via the specified property name.
+            </summary>
+            <param name="propertyName">The name of property to reference.</param>
+            <returns>An <see cref="T:Sudoku.Serialization.Inherited`1"/> instance.</returns>
+        </member>
+        <member name="M:Sudoku.Serialization.Inherited`1.FromValue(`0)">
+            <summary>
+            Creates an <see cref="T:Sudoku.Serialization.Inherited`1"/> instance via the specified value.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>An <see cref="T:Sudoku.Serialization.Inherited`1"/> instance.</returns>
         </member>
         <member name="T:Sudoku.Serialization.InheritedJsonConverterFactory">
             <summary>

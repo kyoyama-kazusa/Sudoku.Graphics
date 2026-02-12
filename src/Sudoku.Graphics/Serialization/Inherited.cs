@@ -17,6 +17,11 @@ public sealed class Inherited<T> where T : notnull
 	/// </summary>
 	internal const string ValuePropertyName = "value";
 
+	/// <summary>
+	/// Indicates binding flags on property members while resolving value.
+	/// </summary>
+	private const BindingFlags DefaultBindingFlags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
+
 
 	/// <summary>
 	/// Indicates the reference path of a property.
@@ -33,9 +38,8 @@ public sealed class Inherited<T> where T : notnull
 	/// Initializes an <see cref="Inherited{T}"/> instance via the specified property path.
 	/// </summary>
 	/// <param name="reference">The referenced property path.</param>
-	public Inherited(string reference)
+	private Inherited(string reference)
 	{
-		ArgumentNullException.ThrowIfNull(reference);
 		_reference = reference;
 		_value = default;
 	}
@@ -44,7 +48,7 @@ public sealed class Inherited<T> where T : notnull
 	/// Initializes an <see cref="Inherited{T}"/> instance via the specified value.
 	/// </summary>
 	/// <param name="value">The value.</param>
-	public Inherited(T value)
+	private Inherited(T value)
 	{
 		_value = value;
 		_reference = null;
@@ -81,7 +85,7 @@ public sealed class Inherited<T> where T : notnull
 	/// </summary>
 	/// <typeparam name="TOwner">The type of <paramref name="owner"/>.</typeparam>
 	/// <param name="owner">The owner instance.</param>
-	/// <param name="maxDepth">The max depth. By default it's 64.</param>
+	/// <param name="maxDepth">The max depth. By default it's 2.</param>
 	/// <exception cref="InvalidOperationException">
 	/// Throws when at least one invalid case is encountered:
 	/// <list type="bullet">
@@ -90,8 +94,10 @@ public sealed class Inherited<T> where T : notnull
 	/// <item>Reference is not found by resolver.</item>
 	/// </list>
 	/// </exception>
-	public T Resolve<TOwner>(TOwner owner, int maxDepth = 64) where TOwner : notnull
+	public T Resolve<TOwner>(TOwner owner, int maxDepth = 2) where TOwner : notnull
 	{
+		const string message_MaxDepthReached = "Maximum resolution depth exceeded.";
+
 		if (HasValue)
 		{
 			return _value;
@@ -106,17 +112,17 @@ public sealed class Inherited<T> where T : notnull
 			depth++;
 			if (depth > maxDepth)
 			{
-				throw new InvalidOperationException("Maximum resolution depth exceeded.");
+				throw new InvalidOperationException(message_MaxDepthReached);
 			}
 			if (!visited.Add(currentReference))
 			{
-				throw new InvalidOperationException($"Cycle detected while resolving reference '{currentReference}'.");
+				throw new InvalidOperationException(message_CycleDetected(currentReference));
 			}
 
-			var propertyInfo = ownerType.GetProperty(currentReference, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
-				?? throw new InvalidOperationException($"Property '{currentReference}' not found on type '{ownerType.Name}'.");
+			var propertyInfo = ownerType.GetProperty(currentReference, DefaultBindingFlags)
+				?? throw new InvalidOperationException(message_MemberNotFound(currentReference, ownerType));
 			var propertyValue = propertyInfo.GetValue(owner)
-				?? throw new InvalidOperationException($"Property '{currentReference}' is null.");
+				?? throw new InvalidOperationException(message_MemberIsNull(currentReference));
 			switch (propertyValue)
 			{
 				case Inherited<T> inherited:
@@ -134,10 +140,22 @@ public sealed class Inherited<T> where T : notnull
 				}
 				default:
 				{
-					throw new InvalidOperationException($"Property '{currentReference}' is not Inherited<{typeof(T).Name}>.");
+					throw new InvalidOperationException(message_MemberTypeIsInvalid(currentReference));
 				}
 			}
 		}
+
+
+		static string message_CycleDetected(string currentReference)
+			=> $"Cycle detected while resolving reference '{currentReference}'.";
+
+		static string message_MemberNotFound(string currentReference, Type ownerType)
+			=> $"Property '{currentReference}' not found on type '{ownerType.Name}'.";
+
+		static string message_MemberIsNull(string currentReference) => $"Property '{currentReference}' is null.";
+
+		static string message_MemberTypeIsInvalid(string currentReference)
+			=> $"Property '{currentReference}' is not neither 'string' nor '{nameof(Inherited<>)}<{typeof(T).Name}>'.";
 	}
 
 	/// <summary>
@@ -145,6 +163,21 @@ public sealed class Inherited<T> where T : notnull
 	/// </summary>
 	/// <returns>The real value or <see langword="default"/>(<typeparamref name="T"/>).</returns>
 	public T? GetValueOrDefault() => HasValue ? _value : default;
+
+
+	/// <summary>
+	/// Creates an <see cref="Inherited{T}"/> instance via the specified property name.
+	/// </summary>
+	/// <param name="propertyName">The name of property to reference.</param>
+	/// <returns>An <see cref="Inherited{T}"/> instance.</returns>
+	public static Inherited<T> FromMemberName(string propertyName) => new(propertyName);
+
+	/// <summary>
+	/// Creates an <see cref="Inherited{T}"/> instance via the specified value.
+	/// </summary>
+	/// <param name="value">The value.</param>
+	/// <returns>An <see cref="Inherited{T}"/> instance.</returns>
+	public static Inherited<T> FromValue(T value) => new(value);
 }
 
 /// <summary>
@@ -182,19 +215,19 @@ file sealed class InheritedJsonConverter<T>(JsonSerializerOptions _options) : Js
 		// If token is string -> treat as reference name.
 		if (reader.TokenType == JsonTokenType.String)
 		{
-			return new(reader.GetString()!);
+			return Inherited<T>.FromMemberName(reader.GetString()!);
 		}
 
 		// If token is null.
 		if (reader.TokenType == JsonTokenType.Null)
 		{
-			// treat as value == default(T).
+			// Treat as value == default(T).
 			reader.Read();
-			return new(default(T)!);
+			return Inherited<T>.FromValue(default!);
 		}
 
 		// Otherwise deserialize as T.
-		return new(JsonSerializer.Deserialize<T>(ref reader, _options)!);
+		return Inherited<T>.FromValue(JsonSerializer.Deserialize<T>(ref reader, _options)!);
 	}
 
 	/// <inheritdoc/>
@@ -219,25 +252,24 @@ file sealed class InheritedStringConverter : JsonConverter<Inherited<string>>
 	/// <inheritdoc/>
 	public override Inherited<string> Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
 	{
-		if (reader.TokenType == JsonTokenType.String)
-		{
-			// Ambiguous raw string => treat as concrete string value.
-			return new(reader.GetString()!);
-		}
+		const string message_CannotKnowStringMeans = "We cannot know whether the string value is a real value or a property referenced.";
+		const string message_CannotKnowNullMeans = "We cannot know what null means.";
+		const string message_ExpectedStringOrObjectInstance = $"Expected string or object for {nameof(Inherited<>)}<string>.";
 
-		if (reader.TokenType == JsonTokenType.Null)
+		if (reader.TokenType is var defaultTokenType and (JsonTokenType.String or JsonTokenType.Null))
 		{
+			// Ambiguous raw string.
 			reader.Read();
-			return new(null!);
+			throw new AmbiguousMatchException(defaultTokenType == JsonTokenType.String ? message_CannotKnowStringMeans : message_CannotKnowNullMeans);
 		}
 
 		if (reader.TokenType != JsonTokenType.StartObject)
 		{
-			throw new JsonException($"Expected string or object for {nameof(Inherited<>)}<string>.");
+			throw new JsonException(message_ExpectedStringOrObjectInstance);
 		}
 
-		var value = default(string);
-		var reference = default(string);
+		var (value, reference) = (default(string), default(string));
+		var namingPolicy = options.PropertyNamingPolicy ?? JsonNamingPolicy.CamelCase;
 		while (reader.Read())
 		{
 			if (reader.TokenType == JsonTokenType.EndObject)
@@ -249,13 +281,13 @@ file sealed class InheritedStringConverter : JsonConverter<Inherited<string>>
 				continue;
 			}
 
-			var propertyName = reader.GetString()!;
+			var propertyName = namingPolicy.ConvertName(reader.GetString()!);
 			reader.Read();
-			if (propertyName == Inherited<string>.InheritedReferencedPropertyName)
+			if (propertyName == namingPolicy.ConvertName(Inherited<string>.InheritedReferencedPropertyName))
 			{
 				reference = reader.GetString();
 			}
-			else if (propertyName == Inherited<string>.ValuePropertyName)
+			else if (propertyName == namingPolicy.ConvertName(Inherited<string>.ValuePropertyName))
 			{
 				value = reader.TokenType == JsonTokenType.Null ? null : reader.GetString();
 			}
@@ -270,19 +302,23 @@ file sealed class InheritedStringConverter : JsonConverter<Inherited<string>>
 					}
 					case JsonUnmappedMemberHandling.Disallow:
 					{
-						throw new JsonException($"Invalid property name '{propertyName}'.");
+						throw new JsonException(message_InvalidPropertyName(propertyName));
 					}
 					default:
 					{
-						throw new JsonException(
-							$"'{nameof(options)}.{nameof(options.UnmappedMemberHandling)}' holds an undefined value '{options.UnmappedMemberHandling}'."
-						);
+						throw new JsonException(message_UndefinedUnmappedMemberBehavior(options));
 					}
 				}
 			}
 		}
 
-		return reference is null ? new(value ?? string.Empty) : new(reference);
+		return reference is null ? Inherited<string>.FromValue(value ?? string.Empty) : Inherited<string>.FromMemberName(reference);
+
+
+		static string message_InvalidPropertyName(string propertyName) => $"Invalid property name '{propertyName}'.";
+
+		static string message_UndefinedUnmappedMemberBehavior(JsonSerializerOptions options)
+			=> $"'{nameof(options)}.{nameof(options.UnmappedMemberHandling)}' holds an undefined value '{options.UnmappedMemberHandling}'.";
 	}
 
 	/// <inheritdoc/>
