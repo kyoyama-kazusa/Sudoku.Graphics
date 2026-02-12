@@ -896,6 +896,131 @@
             </summary>
             <param name="color">The original value.</param>
         </member>
+        <member name="T:Sudoku.Serialization.Inherited`1">
+            <summary>
+            Represents a type that supports serialization and deserialization operation with inheritance.
+            </summary>
+            <typeparam name="T">The type of value.</typeparam>
+        </member>
+        <member name="F:Sudoku.Serialization.Inherited`1.InheritedReferencedPropertyName">
+            <summary>
+            Represents property name of referenced path to be serialized and deserialized.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Serialization.Inherited`1.ValuePropertyName">
+            <summary>
+            Represents property name of value to be serialized and deserialized.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Serialization.Inherited`1._reference">
+            <summary>
+            Indicates the reference path of a property.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Serialization.Inherited`1._value">
+            <summary>
+            Indicates the backing value.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Serialization.Inherited`1.#ctor(System.String)">
+            <summary>
+            Initializes an <see cref="T:Sudoku.Serialization.Inherited`1"/> instance via the specified property path.
+            </summary>
+            <param name="reference">The referenced property path.</param>
+        </member>
+        <member name="M:Sudoku.Serialization.Inherited`1.#ctor(`0)">
+            <summary>
+            Initializes an <see cref="T:Sudoku.Serialization.Inherited`1"/> instance via the specified value.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="P:Sudoku.Serialization.Inherited`1.HasValue">
+            <summary>
+            Indicates whether the instance has a real value.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Serialization.Inherited`1.Reference">
+            <summary>
+            Indicates the referenced property path.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">Throws when instance holds a value.</exception>
+        </member>
+        <member name="P:Sudoku.Serialization.Inherited`1.Value">
+            <summary>
+            Indicates the target value.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">Throws when instance is a reference.</exception>
+        </member>
+        <member name="M:Sudoku.Serialization.Inherited`1.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Serialization.Inherited`1.Resolve``1(``0,System.Int32)">
+            <summary>
+            Resolve using a resolver function. The resolver should map a reference string to another <see cref="T:Sudoku.Serialization.Inherited`1"/>
+            (or <see langword="null"/> if not found). Will follow reference chain up to <paramref name="maxDepth"/>
+            and will throw on cycles or missing.
+            </summary>
+            <typeparam name="TOwner">The type of <paramref name="owner"/>.</typeparam>
+            <param name="owner">The owner instance.</param>
+            <param name="maxDepth">The max depth. By default it's 64.</param>
+            <exception cref="T:System.InvalidOperationException">
+            Throws when at least one invalid case is encountered:
+            <list type="bullet">
+            <item>Maximum resolution depth exceeded (May cause a cycle)</item>
+            <item>Cycle detected when resolving a certain reference</item>
+            <item>Reference is not found by resolver.</item>
+            </list>
+            </exception>
+        </member>
+        <member name="M:Sudoku.Serialization.Inherited`1.GetValueOrDefault">
+            <summary>
+            Returns the real value if the current instance has a value; otherwise, <see langword="default"/>(<typeparamref name="T"/>).
+            </summary>
+            <returns>The real value or <see langword="default"/>(<typeparamref name="T"/>).</returns>
+        </member>
+        <member name="T:Sudoku.Serialization.InheritedJsonConverterFactory">
+            <summary>
+            Represents a JSON converter factory instance of type <see cref="T:Sudoku.Serialization.Inherited`1"/>.
+            </summary>
+            <seealso cref="T:Sudoku.Serialization.Inherited`1"/>
+        </member>
+        <member name="M:Sudoku.Serialization.InheritedJsonConverterFactory.CanConvert(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Serialization.InheritedJsonConverterFactory.CreateConverter(System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Serialization.InheritedJsonConverter`1">
+            <summary>
+            Represents a JSON converter factory instance of type <see cref="T:Sudoku.Serialization.Inherited`1"/>.
+            </summary>
+            <param name="_options">The options.</param>
+            <seealso cref="T:Sudoku.Serialization.Inherited`1"/>
+        </member>
+        <member name="M:Sudoku.Serialization.InheritedJsonConverter`1.#ctor(System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            Represents a JSON converter factory instance of type <see cref="T:Sudoku.Serialization.Inherited`1"/>.
+            </summary>
+            <param name="_options">The options.</param>
+            <seealso cref="T:Sudoku.Serialization.Inherited`1"/>
+        </member>
+        <member name="M:Sudoku.Serialization.InheritedJsonConverter`1.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Serialization.InheritedJsonConverter`1.Write(System.Text.Json.Utf8JsonWriter,Sudoku.Serialization.Inherited{`0},System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Serialization.InheritedStringConverter">
+            <summary>
+            Special converter for <see cref="T:Sudoku.Serialization.Inherited`1"/> of <see cref="T:System.String"/> to avoid ambiguity.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Serialization.InheritedStringConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Serialization.InheritedStringConverter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.Serialization.Inherited{System.String},System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
         <member name="T:System.ExceptionExtensions">
             <summary>
             Provides extension members on <see cref="T:System.Exception"/>.

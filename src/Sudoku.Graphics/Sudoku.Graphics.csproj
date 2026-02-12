@@ -4,6 +4,7 @@
 		<TargetFramework>net10.0</TargetFramework>
 		<RootNamespace>Sudoku</RootNamespace>
 		<DocumentationFile>Sudoku.Graphics.xml</DocumentationFile>
+		<WarningsAsErrors>nullable</WarningsAsErrors>
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
 
