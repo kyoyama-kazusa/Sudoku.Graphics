@@ -27,7 +27,7 @@ using var canvas = new Canvas(
 		ThickLineColor = Inherited<SerializableColor>.FromValue(SKColors.Black),
 		ThinLineColor = Inherited<SerializableColor>.FromPropertyName(nameof(CanvasDrawingOptions.ThickLineColor)),
 		//GridLineTemplate = new StandardLineTemplate(3)
-		GridLineTemplate = new IrregularLineTemplate
+		GridLineTemplate = new JigsawLineTemplate
 		{
 			CellIndexGroups = [
 				[0, 1, 2, 9, 10, 11, 12, 21, 22],

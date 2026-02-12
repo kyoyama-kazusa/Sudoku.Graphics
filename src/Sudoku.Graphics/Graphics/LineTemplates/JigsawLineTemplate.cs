@@ -1,9 +1,9 @@
 ﻿namespace Sudoku.Graphics.LineTemplates;
 
 /// <summary>
-/// Represents irregular line template.
+/// Represents irregular (jigsaw) line template.
 /// </summary>
-public sealed class IrregularLineTemplate : LineTemplate
+public sealed class JigsawLineTemplate : LineTemplate
 {
 	/// <summary>
 	/// Indicates the relative cell index groups.

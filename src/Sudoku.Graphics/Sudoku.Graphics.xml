@@ -681,22 +681,22 @@
             <param name="canvas">The canvas object to receive drawn items.</param>
             <param name="options">The options.</param>
         </member>
-        <member name="T:Sudoku.Graphics.LineTemplates.IrregularLineTemplate">
+        <member name="T:Sudoku.Graphics.LineTemplates.JigsawLineTemplate">
             <summary>
-            Represents irregular line template.
+            Represents irregular (jigsaw) line template.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.LineTemplates.IrregularLineTemplate.CellIndexGroups">
+        <member name="P:Sudoku.Graphics.LineTemplates.JigsawLineTemplate.CellIndexGroups">
             <summary>
             Indicates the relative cell index groups.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.LineTemplates.IrregularLineTemplate.IsCyclicRuleChecked">
+        <member name="P:Sudoku.Graphics.LineTemplates.JigsawLineTemplate.IsCyclicRuleChecked">
             <summary>
             Indicates whether cyclic rule will be checked.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.IrregularLineTemplate.DrawLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+        <member name="M:Sudoku.Graphics.LineTemplates.JigsawLineTemplate.DrawLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.LineTemplates.StandardLineTemplate">
