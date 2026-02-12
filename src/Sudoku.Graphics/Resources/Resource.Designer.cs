@@ -88,6 +88,15 @@ namespace Sudoku.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to JSudoku color set.
+        /// </summary>
+        internal static string JSudokuColorSet {
+            get {
+                return ResourceManager.GetString("JSudokuColorSet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Color of thick lines.
         /// </summary>
         internal static string ThickLineColor {

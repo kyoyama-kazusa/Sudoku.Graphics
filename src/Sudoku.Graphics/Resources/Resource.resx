@@ -126,6 +126,9 @@
   <data name="GridLineTemplate" xml:space="preserve">
     <value>Grid line template</value>
   </data>
+  <data name="JSudokuColorSet" xml:space="preserve">
+    <value>JSudoku color set</value>
+  </data>
   <data name="ThickLineColor" xml:space="preserve">
     <value>Color of thick lines</value>
   </data>

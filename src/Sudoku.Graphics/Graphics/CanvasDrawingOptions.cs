@@ -18,16 +18,16 @@ public sealed class CanvasDrawingOptions : IOptionsProvider<CanvasDrawingOptions
 	public Inherited<Scale> GridBorderRoundedRectangleCornerRadius { get; set; } = Inherited<Scale>.FromValue(.12M);
 
 	/// <summary>
-	/// Indicates stroke thickness ratio of thin lines, relative to cell size. By default it's 0.015.
+	/// Indicates stroke thickness ratio of thin lines, relative to cell size. By default it's 0.0225.
 	/// </summary>
 	[ResourceKey("ThinLineWidth")]
-	public Inherited<Scale> ThinLineWidth { get; set; } = Inherited<Scale>.FromValue(.015M);
+	public Inherited<Scale> ThinLineWidth { get; set; } = Inherited<Scale>.FromValue(.0225M);
 
 	/// <summary>
-	/// Indicates stroke thickness ratio of thick lines, relative to cell size. By default it's 0.06.
+	/// Indicates stroke thickness ratio of thick lines, relative to cell size. By default it's 0.09.
 	/// </summary>
 	[ResourceKey("ThickLineWidth")]
-	public Inherited<Scale> ThickLineWidth { get; set; } = Inherited<Scale>.FromValue(.06M);
+	public Inherited<Scale> ThickLineWidth { get; set; } = Inherited<Scale>.FromValue(.09M);
 
 	/// <summary>
 	/// Represents background color. By default it's equivalent value of color <see cref="SKColors.White"/>.
@@ -57,6 +57,43 @@ public sealed class CanvasDrawingOptions : IOptionsProvider<CanvasDrawingOptions
 	/// <seealso cref="StandardLineTemplate"/>
 	[ResourceKey("GridLineTemplate")]
 	public LineTemplate GridLineTemplate { get; set; } = new StandardLineTemplate(3);
+
+	/// <summary>
+	/// Represents JSudoku color set. The color set contains 27 different colors.
+	/// </summary>
+	[ResourceKey("JSudokuColorSet")]
+	public Inherited<SerializableColorSet> JSudokuColorSet { get; set; } = Inherited<SerializableColorSet>.FromValue(
+		[
+			new(255, 187, 187), // Red
+			new(187, 255, 187), // Green
+			new(187, 187, 255), // Purple
+			new(255, 255, 187), // Yellow
+			new(255, 187, 255), // Pink
+			new(187, 255, 255), // Skyblue
+			new(187, 187, 187), // Gray
+			new(255, 221, 221), // Light red
+			new(221, 255, 221), // Light green
+			new(221, 221, 255), // Light purple
+			new(255, 255, 221), // Light yellow
+			new(255, 221, 255), // Light pink
+			new(221, 255, 255), // Light skyblue
+			new(221, 221, 221), // Light gray
+			new(255, 153, 153), // Dark red
+			new(153, 255, 153), // Dark green
+			new(153, 153, 255), // Dark purple
+			new(255, 255, 153), // Dark yellow
+			new(255, 153, 255), // Dark pink
+			new(153, 255, 255), // Dark skyblue
+			new(153, 153, 153), // Dark gray
+			new(255, 119, 119), // Deep dark red
+			new(119, 255, 119), // Deep dark green
+			new(119, 119, 255), // Deep dark purple
+			new(255, 255, 119), // Deep dark yellow
+			new(255, 119, 255), // Deep dark pink
+			new(119, 255, 255), // Deep dark skyblue
+			new(119, 119, 119), // Deep dark gray
+		]
+	);
 
 
 	/// <inheritdoc/>

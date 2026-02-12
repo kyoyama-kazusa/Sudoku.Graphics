@@ -39,7 +39,8 @@ using var canvas = new Canvas(
 				[57, 58, 63, 64, 65, 66, 72, 73, 74],
 				[49, 50, 52, 59, 60, 61, 62, 71, 80],
 				[67, 68, 69, 70, 75, 76, 77, 78, 79]
-			]
+			],
+			AlsoFillGroups = true
 		}
 	},
 	exportingOptions: new() { Quality = 100 }

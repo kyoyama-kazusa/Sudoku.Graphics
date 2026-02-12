@@ -15,6 +15,13 @@ public sealed class JigsawLineTemplate : LineTemplate
 	/// </summary>
 	public bool IsCyclicRuleChecked { get; init; } = true;
 
+	/// <summary>
+	/// Indicates whether this template will also fill cell groups with colors
+	/// by using <see cref="CanvasDrawingOptions.JSudokuColorSet"/>.
+	/// </summary>
+	/// <seealso cref="CanvasDrawingOptions.JSudokuColorSet"/>
+	public bool AlsoFillGroups { get; init; } = false;
+
 
 	/// <inheritdoc/>
 	public override void DrawLines(PointMapper mapper, SKCanvas canvas, CanvasDrawingOptions options)
@@ -25,7 +32,7 @@ public sealed class JigsawLineTemplate : LineTemplate
 			Color = options.ThickLineColor.Resolve(options),
 			StrokeWidth = options.ThickLineWidth.Resolve(options).Measure(mapper.CellSize),
 			StrokeCap = SKStrokeCap.Round,
-			IsAntialias = true
+			IsAntialias = false
 		};
 		using var thinLinePaint = new SKPaint
 		{
@@ -33,10 +40,11 @@ public sealed class JigsawLineTemplate : LineTemplate
 			Color = options.ThinLineColor.Resolve(options),
 			StrokeWidth = options.ThinLineWidth.Resolve(options).Measure(mapper.CellSize),
 			StrokeCap = SKStrokeCap.Round,
-			IsAntialias = true
+			IsAntialias = false
 		};
 
 		// Iterate on each cell index group.
+		var groupIndex = 0;
 		foreach (var cellIndices in CellIndexGroups)
 		{
 			var lineSegmentsDictionary = new Dictionary<Absolute, Direction>(
@@ -44,14 +52,14 @@ public sealed class JigsawLineTemplate : LineTemplate
 				let absoluteIndex = mapper.ToAbsoluteIndex(cell)
 				select KeyValuePair.Create(absoluteIndex, Direction.Up | Direction.Down | Direction.Left | Direction.Right)
 			);
-			var set = lineSegmentsDictionary.Keys.ToHashSet();
+			var absoluteCellIndices = lineSegmentsDictionary.Keys.ToHashSet();
 
 			// Iterate on each cell (absolute), to find for adjacent cells.
 			foreach (var cell in lineSegmentsDictionary.Keys)
 			{
 				foreach (var direction in Direction.AllDirections)
 				{
-					if (set.Contains(mapper.GetAdjacentAbsoluteCellWith(cell, direction, IsCyclicRuleChecked)))
+					if (absoluteCellIndices.Contains(mapper.GetAdjacentAbsoluteCellWith(cell, direction, IsCyclicRuleChecked)))
 					{
 						// This direction contains that cell - we should remove this direction.
 						lineSegmentsDictionary[cell] &= ~direction;
@@ -59,18 +67,36 @@ public sealed class JigsawLineTemplate : LineTemplate
 				}
 			}
 
-			// Then draw lines onto it.
+			using var fillPaint = AlsoFillGroups && options.JSudokuColorSet.Resolve(options) is var resolvedColorSet
+				? new SKPaint
+				{
+					Style = SKPaintStyle.Fill,
+					Color = resolvedColorSet[groupIndex % resolvedColorSet.Count]
+				}
+				: null;
+
+			// Then draw lines onto it, and also fill with cells if worth.
 			foreach (var (cell, directions) in lineSegmentsDictionary)
 			{
 				var topLeft = mapper.GetPoint(cell, CellCornerType.TopLeft);
 				var topRight = mapper.GetPoint(cell, CellCornerType.TopRight);
 				var bottomLeft = mapper.GetPoint(cell, CellCornerType.BottomLeft);
 				var bottomRight = mapper.GetPoint(cell, CellCornerType.BottomRight);
+				
+				if (AlsoFillGroups)
+				{
+					var rect = SKRect.Create(topLeft, bottomRight);
+					canvas.DrawRect(rect, fillPaint);
+				}
+
 				canvas.DrawLine(topLeft, topRight, (directions & Direction.Up) != Direction.None ? thickLinePaint : thinLinePaint);
 				canvas.DrawLine(bottomLeft, bottomRight, (directions & Direction.Down) != Direction.None ? thickLinePaint : thinLinePaint);
 				canvas.DrawLine(topLeft, bottomLeft, (directions & Direction.Left) != Direction.None ? thickLinePaint : thinLinePaint);
 				canvas.DrawLine(topRight, bottomRight, (directions & Direction.Right) != Direction.None ? thickLinePaint : thinLinePaint);
 			}
+
+			// Increment group index.
+			groupIndex++;
 		}
 	}
 }

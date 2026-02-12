@@ -126,6 +126,9 @@
   <data name="GridLineTemplate" xml:space="preserve">
     <value>盘面线条绘制方案</value>
   </data>
+  <data name="JSudokuColorSet" xml:space="preserve">
+    <value>JSudoku 颜色集</value>
+  </data>
   <data name="ThickLineColor" xml:space="preserve">
     <value>粗线颜色</value>
   </data>

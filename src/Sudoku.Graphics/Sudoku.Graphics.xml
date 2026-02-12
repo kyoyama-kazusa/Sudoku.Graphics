@@ -528,12 +528,12 @@
         </member>
         <member name="P:Sudoku.Graphics.CanvasDrawingOptions.ThinLineWidth">
             <summary>
-            Indicates stroke thickness ratio of thin lines, relative to cell size. By default it's 0.015.
+            Indicates stroke thickness ratio of thin lines, relative to cell size. By default it's 0.0225.
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.CanvasDrawingOptions.ThickLineWidth">
             <summary>
-            Indicates stroke thickness ratio of thick lines, relative to cell size. By default it's 0.06.
+            Indicates stroke thickness ratio of thick lines, relative to cell size. By default it's 0.09.
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.CanvasDrawingOptions.BackgroundColor">
@@ -560,6 +560,11 @@
             <c><see langword="new"/> <see cref="T:Sudoku.Graphics.LineTemplates.StandardLineTemplate"/>(3)</c>.
             </summary>
             <seealso cref="T:Sudoku.Graphics.LineTemplates.StandardLineTemplate"/>
+        </member>
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.JSudokuColorSet">
+            <summary>
+            Represents JSudoku color set. The color set contains 27 different colors.
+            </summary>
         </member>
         <member name="P:Sudoku.Graphics.CanvasDrawingOptions.Sudoku#Graphics#Primitives#IOptionsProvider{Sudoku#Graphics#CanvasDrawingOptions}#DefaultInstance">
             <inheritdoc/>
@@ -622,6 +627,13 @@
             <summary>
             Indicates whether cyclic rule will be checked.
             </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.LineTemplates.JigsawLineTemplate.AlsoFillGroups">
+            <summary>
+            Indicates whether this template will also fill cell groups with colors
+            by using <see cref="P:Sudoku.Graphics.CanvasDrawingOptions.JSudokuColorSet"/>.
+            </summary>
+            <seealso cref="P:Sudoku.Graphics.CanvasDrawingOptions.JSudokuColorSet"/>
         </member>
         <member name="M:Sudoku.Graphics.LineTemplates.JigsawLineTemplate.DrawLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
             <inheritdoc/>
@@ -936,6 +948,15 @@
             </summary>
             <param name="color">The original value.</param>
         </member>
+        <member name="T:Sudoku.Graphics.SerializableColorSet">
+            <summary>
+            Represents a collection of <see cref="T:Sudoku.Graphics.SerializableColor"/> instances.
+            </summary>
+            <seealso cref="T:Sudoku.Graphics.SerializableColor"/>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColorSet.Slice(System.Int32,System.Int32)">
+            <inheritdoc cref="M:System.Collections.Generic.List`1.Slice(System.Int32,System.Int32)"/>
+        </member>
         <member name="T:Sudoku.Resources.Resource">
             <summary>
               A strongly-typed resource class, for looking up localized strings, etc.
@@ -965,6 +986,11 @@
         <member name="P:Sudoku.Resources.Resource.GridLineTemplate">
             <summary>
               Looks up a localized string similar to Grid line template.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Resources.Resource.JSudokuColorSet">
+            <summary>
+              Looks up a localized string similar to JSudoku color set.
             </summary>
         </member>
         <member name="P:Sudoku.Resources.Resource.ThickLineColor">
@@ -1249,6 +1275,39 @@
             </summary>
             <param name="expression">The expression.</param>
             <param name="expressionString">The expression string.</param>
+        </member>
+        <member name="T:SkiaSharp.SKRectExtensions">
+            <summary>
+            Provides extension members on type <see cref="T:SkiaSharp.SKRect"/>.
+            </summary>
+            <seealso cref="T:SkiaSharp.SKRect"/>
+        </member>
+        <member name="M:SkiaSharp.SKRectExtensions.Padding(SkiaSharp.SKRect,System.Single)">
+            <inheritdoc cref="M:SkiaSharp.SKRectExtensions.&lt;G&gt;$64649DAE2081E3899DE0903492939343.Padding(System.Single)"/>
+        </member>
+        <member name="M:SkiaSharp.SKRectExtensions.Create(SkiaSharp.SKPoint,SkiaSharp.SKPoint)">
+            <inheritdoc cref="M:SkiaSharp.SKRectExtensions.&lt;G&gt;$64649DAE2081E3899DE0903492939343.Create(SkiaSharp.SKPoint,SkiaSharp.SKPoint)"/>
+        </member>
+        <member name="T:SkiaSharp.SKRectExtensions.&lt;G&gt;$64649DAE2081E3899DE0903492939343.&lt;M&gt;$B79D02BF74EE1345225C54D28C038D51">
+            <param name="this">The instance.</param>
+        </member>
+        <member name="M:SkiaSharp.SKRectExtensions.&lt;G&gt;$64649DAE2081E3899DE0903492939343.Padding(System.Single)">
+            <summary>
+            Creates an <see cref="T:SkiaSharp.SKRect"/> instance with specified value as padding.
+            </summary>
+            <param name="uniform">The uniform value as padding.</param>
+            <returns>An <see cref="T:SkiaSharp.SKRect"/> instance created.</returns>
+        </member>
+        <member name="M:SkiaSharp.SKRectExtensions.&lt;G&gt;$64649DAE2081E3899DE0903492939343.Create(SkiaSharp.SKPoint,SkiaSharp.SKPoint)">
+            <summary>
+            Creates an <see cref="T:SkiaSharp.SKRect"/> instance via top-left and bottom-right points.
+            </summary>
+            <param name="topLeft">The top-left point.</param>
+            <param name="bottomRight">The bottom-right point.</param>
+            <returns>An <see cref="T:SkiaSharp.SKRect"/> instance created.</returns>
+            <exception cref="T:System.ArgumentException">
+            Throws when <paramref name="bottomRight"/> is less than <paramref name="topLeft"/> in logical position.
+            </exception>
         </member>
         <member name="T:SkiaSharp.SKSurfaceExtensions">
             <summary>
