@@ -996,6 +996,15 @@
             </summary>
             <exception cref="T:System.InvalidOperationException">Throws when instance is a reference.</exception>
         </member>
+        <member name="M:Sudoku.Serialization.Inherited`1.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Serialization.Inherited`1.Equals(Sudoku.Serialization.Inherited{`0})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Serialization.Inherited`1.GetHashCode">
+            <inheritdoc/>
+        </member>
         <member name="M:Sudoku.Serialization.Inherited`1.GetDepth``1(``0,System.Int32)">
             <summary>
             Returns the fact depth of the inheritance chain.
@@ -1074,6 +1083,12 @@
             <param name="value">The value.</param>
             <returns>An <see cref="T:Sudoku.Serialization.Inherited`1"/> instance.</returns>
         </member>
+        <member name="M:Sudoku.Serialization.Inherited`1.op_Equality(Sudoku.Serialization.Inherited{`0},Sudoku.Serialization.Inherited{`0})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Serialization.Inherited`1.op_Inequality(Sudoku.Serialization.Inherited{`0},Sudoku.Serialization.Inherited{`0})">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Serialization.InheritedJsonConverterFactory">
             <summary>
             Represents a JSON converter factory instance of type <see cref="T:Sudoku.Serialization.Inherited`1"/>.
@@ -1117,20 +1132,20 @@
         <member name="M:Sudoku.Serialization.InheritedStringConverter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.Serialization.Inherited{System.String},System.Text.Json.JsonSerializerOptions)">
             <inheritdoc/>
         </member>
-        <member name="T:Sudoku.Serialization.IOptionsSerializationDeserialization`1">
+        <member name="T:Sudoku.Serialization.IOptionsSupportsSerialization`1">
             <summary>
             Represents an instance of type <typeparamref name="TSelf"/> that supports serialization and deserialization.
             </summary>
             <typeparam name="TSelf">The type itself.</typeparam>
         </member>
-        <member name="M:Sudoku.Serialization.IOptionsSerializationDeserialization`1.WriteTo(System.String,System.Text.Json.JsonSerializerOptions)">
+        <member name="M:Sudoku.Serialization.IOptionsSupportsSerialization`1.WriteTo(System.String,System.Text.Json.JsonSerializerOptions)">
             <summary>
             Writes the configuration of this instance into target path (serialize the instance).
             </summary>
             <param name="path">The path.</param>
             <param name="options">The options.</param>
         </member>
-        <member name="M:Sudoku.Serialization.IOptionsSerializationDeserialization`1.ReadFrom(System.String,System.Text.Json.JsonSerializerOptions)">
+        <member name="M:Sudoku.Serialization.IOptionsSupportsSerialization`1.ReadFrom(System.String,System.Text.Json.JsonSerializerOptions)">
             <summary>
             Reads the configuration from the specified path, and load it, converting it into <typeparamref name="TSelf"/> instance.
             </summary>

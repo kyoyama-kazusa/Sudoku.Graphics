@@ -4,7 +4,7 @@
 /// Defines an options type.
 /// </summary>
 /// <typeparam name="TSelf">The type itself.</typeparam>
-public interface IOptionsProvider<out TSelf> : IOptionsSerializationDeserialization<TSelf>
+public interface IOptionsProvider<out TSelf> : IOptionsSupportsSerialization<TSelf>
 	where TSelf : notnull, IOptionsProvider<TSelf>, new()
 {
 	/// <summary>

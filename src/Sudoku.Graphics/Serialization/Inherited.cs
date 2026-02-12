@@ -5,7 +5,8 @@
 /// </summary>
 /// <typeparam name="T">The type of value.</typeparam>
 [JsonConverter(typeof(InheritedJsonConverterFactory))]
-public sealed class Inherited<T> where T : notnull
+public sealed class Inherited<T> : IEquatable<Inherited<T>>, IEqualityOperators<Inherited<T>, Inherited<T>, bool>
+	where T : notnull
 {
 	/// <summary>
 	/// Represents property name of referenced path to be serialized and deserialized.
@@ -58,8 +59,8 @@ public sealed class Inherited<T> where T : notnull
 	/// <summary>
 	/// Indicates whether the instance has a real value.
 	/// </summary>
-	[MemberNotNullWhen(true, nameof(_value))]
-	[MemberNotNullWhen(false, nameof(_reference))]
+	[MemberNotNullWhen(true, nameof(_value), nameof(Value))]
+	[MemberNotNullWhen(false, nameof(_reference), nameof(Reference))]
 	public bool HasValue => _reference is null;
 
 	/// <summary>
@@ -74,6 +75,28 @@ public sealed class Inherited<T> where T : notnull
 	/// <exception cref="InvalidOperationException">Throws when instance is a reference.</exception>
 	public T? Value => HasValue ? _value : throw new InvalidOperationException("This instance is a reference.");
 
+
+	/// <inheritdoc/>
+	public override bool Equals([NotNullWhen(true)] object? obj)
+		=> obj switch
+		{
+			T when !HasValue => false,
+			T value => EqualityComparer<T>.Default.Equals(Value, value),
+			Inherited<T> value => Equals(value),
+			_ => false
+		};
+
+	/// <inheritdoc/>
+	public bool Equals([NotNullWhen(true)] Inherited<T>? other)
+		=> (this, other) switch
+		{
+			({ HasValue: true, Value: var a }, { HasValue: true, Value: var b }) => EqualityComparer<T>.Default.Equals(a, b),
+			({ HasValue: false, Reference: var a }, { HasValue: false, Reference: var b }) => a == b,
+			_ => false
+		};
+
+	/// <inheritdoc/>
+	public override int GetHashCode() => HasValue ? HashCode.Combine(true, Value) : HashCode.Combine(false, Reference);
 
 	/// <summary>
 	/// Returns the fact depth of the inheritance chain.
@@ -267,6 +290,14 @@ public sealed class Inherited<T> where T : notnull
 	/// <param name="value">The value.</param>
 	/// <returns>An <see cref="Inherited{T}"/> instance.</returns>
 	public static Inherited<T> FromValue(T value) => new(value);
+
+
+	/// <inheritdoc/>
+	public static bool operator ==(Inherited<T>? left, Inherited<T>? right)
+		=> (left, right) switch { (null, null) => true, (not null, not null) => left.Equals(right), _ => false };
+
+	/// <inheritdoc/>
+	public static bool operator !=(Inherited<T>? left, Inherited<T>? right) => !(left == right);
 }
 
 /// <summary>

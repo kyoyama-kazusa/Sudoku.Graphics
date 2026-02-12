@@ -4,8 +4,7 @@
 /// Represents an instance of type <typeparamref name="TSelf"/> that supports serialization and deserialization.
 /// </summary>
 /// <typeparam name="TSelf">The type itself.</typeparam>
-public interface IOptionsSerializationDeserialization<out TSelf>
-	where TSelf : IOptionsSerializationDeserialization<TSelf>
+public interface IOptionsSupportsSerialization<out TSelf> where TSelf : IOptionsSupportsSerialization<TSelf>
 {
 	/// <summary>
 	/// Writes the configuration of this instance into target path (serialize the instance).
