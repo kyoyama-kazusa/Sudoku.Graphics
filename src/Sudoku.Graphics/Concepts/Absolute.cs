@@ -1,7 +1,7 @@
 ﻿namespace Sudoku.Concepts;
 
 /// <summary>
-/// Represents an absolute index.
+/// Represents an <see cref="int"/> value that describes an absolute index.
 /// </summary>
 /// <param name="value">The value.</param>
 [JsonConverter(typeof(ValueConverter<Absolute>))]

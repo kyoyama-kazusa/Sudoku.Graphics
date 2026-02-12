@@ -6,13 +6,13 @@
     <members>
         <member name="T:Sudoku.Concepts.Absolute">
             <summary>
-            Represents an absolute index.
+            Represents an <see cref="T:System.Int32"/> value that describes an absolute index.
             </summary>
             <param name="value">The value.</param>
         </member>
         <member name="M:Sudoku.Concepts.Absolute.#ctor(System.Int32)">
             <summary>
-            Represents an absolute index.
+            Represents an <see cref="T:System.Int32"/> value that describes an absolute index.
             </summary>
             <param name="value">The value.</param>
         </member>
@@ -256,13 +256,13 @@
         </member>
         <member name="T:Sudoku.Concepts.Relative">
             <summary>
-            Represents an absolute index.
+            Represents an <see cref="T:System.Int32"/> value that describes a relative index.
             </summary>
             <param name="value">The value.</param>
         </member>
         <member name="M:Sudoku.Concepts.Relative.#ctor(System.Int32)">
             <summary>
-            Represents an absolute index.
+            Represents an <see cref="T:System.Int32"/> value that describes a relative index.
             </summary>
             <param name="value">The value.</param>
         </member>
