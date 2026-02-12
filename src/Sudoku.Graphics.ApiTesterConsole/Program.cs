@@ -8,6 +8,7 @@
 
 using System;
 using System.IO;
+using System.Text.Json;
 using SkiaSharp;
 using Sudoku.Graphics;
 using Sudoku.Graphics.LineTemplates;
@@ -46,6 +47,8 @@ using var canvas = new Canvas(
 canvas.FillBackground();
 canvas.DrawLines();
 canvas.Export(Path.Combine(desktop, "output.png"));
+
+canvas.DrawingOptions.WriteTo(Path.Combine(Environment.DesktopPath, "output.json"), Options);
 Console.WriteLine("Okay.");
 
 
@@ -54,6 +57,17 @@ Console.WriteLine("Okay.");
 /// </summary>
 file static partial class Program
 {
+	/// <summary>
+	/// Represents options.
+	/// </summary>
+	private static readonly JsonSerializerOptions Options = new()
+	{
+		WriteIndented = true,
+		IndentCharacter = ' ',
+		IndentSize = 2
+	};
+
+
 	extension(Environment)
 	{
 		/// <summary>

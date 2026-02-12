@@ -12,3 +12,4 @@ global using SkiaSharp;
 global using Sudoku.Concepts;
 global using Sudoku.Graphics.LineTemplates;
 global using Sudoku.Serialization;
+global using Sudoku.Serialization.Specialized;

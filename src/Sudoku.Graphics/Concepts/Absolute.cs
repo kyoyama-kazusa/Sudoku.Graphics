@@ -4,12 +4,21 @@
 /// Represents an absolute index.
 /// </summary>
 /// <param name="value">The value.</param>
-public readonly struct Absolute(int value) : IEquatable<Absolute>, IEqualityOperators<Absolute, Absolute, bool>
+[JsonConverter(typeof(ValueConverter<Absolute>))]
+public readonly struct Absolute(int value) : IEquatable<Absolute>, IEqualityOperators<Absolute, Absolute, bool>, IValue<Absolute>
 {
 	/// <summary>
 	/// The backing value.
 	/// </summary>
 	private readonly int _value = value;
+
+
+	/// <inheritdoc/>
+	int IValue<Absolute>.Value => _value;
+
+	/// <inheritdoc/>
+	[UnscopedRef]
+	ref readonly int IValue<Absolute>.ValueRef => ref _value;
 
 
 	/// <inheritdoc/>
@@ -25,16 +34,10 @@ public readonly struct Absolute(int value) : IEquatable<Absolute>, IEqualityOper
 	public override string ToString() => _value.ToString();
 
 
-	/// <summary>
-	/// Implicit cast from <see cref="int"/> to <see cref="Absolute"/> value.
-	/// </summary>
-	/// <param name="value">The value.</param>
+	/// <inheritdoc/>
 	public static implicit operator Absolute(int value) => new(value);
 
-	/// <summary>
-	/// Implicit cast from <see cref="Absolute"/> to <see cref="int"/> value.
-	/// </summary>
-	/// <param name="value">The value.</param>
+	/// <inheritdoc/>
 	public static implicit operator int(Absolute value) => value._value;
 
 
