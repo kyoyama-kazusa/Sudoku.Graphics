@@ -539,6 +539,12 @@
         <member name="P:Sudoku.Graphics.CanvasDrawingOptions.Sudoku#Graphics#IOptionsProvider{Sudoku#Graphics#CanvasDrawingOptions}#DefaultInstance">
             <inheritdoc/>
         </member>
+        <member name="M:Sudoku.Graphics.CanvasDrawingOptions.WriteTo(System.String,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.CanvasDrawingOptions.ReadFrom(System.String,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.CanvasExportingOptions">
             <summary>
             Represents exporting options.
@@ -555,6 +561,12 @@
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.CanvasExportingOptions.Sudoku#Graphics#IOptionsProvider{Sudoku#Graphics#CanvasExportingOptions}#DefaultInstance">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.CanvasExportingOptions.WriteTo(System.String,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.CanvasExportingOptions.ReadFrom(System.String,System.Text.Json.JsonSerializerOptions)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.ICanvas`2">
@@ -1076,6 +1088,27 @@
         </member>
         <member name="M:Sudoku.Serialization.InheritedStringConverter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.Serialization.Inherited{System.String},System.Text.Json.JsonSerializerOptions)">
             <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Serialization.IOptionsSerializationDeserialization`1">
+            <summary>
+            Represents an instance of type <typeparamref name="TSelf"/> that supports serialization and deserialization.
+            </summary>
+            <typeparam name="TSelf">The type itself.</typeparam>
+        </member>
+        <member name="M:Sudoku.Serialization.IOptionsSerializationDeserialization`1.WriteTo(System.String,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            Writes the configuration of this instance into target path (serialize the instance).
+            </summary>
+            <param name="path">The path.</param>
+            <param name="options">The options.</param>
+        </member>
+        <member name="M:Sudoku.Serialization.IOptionsSerializationDeserialization`1.ReadFrom(System.String,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            Reads the configuration from the specified path, and load it, converting it into <typeparamref name="TSelf"/> instance.
+            </summary>
+            <param name="path">The path.</param>
+            <param name="options">The options.</param>
+            <returns>The instance loaded.</returns>
         </member>
         <member name="T:System.ExceptionExtensions">
             <summary>

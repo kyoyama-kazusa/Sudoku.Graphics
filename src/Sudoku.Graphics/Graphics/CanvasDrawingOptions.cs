@@ -57,4 +57,20 @@ public sealed class CanvasDrawingOptions : IOptionsProvider<CanvasDrawingOptions
 
 	/// <inheritdoc/>
 	static CanvasDrawingOptions IOptionsProvider<CanvasDrawingOptions>.DefaultInstance => Default;
+
+
+	/// <inheritdoc/>
+	public void WriteTo(string path, JsonSerializerOptions? options = null)
+	{
+		var json = JsonSerializer.Serialize(this, options);
+		File.WriteAllText(path, json);
+	}
+
+
+	/// <inheritdoc/>
+	public static CanvasDrawingOptions ReadFrom(string path, JsonSerializerOptions? options = null)
+	{
+		var json = File.ReadAllText(path);
+		return JsonSerializer.Deserialize<CanvasDrawingOptions>(json, options)!;
+	}
 }
