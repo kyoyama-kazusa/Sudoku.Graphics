@@ -31,13 +31,13 @@ public sealed class PointMapper(
 	/// Indicates the number of rows. The number of rows should be an absolute value,
 	/// including reserved regions (used by drawing outside-like puzzles).
 	/// </summary>
-	public required Relative RowsCount { get; init; } = rowsCount;
+	public required Absolute RowsCount { get; init; } = rowsCount;
 
 	/// <summary>
 	/// Indiactes the number of columns. The number of columns should be an absolute value,
 	/// including reserved regions (used by drawing outside-like puzzles).
 	/// </summary>
-	public required Relative ColumnsCount { get; init; } = columnsCount;
+	public required Absolute ColumnsCount { get; init; } = columnsCount;
 
 	/// <summary>
 	/// Indicates the number of rows in absolute grid.
