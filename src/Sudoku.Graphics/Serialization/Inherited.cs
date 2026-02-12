@@ -4,7 +4,7 @@
 /// Represents a type that supports serialization and deserialization operation with inheritance.
 /// </summary>
 /// <typeparam name="T">The type of value.</typeparam>
-[JsonConverter(typeof(InheritedJsonConverterFactory))]
+[JsonConverter(typeof(ConverterFactory))]
 public sealed class Inherited<T> : IEquatable<Inherited<T>>, IEqualityOperators<Inherited<T>, Inherited<T>, bool>
 	where T : notnull
 {
@@ -304,7 +304,7 @@ public sealed class Inherited<T> : IEquatable<Inherited<T>>, IEqualityOperators<
 /// Represents a JSON converter factory instance of type <see cref="Inherited{T}"/>.
 /// </summary>
 /// <seealso cref="Inherited{T}"/>
-file sealed class InheritedJsonConverterFactory : JsonConverterFactory
+file sealed class ConverterFactory : JsonConverterFactory
 {
 	/// <inheritdoc/>
 	public override bool CanConvert(Type typeToConvert)
@@ -317,8 +317,8 @@ file sealed class InheritedJsonConverterFactory : JsonConverterFactory
 
 		// Special-case for string to avoid ambiguity.
 		return innerType == typeof(string)
-			? Activator.CreateInstance<InheritedStringConverter>()
-			: (JsonConverter?)Activator.CreateInstance(typeof(InheritedJsonConverter<>).MakeGenericType(innerType), [options]);
+			? Activator.CreateInstance<StringConverter>()
+			: (JsonConverter?)Activator.CreateInstance(typeof(GenericConverter<>).MakeGenericType(innerType), [options]);
 	}
 }
 
@@ -327,7 +327,7 @@ file sealed class InheritedJsonConverterFactory : JsonConverterFactory
 /// </summary>
 /// <param name="_options">The options.</param>
 /// <seealso cref="Inherited{T}"/>
-file sealed class InheritedJsonConverter<T>(JsonSerializerOptions _options) : JsonConverter<Inherited<T>> where T : notnull
+file sealed class GenericConverter<T>(JsonSerializerOptions _options) : JsonConverter<Inherited<T>> where T : notnull
 {
 	/// <inheritdoc/>
 	public override Inherited<T> Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
@@ -367,7 +367,7 @@ file sealed class InheritedJsonConverter<T>(JsonSerializerOptions _options) : Js
 /// <summary>
 /// Special converter for <see cref="Inherited{T}"/> of <see cref="string"/> to avoid ambiguity.
 /// </summary>
-file sealed class InheritedStringConverter : JsonConverter<Inherited<string>>
+file sealed class StringConverter : JsonConverter<Inherited<string>>
 {
 	/// <inheritdoc/>
 	public override Inherited<string> Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)

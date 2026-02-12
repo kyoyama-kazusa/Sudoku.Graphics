@@ -1157,47 +1157,47 @@
         <member name="M:Sudoku.Serialization.Inherited`1.op_Inequality(Sudoku.Serialization.Inherited{`0},Sudoku.Serialization.Inherited{`0})">
             <inheritdoc/>
         </member>
-        <member name="T:Sudoku.Serialization.InheritedJsonConverterFactory">
+        <member name="T:Sudoku.Serialization.ConverterFactory">
             <summary>
             Represents a JSON converter factory instance of type <see cref="T:Sudoku.Serialization.Inherited`1"/>.
             </summary>
             <seealso cref="T:Sudoku.Serialization.Inherited`1"/>
         </member>
-        <member name="M:Sudoku.Serialization.InheritedJsonConverterFactory.CanConvert(System.Type)">
+        <member name="M:Sudoku.Serialization.ConverterFactory.CanConvert(System.Type)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Serialization.InheritedJsonConverterFactory.CreateConverter(System.Type,System.Text.Json.JsonSerializerOptions)">
+        <member name="M:Sudoku.Serialization.ConverterFactory.CreateConverter(System.Type,System.Text.Json.JsonSerializerOptions)">
             <inheritdoc/>
         </member>
-        <member name="T:Sudoku.Serialization.InheritedJsonConverter`1">
-            <summary>
-            Represents a JSON converter factory instance of type <see cref="T:Sudoku.Serialization.Inherited`1"/>.
-            </summary>
-            <param name="_options">The options.</param>
-            <seealso cref="T:Sudoku.Serialization.Inherited`1"/>
-        </member>
-        <member name="M:Sudoku.Serialization.InheritedJsonConverter`1.#ctor(System.Text.Json.JsonSerializerOptions)">
+        <member name="T:Sudoku.Serialization.GenericConverter`1">
             <summary>
             Represents a JSON converter factory instance of type <see cref="T:Sudoku.Serialization.Inherited`1"/>.
             </summary>
             <param name="_options">The options.</param>
             <seealso cref="T:Sudoku.Serialization.Inherited`1"/>
         </member>
-        <member name="M:Sudoku.Serialization.InheritedJsonConverter`1.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+        <member name="M:Sudoku.Serialization.GenericConverter`1.#ctor(System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            Represents a JSON converter factory instance of type <see cref="T:Sudoku.Serialization.Inherited`1"/>.
+            </summary>
+            <param name="_options">The options.</param>
+            <seealso cref="T:Sudoku.Serialization.Inherited`1"/>
+        </member>
+        <member name="M:Sudoku.Serialization.GenericConverter`1.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Serialization.InheritedJsonConverter`1.Write(System.Text.Json.Utf8JsonWriter,Sudoku.Serialization.Inherited{`0},System.Text.Json.JsonSerializerOptions)">
+        <member name="M:Sudoku.Serialization.GenericConverter`1.Write(System.Text.Json.Utf8JsonWriter,Sudoku.Serialization.Inherited{`0},System.Text.Json.JsonSerializerOptions)">
             <inheritdoc/>
         </member>
-        <member name="T:Sudoku.Serialization.InheritedStringConverter">
+        <member name="T:Sudoku.Serialization.StringConverter">
             <summary>
             Special converter for <see cref="T:Sudoku.Serialization.Inherited`1"/> of <see cref="T:System.String"/> to avoid ambiguity.
             </summary>
         </member>
-        <member name="M:Sudoku.Serialization.InheritedStringConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+        <member name="M:Sudoku.Serialization.StringConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Serialization.InheritedStringConverter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.Serialization.Inherited{System.String},System.Text.Json.JsonSerializerOptions)">
+        <member name="M:Sudoku.Serialization.StringConverter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.Serialization.Inherited{System.String},System.Text.Json.JsonSerializerOptions)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Serialization.IOptionsSupportsSerialization`1">
