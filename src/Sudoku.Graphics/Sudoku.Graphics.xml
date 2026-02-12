@@ -556,11 +556,8 @@
         </member>
         <member name="P:Sudoku.Graphics.CanvasDrawingOptions.GridLineTemplate">
             <summary>
-            Represents grid line template to be drawn. By default it will be initialized as a <see cref="T:Sudoku.Graphics.LineTemplates.StandardLineTemplate"/>
-            like this:
-            <code>
-            <c><see langword="new"/> <see cref="T:Sudoku.Graphics.LineTemplates.StandardLineTemplate"/>(3)</c>
-            </code>
+            Represents grid line template to be drawn. By default it will be initialized like
+            <c><see langword="new"/> <see cref="T:Sudoku.Graphics.LineTemplates.StandardLineTemplate"/>(3)</c>.
             </summary>
             <seealso cref="T:Sudoku.Graphics.LineTemplates.StandardLineTemplate"/>
         </member>
@@ -938,6 +935,74 @@
             Implicit cast from <see cref="T:Sudoku.Graphics.SerializableColor"/> to <see cref="T:SkiaSharp.SKColor"/>.
             </summary>
             <param name="color">The original value.</param>
+        </member>
+        <member name="T:Sudoku.Resources.Resource">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Resources.Resource.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Resources.Resource.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Resources.Resource.BackgroundColor">
+            <summary>
+              Looks up a localized string similar to Background color.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Resources.Resource.GridBorderRoundedRectangleCornerRadius">
+            <summary>
+              Looks up a localized string similar to Corner radius of grid border.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Resources.Resource.GridLineTemplate">
+            <summary>
+              Looks up a localized string similar to Grid line template.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Resources.Resource.ThickLineColor">
+            <summary>
+              Looks up a localized string similar to Color of thick lines.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Resources.Resource.ThickLineWidth">
+            <summary>
+              Looks up a localized string similar to Width of thick lines.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Resources.Resource.ThinLineColor">
+            <summary>
+              Looks up a localized string similar to Color of thin lines.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Resources.Resource.ThinLineWidth">
+            <summary>
+              Looks up a localized string similar to Width of thin lines.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Resources.ResourceKeyAttribute">
+            <summary>
+            Indicates the property resource key.
+            </summary>
+            <param name="key">The key.</param>
+        </member>
+        <member name="M:Sudoku.Resources.ResourceKeyAttribute.#ctor(System.String)">
+            <summary>
+            Indicates the property resource key.
+            </summary>
+            <param name="key">The key.</param>
+        </member>
+        <member name="P:Sudoku.Resources.ResourceKeyAttribute.Key">
+            <summary>
+            Indicates the key of resource entry.
+            </summary>
         </member>
         <member name="T:Sudoku.Serialization.Inherited`1">
             <summary>
