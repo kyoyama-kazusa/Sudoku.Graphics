@@ -10,7 +10,9 @@ public sealed class Canvas(
 	PointMapper mapper,
 	CanvasDrawingOptions? drawingOptions = null,
 	CanvasExportingOptions? exportingOptions = null
-) : ICanvas<CanvasDrawingOptions, CanvasExportingOptions>
+) :
+	ICanvas<CanvasDrawingOptions, CanvasExportingOptions>,
+	IDisposable
 {
 	/// <summary>
 	/// Indicates the backing surface.

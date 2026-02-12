@@ -8,8 +8,7 @@
 public interface ICanvas<out TDrawingOptions, out TExportingOptions> :
 	ICanvasDrawLines,
 	ICanvasExport,
-	ICanvasFillBackground,
-	IDisposable
+	ICanvasFillBackground
 	where TDrawingOptions : notnull, IOptionsProvider<TDrawingOptions>, new()
 	where TExportingOptions : notnull, IOptionsProvider<TExportingOptions>, new()
 {
