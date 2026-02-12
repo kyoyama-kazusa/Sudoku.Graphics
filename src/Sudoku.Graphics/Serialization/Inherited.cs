@@ -75,8 +75,38 @@ public sealed class Inherited<T> where T : notnull
 	public T? Value => HasValue ? _value : throw new InvalidOperationException("This instance is a reference.");
 
 
+	/// <summary>
+	/// Returns the fact depth of the inheritance chain.
+	/// </summary>
+	/// <typeparam name="TOwner">The type of <paramref name="owner"/>.</typeparam>
+	/// <param name="owner">The owner instance.</param>
+	/// <param name="maxDepth">The max depth.</param>
+	/// <returns>The depth.</returns>
+	/// <exception cref="InvalidOperationException">
+	/// <inheritdoc cref="Resolve{TOwner}(TOwner, int)" path="/exception[@cref='InvalidOperationException']"/>
+	/// </exception>
+	public int GetDepth<TOwner>(TOwner owner, int maxDepth) where TOwner : class
+		=> TryResolve(owner, out var factDepth, out _, out _, out var errorMessage, maxDepth)
+			? factDepth
+			: throw new InvalidOperationException(errorMessage);
+
 	/// <inheritdoc/>
 	public override string ToString() => HasValue ? $"{nameof(Value)}: {_value}" : $"{nameof(Reference)}: {_reference}";
+
+	/// <summary>
+	/// Returns inheritance chain of the current instance.
+	/// </summary>
+	/// <typeparam name="TOwner">The type of <paramref name="owner"/>.</typeparam>
+	/// <param name="owner">The owner instance.</param>
+	/// <param name="maxDepth">The max depth.</param>
+	/// <returns>The inheritance chain (property name reference).</returns>
+	/// <exception cref="InvalidOperationException">
+	/// <inheritdoc cref="Resolve{TOwner}(TOwner, int)" path="/exception[@cref='InvalidOperationException']"/>
+	/// </exception>
+	public string[] GetInheritanceChain<TOwner>(TOwner owner, int maxDepth) where TOwner : class
+		=> TryResolve(owner, out _, out _, out var inheritanceChain, out var errorMessage, maxDepth)
+			? inheritanceChain
+			: throw new InvalidOperationException(errorMessage);
 
 	/// <summary>
 	/// Resolve using a resolver function. The resolver should map a reference string to another <see cref="Inherited{T}"/>
@@ -94,57 +124,122 @@ public sealed class Inherited<T> where T : notnull
 	/// <item>Reference is not found by resolver.</item>
 	/// </list>
 	/// </exception>
-	public T Resolve<TOwner>(TOwner owner, int maxDepth = 2) where TOwner : notnull
-	{
-		const string message_MaxDepthReached = "Maximum resolution depth exceeded.";
+	public T Resolve<TOwner>(TOwner owner, int maxDepth = 2) where TOwner : class
+		=> TryResolve(owner, out _, out var result, out _, out var errorMessage, maxDepth)
+			? result
+			: throw new InvalidOperationException(errorMessage);
 
+	/// <summary>
+	/// Returns the real value if the current instance has a value; otherwise, <see langword="default"/>(<typeparamref name="T"/>).
+	/// </summary>
+	/// <returns>The real value or <see langword="default"/>(<typeparamref name="T"/>).</returns>
+	public T? GetValueOrDefault() => HasValue ? _value : default;
+
+	/// <summary>
+	/// The backing method to resolve value.
+	/// </summary>
+	/// <typeparam name="TOwner">The type of <paramref name="owner"/>.</typeparam>
+	/// <param name="owner">The owner instance.</param>
+	/// <param name="factDepth">The fact depth.</param>
+	/// <param name="result">The result.</param>
+	/// <param name="inheritanceChain">The whole inheritance chain.</param>
+	/// <param name="errorMessage">The error message.</param>
+	/// <param name="maxDepth">The desired max depth.</param>
+	/// <returns>A <see cref="bool"/> result.</returns>
+	private bool TryResolve<TOwner>(
+		TOwner owner,
+		out int factDepth,
+		[NotNullWhen(true)] out T? result,
+		[NotNullWhen(true)] out string[]? inheritanceChain,
+		[NotNullWhen(false)] out string? errorMessage,
+		int maxDepth
+	)
+		where TOwner : class
+	{
 		if (HasValue)
 		{
-			return _value;
+			result = _value;
+			factDepth = 0;
+			errorMessage = null;
+			inheritanceChain = [];
+			return true;
 		}
 
 		var visited = new HashSet<string>(StringComparer.Ordinal);
 		var currentReference = Reference;
 		var ownerType = owner.GetType();
 		var depth = 0;
+		var originalInheritanceChain = new List<string>(maxDepth);
 		while (true)
 		{
 			depth++;
 			if (depth > maxDepth)
 			{
-				throw new InvalidOperationException(message_MaxDepthReached);
-			}
-			if (!visited.Add(currentReference))
-			{
-				throw new InvalidOperationException(message_CycleDetected(currentReference));
+				errorMessage = message_MaxDepthReached();
+				goto ReturnDefault;
 			}
 
-			var propertyInfo = ownerType.GetProperty(currentReference, DefaultBindingFlags)
-				?? throw new InvalidOperationException(message_MemberNotFound(currentReference, ownerType));
-			var propertyValue = propertyInfo.GetValue(owner)
-				?? throw new InvalidOperationException(message_MemberIsNull(currentReference));
+			if (!visited.Add(currentReference))
+			{
+				errorMessage = message_CycleDetected(currentReference);
+				goto ReturnDefault;
+			}
+
+			var propertyInfo = ownerType.GetProperty(currentReference, DefaultBindingFlags);
+			if (propertyInfo is null)
+			{
+				errorMessage = message_MemberNotFound(currentReference, ownerType);
+				goto ReturnDefault;
+			}
+
+			originalInheritanceChain.Add(propertyInfo.Name);
+
+			var propertyValue = propertyInfo.GetValue(owner);
+			if (propertyValue is null)
+			{
+				errorMessage = message_MemberIsNull(currentReference);
+				goto ReturnDefault;
+			}
 			switch (propertyValue)
 			{
 				case Inherited<T> inherited:
 				{
 					if (inherited.HasValue)
 					{
-						return inherited._value;
+						factDepth = depth;
+						result = inherited._value;
+						errorMessage = null;
+						inheritanceChain = [.. originalInheritanceChain];
+						return true;
 					}
 					currentReference = inherited.Reference;
 					break;
 				}
 				case T value:
 				{
-					return value;
+					result = value;
+					factDepth = depth;
+					errorMessage = null;
+					inheritanceChain = [.. originalInheritanceChain];
+					return true;
 				}
 				default:
 				{
-					throw new InvalidOperationException(message_MemberTypeIsInvalid(currentReference));
+					errorMessage = message_MemberTypeIsInvalid(currentReference);
+					goto ReturnDefault;
 				}
 			}
 		}
 
+
+	ReturnDefault:
+		result = default;
+		factDepth = depth;
+		inheritanceChain = null;
+		return false;
+
+
+		static string message_MaxDepthReached() => "Maximum resolution depth exceeded.";
 
 		static string message_CycleDetected(string currentReference)
 			=> $"Cycle detected while resolving reference '{currentReference}'.";
@@ -157,12 +252,6 @@ public sealed class Inherited<T> where T : notnull
 		static string message_MemberTypeIsInvalid(string currentReference)
 			=> $"Property '{currentReference}' is not neither 'string' nor '{nameof(Inherited<>)}<{typeof(T).Name}>'.";
 	}
-
-	/// <summary>
-	/// Returns the real value if the current instance has a value; otherwise, <see langword="default"/>(<typeparamref name="T"/>).
-	/// </summary>
-	/// <returns>The real value or <see langword="default"/>(<typeparamref name="T"/>).</returns>
-	public T? GetValueOrDefault() => HasValue ? _value : default;
 
 
 	/// <summary>

@@ -956,8 +956,32 @@
             </summary>
             <exception cref="T:System.InvalidOperationException">Throws when instance is a reference.</exception>
         </member>
+        <member name="M:Sudoku.Serialization.Inherited`1.GetDepth``1(``0,System.Int32)">
+            <summary>
+            Returns the fact depth of the inheritance chain.
+            </summary>
+            <typeparam name="TOwner">The type of <paramref name="owner"/>.</typeparam>
+            <param name="owner">The owner instance.</param>
+            <param name="maxDepth">The max depth.</param>
+            <returns>The depth.</returns>
+            <exception cref="T:System.InvalidOperationException">
+            <inheritdoc cref="M:Sudoku.Serialization.Inherited`1.Resolve``1(``0,System.Int32)" path="/exception[@cref='InvalidOperationException']"/>
+            </exception>
+        </member>
         <member name="M:Sudoku.Serialization.Inherited`1.ToString">
             <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Serialization.Inherited`1.GetInheritanceChain``1(``0,System.Int32)">
+            <summary>
+            Returns inheritance chain of the current instance.
+            </summary>
+            <typeparam name="TOwner">The type of <paramref name="owner"/>.</typeparam>
+            <param name="owner">The owner instance.</param>
+            <param name="maxDepth">The max depth.</param>
+            <returns>The inheritance chain (property name reference).</returns>
+            <exception cref="T:System.InvalidOperationException">
+            <inheritdoc cref="M:Sudoku.Serialization.Inherited`1.Resolve``1(``0,System.Int32)" path="/exception[@cref='InvalidOperationException']"/>
+            </exception>
         </member>
         <member name="M:Sudoku.Serialization.Inherited`1.Resolve``1(``0,System.Int32)">
             <summary>
@@ -982,6 +1006,19 @@
             Returns the real value if the current instance has a value; otherwise, <see langword="default"/>(<typeparamref name="T"/>).
             </summary>
             <returns>The real value or <see langword="default"/>(<typeparamref name="T"/>).</returns>
+        </member>
+        <member name="M:Sudoku.Serialization.Inherited`1.TryResolve``1(``0,System.Int32@,`0@,System.String[]@,System.String@,System.Int32)">
+            <summary>
+            The backing method to resolve value.
+            </summary>
+            <typeparam name="TOwner">The type of <paramref name="owner"/>.</typeparam>
+            <param name="owner">The owner instance.</param>
+            <param name="factDepth">The fact depth.</param>
+            <param name="result">The result.</param>
+            <param name="inheritanceChain">The whole inheritance chain.</param>
+            <param name="errorMessage">The error message.</param>
+            <param name="maxDepth">The desired max depth.</param>
+            <returns>A <see cref="T:System.Boolean"/> result.</returns>
         </member>
         <member name="M:Sudoku.Serialization.Inherited`1.FromMemberName(System.String)">
             <summary>
