@@ -1,4 +1,4 @@
-﻿namespace Sudoku.Graphics;
+﻿namespace Sudoku.Graphics.Primitives;
 
 /// <summary>
 /// Represents a canvas object that supports line-drawing methods.

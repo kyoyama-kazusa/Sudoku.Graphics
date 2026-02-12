@@ -482,11 +482,11 @@
         <member name="P:Sudoku.Graphics.Canvas.ExportingOptions">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Canvas.Sudoku#Graphics#ICanvas{Sudoku#Graphics#CanvasDrawingOptions,Sudoku#Graphics#CanvasExportingOptions}#BackingCanvas">
+        <member name="P:Sudoku.Graphics.Canvas.Sudoku#Graphics#Primitives#ICanvas{Sudoku#Graphics#CanvasDrawingOptions,Sudoku#Graphics#CanvasExportingOptions}#BackingCanvas">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Canvas.BackingCanvas">
-            <inheritdoc cref="P:Sudoku.Graphics.ICanvas`2.BackingCanvas"/>
+            <inheritdoc cref="P:Sudoku.Graphics.Primitives.ICanvas`2.BackingCanvas"/>
         </member>
         <member name="M:Sudoku.Graphics.Canvas.FillBackground">
             <inheritdoc/>
@@ -561,7 +561,7 @@
             </summary>
             <seealso cref="T:Sudoku.Graphics.LineTemplates.StandardLineTemplate"/>
         </member>
-        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.Sudoku#Graphics#IOptionsProvider{Sudoku#Graphics#CanvasDrawingOptions}#DefaultInstance">
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.Sudoku#Graphics#Primitives#IOptionsProvider{Sudoku#Graphics#CanvasDrawingOptions}#DefaultInstance">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.CanvasDrawingOptions.WriteTo(System.String,System.Text.Json.JsonSerializerOptions)">
@@ -585,7 +585,7 @@
             Indicates the quality. Range 0..100. Default 80.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.CanvasExportingOptions.Sudoku#Graphics#IOptionsProvider{Sudoku#Graphics#CanvasExportingOptions}#DefaultInstance">
+        <member name="P:Sudoku.Graphics.CanvasExportingOptions.Sudoku#Graphics#Primitives#IOptionsProvider{Sudoku#Graphics#CanvasExportingOptions}#DefaultInstance">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.CanvasExportingOptions.WriteTo(System.String,System.Text.Json.JsonSerializerOptions)">
@@ -593,76 +593,6 @@
         </member>
         <member name="M:Sudoku.Graphics.CanvasExportingOptions.ReadFrom(System.String,System.Text.Json.JsonSerializerOptions)">
             <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Graphics.ICanvas`2">
-            <summary>
-            Represents a canvas object.
-            </summary>
-            <typeparam name="TDrawingOptions">Indicates the type of drawing options.</typeparam>
-            <typeparam name="TExportingOptions">Indicates the type of exporting options.</typeparam>
-        </member>
-        <member name="P:Sudoku.Graphics.ICanvas`2.DrawingOptions">
-            <summary>
-            Indicates drawing options.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.ICanvas`2.ExportingOptions">
-            <summary>
-            Indicates exporting options.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.ICanvas`2.BackingCanvas">
-            <summary>
-            Indicates backing canvas.
-            </summary>
-        </member>
-        <member name="T:Sudoku.Graphics.ICanvasDrawLines">
-            <summary>
-            Represents a canvas object that supports line-drawing methods.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Graphics.ICanvasDrawLines.DrawLines">
-            <summary>
-            Try to draw lines.
-            </summary>
-        </member>
-        <member name="T:Sudoku.Graphics.ICanvasExport">
-            <summary>
-            Represents a canvas object that supports exporting methods.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Graphics.ICanvasExport.Export(System.String)">
-            <summary>
-            Export the current canvas into target file.
-            </summary>
-            <param name="path">The file path. The extension specified will be used as output file format.</param>
-        </member>
-        <member name="T:Sudoku.Graphics.ICanvasFillBackground">
-            <summary>
-            Represents a canvas object that supports filling background methods.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Graphics.ICanvasFillBackground.FillBackground">
-            <summary>
-            Clears the canvas via a color.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Graphics.ICanvasFillBackground.FillBackground(SkiaSharp.SKColor)">
-            <summary>
-            Clears the canvas via the specified color.
-            </summary>
-            <param name="color">The color.</param>
-        </member>
-        <member name="T:Sudoku.Graphics.IOptionsProvider`1">
-            <summary>
-            Defines an options type.
-            </summary>
-            <typeparam name="TSelf">The type itself.</typeparam>
-        </member>
-        <member name="P:Sudoku.Graphics.IOptionsProvider`1.DefaultInstance">
-            <summary>
-            Indicates the default options instance.
-            </summary>
         </member>
         <member name="T:Sudoku.Graphics.LineTemplate">
             <summary>
@@ -846,6 +776,76 @@
             Throws when <paramref name="type"/> is not defined or <see cref="F:Sudoku.Concepts.CellCornerType.None"/>.
             </exception>
             <seealso cref="F:Sudoku.Concepts.CellCornerType.None"/>
+        </member>
+        <member name="T:Sudoku.Graphics.Primitives.ICanvas`2">
+            <summary>
+            Represents a canvas object.
+            </summary>
+            <typeparam name="TDrawingOptions">Indicates the type of drawing options.</typeparam>
+            <typeparam name="TExportingOptions">Indicates the type of exporting options.</typeparam>
+        </member>
+        <member name="P:Sudoku.Graphics.Primitives.ICanvas`2.DrawingOptions">
+            <summary>
+            Indicates drawing options.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Primitives.ICanvas`2.ExportingOptions">
+            <summary>
+            Indicates exporting options.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Primitives.ICanvas`2.BackingCanvas">
+            <summary>
+            Indicates backing canvas.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.Primitives.ICanvasDrawLines">
+            <summary>
+            Represents a canvas object that supports line-drawing methods.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Primitives.ICanvasDrawLines.DrawLines">
+            <summary>
+            Try to draw lines.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.Primitives.ICanvasExport">
+            <summary>
+            Represents a canvas object that supports exporting methods.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Primitives.ICanvasExport.Export(System.String)">
+            <summary>
+            Export the current canvas into target file.
+            </summary>
+            <param name="path">The file path. The extension specified will be used as output file format.</param>
+        </member>
+        <member name="T:Sudoku.Graphics.Primitives.ICanvasFillBackground">
+            <summary>
+            Represents a canvas object that supports filling background methods.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Primitives.ICanvasFillBackground.FillBackground">
+            <summary>
+            Clears the canvas via a color.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Primitives.ICanvasFillBackground.FillBackground(SkiaSharp.SKColor)">
+            <summary>
+            Clears the canvas via the specified color.
+            </summary>
+            <param name="color">The color.</param>
+        </member>
+        <member name="T:Sudoku.Graphics.Primitives.IOptionsProvider`1">
+            <summary>
+            Defines an options type.
+            </summary>
+            <typeparam name="TSelf">The type itself.</typeparam>
+        </member>
+        <member name="P:Sudoku.Graphics.Primitives.IOptionsProvider`1.DefaultInstance">
+            <summary>
+            Indicates the default options instance.
+            </summary>
         </member>
         <member name="T:Sudoku.Graphics.SerializableColor">
             <summary>

@@ -1,4 +1,4 @@
-﻿namespace Sudoku.Graphics;
+﻿namespace Sudoku.Graphics.Primitives;
 
 /// <summary>
 /// Defines an options type.
