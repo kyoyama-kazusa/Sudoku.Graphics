@@ -754,8 +754,11 @@
         </member>
         <member name="P:Sudoku.Graphics.PointMapper.CellSize">
             <summary>
-            Indicates cell width and height of pixels. By design, cell width is equal to cell height.
+            Indicates cell width and height of pixels. By design, cell width is equal to cell height,
+            so this property doesn't return an instance of either type <see cref="T:SkiaSharp.SKSize"/> or <see cref="T:SkiaSharp.SKSizeI"/>.
             </summary>
+            <seealso cref="T:SkiaSharp.SKSize"/>
+            <seealso cref="T:SkiaSharp.SKSizeI"/>
         </member>
         <member name="P:Sudoku.Graphics.PointMapper.Margin">
             <summary>

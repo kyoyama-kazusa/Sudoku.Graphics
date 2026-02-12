@@ -18,8 +18,11 @@ public sealed class PointMapper(
 )
 {
 	/// <summary>
-	/// Indicates cell width and height of pixels. By design, cell width is equal to cell height.
+	/// Indicates cell width and height of pixels. By design, cell width is equal to cell height,
+	/// so this property doesn't return an instance of either type <see cref="SKSize"/> or <see cref="SKSizeI"/>.
 	/// </summary>
+	/// <seealso cref="SKSize"/>
+	/// <seealso cref="SKSizeI"/>
 	public required float CellSize { get; init; } = cellSize;
 
 	/// <summary>
