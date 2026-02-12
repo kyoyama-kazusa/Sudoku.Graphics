@@ -4,7 +4,7 @@
 // so I just use a console project to test for them.
 //
 // If you don't want to view for this, you can remove this project,
-// or just close this project from solution explorer :) 
+// or just close this project from solution explorer :)
 
 using System;
 using System.IO;
