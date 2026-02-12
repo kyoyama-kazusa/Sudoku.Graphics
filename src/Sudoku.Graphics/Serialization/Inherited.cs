@@ -188,7 +188,7 @@ public sealed class Inherited<T> where T : notnull
 			var propertyInfo = ownerType.GetProperty(currentReference, DefaultBindingFlags);
 			if (propertyInfo is null)
 			{
-				errorMessage = message_MemberNotFound(currentReference, ownerType);
+				errorMessage = message_PropertyNotFound(currentReference, ownerType);
 				goto ReturnDefault;
 			}
 
@@ -197,7 +197,7 @@ public sealed class Inherited<T> where T : notnull
 			var propertyValue = propertyInfo.GetValue(owner);
 			if (propertyValue is null)
 			{
-				errorMessage = message_MemberIsNull(currentReference);
+				errorMessage = message_PropertyIsNull(currentReference);
 				goto ReturnDefault;
 			}
 			switch (propertyValue)
@@ -225,7 +225,7 @@ public sealed class Inherited<T> where T : notnull
 				}
 				default:
 				{
-					errorMessage = message_MemberTypeIsInvalid(currentReference);
+					errorMessage = message_PropertyTypeIsInvalid(currentReference);
 					goto ReturnDefault;
 				}
 			}
@@ -244,12 +244,12 @@ public sealed class Inherited<T> where T : notnull
 		static string message_CycleDetected(string currentReference)
 			=> $"Cycle detected while resolving reference '{currentReference}'.";
 
-		static string message_MemberNotFound(string currentReference, Type ownerType)
+		static string message_PropertyNotFound(string currentReference, Type ownerType)
 			=> $"Property '{currentReference}' not found on type '{ownerType.Name}'.";
 
-		static string message_MemberIsNull(string currentReference) => $"Property '{currentReference}' is null.";
+		static string message_PropertyIsNull(string currentReference) => $"Property '{currentReference}' is null.";
 
-		static string message_MemberTypeIsInvalid(string currentReference)
+		static string message_PropertyTypeIsInvalid(string currentReference)
 			=> $"Property '{currentReference}' is not neither 'string' nor '{nameof(Inherited<>)}<{typeof(T).Name}>'.";
 	}
 
@@ -259,7 +259,7 @@ public sealed class Inherited<T> where T : notnull
 	/// </summary>
 	/// <param name="propertyName">The name of property to reference.</param>
 	/// <returns>An <see cref="Inherited{T}"/> instance.</returns>
-	public static Inherited<T> FromMemberName(string propertyName) => new(propertyName);
+	public static Inherited<T> FromPropertyName(string propertyName) => new(propertyName);
 
 	/// <summary>
 	/// Creates an <see cref="Inherited{T}"/> instance via the specified value.
@@ -304,7 +304,7 @@ file sealed class InheritedJsonConverter<T>(JsonSerializerOptions _options) : Js
 		// If token is string -> treat as reference name.
 		if (reader.TokenType == JsonTokenType.String)
 		{
-			return Inherited<T>.FromMemberName(reader.GetString()!);
+			return Inherited<T>.FromPropertyName(reader.GetString()!);
 		}
 
 		// If token is null.
@@ -401,7 +401,7 @@ file sealed class InheritedStringConverter : JsonConverter<Inherited<string>>
 			}
 		}
 
-		return reference is null ? Inherited<string>.FromValue(value ?? string.Empty) : Inherited<string>.FromMemberName(reference);
+		return reference is null ? Inherited<string>.FromValue(value ?? string.Empty) : Inherited<string>.FromPropertyName(reference);
 
 
 		static string message_InvalidPropertyName(string propertyName) => $"Invalid property name '{propertyName}'.";

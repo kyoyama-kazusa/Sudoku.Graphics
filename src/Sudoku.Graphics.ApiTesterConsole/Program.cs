@@ -25,7 +25,7 @@ using var canvas = new Canvas(
 	{
 		BackgroundColor = Inherited<SerializableColor>.FromValue(SKColors.White),
 		ThickLineColor = Inherited<SerializableColor>.FromValue(SKColors.Black),
-		ThinLineColor = Inherited<SerializableColor>.FromMemberName(nameof(CanvasDrawingOptions.ThickLineColor)),
+		ThinLineColor = Inherited<SerializableColor>.FromPropertyName(nameof(CanvasDrawingOptions.ThickLineColor)),
 		//GridLineTemplate = new StandardLineTemplate(3)
 		GridLineTemplate = new IrregularLineTemplate
 		{

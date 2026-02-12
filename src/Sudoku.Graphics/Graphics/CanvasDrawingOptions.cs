@@ -42,7 +42,7 @@ public sealed class CanvasDrawingOptions : IOptionsProvider<CanvasDrawingOptions
 	/// Represents thick line color. By default it's same value inherited from property <see cref="ThinLineColor"/>.
 	/// </summary>
 	/// <seealso cref="ThinLineColor"/>
-	public Inherited<SerializableColor> ThickLineColor { get; set; } = Inherited<SerializableColor>.FromMemberName(nameof(ThinLineColor));
+	public Inherited<SerializableColor> ThickLineColor { get; set; } = Inherited<SerializableColor>.FromPropertyName(nameof(ThinLineColor));
 
 	/// <summary>
 	/// Represents grid line template to be drawn. By default it will be initialized as a <see cref="StandardLineTemplate"/>

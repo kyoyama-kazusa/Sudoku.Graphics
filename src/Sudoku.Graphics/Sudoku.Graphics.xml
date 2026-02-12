@@ -1060,7 +1060,7 @@
             <param name="maxDepth">The desired max depth.</param>
             <returns>A <see cref="T:System.Boolean"/> result.</returns>
         </member>
-        <member name="M:Sudoku.Serialization.Inherited`1.FromMemberName(System.String)">
+        <member name="M:Sudoku.Serialization.Inherited`1.FromPropertyName(System.String)">
             <summary>
             Creates an <see cref="T:Sudoku.Serialization.Inherited`1"/> instance via the specified property name.
             </summary>
