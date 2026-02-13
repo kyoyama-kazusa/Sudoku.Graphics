@@ -599,6 +599,86 @@
         <member name="M:Sudoku.Graphics.CanvasExportingOptions.ReadFrom(System.String,System.Text.Json.JsonSerializerOptions)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.ColorFormat">
+            <summary>
+            Represents a color format.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ColorFormat.TupleRgb">
+            <summary>
+            Format <c>(Red, Green, Blue)</c>.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ColorFormat.TupleArgb">
+            <summary>
+            Format <c>(Alpha, Red, Green, Blue)</c>.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ColorFormat.TupleRgba">
+            <summary>
+            Format <c>(Red, Green, Blue, Alpha)</c>.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ColorFormat.HexRgb">
+            <summary>
+            Format <c>#RRGGBB</c>.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ColorFormat.HexRgbShort">
+            <summary>
+            Format <c>#RGB</c>.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ColorFormat.HexArgb">
+            <summary>
+            Format <c>#AARRGGBB</c> (.NET style).
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ColorFormat.HexArgbShort">
+            <summary>
+            Format <c>#ARGB</c>.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ColorFormat.HexRgba">
+            <summary>
+            Format <c>#RRGGBBAA</c> (CSS Level 4).
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ColorFormat.HexRgbaShort">
+            <summary>
+            Format <c>#RGBA</c>.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ColorFormat.RgbFunction">
+            <summary>
+            Format <c>rgb(Red, Green, Blue)</c>.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ColorFormat.RgbaFunction">
+            <summary>
+            Format <c>rgba(Red, Green, Blue, Alpha (float))</c>.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ColorFormat.NamedColor">
+            <summary>
+            Named color format.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ColorFormat.HexInteger">
+            <summary>
+            Format <c>0xAARRGGBB</c>.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ColorFormat.DecimalInteger">
+            <summary>
+            Decimal 32-bit ARGB.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ColorFormat.AnsiTrueColor">
+            <summary>
+            Format <c>\e[38;2;255;0;0m</c>.
+            </summary>
+        </member>
         <member name="T:Sudoku.Graphics.LineTemplate">
             <summary>
             Represents a line template type that draws block (thick) and normal (thin) lines
@@ -864,6 +944,11 @@
             Represents a repository-wide color instance that can be serialized and deserialized.
             </summary>
         </member>
+        <member name="F:Sudoku.Graphics.SerializableColor.WellknownColors">
+            <summary>
+            Indicates well-known colors.
+            </summary>
+        </member>
         <member name="F:Sudoku.Graphics.SerializableColor._mask">
             <summary>
             Indicates the mask.
@@ -929,6 +1014,13 @@
         </member>
         <member name="M:Sudoku.Graphics.SerializableColor.ToString">
             <inheritdoc cref="M:System.Object.ToString"/>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.ToString(Sudoku.Graphics.ColorFormat)">
+            <summary>
+            Converts the current instance into <see cref="T:System.String"/> representation.
+            </summary>
+            <param name="format">The format.</param>
+            <returns>The string representation.</returns>
         </member>
         <member name="M:Sudoku.Graphics.SerializableColor.op_Equality(Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor)">
             <inheritdoc/>

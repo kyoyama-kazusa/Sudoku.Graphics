@@ -8,6 +8,16 @@ public readonly struct SerializableColor :
 	IEqualityOperators<SerializableColor, SerializableColor, bool>
 {
 	/// <summary>
+	/// Indicates well-known colors.
+	/// </summary>
+	[SuppressMessage("Style", "IDE0028:Simplify collection initialization", Justification = "<Pending>")]
+	private static readonly Dictionary<SKColor, string> WellknownColors = new(
+		from fieldInfo in typeof(SKColors).GetFields(BindingFlags.Public | BindingFlags.Static)
+		select KeyValuePair.Create((SKColor)fieldInfo.GetValue(null)!, fieldInfo.Name)
+	);
+
+
+	/// <summary>
 	/// Indicates the mask.
 	/// </summary>
 	private readonly uint _mask;
@@ -81,7 +91,46 @@ public readonly struct SerializableColor :
 	public override int GetHashCode() => _mask.GetHashCode();
 
 	/// <inheritdoc cref="object.ToString"/>
-	public override string ToString() => (Red, Green, Blue, Alpha).ToString();
+	public override string ToString() => ToString(ColorFormat.TupleRgba);
+
+	/// <summary>
+	/// Converts the current instance into <see cref="string"/> representation.
+	/// </summary>
+	/// <param name="format">The format.</param>
+	/// <returns>The string representation.</returns>
+	public string ToString(ColorFormat format)
+	{
+		var (r, g, b, a) = this;
+		return format switch
+		{
+			ColorFormat.TupleRgb => (r, g, b).ToString(),
+			ColorFormat.TupleArgb => (a, r, g, b).ToString(),
+			ColorFormat.TupleRgba => (r, g, b, a).ToString(),
+			ColorFormat.HexRgb or ColorFormat.HexRgbShort when $"{r:X2}{g:X2}{b:X2}" is var t => format switch
+			{
+				ColorFormat.HexRgbShort when t[0] == t[1] && t[2] == t[3] && t[4] == t[5]
+					=> $"{t[0]}{t[2]}{t[4]}",
+				_ => t
+			},
+			ColorFormat.HexArgb or ColorFormat.HexArgbShort when $"{a:X2}{r:X2}{g:X2}{b:X2}" is var t => format switch
+			{
+				ColorFormat.HexArgbShort when t[0] == t[1] && t[2] == t[3] && t[4] == t[5] && t[6] == t[7] => $"{t[0]}{t[2]}{t[4]}{t[6]}",
+				_ => t
+			},
+			ColorFormat.HexRgba or ColorFormat.HexRgbaShort when $"{r:X2}{g:X2}{b:X2}{a:X2}" is var t => format switch
+			{
+				ColorFormat.HexRgbaShort when t[0] == t[1] && t[2] == t[3] && t[4] == t[5] && t[6] == t[7] => $"{t[0]}{t[2]}{t[4]}{t[6]}",
+				_ => t
+			},
+			ColorFormat.RgbFunction => $"rgb{(r, g, b)}",
+			ColorFormat.RgbaFunction => $"rgba({r}, {g}, {b}, {a / 255D:0.000})",
+			ColorFormat.NamedColor => WellknownColors.TryGetValue(this, out var colorName) ? colorName : ToString(ColorFormat.HexRgba),
+			ColorFormat.HexInteger => $"0x{a:X2}{r:X2}{g:X2}{b:X2}",
+			ColorFormat.DecimalInteger => (a << 24 | r << 16 | g << 8 | b).ToString(),
+			ColorFormat.AnsiTrueColor => $"\e[38;2;{r};{g};{b}m",
+			_ => throw new ArgumentOutOfRangeException(nameof(format))
+		};
+	}
 
 
 	/// <inheritdoc/>
