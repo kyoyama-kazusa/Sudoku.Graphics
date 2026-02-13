@@ -78,8 +78,7 @@ public readonly struct SerializableColor :
 	public void Deconstruct(out byte red, out byte green, out byte blue) => (red, green, blue) = (Red, Green, Blue);
 
 	/// <inheritdoc cref="Deconstruct(out byte, out byte, out byte)"/>
-	public void Deconstruct(out byte red, out byte green, out byte blue, out byte alpha)
-		=> ((red, green, blue), alpha) = (this, Alpha);
+	public void Deconstruct(out byte red, out byte green, out byte blue, out byte alpha) => ((red, green, blue), alpha) = (this, Alpha);
 
 	/// <inheritdoc/>
 	public override bool Equals([NotNullWhen(true)] object? obj) => obj is SerializableColor comparer && Equals(comparer);
@@ -108,8 +107,7 @@ public readonly struct SerializableColor :
 			ColorFormat.TupleRgba => (r, g, b, a).ToString(),
 			ColorFormat.HexRgb or ColorFormat.HexRgbShort when $"{r:X2}{g:X2}{b:X2}" is var t => format switch
 			{
-				ColorFormat.HexRgbShort when t[0] == t[1] && t[2] == t[3] && t[4] == t[5]
-					=> $"{t[0]}{t[2]}{t[4]}",
+				ColorFormat.HexRgbShort when t[0] == t[1] && t[2] == t[3] && t[4] == t[5] => $"{t[0]}{t[2]}{t[4]}",
 				_ => t
 			},
 			ColorFormat.HexArgb or ColorFormat.HexArgbShort when $"{a:X2}{r:X2}{g:X2}{b:X2}" is var t => format switch
