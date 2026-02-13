@@ -861,7 +861,7 @@
         </member>
         <member name="T:Sudoku.Graphics.SerializableColor">
             <summary>
-            Represents a serializable color.
+            Represents a repository-wide color instance that can be serialized and deserialized.
             </summary>
         </member>
         <member name="F:Sudoku.Graphics.SerializableColor._mask">

@@ -1,7 +1,7 @@
 ﻿namespace Sudoku.Graphics;
 
 /// <summary>
-/// Represents a serializable color.
+/// Represents a repository-wide color instance that can be serialized and deserialized.
 /// </summary>
 public readonly struct SerializableColor :
 	IEquatable<SerializableColor>,
