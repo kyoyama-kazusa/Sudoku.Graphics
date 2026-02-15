@@ -33,17 +33,7 @@ public sealed class DefaultLineTemplate : RectangularBlockLineTemplate
 			)
 		);
 
-		using var borderPaint = new SKPaint
-		{
-			Style = SKPaintStyle.Stroke,
-			Color = (DrawBordersAsThickLines ? options.ThickLineColor : options.ThinLineColor).Resolve(options),
-			StrokeWidth = (DrawBordersAsThickLines ? options.ThickLineWidth : options.ThinLineWidth)
-				.Resolve(options)
-				.Measure(mapper.CellSize),
-			StrokeCap = SKStrokeCap.Round,
-			StrokeJoin = SKStrokeJoin.Round,
-			IsAntialias = true
-		};
+		using var borderPaint = DrawBordersAsThickLines ? CreateThickLinesPaint(mapper, options) : CreateThinLinesPaint(mapper, options);
 		canvas.DrawPath(path, borderPaint);
 	}
 
