@@ -5,6 +5,7 @@
 /// </summary>
 /// <param name="value">The value.</param>
 [JsonConverter(typeof(ValueConverter<Absolute>))]
+[DebuggerDisplay($$"""{{{nameof(ToString)}}(),nq}""")]
 public readonly struct Absolute(int value) : IEquatable<Absolute>, IEqualityOperators<Absolute, Absolute, bool>, IValue<Absolute>
 {
 	/// <summary>

@@ -7,6 +7,7 @@
 [JsonPolymorphic(UnknownDerivedTypeHandling = JsonUnknownDerivedTypeHandling.FailSerialization)]
 [JsonDerivedType(typeof(StandardLineTemplate), nameof(StandardLineTemplate))]
 [JsonDerivedType(typeof(JigsawLineTemplate), nameof(JigsawLineTemplate))]
+[JsonDerivedType(typeof(SujikenLineTemplate), nameof(SujikenLineTemplate))]
 public abstract class LineTemplate
 {
 	/// <summary>

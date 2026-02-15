@@ -752,6 +752,26 @@
         <member name="M:Sudoku.Graphics.LineTemplates.StandardLineTemplate.DrawLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.LineTemplates.SujikenLineTemplate">
+            <summary>
+            Represents Sujiken (halfdoku) line template.
+            </summary>
+            <param name="uniformSize">The uniformed value.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.LineTemplates.SujikenLineTemplate.#ctor(Sudoku.Concepts.Relative)">
+            <summary>
+            Represents Sujiken (halfdoku) line template.
+            </summary>
+            <param name="uniformSize">The uniformed value.</param>
+        </member>
+        <member name="P:Sudoku.Graphics.LineTemplates.SujikenLineTemplate.UniformBlockSize">
+            <summary>
+            Indicates the number of rows and columns in a block.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.LineTemplates.SujikenLineTemplate.DrawLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.PointMapper">
             <summary>
             Represents a point mapper instance.
@@ -787,24 +807,24 @@
         </member>
         <member name="P:Sudoku.Graphics.PointMapper.RowsCount">
             <summary>
-            Indicates the number of rows. The number of rows should be an absolute value,
-            including reserved regions (used by drawing outside-like puzzles).
+            Indicates the number of rows in main sudoku grid.
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.PointMapper.ColumnsCount">
             <summary>
-            Indiactes the number of columns. The number of columns should be an absolute value,
-            including reserved regions (used by drawing outside-like puzzles).
+            Indiactes the number of columns in main sudoku grid.
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.PointMapper.AbsoluteRowsCount">
             <summary>
-            Indicates the number of rows in absolute grid.
+            Indicates the number of rows. The number of rows should be an absolute value,
+            including reserved regions (used by drawing outside-like puzzles).
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.PointMapper.AbsoluteColumnsCount">
             <summary>
-            Indicates the number of columns in absolute grid.
+            Indiactes the number of columns. The number of columns should be an absolute value,
+            including reserved regions (used by drawing outside-like puzzles).
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.PointMapper.Vector">

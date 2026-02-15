@@ -5,6 +5,7 @@
 /// </summary>
 /// <param name="value">The value.</param>
 [JsonConverter(typeof(ValueConverter<Relative>))]
+[DebuggerDisplay($$"""{{{nameof(ToString)}}(),nq}""")]
 public readonly struct Relative(int value) : IEquatable<Relative>, IEqualityOperators<Relative, Relative, bool>, IValue<Relative>
 {
 	/// <summary>

@@ -31,24 +31,24 @@ public sealed class PointMapper(
 	public required float Margin { get; init; } = margin;
 
 	/// <summary>
-	/// Indicates the number of rows. The number of rows should be an absolute value,
-	/// including reserved regions (used by drawing outside-like puzzles).
+	/// Indicates the number of rows in main sudoku grid.
 	/// </summary>
 	public required Absolute RowsCount { get; init; } = rowsCount;
 
 	/// <summary>
-	/// Indiactes the number of columns. The number of columns should be an absolute value,
-	/// including reserved regions (used by drawing outside-like puzzles).
+	/// Indiactes the number of columns in main sudoku grid.
 	/// </summary>
 	public required Absolute ColumnsCount { get; init; } = columnsCount;
 
 	/// <summary>
-	/// Indicates the number of rows in absolute grid.
+	/// Indicates the number of rows. The number of rows should be an absolute value,
+	/// including reserved regions (used by drawing outside-like puzzles).
 	/// </summary>
 	public Absolute AbsoluteRowsCount => RowsCount + Vector.Left + Vector.Right;
 
 	/// <summary>
-	/// Indicates the number of columns in absolute grid.
+	/// Indiactes the number of columns. The number of columns should be an absolute value,
+	/// including reserved regions (used by drawing outside-like puzzles).
 	/// </summary>
 	public Absolute AbsoluteColumnsCount => ColumnsCount + Vector.Up + Vector.Down;
 
