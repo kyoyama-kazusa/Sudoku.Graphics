@@ -43,7 +43,7 @@ using var canvas = Canvas.Create(
 		//	AlsoFillGroups = true
 		//}
 		//GridLineTemplate = new SujikenLineTemplate(3)
-		GridLineTemplate = new DefaultLineTemplate()
+		GridLineTemplate = new DefaultLineTemplate { DrawBordersAsThickLines = false }
 	},
 	exportingOptions: new() { Quality = 100 }
 );
