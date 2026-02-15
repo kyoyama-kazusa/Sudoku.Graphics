@@ -64,6 +64,7 @@ public sealed class SujikenLineTemplate(Relative uniformSize) : LineTemplate
 				Color = options.ThickLineColor.Resolve(options),
 				StrokeWidth = options.ThickLineWidth.Resolve(options).Measure(mapper.CellSize),
 				StrokeCap = SKStrokeCap.Round,
+				StrokeJoin = SKStrokeJoin.Round,
 				IsAntialias = true
 			};
 			canvas.DrawPath(path, borderPaint);
