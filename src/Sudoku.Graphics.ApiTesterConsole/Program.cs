@@ -40,10 +40,10 @@ using var canvas = Canvas.Create(
 		//		[49, 50, 52, 59, 60, 61, 62, 71, 80],
 		//		[67, 68, 69, 70, 75, 76, 77, 78, 79]
 		//	],
-		//	AlsoFillGroups = true
+		//	//AlsoFillGroups = true
 		//}
 		//GridLineTemplate = new SujikenLineTemplate(3)
-		GridLineTemplate = new DefaultLineTemplate { DrawBordersAsThickLines = false }
+		GridLineTemplate = new DefaultLineTemplate()
 	},
 	exportingOptions: new() { Quality = 100 }
 );
@@ -51,7 +51,7 @@ canvas.FillBackground();
 canvas.DrawLines();
 canvas.Export(Path.Combine(desktop, "output.png"));
 
-canvas.DrawingOptions.WriteTo(Path.Combine(Environment.DesktopPath, "output.json"), Options);
+//canvas.DrawingOptions.WriteTo(Path.Combine(Environment.DesktopPath, "output.json"), Options);
 Console.WriteLine("Okay.");
 
 
