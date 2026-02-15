@@ -42,7 +42,8 @@ using var canvas = Canvas.Create(
 		//	],
 		//	AlsoFillGroups = true
 		//}
-		GridLineTemplate = new SujikenLineTemplate(3)
+		//GridLineTemplate = new SujikenLineTemplate(3)
+		GridLineTemplate = new DefaultLineTemplate()
 	},
 	exportingOptions: new() { Quality = 100 }
 );

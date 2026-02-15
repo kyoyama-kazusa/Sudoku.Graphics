@@ -1,7 +1,7 @@
 ﻿namespace Sudoku.Graphics.LineTemplates;
 
 /// <summary>
-/// Represents a default (rectangular) line template.
+/// Represents a standard (rectangular) line template.
 /// </summary>
 /// <param name="rowBlockSize"><inheritdoc cref="RowBlockSize" path="/summary"/></param>
 /// <param name="columnBlockSize"><inheritdoc cref="ColumnBlockSize" path="/summary"/></param>

@@ -694,6 +694,20 @@
             <param name="canvas">The canvas object to receive drawn items.</param>
             <param name="options">The options.</param>
         </member>
+        <member name="T:Sudoku.Graphics.LineTemplates.DefaultLineTemplate">
+            <summary>
+            Represents a default line template that doesn't contain any block (thick) lines (except borders).
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.LineTemplates.DefaultLineTemplate.DrawBorders">
+            <summary>
+            Indicates whether border lines should be drawn as thick lines or not.
+            By default it's <see langword="true"/>.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.LineTemplates.DefaultLineTemplate.DrawLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.LineTemplates.JigsawLineTemplate">
             <summary>
             Represents irregular (jigsaw) line template.
@@ -721,14 +735,14 @@
         </member>
         <member name="T:Sudoku.Graphics.LineTemplates.StandardLineTemplate">
             <summary>
-            Represents a default (rectangular) line template.
+            Represents a standard (rectangular) line template.
             </summary>
             <param name="rowBlockSize"><inheritdoc cref="P:Sudoku.Graphics.LineTemplates.StandardLineTemplate.RowBlockSize" path="/summary"/></param>
             <param name="columnBlockSize"><inheritdoc cref="P:Sudoku.Graphics.LineTemplates.StandardLineTemplate.ColumnBlockSize" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Graphics.LineTemplates.StandardLineTemplate.#ctor(Sudoku.Concepts.Relative,Sudoku.Concepts.Relative)">
             <summary>
-            Represents a default (rectangular) line template.
+            Represents a standard (rectangular) line template.
             </summary>
             <param name="rowBlockSize"><inheritdoc cref="P:Sudoku.Graphics.LineTemplates.StandardLineTemplate.RowBlockSize" path="/summary"/></param>
             <param name="columnBlockSize"><inheritdoc cref="P:Sudoku.Graphics.LineTemplates.StandardLineTemplate.ColumnBlockSize" path="/summary"/></param>
