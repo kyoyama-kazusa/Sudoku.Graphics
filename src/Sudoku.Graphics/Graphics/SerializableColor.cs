@@ -292,19 +292,9 @@ file sealed class Converter : JsonConverter<SerializableColor>
 {
 	/// <inheritdoc/>
 	public override SerializableColor Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-	{
-		var array = JsonSerializer.Deserialize<byte[]>(ref reader, options)!;
-		return new(array[0], array[1], array[2], array[3]);
-	}
+		=> SerializableColor.Parse(reader.GetString()!, ColorFormat.HexRgba);
 
 	/// <inheritdoc/>
 	public override void Write(Utf8JsonWriter writer, SerializableColor value, JsonSerializerOptions options)
-	{
-		writer.WriteStartArray();
-		writer.WriteNumberValue(value.Red);
-		writer.WriteNumberValue(value.Green);
-		writer.WriteNumberValue(value.Blue);
-		writer.WriteNumberValue(value.Alpha);
-		writer.WriteEndArray();
-	}
+		=> writer.WriteStringValue(value.ToString(ColorFormat.HexRgba));
 }
