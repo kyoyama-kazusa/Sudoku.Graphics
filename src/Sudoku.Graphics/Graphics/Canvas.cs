@@ -25,29 +25,6 @@ public sealed class Canvas(
 	private bool _isDisposed;
 
 
-	/// <summary>
-	/// Initializes a <see cref="Canvas"/> object via the specified information.
-	/// </summary>
-	/// <param name="cellSize"><inheritdoc cref="CellSize" path="/summary"/></param>
-	/// <param name="margin"><inheritdoc cref="Margin" path="/summary"/></param>
-	/// <param name="rowsCount"><inheritdoc cref="RowsCount" path="/summary"/></param>
-	/// <param name="columnsCount"><inheritdoc cref="ColumnsCount" path="/summary"/></param>
-	/// <param name="vector"><inheritdoc cref="Vector" path="/summary"/></param>
-	/// <param name="drawingOptions"><inheritdoc cref="DrawingOptions" path="/summary"/></param>
-	/// <param name="exportingOptions"><inheritdoc cref="ExportingOptions" path="/summary"/></param>
-	public Canvas(
-		float cellSize,
-		float margin,
-		Absolute rowsCount,
-		Absolute columnsCount,
-		DirectionVector vector,
-		CanvasDrawingOptions? drawingOptions = null,
-		CanvasExportingOptions? exportingOptions = null
-	) : this(new(cellSize, margin, rowsCount, columnsCount, vector), drawingOptions, exportingOptions)
-	{
-	}
-
-
 	/// <inheritdoc cref="PointMapper.Margin"/>
 	public float Margin => Mapper.Margin;
 
@@ -110,6 +87,26 @@ public sealed class Canvas(
 		stream.CopyTo(fileStream);
 	}
 
+	/// <summary>
+	/// Creates a <see cref="Canvas"/> instance via the specified arguments.
+	/// </summary>
+	/// <param name="cellSize">The cell size.</param>
+	/// <param name="margin">The margin.</param>
+	/// <param name="rowsCount">The number of rows.</param>
+	/// <param name="columnsCount">The number of columns.</param>
+	/// <param name="vector">The number of cells leaving blanks, in order to draw extra information on it.</param>
+	/// <param name="drawingOptions">The drawing options.</param>
+	/// <param name="exportingOptions">The exporting options.</param>
+	/// <returns>A <see cref="Canvas"/> instance created.</returns>
+	public static Canvas Create(
+		float cellSize,
+		float margin,
+		Absolute rowsCount,
+		Absolute columnsCount,
+		DirectionVector vector,
+		CanvasDrawingOptions? drawingOptions = null,
+		CanvasExportingOptions? exportingOptions = null
+	) => new(new(cellSize, margin, rowsCount, columnsCount, vector), drawingOptions, exportingOptions);
 
 	/// <summary>
 	/// Returns <see cref="SKEncodedImageFormat"/> from extension string.

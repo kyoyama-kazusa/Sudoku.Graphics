@@ -444,18 +444,6 @@
             Indicates whether the object has already been disposed.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.Canvas.#ctor(System.Single,System.Single,Sudoku.Concepts.Absolute,Sudoku.Concepts.Absolute,Sudoku.Concepts.DirectionVector,Sudoku.Graphics.CanvasDrawingOptions,Sudoku.Graphics.CanvasExportingOptions)">
-            <summary>
-            Initializes a <see cref="T:Sudoku.Graphics.Canvas"/> object via the specified information.
-            </summary>
-            <param name="cellSize"><inheritdoc cref="P:Sudoku.Graphics.Canvas.CellSize" path="/summary"/></param>
-            <param name="margin"><inheritdoc cref="P:Sudoku.Graphics.Canvas.Margin" path="/summary"/></param>
-            <param name="rowsCount"><inheritdoc cref="P:Sudoku.Graphics.Canvas.RowsCount" path="/summary"/></param>
-            <param name="columnsCount"><inheritdoc cref="P:Sudoku.Graphics.Canvas.ColumnsCount" path="/summary"/></param>
-            <param name="vector"><inheritdoc cref="P:Sudoku.Graphics.Canvas.Vector" path="/summary"/></param>
-            <param name="drawingOptions"><inheritdoc cref="P:Sudoku.Graphics.Canvas.DrawingOptions" path="/summary"/></param>
-            <param name="exportingOptions"><inheritdoc cref="P:Sudoku.Graphics.Canvas.ExportingOptions" path="/summary"/></param>
-        </member>
         <member name="P:Sudoku.Graphics.Canvas.Margin">
             <inheritdoc cref="P:Sudoku.Graphics.PointMapper.Margin"/>
         </member>
@@ -502,6 +490,19 @@
         </member>
         <member name="M:Sudoku.Graphics.Canvas.Export(System.String)">
             <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Canvas.Create(System.Single,System.Single,Sudoku.Concepts.Absolute,Sudoku.Concepts.Absolute,Sudoku.Concepts.DirectionVector,Sudoku.Graphics.CanvasDrawingOptions,Sudoku.Graphics.CanvasExportingOptions)">
+            <summary>
+            Creates a <see cref="T:Sudoku.Graphics.Canvas"/> instance via the specified arguments.
+            </summary>
+            <param name="cellSize">The cell size.</param>
+            <param name="margin">The margin.</param>
+            <param name="rowsCount">The number of rows.</param>
+            <param name="columnsCount">The number of columns.</param>
+            <param name="vector">The number of cells leaving blanks, in order to draw extra information on it.</param>
+            <param name="drawingOptions">The drawing options.</param>
+            <param name="exportingOptions">The exporting options.</param>
+            <returns>A <see cref="T:Sudoku.Graphics.Canvas"/> instance created.</returns>
         </member>
         <member name="M:Sudoku.Graphics.Canvas.GetFormatFromExtension(System.String)">
             <summary>

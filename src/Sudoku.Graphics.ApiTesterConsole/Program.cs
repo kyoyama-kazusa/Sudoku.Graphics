@@ -15,7 +15,7 @@ using Sudoku.Graphics.LineTemplates;
 using Sudoku.Serialization;
 
 var desktop = Environment.DesktopPath;
-using var canvas = new Canvas(
+using var canvas = Canvas.Create(
 	cellSize: 120,
 	margin: 10,
 	rowsCount: 9,
