@@ -47,25 +47,12 @@ public sealed class JigsawLineTemplate : LineTemplate
 		var groupIndex = 0;
 		foreach (var cellIndices in CellIndexGroups)
 		{
-			var lineSegmentsDictionary = new Dictionary<Absolute, Direction>(
-				from cell in cellIndices
-				let absoluteIndex = mapper.ToAbsoluteIndex(cell)
-				select KeyValuePair.Create(absoluteIndex, Direction.Up | Direction.Down | Direction.Left | Direction.Right)
+			var lineSegmentsDictionary = LineSegmentFactory.GetLightupDirections(
+				cellIndices,
+				IsCyclicRuleChecked,
+				mapper,
+				out var absoluteCellIndices
 			);
-			var absoluteCellIndices = lineSegmentsDictionary.Keys.ToHashSet();
-
-			// Iterate on each cell (absolute), to find for adjacent cells.
-			foreach (var cell in lineSegmentsDictionary.Keys)
-			{
-				foreach (var direction in Direction.AllDirections)
-				{
-					if (absoluteCellIndices.Contains(mapper.GetAdjacentAbsoluteCellWith(cell, direction, IsCyclicRuleChecked)))
-					{
-						// This direction contains that cell - we should remove this direction.
-						lineSegmentsDictionary[cell] &= ~direction;
-					}
-				}
-			}
 
 			using var fillPaint = AlsoFillGroups && options.JSudokuColorSet.Resolve(options) is var resolvedColorSet
 				? new SKPaint
@@ -82,7 +69,7 @@ public sealed class JigsawLineTemplate : LineTemplate
 				var topRight = mapper.GetPoint(cell, CellCornerType.TopRight);
 				var bottomLeft = mapper.GetPoint(cell, CellCornerType.BottomLeft);
 				var bottomRight = mapper.GetPoint(cell, CellCornerType.BottomRight);
-				
+
 				if (AlsoFillGroups)
 				{
 					var rect = SKRect.Create(topLeft, bottomRight);

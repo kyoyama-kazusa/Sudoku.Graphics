@@ -9,6 +9,7 @@
 [JsonDerivedType(typeof(JigsawLineTemplate), nameof(JigsawLineTemplate))]
 [JsonDerivedType(typeof(SujikenLineTemplate), nameof(SujikenLineTemplate))]
 [JsonDerivedType(typeof(DefaultLineTemplate), nameof(DefaultLineTemplate))]
+[JsonDerivedType(typeof(SpecifiedLineTemplate), nameof(SpecifiedLineTemplate))]
 public abstract class LineTemplate
 {
 	/// <summary>

@@ -51,6 +51,95 @@
         <member name="M:Sudoku.Concepts.Absolute.op_Inequality(Sudoku.Concepts.Absolute,Sudoku.Concepts.Absolute)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Concepts.AbsoluteFactory">
+            <summary>
+            Provides an easy way to create <see cref="T:Sudoku.Concepts.Absolute"/> instances.
+            Generally it will be used by creating <see cref="T:Sudoku.Concepts.LineSegment"/> instances.
+            </summary>
+            <seealso cref="T:Sudoku.Concepts.Absolute"/>
+            <seealso cref="T:Sudoku.Concepts.LineSegment"/>
+        </member>
+        <member name="M:Sudoku.Concepts.AbsoluteFactory.Offset(Sudoku.Concepts.Absolute[],Sudoku.Concepts.Absolute,Sudoku.Concepts.Absolute,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Concepts.AbsoluteFactory.&lt;G&gt;$06967E10E1BDFE254CF47DE1D552A287.Offset(Sudoku.Concepts.Absolute,Sudoku.Concepts.Absolute,Sudoku.Graphics.PointMapper)"/>
+        </member>
+        <member name="M:Sudoku.Concepts.AbsoluteFactory.GetTetrisPiece(Sudoku.Concepts.AbsoluteFactory.TetrisPiece,Sudoku.Graphics.PointMapper,Sudoku.Concepts.RotationType)">
+            <summary>
+            Creates a list of absolute cell indices of the specified piece, defined in tetris.
+            </summary>
+            <param name="piece">The piece.</param>
+            <param name="mapper">The mapper instance that represents basic information of the number of rows and columns.</param>
+            <param name="rotationType">The rotation type. By default it's <see cref="F:Sudoku.Concepts.RotationType.None"/>.</param>
+            <returns>Absolute cell indices of that piece, aligned as global top-left position <c>(0, 0)</c> in canvas.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Throws when <paramref name="piece"/> or <paramref name="rotationType"/> is not defined.
+            </exception>
+            <seealso cref="F:Sudoku.Concepts.RotationType.None"/>
+        </member>
+        <member name="T:Sudoku.Concepts.AbsoluteFactory.Tetris">
+            <summary>
+            Provides tetris information.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Concepts.AbsoluteFactory.Tetris.PiecesCoordinateTable">
+            <summary>
+            Represents a table of coordinates of all pieces (tetriminoes).
+            </summary>
+        </member>
+        <member name="M:Sudoku.Concepts.AbsoluteFactory.Tetris.GetPiecesSize(Sudoku.Concepts.AbsoluteFactory.TetrisPiece)">
+            <summary>
+            Get size of the specified piece.
+            </summary>
+            <param name="piece">The piece.</param>
+        </member>
+        <member name="T:Sudoku.Concepts.AbsoluteFactory.TetrisPiece">
+            <summary>
+            Represents a tetris piece.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Concepts.AbsoluteFactory.TetrisPiece.I">
+            <summary>
+            Represents I-piece.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Concepts.AbsoluteFactory.TetrisPiece.O">
+            <summary>
+            Represents O-piece.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Concepts.AbsoluteFactory.TetrisPiece.T">
+            <summary>
+            Represents T-piece.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Concepts.AbsoluteFactory.TetrisPiece.J">
+            <summary>
+            Represents J-piece.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Concepts.AbsoluteFactory.TetrisPiece.L">
+            <summary>
+            Represents L-piece.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Concepts.AbsoluteFactory.TetrisPiece.S">
+            <summary>
+            Represents S-piece.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Concepts.AbsoluteFactory.TetrisPiece.Z">
+            <summary>
+            Represents Z-piece.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Concepts.AbsoluteFactory.&lt;G&gt;$06967E10E1BDFE254CF47DE1D552A287.Offset(Sudoku.Concepts.Absolute,Sudoku.Concepts.Absolute,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Get offset of the specified array of cell indices.
+            </summary>
+            <param name="rowsCount">The number of rows as offset.</param>
+            <param name="columnsCount">The number of columns as offset.</param>
+            <param name="mapper">The mapper instance.</param>
+            <returns>The result.</returns>
+        </member>
         <member name="T:Sudoku.Concepts.CellCornerType">
             <summary>
             Represents a point corner type.
@@ -254,6 +343,97 @@
             </summary>
             <param name="value">The value.</param>
         </member>
+        <member name="T:Sudoku.Concepts.LineSegment">
+            <summary>
+            Represents an instance that describes possible shown line segments under the specified directions specified of the specified cell.
+            </summary>
+            <param name="cellIndex">The cell index.</param>
+            <param name="directions">The shown directions.</param>
+        </member>
+        <member name="M:Sudoku.Concepts.LineSegment.#ctor(Sudoku.Concepts.Absolute,Sudoku.Concepts.Direction)">
+            <summary>
+            Represents an instance that describes possible shown line segments under the specified directions specified of the specified cell.
+            </summary>
+            <param name="cellIndex">The cell index.</param>
+            <param name="directions">The shown directions.</param>
+        </member>
+        <member name="P:Sudoku.Concepts.LineSegment.Directions">
+            <summary>
+            Indicates the directions to be shown.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Concepts.LineSegment.CellIndex">
+            <summary>
+            Indicates absolute cell index.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Concepts.LineSegment.Deconstruct(Sudoku.Concepts.Absolute@,Sudoku.Concepts.Direction@)">
+            <summary>
+            Deconstruct instance into multiple values.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Concepts.LineSegment.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Concepts.LineSegment.Equals(Sudoku.Concepts.LineSegment)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Concepts.LineSegment.GetHashCode">
+            <inheritdoc cref="M:System.Object.GetHashCode"/>
+        </member>
+        <member name="M:Sudoku.Concepts.LineSegment.ToString">
+            <inheritdoc cref="M:System.Object.ToString"/>
+        </member>
+        <member name="M:Sudoku.Concepts.LineSegment.op_Equality(Sudoku.Concepts.LineSegment,Sudoku.Concepts.LineSegment)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Concepts.LineSegment.op_Inequality(Sudoku.Concepts.LineSegment,Sudoku.Concepts.LineSegment)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Concepts.LineSegmentFactory">
+            <summary>
+            Provides an easy way to create <see cref="T:Sudoku.Concepts.LineSegment"/> instances.
+            </summary>
+            <seealso cref="T:Sudoku.Concepts.LineSegment"/>
+        </member>
+        <member name="M:Sudoku.Concepts.LineSegmentFactory.GetOutlineSegments(Sudoku.Concepts.Absolute[],Sudoku.Graphics.PointMapper)">
+            <summary>
+            Returns a list of <see cref="T:Sudoku.Concepts.LineSegment"/> instances indicating light-up segments to be shown,
+            forming a outline cage that includes all the specified cells.
+            </summary>
+            <param name="cellIndices">The cell indices.</param>
+            <param name="mapper">The mapper.</param>
+            <returns>A list of <see cref="T:Sudoku.Concepts.LineSegment"/> instances.</returns>
+        </member>
+        <member name="M:Sudoku.Concepts.LineSegmentFactory.GetLightupDirections(Sudoku.Concepts.Relative[],System.Boolean,Sudoku.Graphics.PointMapper,System.Collections.Generic.HashSet{Sudoku.Concepts.Absolute}@)">
+            <summary>
+            Creates a <see cref="T:System.Collections.Generic.Dictionary`2"/> of <see cref="T:Sudoku.Concepts.Absolute"/> and <see cref="T:Sudoku.Concepts.Direction"/> key-value pairs,
+            indicating lightup segments of cells to be shown.
+            </summary>
+            <param name="cellIndices">The cell indices.</param>
+            <param name="isCyclicRuleChecked">
+            A <see cref="T:System.Boolean"/> value indicating cycling row and column gaps will be considered as connected.
+            </param>
+            <param name="mapper">The mapper.</param>
+            <param name="absoluteCellIndices">Absolute cell indices.</param>
+            <returns>The result dictionary of light-up segments.</returns>
+        </member>
+        <member name="M:Sudoku.Concepts.LineSegmentFactory.GetLightupDirections(Sudoku.Concepts.Absolute[],System.Boolean,Sudoku.Graphics.PointMapper,System.Collections.Generic.HashSet{Sudoku.Concepts.Absolute}@)">
+            <inheritdoc cref="M:Sudoku.Concepts.LineSegmentFactory.GetLightupDirections(Sudoku.Concepts.Relative[],System.Boolean,Sudoku.Graphics.PointMapper,System.Collections.Generic.HashSet{Sudoku.Concepts.Absolute}@)"/>
+        </member>
+        <member name="M:Sudoku.Concepts.LineSegmentFactory.GetLightupDirectionsCore(System.Collections.Generic.Dictionary{Sudoku.Concepts.Absolute,Sudoku.Concepts.Direction},System.Boolean,Sudoku.Graphics.PointMapper,System.Collections.Generic.HashSet{Sudoku.Concepts.Absolute}@)">
+            <summary>
+            Creates a <see cref="T:System.Collections.Generic.Dictionary`2"/> of <see cref="T:Sudoku.Concepts.Absolute"/> and <see cref="T:Sudoku.Concepts.Direction"/> key-value pairs,
+            indicating lightup segments of cells to be shown.
+            </summary>
+            <param name="lineSegmentsDictionary">The original entry dictionary.</param>
+            <param name="isCyclicRuleChecked">
+            A <see cref="T:System.Boolean"/> value indicating cycling row and column gaps will be considered as connected.
+            </param>
+            <param name="mapper">The mapper.</param>
+            <param name="absoluteCellIndices">Absolute cell indices.</param>
+            <returns>The result dictionary of light-up segments.</returns>
+        </member>
         <member name="T:Sudoku.Concepts.Relative">
             <summary>
             Represents an <see cref="T:System.Int32"/> value that describes a relative index.
@@ -312,6 +492,31 @@
         </member>
         <member name="M:Sudoku.Concepts.Relative.op_Inequality(Sudoku.Concepts.Relative,Sudoku.Concepts.Relative)">
             <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Concepts.RotationType">
+            <summary>
+            Represents a type of rotation.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Concepts.RotationType.None">
+            <summary>
+            Represents no rotation.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Concepts.RotationType.Single">
+            <summary>
+            Represents single rotation.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Concepts.RotationType.Double">
+            <summary>
+            Represents double rotation.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Concepts.RotationType.Triple">
+            <summary>
+            Represents triple rotation.
+            </summary>
         </member>
         <member name="T:Sudoku.Concepts.Scale">
             <summary>
@@ -785,6 +990,44 @@
             <inheritdoc cref="M:Sudoku.Graphics.LineTemplates.RectangularBlockLineTemplate.CreateThickLinesPaint(Sudoku.Graphics.PointMapper,Sudoku.Graphics.CanvasDrawingOptions)" path="/remarks"/>
             </remarks>
             <seealso cref="M:Sudoku.Graphics.LineTemplates.RectangularBlockLineTemplate.DrawGridLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)"/>.
+        </member>
+        <member name="T:Sudoku.Graphics.LineTemplates.SpecifiedLineTemplate">
+            <summary>
+            Represents a line template that specifies a list of thick and thin lines.
+            </summary>
+            <param name="thickLineSegments"><inheritdoc cref="P:Sudoku.Graphics.LineTemplates.SpecifiedLineTemplate.ThickLineSegments" path="/summary"/></param>
+            <param name="thinLineSegments"><inheritdoc cref="P:Sudoku.Graphics.LineTemplates.SpecifiedLineTemplate.ThickLineSegments" path="/summary"/></param>
+        </member>
+        <member name="M:Sudoku.Graphics.LineTemplates.SpecifiedLineTemplate.#ctor(Sudoku.Concepts.LineSegment[],Sudoku.Concepts.LineSegment[])">
+            <summary>
+            Represents a line template that specifies a list of thick and thin lines.
+            </summary>
+            <param name="thickLineSegments"><inheritdoc cref="P:Sudoku.Graphics.LineTemplates.SpecifiedLineTemplate.ThickLineSegments" path="/summary"/></param>
+            <param name="thinLineSegments"><inheritdoc cref="P:Sudoku.Graphics.LineTemplates.SpecifiedLineTemplate.ThickLineSegments" path="/summary"/></param>
+        </member>
+        <member name="M:Sudoku.Graphics.LineTemplates.SpecifiedLineTemplate.#ctor">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Graphics.LineTemplates.SpecifiedLineTemplate"/> instance.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.LineTemplates.SpecifiedLineTemplate.ThickLineSegments">
+            <summary>
+            Indicates thick line segments.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.LineTemplates.SpecifiedLineTemplate.ThinLineSegments">
+            <summary>
+            Indicates thin line segments.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.LineTemplates.SpecifiedLineTemplate.GuardStatements(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.LineTemplates.SpecifiedLineTemplate.DrawBorderRectangle(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.LineTemplates.SpecifiedLineTemplate.DrawGridLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.LineTemplates.StandardLineTemplate">
             <summary>

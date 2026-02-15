@@ -10,17 +10,15 @@ using System;
 using System.IO;
 using System.Text.Json;
 using SkiaSharp;
+using Sudoku.Concepts;
 using Sudoku.Graphics;
 using Sudoku.Graphics.LineTemplates;
 using Sudoku.Serialization;
 
 var desktop = Environment.DesktopPath;
-using var canvas = Canvas.Create(
-	cellSize: 120,
-	margin: 10,
-	rowsCount: 9,
-	columnsCount: 9,
-	vector: new(1),
+var mapper = new PointMapper(cellSize: 120, margin: 10, rowsCount: 9, columnsCount: 9, vector: new(1));
+using var canvas = new Canvas(
+	mapper: mapper,
 	drawingOptions: new()
 	{
 		BackgroundColor = Inherited<SerializableColor>.FromValue(SKColors.White),
@@ -43,7 +41,42 @@ using var canvas = Canvas.Create(
 		//	//AlsoFillGroups = true
 		//}
 		//GridLineTemplate = new SujikenLineTemplate(3)
-		GridLineTemplate = new DefaultLineTemplate()
+		//GridLineTemplate = new DefaultLineTemplate()
+		GridLineTemplate = new SpecifiedLineTemplate
+		{
+			ThickLineSegments = [
+				..
+				LineSegmentFactory.GetOutlineSegments(
+					AbsoluteFactory.GetTetrisPiece(AbsoluteFactory.TetrisPiece.O, mapper).Offset(1, 1, mapper),
+					mapper
+				),
+				..
+				LineSegmentFactory.GetOutlineSegments(
+					AbsoluteFactory.GetTetrisPiece(AbsoluteFactory.TetrisPiece.T, mapper).Offset(1, 4, mapper),
+					mapper
+				),
+				..
+				LineSegmentFactory.GetOutlineSegments(
+					AbsoluteFactory.GetTetrisPiece(AbsoluteFactory.TetrisPiece.J, mapper).Offset(1, 7, mapper),
+					mapper
+				),
+				..
+				LineSegmentFactory.GetOutlineSegments(
+					AbsoluteFactory.GetTetrisPiece(AbsoluteFactory.TetrisPiece.L, mapper).Offset(4, 1, mapper),
+					mapper
+				),
+				..
+				LineSegmentFactory.GetOutlineSegments(
+					AbsoluteFactory.GetTetrisPiece(AbsoluteFactory.TetrisPiece.S, mapper).Offset(4, 4, mapper),
+					mapper
+				),
+				..
+				LineSegmentFactory.GetOutlineSegments(
+					AbsoluteFactory.GetTetrisPiece(AbsoluteFactory.TetrisPiece.Z, mapper).Offset(4, 7, mapper),
+					mapper
+				)
+			]
+		}
 	},
 	exportingOptions: new() { Quality = 100 }
 );
@@ -51,7 +84,7 @@ canvas.FillBackground();
 canvas.DrawLines();
 canvas.Export(Path.Combine(desktop, "output.png"));
 
-//canvas.DrawingOptions.WriteTo(Path.Combine(Environment.DesktopPath, "output.json"), Options);
+canvas.DrawingOptions.WriteTo(Path.Combine(Environment.DesktopPath, "output.json"), Options);
 Console.WriteLine("Okay.");
 
 
