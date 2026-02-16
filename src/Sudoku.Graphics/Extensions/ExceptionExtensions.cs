@@ -18,10 +18,7 @@ public static class ExceptionExtensions
 		{
 			if (!expression)
 			{
-				throw (TException)Activator.CreateInstance(
-					typeof(TException),
-					$"Expression is failed to be asserted: '{expressionString}'."
-				)!;
+				throw (TException)Activator.CreateInstance(typeof(TException), $"The expression is failed: '{expressionString}'.")!;
 			}
 		}
 	}
