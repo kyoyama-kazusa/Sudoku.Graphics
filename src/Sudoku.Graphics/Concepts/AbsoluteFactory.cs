@@ -6,8 +6,9 @@
 /// </summary>
 /// <seealso cref="Absolute"/>
 /// <seealso cref="LineSegment"/>
-public static partial class AbsoluteFactory
+public static class AbsoluteFactory
 {
+	/// <param name="this">The current instance.</param>
 	extension(Absolute[] @this)
 	{
 		/// <summary>
@@ -29,73 +30,6 @@ public static partial class AbsoluteFactory
 				result[i++] = (r + rowsCount) * absoluteColumnsCount + c + columnsCount;
 			}
 			return result;
-		}
-	}
-
-
-	/// <summary>
-	/// Creates a list of absolute cell indices of the specified piece, defined in tetris.
-	/// </summary>
-	/// <param name="piece">The piece.</param>
-	/// <param name="mapper">The mapper instance that represents basic information of the number of rows and columns.</param>
-	/// <param name="rotationType">The rotation type. By default it's <see cref="RotationType.None"/>.</param>
-	/// <returns>Absolute cell indices of that piece, aligned as global top-left position <c>(0, 0)</c> in canvas.</returns>
-	/// <exception cref="ArgumentOutOfRangeException">
-	/// Throws when <paramref name="piece"/> or <paramref name="rotationType"/> is not defined.
-	/// </exception>
-	/// <seealso cref="RotationType.None"/>
-	public static Absolute[] GetTetrisPiece(TetrisPiece piece, PointMapper mapper, RotationType rotationType = RotationType.None)
-	{
-		var resultCoordinates = rotate(
-			(int)rotationType % 4,
-			piece switch
-			{
-				TetrisPiece.I => Tetris.PiecesCoordinateTable[0],
-				TetrisPiece.O => Tetris.PiecesCoordinateTable[1],
-				TetrisPiece.T => Tetris.PiecesCoordinateTable[2],
-				TetrisPiece.J => Tetris.PiecesCoordinateTable[3],
-				TetrisPiece.L => Tetris.PiecesCoordinateTable[4],
-				TetrisPiece.S => Tetris.PiecesCoordinateTable[5],
-				TetrisPiece.Z => Tetris.PiecesCoordinateTable[6],
-				_ => throw new ArgumentOutOfRangeException(nameof(piece))
-			}
-		);
-		var columnsCount = mapper.AbsoluteColumnsCount;
-		var result = new Absolute[resultCoordinates.Length];
-		var i = 0;
-		foreach (var (r, c) in resultCoordinates)
-		{
-			result[i++] = r * columnsCount + c;
-		}
-		return [.. result];
-
-
-		static (Absolute RowIndex, Absolute ColumnIndex)[] rotate(int times, (Absolute RowIndex, Absolute ColumnIndex)[] coordinates)
-		{
-			for (var i = 0; i < times; i++)
-			{
-				var target = new List<(Absolute RowIndex, Absolute ColumnIndex)>(coordinates.Length);
-				foreach (var (r, c) in coordinates)
-				{
-					target.Add((+c, -r));
-				}
-
-				// Find minimal row index and column index; negate it.
-				var minRowIndex = -target.Min(static coordinate => coordinate.RowIndex);
-				var minColumnIndex = -target.Min(static coordinate => coordinate.ColumnIndex);
-
-				// Shift all coordinates by add (minRowIndex, minColumnIndex).
-				foreach (ref var coordinate in CollectionsMarshal.AsSpan(target))
-				{
-					coordinate.RowIndex += minRowIndex;
-					coordinate.ColumnIndex += minColumnIndex;
-				}
-
-				// Reassign array.
-				coordinates = [.. target];
-			}
-
-			return coordinates;
 		}
 	}
 }

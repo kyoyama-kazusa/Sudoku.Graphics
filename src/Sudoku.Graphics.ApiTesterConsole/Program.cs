@@ -10,6 +10,7 @@ using System;
 using System.IO;
 using System.Text.Json;
 using SkiaSharp;
+using Sudoku.ComponentModel.Tetris;
 using Sudoku.Concepts;
 using Sudoku.Graphics;
 using Sudoku.Graphics.LineTemplates;
@@ -45,12 +46,12 @@ using var canvas = new Canvas(
 		GridLineTemplate = new SpecifiedLineTemplate
 		{
 			ThickLineSegments = [
-				.. LineSegmentFactory.GetTetrisOutline(AbsoluteFactory.TetrisPiece.O, RotationType.None, mapper, 1, 1),
-				.. LineSegmentFactory.GetTetrisOutline(AbsoluteFactory.TetrisPiece.T, RotationType.None, mapper, 1, 4),
-				.. LineSegmentFactory.GetTetrisOutline(AbsoluteFactory.TetrisPiece.J, RotationType.None, mapper, 1, 7),
-				.. LineSegmentFactory.GetTetrisOutline(AbsoluteFactory.TetrisPiece.L, RotationType.None, mapper, 4, 1),
-				.. LineSegmentFactory.GetTetrisOutline(AbsoluteFactory.TetrisPiece.S, RotationType.None, mapper, 4, 4),
-				.. LineSegmentFactory.GetTetrisOutline(AbsoluteFactory.TetrisPiece.Z, RotationType.None, mapper, 4, 7)
+				.. Piece.O.GetOutline(RotationType.None, mapper, 1, 1),
+				.. Piece.T.GetOutline(RotationType.None, mapper, 1, 4),
+				.. Piece.J.GetOutline(RotationType.None, mapper, 1, 7),
+				.. Piece.L.GetOutline(RotationType.None, mapper, 4, 1),
+				.. Piece.S.GetOutline(RotationType.None, mapper, 4, 4),
+				.. Piece.Z.GetOutline(RotationType.None, mapper, 4, 7)
 			]
 		}
 	},

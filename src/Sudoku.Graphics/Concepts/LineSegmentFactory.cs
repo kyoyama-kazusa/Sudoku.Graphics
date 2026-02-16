@@ -13,7 +13,7 @@ public static class LineSegmentFactory
 	/// <param name="cellIndices">The cell indices.</param>
 	/// <param name="mapper">The mapper.</param>
 	/// <returns>A list of <see cref="LineSegment"/> instances.</returns>
-	public static LineSegment[] GetOutlineSegments(Absolute[] cellIndices, PointMapper mapper)
+	public static LineSegment[] GetOutline(Absolute[] cellIndices, PointMapper mapper)
 	{
 		var dictionary = GetLightupDirections(cellIndices, false, mapper, out _);
 		var result = new LineSegment[dictionary.Count];
@@ -24,26 +24,6 @@ public static class LineSegmentFactory
 		}
 		return result;
 	}
-
-	/// <summary>
-	/// Creates a <see cref="LineSegment"/> array that describes outlines of a tetris piece.
-	/// </summary>
-	/// <param name="piece">The specified tetris piece.</param>
-	/// <param name="rotationType">The rotation type.</param>
-	/// <param name="mapper">The mapper.</param>
-	/// <param name="offsetRowsCount">The offset rows count.</param>
-	/// <param name="offsetColumnsCount">The offset columns count.</param>
-	/// <returns>An array of <see cref="LineSegment"/> instances.</returns>
-	public static LineSegment[] GetTetrisOutline(
-		AbsoluteFactory.TetrisPiece piece,
-		RotationType rotationType,
-		PointMapper mapper,
-		Absolute offsetRowsCount,
-		Absolute offsetColumnsCount
-	) => GetOutlineSegments(
-		AbsoluteFactory.GetTetrisPiece(piece, mapper, rotationType).Offset(offsetRowsCount, offsetColumnsCount, mapper),
-		mapper
-	);
 
 	/// <summary>
 	/// Creates a <see cref="Dictionary{TKey, TValue}"/> of <see cref="Absolute"/> and <see cref="Direction"/> key-value pairs,

@@ -4,6 +4,99 @@
         <name>Sudoku.Graphics</name>
     </assembly>
     <members>
+        <member name="T:Sudoku.ComponentModel.Tetris.Piece">
+            <summary>
+            Represents a tetris piece.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Tetris.Piece.I">
+            <summary>
+            Represents I-piece.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Tetris.Piece.O">
+            <summary>
+            Represents O-piece.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Tetris.Piece.T">
+            <summary>
+            Represents T-piece.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Tetris.Piece.J">
+            <summary>
+            Represents J-piece.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Tetris.Piece.L">
+            <summary>
+            Represents L-piece.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Tetris.Piece.S">
+            <summary>
+            Represents S-piece.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Tetris.Piece.Z">
+            <summary>
+            Represents Z-piece.
+            </summary>
+        </member>
+        <member name="T:Sudoku.ComponentModel.Tetris.PieceInfo">
+            <summary>
+            Provides an easy way to get pieces.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Tetris.PieceInfo.PiecesCoordinateTable">
+            <summary>
+            Represents a table of coordinates of all pieces (tetriminoes).
+            </summary>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Tetris.PieceInfo.GetPiecesSize(Sudoku.ComponentModel.Tetris.Piece)">
+            <summary>
+            Get size of the specified piece.
+            </summary>
+            <param name="piece">The piece.</param>
+        </member>
+        <member name="T:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory">
+            <summary>
+            Provides extension members on <see cref="T:Sudoku.ComponentModel.Tetris.Piece"/>.
+            </summary>
+            <seealso cref="T:Sudoku.ComponentModel.Tetris.Piece"/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.GetOutline(Sudoku.ComponentModel.Tetris.Piece,Sudoku.Concepts.RotationType,Sudoku.Graphics.PointMapper,Sudoku.Concepts.Absolute,Sudoku.Concepts.Absolute)">
+            <inheritdoc cref="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.&lt;G&gt;$C66C61D5C78EA6C835A71BF5AF9528DF.GetOutline(Sudoku.Concepts.RotationType,Sudoku.Graphics.PointMapper,Sudoku.Concepts.Absolute,Sudoku.Concepts.Absolute)"/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.GetTetrisPiece(Sudoku.ComponentModel.Tetris.Piece,Sudoku.Graphics.PointMapper,Sudoku.Concepts.RotationType)">
+            <inheritdoc cref="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.&lt;G&gt;$C66C61D5C78EA6C835A71BF5AF9528DF.GetTetrisPiece(Sudoku.Graphics.PointMapper,Sudoku.Concepts.RotationType)"/>
+        </member>
+        <member name="T:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.&lt;G&gt;$C66C61D5C78EA6C835A71BF5AF9528DF.&lt;M&gt;$59043A45185263A8DDF656B780FAD796">
+            <param name="this">The specified tetris piece.</param>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.&lt;G&gt;$C66C61D5C78EA6C835A71BF5AF9528DF.GetOutline(Sudoku.Concepts.RotationType,Sudoku.Graphics.PointMapper,Sudoku.Concepts.Absolute,Sudoku.Concepts.Absolute)">
+            <summary>
+            Creates a <see cref="T:Sudoku.Concepts.LineSegment"/> array that describes outlines of a tetris piece.
+            </summary>
+            <param name="rotationType">The rotation type.</param>
+            <param name="mapper">The mapper.</param>
+            <param name="offsetRowsCount">The offset rows count.</param>
+            <param name="offsetColumnsCount">The offset columns count.</param>
+            <returns>An array of <see cref="T:Sudoku.Concepts.LineSegment"/> instances.</returns>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.&lt;G&gt;$C66C61D5C78EA6C835A71BF5AF9528DF.GetTetrisPiece(Sudoku.Graphics.PointMapper,Sudoku.Concepts.RotationType)">
+            <summary>
+            Creates a list of absolute cell indices of the specified piece, defined in tetris.
+            </summary>
+            <param name="mapper">The mapper instance that represents basic information of the number of rows and columns.</param>
+            <param name="rotationType">The rotation type. By default it's <see cref="F:Sudoku.Concepts.RotationType.None"/>.</param>
+            <returns>Absolute cell indices of that piece, aligned as global top-left position <c>(0, 0)</c> in canvas.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Throws when <paramref name="this"/> or <paramref name="rotationType"/> is not defined.
+            </exception>
+            <seealso cref="F:Sudoku.Concepts.RotationType.None"/>
+        </member>
         <member name="T:Sudoku.Concepts.Absolute">
             <summary>
             Represents an <see cref="T:System.Int32"/> value that describes an absolute index.
@@ -77,74 +170,8 @@
         <member name="M:Sudoku.Concepts.AbsoluteFactory.Offset(Sudoku.Concepts.Absolute[],Sudoku.Concepts.Absolute,Sudoku.Concepts.Absolute,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Concepts.AbsoluteFactory.&lt;G&gt;$06967E10E1BDFE254CF47DE1D552A287.Offset(Sudoku.Concepts.Absolute,Sudoku.Concepts.Absolute,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Concepts.AbsoluteFactory.GetTetrisPiece(Sudoku.Concepts.AbsoluteFactory.TetrisPiece,Sudoku.Graphics.PointMapper,Sudoku.Concepts.RotationType)">
-            <summary>
-            Creates a list of absolute cell indices of the specified piece, defined in tetris.
-            </summary>
-            <param name="piece">The piece.</param>
-            <param name="mapper">The mapper instance that represents basic information of the number of rows and columns.</param>
-            <param name="rotationType">The rotation type. By default it's <see cref="F:Sudoku.Concepts.RotationType.None"/>.</param>
-            <returns>Absolute cell indices of that piece, aligned as global top-left position <c>(0, 0)</c> in canvas.</returns>
-            <exception cref="T:System.ArgumentOutOfRangeException">
-            Throws when <paramref name="piece"/> or <paramref name="rotationType"/> is not defined.
-            </exception>
-            <seealso cref="F:Sudoku.Concepts.RotationType.None"/>
-        </member>
-        <member name="T:Sudoku.Concepts.AbsoluteFactory.Tetris">
-            <summary>
-            Provides tetris information.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Concepts.AbsoluteFactory.Tetris.PiecesCoordinateTable">
-            <summary>
-            Represents a table of coordinates of all pieces (tetriminoes).
-            </summary>
-        </member>
-        <member name="M:Sudoku.Concepts.AbsoluteFactory.Tetris.GetPiecesSize(Sudoku.Concepts.AbsoluteFactory.TetrisPiece)">
-            <summary>
-            Get size of the specified piece.
-            </summary>
-            <param name="piece">The piece.</param>
-        </member>
-        <member name="T:Sudoku.Concepts.AbsoluteFactory.TetrisPiece">
-            <summary>
-            Represents a tetris piece.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Concepts.AbsoluteFactory.TetrisPiece.I">
-            <summary>
-            Represents I-piece.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Concepts.AbsoluteFactory.TetrisPiece.O">
-            <summary>
-            Represents O-piece.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Concepts.AbsoluteFactory.TetrisPiece.T">
-            <summary>
-            Represents T-piece.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Concepts.AbsoluteFactory.TetrisPiece.J">
-            <summary>
-            Represents J-piece.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Concepts.AbsoluteFactory.TetrisPiece.L">
-            <summary>
-            Represents L-piece.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Concepts.AbsoluteFactory.TetrisPiece.S">
-            <summary>
-            Represents S-piece.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Concepts.AbsoluteFactory.TetrisPiece.Z">
-            <summary>
-            Represents Z-piece.
-            </summary>
+        <member name="T:Sudoku.Concepts.AbsoluteFactory.&lt;G&gt;$06967E10E1BDFE254CF47DE1D552A287.&lt;M&gt;$D9A578683E617CCB9ABB89EAB90F30CE">
+            <param name="this">The current instance.</param>
         </member>
         <member name="M:Sudoku.Concepts.AbsoluteFactory.&lt;G&gt;$06967E10E1BDFE254CF47DE1D552A287.Offset(Sudoku.Concepts.Absolute,Sudoku.Concepts.Absolute,Sudoku.Graphics.PointMapper)">
             <summary>
@@ -411,7 +438,7 @@
             </summary>
             <seealso cref="T:Sudoku.Concepts.LineSegment"/>
         </member>
-        <member name="M:Sudoku.Concepts.LineSegmentFactory.GetOutlineSegments(Sudoku.Concepts.Absolute[],Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Concepts.LineSegmentFactory.GetOutline(Sudoku.Concepts.Absolute[],Sudoku.Graphics.PointMapper)">
             <summary>
             Returns a list of <see cref="T:Sudoku.Concepts.LineSegment"/> instances indicating light-up segments to be shown,
             forming a outline cage that includes all the specified cells.
@@ -419,17 +446,6 @@
             <param name="cellIndices">The cell indices.</param>
             <param name="mapper">The mapper.</param>
             <returns>A list of <see cref="T:Sudoku.Concepts.LineSegment"/> instances.</returns>
-        </member>
-        <member name="M:Sudoku.Concepts.LineSegmentFactory.GetTetrisOutline(Sudoku.Concepts.AbsoluteFactory.TetrisPiece,Sudoku.Concepts.RotationType,Sudoku.Graphics.PointMapper,Sudoku.Concepts.Absolute,Sudoku.Concepts.Absolute)">
-            <summary>
-            Creates a <see cref="T:Sudoku.Concepts.LineSegment"/> array that describes outlines of a tetris piece.
-            </summary>
-            <param name="piece">The specified tetris piece.</param>
-            <param name="rotationType">The rotation type.</param>
-            <param name="mapper">The mapper.</param>
-            <param name="offsetRowsCount">The offset rows count.</param>
-            <param name="offsetColumnsCount">The offset columns count.</param>
-            <returns>An array of <see cref="T:Sudoku.Concepts.LineSegment"/> instances.</returns>
         </member>
         <member name="M:Sudoku.Concepts.LineSegmentFactory.GetLightupDirections(Sudoku.Concepts.Relative[],System.Boolean,Sudoku.Graphics.PointMapper,System.Collections.Generic.HashSet{Sudoku.Concepts.Absolute}@)">
             <summary>
