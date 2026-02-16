@@ -69,12 +69,10 @@ public sealed class CanvasDrawingOptions : IOptionsProvider<CanvasDrawingOptions
 
 	/// <summary>
 	/// Represents small text font information. The font information will be used in drawing candidates.
-	/// By default it will be initialized like
-	/// <c><see langword="new"/>() { FontName = "Cascadia Code", FontSize = .25M }</c>.
+	/// By default it be derived from property <see cref="BigTextFontInfo"/>.
 	/// </summary>
 	[ResourceKey("SmallTextFontInfo")]
-	public Inherited<TextFontInfo> SmallTextFontInfo { get; set; } =
-		Inherited<TextFontInfo>.FromValue(new() { FontName = "Cascadia Code", FontSize = .25M });
+	public Inherited<TextFontInfo> SmallTextFontInfo { get; set; } = Inherited<TextFontInfo>.FromPropertyName(nameof(BigTextFontInfo));
 
 	/// <summary>
 	/// Represents JSudoku color set. The color set contains 27 different colors.

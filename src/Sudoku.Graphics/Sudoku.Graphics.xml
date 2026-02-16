@@ -803,6 +803,23 @@
         <member name="M:Sudoku.Concepts.Converter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.Concepts.Scale,System.Text.Json.JsonSerializerOptions)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Concepts.SizeDecomposer">
+            <summary>
+            Represents an easy way to decompose a value into a triplet.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Concepts.SizeDecomposer.Decompose(System.Int32)">
+            <summary>
+            Decompose a number. This method can be used by calculating the number of rows and columns.
+            </summary>
+            <param name="size">The value.</param>
+            <returns>
+            A triplet of values <c>(M, N, P)</c>.
+            Such values can be constructed into <paramref name="size"/> by <c>M * N + P</c>.
+            </returns>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
         <member name="T:Sudoku.Graphics.Canvas">
             <summary>
             Represents a canvas object that allows you drawing items onto it.
@@ -870,10 +887,16 @@
         <member name="M:Sudoku.Graphics.Canvas.DrawLines">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Canvas.DrawText(System.String,Sudoku.Concepts.Relative,SkiaSharp.SKColor,SkiaSharp.SKFontStyleSlant)">
+        <member name="M:Sudoku.Graphics.Canvas.DrawBigText(System.String,Sudoku.Concepts.Relative,SkiaSharp.SKColor,SkiaSharp.SKFontStyleSlant)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Canvas.DrawText(System.String,Sudoku.Concepts.Absolute,SkiaSharp.SKColor,SkiaSharp.SKFontStyleSlant)">
+        <member name="M:Sudoku.Graphics.Canvas.DrawBigText(System.String,Sudoku.Concepts.Absolute,SkiaSharp.SKColor,SkiaSharp.SKFontStyleSlant)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Canvas.DrawSmallText(System.String,Sudoku.Concepts.Relative,System.Int32,System.Int32,SkiaSharp.SKColor,SkiaSharp.SKFontStyleSlant)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Canvas.DrawSmallText(System.String,Sudoku.Concepts.Absolute,System.Int32,System.Int32,SkiaSharp.SKColor,SkiaSharp.SKFontStyleSlant)">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Canvas.Dispose">
@@ -963,8 +986,7 @@
         <member name="P:Sudoku.Graphics.CanvasDrawingOptions.SmallTextFontInfo">
             <summary>
             Represents small text font information. The font information will be used in drawing candidates.
-            By default it will be initialized like
-            <c><see langword="new"/>() { FontName = "Cascadia Code", FontSize = .25M }</c>.
+            By default it be derived from property <see cref="P:Sudoku.Graphics.CanvasDrawingOptions.BigTextFontInfo"/>.
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.CanvasDrawingOptions.JSudokuColorSet">
@@ -1444,6 +1466,29 @@
             Indicates backing canvas.
             </summary>
         </member>
+        <member name="T:Sudoku.Graphics.Primitives.ICanvasDrawBigText">
+            <summary>
+            Represents a canvas object that supports big-text-drawing methods.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Primitives.ICanvasDrawBigText.DrawBigText(System.String,Sudoku.Concepts.Relative,SkiaSharp.SKColor,SkiaSharp.SKFontStyleSlant)">
+            <summary>
+            Draws the specified text onto the specified cell.
+            </summary>
+            <param name="text">The text.</param>
+            <param name="cell">The relative cell.</param>
+            <param name="color">The color.</param>
+            <param name="slant">The text slant.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.Primitives.ICanvasDrawBigText.DrawBigText(System.String,Sudoku.Concepts.Absolute,SkiaSharp.SKColor,SkiaSharp.SKFontStyleSlant)">
+            <summary>
+            Draws the specified text onto the specified cell.
+            </summary>
+            <param name="text">The text.</param>
+            <param name="cell">The absolute cell.</param>
+            <param name="color">The color.</param>
+            <param name="slant">The text slant.</param>
+        </member>
         <member name="T:Sudoku.Graphics.Primitives.ICanvasDrawLines">
             <summary>
             Represents a canvas object that supports line-drawing methods.
@@ -1454,26 +1499,32 @@
             Try to draw lines.
             </summary>
         </member>
-        <member name="T:Sudoku.Graphics.Primitives.ICanvasDrawText">
+        <member name="T:Sudoku.Graphics.Primitives.ICanvasDrawSmallText">
             <summary>
-            Represents a canvas object that supports text-drawing methods.
+            Represents a canvas object that supports small-text-drawing methods.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.Primitives.ICanvasDrawText.DrawText(System.String,Sudoku.Concepts.Relative,SkiaSharp.SKColor,SkiaSharp.SKFontStyleSlant)">
+        <member name="M:Sudoku.Graphics.Primitives.ICanvasDrawSmallText.DrawSmallText(System.String,Sudoku.Concepts.Relative,System.Int32,System.Int32,SkiaSharp.SKColor,SkiaSharp.SKFontStyleSlant)">
             <summary>
-            Draws the specified text onto the specified cell.
+            Draws the specified text onto the specified cell, with the specified offset values as inner offsets in a cell;
+            such offsets are used by drawing candidates.
             </summary>
             <param name="text">The text.</param>
             <param name="cell">The relative cell.</param>
+            <param name="innerPosition">The inner position.</param>
+            <param name="innerSize">The number of inner rows and columns.</param>
             <param name="color">The color.</param>
             <param name="slant">The text slant.</param>
         </member>
-        <member name="M:Sudoku.Graphics.Primitives.ICanvasDrawText.DrawText(System.String,Sudoku.Concepts.Absolute,SkiaSharp.SKColor,SkiaSharp.SKFontStyleSlant)">
+        <member name="M:Sudoku.Graphics.Primitives.ICanvasDrawSmallText.DrawSmallText(System.String,Sudoku.Concepts.Absolute,System.Int32,System.Int32,SkiaSharp.SKColor,SkiaSharp.SKFontStyleSlant)">
             <summary>
-            Draws the specified text onto the specified cell.
+            Draws the specified text onto the specified cell, with the specified offset values as inner offsets in a cell;
+            such offsets are used by drawing candidates.
             </summary>
             <param name="text">The text.</param>
             <param name="cell">The absolute cell.</param>
+            <param name="innerPosition">The inner position.</param>
+            <param name="innerSize">The number of inner rows and columns.</param>
             <param name="color">The color.</param>
             <param name="slant">The text slant.</param>
         </member>

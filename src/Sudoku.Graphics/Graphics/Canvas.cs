@@ -68,11 +68,11 @@ public sealed class Canvas(
 	public void DrawLines() => DrawingOptions.GridLineTemplate.DrawLines(Mapper, BackingCanvas, DrawingOptions);
 
 	/// <inheritdoc/>
-	public void DrawText(string text, Relative cell, SKColor color, SKFontStyleSlant slant)
-		=> DrawText(text, Mapper.ToAbsoluteIndex(cell), color, slant);
+	public void DrawBigText(string text, Relative cell, SKColor color, SKFontStyleSlant slant)
+		=> DrawBigText(text, Mapper.ToAbsoluteIndex(cell), color, slant);
 
 	/// <inheritdoc/>
-	public void DrawText(string text, Absolute cell, SKColor color, SKFontStyleSlant slant)
+	public void DrawBigText(string text, Absolute cell, SKColor color, SKFontStyleSlant slant)
 	{
 		var fontInfo = DrawingOptions.BigTextFontInfo.Resolve(DrawingOptions);
 		using var typeface = SKTypeface.FromFamilyName(fontInfo.FontName, fontInfo.FontWeight, fontInfo.FontWidth, slant);
@@ -83,8 +83,43 @@ public sealed class Canvas(
 		BackingCanvas.DrawText(
 			text,
 			Mapper.GetPoint(cell, CellCornerType.Center)
-				+ new SKPoint(0, offset / 2) // Offset adjustment
+				+ new SKPoint(0, offset / (2 * text.Length)) // Offset adjustment
 				+ new SKPoint(0, Mapper.CellSize / 12), // Manual adjustment
+			SKTextAlign.Center,
+			textFont,
+			textPaint
+		);
+	}
+
+	/// <inheritdoc/>
+	public void DrawSmallText(string text, Relative cell, int innerPosition, int innerSize, SKColor color, SKFontStyleSlant slant)
+		=> DrawSmallText(text, Mapper.ToAbsoluteIndex(cell), innerPosition, innerSize, color, slant);
+
+	/// <inheritdoc/>
+	public void DrawSmallText(string text, Absolute cell, int innerPosition, int innerSize, SKColor color, SKFontStyleSlant slant)
+	{
+		// The main idea on drawing candidates is to find for the number of rows and columns in a cell should be drawn,
+		// accommodating all possible candidate values.
+		// The general way is to divide a cell into <c>n * n</c> subcells, in order to fill with each candidate value.
+		// Here variable <c>innerSize</c> represents the variable <c>n</c> (for <c>n * n</c> subcells).
+
+		var fontInfo = DrawingOptions.SmallTextFontInfo.Resolve(DrawingOptions);
+		using var typeface = SKTypeface.FromFamilyName(fontInfo.FontName, fontInfo.FontWeight, fontInfo.FontWidth, slant);
+		var cellTopLeft = Mapper.GetPoint(cell, CellCornerType.TopLeft);
+		var candidateSize = Mapper.CellSize / innerSize;
+		var candidateRowIndex = innerPosition / innerSize;
+		var candidateColumnIndex = innerPosition % innerSize;
+		var factSize = fontInfo.FontSize.Measure(Mapper.CellSize) / innerSize;
+		using var textFont = new SKFont(typeface, factSize) { Subpixel = true };
+		using var textPaint = new SKPaint { Color = color };
+		var offset = textFont.MeasureText(text, textPaint);
+		BackingCanvas.DrawText(
+			text,
+			cellTopLeft
+				+ new SKPoint(candidateColumnIndex * candidateSize, candidateRowIndex * candidateSize) // Adjust to candidate position
+				+ new SKPoint(candidateSize / 2, candidateSize / 2) // Adjust to candidate center
+				+ new SKPoint(0, offset / (2 * text.Length)) // Offset adjustment
+				+ new SKPoint(0, candidateSize / 12), // Manual adjustment
 			SKTextAlign.Center,
 			textFont,
 			textPaint
