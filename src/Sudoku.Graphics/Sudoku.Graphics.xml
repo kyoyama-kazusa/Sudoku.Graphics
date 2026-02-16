@@ -385,6 +385,121 @@
             </summary>
             <param name="value">The value.</param>
         </member>
+        <member name="T:Sudoku.Concepts.LineDashSequence">
+            <summary>
+            Represents a sequence of dash intervals.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Concepts.LineDashSequence._intervals">
+            <summary>
+            The backing intervals.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Concepts.LineDashSequence.#ctor">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Concepts.LineDashSequence"/>.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Concepts.LineDashSequence.#ctor(System.ReadOnlySpan{System.Single})">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Concepts.LineDashSequence"/> via the specified intervals.
+            </summary>
+            <param name="intervals">The intervals.</param>
+        </member>
+        <member name="P:Sudoku.Concepts.LineDashSequence.IsEmpty">
+            <summary>
+            Indicates whether the sequence is empty.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Concepts.LineDashSequence.Intervals">
+            <summary>
+            Indicates interval values.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Concepts.LineDashSequence.Item(System.Int32)">
+            <summary>
+            Returns the element at the specified index.
+            </summary>
+            <param name="index">The desired index.</param>
+            <returns>The value.</returns>
+        </member>
+        <member name="M:Sudoku.Concepts.LineDashSequence.Add(System.Single)">
+            <summary>
+            Adds a new element into the collection.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Sudoku.Concepts.LineDashSequence.GetEnumerator">
+            <inheritdoc cref="M:System.Collections.Generic.IEnumerable`1.GetEnumerator"/>
+        </member>
+        <member name="M:Sudoku.Concepts.LineDashSequence.Create(System.ReadOnlySpan{System.Single})">
+            <summary>
+            Creates a <see cref="T:Sudoku.Concepts.LineDashSequence"/> instance via intervals.
+            </summary>
+            <param name="values">The intervals.</param>
+            <returns>The instance.</returns>
+        </member>
+        <member name="M:Sudoku.Concepts.LineDashSequence.System#Collections#IEnumerable#GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Concepts.LineDashSequence.System#Collections#Generic#IEnumerable{System#Single}#GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Concepts.LineDashSequence.op_Implicit(Sudoku.Concepts.LineDashSequence)~SkiaSharp.SKPathEffect">
+            <summary>
+            Implicit cast from <see cref="T:Sudoku.Concepts.LineDashSequence"/> into <see cref="T:SkiaSharp.SKPathEffect"/>.
+            </summary>
+            <param name="sequence">The sequence.</param>
+        </member>
+        <member name="T:Sudoku.Concepts.LineDashSequence.Enumerator">
+            <summary>
+            Represents an enumerator object that iterates on each <see cref="T:System.Single"/> values.
+            </summary>
+            <param name="values">The <see cref="T:System.Single"/> values.</param>
+        </member>
+        <member name="M:Sudoku.Concepts.LineDashSequence.Enumerator.#ctor(System.ReadOnlySpan{System.Single})">
+            <summary>
+            Represents an enumerator object that iterates on each <see cref="T:System.Single"/> values.
+            </summary>
+            <param name="values">The <see cref="T:System.Single"/> values.</param>
+        </member>
+        <member name="F:Sudoku.Concepts.LineDashSequence.Enumerator._values">
+            <summary>
+            Indicates the backing values.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Concepts.LineDashSequence.Enumerator._index">
+            <summary>
+            Indicates the current index.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Concepts.LineDashSequence.Enumerator.Current">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Concepts.LineDashSequence.Enumerator.System#Collections#IEnumerator#Current">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Concepts.LineDashSequence.Enumerator.MoveNext">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Concepts.LineDashSequence.Enumerator.System#IDisposable#Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Concepts.LineDashSequence.Enumerator.System#Collections#IEnumerator#Reset">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Concepts.Converter">
+            <summary>
+            Represents <see cref="T:Sudoku.Concepts.LineDashSequence"/> JSON converter.
+            </summary>
+            <seealso cref="T:Sudoku.Concepts.LineDashSequence"/>
+        </member>
+        <member name="M:Sudoku.Concepts.Converter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Concepts.Converter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.Concepts.LineDashSequence,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Concepts.LineSegment">
             <summary>
             Represents an instance that describes possible shown line segments under the specified directions specified of the specified cell.
