@@ -68,6 +68,30 @@ public sealed class Canvas(
 	public void DrawLines() => DrawingOptions.GridLineTemplate.DrawLines(Mapper, BackingCanvas, DrawingOptions);
 
 	/// <inheritdoc/>
+	public void DrawText(string text, Relative cell, SKColor color, SKFontStyleSlant slant)
+		=> DrawText(text, Mapper.ToAbsoluteIndex(cell), color, slant);
+
+	/// <inheritdoc/>
+	public void DrawText(string text, Absolute cell, SKColor color, SKFontStyleSlant slant)
+	{
+		var fontInfo = DrawingOptions.BigTextFontInfo.Resolve(DrawingOptions);
+		using var typeface = SKTypeface.FromFamilyName(fontInfo.FontName, fontInfo.FontWeight, fontInfo.FontWidth, slant);
+		var factSize = fontInfo.FontSize.Measure(Mapper.CellSize);
+		using var textFont = new SKFont(typeface, factSize) { Subpixel = true };
+		using var textPaint = new SKPaint { Color = color };
+		var offset = textFont.MeasureText(text, textPaint);
+		BackingCanvas.DrawText(
+			text,
+			Mapper.GetPoint(cell, CellCornerType.Center)
+				+ new SKPoint(0, offset / 2) // Offset adjustment
+				+ new SKPoint(0, Mapper.CellSize / 12), // Manual adjustment
+			SKTextAlign.Center,
+			textFont,
+			textPaint
+		);
+	}
+
+	/// <inheritdoc/>
 	public void Dispose()
 	{
 		ObjectDisposedException.ThrowIf(_isDisposed, this);

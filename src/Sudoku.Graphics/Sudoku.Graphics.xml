@@ -870,6 +870,12 @@
         <member name="M:Sudoku.Graphics.Canvas.DrawLines">
             <inheritdoc/>
         </member>
+        <member name="M:Sudoku.Graphics.Canvas.DrawText(System.String,Sudoku.Concepts.Relative,SkiaSharp.SKColor,SkiaSharp.SKFontStyleSlant)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Canvas.DrawText(System.String,Sudoku.Concepts.Absolute,SkiaSharp.SKColor,SkiaSharp.SKFontStyleSlant)">
+            <inheritdoc/>
+        </member>
         <member name="M:Sudoku.Graphics.Canvas.Dispose">
             <inheritdoc/>
         </member>
@@ -1447,6 +1453,29 @@
             <summary>
             Try to draw lines.
             </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.Primitives.ICanvasDrawText">
+            <summary>
+            Represents a canvas object that supports text-drawing methods.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Primitives.ICanvasDrawText.DrawText(System.String,Sudoku.Concepts.Relative,SkiaSharp.SKColor,SkiaSharp.SKFontStyleSlant)">
+            <summary>
+            Draws the specified text onto the specified cell.
+            </summary>
+            <param name="text">The text.</param>
+            <param name="cell">The relative cell.</param>
+            <param name="color">The color.</param>
+            <param name="slant">The text slant.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.Primitives.ICanvasDrawText.DrawText(System.String,Sudoku.Concepts.Absolute,SkiaSharp.SKColor,SkiaSharp.SKFontStyleSlant)">
+            <summary>
+            Draws the specified text onto the specified cell.
+            </summary>
+            <param name="text">The text.</param>
+            <param name="cell">The absolute cell.</param>
+            <param name="color">The color.</param>
+            <param name="slant">The text slant.</param>
         </member>
         <member name="T:Sudoku.Graphics.Primitives.ICanvasExport">
             <summary>

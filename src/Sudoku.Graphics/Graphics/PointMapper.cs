@@ -157,7 +157,7 @@ public sealed class PointMapper(
 		var topLeft = new SKPoint(CellSize * absoluteColumnIndex + Margin, CellSize * absoluteRowIndex + Margin);
 		return type switch
 		{
-			CellCornerType.Center => topLeft - new SKPoint(CellSize / 2, CellSize / 2),
+			CellCornerType.Center => topLeft + new SKPoint(CellSize / 2, CellSize / 2),
 			CellCornerType.TopLeft => topLeft,
 			CellCornerType.TopRight => topLeft + new SKPoint(CellSize, 0),
 			CellCornerType.BottomLeft => topLeft + new SKPoint(0, CellSize),
