@@ -1467,6 +1467,11 @@
             </summary>
             <typeparam name="TSelf">The type itself.</typeparam>
         </member>
+        <member name="F:Sudoku.Graphics.Primitives.IOptionsProvider`1.SerializerOptions">
+            <summary>
+            Represents serializer options.
+            </summary>
+        </member>
         <member name="P:Sudoku.Graphics.Primitives.IOptionsProvider`1.DefaultInstance">
             <summary>
             Indicates the default options instance.
