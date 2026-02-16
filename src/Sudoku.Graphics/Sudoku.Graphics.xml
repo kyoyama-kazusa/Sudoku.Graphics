@@ -36,6 +36,9 @@
         <member name="M:Sudoku.Concepts.Absolute.GetHashCode">
             <inheritdoc cref="M:System.Object.GetHashCode"/>
         </member>
+        <member name="M:Sudoku.Concepts.Absolute.CompareTo(Sudoku.Concepts.Absolute)">
+            <inheritdoc/>
+        </member>
         <member name="M:Sudoku.Concepts.Absolute.ToString">
             <inheritdoc cref="M:System.Object.ToString"/>
         </member>
@@ -49,6 +52,18 @@
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Concepts.Absolute.op_Inequality(Sudoku.Concepts.Absolute,Sudoku.Concepts.Absolute)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Concepts.Absolute.op_GreaterThan(Sudoku.Concepts.Absolute,Sudoku.Concepts.Absolute)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Concepts.Absolute.op_GreaterThanOrEqual(Sudoku.Concepts.Absolute,Sudoku.Concepts.Absolute)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Concepts.Absolute.op_LessThan(Sudoku.Concepts.Absolute,Sudoku.Concepts.Absolute)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Concepts.Absolute.op_LessThanOrEqual(Sudoku.Concepts.Absolute,Sudoku.Concepts.Absolute)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Concepts.AbsoluteFactory">
@@ -466,6 +481,9 @@
         <member name="M:Sudoku.Concepts.Relative.GetHashCode">
             <inheritdoc cref="M:System.Object.GetHashCode"/>
         </member>
+        <member name="M:Sudoku.Concepts.Relative.CompareTo(Sudoku.Concepts.Relative)">
+            <inheritdoc/>
+        </member>
         <member name="M:Sudoku.Concepts.Relative.ToString">
             <inheritdoc cref="M:System.Object.ToString"/>
         </member>
@@ -491,6 +509,18 @@
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Concepts.Relative.op_Inequality(Sudoku.Concepts.Relative,Sudoku.Concepts.Relative)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Concepts.Relative.op_GreaterThan(Sudoku.Concepts.Relative,Sudoku.Concepts.Relative)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Concepts.Relative.op_GreaterThanOrEqual(Sudoku.Concepts.Relative,Sudoku.Concepts.Relative)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Concepts.Relative.op_LessThan(Sudoku.Concepts.Relative,Sudoku.Concepts.Relative)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Concepts.Relative.op_LessThanOrEqual(Sudoku.Concepts.Relative,Sudoku.Concepts.Relative)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Concepts.RotationType">

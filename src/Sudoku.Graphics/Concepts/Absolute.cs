@@ -6,7 +6,7 @@
 /// <param name="value">The value.</param>
 [JsonConverter(typeof(ValueConverter<Absolute>))]
 [DebuggerDisplay($$"""{{{nameof(ToString)}}(),nq}""")]
-public readonly struct Absolute(int value) : IEquatable<Absolute>, IEqualityOperators<Absolute, Absolute, bool>, IValue<Absolute>
+public readonly struct Absolute(int value) : IValue<Absolute>
 {
 	/// <summary>
 	/// The backing value.
@@ -31,6 +31,9 @@ public readonly struct Absolute(int value) : IEquatable<Absolute>, IEqualityOper
 	/// <inheritdoc cref="object.GetHashCode"/>
 	public override int GetHashCode() => _value;
 
+	/// <inheritdoc/>
+	public int CompareTo(Absolute other) => _value.CompareTo(other._value);
+
 	/// <inheritdoc cref="object.ToString"/>
 	public override string ToString() => _value.ToString();
 
@@ -47,4 +50,16 @@ public readonly struct Absolute(int value) : IEquatable<Absolute>, IEqualityOper
 
 	/// <inheritdoc/>
 	public static bool operator !=(Absolute left, Absolute right) => !(left == right);
+
+	/// <inheritdoc/>
+	public static bool operator >(Absolute left, Absolute right) => left.CompareTo(right) > 0;
+
+	/// <inheritdoc/>
+	public static bool operator >=(Absolute left, Absolute right) => left.CompareTo(right) >= 0;
+
+	/// <inheritdoc/>
+	public static bool operator <(Absolute left, Absolute right) => left.CompareTo(right) < 0;
+
+	/// <inheritdoc/>
+	public static bool operator <=(Absolute left, Absolute right) => left.CompareTo(right) <= 0;
 }

@@ -4,7 +4,12 @@
 /// Represents a type that simply encapsulates an <see cref="int"/> value.
 /// </summary>
 /// <typeparam name="TSelf">The type itself.</typeparam>
-public interface IValue<TSelf> where TSelf : struct, IValue<TSelf>, allows ref struct
+public interface IValue<TSelf> :
+	IComparable<TSelf>,
+	IComparisonOperators<TSelf, TSelf, bool>,
+	IEquatable<TSelf>,
+	IEqualityOperators<TSelf, TSelf, bool>
+	where TSelf : struct, IValue<TSelf>
 {
 	/// <summary>
 	/// Indicates the value.

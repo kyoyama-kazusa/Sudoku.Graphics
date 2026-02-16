@@ -6,7 +6,7 @@
 /// <param name="value">The value.</param>
 [JsonConverter(typeof(ValueConverter<Relative>))]
 [DebuggerDisplay($$"""{{{nameof(ToString)}}(),nq}""")]
-public readonly struct Relative(int value) : IEquatable<Relative>, IEqualityOperators<Relative, Relative, bool>, IValue<Relative>
+public readonly struct Relative(int value) : IValue<Relative>
 {
 	/// <summary>
 	/// The backing value.
@@ -30,6 +30,9 @@ public readonly struct Relative(int value) : IEquatable<Relative>, IEqualityOper
 
 	/// <inheritdoc cref="object.GetHashCode"/>
 	public override int GetHashCode() => _value;
+
+	/// <inheritdoc/>
+	public int CompareTo(Relative other) => _value.CompareTo(other._value);
 
 	/// <inheritdoc cref="object.ToString"/>
 	public override string ToString() => _value.ToString();
@@ -59,4 +62,16 @@ public readonly struct Relative(int value) : IEquatable<Relative>, IEqualityOper
 
 	/// <inheritdoc/>
 	public static bool operator !=(Relative left, Relative right) => !(left == right);
+
+	/// <inheritdoc/>
+	public static bool operator >(Relative left, Relative right) => left.CompareTo(right) > 0;
+
+	/// <inheritdoc/>
+	public static bool operator >=(Relative left, Relative right) => left.CompareTo(right) >= 0;
+
+	/// <inheritdoc/>
+	public static bool operator <(Relative left, Relative right) => left.CompareTo(right) < 0;
+
+	/// <inheritdoc/>
+	public static bool operator <=(Relative left, Relative right) => left.CompareTo(right) <= 0;
 }
