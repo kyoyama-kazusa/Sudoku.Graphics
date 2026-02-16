@@ -26,6 +26,26 @@ public static class LineSegmentFactory
 	}
 
 	/// <summary>
+	/// Creates a <see cref="LineSegment"/> array that describes outlines of a tetris piece.
+	/// </summary>
+	/// <param name="piece">The specified tetris piece.</param>
+	/// <param name="rotationType">The rotation type.</param>
+	/// <param name="mapper">The mapper.</param>
+	/// <param name="offsetRowsCount">The offset rows count.</param>
+	/// <param name="offsetColumnsCount">The offset columns count.</param>
+	/// <returns>An array of <see cref="LineSegment"/> instances.</returns>
+	public static LineSegment[] GetTetrisOutline(
+		AbsoluteFactory.TetrisPiece piece,
+		RotationType rotationType,
+		PointMapper mapper,
+		Absolute offsetRowsCount,
+		Absolute offsetColumnsCount
+	) => GetOutlineSegments(
+		AbsoluteFactory.GetTetrisPiece(piece, mapper, rotationType).Offset(offsetRowsCount, offsetColumnsCount, mapper),
+		mapper
+	);
+
+	/// <summary>
 	/// Creates a <see cref="Dictionary{TKey, TValue}"/> of <see cref="Absolute"/> and <see cref="Direction"/> key-value pairs,
 	/// indicating lightup segments of cells to be shown.
 	/// </summary>

@@ -420,6 +420,17 @@
             <param name="mapper">The mapper.</param>
             <returns>A list of <see cref="T:Sudoku.Concepts.LineSegment"/> instances.</returns>
         </member>
+        <member name="M:Sudoku.Concepts.LineSegmentFactory.GetTetrisOutline(Sudoku.Concepts.AbsoluteFactory.TetrisPiece,Sudoku.Concepts.RotationType,Sudoku.Graphics.PointMapper,Sudoku.Concepts.Absolute,Sudoku.Concepts.Absolute)">
+            <summary>
+            Creates a <see cref="T:Sudoku.Concepts.LineSegment"/> array that describes outlines of a tetris piece.
+            </summary>
+            <param name="piece">The specified tetris piece.</param>
+            <param name="rotationType">The rotation type.</param>
+            <param name="mapper">The mapper.</param>
+            <param name="offsetRowsCount">The offset rows count.</param>
+            <param name="offsetColumnsCount">The offset columns count.</param>
+            <returns>An array of <see cref="T:Sudoku.Concepts.LineSegment"/> instances.</returns>
+        </member>
         <member name="M:Sudoku.Concepts.LineSegmentFactory.GetLightupDirections(Sudoku.Concepts.Relative[],System.Boolean,Sudoku.Graphics.PointMapper,System.Collections.Generic.HashSet{Sudoku.Concepts.Absolute}@)">
             <summary>
             Creates a <see cref="T:System.Collections.Generic.Dictionary`2"/> of <see cref="T:Sudoku.Concepts.Absolute"/> and <see cref="T:Sudoku.Concepts.Direction"/> key-value pairs,

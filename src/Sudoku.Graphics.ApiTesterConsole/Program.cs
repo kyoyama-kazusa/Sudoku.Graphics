@@ -45,36 +45,12 @@ using var canvas = new Canvas(
 		GridLineTemplate = new SpecifiedLineTemplate
 		{
 			ThickLineSegments = [
-				..
-				LineSegmentFactory.GetOutlineSegments(
-					AbsoluteFactory.GetTetrisPiece(AbsoluteFactory.TetrisPiece.O, mapper).Offset(1, 1, mapper),
-					mapper
-				),
-				..
-				LineSegmentFactory.GetOutlineSegments(
-					AbsoluteFactory.GetTetrisPiece(AbsoluteFactory.TetrisPiece.T, mapper).Offset(1, 4, mapper),
-					mapper
-				),
-				..
-				LineSegmentFactory.GetOutlineSegments(
-					AbsoluteFactory.GetTetrisPiece(AbsoluteFactory.TetrisPiece.J, mapper).Offset(1, 7, mapper),
-					mapper
-				),
-				..
-				LineSegmentFactory.GetOutlineSegments(
-					AbsoluteFactory.GetTetrisPiece(AbsoluteFactory.TetrisPiece.L, mapper).Offset(4, 1, mapper),
-					mapper
-				),
-				..
-				LineSegmentFactory.GetOutlineSegments(
-					AbsoluteFactory.GetTetrisPiece(AbsoluteFactory.TetrisPiece.S, mapper).Offset(4, 4, mapper),
-					mapper
-				),
-				..
-				LineSegmentFactory.GetOutlineSegments(
-					AbsoluteFactory.GetTetrisPiece(AbsoluteFactory.TetrisPiece.Z, mapper).Offset(4, 7, mapper),
-					mapper
-				)
+				.. LineSegmentFactory.GetTetrisOutline(AbsoluteFactory.TetrisPiece.O, RotationType.None, mapper, 1, 1),
+				.. LineSegmentFactory.GetTetrisOutline(AbsoluteFactory.TetrisPiece.T, RotationType.None, mapper, 1, 4),
+				.. LineSegmentFactory.GetTetrisOutline(AbsoluteFactory.TetrisPiece.J, RotationType.None, mapper, 1, 7),
+				.. LineSegmentFactory.GetTetrisOutline(AbsoluteFactory.TetrisPiece.L, RotationType.None, mapper, 4, 1),
+				.. LineSegmentFactory.GetTetrisOutline(AbsoluteFactory.TetrisPiece.S, RotationType.None, mapper, 4, 4),
+				.. LineSegmentFactory.GetTetrisOutline(AbsoluteFactory.TetrisPiece.Z, RotationType.None, mapper, 4, 7)
 			]
 		}
 	},
@@ -84,7 +60,7 @@ canvas.FillBackground();
 canvas.DrawLines();
 canvas.Export(Path.Combine(desktop, "output.png"));
 
-canvas.DrawingOptions.WriteTo(Path.Combine(Environment.DesktopPath, "output.json"), Options);
+//canvas.DrawingOptions.WriteTo(Path.Combine(Environment.DesktopPath, "output.json"), Options);
 Console.WriteLine("Okay.");
 
 
