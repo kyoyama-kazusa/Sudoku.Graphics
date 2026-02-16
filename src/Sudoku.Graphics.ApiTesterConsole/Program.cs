@@ -18,6 +18,15 @@ using Sudoku.Serialization;
 
 var desktop = Environment.DesktopPath;
 var mapper = new PointMapper(cellSize: 120, margin: 10, rowsCount: 9, columnsCount: 9, vector: new(1));
+var thickSegments = (LineSegment[])[
+	.. Piece.O.GetOutline(RotationType.None, mapper, 1, 1),
+	.. Piece.T.GetOutline(RotationType.None, mapper, 1, 4),
+	.. Piece.J.GetOutline(RotationType.None, mapper, 1, 7),
+	.. Piece.L.GetOutline(RotationType.None, mapper, 4, 1),
+	.. Piece.S.GetOutline(RotationType.None, mapper, 4, 4),
+	.. Piece.Z.GetOutline(RotationType.None, mapper, 4, 7)
+];
+var thinSegments = LineSegmentFactory.GetExceptRange(thickSegments, mapper);
 using var canvas = new Canvas(
 	mapper: mapper,
 	drawingOptions: new()
@@ -45,14 +54,8 @@ using var canvas = new Canvas(
 		//GridLineTemplate = new DefaultLineTemplate()
 		GridLineTemplate = new SpecifiedLineTemplate
 		{
-			ThickLineSegments = [
-				.. Piece.O.GetOutline(RotationType.None, mapper, 1, 1),
-				.. Piece.T.GetOutline(RotationType.None, mapper, 1, 4),
-				.. Piece.J.GetOutline(RotationType.None, mapper, 1, 7),
-				.. Piece.L.GetOutline(RotationType.None, mapper, 4, 1),
-				.. Piece.S.GetOutline(RotationType.None, mapper, 4, 4),
-				.. Piece.Z.GetOutline(RotationType.None, mapper, 4, 7)
-			]
+			ThickLineSegments = thickSegments,
+			ThinLineSegments = thinSegments
 		}
 	},
 	exportingOptions: new() { Quality = 100 }

@@ -26,6 +26,36 @@ public static class LineSegmentFactory
 	}
 
 	/// <summary>
+	/// Gets except range of the specified segments.
+	/// </summary>
+	/// <param name="originalSegments">The original segments.</param>
+	/// <param name="mapper">The mapper.</param>
+	/// <returns>Except range of line segments.</returns>
+	public static LineSegment[] GetExceptRange(LineSegment[] originalSegments, PointMapper mapper)
+	{
+		var result = new Dictionary<Absolute, LineSegment>();
+		for (var i = 0; i < mapper.AbsoluteRowsCount; i++)
+		{
+			for (var j = 0; j < mapper.AbsoluteColumnsCount; j++)
+			{
+				var cellIndex = i * mapper.AbsoluteColumnsCount + j;
+				result.Add(cellIndex, new(cellIndex, Direction.Up | Direction.Down | Direction.Left | Direction.Right));
+			}
+		}
+
+		foreach (var (cellIndex, directions) in originalSegments)
+		{
+			if (result.TryGetValue(cellIndex, out var value) && value.Directions is var targetDirections)
+			{
+				targetDirections &= ~directions;
+				result[cellIndex] = new(cellIndex, targetDirections);
+			}
+		}
+
+		return [.. result.Values];
+	}
+
+	/// <summary>
 	/// Creates a <see cref="Dictionary{TKey, TValue}"/> of <see cref="Absolute"/> and <see cref="Direction"/> key-value pairs,
 	/// indicating lightup segments of cells to be shown.
 	/// </summary>

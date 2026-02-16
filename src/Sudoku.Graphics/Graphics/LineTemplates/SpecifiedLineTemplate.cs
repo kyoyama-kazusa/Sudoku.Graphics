@@ -54,7 +54,7 @@ public sealed class SpecifiedLineTemplate(LineSegment[] thickLineSegments, LineS
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		static void checkDirections(Direction directions)
 		{
-			if (directions < 0 || directions >= (Direction.Up | Direction.Down | Direction.Left | Direction.Right))
+			if (directions < 0 || directions > (Direction.Up | Direction.Down | Direction.Left | Direction.Right))
 			{
 				throw new ArgumentException($"Invalid direction '{directions}'.");
 			}
