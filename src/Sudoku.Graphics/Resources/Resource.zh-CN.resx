@@ -120,6 +120,9 @@
   <data name="BackgroundColor" xml:space="preserve">
     <value>盘面底色</value>
   </data>
+  <data name="BigTextFontInfo" xml:space="preserve">
+    <value>大字符的字符信息</value>
+  </data>
   <data name="GridBorderRoundedRectangleCornerRadius" xml:space="preserve">
     <value>盘面边框圆角幅度</value>
   </data>
@@ -128,6 +131,9 @@
   </data>
   <data name="JSudokuColorSet" xml:space="preserve">
     <value>JSudoku 颜色集</value>
+  </data>
+  <data name="SmallTextFontInfo" xml:space="preserve">
+    <value>小字符的字符信息</value>
   </data>
   <data name="ThickLineColor" xml:space="preserve">
     <value>粗线颜色</value>

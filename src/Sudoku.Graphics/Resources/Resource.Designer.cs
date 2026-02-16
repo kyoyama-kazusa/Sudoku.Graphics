@@ -70,6 +70,15 @@ namespace Sudoku.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Big text font data.
+        /// </summary>
+        internal static string BigTextFontInfo {
+            get {
+                return ResourceManager.GetString("BigTextFontInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Corner radius of grid border.
         /// </summary>
         internal static string GridBorderRoundedRectangleCornerRadius {
@@ -93,6 +102,15 @@ namespace Sudoku.Resources {
         internal static string JSudokuColorSet {
             get {
                 return ResourceManager.GetString("JSudokuColorSet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Small text font data.
+        /// </summary>
+        internal static string SmallTextFontInfo {
+            get {
+                return ResourceManager.GetString("SmallTextFontInfo", resourceCulture);
             }
         }
         

@@ -59,6 +59,24 @@ public sealed class CanvasDrawingOptions : IOptionsProvider<CanvasDrawingOptions
 	public LineTemplate GridLineTemplate { get; set; } = new StandardLineTemplate(3);
 
 	/// <summary>
+	/// Represents big text font information. The font information will be used in drawing given and modifiable digits.
+	/// By default it will be initialized like
+	/// <c><see langword="new"/>() { FontName = "Cascadia Code", FontSize = .75M }</c>.
+	/// </summary>
+	[ResourceKey("BigTextFontInfo")]
+	public Inherited<TextFontInfo> BigTextFontInfo { get; set; } =
+		Inherited<TextFontInfo>.FromValue(new() { FontName = "Cascadia Code", FontSize = .75M });
+
+	/// <summary>
+	/// Represents small text font information. The font information will be used in drawing candidates.
+	/// By default it will be initialized like
+	/// <c><see langword="new"/>() { FontName = "Cascadia Code", FontSize = .25M }</c>.
+	/// </summary>
+	[ResourceKey("SmallTextFontInfo")]
+	public Inherited<TextFontInfo> SmallTextFontInfo { get; set; } =
+		Inherited<TextFontInfo>.FromValue(new() { FontName = "Cascadia Code", FontSize = .25M });
+
+	/// <summary>
 	/// Represents JSudoku color set. The color set contains 27 different colors.
 	/// </summary>
 	[ResourceKey("JSudokuColorSet")]

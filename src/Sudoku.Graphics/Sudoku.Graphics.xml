@@ -947,6 +947,20 @@
             </summary>
             <seealso cref="T:Sudoku.Graphics.LineTemplates.StandardLineTemplate"/>
         </member>
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.BigTextFontInfo">
+            <summary>
+            Represents big text font information. The font information will be used in drawing given and modifiable digits.
+            By default it will be initialized like
+            <c><see langword="new"/>() { FontName = "Cascadia Code", FontSize = .75M }</c>.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.SmallTextFontInfo">
+            <summary>
+            Represents small text font information. The font information will be used in drawing candidates.
+            By default it will be initialized like
+            <c><see langword="new"/>() { FontName = "Cascadia Code", FontSize = .25M }</c>.
+            </summary>
+        </member>
         <member name="P:Sudoku.Graphics.CanvasDrawingOptions.JSudokuColorSet">
             <summary>
             Represents JSudoku color set. The color set contains 27 different colors.
@@ -1616,6 +1630,31 @@
         <member name="M:Sudoku.Graphics.SerializableColorSet.Slice(System.Int32,System.Int32)">
             <inheritdoc cref="M:System.Collections.Generic.List`1.Slice(System.Int32,System.Int32)"/>
         </member>
+        <member name="T:Sudoku.Graphics.TextFontInfo">
+            <summary>
+            Represents text font information.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.TextFontInfo.FontName">
+            <summary>
+            Indicates the name of the font of text.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.TextFontInfo.FontSize">
+            <summary>
+            Indicates the font size of text.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.TextFontInfo.FontWeight">
+            <summary>
+            Indicates the weight of text.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.TextFontInfo.FontWidth">
+            <summary>
+            Indicates the width of text.
+            </summary>
+        </member>
         <member name="T:Sudoku.Resources.Resource">
             <summary>
               A strongly-typed resource class, for looking up localized strings, etc.
@@ -1637,6 +1676,11 @@
               Looks up a localized string similar to Background color.
             </summary>
         </member>
+        <member name="P:Sudoku.Resources.Resource.BigTextFontInfo">
+            <summary>
+              Looks up a localized string similar to Big text font data.
+            </summary>
+        </member>
         <member name="P:Sudoku.Resources.Resource.GridBorderRoundedRectangleCornerRadius">
             <summary>
               Looks up a localized string similar to Corner radius of grid border.
@@ -1650,6 +1694,11 @@
         <member name="P:Sudoku.Resources.Resource.JSudokuColorSet">
             <summary>
               Looks up a localized string similar to JSudoku color set.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Resources.Resource.SmallTextFontInfo">
+            <summary>
+              Looks up a localized string similar to Small text font data.
             </summary>
         </member>
         <member name="P:Sudoku.Resources.Resource.ThickLineColor">
