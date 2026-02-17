@@ -1595,12 +1595,13 @@
         </member>
         <member name="M:Sudoku.Graphics.Primitives.ICanvasFillBackground.FillBackground">
             <summary>
-            Clears the canvas via a color.
+            Fill background using the color specified in drawing options <see cref="P:Sudoku.Graphics.CanvasDrawingOptions.BackgroundColor"/>.
             </summary>
+            <seealso cref="P:Sudoku.Graphics.CanvasDrawingOptions.BackgroundColor"/>
         </member>
         <member name="M:Sudoku.Graphics.Primitives.ICanvasFillBackground.FillBackground(SkiaSharp.SKColor)">
             <summary>
-            Clears the canvas via the specified color.
+            Fill background using the specified color.
             </summary>
             <param name="color">The color.</param>
         </member>

@@ -6,12 +6,13 @@
 public interface ICanvasFillBackground
 {
 	/// <summary>
-	/// Clears the canvas via a color.
+	/// Fill background using the color specified in drawing options <see cref="CanvasDrawingOptions.BackgroundColor"/>.
 	/// </summary>
+	/// <seealso cref="CanvasDrawingOptions.BackgroundColor"/>
 	void FillBackground();
 
 	/// <summary>
-	/// Clears the canvas via the specified color.
+	/// Fill background using the specified color.
 	/// </summary>
 	/// <param name="color">The color.</param>
 	void FillBackground(SKColor color);
