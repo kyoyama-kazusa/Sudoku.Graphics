@@ -74,9 +74,13 @@ public sealed class Canvas(
 	/// <inheritdoc/>
 	public void DrawBigText(string text, Absolute cell, SKColor color, SKFontStyleSlant slant)
 	{
-		var fontInfo = DrawingOptions.BigTextFontInfo.Resolve(DrawingOptions);
-		using var typeface = SKTypeface.FromFamilyName(fontInfo.FontName, fontInfo.FontWeight, fontInfo.FontWidth, slant);
-		var factSize = fontInfo.FontSize.Measure(Mapper.CellSize);
+		using var typeface = SKTypeface.FromFamilyName(
+			DrawingOptions.BigTextFontName.Resolve(DrawingOptions),
+			DrawingOptions.BigTextFontWeight.Resolve(DrawingOptions),
+			DrawingOptions.BigTextFontWidth.Resolve(DrawingOptions),
+			slant
+		);
+		var factSize = DrawingOptions.BigTextFontSizeScale.Resolve(DrawingOptions).Measure(Mapper.CellSize);
 		using var textFont = new SKFont(typeface, factSize) { Subpixel = true };
 		using var textPaint = new SKPaint { Color = color };
 		var offset = textFont.MeasureText(text, textPaint);
@@ -92,24 +96,28 @@ public sealed class Canvas(
 	}
 
 	/// <inheritdoc/>
-	public void DrawSmallText(string text, Relative cell, int innerPosition, int innerSize, SKColor color, SKFontStyleSlant slant)
-		=> DrawSmallText(text, Mapper.ToAbsoluteIndex(cell), innerPosition, innerSize, color, slant);
+	public void DrawSmallText(string text, Relative cell, int innerPosition, int splitSize, SKColor color, SKFontStyleSlant slant)
+		=> DrawSmallText(text, Mapper.ToAbsoluteIndex(cell), innerPosition, splitSize, color, slant);
 
 	/// <inheritdoc/>
-	public void DrawSmallText(string text, Absolute cell, int innerPosition, int innerSize, SKColor color, SKFontStyleSlant slant)
+	public void DrawSmallText(string text, Absolute cell, int innerPosition, int splitSize, SKColor color, SKFontStyleSlant slant)
 	{
 		// The main idea on drawing candidates is to find for the number of rows and columns in a cell should be drawn,
 		// accommodating all possible candidate values.
 		// The general way is to divide a cell into <c>n * n</c> subcells, in order to fill with each candidate value.
-		// Here variable <c>innerSize</c> represents the variable <c>n</c> (for <c>n * n</c> subcells).
+		// Here variable <c>splitSize</c> represents the variable <c>n</c> (for <c>n * n</c> subcells).
 
-		var fontInfo = DrawingOptions.SmallTextFontInfo.Resolve(DrawingOptions);
-		using var typeface = SKTypeface.FromFamilyName(fontInfo.FontName, fontInfo.FontWeight, fontInfo.FontWidth, slant);
+		using var typeface = SKTypeface.FromFamilyName(
+			DrawingOptions.SmallTextFontName.Resolve(DrawingOptions),
+			DrawingOptions.SmallTextFontWeight.Resolve(DrawingOptions),
+			DrawingOptions.SmallTextFontWidth.Resolve(DrawingOptions),
+			slant
+		);
 		var cellTopLeft = Mapper.GetPoint(cell, CellCornerType.TopLeft);
-		var candidateSize = Mapper.CellSize / innerSize;
-		var candidateRowIndex = innerPosition / innerSize;
-		var candidateColumnIndex = innerPosition % innerSize;
-		var factSize = fontInfo.FontSize.Measure(Mapper.CellSize) / innerSize;
+		var candidateSize = Mapper.CellSize / splitSize;
+		var candidateRowIndex = innerPosition / splitSize;
+		var candidateColumnIndex = innerPosition % splitSize;
+		var factSize = DrawingOptions.SmallTextFontSizeScale.Resolve(DrawingOptions).Measure(Mapper.CellSize) / splitSize;
 		using var textFont = new SKFont(typeface, factSize) { Subpixel = true };
 		using var textPaint = new SKPaint { Color = color };
 		var offset = textFont.MeasureText(text, textPaint);

@@ -8,6 +8,18 @@
 public sealed class StandardLineTemplate(Relative rowBlockSize, Relative columnBlockSize) : RectangularBlockLineTemplate
 {
 	/// <summary>
+	/// Initializes a <see cref="StandardLineTemplate"/> instance,
+	/// keeping <see cref="RowBlockSize"/> and <see cref="ColumnBlockSize"/> uninitialized -
+	/// they will be replaced when <see cref="PointMapper"/> instances are given and known.
+	/// </summary>
+	/// <seealso cref="RowBlockSize"/>
+	/// <seealso cref="ColumnBlockSize"/>
+	/// <seealso cref="PointMapper"/>
+	public StandardLineTemplate() : this(-1, -1)
+	{
+	}
+
+	/// <summary>
 	/// Initializes a <see cref="StandardLineTemplate"/> instance via the specified size as uniformed value.
 	/// </summary>
 	/// <param name="uniformSize">The uniformed value.</param>
@@ -17,21 +29,38 @@ public sealed class StandardLineTemplate(Relative rowBlockSize, Relative columnB
 
 
 	/// <summary>
-	/// Indicates the number of rows in a rectangular block.
+	/// Indicates the number of rows in a rectangular block. The value may be -1 if uninitialized.
 	/// </summary>
-	public Relative RowBlockSize { get; } = rowBlockSize;
+	public Relative RowBlockSize { get; private set; } = rowBlockSize;
 
 	/// <summary>
-	/// Indicates the number of columns in a rectangular block.
+	/// Indicates the number of columns in a rectangular block. The value may be -1 if uninitialized.
 	/// </summary>
-	public Relative ColumnBlockSize { get; } = columnBlockSize;
+	public Relative ColumnBlockSize { get; private set; } = columnBlockSize;
 
 
 	/// <inheritdoc/>
 	protected override void GuardStatements(PointMapper mapper, SKCanvas canvas, CanvasDrawingOptions options)
 	{
+		if (RowBlockSize == -1)
+		{
+			var n = mapper.RowsCount;
+			var s = (int)Math.Sqrt(n);
+			RowBlockSize = s * s == n ? s : throw new ArgumentException(message_InvalidCount(nameof(RowBlockSize)));
+		}
+		if (ColumnBlockSize == -1)
+		{
+			var n = mapper.ColumnsCount;
+			var s = (int)Math.Sqrt(n);
+			ColumnBlockSize = s * s == n ? s : throw new ArgumentException(message_InvalidCount(nameof(ColumnBlockSize)));
+		}
+
 		ArgumentException.Assert(mapper.RowsCount % RowBlockSize == 0);
 		ArgumentException.Assert(mapper.ColumnsCount % ColumnBlockSize == 0);
+
+
+		static string message_InvalidCount(string propertyName)
+			=> $"The argument '{propertyName}' isn't a square number when it is uninitialized.";
 	}
 
 	/// <inheritdoc/>

@@ -936,6 +936,79 @@
             Indicates the default instance.
             </summary>
         </member>
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.BigTextFontName">
+            <summary>
+            Indicates font name of text that will be drawn with big size, like given and modifiable digits.
+            By default it's <c>"Arial"</c>.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.SmallTextFontName">
+            <summary>
+            Indicates font name of text that will be drawn with small size, like candidates.
+            By default it's derived from property <see cref="P:Sudoku.Graphics.CanvasDrawingOptions.BigTextFontName"/>.
+            </summary>
+            <seealso cref="P:Sudoku.Graphics.CanvasDrawingOptions.BigTextFontName"/>
+        </member>
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.BigTextFontWeight">
+            <summary>
+            Indicates font weight of text that will be drawn with big size, like given and modifiable digits.
+            By default it's <see cref="F:SkiaSharp.SKFontStyleWeight.Normal"/>.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.SmallTextFontWeight">
+            <summary>
+            Indicates font weight of text that will be drawn with small size, like candidates.
+            By default it's derived from property <see cref="P:Sudoku.Graphics.CanvasDrawingOptions.BigTextFontWeight"/>.
+            </summary>
+            <seealso cref="P:Sudoku.Graphics.CanvasDrawingOptions.BigTextFontWeight"/>
+        </member>
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.BigTextFontWidth">
+            <summary>
+            Indicates font width of text that will be drawn with big size, like given and modifiable digits.
+            By default it's <see cref="F:SkiaSharp.SKFontStyleWidth.Normal"/>.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.SmallTextFontWidth">
+            <summary>
+            Indicates font width of text that will be drawn with small size, like candidates.
+            By default it's derived from property <see cref="P:Sudoku.Graphics.CanvasDrawingOptions.BigTextFontWidth"/>.
+            </summary>
+            <seealso cref="P:Sudoku.Graphics.CanvasDrawingOptions.BigTextFontWidth"/>
+        </member>
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.BigTextFontSizeScale">
+            <summary>
+            Indicates font size of text that will be drawn in with big size, like given and modifiable digits.
+            The scale value is related to a cell size.
+            By default it's <c>0.75</c>.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.SmallTextFontSizeScale">
+            <summary>
+            Indicates font size of text that will be drawn in with small size, like candidates.
+            By default it's derived from property <see cref="P:Sudoku.Graphics.CanvasDrawingOptions.BigTextFontSizeScale"/>.
+            </summary>
+            <remarks>
+            <para>
+            The scale value is related to a cell size; however, different-sized grids may produce different-ranged candidate values.
+            </para>
+            <para>
+            Drawing API may use square root of size to split a cell into multiple subcells, in order to show them.
+            For example, if a grid is 9 * 9 (of 81 cells), candidate values should be between 1 and 9 (both sides included),
+            we can divide a cell into 3 * 3 subcells, in order to show all 9 digits.
+            However, if a grid is 13 * 13 (of 169 cells), candidate values should be between 1 and 13,
+            we should divide a cell into 4 * 4 subcells, in order to show all 13 digits.
+            </para>
+            <para>
+            But, 3 (for 9 * 9 grids) or 4 (for 13 * 13 grids) can only be calculated from <see cref="T:Sudoku.Graphics.PointMapper"/> instances,
+            using properties <see cref="P:Sudoku.Graphics.PointMapper.RowsCount"/> and <see cref="P:Sudoku.Graphics.PointMapper.ColumnsCount"/>.
+            Because we don't store any information on grid sizes here, we cannot know how to split the grid.
+            Therefore, this property value is relative to cell itself.
+            </para>
+            </remarks>
+            <seealso cref="P:Sudoku.Graphics.CanvasDrawingOptions.BigTextFontSizeScale"/>
+            <seealso cref="P:Sudoku.Graphics.PointMapper.RowsCount"/>
+            <seealso cref="P:Sudoku.Graphics.PointMapper.ColumnsCount"/>
+        </member>
         <member name="P:Sudoku.Graphics.CanvasDrawingOptions.GridBorderRoundedRectangleCornerRadius">
             <summary>
             Indicates corner radius ratio of rounded rectangle of border lines, relative to cell size. By default it's 0.12.
@@ -975,19 +1048,6 @@
             <c><see langword="new"/> <see cref="T:Sudoku.Graphics.LineTemplates.StandardLineTemplate"/>(3)</c>.
             </summary>
             <seealso cref="T:Sudoku.Graphics.LineTemplates.StandardLineTemplate"/>
-        </member>
-        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.BigTextFontInfo">
-            <summary>
-            Represents big text font information. The font information will be used in drawing given and modifiable digits.
-            By default it will be initialized like
-            <c><see langword="new"/>() { FontName = "Cascadia Code", FontSize = .75M }</c>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.SmallTextFontInfo">
-            <summary>
-            Represents small text font information. The font information will be used in drawing candidates.
-            By default it be derived from property <see cref="P:Sudoku.Graphics.CanvasDrawingOptions.BigTextFontInfo"/>.
-            </summary>
         </member>
         <member name="P:Sudoku.Graphics.CanvasDrawingOptions.JSudokuColorSet">
             <summary>
@@ -1265,6 +1325,16 @@
             <param name="rowBlockSize"><inheritdoc cref="P:Sudoku.Graphics.LineTemplates.StandardLineTemplate.RowBlockSize" path="/summary"/></param>
             <param name="columnBlockSize"><inheritdoc cref="P:Sudoku.Graphics.LineTemplates.StandardLineTemplate.ColumnBlockSize" path="/summary"/></param>
         </member>
+        <member name="M:Sudoku.Graphics.LineTemplates.StandardLineTemplate.#ctor">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Graphics.LineTemplates.StandardLineTemplate"/> instance,
+            keeping <see cref="P:Sudoku.Graphics.LineTemplates.StandardLineTemplate.RowBlockSize"/> and <see cref="P:Sudoku.Graphics.LineTemplates.StandardLineTemplate.ColumnBlockSize"/> uninitialized -
+            they will be replaced when <see cref="T:Sudoku.Graphics.PointMapper"/> instances are given and known.
+            </summary>
+            <seealso cref="P:Sudoku.Graphics.LineTemplates.StandardLineTemplate.RowBlockSize"/>
+            <seealso cref="P:Sudoku.Graphics.LineTemplates.StandardLineTemplate.ColumnBlockSize"/>
+            <seealso cref="T:Sudoku.Graphics.PointMapper"/>
+        </member>
         <member name="M:Sudoku.Graphics.LineTemplates.StandardLineTemplate.#ctor(Sudoku.Concepts.Relative)">
             <summary>
             Initializes a <see cref="T:Sudoku.Graphics.LineTemplates.StandardLineTemplate"/> instance via the specified size as uniformed value.
@@ -1273,12 +1343,12 @@
         </member>
         <member name="P:Sudoku.Graphics.LineTemplates.StandardLineTemplate.RowBlockSize">
             <summary>
-            Indicates the number of rows in a rectangular block.
+            Indicates the number of rows in a rectangular block. The value may be -1 if uninitialized.
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.LineTemplates.StandardLineTemplate.ColumnBlockSize">
             <summary>
-            Indicates the number of columns in a rectangular block.
+            Indicates the number of columns in a rectangular block. The value may be -1 if uninitialized.
             </summary>
         </member>
         <member name="M:Sudoku.Graphics.LineTemplates.StandardLineTemplate.GuardStatements(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
@@ -1512,7 +1582,7 @@
             <param name="text">The text.</param>
             <param name="cell">The relative cell.</param>
             <param name="innerPosition">The inner position.</param>
-            <param name="innerSize">The number of inner rows and columns.</param>
+            <param name="splitSize">The number of inner rows and columns.</param>
             <param name="color">The color.</param>
             <param name="slant">The text slant.</param>
         </member>
@@ -1524,7 +1594,7 @@
             <param name="text">The text.</param>
             <param name="cell">The absolute cell.</param>
             <param name="innerPosition">The inner position.</param>
-            <param name="innerSize">The number of inner rows and columns.</param>
+            <param name="splitSize">The number of inner rows and columns.</param>
             <param name="color">The color.</param>
             <param name="slant">The text slant.</param>
         </member>
@@ -1710,31 +1780,6 @@
         <member name="M:Sudoku.Graphics.SerializableColorSet.Slice(System.Int32,System.Int32)">
             <inheritdoc cref="M:System.Collections.Generic.List`1.Slice(System.Int32,System.Int32)"/>
         </member>
-        <member name="T:Sudoku.Graphics.TextFontInfo">
-            <summary>
-            Represents text font information.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.TextFontInfo.FontName">
-            <summary>
-            Indicates the name of the font of text.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.TextFontInfo.FontSize">
-            <summary>
-            Indicates the font size of text.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.TextFontInfo.FontWeight">
-            <summary>
-            Indicates the weight of text.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.TextFontInfo.FontWidth">
-            <summary>
-            Indicates the width of text.
-            </summary>
-        </member>
         <member name="T:Sudoku.Resources.Resource">
             <summary>
               A strongly-typed resource class, for looking up localized strings, etc.
@@ -1916,7 +1961,7 @@
         </member>
         <member name="M:Sudoku.Serialization.Inherited`1.Resolve``1(``0,System.Int32)">
             <summary>
-            Resolve using a resolver function. The resolver should map a reference string to another <see cref="T:Sudoku.Serialization.Inherited`1"/>
+            Resolve the value using the owner instance. The resolver should map a reference string to another <see cref="T:Sudoku.Serialization.Inherited`1"/>
             (or <see langword="null"/> if not found). Will follow reference chain up to <paramref name="maxDepth"/>
             and will throw on cycles or missing.
             </summary>

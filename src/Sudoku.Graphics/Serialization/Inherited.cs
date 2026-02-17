@@ -132,7 +132,7 @@ public sealed class Inherited<T> : IEquatable<Inherited<T>>, IEqualityOperators<
 			: throw new InvalidOperationException(errorMessage);
 
 	/// <summary>
-	/// Resolve using a resolver function. The resolver should map a reference string to another <see cref="Inherited{T}"/>
+	/// Resolve the value using the owner instance. The resolver should map a reference string to another <see cref="Inherited{T}"/>
 	/// (or <see langword="null"/> if not found). Will follow reference chain up to <paramref name="maxDepth"/>
 	/// and will throw on cycles or missing.
 	/// </summary>
