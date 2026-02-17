@@ -5,18 +5,25 @@
 /// </summary>
 /// <param name="cellSize"><inheritdoc cref="CellSize" path="/summary"/></param>
 /// <param name="margin"><inheritdoc cref="Margin" path="/summary"/></param>
-/// <param name="rowsCount"><inheritdoc cref="RowsCount" path="/summary"/></param>
-/// <param name="columnsCount"><inheritdoc cref="ColumnsCount" path="/summary"/></param>
-/// <param name="vector"><inheritdoc cref="Vector" path="/summary"/></param>
+/// <param name="gridSizeInfo"><inheritdoc cref="GridSizeInfo" path="/summary"/></param>
 [method: SetsRequiredMembers]
-public sealed class PointMapper(
-	float cellSize,
-	float margin,
-	Absolute rowsCount,
-	Absolute columnsCount,
-	DirectionVector vector
-)
+public sealed class PointMapper(float cellSize, float margin, GridSizeInfo gridSizeInfo)
 {
+	/// <summary>
+	/// Initializes a <see cref="PointMapper"/> instance via the specified information.
+	/// </summary>
+	/// <param name="cellSize"><inheritdoc cref="CellSize" path="/summary"/></param>
+	/// <param name="margin"><inheritdoc cref="Margin" path="/summary"/></param>
+	/// <param name="rowsCount"><inheritdoc cref="RowsCount" path="/summary"/></param>
+	/// <param name="columnsCount"><inheritdoc cref="ColumnsCount" path="/summary"/></param>
+	/// <param name="vector"><inheritdoc cref="Vector" path="/summary"/></param>
+	[method: SetsRequiredMembers]
+	public PointMapper(float cellSize, float margin, Absolute rowsCount, Absolute columnsCount, DirectionVector vector) :
+		this(cellSize, margin, new(rowsCount, columnsCount, vector))
+	{
+	}
+
+
 	/// <summary>
 	/// Indicates cell width and height of pixels. By design, cell width is equal to cell height,
 	/// so this property doesn't return an instance of either type <see cref="SKSize"/> or <see cref="SKSizeI"/>.
@@ -30,43 +37,36 @@ public sealed class PointMapper(
 	/// </summary>
 	public required float Margin { get; init; } = margin;
 
-	/// <summary>
-	/// Indicates the number of rows in main sudoku grid.
-	/// </summary>
-	public required Absolute RowsCount { get; init; } = rowsCount;
+	/// <inheritdoc cref="GridSizeInfo.RowsCount"/>
+	public Absolute RowsCount => GridSizeInfo.RowsCount;
 
-	/// <summary>
-	/// Indiactes the number of columns in main sudoku grid.
-	/// </summary>
-	public required Absolute ColumnsCount { get; init; } = columnsCount;
+	/// <inheritdoc cref="GridSizeInfo.ColumnsCount"/>
+	public Absolute ColumnsCount => GridSizeInfo.ColumnsCount;
 
-	/// <summary>
-	/// Indicates the number of rows. The number of rows should be an absolute value,
-	/// including reserved regions (used by drawing outside-like puzzles).
-	/// </summary>
-	public Absolute AbsoluteRowsCount => RowsCount + Vector.Up + Vector.Down;
+	/// <inheritdoc cref="GridSizeInfo.AbsoluteRowsCount"/>
+	public Absolute AbsoluteRowsCount => GridSizeInfo.AbsoluteRowsCount;
 
-	/// <summary>
-	/// Indiactes the number of columns. The number of columns should be an absolute value,
-	/// including reserved regions (used by drawing outside-like puzzles).
-	/// </summary>
-	public Absolute AbsoluteColumnsCount => ColumnsCount + Vector.Left + Vector.Right;
+	/// <inheritdoc cref="GridSizeInfo.AbsoluteColumnsCount"/>
+	public Absolute AbsoluteColumnsCount => GridSizeInfo.AbsoluteColumnsCount;
 
-	/// <summary>
-	/// Indicates empty cells count reserved to be empty.
-	/// </summary>
-	public required DirectionVector Vector { get; init; } = vector;
+	/// <inheritdoc cref="GridSizeInfo.Vector"/>
+	public DirectionVector Vector => GridSizeInfo.Vector;
 
 	/// <summary>
 	/// Indicates grid size <see cref="SKSize"/> instance.
 	/// </summary>
-	public SKSize GridSize => new(CellSize * ColumnsCount, CellSize * RowsCount);
+	public SKSize GridDrawingSize => new(CellSize * ColumnsCount, CellSize * RowsCount);
 
 	/// <summary>
-	/// Indicates full canvas size <see cref="SKSize"/> instance, in integer format.
+	/// Indicates full canvas size <see cref="SKSize"/> instance, of integer type.
 	/// </summary>
-	public SKSizeI FullCanvasSize
+	public SKSizeI FullCanvasDrawingSize
 		=> new((int)(CellSize * AbsoluteColumnsCount + 2 * Margin), (int)(CellSize * AbsoluteRowsCount + 2 * Margin));
+
+	/// <summary>
+	/// Indicates size information of the target grid to be drawn.
+	/// </summary>
+	public required GridSizeInfo GridSizeInfo { get; init; } = gridSizeInfo;
 
 
 	/// <summary>

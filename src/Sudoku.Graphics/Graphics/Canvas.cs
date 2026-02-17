@@ -10,7 +10,7 @@ public sealed partial class Canvas(PointMapper mapper, CanvasDrawingOptions? opt
 	/// <summary>
 	/// Indicates the backing surface.
 	/// </summary>
-	private readonly SKSurface _surface = SKSurface.Create(mapper.FullCanvasSize);
+	private readonly SKSurface _surface = SKSurface.Create(mapper.FullCanvasDrawingSize);
 
 
 	/// <inheritdoc cref="PointMapper.Margin"/>

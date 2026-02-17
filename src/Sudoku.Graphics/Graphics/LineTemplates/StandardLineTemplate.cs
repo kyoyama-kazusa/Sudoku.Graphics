@@ -72,8 +72,8 @@ public sealed class StandardLineTemplate(Relative rowBlockSize, Relative columnB
 				SKRect.Create(
 					mapper.Margin + mapper.CellSize * mapper.Vector.Left,
 					mapper.Margin + mapper.CellSize * mapper.Vector.Up,
-					mapper.GridSize.Width,
-					mapper.GridSize.Height
+					mapper.GridDrawingSize.Width,
+					mapper.GridDrawingSize.Height
 				),
 				options.GridBorderRoundedRectangleCornerRadius.Resolve(options).Measure(mapper.CellSize)
 			)

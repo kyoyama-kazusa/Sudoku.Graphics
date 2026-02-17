@@ -1,0 +1,38 @@
+﻿namespace Sudoku.Graphics;
+
+/// <summary>
+/// Represents logical size information of a grid.
+/// </summary>
+/// <param name="rowsCount"><inheritdoc cref="RowsCount" path="/summary"/></param>
+/// <param name="columnsCount"><inheritdoc cref="ColumnsCount" path="/summary"/></param>
+/// <param name="vector"><inheritdoc cref="Vector" path="/summary"/></param>
+[method: SetsRequiredMembers]
+public sealed class GridSizeInfo(Absolute rowsCount, Absolute columnsCount, DirectionVector vector)
+{
+	/// <summary>
+	/// Indicates the number of rows in main sudoku grid.
+	/// </summary>
+	public required Absolute RowsCount { get; init; } = rowsCount;
+
+	/// <summary>
+	/// Indicates the number of columns in main sudoku grid.
+	/// </summary>
+	public required Absolute ColumnsCount { get; init; } = columnsCount;
+
+	/// <summary>
+	/// Indicates the number of rows. The number of rows should be an absolute value,
+	/// including reserved regions (used by drawing outside-like puzzles).
+	/// </summary>
+	public Absolute AbsoluteRowsCount => RowsCount + Vector.Up + Vector.Down;
+
+	/// <summary>
+	/// Indiactes the number of columns. The number of columns should be an absolute value,
+	/// including reserved regions (used by drawing outside-like puzzles).
+	/// </summary>
+	public Absolute AbsoluteColumnsCount => ColumnsCount + Vector.Left + Vector.Right;
+
+	/// <summary>
+	/// Indicates empty cells count reserved to be empty.
+	/// </summary>
+	public required DirectionVector Vector { get; init; } = vector;
+}
