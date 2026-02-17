@@ -815,23 +815,6 @@
         <member name="M:Sudoku.Concepts.Converter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.Concepts.Scale,System.Text.Json.JsonSerializerOptions)">
             <inheritdoc/>
         </member>
-        <member name="T:Sudoku.Concepts.SizeDecomposer">
-            <summary>
-            Represents an easy way to decompose a value into a triplet.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Concepts.SizeDecomposer.Decompose(System.Int32)">
-            <summary>
-            Decompose a number. This method can be used by calculating the number of rows and columns.
-            </summary>
-            <param name="size">The value.</param>
-            <returns>
-            A triplet of values <c>(M, N, P)</c>.
-            Such values can be constructed into <paramref name="size"/> by <c>M * N + P</c>.
-            </returns>
-            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
-            <exception cref="T:System.InvalidOperationException"></exception>
-        </member>
         <member name="T:Sudoku.Graphics.Canvas">
             <summary>
             Represents a canvas object that allows you drawing items onto it.
