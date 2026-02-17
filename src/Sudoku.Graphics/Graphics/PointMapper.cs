@@ -74,7 +74,7 @@ public sealed class PointMapper(
 	/// </summary>
 	/// <param name="relativeCellIndex">Relative cell index.</param>
 	/// <returns>The result absolute index.</returns>
-	public Absolute ToAbsoluteIndex(Relative relativeCellIndex)
+	public Absolute GetAbsoluteIndex(Relative relativeCellIndex)
 	{
 		var row = relativeCellIndex / ColumnsCount;
 		var column = relativeCellIndex % ColumnsCount;
@@ -84,11 +84,45 @@ public sealed class PointMapper(
 	}
 
 	/// <summary>
+	/// Projects the specified relative cell index into absolute one;
+	/// with the specified direction as outside offset one, and an offset value <paramref name="offset"/>
+	/// indicating the number of advanced steps of cells.
+	/// </summary>
+	/// <param name="relativeCellIndex">Relative cell index.</param>
+	/// <param name="outsideDirection">The outside direction.</param>
+	/// <param name="offset">The offset. For negative values, it'll negate <paramref name="outsideDirection"/> also.</param>
+	/// <returns>The result absolute index.</returns>
+	/// <exception cref="ArgumentException">Throws when <paramref name="outsideDirection"/> is not a flag.</exception>
+	/// <exception cref="ArgumentOutOfRangeException">Throws when <paramref name="outsideDirection"/> is not defined.</exception>
+	public Absolute GetAbsoluteIndex(Relative relativeCellIndex, Direction outsideDirection, Absolute offset)
+	{
+		ArgumentException.Assert(BitOperations.IsPow2((int)outsideDirection));
+		ArgumentOutOfRangeException.ThrowIfUndefined(outsideDirection);
+
+		if (offset < 0)
+		{
+			// Negate directions if offset is negative.
+			offset = -offset;
+			outsideDirection = outsideDirection.Negated;
+		}
+
+		// a + b switch {} <=> a + (b switch {})
+		return GetAbsoluteIndex(relativeCellIndex) + outsideDirection switch
+		{
+			Direction.Up => -(AbsoluteColumnsCount * offset),
+			Direction.Down => +(AbsoluteColumnsCount * offset),
+			Direction.Left => -offset,
+			Direction.Right => +offset,
+			_ => throw new UnreachableException()
+		};
+	}
+
+	/// <summary>
 	/// Projects the specified absolute cell index into relative one.
 	/// </summary>
 	/// <param name="absoluteCellIndex">Absolute cell index.</param>
 	/// <returns>The result relative index.</returns>
-	public Relative ToRelativeIndex(Absolute absoluteCellIndex)
+	public Relative GetRelativeIndex(Absolute absoluteCellIndex)
 	{
 		var absoluteColumnsCount = AbsoluteColumnsCount;
 		var row = absoluteCellIndex / absoluteColumnsCount;

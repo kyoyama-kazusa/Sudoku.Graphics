@@ -253,8 +253,20 @@
             </summary>
             <seealso cref="T:Sudoku.Concepts.Direction"/>
         </member>
+        <member name="M:Sudoku.Concepts.DirectionExtensions.get_Negated(Sudoku.Concepts.Direction)">
+            <inheritdoc cref="P:Sudoku.Concepts.DirectionExtensions.&lt;G&gt;$749104D4456FB0D99EF3E29FEBD7D504.Negated"/>
+        </member>
         <member name="M:Sudoku.Concepts.DirectionExtensions.get_AllDirections">
             <inheritdoc cref="P:Sudoku.Concepts.DirectionExtensions.&lt;G&gt;$749104D4456FB0D99EF3E29FEBD7D504.AllDirections"/>
+        </member>
+        <member name="T:Sudoku.Concepts.DirectionExtensions.&lt;G&gt;$749104D4456FB0D99EF3E29FEBD7D504.&lt;M&gt;$CA21C1E8C50FE11F3ABEEC7744C8F1CD">
+            <param name="this">The current direction.</param>
+        </member>
+        <member name="P:Sudoku.Concepts.DirectionExtensions.&lt;G&gt;$749104D4456FB0D99EF3E29FEBD7D504.Negated">
+            <summary>
+            Indicates the negated direction of the current direction.
+            If the current instance contains multiple directions as flags, it'll negate all directions contained.
+            </summary>
         </member>
         <member name="P:Sudoku.Concepts.DirectionExtensions.&lt;G&gt;$749104D4456FB0D99EF3E29FEBD7D504.AllDirections">
             <summary>
@@ -1471,14 +1483,27 @@
             Indicates full canvas size <see cref="T:SkiaSharp.SKSize"/> instance, in integer format.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.PointMapper.ToAbsoluteIndex(Sudoku.Concepts.Relative)">
+        <member name="M:Sudoku.Graphics.PointMapper.GetAbsoluteIndex(Sudoku.Concepts.Relative)">
             <summary>
             Projects the specified relative cell index into absolute one.
             </summary>
             <param name="relativeCellIndex">Relative cell index.</param>
             <returns>The result absolute index.</returns>
         </member>
-        <member name="M:Sudoku.Graphics.PointMapper.ToRelativeIndex(Sudoku.Concepts.Absolute)">
+        <member name="M:Sudoku.Graphics.PointMapper.GetAbsoluteIndex(Sudoku.Concepts.Relative,Sudoku.Concepts.Direction,Sudoku.Concepts.Absolute)">
+            <summary>
+            Projects the specified relative cell index into absolute one;
+            with the specified direction as outside offset one, and an offset value <paramref name="offset"/>
+            indicating the number of advanced steps of cells.
+            </summary>
+            <param name="relativeCellIndex">Relative cell index.</param>
+            <param name="outsideDirection">The outside direction.</param>
+            <param name="offset">The offset. For negative values, it'll negate <paramref name="outsideDirection"/> also.</param>
+            <returns>The result absolute index.</returns>
+            <exception cref="T:System.ArgumentException">Throws when <paramref name="outsideDirection"/> is not a flag.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">Throws when <paramref name="outsideDirection"/> is not defined.</exception>
+        </member>
+        <member name="M:Sudoku.Graphics.PointMapper.GetRelativeIndex(Sudoku.Concepts.Absolute)">
             <summary>
             Projects the specified absolute cell index into relative one.
             </summary>
@@ -2151,8 +2176,25 @@
             </summary>
             <seealso cref="T:System.Exception"/>
         </member>
+        <member name="M:System.ExceptionExtensions.ThrowIfUndefined``1(``0,System.Boolean,System.String)">
+            <inheritdoc cref="M:System.ExceptionExtensions.&lt;G&gt;$0505E7D425B60FF10D3E22D3A0756F0B.ThrowIfUndefined``1(``0,System.Boolean,System.String)"/>
+        </member>
         <member name="M:System.ExceptionExtensions.Assert``1(System.Boolean,System.String)">
             <inheritdoc cref="M:System.ExceptionExtensions.&lt;G&gt;$A9422F7DB89A57DD264BF6B8B5E1AB6D`1.Assert(System.Boolean,System.String)"/>
+        </member>
+        <member name="M:System.ExceptionExtensions.&lt;G&gt;$0505E7D425B60FF10D3E22D3A0756F0B.ThrowIfUndefined``1(``0,System.Boolean,System.String)">
+            <summary>
+            Throws an <see cref="T:System.ArgumentOutOfRangeException"/> instance
+            if the specified field of type <typeparamref name="TEnum"/> is undefined in its containing enumeration type.
+            </summary>
+            <typeparam name="TEnum">The type of enumeration.</typeparam>
+            <param name="field">The field.</param>
+            <param name="includesDefaultLiteral">
+            Indicates whether <see langword="default"/>(<typeparamref name="TEnum"/>) is included to be checked,
+            being treated as undefined. By default it's <see langword="false"/>.
+            </param>
+            <param name="expressionString">The expression string of <paramref name="field"/>.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">Throws when <paramref name="field"/> is not defined.</exception>
         </member>
         <member name="M:System.ExceptionExtensions.&lt;G&gt;$A9422F7DB89A57DD264BF6B8B5E1AB6D`1.Assert(System.Boolean,System.String)">
             <summary>

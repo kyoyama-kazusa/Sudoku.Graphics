@@ -75,7 +75,7 @@ public static class LineSegmentFactory
 	) => GetLightupDirectionsCore(
 		new(
 			from cell in cellIndices
-			let absoluteIndex = mapper.ToAbsoluteIndex(cell)
+			let absoluteIndex = mapper.GetAbsoluteIndex(cell)
 			select KeyValuePair.Create(absoluteIndex, Direction.Up | Direction.Down | Direction.Left | Direction.Right)
 		),
 		isCyclicRuleChecked,

@@ -4,7 +4,7 @@ public partial class Canvas
 {
 	/// <inheritdoc/>
 	public partial void DrawSmallText(string text, Relative cell, int innerPosition, int splitSize, SKColor color)
-		=> DrawSmallText(text, Mapper.ToAbsoluteIndex(cell), innerPosition, splitSize, color);
+		=> DrawSmallText(text, Mapper.GetAbsoluteIndex(cell), innerPosition, splitSize, color);
 
 	/// <inheritdoc/>
 	public partial void DrawSmallText(string text, Absolute cell, int innerPosition, int splitSize, SKColor color)

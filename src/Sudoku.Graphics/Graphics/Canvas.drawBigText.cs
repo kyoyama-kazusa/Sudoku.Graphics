@@ -4,7 +4,7 @@ public partial class Canvas
 {
 	/// <inheritdoc/>
 	public partial void DrawBigText(string text, Relative cell, SKColor color)
-		=> DrawBigText(text, Mapper.ToAbsoluteIndex(cell), color);
+		=> DrawBigText(text, Mapper.GetAbsoluteIndex(cell), color);
 
 	/// <inheritdoc/>
 	public partial void DrawBigText(string text, Absolute cell, SKColor color)
