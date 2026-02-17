@@ -5,11 +5,12 @@
 /// onto a canvas via the specified configuration.
 /// </summary>
 [JsonPolymorphic(UnknownDerivedTypeHandling = JsonUnknownDerivedTypeHandling.FailSerialization)]
-[JsonDerivedType(typeof(StandardLineTemplate), nameof(StandardLineTemplate))]
-[JsonDerivedType(typeof(JigsawLineTemplate), nameof(JigsawLineTemplate))]
-[JsonDerivedType(typeof(SujikenLineTemplate), nameof(SujikenLineTemplate))]
+[JsonDerivedType(typeof(AggregatedLineTemplate), nameof(AggregatedLineTemplate))]
 [JsonDerivedType(typeof(DefaultLineTemplate), nameof(DefaultLineTemplate))]
+[JsonDerivedType(typeof(JigsawLineTemplate), nameof(JigsawLineTemplate))]
 [JsonDerivedType(typeof(SpecifiedLineTemplate), nameof(SpecifiedLineTemplate))]
+[JsonDerivedType(typeof(StandardLineTemplate), nameof(StandardLineTemplate))]
+[JsonDerivedType(typeof(SujikenLineTemplate), nameof(SujikenLineTemplate))]
 public abstract class LineTemplate
 {
 	/// <summary>

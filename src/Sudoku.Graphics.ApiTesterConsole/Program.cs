@@ -9,17 +9,31 @@
 using System;
 using System.IO;
 using System.Text.Json;
+using Sudoku.ComponentModel.Tetris;
 using Sudoku.Concepts;
 using Sudoku.Graphics;
 using Sudoku.Graphics.LineTemplates;
 
 var desktop = Environment.DesktopPath;
-var mapper = new PointMapper(cellSize: 120, margin: 10, rowsCount: 9, columnsCount: 9, vector: DirectionVector.Zero);
+var mapper = new PointMapper(cellSize: 120, margin: 15, rowsCount: 9, columnsCount: 9, vector: new(0, 6, 0, 0));
 using var canvas = new Canvas(
 	mapper: mapper,
 	options: new()
 	{
-		GridLineTemplate = new StandardLineTemplate()
+		GridLineTemplate = new AggregatedLineTemplate(
+			new StandardLineTemplate(),
+			new SpecifiedLineTemplate
+			{
+				ThickLineSegments = [
+					.. Piece.O.GetOutline(RotationType.None, mapper, 10, 0),
+					.. Piece.T.GetOutline(RotationType.None, mapper, 10, 3),
+					.. Piece.J.GetOutline(RotationType.None, mapper, 10, 6),
+					.. Piece.L.GetOutline(RotationType.None, mapper, 13, 0),
+					.. Piece.S.GetOutline(RotationType.None, mapper, 13, 3),
+					.. Piece.Z.GetOutline(RotationType.None, mapper, 13, 6)
+				]
+			}
+		)
 		//GridLineTemplate = new JigsawLineTemplate
 		//{
 		//	CellIndexGroups = [
@@ -37,17 +51,6 @@ using var canvas = new Canvas(
 		//}
 		//GridLineTemplate = new SujikenLineTemplate(3)
 		//GridLineTemplate = new DefaultLineTemplate()
-		//GridLineTemplate = new SpecifiedLineTemplate
-		//{
-		//	ThinLineSegments = [
-		//		.. Piece.O.GetOutline(RotationType.None, mapper, 1, 1),
-		//		.. Piece.T.GetOutline(RotationType.None, mapper, 1, 4),
-		//		.. Piece.J.GetOutline(RotationType.None, mapper, 1, 7),
-		//		.. Piece.L.GetOutline(RotationType.None, mapper, 4, 1),
-		//		.. Piece.S.GetOutline(RotationType.None, mapper, 4, 4),
-		//		.. Piece.Z.GetOutline(RotationType.None, mapper, 4, 7)
-		//	]
-		//}
 	}
 );
 canvas.FillBackground();

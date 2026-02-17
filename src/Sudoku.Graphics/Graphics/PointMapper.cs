@@ -44,13 +44,13 @@ public sealed class PointMapper(
 	/// Indicates the number of rows. The number of rows should be an absolute value,
 	/// including reserved regions (used by drawing outside-like puzzles).
 	/// </summary>
-	public Absolute AbsoluteRowsCount => RowsCount + Vector.Left + Vector.Right;
+	public Absolute AbsoluteRowsCount => RowsCount + Vector.Up + Vector.Down;
 
 	/// <summary>
 	/// Indiactes the number of columns. The number of columns should be an absolute value,
 	/// including reserved regions (used by drawing outside-like puzzles).
 	/// </summary>
-	public Absolute AbsoluteColumnsCount => ColumnsCount + Vector.Up + Vector.Down;
+	public Absolute AbsoluteColumnsCount => ColumnsCount + Vector.Left + Vector.Right;
 
 	/// <summary>
 	/// Indicates empty cells count reserved to be empty.

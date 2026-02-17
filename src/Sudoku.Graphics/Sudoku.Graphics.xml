@@ -1199,6 +1199,26 @@
             <param name="canvas">The canvas object to receive drawn items.</param>
             <param name="options">The options.</param>
         </member>
+        <member name="T:Sudoku.Graphics.LineTemplates.AggregatedLineTemplate">
+            <summary>
+            Represents aggreated line template. The template can merge multiple individual <see cref="T:Sudoku.Graphics.LineTemplate"/> instances to be drawn.
+            </summary>
+            <param name="templates">The templates.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.LineTemplates.AggregatedLineTemplate.#ctor(Sudoku.Graphics.LineTemplate[])">
+            <summary>
+            Represents aggreated line template. The template can merge multiple individual <see cref="T:Sudoku.Graphics.LineTemplate"/> instances to be drawn.
+            </summary>
+            <param name="templates">The templates.</param>
+        </member>
+        <member name="P:Sudoku.Graphics.LineTemplates.AggregatedLineTemplate.Templates">
+            <summary>
+            Indicates all templates.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.LineTemplates.AggregatedLineTemplate.DrawLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.LineTemplates.DefaultLineTemplate">
             <summary>
             Represents a default line template that doesn't contain any block (thick) lines (except borders).
