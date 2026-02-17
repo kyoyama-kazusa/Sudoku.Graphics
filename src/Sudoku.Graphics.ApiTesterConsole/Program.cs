@@ -16,7 +16,7 @@ var desktop = Environment.DesktopPath;
 var mapper = new PointMapper(cellSize: 120, margin: 10, rowsCount: 9, columnsCount: 9, vector: new(1));
 using var canvas = new Canvas(
 	mapper: mapper,
-	drawingOptions: new()
+	options: new()
 	{
 		GridLineTemplate = new StandardLineTemplate()
 		//GridLineTemplate = new JigsawLineTemplate
@@ -47,14 +47,13 @@ using var canvas = new Canvas(
 		//		.. Piece.Z.GetOutline(RotationType.None, mapper, 4, 7)
 		//	]
 		//}
-	},
-	exportingOptions: new() { Quality = 100 }
+	}
 );
 canvas.FillBackground();
 canvas.DrawLines();
-canvas.Export(Path.Combine(desktop, "output.png"));
+canvas.Export(Path.Combine(desktop, "output.png"), new() { Quality = 100 });
 
-canvas.DrawingOptions.WriteTo(Path.Combine(Environment.DesktopPath, "output.json"), Options);
+canvas.Options.WriteTo(Path.Combine(Environment.DesktopPath, "output.json"), Options);
 Console.WriteLine("Okay.");
 
 

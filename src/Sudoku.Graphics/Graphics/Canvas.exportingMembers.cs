@@ -2,12 +2,14 @@
 
 public partial class Canvas
 {
-	/// <inheritdoc/>
-	public partial void Export(string path)
+	/// <inheritdoc cref="ICanvasExport.Export{TOptions}(string, TOptions)"/>
+	public partial void Export(string path, CanvasExportingOptions? options)
 	{
+		options ??= CanvasExportingOptions.Default;
+
 		var extension = Path.GetExtension(path);
 		using var image = _surface.Snapshot();
-		using var data = image.Encode(getFormatFromExtension(extension), ExportingOptions.Quality);
+		using var data = image.Encode(getFormatFromExtension(extension), options.Quality);
 		using var stream = new MemoryStream(data.ToArray());
 		using var fileStream = new FileStream(path, FileMode.Create, FileAccess.Write);
 		stream.CopyTo(fileStream);

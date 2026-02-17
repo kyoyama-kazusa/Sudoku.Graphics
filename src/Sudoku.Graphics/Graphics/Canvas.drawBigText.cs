@@ -10,12 +10,12 @@ public partial class Canvas
 	public partial void DrawBigText(string text, Absolute cell, SKColor color, SKFontStyleSlant slant)
 	{
 		using var typeface = SKTypeface.FromFamilyName(
-			DrawingOptions.BigTextFontName.Resolve(DrawingOptions),
-			DrawingOptions.BigTextFontWeight.Resolve(DrawingOptions),
-			DrawingOptions.BigTextFontWidth.Resolve(DrawingOptions),
+			Options.BigTextFontName.Resolve(Options),
+			Options.BigTextFontWeight.Resolve(Options),
+			Options.BigTextFontWidth.Resolve(Options),
 			slant
 		);
-		var factSize = DrawingOptions.BigTextFontSizeScale.Resolve(DrawingOptions).Measure(Mapper.CellSize);
+		var factSize = Options.BigTextFontSizeScale.Resolve(Options).Measure(Mapper.CellSize);
 		using var textFont = new SKFont(typeface, factSize) { Subpixel = true };
 		using var textPaint = new SKPaint { Color = color };
 		var offset = textFont.MeasureText(text, textPaint);

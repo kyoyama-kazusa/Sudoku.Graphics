@@ -15,16 +15,16 @@ public partial class Canvas
 		// Here variable <c>splitSize</c> represents the variable <c>n</c> (for <c>n * n</c> subcells).
 
 		using var typeface = SKTypeface.FromFamilyName(
-			DrawingOptions.SmallTextFontName.Resolve(DrawingOptions),
-			DrawingOptions.SmallTextFontWeight.Resolve(DrawingOptions),
-			DrawingOptions.SmallTextFontWidth.Resolve(DrawingOptions),
+			Options.SmallTextFontName.Resolve(Options),
+			Options.SmallTextFontWeight.Resolve(Options),
+			Options.SmallTextFontWidth.Resolve(Options),
 			slant
 		);
 		var cellTopLeft = Mapper.GetPoint(cell, CellCornerType.TopLeft);
 		var candidateSize = Mapper.CellSize / splitSize;
 		var candidateRowIndex = innerPosition / splitSize;
 		var candidateColumnIndex = innerPosition % splitSize;
-		var factSize = DrawingOptions.SmallTextFontSizeScale.Resolve(DrawingOptions).Measure(Mapper.CellSize) / splitSize;
+		var factSize = Options.SmallTextFontSizeScale.Resolve(Options).Measure(Mapper.CellSize) / splitSize;
 		using var textFont = new SKFont(typeface, factSize) { Subpixel = true };
 		using var textPaint = new SKPaint { Color = color };
 		var offset = textFont.MeasureText(text, textPaint);

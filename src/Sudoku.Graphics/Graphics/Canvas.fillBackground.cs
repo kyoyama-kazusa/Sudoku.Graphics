@@ -3,7 +3,7 @@
 public partial class Canvas
 {
 	/// <inheritdoc/>
-	public partial void FillBackground() => FillBackground(DrawingOptions.BackgroundColor.Resolve(DrawingOptions));
+	public partial void FillBackground() => FillBackground(Options.BackgroundColor.Resolve(Options));
 
 	/// <inheritdoc/>
 	public partial void FillBackground(SKColor color) => BackingCanvas.Clear(color);

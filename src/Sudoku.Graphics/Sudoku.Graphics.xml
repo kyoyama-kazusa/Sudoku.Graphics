@@ -825,16 +825,14 @@
             Represents a canvas object that allows you drawing items onto it.
             </summary>
             <param name="mapper"><inheritdoc cref="P:Sudoku.Graphics.Canvas.Mapper" path="/summary"/></param>
-            <param name="drawingOptions"><inheritdoc cref="P:Sudoku.Graphics.Canvas.DrawingOptions" path="/summary"/></param>
-            <param name="exportingOptions"><inheritdoc cref="P:Sudoku.Graphics.Canvas.ExportingOptions" path="/summary"/></param>
+            <param name="options"><inheritdoc cref="P:Sudoku.Graphics.Canvas.Options" path="/summary"/></param>
         </member>
-        <member name="M:Sudoku.Graphics.Canvas.#ctor(Sudoku.Graphics.PointMapper,Sudoku.Graphics.CanvasDrawingOptions,Sudoku.Graphics.CanvasExportingOptions)">
+        <member name="M:Sudoku.Graphics.Canvas.#ctor(Sudoku.Graphics.PointMapper,Sudoku.Graphics.CanvasDrawingOptions)">
             <summary>
             Represents a canvas object that allows you drawing items onto it.
             </summary>
             <param name="mapper"><inheritdoc cref="P:Sudoku.Graphics.Canvas.Mapper" path="/summary"/></param>
-            <param name="drawingOptions"><inheritdoc cref="P:Sudoku.Graphics.Canvas.DrawingOptions" path="/summary"/></param>
-            <param name="exportingOptions"><inheritdoc cref="P:Sudoku.Graphics.Canvas.ExportingOptions" path="/summary"/></param>
+            <param name="options"><inheritdoc cref="P:Sudoku.Graphics.Canvas.Options" path="/summary"/></param>
         </member>
         <member name="F:Sudoku.Graphics.Canvas._surface">
             <summary>
@@ -861,17 +859,14 @@
             Indicates the mapper instance.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Canvas.DrawingOptions">
+        <member name="P:Sudoku.Graphics.Canvas.Options">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Canvas.ExportingOptions">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Canvas.Sudoku#Graphics#Primitives#ICanvas{Sudoku#Graphics#CanvasDrawingOptions,Sudoku#Graphics#CanvasExportingOptions}#BackingCanvas">
+        <member name="P:Sudoku.Graphics.Canvas.Sudoku#Graphics#Primitives#ICanvas{Sudoku#Graphics#CanvasDrawingOptions}#BackingCanvas">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Canvas.BackingCanvas">
-            <inheritdoc cref="P:Sudoku.Graphics.Primitives.ICanvas`2.BackingCanvas"/>
+            <inheritdoc cref="P:Sudoku.Graphics.Primitives.ICanvas`1.BackingCanvas"/>
         </member>
         <member name="M:Sudoku.Graphics.Canvas.FillBackground">
             <inheritdoc/>
@@ -897,7 +892,10 @@
         <member name="M:Sudoku.Graphics.Canvas.Dispose">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Canvas.Export(System.String)">
+        <member name="M:Sudoku.Graphics.Canvas.Export(System.String,Sudoku.Graphics.CanvasExportingOptions)">
+            <inheritdoc cref="M:Sudoku.Graphics.Primitives.ICanvasExport.Export``1(System.String,``0)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Canvas.Sudoku#Graphics#Primitives#ICanvasExport#Export``1(System.String,``0)">
             <inheritdoc/>
         </member>
         <member name="F:Sudoku.Graphics.Canvas._isDisposed">
@@ -1493,24 +1491,18 @@
             </exception>
             <seealso cref="F:Sudoku.Concepts.CellCornerType.None"/>
         </member>
-        <member name="T:Sudoku.Graphics.Primitives.ICanvas`2">
+        <member name="T:Sudoku.Graphics.Primitives.ICanvas`1">
             <summary>
             Represents a canvas object.
             </summary>
             <typeparam name="TDrawingOptions">Indicates the type of drawing options.</typeparam>
-            <typeparam name="TExportingOptions">Indicates the type of exporting options.</typeparam>
         </member>
-        <member name="P:Sudoku.Graphics.Primitives.ICanvas`2.DrawingOptions">
+        <member name="P:Sudoku.Graphics.Primitives.ICanvas`1.Options">
             <summary>
             Indicates drawing options.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Primitives.ICanvas`2.ExportingOptions">
-            <summary>
-            Indicates exporting options.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Primitives.ICanvas`2.BackingCanvas">
+        <member name="P:Sudoku.Graphics.Primitives.ICanvas`1.BackingCanvas">
             <summary>
             Indicates backing canvas.
             </summary>
@@ -1582,11 +1574,13 @@
             Represents a canvas object that supports exporting methods.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.Primitives.ICanvasExport.Export(System.String)">
+        <member name="M:Sudoku.Graphics.Primitives.ICanvasExport.Export``1(System.String,``0)">
             <summary>
             Export the current canvas into target file.
             </summary>
+            <typeparam name="TOptions">The type of options.</typeparam>
             <param name="path">The file path. The extension specified will be used as output file format.</param>
+            <param name="options">The options.</param>
         </member>
         <member name="T:Sudoku.Graphics.Primitives.ICanvasFillBackground">
             <summary>

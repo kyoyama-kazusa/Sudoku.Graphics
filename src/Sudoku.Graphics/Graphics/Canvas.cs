@@ -4,15 +4,8 @@
 /// Represents a canvas object that allows you drawing items onto it.
 /// </summary>
 /// <param name="mapper"><inheritdoc cref="Mapper" path="/summary"/></param>
-/// <param name="drawingOptions"><inheritdoc cref="DrawingOptions" path="/summary"/></param>
-/// <param name="exportingOptions"><inheritdoc cref="ExportingOptions" path="/summary"/></param>
-public sealed partial class Canvas(
-	PointMapper mapper,
-	CanvasDrawingOptions? drawingOptions = null,
-	CanvasExportingOptions? exportingOptions = null
-) :
-	ICanvas<CanvasDrawingOptions, CanvasExportingOptions>,
-	IDisposable
+/// <param name="options"><inheritdoc cref="Options" path="/summary"/></param>
+public sealed partial class Canvas(PointMapper mapper, CanvasDrawingOptions? options = null) : ICanvas<CanvasDrawingOptions>
 {
 	/// <summary>
 	/// Indicates the backing surface.
@@ -41,15 +34,12 @@ public sealed partial class Canvas(
 	public PointMapper Mapper { get; } = mapper;
 
 	/// <inheritdoc/>
-	public CanvasDrawingOptions DrawingOptions { get; } = drawingOptions ?? CanvasDrawingOptions.Default;
+	public CanvasDrawingOptions Options { get; } = options ?? CanvasDrawingOptions.Default;
 
 	/// <inheritdoc/>
-	public CanvasExportingOptions ExportingOptions { get; } = exportingOptions ?? CanvasExportingOptions.Default;
+	SKCanvas ICanvas<CanvasDrawingOptions>.BackingCanvas => BackingCanvas;
 
-	/// <inheritdoc/>
-	SKCanvas ICanvas<CanvasDrawingOptions, CanvasExportingOptions>.BackingCanvas => BackingCanvas;
-
-	/// <inheritdoc cref="ICanvas{TDrawingOptions, TExportingOptions}.BackingCanvas"/>
+	/// <inheritdoc cref="ICanvas{TDrawingOptions}.BackingCanvas"/>
 	private SKCanvas BackingCanvas => _surface.Canvas;
 
 
@@ -61,5 +51,10 @@ public sealed partial class Canvas(
 	public partial void DrawSmallText(string text, Relative cell, int innerPosition, int splitSize, SKColor color, SKFontStyleSlant slant);
 	public partial void DrawSmallText(string text, Absolute cell, int innerPosition, int splitSize, SKColor color, SKFontStyleSlant slant);
 	public partial void Dispose();
-	public partial void Export(string path);
+	public partial void Export(string path, CanvasExportingOptions? options = null);
+
+
+	/// <inheritdoc/>
+	void ICanvasExport.Export<TOptions>(string path, TOptions? options) where TOptions : default
+		=> Export(path, options as CanvasExportingOptions);
 }

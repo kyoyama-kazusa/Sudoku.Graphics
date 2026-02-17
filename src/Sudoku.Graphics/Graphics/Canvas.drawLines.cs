@@ -3,5 +3,5 @@
 public partial class Canvas
 {
 	/// <inheritdoc/>
-	public partial void DrawLines() => DrawingOptions.GridLineTemplate.DrawLines(Mapper, BackingCanvas, DrawingOptions);
+	public partial void DrawLines() => Options.GridLineTemplate.DrawLines(Mapper, BackingCanvas, Options);
 }
