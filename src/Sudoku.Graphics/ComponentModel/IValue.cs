@@ -20,6 +20,7 @@ public interface IValue<TSelf> :
 	/// Indicates the reference to field.
 	/// </summary>
 	[UnscopedRef]
+	[DebuggerHidden]
 	public ref readonly int ValueRef { get; }
 
 
