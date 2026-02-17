@@ -1,4 +1,4 @@
-﻿namespace Sudoku.Graphics;
+﻿namespace Sudoku.ComponentModel;
 
 /// <summary>
 /// Represents logical size information of a grid.
@@ -35,4 +35,14 @@ public sealed class GridSizeInfo(Absolute rowsCount, Absolute columnsCount, Dire
 	/// Indicates empty cells count reserved to be empty.
 	/// </summary>
 	public required DirectionVector Vector { get; init; } = vector;
+
+
+	/// <summary>
+	/// Creates a new <see cref="GridSizeInfo"/> instance via the specified offset of the current instance.
+	/// </summary>
+	/// <param name="rowsCount">The number of rows.</param>
+	/// <param name="columnsCount">The number of columns.</param>
+	/// <returns>A new <see cref="GridSizeInfo"/> instance.</returns>
+	public GridSizeInfo Offset(Relative rowsCount, Relative columnsCount)
+		=> new(RowsCount, ColumnsCount, Vector + new DirectionVector(columnsCount, 0, rowsCount, 0));
 }
