@@ -55,10 +55,9 @@ public static class TetrisLineSegmentFactory
 			);
 			var columnsCount = mapper.AbsoluteColumnsCount;
 			var result = new Absolute[resultCoordinates.Length];
-			var i = 0;
-			foreach (var (r, c) in resultCoordinates)
+			foreach (var (i, (r, c)) in resultCoordinates.Index())
 			{
-				result[i++] = r * columnsCount + c;
+				result[i] = r * columnsCount + c;
 			}
 			return [.. result];
 

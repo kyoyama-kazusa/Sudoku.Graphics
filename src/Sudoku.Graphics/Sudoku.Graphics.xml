@@ -2191,6 +2191,18 @@
         <member name="M:Sudoku.Serialization.Specialized.ValueConverter`1.Write(System.Text.Json.Utf8JsonWriter,`0,System.Text.Json.JsonSerializerOptions)">
             <inheritdoc/>
         </member>
+        <member name="T:System.Linq.ArrayEnumerable">
+            <summary>
+            Provides equivalent implementation of <see cref="T:System.Linq.Enumerable"/>, of type <see cref="T:System.Array"/>.
+            </summary>
+            <seealso cref="T:System.Array"/>
+        </member>
+        <member name="M:System.Linq.ArrayEnumerable.Index``1(``0[])">
+            <inheritdoc cref="M:System.Linq.ArrayEnumerable.&lt;G&gt;$51ABFD8B8D8A5142371F514AE52D9AA9`1.Index"/>
+        </member>
+        <member name="M:System.Linq.ArrayEnumerable.&lt;G&gt;$51ABFD8B8D8A5142371F514AE52D9AA9`1.Index">
+            <inheritdoc cref="M:System.Linq.Enumerable.Index``1(System.Collections.Generic.IEnumerable{``0})"/>
+        </member>
         <member name="T:System.ExceptionExtensions">
             <summary>
             Provides extension members on <see cref="T:System.Exception"/>.
