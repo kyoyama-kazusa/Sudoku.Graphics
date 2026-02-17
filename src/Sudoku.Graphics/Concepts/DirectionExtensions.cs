@@ -18,22 +18,22 @@ public static class DirectionExtensions
 			get
 			{
 				var result = @this;
-				if ((@this & Direction.Up) == Direction.Up)
+				if (@this.HasFlag(Direction.Up))
 				{
 					result &= ~Direction.Up;
 					result |= Direction.Down;
 				}
-				if ((@this & Direction.Down) == Direction.Down)
+				if (@this.HasFlag(Direction.Down))
 				{
 					result &= ~Direction.Down;
 					result |= Direction.Up;
 				}
-				if ((@this & Direction.Left) == Direction.Left)
+				if (@this.HasFlag(Direction.Left))
 				{
 					result &= ~Direction.Left;
 					result |= Direction.Right;
 				}
-				if ((@this & Direction.Right) == Direction.Right)
+				if (@this.HasFlag(Direction.Right))
 				{
 					result &= ~Direction.Right;
 					result |= Direction.Left;

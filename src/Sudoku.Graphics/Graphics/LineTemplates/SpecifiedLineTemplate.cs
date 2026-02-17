@@ -98,19 +98,19 @@ public sealed class SpecifiedLineTemplate(LineSegment[] thickLineSegments, LineS
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		void drawLine(SKPoint topLeft, SKPoint topRight, SKPoint bottomLeft, SKPoint bottomRight, Direction directions, SKPaint paint)
 		{
-			if ((directions & Direction.Up) == Direction.Up)
+			if (directions.HasFlag(Direction.Up))
 			{
 				canvas.DrawLine(topLeft, topRight, paint);
 			}
-			if ((directions & Direction.Down) == Direction.Down)
+			if (directions.HasFlag(Direction.Down))
 			{
 				canvas.DrawLine(bottomLeft, bottomRight, paint);
 			}
-			if ((directions & Direction.Left) == Direction.Left)
+			if (directions.HasFlag(Direction.Left))
 			{
 				canvas.DrawLine(topLeft, bottomLeft, paint);
 			}
-			if ((directions & Direction.Right) == Direction.Right)
+			if (directions.HasFlag(Direction.Right))
 			{
 				canvas.DrawLine(topRight, bottomRight, paint);
 			}

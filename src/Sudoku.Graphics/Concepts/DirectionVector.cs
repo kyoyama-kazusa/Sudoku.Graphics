@@ -36,10 +36,10 @@ public readonly record struct DirectionVector(Relative Up, Relative Down, Relati
 	/// <param name="directions">The directions; multiple flags are allowed.</param>
 	/// <param name="value">The value.</param>
 	public DirectionVector(Direction directions, Relative value) : this(
-		(directions & Direction.Up) == Direction.Up ? value : 0,
-		(directions & Direction.Down) == Direction.Down ? value : 0,
-		(directions & Direction.Left) == Direction.Left ? value : 0,
-		(directions & Direction.Right) == Direction.Right ? value : 0
+		directions.HasFlag(Direction.Up) ? value : 0,
+		directions.HasFlag(Direction.Down) ? value : 0,
+		directions.HasFlag(Direction.Left) ? value : 0,
+		directions.HasFlag(Direction.Right) ? value : 0
 	)
 	{
 	}
