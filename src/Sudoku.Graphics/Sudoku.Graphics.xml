@@ -1031,6 +1031,17 @@
             </summary>
             <seealso cref="P:Sudoku.Graphics.CanvasDrawingOptions.ThinLineColor"/>
         </member>
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.ThickLineDashSequence">
+            <summary>
+            Represents thick line dash sequence. By default it's empty array.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.ThinLineDashSequence">
+            <summary>
+            Represents thick line dash sequence. By default it's derived from property <see cref="P:Sudoku.Graphics.CanvasDrawingOptions.ThickLineDashSequence"/>.
+            </summary>
+            <seealso cref="P:Sudoku.Graphics.CanvasDrawingOptions.ThickLineDashSequence"/>
+        </member>
         <member name="P:Sudoku.Graphics.CanvasDrawingOptions.GridLineTemplate">
             <summary>
             Represents grid line template to be drawn. By default it will be initialized like
@@ -1863,6 +1874,11 @@
               Looks up a localized string similar to Color of thick lines.
             </summary>
         </member>
+        <member name="P:Sudoku.Resources.Resource.ThickLineDashSequence">
+            <summary>
+              Looks up a localized string similar to Thick line dash.
+            </summary>
+        </member>
         <member name="P:Sudoku.Resources.Resource.ThickLineWidth">
             <summary>
               Looks up a localized string similar to Width of thick lines.
@@ -1871,6 +1887,11 @@
         <member name="P:Sudoku.Resources.Resource.ThinLineColor">
             <summary>
               Looks up a localized string similar to Color of thin lines.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Resources.Resource.ThinLineDashSequence">
+            <summary>
+              Looks up a localized string similar to Thin line dash.
             </summary>
         </member>
         <member name="P:Sudoku.Resources.Resource.ThinLineWidth">

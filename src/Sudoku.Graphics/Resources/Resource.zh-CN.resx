@@ -165,11 +165,17 @@
   <data name="ThickLineColor" xml:space="preserve">
     <value>粗线颜色</value>
   </data>
+  <data name="ThickLineDashSequence" xml:space="preserve">
+    <value>粗线虚线段周期</value>
+  </data>
   <data name="ThickLineWidth" xml:space="preserve">
     <value>粗线宽度</value>
   </data>
   <data name="ThinLineColor" xml:space="preserve">
     <value>细线颜色</value>
+  </data>
+  <data name="ThinLineDashSequence" xml:space="preserve">
+    <value>细线虚线段周期</value>
   </data>
   <data name="ThinLineWidth" xml:space="preserve">
     <value>细线宽度</value>

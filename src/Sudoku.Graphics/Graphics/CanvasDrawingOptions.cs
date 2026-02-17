@@ -150,6 +150,20 @@ public sealed class CanvasDrawingOptions : IOptionsProvider<CanvasDrawingOptions
 	public Inherited<SerializableColor> ThickLineColor { get; set; } = Inherited<SerializableColor>.FromPropertyName(nameof(ThinLineColor));
 
 	/// <summary>
+	/// Represents thick line dash sequence. By default it's empty array.
+	/// </summary>
+	[ResourceKey("ThickLineDashSequence")]
+	public Inherited<LineDashSequence> ThickLineDashSequence { get; set; } = Inherited<LineDashSequence>.FromValue([]);
+
+	/// <summary>
+	/// Represents thick line dash sequence. By default it's derived from property <see cref="ThickLineDashSequence"/>.
+	/// </summary>
+	/// <seealso cref="ThickLineDashSequence"/>
+	[ResourceKey("ThinLineDashSequence")]
+	public Inherited<LineDashSequence> ThinLineDashSequence { get; set; } =
+		Inherited<LineDashSequence>.FromPropertyName(nameof(ThickLineDashSequence));
+
+	/// <summary>
 	/// Represents grid line template to be drawn. By default it will be initialized like
 	/// <c><see langword="new"/> <see cref="StandardLineTemplate"/>(3)</c>.
 	/// </summary>

@@ -205,6 +205,15 @@ namespace Sudoku.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Thick line dash.
+        /// </summary>
+        internal static string ThickLineDashSequence {
+            get {
+                return ResourceManager.GetString("ThickLineDashSequence", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Width of thick lines.
         /// </summary>
         internal static string ThickLineWidth {
@@ -219,6 +228,15 @@ namespace Sudoku.Resources {
         internal static string ThinLineColor {
             get {
                 return ResourceManager.GetString("ThinLineColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thin line dash.
+        /// </summary>
+        internal static string ThinLineDashSequence {
+            get {
+                return ResourceManager.GetString("ThinLineDashSequence", resourceCulture);
             }
         }
         

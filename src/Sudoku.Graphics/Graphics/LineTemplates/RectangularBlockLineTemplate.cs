@@ -48,7 +48,8 @@ public abstract class RectangularBlockLineTemplate : LineTemplate
 			Color = options.ThickLineColor.Resolve(options),
 			StrokeWidth = options.ThickLineWidth.Resolve(options).Measure(mapper.CellSize),
 			StrokeCap = SKStrokeCap.Round,
-			IsAntialias = true
+			IsAntialias = true,
+			PathEffect = options.ThickLineDashSequence.Resolve(options) is { IsEmpty: false } sequence ? sequence : null
 		};
 
 	/// <summary>
@@ -66,6 +67,7 @@ public abstract class RectangularBlockLineTemplate : LineTemplate
 			Color = options.ThinLineColor.Resolve(options),
 			StrokeWidth = options.ThinLineWidth.Resolve(options).Measure(mapper.CellSize),
 			StrokeCap = SKStrokeCap.Round,
-			IsAntialias = true
+			IsAntialias = true,
+			PathEffect = options.ThinLineDashSequence.Resolve(options) is { IsEmpty: false } sequence ? sequence : null
 		};
 }

@@ -32,7 +32,8 @@ public sealed class JigsawLineTemplate : LineTemplate
 			Color = options.ThickLineColor.Resolve(options),
 			StrokeWidth = options.ThickLineWidth.Resolve(options).Measure(mapper.CellSize),
 			StrokeCap = SKStrokeCap.Round,
-			IsAntialias = false
+			IsAntialias = false,
+			PathEffect = options.ThickLineDashSequence.Resolve(options) switch { { IsEmpty: false } sequence => sequence, _ => null }
 		};
 		using var thinLinePaint = new SKPaint
 		{
@@ -40,7 +41,8 @@ public sealed class JigsawLineTemplate : LineTemplate
 			Color = options.ThinLineColor.Resolve(options),
 			StrokeWidth = options.ThinLineWidth.Resolve(options).Measure(mapper.CellSize),
 			StrokeCap = SKStrokeCap.Round,
-			IsAntialias = false
+			IsAntialias = false,
+			PathEffect = options.ThinLineDashSequence.Resolve(options) switch { { IsEmpty: false } sequence => sequence, _ => null }
 		};
 
 		// Iterate on each cell index group.
