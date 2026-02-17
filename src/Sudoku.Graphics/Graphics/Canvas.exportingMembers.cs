@@ -1,6 +1,4 @@
-﻿using System.Threading;
-
-namespace Sudoku.Graphics;
+﻿namespace Sudoku.Graphics;
 
 public partial class Canvas
 {
