@@ -9,11 +9,12 @@
 using System;
 using System.IO;
 using System.Text.Json;
+using Sudoku.Concepts;
 using Sudoku.Graphics;
 using Sudoku.Graphics.LineTemplates;
 
 var desktop = Environment.DesktopPath;
-var mapper = new PointMapper(cellSize: 120, margin: 10, rowsCount: 9, columnsCount: 9, vector: new(1));
+var mapper = new PointMapper(cellSize: 120, margin: 10, rowsCount: 9, columnsCount: 9, vector: DirectionVector.Zero);
 using var canvas = new Canvas(
 	mapper: mapper,
 	options: new()

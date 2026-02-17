@@ -629,6 +629,7 @@
             <param name="Down">Indicates downside offsets.</param>
             <param name="Left">Indicates leftside offsets.</param>
             <param name="Right">Indicates rightside offsets.</param>
+            <completionlist cref="T:Sudoku.Concepts.DirectionVector"/>
         </member>
         <member name="M:Sudoku.Concepts.DirectionVector.#ctor(Sudoku.Concepts.Relative,Sudoku.Concepts.Relative,Sudoku.Concepts.Relative,Sudoku.Concepts.Relative)">
             <summary>
@@ -639,6 +640,7 @@
             <param name="Down">Indicates downside offsets.</param>
             <param name="Left">Indicates leftside offsets.</param>
             <param name="Right">Indicates rightside offsets.</param>
+            <completionlist cref="T:Sudoku.Concepts.DirectionVector"/>
         </member>
         <member name="P:Sudoku.Concepts.DirectionVector.Up">
             <summary>Indicates upside offsets.</summary>
@@ -662,6 +664,22 @@
             Initializes a <see cref="T:Sudoku.Concepts.DirectionVector"/> instance via the uniform value.
             </summary>
             <param name="uniform">The uniform value.</param>
+        </member>
+        <member name="M:Sudoku.Concepts.DirectionVector.#ctor(Sudoku.Concepts.Direction,Sudoku.Concepts.Relative)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Concepts.DirectionVector"/> instance via the specified value to the specified directions;
+            other values are initialized 0.
+            </summary>
+            <param name="directions">The directions; multiple flags are allowed.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Sudoku.Concepts.DirectionVector.#ctor(Sudoku.Concepts.Relative,Sudoku.Concepts.Relative)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Concepts.DirectionVector"/> instance via two values indicating up (&amp; left) and down (&amp; right).
+            For example, <c><see langword="new"/>(0, 1, 0, 1)</c> can be simplified to <c><see langword="new"/>(0, 1)</c>.
+            </summary>
+            <param name="upAndLeft">The uniform value for both up and left directions.</param>
+            <param name="downAndRight">The uniform value for both down and right directions.</param>
         </member>
         <member name="M:Sudoku.Concepts.DirectionVector.GetValue(Sudoku.Concepts.Direction)">
             <summary>
