@@ -3,11 +3,11 @@
 public partial class Canvas
 {
 	/// <inheritdoc/>
-	public partial void DrawSmallText(string text, Relative cell, int innerPosition, int splitSize, SKColor color, SKFontStyleSlant slant)
-		=> DrawSmallText(text, Mapper.ToAbsoluteIndex(cell), innerPosition, splitSize, color, slant);
+	public partial void DrawSmallText(string text, Relative cell, int innerPosition, int splitSize, SKColor color)
+		=> DrawSmallText(text, Mapper.ToAbsoluteIndex(cell), innerPosition, splitSize, color);
 
 	/// <inheritdoc/>
-	public partial void DrawSmallText(string text, Absolute cell, int innerPosition, int splitSize, SKColor color, SKFontStyleSlant slant)
+	public partial void DrawSmallText(string text, Absolute cell, int innerPosition, int splitSize, SKColor color)
 	{
 		// The main idea on drawing candidates is to find for the number of rows and columns in a cell should be drawn,
 		// accommodating all possible candidate values.
@@ -18,7 +18,7 @@ public partial class Canvas
 			Options.SmallTextFontName.Resolve(Options),
 			Options.SmallTextFontWeight.Resolve(Options),
 			Options.SmallTextFontWidth.Resolve(Options),
-			slant
+			Options.SmallTextFontSlant.Resolve(Options)
 		);
 		var cellTopLeft = Mapper.GetPoint(cell, CellCornerType.TopLeft);
 		var candidateSize = Mapper.CellSize / splitSize;

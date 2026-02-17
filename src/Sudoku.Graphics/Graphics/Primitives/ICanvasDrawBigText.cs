@@ -11,8 +11,7 @@ public interface ICanvasDrawBigText
 	/// <param name="text">The text.</param>
 	/// <param name="cell">The relative cell.</param>
 	/// <param name="color">The color.</param>
-	/// <param name="slant">The text slant.</param>
-	void DrawBigText(string text, Relative cell, SKColor color, SKFontStyleSlant slant);
+	void DrawBigText(string text, Relative cell, SKColor color);
 
 	/// <summary>
 	/// Draws the specified text onto the specified cell.
@@ -20,6 +19,5 @@ public interface ICanvasDrawBigText
 	/// <param name="text">The text.</param>
 	/// <param name="cell">The absolute cell.</param>
 	/// <param name="color">The color.</param>
-	/// <param name="slant">The text slant.</param>
-	void DrawBigText(string text, Absolute cell, SKColor color, SKFontStyleSlant slant);
+	void DrawBigText(string text, Absolute cell, SKColor color);
 }

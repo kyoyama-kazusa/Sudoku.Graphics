@@ -46,10 +46,10 @@ public sealed partial class Canvas(PointMapper mapper, CanvasDrawingOptions? opt
 	public partial void FillBackground();
 	public partial void FillBackground(SKColor color);
 	public partial void DrawLines();
-	public partial void DrawBigText(string text, Relative cell, SKColor color, SKFontStyleSlant slant);
-	public partial void DrawBigText(string text, Absolute cell, SKColor color, SKFontStyleSlant slant);
-	public partial void DrawSmallText(string text, Relative cell, int innerPosition, int splitSize, SKColor color, SKFontStyleSlant slant);
-	public partial void DrawSmallText(string text, Absolute cell, int innerPosition, int splitSize, SKColor color, SKFontStyleSlant slant);
+	public partial void DrawBigText(string text, Relative cell, SKColor color);
+	public partial void DrawBigText(string text, Absolute cell, SKColor color);
+	public partial void DrawSmallText(string text, Relative cell, int innerPosition, int splitSize, SKColor color);
+	public partial void DrawSmallText(string text, Absolute cell, int innerPosition, int splitSize, SKColor color);
 	public partial void Dispose();
 	public partial void Export(string path, CanvasExportingOptions? options = null);
 

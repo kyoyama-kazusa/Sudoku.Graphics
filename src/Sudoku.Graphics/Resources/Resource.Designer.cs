@@ -88,6 +88,15 @@ namespace Sudoku.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Big text font slant.
+        /// </summary>
+        internal static string BigTextFontSlant {
+            get {
+                return ResourceManager.GetString("BigTextFontSlant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Big text font weight.
         /// </summary>
         internal static string BigTextFontWeight {
@@ -151,6 +160,15 @@ namespace Sudoku.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Small text font slant.
+        /// </summary>
+        internal static string SmallTextFontSlant {
+            get {
+                return ResourceManager.GetString("SmallTextFontSlant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Small text font weight.
         /// </summary>
         internal static string SmallTextFontWeight {
@@ -165,6 +183,15 @@ namespace Sudoku.Resources {
         internal static string SmallTextFontWidth {
             get {
                 return ResourceManager.GetString("SmallTextFontWidth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Text color set.
+        /// </summary>
+        internal static string TextColorSet {
+            get {
+                return ResourceManager.GetString("TextColorSet", resourceCulture);
             }
         }
         

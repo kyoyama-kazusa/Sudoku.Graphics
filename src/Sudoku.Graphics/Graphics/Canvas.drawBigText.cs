@@ -3,17 +3,17 @@
 public partial class Canvas
 {
 	/// <inheritdoc/>
-	public partial void DrawBigText(string text, Relative cell, SKColor color, SKFontStyleSlant slant)
-		=> DrawBigText(text, Mapper.ToAbsoluteIndex(cell), color, slant);
+	public partial void DrawBigText(string text, Relative cell, SKColor color)
+		=> DrawBigText(text, Mapper.ToAbsoluteIndex(cell), color);
 
 	/// <inheritdoc/>
-	public partial void DrawBigText(string text, Absolute cell, SKColor color, SKFontStyleSlant slant)
+	public partial void DrawBigText(string text, Absolute cell, SKColor color)
 	{
 		using var typeface = SKTypeface.FromFamilyName(
 			Options.BigTextFontName.Resolve(Options),
 			Options.BigTextFontWeight.Resolve(Options),
 			Options.BigTextFontWidth.Resolve(Options),
-			slant
+			Options.BigTextFontSlant.Resolve(Options)
 		);
 		var factSize = Options.BigTextFontSizeScale.Resolve(Options).Measure(Mapper.CellSize);
 		using var textFont = new SKFont(typeface, factSize) { Subpixel = true };

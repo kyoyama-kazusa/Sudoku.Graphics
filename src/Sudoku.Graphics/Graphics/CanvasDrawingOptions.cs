@@ -60,6 +60,21 @@ public sealed class CanvasDrawingOptions : IOptionsProvider<CanvasDrawingOptions
 		Inherited<SKFontStyleWidth>.FromPropertyName(nameof(BigTextFontWidth));
 
 	/// <summary>
+	/// Indicates font slant of text that will be drawn with big size, like given and modifiable digits.
+	/// By default it's <see cref="SKFontStyleSlant.Upright"/>.
+	/// </summary>
+	[ResourceKey("BigTextFontSlant")]
+	public Inherited<SKFontStyleSlant> BigTextFontSlant { get; set; } = Inherited<SKFontStyleSlant>.FromValue(SKFontStyleSlant.Upright);
+
+	/// <summary>
+	/// Indicates font slant of text that will be drawn with small size, like candidates.
+	/// By default it's derived from property <see cref="BigTextFontSlant"/>.
+	/// </summary>
+	[ResourceKey("SmallTextFontSlant")]
+	public Inherited<SKFontStyleSlant> SmallTextFontSlant { get; set; } =
+		Inherited<SKFontStyleSlant>.FromPropertyName(nameof(BigTextFontSlant));
+
+	/// <summary>
 	/// Indicates font size of text that will be drawn in with big size, like given and modifiable digits.
 	/// The scale value is related to a cell size.
 	/// By default it's <c>0.75</c>.
@@ -143,7 +158,21 @@ public sealed class CanvasDrawingOptions : IOptionsProvider<CanvasDrawingOptions
 	public LineTemplate GridLineTemplate { get; set; } = new StandardLineTemplate(3);
 
 	/// <summary>
-	/// Represents JSudoku color set. The color set contains 27 different colors.
+	/// Represents text color set. The default color set contains 5 different colors.
+	/// </summary>
+	[ResourceKey("TextColorSet")]
+	public Inherited<SerializableColorSet> TextColorSet { get; set; } = Inherited<SerializableColorSet>.FromValue(
+		[
+			SKColors.Black,
+			SKColors.Blue,
+			SKColors.Red,
+			SKColors.Pink,
+			SKColors.Gray
+		]
+	);
+
+	/// <summary>
+	/// Represents JSudoku color set. The default color set contains 28 different colors.
 	/// </summary>
 	[ResourceKey("JSudokuColorSet")]
 	public Inherited<SerializableColorSet> JSudokuColorSet { get; set; } = Inherited<SerializableColorSet>.FromValue(

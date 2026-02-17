@@ -126,6 +126,9 @@
   <data name="BigTextFontSizeScale" xml:space="preserve">
     <value>Big text font size (scaling)</value>
   </data>
+  <data name="BigTextFontSlant" xml:space="preserve">
+    <value>Big text font slant</value>
+  </data>
   <data name="BigTextFontWeight" xml:space="preserve">
     <value>Big text font weight</value>
   </data>
@@ -147,11 +150,17 @@
   <data name="SmallTextFontSizeScale" xml:space="preserve">
     <value>Small text font size (scaling)</value>
   </data>
+  <data name="SmallTextFontSlant" xml:space="preserve">
+    <value>Small text font slant</value>
+  </data>
   <data name="SmallTextFontWeight" xml:space="preserve">
     <value>Small text font weight</value>
   </data>
   <data name="SmallTextFontWidth" xml:space="preserve">
     <value>Small text font width</value>
+  </data>
+  <data name="TextColorSet" xml:space="preserve">
+    <value>Text color set</value>
   </data>
   <data name="ThickLineColor" xml:space="preserve">
     <value>Color of thick lines</value>

@@ -126,6 +126,9 @@
   <data name="BigTextFontSizeScale" xml:space="preserve">
     <value>大字符的字体大小缩放比</value>
   </data>
+  <data name="BigTextFontSlant" xml:space="preserve">
+    <value>大字符的字体倾斜</value>
+  </data>
   <data name="BigTextFontWeight" xml:space="preserve">
     <value>大字符的字体粗细</value>
   </data>
@@ -147,11 +150,17 @@
   <data name="SmallTextFontSizeScale" xml:space="preserve">
     <value>小字符的字体大小缩放比</value>
   </data>
+  <data name="SmallTextFontSlant" xml:space="preserve">
+    <value>小字符的字体倾斜</value>
+  </data>
   <data name="SmallTextFontWeight" xml:space="preserve">
     <value>小字符的字体粗细</value>
   </data>
   <data name="SmallTextFontWidth" xml:space="preserve">
     <value>小字符的字体宽窄</value>
+  </data>
+  <data name="TextColorSet" xml:space="preserve">
+    <value>文字信息的颜色集</value>
   </data>
   <data name="ThickLineColor" xml:space="preserve">
     <value>粗线颜色</value>

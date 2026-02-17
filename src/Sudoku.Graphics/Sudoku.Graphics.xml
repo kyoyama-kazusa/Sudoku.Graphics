@@ -877,16 +877,16 @@
         <member name="M:Sudoku.Graphics.Canvas.DrawLines">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Canvas.DrawBigText(System.String,Sudoku.Concepts.Relative,SkiaSharp.SKColor,SkiaSharp.SKFontStyleSlant)">
+        <member name="M:Sudoku.Graphics.Canvas.DrawBigText(System.String,Sudoku.Concepts.Relative,SkiaSharp.SKColor)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Canvas.DrawBigText(System.String,Sudoku.Concepts.Absolute,SkiaSharp.SKColor,SkiaSharp.SKFontStyleSlant)">
+        <member name="M:Sudoku.Graphics.Canvas.DrawBigText(System.String,Sudoku.Concepts.Absolute,SkiaSharp.SKColor)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Canvas.DrawSmallText(System.String,Sudoku.Concepts.Relative,System.Int32,System.Int32,SkiaSharp.SKColor,SkiaSharp.SKFontStyleSlant)">
+        <member name="M:Sudoku.Graphics.Canvas.DrawSmallText(System.String,Sudoku.Concepts.Relative,System.Int32,System.Int32,SkiaSharp.SKColor)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Canvas.DrawSmallText(System.String,Sudoku.Concepts.Absolute,System.Int32,System.Int32,SkiaSharp.SKColor,SkiaSharp.SKFontStyleSlant)">
+        <member name="M:Sudoku.Graphics.Canvas.DrawSmallText(System.String,Sudoku.Concepts.Absolute,System.Int32,System.Int32,SkiaSharp.SKColor)">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Canvas.Dispose">
@@ -951,6 +951,18 @@
             By default it's derived from property <see cref="P:Sudoku.Graphics.CanvasDrawingOptions.BigTextFontWidth"/>.
             </summary>
             <seealso cref="P:Sudoku.Graphics.CanvasDrawingOptions.BigTextFontWidth"/>
+        </member>
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.BigTextFontSlant">
+            <summary>
+            Indicates font slant of text that will be drawn with big size, like given and modifiable digits.
+            By default it's <see cref="F:SkiaSharp.SKFontStyleSlant.Upright"/>.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.SmallTextFontSlant">
+            <summary>
+            Indicates font slant of text that will be drawn with small size, like candidates.
+            By default it's derived from property <see cref="P:Sudoku.Graphics.CanvasDrawingOptions.BigTextFontSlant"/>.
+            </summary>
         </member>
         <member name="P:Sudoku.Graphics.CanvasDrawingOptions.BigTextFontSizeScale">
             <summary>
@@ -1026,9 +1038,14 @@
             </summary>
             <seealso cref="T:Sudoku.Graphics.LineTemplates.StandardLineTemplate"/>
         </member>
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.TextColorSet">
+            <summary>
+            Represents text color set. The default color set contains 5 different colors.
+            </summary>
+        </member>
         <member name="P:Sudoku.Graphics.CanvasDrawingOptions.JSudokuColorSet">
             <summary>
-            Represents JSudoku color set. The color set contains 27 different colors.
+            Represents JSudoku color set. The default color set contains 28 different colors.
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.CanvasDrawingOptions.Sudoku#Graphics#Primitives#IOptionsProvider{Sudoku#Graphics#CanvasDrawingOptions}#DefaultInstance">
@@ -1512,23 +1529,21 @@
             Represents a canvas object that supports big-text-drawing methods.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.Primitives.ICanvasDrawBigText.DrawBigText(System.String,Sudoku.Concepts.Relative,SkiaSharp.SKColor,SkiaSharp.SKFontStyleSlant)">
+        <member name="M:Sudoku.Graphics.Primitives.ICanvasDrawBigText.DrawBigText(System.String,Sudoku.Concepts.Relative,SkiaSharp.SKColor)">
             <summary>
             Draws the specified text onto the specified cell.
             </summary>
             <param name="text">The text.</param>
             <param name="cell">The relative cell.</param>
             <param name="color">The color.</param>
-            <param name="slant">The text slant.</param>
         </member>
-        <member name="M:Sudoku.Graphics.Primitives.ICanvasDrawBigText.DrawBigText(System.String,Sudoku.Concepts.Absolute,SkiaSharp.SKColor,SkiaSharp.SKFontStyleSlant)">
+        <member name="M:Sudoku.Graphics.Primitives.ICanvasDrawBigText.DrawBigText(System.String,Sudoku.Concepts.Absolute,SkiaSharp.SKColor)">
             <summary>
             Draws the specified text onto the specified cell.
             </summary>
             <param name="text">The text.</param>
             <param name="cell">The absolute cell.</param>
             <param name="color">The color.</param>
-            <param name="slant">The text slant.</param>
         </member>
         <member name="T:Sudoku.Graphics.Primitives.ICanvasDrawLines">
             <summary>
@@ -1545,7 +1560,7 @@
             Represents a canvas object that supports small-text-drawing methods.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.Primitives.ICanvasDrawSmallText.DrawSmallText(System.String,Sudoku.Concepts.Relative,System.Int32,System.Int32,SkiaSharp.SKColor,SkiaSharp.SKFontStyleSlant)">
+        <member name="M:Sudoku.Graphics.Primitives.ICanvasDrawSmallText.DrawSmallText(System.String,Sudoku.Concepts.Relative,System.Int32,System.Int32,SkiaSharp.SKColor)">
             <summary>
             Draws the specified text onto the specified cell, with the specified offset values as inner offsets in a cell;
             such offsets are used by drawing candidates.
@@ -1555,9 +1570,8 @@
             <param name="innerPosition">The inner position.</param>
             <param name="splitSize">The number of inner rows and columns.</param>
             <param name="color">The color.</param>
-            <param name="slant">The text slant.</param>
         </member>
-        <member name="M:Sudoku.Graphics.Primitives.ICanvasDrawSmallText.DrawSmallText(System.String,Sudoku.Concepts.Absolute,System.Int32,System.Int32,SkiaSharp.SKColor,SkiaSharp.SKFontStyleSlant)">
+        <member name="M:Sudoku.Graphics.Primitives.ICanvasDrawSmallText.DrawSmallText(System.String,Sudoku.Concepts.Absolute,System.Int32,System.Int32,SkiaSharp.SKColor)">
             <summary>
             Draws the specified text onto the specified cell, with the specified offset values as inner offsets in a cell;
             such offsets are used by drawing candidates.
@@ -1567,7 +1581,6 @@
             <param name="innerPosition">The inner position.</param>
             <param name="splitSize">The number of inner rows and columns.</param>
             <param name="color">The color.</param>
-            <param name="slant">The text slant.</param>
         </member>
         <member name="T:Sudoku.Graphics.Primitives.ICanvasExport">
             <summary>
@@ -1785,6 +1798,11 @@
               Looks up a localized string similar to Big text font size (scaling).
             </summary>
         </member>
+        <member name="P:Sudoku.Resources.Resource.BigTextFontSlant">
+            <summary>
+              Looks up a localized string similar to Big text font slant.
+            </summary>
+        </member>
         <member name="P:Sudoku.Resources.Resource.BigTextFontWeight">
             <summary>
               Looks up a localized string similar to Big text font weight.
@@ -1820,6 +1838,11 @@
               Looks up a localized string similar to Small text font size (scaling).
             </summary>
         </member>
+        <member name="P:Sudoku.Resources.Resource.SmallTextFontSlant">
+            <summary>
+              Looks up a localized string similar to Small text font slant.
+            </summary>
+        </member>
         <member name="P:Sudoku.Resources.Resource.SmallTextFontWeight">
             <summary>
               Looks up a localized string similar to Small text font weight.
@@ -1828,6 +1851,11 @@
         <member name="P:Sudoku.Resources.Resource.SmallTextFontWidth">
             <summary>
               Looks up a localized string similar to Small text font width.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Resources.Resource.TextColorSet">
+            <summary>
+              Looks up a localized string similar to Text color set.
             </summary>
         </member>
         <member name="P:Sudoku.Resources.Resource.ThickLineColor">
