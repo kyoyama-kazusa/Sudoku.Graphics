@@ -12,6 +12,7 @@ global using System.Runtime.InteropServices;
 global using System.Text.Json;
 global using System.Text.Json.Serialization;
 global using SkiaSharp;
+global using Sudoku.ComponentModel;
 global using Sudoku.Concepts;
 global using Sudoku.Graphics;
 global using Sudoku.Graphics.LineTemplates;

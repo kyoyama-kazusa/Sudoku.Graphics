@@ -1,4 +1,4 @@
-﻿namespace Sudoku.Concepts;
+﻿namespace Sudoku.ComponentModel;
 
 public partial struct LineDashSequence
 {

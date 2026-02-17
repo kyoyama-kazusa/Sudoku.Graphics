@@ -1,4 +1,4 @@
-﻿namespace Sudoku.Concepts;
+﻿namespace Sudoku.ComponentModel;
 
 /// <summary>
 /// Represents an instance that describes possible shown line segments under the specified directions specified of the specified cell.

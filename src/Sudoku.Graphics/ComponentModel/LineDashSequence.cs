@@ -1,4 +1,4 @@
-﻿namespace Sudoku.Concepts;
+﻿namespace Sudoku.ComponentModel;
 
 /// <summary>
 /// Represents a sequence of dash intervals.
