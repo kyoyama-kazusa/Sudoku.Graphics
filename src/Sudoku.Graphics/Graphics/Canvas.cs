@@ -6,7 +6,7 @@
 /// <param name="mapper"><inheritdoc cref="Mapper" path="/summary"/></param>
 /// <param name="drawingOptions"><inheritdoc cref="DrawingOptions" path="/summary"/></param>
 /// <param name="exportingOptions"><inheritdoc cref="ExportingOptions" path="/summary"/></param>
-public sealed class Canvas(
+public sealed partial class Canvas(
 	PointMapper mapper,
 	CanvasDrawingOptions? drawingOptions = null,
 	CanvasExportingOptions? exportingOptions = null
@@ -18,11 +18,6 @@ public sealed class Canvas(
 	/// Indicates the backing surface.
 	/// </summary>
 	private readonly SKSurface _surface = SKSurface.Create(mapper.FullCanvasSize);
-
-	/// <summary>
-	/// Indicates whether the object has already been disposed.
-	/// </summary>
-	private bool _isDisposed;
 
 
 	/// <inheritdoc cref="PointMapper.Margin"/>
@@ -58,137 +53,13 @@ public sealed class Canvas(
 	private SKCanvas BackingCanvas => _surface.Canvas;
 
 
-	/// <inheritdoc/>
-	public void FillBackground() => FillBackground(DrawingOptions.BackgroundColor.Resolve(DrawingOptions));
-
-	/// <inheritdoc/>
-	public void FillBackground(SKColor color) => BackingCanvas.Clear(color);
-
-	/// <inheritdoc/>
-	public void DrawLines() => DrawingOptions.GridLineTemplate.DrawLines(Mapper, BackingCanvas, DrawingOptions);
-
-	/// <inheritdoc/>
-	public void DrawBigText(string text, Relative cell, SKColor color, SKFontStyleSlant slant)
-		=> DrawBigText(text, Mapper.ToAbsoluteIndex(cell), color, slant);
-
-	/// <inheritdoc/>
-	public void DrawBigText(string text, Absolute cell, SKColor color, SKFontStyleSlant slant)
-	{
-		using var typeface = SKTypeface.FromFamilyName(
-			DrawingOptions.BigTextFontName.Resolve(DrawingOptions),
-			DrawingOptions.BigTextFontWeight.Resolve(DrawingOptions),
-			DrawingOptions.BigTextFontWidth.Resolve(DrawingOptions),
-			slant
-		);
-		var factSize = DrawingOptions.BigTextFontSizeScale.Resolve(DrawingOptions).Measure(Mapper.CellSize);
-		using var textFont = new SKFont(typeface, factSize) { Subpixel = true };
-		using var textPaint = new SKPaint { Color = color };
-		var offset = textFont.MeasureText(text, textPaint);
-		BackingCanvas.DrawText(
-			text,
-			Mapper.GetPoint(cell, CellCornerType.Center)
-				+ new SKPoint(0, offset / (2 * text.Length)) // Offset adjustment
-				+ new SKPoint(0, Mapper.CellSize / 12), // Manual adjustment
-			SKTextAlign.Center,
-			textFont,
-			textPaint
-		);
-	}
-
-	/// <inheritdoc/>
-	public void DrawSmallText(string text, Relative cell, int innerPosition, int splitSize, SKColor color, SKFontStyleSlant slant)
-		=> DrawSmallText(text, Mapper.ToAbsoluteIndex(cell), innerPosition, splitSize, color, slant);
-
-	/// <inheritdoc/>
-	public void DrawSmallText(string text, Absolute cell, int innerPosition, int splitSize, SKColor color, SKFontStyleSlant slant)
-	{
-		// The main idea on drawing candidates is to find for the number of rows and columns in a cell should be drawn,
-		// accommodating all possible candidate values.
-		// The general way is to divide a cell into <c>n * n</c> subcells, in order to fill with each candidate value.
-		// Here variable <c>splitSize</c> represents the variable <c>n</c> (for <c>n * n</c> subcells).
-
-		using var typeface = SKTypeface.FromFamilyName(
-			DrawingOptions.SmallTextFontName.Resolve(DrawingOptions),
-			DrawingOptions.SmallTextFontWeight.Resolve(DrawingOptions),
-			DrawingOptions.SmallTextFontWidth.Resolve(DrawingOptions),
-			slant
-		);
-		var cellTopLeft = Mapper.GetPoint(cell, CellCornerType.TopLeft);
-		var candidateSize = Mapper.CellSize / splitSize;
-		var candidateRowIndex = innerPosition / splitSize;
-		var candidateColumnIndex = innerPosition % splitSize;
-		var factSize = DrawingOptions.SmallTextFontSizeScale.Resolve(DrawingOptions).Measure(Mapper.CellSize) / splitSize;
-		using var textFont = new SKFont(typeface, factSize) { Subpixel = true };
-		using var textPaint = new SKPaint { Color = color };
-		var offset = textFont.MeasureText(text, textPaint);
-		BackingCanvas.DrawText(
-			text,
-			cellTopLeft
-				+ new SKPoint(candidateColumnIndex * candidateSize, candidateRowIndex * candidateSize) // Adjust to candidate position
-				+ new SKPoint(candidateSize / 2, candidateSize / 2) // Adjust to candidate center
-				+ new SKPoint(0, offset / (2 * text.Length)) // Offset adjustment
-				+ new SKPoint(0, candidateSize / 12), // Manual adjustment
-			SKTextAlign.Center,
-			textFont,
-			textPaint
-		);
-	}
-
-	/// <inheritdoc/>
-	public void Dispose()
-	{
-		ObjectDisposedException.ThrowIf(_isDisposed, this);
-
-		_surface.Dispose();
-		_isDisposed = true;
-	}
-
-	/// <inheritdoc/>
-	public void Export(string path)
-	{
-		var extension = Path.GetExtension(path);
-		using var image = _surface.Snapshot();
-		using var data = image.Encode(GetFormatFromExtension(extension), ExportingOptions.Quality);
-		using var stream = new MemoryStream(data.ToArray());
-		using var fileStream = new FileStream(path, FileMode.Create, FileAccess.Write);
-		stream.CopyTo(fileStream);
-	}
-
-	/// <summary>
-	/// Creates a <see cref="Canvas"/> instance via the specified arguments.
-	/// </summary>
-	/// <param name="cellSize">The cell size.</param>
-	/// <param name="margin">The margin.</param>
-	/// <param name="rowsCount">The number of rows.</param>
-	/// <param name="columnsCount">The number of columns.</param>
-	/// <param name="vector">The number of cells leaving blanks, in order to draw extra information on it.</param>
-	/// <param name="drawingOptions">The drawing options.</param>
-	/// <param name="exportingOptions">The exporting options.</param>
-	/// <returns>A <see cref="Canvas"/> instance created.</returns>
-	public static Canvas Create(
-		float cellSize,
-		float margin,
-		Absolute rowsCount,
-		Absolute columnsCount,
-		DirectionVector vector,
-		CanvasDrawingOptions? drawingOptions = null,
-		CanvasExportingOptions? exportingOptions = null
-	) => new(new(cellSize, margin, rowsCount, columnsCount, vector), drawingOptions, exportingOptions);
-
-	/// <summary>
-	/// Returns <see cref="SKEncodedImageFormat"/> from extension string.
-	/// </summary>
-	/// <param name="extension">The file extesnsion.</param>
-	/// <returns>The target format.</returns>
-	/// <exception cref="NotSupportedException">Throws when the target format is not supported.</exception>
-	private static SKEncodedImageFormat GetFormatFromExtension(string extension)
-		=> extension switch
-		{
-			".jpg" => SKEncodedImageFormat.Jpeg,
-			".png" => SKEncodedImageFormat.Png,
-			".gif" => SKEncodedImageFormat.Gif,
-			".bmp" => SKEncodedImageFormat.Bmp,
-			".webp" => SKEncodedImageFormat.Webp,
-			_ => throw new NotSupportedException()
-		};
+	public partial void FillBackground();
+	public partial void FillBackground(SKColor color);
+	public partial void DrawLines();
+	public partial void DrawBigText(string text, Relative cell, SKColor color, SKFontStyleSlant slant);
+	public partial void DrawBigText(string text, Absolute cell, SKColor color, SKFontStyleSlant slant);
+	public partial void DrawSmallText(string text, Relative cell, int innerPosition, int splitSize, SKColor color, SKFontStyleSlant slant);
+	public partial void DrawSmallText(string text, Absolute cell, int innerPosition, int splitSize, SKColor color, SKFontStyleSlant slant);
+	public partial void Dispose();
+	public partial void Export(string path);
 }

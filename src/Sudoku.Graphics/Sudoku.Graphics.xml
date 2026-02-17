@@ -841,11 +841,6 @@
             Indicates the backing surface.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.Canvas._isDisposed">
-            <summary>
-            Indicates whether the object has already been disposed.
-            </summary>
-        </member>
         <member name="P:Sudoku.Graphics.Canvas.Margin">
             <inheritdoc cref="P:Sudoku.Graphics.PointMapper.Margin"/>
         </member>
@@ -905,26 +900,10 @@
         <member name="M:Sudoku.Graphics.Canvas.Export(System.String)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Canvas.Create(System.Single,System.Single,Sudoku.Concepts.Absolute,Sudoku.Concepts.Absolute,Sudoku.Concepts.DirectionVector,Sudoku.Graphics.CanvasDrawingOptions,Sudoku.Graphics.CanvasExportingOptions)">
+        <member name="F:Sudoku.Graphics.Canvas._isDisposed">
             <summary>
-            Creates a <see cref="T:Sudoku.Graphics.Canvas"/> instance via the specified arguments.
+            Indicates whether the object has already been disposed.
             </summary>
-            <param name="cellSize">The cell size.</param>
-            <param name="margin">The margin.</param>
-            <param name="rowsCount">The number of rows.</param>
-            <param name="columnsCount">The number of columns.</param>
-            <param name="vector">The number of cells leaving blanks, in order to draw extra information on it.</param>
-            <param name="drawingOptions">The drawing options.</param>
-            <param name="exportingOptions">The exporting options.</param>
-            <returns>A <see cref="T:Sudoku.Graphics.Canvas"/> instance created.</returns>
-        </member>
-        <member name="M:Sudoku.Graphics.Canvas.GetFormatFromExtension(System.String)">
-            <summary>
-            Returns <see cref="T:SkiaSharp.SKEncodedImageFormat"/> from extension string.
-            </summary>
-            <param name="extension">The file extesnsion.</param>
-            <returns>The target format.</returns>
-            <exception cref="T:System.NotSupportedException">Throws when the target format is not supported.</exception>
         </member>
         <member name="T:Sudoku.Graphics.CanvasDrawingOptions">
             <summary>
@@ -1801,9 +1780,24 @@
               Looks up a localized string similar to Background color.
             </summary>
         </member>
-        <member name="P:Sudoku.Resources.Resource.BigTextFontInfo">
+        <member name="P:Sudoku.Resources.Resource.BigTextFontName">
             <summary>
-              Looks up a localized string similar to Big text font data.
+              Looks up a localized string similar to Big text font name.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Resources.Resource.BigTextFontSizeScale">
+            <summary>
+              Looks up a localized string similar to Big text font size (scaling).
+            </summary>
+        </member>
+        <member name="P:Sudoku.Resources.Resource.BigTextFontWeight">
+            <summary>
+              Looks up a localized string similar to Big text font weight.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Resources.Resource.BigTextFontWidth">
+            <summary>
+              Looks up a localized string similar to Big text font width.
             </summary>
         </member>
         <member name="P:Sudoku.Resources.Resource.GridBorderRoundedRectangleCornerRadius">
@@ -1821,9 +1815,24 @@
               Looks up a localized string similar to JSudoku color set.
             </summary>
         </member>
-        <member name="P:Sudoku.Resources.Resource.SmallTextFontInfo">
+        <member name="P:Sudoku.Resources.Resource.SmallTextFontName">
             <summary>
-              Looks up a localized string similar to Small text font data.
+              Looks up a localized string similar to Small text font name.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Resources.Resource.SmallTextFontSizeScale">
+            <summary>
+              Looks up a localized string similar to Small text font size (scaling).
+            </summary>
+        </member>
+        <member name="P:Sudoku.Resources.Resource.SmallTextFontWeight">
+            <summary>
+              Looks up a localized string similar to Small text font weight.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Resources.Resource.SmallTextFontWidth">
+            <summary>
+              Looks up a localized string similar to Small text font width.
             </summary>
         </member>
         <member name="P:Sudoku.Resources.Resource.ThickLineColor">
