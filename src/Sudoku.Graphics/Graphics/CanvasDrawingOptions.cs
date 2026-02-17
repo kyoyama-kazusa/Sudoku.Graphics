@@ -15,6 +15,7 @@ public sealed class CanvasDrawingOptions : IOptionsProvider<CanvasDrawingOptions
 	/// Indicates font name of text that will be drawn with big size, like given and modifiable digits.
 	/// By default it's <c>"Arial"</c>.
 	/// </summary>
+	[ResourceKey("BigTextFontName")]
 	public Inherited<string> BigTextFontName { get; set; } = Inherited<string>.FromValue("Arial");
 
 	/// <summary>
@@ -22,12 +23,14 @@ public sealed class CanvasDrawingOptions : IOptionsProvider<CanvasDrawingOptions
 	/// By default it's derived from property <see cref="BigTextFontName"/>.
 	/// </summary>
 	/// <seealso cref="BigTextFontName"/>
+	[ResourceKey("SmallTextFontName")]
 	public Inherited<string> SmallTextFontName { get; set; } = Inherited<string>.FromPropertyName(nameof(BigTextFontName));
 
 	/// <summary>
 	/// Indicates font weight of text that will be drawn with big size, like given and modifiable digits.
 	/// By default it's <see cref="SKFontStyleWeight.Normal"/>.
 	/// </summary>
+	[ResourceKey("BigTextFontWeight")]
 	public Inherited<SKFontStyleWeight> BigTextFontWeight { get; set; } =
 		Inherited<SKFontStyleWeight>.FromValue(SKFontStyleWeight.Normal);
 
@@ -36,6 +39,7 @@ public sealed class CanvasDrawingOptions : IOptionsProvider<CanvasDrawingOptions
 	/// By default it's derived from property <see cref="BigTextFontWeight"/>.
 	/// </summary>
 	/// <seealso cref="BigTextFontWeight"/>
+	[ResourceKey("SmallTextFontWeight")]
 	public Inherited<SKFontStyleWeight> SmallTextFontWeight { get; set; } =
 		Inherited<SKFontStyleWeight>.FromPropertyName(nameof(BigTextFontWeight));
 
@@ -43,6 +47,7 @@ public sealed class CanvasDrawingOptions : IOptionsProvider<CanvasDrawingOptions
 	/// Indicates font width of text that will be drawn with big size, like given and modifiable digits.
 	/// By default it's <see cref="SKFontStyleWidth.Normal"/>.
 	/// </summary>
+	[ResourceKey("BigTextFontWidth")]
 	public Inherited<SKFontStyleWidth> BigTextFontWidth { get; set; } = Inherited<SKFontStyleWidth>.FromValue(SKFontStyleWidth.Normal);
 
 	/// <summary>
@@ -50,6 +55,7 @@ public sealed class CanvasDrawingOptions : IOptionsProvider<CanvasDrawingOptions
 	/// By default it's derived from property <see cref="BigTextFontWidth"/>.
 	/// </summary>
 	/// <seealso cref="BigTextFontWidth"/>
+	[ResourceKey("SmallTextFontWidth")]
 	public Inherited<SKFontStyleWidth> SmallTextFontWidth { get; set; } =
 		Inherited<SKFontStyleWidth>.FromPropertyName(nameof(BigTextFontWidth));
 
@@ -58,6 +64,7 @@ public sealed class CanvasDrawingOptions : IOptionsProvider<CanvasDrawingOptions
 	/// The scale value is related to a cell size.
 	/// By default it's <c>0.75</c>.
 	/// </summary>
+	[ResourceKey("BigTextFontSizeScale")]
 	public Inherited<Scale> BigTextFontSizeScale { get; set; } = Inherited<Scale>.FromValue(.75M);
 
 	/// <summary>
@@ -85,6 +92,7 @@ public sealed class CanvasDrawingOptions : IOptionsProvider<CanvasDrawingOptions
 	/// <seealso cref="BigTextFontSizeScale"/>
 	/// <seealso cref="PointMapper.RowsCount"/>
 	/// <seealso cref="PointMapper.ColumnsCount"/>
+	[ResourceKey("SmallTextFontSizeScale")]
 	public Inherited<Scale> SmallTextFontSizeScale { get; set; } = Inherited<Scale>.FromPropertyName(nameof(BigTextFontSizeScale));
 
 	/// <summary>

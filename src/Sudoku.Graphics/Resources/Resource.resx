@@ -120,8 +120,17 @@
   <data name="BackgroundColor" xml:space="preserve">
     <value>Background color</value>
   </data>
-  <data name="BigTextFontInfo" xml:space="preserve">
-    <value>Big text font data</value>
+  <data name="BigTextFontName" xml:space="preserve">
+    <value>Big text font name</value>
+  </data>
+  <data name="BigTextFontSizeScale" xml:space="preserve">
+    <value>Big text font size (scaling)</value>
+  </data>
+  <data name="BigTextFontWeight" xml:space="preserve">
+    <value>Big text font weight</value>
+  </data>
+  <data name="BigTextFontWidth" xml:space="preserve">
+    <value>Big text font width</value>
   </data>
   <data name="GridBorderRoundedRectangleCornerRadius" xml:space="preserve">
     <value>Corner radius of grid border</value>
@@ -132,8 +141,17 @@
   <data name="JSudokuColorSet" xml:space="preserve">
     <value>JSudoku color set</value>
   </data>
-  <data name="SmallTextFontInfo" xml:space="preserve">
-    <value>Small text font data</value>
+  <data name="SmallTextFontName" xml:space="preserve">
+    <value>Small text font name</value>
+  </data>
+  <data name="SmallTextFontSizeScale" xml:space="preserve">
+    <value>Small text font size (scaling)</value>
+  </data>
+  <data name="SmallTextFontWeight" xml:space="preserve">
+    <value>Small text font weight</value>
+  </data>
+  <data name="SmallTextFontWidth" xml:space="preserve">
+    <value>Small text font width</value>
   </data>
   <data name="ThickLineColor" xml:space="preserve">
     <value>Color of thick lines</value>

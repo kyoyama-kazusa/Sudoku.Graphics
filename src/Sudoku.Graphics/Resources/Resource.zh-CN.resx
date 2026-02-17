@@ -120,8 +120,17 @@
   <data name="BackgroundColor" xml:space="preserve">
     <value>盘面底色</value>
   </data>
-  <data name="BigTextFontInfo" xml:space="preserve">
-    <value>大字符的字符信息</value>
+  <data name="BigTextFontName" xml:space="preserve">
+    <value>大字符的字体</value>
+  </data>
+  <data name="BigTextFontSizeScale" xml:space="preserve">
+    <value>大字符的字体大小缩放比</value>
+  </data>
+  <data name="BigTextFontWeight" xml:space="preserve">
+    <value>大字符的字体粗细</value>
+  </data>
+  <data name="BigTextFontWidth" xml:space="preserve">
+    <value>大字符的字体宽窄</value>
   </data>
   <data name="GridBorderRoundedRectangleCornerRadius" xml:space="preserve">
     <value>盘面边框圆角幅度</value>
@@ -132,8 +141,17 @@
   <data name="JSudokuColorSet" xml:space="preserve">
     <value>JSudoku 颜色集</value>
   </data>
-  <data name="SmallTextFontInfo" xml:space="preserve">
-    <value>小字符的字符信息</value>
+  <data name="SmallTextFontName" xml:space="preserve">
+    <value>小字符的字体</value>
+  </data>
+  <data name="SmallTextFontSizeScale" xml:space="preserve">
+    <value>小字符的字体大小缩放比</value>
+  </data>
+  <data name="SmallTextFontWeight" xml:space="preserve">
+    <value>小字符的字体粗细</value>
+  </data>
+  <data name="SmallTextFontWidth" xml:space="preserve">
+    <value>小字符的字体宽窄</value>
   </data>
   <data name="ThickLineColor" xml:space="preserve">
     <value>粗线颜色</value>

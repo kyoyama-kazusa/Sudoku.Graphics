@@ -70,11 +70,38 @@ namespace Sudoku.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Big text font data.
+        ///   Looks up a localized string similar to Big text font name.
         /// </summary>
-        internal static string BigTextFontInfo {
+        internal static string BigTextFontName {
             get {
-                return ResourceManager.GetString("BigTextFontInfo", resourceCulture);
+                return ResourceManager.GetString("BigTextFontName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Big text font size (scaling).
+        /// </summary>
+        internal static string BigTextFontSizeScale {
+            get {
+                return ResourceManager.GetString("BigTextFontSizeScale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Big text font weight.
+        /// </summary>
+        internal static string BigTextFontWeight {
+            get {
+                return ResourceManager.GetString("BigTextFontWeight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Big text font width.
+        /// </summary>
+        internal static string BigTextFontWidth {
+            get {
+                return ResourceManager.GetString("BigTextFontWidth", resourceCulture);
             }
         }
         
@@ -106,11 +133,38 @@ namespace Sudoku.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Small text font data.
+        ///   Looks up a localized string similar to Small text font name.
         /// </summary>
-        internal static string SmallTextFontInfo {
+        internal static string SmallTextFontName {
             get {
-                return ResourceManager.GetString("SmallTextFontInfo", resourceCulture);
+                return ResourceManager.GetString("SmallTextFontName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Small text font size (scaling).
+        /// </summary>
+        internal static string SmallTextFontSizeScale {
+            get {
+                return ResourceManager.GetString("SmallTextFontSizeScale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Small text font weight.
+        /// </summary>
+        internal static string SmallTextFontWeight {
+            get {
+                return ResourceManager.GetString("SmallTextFontWeight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Small text font width.
+        /// </summary>
+        internal static string SmallTextFontWidth {
+            get {
+                return ResourceManager.GetString("SmallTextFontWidth", resourceCulture);
             }
         }
         
