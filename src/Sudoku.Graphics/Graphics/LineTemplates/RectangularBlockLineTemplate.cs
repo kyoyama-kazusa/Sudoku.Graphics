@@ -5,6 +5,17 @@
 /// </summary>
 public abstract class RectangularBlockLineTemplate : LineTemplate
 {
+	/// <summary>
+	/// Indicates whether thick lines will be applied with dash sequence or not.
+	/// </summary>
+	public bool EnableDashForThickLines { get; set; } = false;
+
+	/// <summary>
+	/// Indicates whether thin lines will be applied with dash sequence or not.
+	/// </summary>
+	public bool EnableDashForThinLines { get; set; } = false;
+
+
 	/// <inheritdoc/>
 	public sealed override void DrawLines(PointMapper mapper, SKCanvas canvas, CanvasDrawingOptions options)
 	{
@@ -31,7 +42,6 @@ public abstract class RectangularBlockLineTemplate : LineTemplate
 	/// <inheritdoc cref="DrawLines(PointMapper, SKCanvas, CanvasDrawingOptions)"/>
 	protected abstract void DrawGridLines(PointMapper mapper, SKCanvas canvas, CanvasDrawingOptions options);
 
-
 	/// <summary>
 	/// Creates an <see cref="SKPaint"/> instance that will be used
 	/// in method <see cref="DrawGridLines(PointMapper, SKCanvas, CanvasDrawingOptions)"/>.
@@ -41,7 +51,7 @@ public abstract class RectangularBlockLineTemplate : LineTemplate
 	/// in order to keep disposal of this instance.
 	/// </remarks>
 	/// <seealso cref="DrawGridLines(PointMapper, SKCanvas, CanvasDrawingOptions)"/>.
-	protected static SKPaint CreateThickLinesPaint(PointMapper mapper, CanvasDrawingOptions options)
+	protected SKPaint CreateThickLinesPaint(PointMapper mapper, CanvasDrawingOptions options)
 		=> new()
 		{
 			Style = SKPaintStyle.Stroke,
@@ -49,7 +59,11 @@ public abstract class RectangularBlockLineTemplate : LineTemplate
 			StrokeWidth = options.ThickLineWidth.Resolve(options).Measure(mapper.CellSize),
 			StrokeCap = SKStrokeCap.Round,
 			IsAntialias = true,
-			PathEffect = options.ThickLineDashSequence.Resolve(options) is { IsEmpty: false } sequence ? sequence : null
+			PathEffect = (EnableDashForThickLines, options.ThickLineDashSequence.Resolve(options)) switch
+			{
+				(true, { IsEmpty: false } sequence) => sequence,
+				_ => null
+			}
 		};
 
 	/// <summary>
@@ -60,7 +74,7 @@ public abstract class RectangularBlockLineTemplate : LineTemplate
 	/// <inheritdoc cref="CreateThickLinesPaint(PointMapper, CanvasDrawingOptions)" path="/remarks"/>
 	/// </remarks>
 	/// <seealso cref="DrawGridLines(PointMapper, SKCanvas, CanvasDrawingOptions)"/>.
-	protected static SKPaint CreateThinLinesPaint(PointMapper mapper, CanvasDrawingOptions options)
+	protected SKPaint CreateThinLinesPaint(PointMapper mapper, CanvasDrawingOptions options)
 		=> new()
 		{
 			Style = SKPaintStyle.Stroke,
@@ -68,6 +82,10 @@ public abstract class RectangularBlockLineTemplate : LineTemplate
 			StrokeWidth = options.ThinLineWidth.Resolve(options).Measure(mapper.CellSize),
 			StrokeCap = SKStrokeCap.Round,
 			IsAntialias = true,
-			PathEffect = options.ThinLineDashSequence.Resolve(options) is { IsEmpty: false } sequence ? sequence : null
+			PathEffect = (EnableDashForThinLines, options.ThinLineDashSequence.Resolve(options)) switch
+			{
+				(true, { IsEmpty: false } sequence) => sequence,
+				_ => null
+			}
 		};
 }
