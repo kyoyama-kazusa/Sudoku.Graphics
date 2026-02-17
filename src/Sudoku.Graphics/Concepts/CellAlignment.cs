@@ -1,9 +1,9 @@
 ﻿namespace Sudoku.Concepts;
 
 /// <summary>
-/// Represents a point corner type.
+/// Represents a cell alignment type.
 /// </summary>
-public enum CellCornerType : byte
+public enum CellAlignment : byte
 {
 	/// <summary>
 	/// Indicates the placeholder of this type.

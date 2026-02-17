@@ -160,43 +160,43 @@ public sealed class PointMapper(
 	}
 
 	/// <summary>
-	/// Returns the position (point) of the specified corner type of the specified cell.
+	/// Returns the position (point) of the specified alignment type of the specified cell.
 	/// </summary>
 	/// <param name="absoluteCellIndex">Absolute cell index.</param>
-	/// <param name="type">The type.</param>
+	/// <param name="alignment">The cell alignment.</param>
 	/// <returns>The point instance that represents the target center position.</returns>
 	/// <exception cref="ArgumentOutOfRangeException">
-	/// Throws when <paramref name="type"/> is not defined or <see cref="CellCornerType.None"/>.
+	/// Throws when <paramref name="alignment"/> is not defined or <see cref="CellAlignment.None"/>.
 	/// </exception>
-	/// <seealso cref="CellCornerType.None"/>
-	public SKPoint GetPoint(Absolute absoluteCellIndex, CellCornerType type)
+	/// <seealso cref="CellAlignment.None"/>
+	public SKPoint GetPoint(Absolute absoluteCellIndex, CellAlignment alignment)
 	{
 		var columnsCount = AbsoluteColumnsCount;
-		return GetPoint(absoluteCellIndex / columnsCount, absoluteCellIndex % columnsCount, type);
+		return GetPoint(absoluteCellIndex / columnsCount, absoluteCellIndex % columnsCount, alignment);
 	}
 
 	/// <summary>
-	/// Returns the position (point) of the specified corner type of the specified cell.
+	/// Returns the position (point) of the specified alignment type of the specified cell.
 	/// </summary>
 	/// <param name="absoluteRowIndex">Absolute row index.</param>
 	/// <param name="absoluteColumnIndex">Absolute column index.</param>
-	/// <param name="type">The type.</param>
+	/// <param name="alignment">The cell alignment type.</param>
 	/// <returns>The point instance that represents the target center position.</returns>
 	/// <exception cref="ArgumentOutOfRangeException">
-	/// Throws when <paramref name="type"/> is not defined or <see cref="CellCornerType.None"/>.
+	/// Throws when <paramref name="alignment"/> is not defined or <see cref="CellAlignment.None"/>.
 	/// </exception>
-	/// <seealso cref="CellCornerType.None"/>
-	public SKPoint GetPoint(Absolute absoluteRowIndex, Absolute absoluteColumnIndex, CellCornerType type)
+	/// <seealso cref="CellAlignment.None"/>
+	public SKPoint GetPoint(Absolute absoluteRowIndex, Absolute absoluteColumnIndex, CellAlignment alignment)
 	{
 		var topLeft = new SKPoint(CellSize * absoluteColumnIndex + Margin, CellSize * absoluteRowIndex + Margin);
-		return type switch
+		return alignment switch
 		{
-			CellCornerType.Center => topLeft + new SKPoint(CellSize / 2, CellSize / 2),
-			CellCornerType.TopLeft => topLeft,
-			CellCornerType.TopRight => topLeft + new SKPoint(CellSize, 0),
-			CellCornerType.BottomLeft => topLeft + new SKPoint(0, CellSize),
-			CellCornerType.BottomRight => topLeft + new SKPoint(CellSize, CellSize),
-			_ => throw new ArgumentOutOfRangeException(nameof(type))
+			CellAlignment.Center => topLeft + new SKPoint(CellSize / 2, CellSize / 2),
+			CellAlignment.TopLeft => topLeft,
+			CellAlignment.TopRight => topLeft + new SKPoint(CellSize, 0),
+			CellAlignment.BottomLeft => topLeft + new SKPoint(0, CellSize),
+			CellAlignment.BottomRight => topLeft + new SKPoint(CellSize, CellSize),
+			_ => throw new ArgumentOutOfRangeException(nameof(alignment))
 		};
 	}
 }

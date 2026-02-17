@@ -21,7 +21,7 @@ public partial class Canvas
 		var offset = textFont.MeasureText(text, textPaint);
 		BackingCanvas.DrawText(
 			text,
-			Mapper.GetPoint(cell, CellCornerType.Center)
+			Mapper.GetPoint(cell, CellAlignment.Center)
 				+ new SKPoint(0, offset / (2 * text.Length)) // Offset adjustment
 				+ new SKPoint(0, Mapper.CellSize / 12), // Manual adjustment
 			SKTextAlign.Center,

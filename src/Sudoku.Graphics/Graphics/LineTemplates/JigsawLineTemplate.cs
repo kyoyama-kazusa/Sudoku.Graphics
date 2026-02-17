@@ -67,10 +67,10 @@ public sealed class JigsawLineTemplate : LineTemplate
 			// Then draw lines onto it, and also fill with cells if worth.
 			foreach (var (cell, directions) in lineSegmentsDictionary)
 			{
-				var topLeft = mapper.GetPoint(cell, CellCornerType.TopLeft);
-				var topRight = mapper.GetPoint(cell, CellCornerType.TopRight);
-				var bottomLeft = mapper.GetPoint(cell, CellCornerType.BottomLeft);
-				var bottomRight = mapper.GetPoint(cell, CellCornerType.BottomRight);
+				var topLeft = mapper.GetPoint(cell, CellAlignment.TopLeft);
+				var topRight = mapper.GetPoint(cell, CellAlignment.TopRight);
+				var bottomLeft = mapper.GetPoint(cell, CellAlignment.BottomLeft);
+				var bottomRight = mapper.GetPoint(cell, CellAlignment.BottomRight);
 
 				if (AlsoFillGroups)
 				{

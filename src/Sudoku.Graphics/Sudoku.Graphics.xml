@@ -529,37 +529,37 @@
             <param name="mapper">The mapper instance.</param>
             <returns>The result.</returns>
         </member>
-        <member name="T:Sudoku.Concepts.CellCornerType">
+        <member name="T:Sudoku.Concepts.CellAlignment">
             <summary>
-            Represents a point corner type.
+            Represents a cell alignment type.
             </summary>
         </member>
-        <member name="F:Sudoku.Concepts.CellCornerType.None">
+        <member name="F:Sudoku.Concepts.CellAlignment.None">
             <summary>
             Indicates the placeholder of this type.
             </summary>
         </member>
-        <member name="F:Sudoku.Concepts.CellCornerType.Center">
+        <member name="F:Sudoku.Concepts.CellAlignment.Center">
             <summary>
             Indicates center point of the cell.
             </summary>
         </member>
-        <member name="F:Sudoku.Concepts.CellCornerType.TopLeft">
+        <member name="F:Sudoku.Concepts.CellAlignment.TopLeft">
             <summary>
             Indicates top-left point of the cell.
             </summary>
         </member>
-        <member name="F:Sudoku.Concepts.CellCornerType.TopRight">
+        <member name="F:Sudoku.Concepts.CellAlignment.TopRight">
             <summary>
             Indicates top-right point of the cell.
             </summary>
         </member>
-        <member name="F:Sudoku.Concepts.CellCornerType.BottomLeft">
+        <member name="F:Sudoku.Concepts.CellAlignment.BottomLeft">
             <summary>
             Indicates bottom-left point of the cell.
             </summary>
         </member>
-        <member name="F:Sudoku.Concepts.CellCornerType.BottomRight">
+        <member name="F:Sudoku.Concepts.CellAlignment.BottomRight">
             <summary>
             Indicates bottom-right point of the cell.
             </summary>
@@ -1502,30 +1502,30 @@
             <param name="isCyclicChecking">Indicates whether the cell overflown in the relative grid will be included to be checked or not.</param>
             <returns>Target cell absolute index.</returns>
         </member>
-        <member name="M:Sudoku.Graphics.PointMapper.GetPoint(Sudoku.Concepts.Absolute,Sudoku.Concepts.CellCornerType)">
+        <member name="M:Sudoku.Graphics.PointMapper.GetPoint(Sudoku.Concepts.Absolute,Sudoku.Concepts.CellAlignment)">
             <summary>
-            Returns the position (point) of the specified corner type of the specified cell.
+            Returns the position (point) of the specified alignment type of the specified cell.
             </summary>
             <param name="absoluteCellIndex">Absolute cell index.</param>
-            <param name="type">The type.</param>
+            <param name="alignment">The cell alignment.</param>
             <returns>The point instance that represents the target center position.</returns>
             <exception cref="T:System.ArgumentOutOfRangeException">
-            Throws when <paramref name="type"/> is not defined or <see cref="F:Sudoku.Concepts.CellCornerType.None"/>.
+            Throws when <paramref name="alignment"/> is not defined or <see cref="F:Sudoku.Concepts.CellAlignment.None"/>.
             </exception>
-            <seealso cref="F:Sudoku.Concepts.CellCornerType.None"/>
+            <seealso cref="F:Sudoku.Concepts.CellAlignment.None"/>
         </member>
-        <member name="M:Sudoku.Graphics.PointMapper.GetPoint(Sudoku.Concepts.Absolute,Sudoku.Concepts.Absolute,Sudoku.Concepts.CellCornerType)">
+        <member name="M:Sudoku.Graphics.PointMapper.GetPoint(Sudoku.Concepts.Absolute,Sudoku.Concepts.Absolute,Sudoku.Concepts.CellAlignment)">
             <summary>
-            Returns the position (point) of the specified corner type of the specified cell.
+            Returns the position (point) of the specified alignment type of the specified cell.
             </summary>
             <param name="absoluteRowIndex">Absolute row index.</param>
             <param name="absoluteColumnIndex">Absolute column index.</param>
-            <param name="type">The type.</param>
+            <param name="alignment">The cell alignment type.</param>
             <returns>The point instance that represents the target center position.</returns>
             <exception cref="T:System.ArgumentOutOfRangeException">
-            Throws when <paramref name="type"/> is not defined or <see cref="F:Sudoku.Concepts.CellCornerType.None"/>.
+            Throws when <paramref name="alignment"/> is not defined or <see cref="F:Sudoku.Concepts.CellAlignment.None"/>.
             </exception>
-            <seealso cref="F:Sudoku.Concepts.CellCornerType.None"/>
+            <seealso cref="F:Sudoku.Concepts.CellAlignment.None"/>
         </member>
         <member name="T:Sudoku.Graphics.Primitives.ICanvas`1">
             <summary>

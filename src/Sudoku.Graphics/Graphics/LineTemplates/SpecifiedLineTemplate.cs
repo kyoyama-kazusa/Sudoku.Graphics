@@ -74,10 +74,10 @@ public sealed class SpecifiedLineTemplate(LineSegment[] thickLineSegments, LineS
 		foreach (var (cellIndex, directions) in ThickLineSegments)
 		{
 			drawLine(
-				mapper.GetPoint(cellIndex, CellCornerType.TopLeft),
-				mapper.GetPoint(cellIndex, CellCornerType.TopRight),
-				mapper.GetPoint(cellIndex, CellCornerType.BottomLeft),
-				mapper.GetPoint(cellIndex, CellCornerType.BottomRight),
+				mapper.GetPoint(cellIndex, CellAlignment.TopLeft),
+				mapper.GetPoint(cellIndex, CellAlignment.TopRight),
+				mapper.GetPoint(cellIndex, CellAlignment.BottomLeft),
+				mapper.GetPoint(cellIndex, CellAlignment.BottomRight),
 				directions,
 				thickLinesPaint
 			);
@@ -85,10 +85,10 @@ public sealed class SpecifiedLineTemplate(LineSegment[] thickLineSegments, LineS
 		foreach (var (cellIndex, directions) in ThinLineSegments)
 		{
 			drawLine(
-				mapper.GetPoint(cellIndex, CellCornerType.TopLeft),
-				mapper.GetPoint(cellIndex, CellCornerType.TopRight),
-				mapper.GetPoint(cellIndex, CellCornerType.BottomLeft),
-				mapper.GetPoint(cellIndex, CellCornerType.BottomRight),
+				mapper.GetPoint(cellIndex, CellAlignment.TopLeft),
+				mapper.GetPoint(cellIndex, CellAlignment.TopRight),
+				mapper.GetPoint(cellIndex, CellAlignment.BottomLeft),
+				mapper.GetPoint(cellIndex, CellAlignment.BottomRight),
 				directions,
 				thinLinesPaint
 			);

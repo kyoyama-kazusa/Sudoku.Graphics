@@ -20,7 +20,7 @@ public partial class Canvas
 			Options.SmallTextFontWidth.Resolve(Options),
 			Options.SmallTextFontSlant.Resolve(Options)
 		);
-		var cellTopLeft = Mapper.GetPoint(cell, CellCornerType.TopLeft);
+		var cellTopLeft = Mapper.GetPoint(cell, CellAlignment.TopLeft);
 		var candidateSize = Mapper.CellSize / splitSize;
 		var candidateRowIndex = innerPosition / splitSize;
 		var candidateColumnIndex = innerPosition % splitSize;
