@@ -52,9 +52,5 @@ public sealed partial class Canvas(PointMapper mapper, CanvasDrawingOptions? opt
 	public partial void DrawSmallText(string text, Absolute cell, int innerPosition, int splitSize, SKColor color);
 	public partial void Dispose();
 	public partial void Export(string path, CanvasExportingOptions? options = null);
-
-
-	/// <inheritdoc/>
-	void ICanvasExport.Export<TOptions>(string path, TOptions? options) where TOptions : default
-		=> Export(path, options as CanvasExportingOptions);
+	public partial void Export<TOptions>(string path, TOptions? options) where TOptions : notnull, IOptionsProvider<TOptions>, new();
 }

@@ -1,4 +1,6 @@
-﻿namespace Sudoku.Graphics;
+﻿using System.Threading;
+
+namespace Sudoku.Graphics;
 
 public partial class Canvas
 {
@@ -26,4 +28,8 @@ public partial class Canvas
 				_ => throw new NotSupportedException()
 			};
 	}
+
+	/// <inheritdoc/>
+	public partial void Export<TOptions>(string path, TOptions? options) where TOptions : notnull, IOptionsProvider<TOptions>, new()
+		=> Export(path, options as CanvasExportingOptions);
 }
