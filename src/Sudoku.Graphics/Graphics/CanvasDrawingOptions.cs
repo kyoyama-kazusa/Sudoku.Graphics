@@ -164,12 +164,12 @@ public sealed class CanvasDrawingOptions : IOptionsProvider<CanvasDrawingOptions
 		Inherited<LineDashSequence>.FromPropertyName(nameof(ThickLineDashSequence));
 
 	/// <summary>
-	/// Represents grid line template to be drawn. By default it will be initialized like
-	/// <c><see langword="new"/> <see cref="StandardLineTemplate"/>(3)</c>.
+	/// Represents grid line template to be drawn.
+	/// By default it will be initialized like <c><see langword="new"/> <see cref="StandardLineTemplate"/>()</c>.
 	/// </summary>
 	/// <seealso cref="StandardLineTemplate"/>
 	[ResourceKey("GridLineTemplate")]
-	public LineTemplate GridLineTemplate { get; set; } = new StandardLineTemplate(3);
+	public LineTemplate GridLineTemplate { get; set; } = new StandardLineTemplate();
 
 	/// <summary>
 	/// Represents text color set. The default color set contains 5 different colors.
