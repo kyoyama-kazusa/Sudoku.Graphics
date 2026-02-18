@@ -5,8 +5,7 @@
 /// </summary>
 /// <typeparam name="T">The type of value.</typeparam>
 [JsonConverter(typeof(ConverterFactory))]
-public sealed class Inherited<T> : IEquatable<Inherited<T>>, IEqualityOperators<Inherited<T>, Inherited<T>, bool>
-	where T : notnull
+public sealed class Inherited<T> : IEquatable<Inherited<T>>, IEqualityOperators<Inherited<T>, Inherited<T>, bool> where T : notnull
 {
 	/// <summary>
 	/// Represents property name of referenced path to be serialized and deserialized.
