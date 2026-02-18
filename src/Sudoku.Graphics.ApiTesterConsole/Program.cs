@@ -9,7 +9,6 @@
 using System;
 using System.IO;
 using System.Text.Json;
-using SkiaSharp;
 using Sudoku.ComponentModel;
 using Sudoku.Concepts;
 using Sudoku.Graphics;
