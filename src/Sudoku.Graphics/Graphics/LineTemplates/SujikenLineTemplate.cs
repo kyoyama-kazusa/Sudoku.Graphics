@@ -4,7 +4,7 @@
 /// Represents Sujiken (halfdoku) line template.
 /// </summary>
 /// <param name="uniformSize">The uniformed value.</param>
-public sealed class SujikenLineTemplate(Relative uniformSize) : RectangularBlockLineTemplate
+public sealed class SujikenLineTemplate(Relative uniformSize) : IndividualBlockLineTemplate
 {
 	/// <summary>
 	/// Provides extra lookup dictionary.

@@ -5,7 +5,7 @@
 /// </summary>
 /// <param name="rowBlockSize"><inheritdoc cref="RowBlockSize" path="/summary"/></param>
 /// <param name="columnBlockSize"><inheritdoc cref="ColumnBlockSize" path="/summary"/></param>
-public sealed class StandardLineTemplate(Relative rowBlockSize, Relative columnBlockSize) : RectangularBlockLineTemplate
+public sealed class StandardLineTemplate(Relative rowBlockSize, Relative columnBlockSize) : IndividualBlockLineTemplate
 {
 	/// <summary>
 	/// Initializes a <see cref="StandardLineTemplate"/> instance,

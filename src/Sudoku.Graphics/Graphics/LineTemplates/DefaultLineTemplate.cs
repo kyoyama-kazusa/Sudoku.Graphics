@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a default line template that doesn't contain any block (thick) lines (except borders).
 /// </summary>
-public sealed class DefaultLineTemplate : RectangularBlockLineTemplate
+public sealed class DefaultLineTemplate : IndividualBlockLineTemplate
 {
 	/// <summary>
 	/// Indicates whether border lines should be drawn as thick lines or not.

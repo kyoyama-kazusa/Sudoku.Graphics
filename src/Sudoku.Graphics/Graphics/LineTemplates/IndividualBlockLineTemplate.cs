@@ -1,9 +1,9 @@
 ﻿namespace Sudoku.Graphics.LineTemplates;
 
 /// <summary>
-/// Represents a line template that draws with a general way because the blocks are rectangular ones to be drawn.
+/// Represents a line template that draws thick and thin lines in a normal way.
 /// </summary>
-public abstract class RectangularBlockLineTemplate : LineTemplate
+public abstract class IndividualBlockLineTemplate : LineTemplate
 {
 	/// <summary>
 	/// Indicates whether thick lines will be applied with dash sequence or not.

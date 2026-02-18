@@ -1290,6 +1290,63 @@
         <member name="M:Sudoku.Graphics.LineTemplates.DefaultLineTemplate.DrawGridLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate">
+            <summary>
+            Represents a line template that draws thick and thin lines in a normal way.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.EnableDashForThickLines">
+            <summary>
+            Indicates whether thick lines will be applied with dash sequence or not.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.EnableDashForThinLines">
+            <summary>
+            Indicates whether thin lines will be applied with dash sequence or not.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.DrawLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.GuardStatements(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+            <summary>
+            Provides guard statements. If failed, an exception instance of type <see cref="T:System.ArgumentException"/> will be thrown.
+            </summary>
+            <exception cref="T:System.ArgumentException">Throws when any assertion defined in this method is failed.</exception>
+        </member>
+        <member name="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.DrawBorderRectangle(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+            <summary>
+            Try to draw border rectangle.
+            </summary>
+            <inheritdoc cref="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.DrawLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.DrawGridLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+            <summary>
+            Try to draw grid lines.
+            </summary>
+            <inheritdoc cref="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.DrawLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.CreateThickLinesPaint(Sudoku.Graphics.PointMapper,Sudoku.Graphics.CanvasDrawingOptions)">
+            <summary>
+            Creates an <see cref="T:SkiaSharp.SKPaint"/> instance that will be used
+            in method <see cref="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.DrawGridLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)"/>.
+            </summary>
+            <remarks>
+            The return value of this method should be modified with keyword <see langword="using"/>,
+            in order to keep disposal of this instance.
+            </remarks>
+            <seealso cref="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.DrawGridLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)"/>.
+        </member>
+        <member name="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.CreateThinLinesPaint(Sudoku.Graphics.PointMapper,Sudoku.Graphics.CanvasDrawingOptions)">
+            <summary>
+            Creates an <see cref="T:SkiaSharp.SKPaint"/> instance that will be used
+            in method <see cref="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.DrawGridLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)"/>.
+            </summary>
+            <remarks>
+            <inheritdoc cref="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.CreateThickLinesPaint(Sudoku.Graphics.PointMapper,Sudoku.Graphics.CanvasDrawingOptions)" path="/remarks"/>
+            </remarks>
+            <seealso cref="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.DrawGridLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)"/>.
+        </member>
         <member name="T:Sudoku.Graphics.LineTemplates.JigsawLineTemplate">
             <summary>
             Represents irregular (jigsaw) line template.
@@ -1312,65 +1369,14 @@
             </summary>
             <seealso cref="P:Sudoku.Graphics.CanvasDrawingOptions.JSudokuColorSet"/>
         </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.JigsawLineTemplate.DrawLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+        <member name="M:Sudoku.Graphics.LineTemplates.JigsawLineTemplate.GuardStatements(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
             <inheritdoc/>
         </member>
-        <member name="T:Sudoku.Graphics.LineTemplates.RectangularBlockLineTemplate">
-            <summary>
-            Represents a line template that draws with a general way because the blocks are rectangular ones to be drawn.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.LineTemplates.RectangularBlockLineTemplate.EnableDashForThickLines">
-            <summary>
-            Indicates whether thick lines will be applied with dash sequence or not.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.LineTemplates.RectangularBlockLineTemplate.EnableDashForThinLines">
-            <summary>
-            Indicates whether thin lines will be applied with dash sequence or not.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.RectangularBlockLineTemplate.DrawLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+        <member name="M:Sudoku.Graphics.LineTemplates.JigsawLineTemplate.DrawBorderRectangle(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.RectangularBlockLineTemplate.GuardStatements(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
-            <summary>
-            Provides guard statements. If failed, an exception instance of type <see cref="T:System.ArgumentException"/> will be thrown.
-            </summary>
-            <exception cref="T:System.ArgumentException">Throws when any assertion defined in this method is failed.</exception>
-        </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.RectangularBlockLineTemplate.DrawBorderRectangle(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
-            <summary>
-            Try to draw border rectangle.
-            </summary>
-            <inheritdoc cref="M:Sudoku.Graphics.LineTemplates.RectangularBlockLineTemplate.DrawLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.RectangularBlockLineTemplate.DrawGridLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
-            <summary>
-            Try to draw grid lines.
-            </summary>
-            <inheritdoc cref="M:Sudoku.Graphics.LineTemplates.RectangularBlockLineTemplate.DrawLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.RectangularBlockLineTemplate.CreateThickLinesPaint(Sudoku.Graphics.PointMapper,Sudoku.Graphics.CanvasDrawingOptions)">
-            <summary>
-            Creates an <see cref="T:SkiaSharp.SKPaint"/> instance that will be used
-            in method <see cref="M:Sudoku.Graphics.LineTemplates.RectangularBlockLineTemplate.DrawGridLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)"/>.
-            </summary>
-            <remarks>
-            The return value of this method should be modified with keyword <see langword="using"/>,
-            in order to keep disposal of this instance.
-            </remarks>
-            <seealso cref="M:Sudoku.Graphics.LineTemplates.RectangularBlockLineTemplate.DrawGridLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)"/>.
-        </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.RectangularBlockLineTemplate.CreateThinLinesPaint(Sudoku.Graphics.PointMapper,Sudoku.Graphics.CanvasDrawingOptions)">
-            <summary>
-            Creates an <see cref="T:SkiaSharp.SKPaint"/> instance that will be used
-            in method <see cref="M:Sudoku.Graphics.LineTemplates.RectangularBlockLineTemplate.DrawGridLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)"/>.
-            </summary>
-            <remarks>
-            <inheritdoc cref="M:Sudoku.Graphics.LineTemplates.RectangularBlockLineTemplate.CreateThickLinesPaint(Sudoku.Graphics.PointMapper,Sudoku.Graphics.CanvasDrawingOptions)" path="/remarks"/>
-            </remarks>
-            <seealso cref="M:Sudoku.Graphics.LineTemplates.RectangularBlockLineTemplate.DrawGridLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)"/>.
+        <member name="M:Sudoku.Graphics.LineTemplates.JigsawLineTemplate.DrawGridLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.LineTemplates.SpecifiedLineTemplate">
             <summary>

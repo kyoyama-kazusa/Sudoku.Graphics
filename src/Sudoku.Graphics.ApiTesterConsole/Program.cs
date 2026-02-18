@@ -9,30 +9,30 @@
 using System;
 using System.IO;
 using System.Text.Json;
-using Sudoku.ComponentModel.Tetris;
 using Sudoku.Concepts;
 using Sudoku.Graphics;
 using Sudoku.Graphics.LineTemplates;
 
 var desktop = Environment.DesktopPath;
-var mapper = new PointMapper(cellSize: 120, margin: 15, gridSizeInfo: new(rowsCount: 9, columnsCount: 9, vector: new(0, 6, 0, 0)));
+var mapper = new PointMapper(cellSize: 120, margin: 15, gridSizeInfo: new(rowsCount: 9, columnsCount: 9, vector: DirectionVector.Zero));
 using var canvas = new Canvas(
 	mapper: mapper,
 	options: new()
 	{
 		GridLineTemplate = new AggregatedLineTemplate(
-			new StandardLineTemplate(),
-			new SpecifiedLineTemplate
-			{
-				ThickLineSegments = [
-					.. Piece.O.GetOutline(RotationType.None, mapper, 10, 0),
-					.. Piece.T.GetOutline(RotationType.None, mapper, 10, 3),
-					.. Piece.J.GetOutline(RotationType.None, mapper, 10, 6),
-					.. Piece.L.GetOutline(RotationType.None, mapper, 13, 0),
-					.. Piece.S.GetOutline(RotationType.None, mapper, 13, 3),
-					.. Piece.Z.GetOutline(RotationType.None, mapper, 13, 6)
-				]
-			}
+			new StandardLineTemplate()
+			//,
+			//new SpecifiedLineTemplate
+			//{
+			//	ThickLineSegments = [
+			//		.. Piece.O.GetOutline(RotationType.None, mapper, 10, 0),
+			//		.. Piece.T.GetOutline(RotationType.None, mapper, 10, 3),
+			//		.. Piece.J.GetOutline(RotationType.None, mapper, 10, 6),
+			//		.. Piece.L.GetOutline(RotationType.None, mapper, 13, 0),
+			//		.. Piece.S.GetOutline(RotationType.None, mapper, 13, 3),
+			//		.. Piece.Z.GetOutline(RotationType.None, mapper, 13, 6)
+			//	]
+			//}
 		)
 		//GridLineTemplate = new JigsawLineTemplate
 		//{
@@ -57,7 +57,7 @@ canvas.FillBackground();
 canvas.DrawLines();
 canvas.Export(Path.Combine(desktop, "output.png"), new() { Quality = 100 });
 
-canvas.Options.WriteTo(Path.Combine(Environment.DesktopPath, "output.json"), Options);
+canvas.Options.WriteTo(Path.Combine(Environment.DesktopPath, "drawing-config.json"), Options);
 Console.WriteLine("Okay.");
 
 

@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents irregular (jigsaw) line template.
 /// </summary>
-public sealed class JigsawLineTemplate : LineTemplate
+public sealed class JigsawLineTemplate : IndividualBlockLineTemplate
 {
 	/// <summary>
 	/// Indicates the relative cell index groups.
@@ -24,26 +24,20 @@ public sealed class JigsawLineTemplate : LineTemplate
 
 
 	/// <inheritdoc/>
-	public override void DrawLines(PointMapper mapper, SKCanvas canvas, CanvasDrawingOptions options)
+	protected override void GuardStatements(PointMapper mapper, SKCanvas canvas, CanvasDrawingOptions options)
 	{
-		using var thickLinePaint = new SKPaint
-		{
-			Style = SKPaintStyle.Stroke,
-			Color = options.ThickLineColor.Resolve(options),
-			StrokeWidth = options.ThickLineWidth.Resolve(options).Measure(mapper.CellSize),
-			StrokeCap = SKStrokeCap.Round,
-			IsAntialias = false,
-			PathEffect = options.ThickLineDashSequence.Resolve(options) switch { { IsEmpty: false } sequence => sequence, _ => null }
-		};
-		using var thinLinePaint = new SKPaint
-		{
-			Style = SKPaintStyle.Stroke,
-			Color = options.ThinLineColor.Resolve(options),
-			StrokeWidth = options.ThinLineWidth.Resolve(options).Measure(mapper.CellSize),
-			StrokeCap = SKStrokeCap.Round,
-			IsAntialias = false,
-			PathEffect = options.ThinLineDashSequence.Resolve(options) switch { { IsEmpty: false } sequence => sequence, _ => null }
-		};
+	}
+
+	/// <inheritdoc/>
+	protected override void DrawBorderRectangle(PointMapper mapper, SKCanvas canvas, CanvasDrawingOptions options)
+	{
+	}
+
+	/// <inheritdoc/>
+	protected override void DrawGridLines(PointMapper mapper, SKCanvas canvas, CanvasDrawingOptions options)
+	{
+		using var thickLinePaint = CreateThickLinesPaint(mapper, options);
+		using var thinLinePaint = CreateThinLinesPaint(mapper, options);
 
 		// Iterate on each cell index group.
 		var groupIndex = 0;

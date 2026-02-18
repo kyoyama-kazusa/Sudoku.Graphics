@@ -5,7 +5,7 @@
 /// </summary>
 /// <param name="thickLineSegments"><inheritdoc cref="ThickLineSegments" path="/summary"/></param>
 /// <param name="thinLineSegments"><inheritdoc cref="ThickLineSegments" path="/summary"/></param>
-public sealed class SpecifiedLineTemplate(LineSegment[] thickLineSegments, LineSegment[] thinLineSegments) : RectangularBlockLineTemplate
+public sealed class SpecifiedLineTemplate(LineSegment[] thickLineSegments, LineSegment[] thinLineSegments) : IndividualBlockLineTemplate
 {
 	/// <summary>
 	/// Initializes a <see cref="SpecifiedLineTemplate"/> instance.
