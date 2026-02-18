@@ -8,8 +8,21 @@
 /// <param name="vector"><inheritdoc cref="Vector" path="/summary"/></param>
 /// <seealso cref="LineTemplate"/>
 [method: SetsRequiredMembers]
-public sealed class LineTemplateSize(Absolute rowsCount, Absolute columnsCount, DirectionVector vector)
+public sealed class LineTemplateSize(Absolute rowsCount, Absolute columnsCount, DirectionVector vector) :
+	IEquatable<LineTemplateSize>,
+	IEqualityOperators<LineTemplateSize, LineTemplateSize, bool>
 {
+	/// <summary>
+	/// Initializes a <see cref="LineTemplateSize"/> instance via the other <see cref="LineTemplateSize"/> instance,
+	/// copying all properties from it.
+	/// </summary>
+	/// <param name="other">The other instance to be copied.</param>
+	[SetsRequiredMembers]
+	public LineTemplateSize(LineTemplateSize other) : this(other.RowsCount, other.ColumnsCount, other.Vector)
+	{
+	}
+
+
 	/// <summary>
 	/// Indicates the number of rows in main sudoku grid.
 	/// </summary>
@@ -38,6 +51,16 @@ public sealed class LineTemplateSize(Absolute rowsCount, Absolute columnsCount, 
 	public required DirectionVector Vector { get; init; } = vector;
 
 
+	/// <inheritdoc/>
+	public override bool Equals([NotNullWhen(true)] object? obj) => Equals(obj as LineTemplateSize);
+
+	/// <inheritdoc/>
+	public bool Equals([NotNullWhen(true)] LineTemplateSize? other)
+		=> other is not null && RowsCount == other.RowsCount && ColumnsCount == other.ColumnsCount && Vector == other.Vector;
+
+	/// <inheritdoc/>
+	public override int GetHashCode() => HashCode.Combine(RowsCount, ColumnsCount, Vector);
+
 	/// <summary>
 	/// Creates a new <see cref="LineTemplateSize"/> instance via the specified offset of the current instance.
 	/// </summary>
@@ -46,4 +69,42 @@ public sealed class LineTemplateSize(Absolute rowsCount, Absolute columnsCount, 
 	/// <returns>A new <see cref="LineTemplateSize"/> instance.</returns>
 	public LineTemplateSize WithOffset(Relative rowsCount, Relative columnsCount)
 		=> new(RowsCount, ColumnsCount, Vector + new DirectionVector(columnsCount, 0, rowsCount, 0));
+
+
+	/// <summary>
+	/// Creates a <see cref="LineTemplateSize"/> instance via the specified list of templates.
+	/// Such templates will be drawn into one <see cref="Canvas"/> instance, aligning as top-left cell <c>(0, 0)</c>.
+	/// </summary>
+	/// <param name="templates">The templates.</param>
+	/// <returns>A <see cref="LineTemplateSize"/> instance that is the minimal size, covering all templates specified.</returns>
+	/// <seealso cref="Canvas"/>
+	public static LineTemplateSize Create(params ReadOnlySpan<LineTemplate> templates)
+	{
+		if (templates.IsEmpty)
+		{
+			return new(0, 0, DirectionVector.Zero);
+		}
+
+		var (maxRowsCount, maxColumnsCount) = (0, 0);
+		foreach (var template in templates)
+		{
+			if (template.Mapper.AbsoluteRowsCount is var r && r >= maxRowsCount)
+			{
+				maxRowsCount = r;
+			}
+			if (template.Mapper.AbsoluteColumnsCount is var c && c >= maxColumnsCount)
+			{
+				maxColumnsCount = c;
+			}
+		}
+		return new(maxRowsCount, maxColumnsCount, DirectionVector.Zero);
+	}
+
+
+	/// <inheritdoc/>
+	public static bool operator ==(LineTemplateSize? left, LineTemplateSize? right)
+		=> (left, right) switch { (null, null) => true, (not null, not null) => left.Equals(right), _ => false };
+
+	/// <inheritdoc/>
+	public static bool operator !=(LineTemplateSize? left, LineTemplateSize? right) => !(left == right);
 }

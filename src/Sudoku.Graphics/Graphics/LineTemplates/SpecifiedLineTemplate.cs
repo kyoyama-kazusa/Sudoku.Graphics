@@ -5,12 +5,15 @@
 /// </summary>
 /// <param name="thickLineSegments"><inheritdoc cref="ThickLineSegments" path="/summary"/></param>
 /// <param name="thinLineSegments"><inheritdoc cref="ThickLineSegments" path="/summary"/></param>
-public sealed class SpecifiedLineTemplate(LineSegment[] thickLineSegments, LineSegment[] thinLineSegments) : IndividualBlockLineTemplate
+/// <param name="mapper"><inheritdoc cref="LineTemplate(PointMapper)" path="/param[@name='mapper']"/></param>
+[method: JsonConstructor]
+public sealed class SpecifiedLineTemplate(LineSegment[] thickLineSegments, LineSegment[] thinLineSegments, PointMapper mapper) : IndividualBlockLineTemplate(mapper)
 {
 	/// <summary>
-	/// Initializes a <see cref="SpecifiedLineTemplate"/> instance.
+	/// Initializes a <see cref="SpecifiedLineTemplate"/> instance via the specified mapper.
 	/// </summary>
-	public SpecifiedLineTemplate() : this([], [])
+	/// <param name="mapper">The mapper.</param>
+	public SpecifiedLineTemplate(PointMapper mapper) : this([], [], mapper)
 	{
 	}
 
@@ -27,9 +30,9 @@ public sealed class SpecifiedLineTemplate(LineSegment[] thickLineSegments, LineS
 
 
 	/// <inheritdoc/>
-	protected override void GuardStatements(PointMapper mapper, SKCanvas canvas, CanvasDrawingOptions options)
+	protected override void GuardStatements(SKCanvas canvas, CanvasDrawingOptions options)
 	{
-		var maxCellIndex = mapper.AbsoluteRowsCount * mapper.AbsoluteColumnsCount;
+		var maxCellIndex = Mapper.AbsoluteRowsCount * Mapper.AbsoluteColumnsCount;
 		foreach (var (cellIndex, directions) in ThickLineSegments)
 		{
 			checkRange(cellIndex, maxCellIndex);
@@ -62,22 +65,22 @@ public sealed class SpecifiedLineTemplate(LineSegment[] thickLineSegments, LineS
 	}
 
 	/// <inheritdoc/>
-	protected override void DrawBorderRectangle(PointMapper mapper, SKCanvas canvas, CanvasDrawingOptions options)
+	protected override void DrawBorderRectangle(SKCanvas canvas, CanvasDrawingOptions options)
 	{
 	}
 
 	/// <inheritdoc/>
-	protected override void DrawGridLines(PointMapper mapper, SKCanvas canvas, CanvasDrawingOptions options)
+	protected override void DrawGridLines(SKCanvas canvas, CanvasDrawingOptions options)
 	{
-		using var thickLinesPaint = CreateThickLinesPaint(mapper, options);
-		using var thinLinesPaint = CreateThinLinesPaint(mapper, options);
+		using var thickLinesPaint = CreateThickLinesPaint(options);
+		using var thinLinesPaint = CreateThinLinesPaint(options);
 		foreach (var (cellIndex, directions) in ThickLineSegments)
 		{
 			drawLine(
-				mapper.GetPoint(cellIndex, CellAlignment.TopLeft),
-				mapper.GetPoint(cellIndex, CellAlignment.TopRight),
-				mapper.GetPoint(cellIndex, CellAlignment.BottomLeft),
-				mapper.GetPoint(cellIndex, CellAlignment.BottomRight),
+				Mapper.GetPoint(cellIndex, CellAlignment.TopLeft),
+				Mapper.GetPoint(cellIndex, CellAlignment.TopRight),
+				Mapper.GetPoint(cellIndex, CellAlignment.BottomLeft),
+				Mapper.GetPoint(cellIndex, CellAlignment.BottomRight),
 				directions,
 				thickLinesPaint
 			);
@@ -85,10 +88,10 @@ public sealed class SpecifiedLineTemplate(LineSegment[] thickLineSegments, LineS
 		foreach (var (cellIndex, directions) in ThinLineSegments)
 		{
 			drawLine(
-				mapper.GetPoint(cellIndex, CellAlignment.TopLeft),
-				mapper.GetPoint(cellIndex, CellAlignment.TopRight),
-				mapper.GetPoint(cellIndex, CellAlignment.BottomLeft),
-				mapper.GetPoint(cellIndex, CellAlignment.BottomRight),
+				Mapper.GetPoint(cellIndex, CellAlignment.TopLeft),
+				Mapper.GetPoint(cellIndex, CellAlignment.TopRight),
+				Mapper.GetPoint(cellIndex, CellAlignment.BottomLeft),
+				Mapper.GetPoint(cellIndex, CellAlignment.BottomRight),
 				directions,
 				thinLinesPaint
 			);

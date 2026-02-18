@@ -3,7 +3,9 @@
 /// <summary>
 /// Represents a default line template that doesn't contain any block (thick) lines (except borders).
 /// </summary>
-public sealed class DefaultLineTemplate : IndividualBlockLineTemplate
+/// <param name="mapper"><inheritdoc cref="LineTemplate(PointMapper)" path="/param[@name='mapper']"/></param>
+[method: JsonConstructor]
+public sealed class DefaultLineTemplate(PointMapper mapper) : IndividualBlockLineTemplate(mapper)
 {
 	/// <summary>
 	/// Indicates whether border lines should be drawn as thick lines or not.
@@ -13,48 +15,48 @@ public sealed class DefaultLineTemplate : IndividualBlockLineTemplate
 
 
 	/// <inheritdoc/>
-	protected override void GuardStatements(PointMapper mapper, SKCanvas canvas, CanvasDrawingOptions options)
+	protected override void GuardStatements(SKCanvas canvas, CanvasDrawingOptions options)
 	{
 	}
 
 	/// <inheritdoc/>
-	protected override void DrawBorderRectangle(PointMapper mapper, SKCanvas canvas, CanvasDrawingOptions options)
+	protected override void DrawBorderRectangle(SKCanvas canvas, CanvasDrawingOptions options)
 	{
 		var path = new SKPath();
 		path.AddRoundRect(
 			new(
 				SKRect.Create(
-					mapper.Margin + mapper.CellSize * mapper.Vector.Left,
-					mapper.Margin + mapper.CellSize * mapper.Vector.Up,
-					mapper.GridDrawingSize.Width,
-					mapper.GridDrawingSize.Height
+					Mapper.Margin + Mapper.CellSize * Mapper.Vector.Left,
+					Mapper.Margin + Mapper.CellSize * Mapper.Vector.Up,
+					Mapper.GridDrawingSize.Width,
+					Mapper.GridDrawingSize.Height
 				),
-				options.GridBorderRoundedRectangleCornerRadius.Resolve(options).Measure(mapper.CellSize)
+				options.GridBorderRoundedRectangleCornerRadius.Resolve(options).Measure(Mapper.CellSize)
 			)
 		);
 
-		using var borderPaint = DrawBordersAsThickLines ? CreateThickLinesPaint(mapper, options) : CreateThinLinesPaint(mapper, options);
+		using var borderPaint = DrawBordersAsThickLines ? CreateThickLinesPaint(options) : CreateThinLinesPaint(options);
 		canvas.DrawPath(path, borderPaint);
 	}
 
 	/// <inheritdoc/>
-	protected override void DrawGridLines(PointMapper mapper, SKCanvas canvas, CanvasDrawingOptions options)
+	protected override void DrawGridLines(SKCanvas canvas, CanvasDrawingOptions options)
 	{
-		using var thinLinePaint = CreateThinLinesPaint(mapper, options);
+		using var thinLinePaint = CreateThinLinesPaint(options);
 
 		// Horizontal lines.
-		for (var i = 1; i < mapper.RowsCount; i++)
+		for (var i = 1; i < Mapper.RowsCount; i++)
 		{
-			var a = mapper.GetPoint(mapper.Vector.Up + i, (Absolute)mapper.Vector.Left, CellAlignment.TopLeft);
-			var b = a + new SKPoint(mapper.ColumnsCount * mapper.CellSize, 0);
+			var a = Mapper.GetPoint(Mapper.Vector.Up + i, (Absolute)Mapper.Vector.Left, CellAlignment.TopLeft);
+			var b = a + new SKPoint(Mapper.ColumnsCount * Mapper.CellSize, 0);
 			canvas.DrawLine(a, b, thinLinePaint);
 		}
 
 		// Vertical lines.
-		for (var i = 1; i < mapper.ColumnsCount; i++)
+		for (var i = 1; i < Mapper.ColumnsCount; i++)
 		{
-			var a = mapper.GetPoint((Absolute)mapper.Vector.Up, mapper.Vector.Left + i, CellAlignment.TopLeft);
-			var b = a + new SKPoint(0, mapper.RowsCount * mapper.CellSize);
+			var a = Mapper.GetPoint((Absolute)Mapper.Vector.Up, Mapper.Vector.Left + i, CellAlignment.TopLeft);
+			var b = a + new SKPoint(0, Mapper.RowsCount * Mapper.CellSize);
 			canvas.DrawLine(a, b, thinLinePaint);
 		}
 	}

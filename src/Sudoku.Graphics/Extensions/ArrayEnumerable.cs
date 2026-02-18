@@ -15,7 +15,7 @@ public static class ArrayEnumerable
 			var i = 0;
 			foreach (var element in source)
 			{
-				result[i++] = (i, element);
+				result[i] = (i++, element);
 			}
 			return result;
 		}

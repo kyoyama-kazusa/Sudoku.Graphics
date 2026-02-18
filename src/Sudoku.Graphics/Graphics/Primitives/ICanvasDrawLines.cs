@@ -6,7 +6,7 @@
 public interface ICanvasDrawLines
 {
 	/// <summary>
-	/// Try to draw lines.
+	/// Draws thick and thin lines onto the target templates of the canvas.
 	/// </summary>
 	void DrawLines();
 }

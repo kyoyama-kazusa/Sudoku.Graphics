@@ -138,9 +138,6 @@
   <data name="GridBorderRoundedRectangleCornerRadius" xml:space="preserve">
     <value>Corner radius of grid border</value>
   </data>
-  <data name="GridLineTemplate" xml:space="preserve">
-    <value>Grid line template</value>
-  </data>
   <data name="JSudokuColorSet" xml:space="preserve">
     <value>JSudoku color set</value>
   </data>
@@ -165,17 +162,11 @@
   <data name="ThickLineColor" xml:space="preserve">
     <value>Color of thick lines</value>
   </data>
-  <data name="ThickLineDashSequence" xml:space="preserve">
-    <value>Thick line dash</value>
-  </data>
   <data name="ThickLineWidth" xml:space="preserve">
     <value>Width of thick lines</value>
   </data>
   <data name="ThinLineColor" xml:space="preserve">
     <value>Color of thin lines</value>
-  </data>
-  <data name="ThinLineDashSequence" xml:space="preserve">
-    <value>Thin line dash</value>
   </data>
   <data name="ThinLineWidth" xml:space="preserve">
     <value>Width of thin lines</value>

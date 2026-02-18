@@ -9,34 +9,36 @@
 using System;
 using System.IO;
 using System.Text.Json;
+using Sudoku.ComponentModel;
 using Sudoku.Concepts;
 using Sudoku.Graphics;
 using Sudoku.Graphics.LineTemplates;
 
 var desktop = Environment.DesktopPath;
-var mapper = new PointMapper(cellSize: 120, margin: 15, templateSize: new(rowsCount: 9, columnsCount: 9, vector: DirectionVector.Zero));
+var defaultTemplateSize = new LineTemplateSize(9, 9, DirectionVector.Zero);
+var defaultMapper = new PointMapper(120, 15, defaultTemplateSize);
 using var canvas = new Canvas(
-	mapper: mapper,
-	options: new()
-	{
-		GridLineTemplate = new AggregatedLineTemplate(
-			new StandardLineTemplate()
-			//,
-			//new SpecifiedLineTemplate
-			//{
-			//	ThickLineSegments = [
-			//		.. Piece.O.GetOutline(RotationType.None, mapper, 10, 0),
-			//		.. Piece.T.GetOutline(RotationType.None, mapper, 10, 3),
-			//		.. Piece.J.GetOutline(RotationType.None, mapper, 10, 6),
-			//		.. Piece.L.GetOutline(RotationType.None, mapper, 13, 0),
-			//		.. Piece.S.GetOutline(RotationType.None, mapper, 13, 3),
-			//		.. Piece.Z.GetOutline(RotationType.None, mapper, 13, 6)
-			//	]
-			//}
-		)
-		//GridLineTemplate = new JigsawLineTemplate
-		//{
-		//	CellIndexGroups = [
+	[
+		new StandardLineTemplate(defaultMapper),
+		new StandardLineTemplate(new(defaultMapper) { TemplateSize = new(defaultTemplateSize) { Vector = new(1, 0) } })
+		{
+			ThickLineDashSequence = [20, 20],
+			ThinLineDashSequence = [10, 10]
+		}
+		//new SpecifiedLineTemplate(
+		//	[
+		//		.. Piece.O.GetOutline(RotationType.None, defaultMapper, 10, 0),
+		//		.. Piece.T.GetOutline(RotationType.None, defaultMapper, 10, 3),
+		//		.. Piece.J.GetOutline(RotationType.None, defaultMapper, 10, 6),
+		//		.. Piece.L.GetOutline(RotationType.None, defaultMapper, 13, 0),
+		//		.. Piece.S.GetOutline(RotationType.None, defaultMapper, 13, 3),
+		//		.. Piece.Z.GetOutline(RotationType.None, defaultMapper, 13, 6)
+		//	],
+		//	[],
+		//	defaultMapper
+		//)
+		//new JigsawLineTemplate(
+		//	[
 		//		[0, 1, 2, 9, 10, 11, 12, 21, 22],
 		//		[3, 4, 5, 6, 7, 13, 14, 15, 16],
 		//		[8, 17, 23, 24, 25, 26, 31, 32, 34],
@@ -47,11 +49,14 @@ using var canvas = new Canvas(
 		//		[49, 50, 52, 59, 60, 61, 62, 71, 80],
 		//		[67, 68, 69, 70, 75, 76, 77, 78, 79]
 		//	],
+		//	defaultMapper
+		//)
+		//{
 		//	//AlsoFillGroups = true
 		//}
-		//GridLineTemplate = new SujikenLineTemplate(3)
-		//GridLineTemplate = new DefaultLineTemplate()
-	}
+		//new SujikenLineTemplate(defaultMapper)
+		//new DefaultLineTemplate(defaultMapper)
+	]
 );
 canvas.FillBackground();
 canvas.DrawLines();

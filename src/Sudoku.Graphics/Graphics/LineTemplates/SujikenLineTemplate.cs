@@ -3,8 +3,7 @@
 /// <summary>
 /// Represents Sujiken (halfdoku) line template.
 /// </summary>
-/// <param name="uniformSize">The uniformed value.</param>
-public sealed class SujikenLineTemplate(Relative uniformSize) : IndividualBlockLineTemplate
+public sealed class SujikenLineTemplate : IndividualBlockLineTemplate
 {
 	/// <summary>
 	/// Provides extra lookup dictionary.
@@ -13,82 +12,111 @@ public sealed class SujikenLineTemplate(Relative uniformSize) : IndividualBlockL
 
 
 	/// <summary>
+	/// Initializes a <see cref="SujikenLineTemplate"/> instance via the specified mapper.
+	/// </summary>
+	/// <param name="mapper">The mapper.</param>
+	/// <exception cref="ArgumentException">
+	/// Throws when the mapper doesn't represents a grid with standard <c>n * n</c> size.
+	/// </exception>
+	public SujikenLineTemplate(PointMapper mapper) : base(mapper)
+	{
+		var linesCount = mapper.RowsCount;
+		var squareRootOfLinesCount = (int)Math.Sqrt(linesCount);
+		UniformBlockSize = squareRootOfLinesCount * squareRootOfLinesCount == linesCount
+			? squareRootOfLinesCount
+			: throw new ArgumentException(message_InvalidCount(nameof(UniformBlockSize)));
+
+
+		static string message_InvalidCount(string propertyName)
+			=> $"The argument '{propertyName}' isn't a square number when it is uninitialized.";
+	}
+
+	/// <summary>
+	/// Initializes a <see cref="SujikenLineTemplate"/> instance via the specified mapper and uniform block size.
+	/// </summary>
+	/// <param name="uniformSize">The uniformed value.</param>
+	/// <param name="mapper">The mapper.</param>
+	[JsonConstructor]
+	public SujikenLineTemplate(Relative uniformSize, PointMapper mapper) : this(mapper) => UniformBlockSize = uniformSize;
+
+
+	/// <summary>
 	/// Indicates the number of rows and columns in a block.
 	/// </summary>
-	public Relative UniformBlockSize { get; } = uniformSize;
+	public Relative UniformBlockSize { get; }
 
 
 	/// <inheritdoc/>
-	protected override void GuardStatements(PointMapper mapper, SKCanvas canvas, CanvasDrawingOptions options)
+	protected override void GuardStatements(SKCanvas canvas, CanvasDrawingOptions options)
 	{
-		ArgumentException.Assert(mapper.RowsCount % UniformBlockSize == 0);
-		ArgumentException.Assert(mapper.ColumnsCount % UniformBlockSize == 0);
-		ArgumentException.Assert(mapper.RowsCount == mapper.ColumnsCount);
+		ArgumentException.Assert(Mapper.RowsCount % UniformBlockSize == 0);
+		ArgumentException.Assert(Mapper.ColumnsCount % UniformBlockSize == 0);
+		ArgumentException.Assert(Mapper.RowsCount == Mapper.ColumnsCount);
 	}
 
 	/// <inheritdoc/>
 	[MemberNotNull(nameof(_rowCellIndicesLookup), nameof(_columnCellIndicesLookup))]
-	protected override void DrawBorderRectangle(PointMapper mapper, SKCanvas canvas, CanvasDrawingOptions options)
+	protected override void DrawBorderRectangle(SKCanvas canvas, CanvasDrawingOptions options)
 	{
 		_rowCellIndicesLookup = [];
 		_columnCellIndicesLookup = [];
 
 		var path = new SKPath();
 		var iteratingCellIndex = 0;
-		var iteratingPoint = mapper.GetPoint(mapper.GetAbsoluteIndex(iteratingCellIndex), CellAlignment.TopLeft);
+		var iteratingPoint = Mapper.GetPoint(Mapper.GetAbsoluteIndex(iteratingCellIndex), CellAlignment.TopLeft);
 		var diagonalPoints = new List<SKPoint> { iteratingPoint };
-		for (var i = 0; i < mapper.RowsCount - 1; i++)
+		for (var i = 0; i < Mapper.RowsCount - 1; i++)
 		{
 			iteratingCellIndex++;
-			diagonalPoints.Add(mapper.GetPoint(mapper.GetAbsoluteIndex(iteratingCellIndex), CellAlignment.TopLeft));
+			diagonalPoints.Add(Mapper.GetPoint(Mapper.GetAbsoluteIndex(iteratingCellIndex), CellAlignment.TopLeft));
 			_rowCellIndicesLookup.Add(i, iteratingCellIndex - 1);
 
-			iteratingCellIndex += mapper.ColumnsCount;
-			diagonalPoints.Add(mapper.GetPoint(mapper.GetAbsoluteIndex(iteratingCellIndex), CellAlignment.TopLeft));
+			iteratingCellIndex += Mapper.ColumnsCount;
+			diagonalPoints.Add(Mapper.GetPoint(Mapper.GetAbsoluteIndex(iteratingCellIndex), CellAlignment.TopLeft));
 			_columnCellIndicesLookup.Add(i, iteratingCellIndex);
 		}
 
-		_rowCellIndicesLookup.Add(mapper.RowsCount - 1, mapper.RowsCount * mapper.ColumnsCount - 1);
-		_columnCellIndicesLookup.Add(mapper.RowsCount - 1, mapper.RowsCount * mapper.ColumnsCount - 1);
+		_rowCellIndicesLookup.Add(Mapper.RowsCount - 1, Mapper.RowsCount * Mapper.ColumnsCount - 1);
+		_columnCellIndicesLookup.Add(Mapper.RowsCount - 1, Mapper.RowsCount * Mapper.ColumnsCount - 1);
 
-		var lastCellIndex = mapper.GetAbsoluteIndex(mapper.RowsCount * mapper.ColumnsCount - 1);
-		var firstCellIndexInLastRow = mapper.GetAbsoluteIndex((mapper.RowsCount - 1) * mapper.ColumnsCount);
+		var lastCellIndex = Mapper.GetAbsoluteIndex(Mapper.RowsCount * Mapper.ColumnsCount - 1);
+		var firstCellIndexInLastRow = Mapper.GetAbsoluteIndex((Mapper.RowsCount - 1) * Mapper.ColumnsCount);
 
 		path.AddPoly(
 			[
 				.. diagonalPoints,
-				mapper.GetPoint(lastCellIndex, CellAlignment.TopRight),
-				mapper.GetPoint(lastCellIndex, CellAlignment.BottomRight),
-				mapper.GetPoint(firstCellIndexInLastRow, CellAlignment.BottomLeft)
+				Mapper.GetPoint(lastCellIndex, CellAlignment.TopRight),
+				Mapper.GetPoint(lastCellIndex, CellAlignment.BottomRight),
+				Mapper.GetPoint(firstCellIndexInLastRow, CellAlignment.BottomLeft)
 			],
 			true
 		);
-		using var borderPaint = CreateThickLinesPaint(mapper, options);
+		using var borderPaint = CreateThickLinesPaint(options);
 		canvas.DrawPath(path, borderPaint);
 	}
 
 	/// <inheritdoc/>
-	protected override void DrawGridLines(PointMapper mapper, SKCanvas canvas, CanvasDrawingOptions options)
+	protected override void DrawGridLines(SKCanvas canvas, CanvasDrawingOptions options)
 	{
 		Debug.Assert(_rowCellIndicesLookup is not null);
 		Debug.Assert(_columnCellIndicesLookup is not null);
 
-		using var thickLinePaint = CreateThickLinesPaint(mapper, options);
-		using var thinLinePaint = CreateThinLinesPaint(mapper, options);
+		using var thickLinePaint = CreateThickLinesPaint(options);
+		using var thinLinePaint = CreateThinLinesPaint(options);
 
 		// Horizontal lines.
-		for (var i = 0; i < mapper.RowsCount; i++)
+		for (var i = 0; i < Mapper.RowsCount; i++)
 		{
-			var a = mapper.GetPoint(mapper.GetAbsoluteIndex(i * mapper.ColumnsCount), CellAlignment.TopLeft);
-			var b = mapper.GetPoint(mapper.GetAbsoluteIndex(_rowCellIndicesLookup[i]), CellAlignment.TopLeft);
+			var a = Mapper.GetPoint(Mapper.GetAbsoluteIndex(i * Mapper.ColumnsCount), CellAlignment.TopLeft);
+			var b = Mapper.GetPoint(Mapper.GetAbsoluteIndex(_rowCellIndicesLookup[i]), CellAlignment.TopLeft);
 			canvas.DrawLine(a, b, i % UniformBlockSize == 0 ? thickLinePaint : thinLinePaint);
 		}
 
 		// Vertical lines.
-		for (var i = 1; i < mapper.ColumnsCount; i++)
+		for (var i = 1; i < Mapper.ColumnsCount; i++)
 		{
-			var a = mapper.GetPoint(mapper.GetAbsoluteIndex(_columnCellIndicesLookup[i - 1]), CellAlignment.TopLeft);
-			var b = mapper.GetPoint(mapper.GetAbsoluteIndex(mapper.RowsCount * mapper.ColumnsCount + i), CellAlignment.TopLeft);
+			var a = Mapper.GetPoint(Mapper.GetAbsoluteIndex(_columnCellIndicesLookup[i - 1]), CellAlignment.TopLeft);
+			var b = Mapper.GetPoint(Mapper.GetAbsoluteIndex(Mapper.RowsCount * Mapper.ColumnsCount + i), CellAlignment.TopLeft);
 			canvas.DrawLine(a, b, i % UniformBlockSize == 0 ? thickLinePaint : thinLinePaint);
 		}
 	}

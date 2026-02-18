@@ -7,7 +7,10 @@
 /// <param name="margin"><inheritdoc cref="Margin" path="/summary"/></param>
 /// <param name="templateSize"><inheritdoc cref="TemplateSize" path="/summary"/></param>
 [method: SetsRequiredMembers]
-public sealed class PointMapper(float cellSize, float margin, LineTemplateSize templateSize)
+[method: JsonConstructor]
+public sealed class PointMapper(float cellSize, float margin, LineTemplateSize templateSize) :
+	IEquatable<PointMapper>,
+	IEqualityOperators<PointMapper, PointMapper, bool>
 {
 	/// <summary>
 	/// Initializes a <see cref="PointMapper"/> instance via the specified information.
@@ -17,9 +20,19 @@ public sealed class PointMapper(float cellSize, float margin, LineTemplateSize t
 	/// <param name="rowsCount"><inheritdoc cref="RowsCount" path="/summary"/></param>
 	/// <param name="columnsCount"><inheritdoc cref="ColumnsCount" path="/summary"/></param>
 	/// <param name="vector"><inheritdoc cref="Vector" path="/summary"/></param>
-	[method: SetsRequiredMembers]
+	[SetsRequiredMembers]
 	public PointMapper(float cellSize, float margin, Absolute rowsCount, Absolute columnsCount, DirectionVector vector) :
 		this(cellSize, margin, new(rowsCount, columnsCount, vector))
+	{
+	}
+
+	/// <summary>
+	/// Initializes a <see cref="PointMapper"/> instance via the other <see cref="PointMapper"/> instance,
+	/// copying all properties from it.
+	/// </summary>
+	/// <param name="other">The other instance to be copied.</param>
+	[SetsRequiredMembers]
+	public PointMapper(PointMapper other) : this(other.CellSize, other.Margin, other.TemplateSize)
 	{
 	}
 
@@ -68,6 +81,16 @@ public sealed class PointMapper(float cellSize, float margin, LineTemplateSize t
 	/// </summary>
 	public required LineTemplateSize TemplateSize { get; init; } = templateSize;
 
+
+	/// <inheritdoc/>
+	public override bool Equals([NotNullWhen(true)] object? obj) => Equals(obj as PointMapper);
+
+	/// <inheritdoc/>
+	public bool Equals([NotNullWhen(true)] PointMapper? other)
+		=> other is not null && CellSize == other.CellSize && Margin == other.Margin && TemplateSize == other.TemplateSize;
+
+	/// <inheritdoc/>
+	public override int GetHashCode() => HashCode.Combine(CellSize, Margin, TemplateSize);
 
 	/// <summary>
 	/// Projects the specified relative cell index into absolute one.
@@ -199,4 +222,12 @@ public sealed class PointMapper(float cellSize, float margin, LineTemplateSize t
 			_ => throw new ArgumentOutOfRangeException(nameof(alignment))
 		};
 	}
+
+
+	/// <inheritdoc/>
+	public static bool operator ==(PointMapper? left, PointMapper? right)
+		=> (left, right) switch { (null, null) => true, (not null, not null) => left.Equals(right), _ => false };
+
+	/// <inheritdoc/>
+	public static bool operator !=(PointMapper? left, PointMapper? right) => !(left == right);
 }

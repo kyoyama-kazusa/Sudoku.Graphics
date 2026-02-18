@@ -3,104 +3,113 @@
 /// <summary>
 /// Represents a standard (rectangular) line template.
 /// </summary>
-/// <param name="rowBlockSize"><inheritdoc cref="RowBlockSize" path="/summary"/></param>
-/// <param name="columnBlockSize"><inheritdoc cref="ColumnBlockSize" path="/summary"/></param>
-public sealed class StandardLineTemplate(Relative rowBlockSize, Relative columnBlockSize) : IndividualBlockLineTemplate
+public sealed class StandardLineTemplate : IndividualBlockLineTemplate
 {
 	/// <summary>
-	/// Initializes a <see cref="StandardLineTemplate"/> instance,
-	/// keeping <see cref="RowBlockSize"/> and <see cref="ColumnBlockSize"/> uninitialized -
-	/// they will be replaced when <see cref="PointMapper"/> instances are given and known.
+	/// Initializes a <see cref="PointMapper"/> instance via the specified mapper.
 	/// </summary>
-	/// <seealso cref="RowBlockSize"/>
-	/// <seealso cref="ColumnBlockSize"/>
-	/// <seealso cref="PointMapper"/>
-	public StandardLineTemplate() : this(-1, -1)
+	/// <param name="mapper">The mapper.</param>
+	/// <exception cref="ArgumentException">Throws when the rows and columns cannot be divisable by template size.</exception>
+	public StandardLineTemplate(PointMapper mapper) : base(mapper)
 	{
-	}
+		var rowsCount = mapper.RowsCount;
+		var squareRootOfRowsCount = (int)Math.Sqrt(rowsCount);
+		RowBlockSize = squareRootOfRowsCount * squareRootOfRowsCount == rowsCount
+			? squareRootOfRowsCount
+			: throw new ArgumentException(message_InvalidCount(nameof(RowBlockSize)));
 
-	/// <summary>
-	/// Initializes a <see cref="StandardLineTemplate"/> instance via the specified size as uniformed value.
-	/// </summary>
-	/// <param name="uniformSize">The uniformed value.</param>
-	public StandardLineTemplate(Relative uniformSize) : this(uniformSize, uniformSize)
-	{
-	}
+		var columnsCount = mapper.ColumnsCount;
+		var squareRootOfColumnsCount = (int)Math.Sqrt(columnsCount);
+		ColumnBlockSize = squareRootOfColumnsCount * squareRootOfColumnsCount == columnsCount
+			? squareRootOfColumnsCount
+			: throw new ArgumentException(message_InvalidCount(nameof(ColumnBlockSize)));
 
-
-	/// <summary>
-	/// Indicates the number of rows in a rectangular block. The value may be -1 if uninitialized.
-	/// </summary>
-	public Relative RowBlockSize { get; private set; } = rowBlockSize;
-
-	/// <summary>
-	/// Indicates the number of columns in a rectangular block. The value may be -1 if uninitialized.
-	/// </summary>
-	public Relative ColumnBlockSize { get; private set; } = columnBlockSize;
-
-
-	/// <inheritdoc/>
-	protected override void GuardStatements(PointMapper mapper, SKCanvas canvas, CanvasDrawingOptions options)
-	{
-		if (RowBlockSize == -1)
-		{
-			var n = mapper.RowsCount;
-			var s = (int)Math.Sqrt(n);
-			RowBlockSize = s * s == n ? s : throw new ArgumentException(message_InvalidCount(nameof(RowBlockSize)));
-		}
-		if (ColumnBlockSize == -1)
-		{
-			var n = mapper.ColumnsCount;
-			var s = (int)Math.Sqrt(n);
-			ColumnBlockSize = s * s == n ? s : throw new ArgumentException(message_InvalidCount(nameof(ColumnBlockSize)));
-		}
-
-		ArgumentException.Assert(mapper.RowsCount % RowBlockSize == 0);
-		ArgumentException.Assert(mapper.ColumnsCount % ColumnBlockSize == 0);
+		ArgumentException.Assert(rowsCount % squareRootOfRowsCount == 0);
+		ArgumentException.Assert(columnsCount % squareRootOfColumnsCount == 0);
 
 
 		static string message_InvalidCount(string propertyName)
 			=> $"The argument '{propertyName}' isn't a square number when it is uninitialized.";
 	}
 
+	/// <summary>
+	/// Initializes a <see cref="StandardLineTemplate"/> instance via the specified number of rows and columns as block size,
+	/// and the point mapper instance.
+	/// </summary>
+	/// <param name="rowBlockSize"><inheritdoc cref="RowBlockSize" path="/summary"/></param>
+	/// <param name="columnBlockSize"><inheritdoc cref="ColumnBlockSize" path="/summary"/></param>
+	/// <param name="mapper">The mapper.</param>
+	[JsonConstructor]
+	public StandardLineTemplate(Relative rowBlockSize, Relative columnBlockSize, PointMapper mapper) : base(mapper)
+	{
+		RowBlockSize = rowBlockSize;
+		ColumnBlockSize = columnBlockSize;
+	}
+
+	/// <summary>
+	/// Initializes a <see cref="StandardLineTemplate"/> instance via the specified size as uniformed value.
+	/// </summary>
+	/// <param name="uniformSize">The uniformed value.</param>
+	/// <param name="mapper">The mapper.</param>
+	public StandardLineTemplate(Relative uniformSize, PointMapper mapper) : this(uniformSize, uniformSize, mapper)
+	{
+	}
+
+
+	/// <summary>
+	/// Indicates the number of rows in a rectangular block.
+	/// </summary>
+	public Relative RowBlockSize { get; }
+
+	/// <summary>
+	/// Indicates the number of columns in a rectangular block.
+	/// </summary>
+	public Relative ColumnBlockSize { get; }
+
+
 	/// <inheritdoc/>
-	protected override void DrawBorderRectangle(PointMapper mapper, SKCanvas canvas, CanvasDrawingOptions options)
+	protected override void GuardStatements(SKCanvas canvas, CanvasDrawingOptions options)
+	{
+	}
+
+	/// <inheritdoc/>
+	protected override void DrawBorderRectangle(SKCanvas canvas, CanvasDrawingOptions options)
 	{
 		var path = new SKPath();
 		path.AddRoundRect(
 			new(
 				SKRect.Create(
-					mapper.Margin + mapper.CellSize * mapper.Vector.Left,
-					mapper.Margin + mapper.CellSize * mapper.Vector.Up,
-					mapper.GridDrawingSize.Width,
-					mapper.GridDrawingSize.Height
+					Mapper.Margin + Mapper.CellSize * Mapper.Vector.Left,
+					Mapper.Margin + Mapper.CellSize * Mapper.Vector.Up,
+					Mapper.GridDrawingSize.Width,
+					Mapper.GridDrawingSize.Height
 				),
-				options.GridBorderRoundedRectangleCornerRadius.Resolve(options).Measure(mapper.CellSize)
+				options.GridBorderRoundedRectangleCornerRadius.Resolve(options).Measure(Mapper.CellSize)
 			)
 		);
-		using var borderPaint = CreateThickLinesPaint(mapper, options);
+		using var borderPaint = CreateThickLinesPaint(options);
 		canvas.DrawPath(path, borderPaint);
 	}
 
 	/// <inheritdoc/>
-	protected override void DrawGridLines(PointMapper mapper, SKCanvas canvas, CanvasDrawingOptions options)
+	protected override void DrawGridLines(SKCanvas canvas, CanvasDrawingOptions options)
 	{
-		using var thickLinePaint = CreateThickLinesPaint(mapper, options);
-		using var thinLinePaint = CreateThinLinesPaint(mapper, options);
+		using var thickLinePaint = CreateThickLinesPaint(options);
+		using var thinLinePaint = CreateThinLinesPaint(options);
 
 		// Horizontal lines.
-		for (var i = 1; i < mapper.RowsCount; i++)
+		for (var i = 1; i < Mapper.RowsCount; i++)
 		{
-			var a = mapper.GetPoint(mapper.Vector.Up + i, (Absolute)mapper.Vector.Left, CellAlignment.TopLeft);
-			var b = a + new SKPoint(mapper.ColumnsCount * mapper.CellSize, 0);
+			var a = Mapper.GetPoint(Mapper.Vector.Up + i, (Absolute)Mapper.Vector.Left, CellAlignment.TopLeft);
+			var b = a + new SKPoint(Mapper.ColumnsCount * Mapper.CellSize, 0);
 			canvas.DrawLine(a, b, i % RowBlockSize == 0 ? thickLinePaint : thinLinePaint);
 		}
 
 		// Vertical lines.
-		for (var i = 1; i < mapper.ColumnsCount; i++)
+		for (var i = 1; i < Mapper.ColumnsCount; i++)
 		{
-			var a = mapper.GetPoint((Absolute)mapper.Vector.Up, mapper.Vector.Left + i, CellAlignment.TopLeft);
-			var b = a + new SKPoint(0, mapper.RowsCount * mapper.CellSize);
+			var a = Mapper.GetPoint((Absolute)Mapper.Vector.Up, Mapper.Vector.Left + i, CellAlignment.TopLeft);
+			var b = a + new SKPoint(0, Mapper.RowsCount * Mapper.CellSize);
 			canvas.DrawLine(a, b, i % ColumnBlockSize == 0 ? thickLinePaint : thinLinePaint);
 		}
 	}

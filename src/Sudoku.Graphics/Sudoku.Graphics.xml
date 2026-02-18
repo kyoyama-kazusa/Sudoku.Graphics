@@ -264,6 +264,13 @@
             <param name="vector"><inheritdoc cref="P:Sudoku.ComponentModel.LineTemplateSize.Vector" path="/summary"/></param>
             <seealso cref="T:Sudoku.Graphics.LineTemplate"/>
         </member>
+        <member name="M:Sudoku.ComponentModel.LineTemplateSize.#ctor(Sudoku.ComponentModel.LineTemplateSize)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.ComponentModel.LineTemplateSize"/> instance via the other <see cref="T:Sudoku.ComponentModel.LineTemplateSize"/> instance,
+            copying all properties from it.
+            </summary>
+            <param name="other">The other instance to be copied.</param>
+        </member>
         <member name="P:Sudoku.ComponentModel.LineTemplateSize.RowsCount">
             <summary>
             Indicates the number of rows in main sudoku grid.
@@ -291,6 +298,15 @@
             Indicates empty cells count reserved to be empty.
             </summary>
         </member>
+        <member name="M:Sudoku.ComponentModel.LineTemplateSize.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.LineTemplateSize.Equals(Sudoku.ComponentModel.LineTemplateSize)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.LineTemplateSize.GetHashCode">
+            <inheritdoc/>
+        </member>
         <member name="M:Sudoku.ComponentModel.LineTemplateSize.WithOffset(Sudoku.Concepts.Relative,Sudoku.Concepts.Relative)">
             <summary>
             Creates a new <see cref="T:Sudoku.ComponentModel.LineTemplateSize"/> instance via the specified offset of the current instance.
@@ -298,6 +314,21 @@
             <param name="rowsCount">The number of rows.</param>
             <param name="columnsCount">The number of columns.</param>
             <returns>A new <see cref="T:Sudoku.ComponentModel.LineTemplateSize"/> instance.</returns>
+        </member>
+        <member name="M:Sudoku.ComponentModel.LineTemplateSize.Create(System.ReadOnlySpan{Sudoku.Graphics.LineTemplate})">
+            <summary>
+            Creates a <see cref="T:Sudoku.ComponentModel.LineTemplateSize"/> instance via the specified list of templates.
+            Such templates will be drawn into one <see cref="T:Sudoku.Graphics.Canvas"/> instance, aligning as top-left cell <c>(0, 0)</c>.
+            </summary>
+            <param name="templates">The templates.</param>
+            <returns>A <see cref="T:Sudoku.ComponentModel.LineTemplateSize"/> instance that is the minimal size, covering all templates specified.</returns>
+            <seealso cref="T:Sudoku.Graphics.Canvas"/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.LineTemplateSize.op_Equality(Sudoku.ComponentModel.LineTemplateSize,Sudoku.ComponentModel.LineTemplateSize)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.LineTemplateSize.op_Inequality(Sudoku.ComponentModel.LineTemplateSize,Sudoku.ComponentModel.LineTemplateSize)">
+            <inheritdoc/>
         </member>
         <member name="T:Sudoku.ComponentModel.Scale">
             <summary>
@@ -890,43 +921,31 @@
             <summary>
             Represents a canvas object that allows you drawing items onto it.
             </summary>
-            <param name="mapper"><inheritdoc cref="P:Sudoku.Graphics.Canvas.Mapper" path="/summary"/></param>
-            <param name="options"><inheritdoc cref="P:Sudoku.Graphics.Canvas.Options" path="/summary"/></param>
-        </member>
-        <member name="M:Sudoku.Graphics.Canvas.#ctor(Sudoku.Graphics.PointMapper,Sudoku.Graphics.CanvasDrawingOptions)">
-            <summary>
-            Represents a canvas object that allows you drawing items onto it.
-            </summary>
-            <param name="mapper"><inheritdoc cref="P:Sudoku.Graphics.Canvas.Mapper" path="/summary"/></param>
-            <param name="options"><inheritdoc cref="P:Sudoku.Graphics.Canvas.Options" path="/summary"/></param>
         </member>
         <member name="F:Sudoku.Graphics.Canvas._surface">
             <summary>
             Indicates the backing surface.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Canvas.Margin">
-            <inheritdoc cref="P:Sudoku.Graphics.PointMapper.Margin"/>
-        </member>
-        <member name="P:Sudoku.Graphics.Canvas.CellSize">
-            <inheritdoc cref="P:Sudoku.Graphics.PointMapper.CellSize"/>
-        </member>
-        <member name="P:Sudoku.Graphics.Canvas.RowsCount">
-            <inheritdoc cref="P:Sudoku.Graphics.PointMapper.RowsCount"/>
-        </member>
-        <member name="P:Sudoku.Graphics.Canvas.ColumnsCount">
-            <inheritdoc cref="P:Sudoku.Graphics.PointMapper.ColumnsCount"/>
-        </member>
-        <member name="P:Sudoku.Graphics.Canvas.Vector">
-            <inheritdoc cref="P:Sudoku.Graphics.PointMapper.Vector"/>
-        </member>
-        <member name="P:Sudoku.Graphics.Canvas.Mapper">
+        <member name="M:Sudoku.Graphics.Canvas.#ctor(Sudoku.Graphics.LineTemplate[],Sudoku.Graphics.CanvasDrawingOptions)">
             <summary>
-            Indicates the mapper instance.
+            Initializes a <see cref="T:Sudoku.Graphics.Canvas"/> instance via the specified values.
             </summary>
+            <param name="templates">The templates to be drawn.</param>
+            <param name="options">The drawing options.</param>
         </member>
         <member name="P:Sudoku.Graphics.Canvas.Options">
             <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Canvas.Templates">
+            <summary>
+            Indicates all templates.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Canvas.GlobalTemplateSize">
+            <summary>
+            Indicates the global template size.
+            </summary>
         </member>
         <member name="P:Sudoku.Graphics.Canvas.Sudoku#Graphics#Primitives#ICanvas{Sudoku#Graphics#CanvasDrawingOptions}#BackingCanvas">
             <inheritdoc/>
@@ -943,16 +962,16 @@
         <member name="M:Sudoku.Graphics.Canvas.DrawLines">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Canvas.DrawBigText(System.String,Sudoku.Concepts.Relative,SkiaSharp.SKColor)">
+        <member name="M:Sudoku.Graphics.Canvas.DrawBigText(Sudoku.Graphics.LineTemplate,System.String,Sudoku.Concepts.Relative,SkiaSharp.SKColor)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Canvas.DrawBigText(System.String,Sudoku.Concepts.Absolute,SkiaSharp.SKColor)">
+        <member name="M:Sudoku.Graphics.Canvas.DrawBigText(Sudoku.Graphics.LineTemplate,System.String,Sudoku.Concepts.Absolute,SkiaSharp.SKColor)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Canvas.DrawSmallText(System.String,Sudoku.Concepts.Relative,System.Int32,System.Int32,SkiaSharp.SKColor)">
+        <member name="M:Sudoku.Graphics.Canvas.DrawSmallText(Sudoku.Graphics.LineTemplate,System.String,Sudoku.Concepts.Relative,System.Int32,System.Int32,SkiaSharp.SKColor)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Canvas.DrawSmallText(System.String,Sudoku.Concepts.Absolute,System.Int32,System.Int32,SkiaSharp.SKColor)">
+        <member name="M:Sudoku.Graphics.Canvas.DrawSmallText(Sudoku.Graphics.LineTemplate,System.String,Sudoku.Concepts.Absolute,System.Int32,System.Int32,SkiaSharp.SKColor)">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Canvas.Dispose">
@@ -1097,24 +1116,6 @@
             </summary>
             <seealso cref="P:Sudoku.Graphics.CanvasDrawingOptions.ThinLineColor"/>
         </member>
-        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.ThickLineDashSequence">
-            <summary>
-            Represents thick line dash sequence. By default it's empty array.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.ThinLineDashSequence">
-            <summary>
-            Represents thick line dash sequence. By default it's derived from property <see cref="P:Sudoku.Graphics.CanvasDrawingOptions.ThickLineDashSequence"/>.
-            </summary>
-            <seealso cref="P:Sudoku.Graphics.CanvasDrawingOptions.ThickLineDashSequence"/>
-        </member>
-        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.GridLineTemplate">
-            <summary>
-            Represents grid line template to be drawn.
-            By default it will be initialized like <c><see langword="new"/> <see cref="T:Sudoku.Graphics.LineTemplates.StandardLineTemplate"/>()</c>.
-            </summary>
-            <seealso cref="T:Sudoku.Graphics.LineTemplates.StandardLineTemplate"/>
-        </member>
         <member name="P:Sudoku.Graphics.CanvasDrawingOptions.TextColorSet">
             <summary>
             Represents text color set. The default color set contains 5 different colors.
@@ -1243,39 +1244,38 @@
             Represents a line template type that draws block (thick) and normal (thin) lines
             onto a canvas via the specified configuration.
             </summary>
+            <param name="mapper"><inheritdoc cref="P:Sudoku.Graphics.LineTemplate.Mapper" path="/summary"/></param>
         </member>
-        <member name="M:Sudoku.Graphics.LineTemplate.DrawLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+        <member name="M:Sudoku.Graphics.LineTemplate.#ctor(Sudoku.Graphics.PointMapper)">
+            <summary>
+            Represents a line template type that draws block (thick) and normal (thin) lines
+            onto a canvas via the specified configuration.
+            </summary>
+            <param name="mapper"><inheritdoc cref="P:Sudoku.Graphics.LineTemplate.Mapper" path="/summary"/></param>
+        </member>
+        <member name="P:Sudoku.Graphics.LineTemplate.Mapper">
+            <summary>
+            Indicates point mapper instance.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.LineTemplate.DrawLines(SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
             <summary>
             Try to draw lines onto the target canvas.
             </summary>
-            <param name="mapper">The mapper instance.</param>
             <param name="canvas">The canvas object to receive drawn items.</param>
             <param name="options">The options.</param>
-        </member>
-        <member name="T:Sudoku.Graphics.LineTemplates.AggregatedLineTemplate">
-            <summary>
-            Represents aggreated line template. The template can merge multiple individual <see cref="T:Sudoku.Graphics.LineTemplate"/> instances to be drawn.
-            </summary>
-            <param name="templates">The templates.</param>
-        </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.AggregatedLineTemplate.#ctor(Sudoku.Graphics.LineTemplate[])">
-            <summary>
-            Represents aggreated line template. The template can merge multiple individual <see cref="T:Sudoku.Graphics.LineTemplate"/> instances to be drawn.
-            </summary>
-            <param name="templates">The templates.</param>
-        </member>
-        <member name="P:Sudoku.Graphics.LineTemplates.AggregatedLineTemplate.Templates">
-            <summary>
-            Indicates all templates.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.AggregatedLineTemplate.DrawLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
-            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.LineTemplates.DefaultLineTemplate">
             <summary>
             Represents a default line template that doesn't contain any block (thick) lines (except borders).
             </summary>
+            <param name="mapper"><inheritdoc cref="M:Sudoku.Graphics.LineTemplate.#ctor(Sudoku.Graphics.PointMapper)" path="/param[@name='mapper']"/></param>
+        </member>
+        <member name="M:Sudoku.Graphics.LineTemplates.DefaultLineTemplate.#ctor(Sudoku.Graphics.PointMapper)">
+            <summary>
+            Represents a default line template that doesn't contain any block (thick) lines (except borders).
+            </summary>
+            <param name="mapper"><inheritdoc cref="M:Sudoku.Graphics.LineTemplate.#ctor(Sudoku.Graphics.PointMapper)" path="/param[@name='mapper']"/></param>
         </member>
         <member name="P:Sudoku.Graphics.LineTemplates.DefaultLineTemplate.DrawBordersAsThickLines">
             <summary>
@@ -1283,76 +1283,92 @@
             By default it's <see langword="true"/>.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.DefaultLineTemplate.GuardStatements(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+        <member name="M:Sudoku.Graphics.LineTemplates.DefaultLineTemplate.GuardStatements(SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.DefaultLineTemplate.DrawBorderRectangle(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+        <member name="M:Sudoku.Graphics.LineTemplates.DefaultLineTemplate.DrawBorderRectangle(SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.DefaultLineTemplate.DrawGridLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+        <member name="M:Sudoku.Graphics.LineTemplates.DefaultLineTemplate.DrawGridLines(SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate">
             <summary>
             Represents a line template that draws thick and thin lines in a normal way.
             </summary>
+            <param name="mapper"><inheritdoc cref="M:Sudoku.Graphics.LineTemplate.#ctor(Sudoku.Graphics.PointMapper)" path="/param[@name='mapper']"/></param>
         </member>
-        <member name="P:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.EnableDashForThickLines">
+        <member name="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.#ctor(Sudoku.Graphics.PointMapper)">
             <summary>
-            Indicates whether thick lines will be applied with dash sequence or not.
+            Represents a line template that draws thick and thin lines in a normal way.
+            </summary>
+            <param name="mapper"><inheritdoc cref="M:Sudoku.Graphics.LineTemplate.#ctor(Sudoku.Graphics.PointMapper)" path="/param[@name='mapper']"/></param>
+        </member>
+        <member name="P:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.ThickLineDashSequence">
+            <summary>
+            Indicates thick line dash sequence. By default it's an empty sequence, meaning no dash enabled.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.EnableDashForThinLines">
+        <member name="P:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.ThinLineDashSequence">
             <summary>
-            Indicates whether thin lines will be applied with dash sequence or not.
+            Indicates thin line dash sequence. By default it's an empty sequence, meaning no dash enabled.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.DrawLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+        <member name="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.DrawLines(SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.GuardStatements(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+        <member name="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.GuardStatements(SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
             <summary>
             Provides guard statements. If failed, an exception instance of type <see cref="T:System.ArgumentException"/> will be thrown.
             </summary>
             <exception cref="T:System.ArgumentException">Throws when any assertion defined in this method is failed.</exception>
         </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.DrawBorderRectangle(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+        <member name="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.DrawBorderRectangle(SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
             <summary>
             Try to draw border rectangle.
             </summary>
-            <inheritdoc cref="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.DrawLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)"/>
+            <inheritdoc cref="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.DrawLines(SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)"/>
         </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.DrawGridLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+        <member name="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.DrawGridLines(SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
             <summary>
             Try to draw grid lines.
             </summary>
-            <inheritdoc cref="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.DrawLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)"/>
+            <inheritdoc cref="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.DrawLines(SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)"/>
         </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.CreateThickLinesPaint(Sudoku.Graphics.PointMapper,Sudoku.Graphics.CanvasDrawingOptions)">
+        <member name="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.CreateThickLinesPaint(Sudoku.Graphics.CanvasDrawingOptions)">
             <summary>
             Creates an <see cref="T:SkiaSharp.SKPaint"/> instance that will be used
-            in method <see cref="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.DrawGridLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)"/>.
+            in method <see cref="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.DrawGridLines(SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)"/>.
             </summary>
             <remarks>
             The return value of this method should be modified with keyword <see langword="using"/>,
             in order to keep disposal of this instance.
             </remarks>
-            <seealso cref="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.DrawGridLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)"/>.
+            <seealso cref="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.DrawGridLines(SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)"/>.
         </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.CreateThinLinesPaint(Sudoku.Graphics.PointMapper,Sudoku.Graphics.CanvasDrawingOptions)">
+        <member name="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.CreateThinLinesPaint(Sudoku.Graphics.CanvasDrawingOptions)">
             <summary>
             Creates an <see cref="T:SkiaSharp.SKPaint"/> instance that will be used
-            in method <see cref="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.DrawGridLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)"/>.
+            in method <see cref="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.DrawGridLines(SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)"/>.
             </summary>
             <remarks>
-            <inheritdoc cref="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.CreateThickLinesPaint(Sudoku.Graphics.PointMapper,Sudoku.Graphics.CanvasDrawingOptions)" path="/remarks"/>
+            <inheritdoc cref="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.CreateThickLinesPaint(Sudoku.Graphics.CanvasDrawingOptions)" path="/remarks"/>
             </remarks>
-            <seealso cref="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.DrawGridLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)"/>.
+            <seealso cref="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.DrawGridLines(SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)"/>.
         </member>
         <member name="T:Sudoku.Graphics.LineTemplates.JigsawLineTemplate">
             <summary>
             Represents irregular (jigsaw) line template.
             </summary>
+            <param name="cellIndexGroups"><inheritdoc cref="P:Sudoku.Graphics.LineTemplates.JigsawLineTemplate.CellIndexGroups" path="/summary"/></param>
+            <param name="mapper"><inheritdoc cref="M:Sudoku.Graphics.LineTemplate.#ctor(Sudoku.Graphics.PointMapper)" path="/param[@name='mapper']"/></param>
+        </member>
+        <member name="M:Sudoku.Graphics.LineTemplates.JigsawLineTemplate.#ctor(Sudoku.Concepts.Relative[][],Sudoku.Graphics.PointMapper)">
+            <summary>
+            Represents irregular (jigsaw) line template.
+            </summary>
+            <param name="cellIndexGroups"><inheritdoc cref="P:Sudoku.Graphics.LineTemplates.JigsawLineTemplate.CellIndexGroups" path="/summary"/></param>
+            <param name="mapper"><inheritdoc cref="M:Sudoku.Graphics.LineTemplate.#ctor(Sudoku.Graphics.PointMapper)" path="/param[@name='mapper']"/></param>
         </member>
         <member name="P:Sudoku.Graphics.LineTemplates.JigsawLineTemplate.CellIndexGroups">
             <summary>
@@ -1371,13 +1387,13 @@
             </summary>
             <seealso cref="P:Sudoku.Graphics.CanvasDrawingOptions.JSudokuColorSet"/>
         </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.JigsawLineTemplate.GuardStatements(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+        <member name="M:Sudoku.Graphics.LineTemplates.JigsawLineTemplate.GuardStatements(SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.JigsawLineTemplate.DrawBorderRectangle(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+        <member name="M:Sudoku.Graphics.LineTemplates.JigsawLineTemplate.DrawBorderRectangle(SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.JigsawLineTemplate.DrawGridLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+        <member name="M:Sudoku.Graphics.LineTemplates.JigsawLineTemplate.DrawGridLines(SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.LineTemplates.SpecifiedLineTemplate">
@@ -1386,18 +1402,21 @@
             </summary>
             <param name="thickLineSegments"><inheritdoc cref="P:Sudoku.Graphics.LineTemplates.SpecifiedLineTemplate.ThickLineSegments" path="/summary"/></param>
             <param name="thinLineSegments"><inheritdoc cref="P:Sudoku.Graphics.LineTemplates.SpecifiedLineTemplate.ThickLineSegments" path="/summary"/></param>
+            <param name="mapper"><inheritdoc cref="M:Sudoku.Graphics.LineTemplate.#ctor(Sudoku.Graphics.PointMapper)" path="/param[@name='mapper']"/></param>
         </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.SpecifiedLineTemplate.#ctor(Sudoku.ComponentModel.LineSegment[],Sudoku.ComponentModel.LineSegment[])">
+        <member name="M:Sudoku.Graphics.LineTemplates.SpecifiedLineTemplate.#ctor(Sudoku.ComponentModel.LineSegment[],Sudoku.ComponentModel.LineSegment[],Sudoku.Graphics.PointMapper)">
             <summary>
             Represents a line template that specifies a list of thick and thin lines.
             </summary>
             <param name="thickLineSegments"><inheritdoc cref="P:Sudoku.Graphics.LineTemplates.SpecifiedLineTemplate.ThickLineSegments" path="/summary"/></param>
             <param name="thinLineSegments"><inheritdoc cref="P:Sudoku.Graphics.LineTemplates.SpecifiedLineTemplate.ThickLineSegments" path="/summary"/></param>
+            <param name="mapper"><inheritdoc cref="M:Sudoku.Graphics.LineTemplate.#ctor(Sudoku.Graphics.PointMapper)" path="/param[@name='mapper']"/></param>
         </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.SpecifiedLineTemplate.#ctor">
+        <member name="M:Sudoku.Graphics.LineTemplates.SpecifiedLineTemplate.#ctor(Sudoku.Graphics.PointMapper)">
             <summary>
-            Initializes a <see cref="T:Sudoku.Graphics.LineTemplates.SpecifiedLineTemplate"/> instance.
+            Initializes a <see cref="T:Sudoku.Graphics.LineTemplates.SpecifiedLineTemplate"/> instance via the specified mapper.
             </summary>
+            <param name="mapper">The mapper.</param>
         </member>
         <member name="P:Sudoku.Graphics.LineTemplates.SpecifiedLineTemplate.ThickLineSegments">
             <summary>
@@ -1409,75 +1428,66 @@
             Indicates thin line segments.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.SpecifiedLineTemplate.GuardStatements(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+        <member name="M:Sudoku.Graphics.LineTemplates.SpecifiedLineTemplate.GuardStatements(SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.SpecifiedLineTemplate.DrawBorderRectangle(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+        <member name="M:Sudoku.Graphics.LineTemplates.SpecifiedLineTemplate.DrawBorderRectangle(SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.SpecifiedLineTemplate.DrawGridLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+        <member name="M:Sudoku.Graphics.LineTemplates.SpecifiedLineTemplate.DrawGridLines(SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.LineTemplates.StandardLineTemplate">
             <summary>
             Represents a standard (rectangular) line template.
             </summary>
-            <param name="rowBlockSize"><inheritdoc cref="P:Sudoku.Graphics.LineTemplates.StandardLineTemplate.RowBlockSize" path="/summary"/></param>
-            <param name="columnBlockSize"><inheritdoc cref="P:Sudoku.Graphics.LineTemplates.StandardLineTemplate.ColumnBlockSize" path="/summary"/></param>
         </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.StandardLineTemplate.#ctor(Sudoku.Concepts.Relative,Sudoku.Concepts.Relative)">
+        <member name="M:Sudoku.Graphics.LineTemplates.StandardLineTemplate.#ctor(Sudoku.Graphics.PointMapper)">
             <summary>
-            Represents a standard (rectangular) line template.
+            Initializes a <see cref="T:Sudoku.Graphics.PointMapper"/> instance via the specified mapper.
+            </summary>
+            <param name="mapper">The mapper.</param>
+            <exception cref="T:System.ArgumentException">Throws when the rows and columns cannot be divisable by template size.</exception>
+        </member>
+        <member name="M:Sudoku.Graphics.LineTemplates.StandardLineTemplate.#ctor(Sudoku.Concepts.Relative,Sudoku.Concepts.Relative,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Graphics.LineTemplates.StandardLineTemplate"/> instance via the specified number of rows and columns as block size,
+            and the point mapper instance.
             </summary>
             <param name="rowBlockSize"><inheritdoc cref="P:Sudoku.Graphics.LineTemplates.StandardLineTemplate.RowBlockSize" path="/summary"/></param>
             <param name="columnBlockSize"><inheritdoc cref="P:Sudoku.Graphics.LineTemplates.StandardLineTemplate.ColumnBlockSize" path="/summary"/></param>
+            <param name="mapper">The mapper.</param>
         </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.StandardLineTemplate.#ctor">
-            <summary>
-            Initializes a <see cref="T:Sudoku.Graphics.LineTemplates.StandardLineTemplate"/> instance,
-            keeping <see cref="P:Sudoku.Graphics.LineTemplates.StandardLineTemplate.RowBlockSize"/> and <see cref="P:Sudoku.Graphics.LineTemplates.StandardLineTemplate.ColumnBlockSize"/> uninitialized -
-            they will be replaced when <see cref="T:Sudoku.Graphics.PointMapper"/> instances are given and known.
-            </summary>
-            <seealso cref="P:Sudoku.Graphics.LineTemplates.StandardLineTemplate.RowBlockSize"/>
-            <seealso cref="P:Sudoku.Graphics.LineTemplates.StandardLineTemplate.ColumnBlockSize"/>
-            <seealso cref="T:Sudoku.Graphics.PointMapper"/>
-        </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.StandardLineTemplate.#ctor(Sudoku.Concepts.Relative)">
+        <member name="M:Sudoku.Graphics.LineTemplates.StandardLineTemplate.#ctor(Sudoku.Concepts.Relative,Sudoku.Graphics.PointMapper)">
             <summary>
             Initializes a <see cref="T:Sudoku.Graphics.LineTemplates.StandardLineTemplate"/> instance via the specified size as uniformed value.
             </summary>
             <param name="uniformSize">The uniformed value.</param>
+            <param name="mapper">The mapper.</param>
         </member>
         <member name="P:Sudoku.Graphics.LineTemplates.StandardLineTemplate.RowBlockSize">
             <summary>
-            Indicates the number of rows in a rectangular block. The value may be -1 if uninitialized.
+            Indicates the number of rows in a rectangular block.
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.LineTemplates.StandardLineTemplate.ColumnBlockSize">
             <summary>
-            Indicates the number of columns in a rectangular block. The value may be -1 if uninitialized.
+            Indicates the number of columns in a rectangular block.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.StandardLineTemplate.GuardStatements(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+        <member name="M:Sudoku.Graphics.LineTemplates.StandardLineTemplate.GuardStatements(SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.StandardLineTemplate.DrawBorderRectangle(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+        <member name="M:Sudoku.Graphics.LineTemplates.StandardLineTemplate.DrawBorderRectangle(SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.StandardLineTemplate.DrawGridLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+        <member name="M:Sudoku.Graphics.LineTemplates.StandardLineTemplate.DrawGridLines(SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.LineTemplates.SujikenLineTemplate">
             <summary>
             Represents Sujiken (halfdoku) line template.
             </summary>
-            <param name="uniformSize">The uniformed value.</param>
-        </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.SujikenLineTemplate.#ctor(Sudoku.Concepts.Relative)">
-            <summary>
-            Represents Sujiken (halfdoku) line template.
-            </summary>
-            <param name="uniformSize">The uniformed value.</param>
         </member>
         <member name="F:Sudoku.Graphics.LineTemplates.SujikenLineTemplate._rowCellIndicesLookup">
             <summary>
@@ -1489,18 +1499,34 @@
             Provides extra lookup dictionary.
             </summary>
         </member>
+        <member name="M:Sudoku.Graphics.LineTemplates.SujikenLineTemplate.#ctor(Sudoku.Graphics.PointMapper)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Graphics.LineTemplates.SujikenLineTemplate"/> instance via the specified mapper.
+            </summary>
+            <param name="mapper">The mapper.</param>
+            <exception cref="T:System.ArgumentException">
+            Throws when the mapper doesn't represents a grid with standard <c>n * n</c> size.
+            </exception>
+        </member>
+        <member name="M:Sudoku.Graphics.LineTemplates.SujikenLineTemplate.#ctor(Sudoku.Concepts.Relative,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Graphics.LineTemplates.SujikenLineTemplate"/> instance via the specified mapper and uniform block size.
+            </summary>
+            <param name="uniformSize">The uniformed value.</param>
+            <param name="mapper">The mapper.</param>
+        </member>
         <member name="P:Sudoku.Graphics.LineTemplates.SujikenLineTemplate.UniformBlockSize">
             <summary>
             Indicates the number of rows and columns in a block.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.SujikenLineTemplate.GuardStatements(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+        <member name="M:Sudoku.Graphics.LineTemplates.SujikenLineTemplate.GuardStatements(SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.SujikenLineTemplate.DrawBorderRectangle(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+        <member name="M:Sudoku.Graphics.LineTemplates.SujikenLineTemplate.DrawBorderRectangle(SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.LineTemplates.SujikenLineTemplate.DrawGridLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
+        <member name="M:Sudoku.Graphics.LineTemplates.SujikenLineTemplate.DrawGridLines(SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.PointMapper">
@@ -1528,6 +1554,13 @@
             <param name="rowsCount"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.RowsCount" path="/summary"/></param>
             <param name="columnsCount"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.ColumnsCount" path="/summary"/></param>
             <param name="vector"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.Vector" path="/summary"/></param>
+        </member>
+        <member name="M:Sudoku.Graphics.PointMapper.#ctor(Sudoku.Graphics.PointMapper)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Graphics.PointMapper"/> instance via the other <see cref="T:Sudoku.Graphics.PointMapper"/> instance,
+            copying all properties from it.
+            </summary>
+            <param name="other">The other instance to be copied.</param>
         </member>
         <member name="P:Sudoku.Graphics.PointMapper.CellSize">
             <summary>
@@ -1571,6 +1604,15 @@
             <summary>
             Indicates size information of the target grid to be drawn.
             </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.PointMapper.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.PointMapper.Equals(Sudoku.Graphics.PointMapper)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.PointMapper.GetHashCode">
+            <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.PointMapper.GetAbsoluteIndex(Sudoku.Concepts.Relative)">
             <summary>
@@ -1633,6 +1675,12 @@
             </exception>
             <seealso cref="F:Sudoku.Concepts.CellAlignment.None"/>
         </member>
+        <member name="M:Sudoku.Graphics.PointMapper.op_Equality(Sudoku.Graphics.PointMapper,Sudoku.Graphics.PointMapper)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.PointMapper.op_Inequality(Sudoku.Graphics.PointMapper,Sudoku.Graphics.PointMapper)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.Primitives.ICanvas`1">
             <summary>
             Represents a canvas object.
@@ -1654,18 +1702,20 @@
             Represents a canvas object that supports big-text-drawing methods.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.Primitives.ICanvasDrawBigText.DrawBigText(System.String,Sudoku.Concepts.Relative,SkiaSharp.SKColor)">
+        <member name="M:Sudoku.Graphics.Primitives.ICanvasDrawBigText.DrawBigText(Sudoku.Graphics.LineTemplate,System.String,Sudoku.Concepts.Relative,SkiaSharp.SKColor)">
             <summary>
             Draws the specified text onto the specified cell.
             </summary>
+            <param name="template">The template that the text will be drawn.</param>
             <param name="text">The text.</param>
             <param name="cell">The relative cell.</param>
             <param name="color">The color.</param>
         </member>
-        <member name="M:Sudoku.Graphics.Primitives.ICanvasDrawBigText.DrawBigText(System.String,Sudoku.Concepts.Absolute,SkiaSharp.SKColor)">
+        <member name="M:Sudoku.Graphics.Primitives.ICanvasDrawBigText.DrawBigText(Sudoku.Graphics.LineTemplate,System.String,Sudoku.Concepts.Absolute,SkiaSharp.SKColor)">
             <summary>
             Draws the specified text onto the specified cell.
             </summary>
+            <param name="template">The template that the text will be drawn.</param>
             <param name="text">The text.</param>
             <param name="cell">The absolute cell.</param>
             <param name="color">The color.</param>
@@ -1677,7 +1727,7 @@
         </member>
         <member name="M:Sudoku.Graphics.Primitives.ICanvasDrawLines.DrawLines">
             <summary>
-            Try to draw lines.
+            Draws thick and thin lines onto the target templates of the canvas.
             </summary>
         </member>
         <member name="T:Sudoku.Graphics.Primitives.ICanvasDrawSmallText">
@@ -1685,22 +1735,24 @@
             Represents a canvas object that supports small-text-drawing methods.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.Primitives.ICanvasDrawSmallText.DrawSmallText(System.String,Sudoku.Concepts.Relative,System.Int32,System.Int32,SkiaSharp.SKColor)">
+        <member name="M:Sudoku.Graphics.Primitives.ICanvasDrawSmallText.DrawSmallText(Sudoku.Graphics.LineTemplate,System.String,Sudoku.Concepts.Relative,System.Int32,System.Int32,SkiaSharp.SKColor)">
             <summary>
             Draws the specified text onto the specified cell, with the specified offset values as inner offsets in a cell;
             such offsets are used by drawing candidates.
             </summary>
+            <param name="template">The template that the text will be drawn.</param>
             <param name="text">The text.</param>
             <param name="cell">The relative cell.</param>
             <param name="innerPosition">The inner position.</param>
             <param name="splitSize">The number of inner rows and columns.</param>
             <param name="color">The color.</param>
         </member>
-        <member name="M:Sudoku.Graphics.Primitives.ICanvasDrawSmallText.DrawSmallText(System.String,Sudoku.Concepts.Absolute,System.Int32,System.Int32,SkiaSharp.SKColor)">
+        <member name="M:Sudoku.Graphics.Primitives.ICanvasDrawSmallText.DrawSmallText(Sudoku.Graphics.LineTemplate,System.String,Sudoku.Concepts.Absolute,System.Int32,System.Int32,SkiaSharp.SKColor)">
             <summary>
             Draws the specified text onto the specified cell, with the specified offset values as inner offsets in a cell;
             such offsets are used by drawing candidates.
             </summary>
+            <param name="template">The template that the text will be drawn.</param>
             <param name="text">The text.</param>
             <param name="cell">The absolute cell.</param>
             <param name="innerPosition">The inner position.</param>
@@ -1943,11 +1995,6 @@
               Looks up a localized string similar to Corner radius of grid border.
             </summary>
         </member>
-        <member name="P:Sudoku.Resources.Resource.GridLineTemplate">
-            <summary>
-              Looks up a localized string similar to Grid line template.
-            </summary>
-        </member>
         <member name="P:Sudoku.Resources.Resource.JSudokuColorSet">
             <summary>
               Looks up a localized string similar to JSudoku color set.
@@ -1988,11 +2035,6 @@
               Looks up a localized string similar to Color of thick lines.
             </summary>
         </member>
-        <member name="P:Sudoku.Resources.Resource.ThickLineDashSequence">
-            <summary>
-              Looks up a localized string similar to Thick line dash.
-            </summary>
-        </member>
         <member name="P:Sudoku.Resources.Resource.ThickLineWidth">
             <summary>
               Looks up a localized string similar to Width of thick lines.
@@ -2001,11 +2043,6 @@
         <member name="P:Sudoku.Resources.Resource.ThinLineColor">
             <summary>
               Looks up a localized string similar to Color of thin lines.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Resources.Resource.ThinLineDashSequence">
-            <summary>
-              Looks up a localized string similar to Thin line dash.
             </summary>
         </member>
         <member name="P:Sudoku.Resources.Resource.ThinLineWidth">

@@ -3,12 +3,15 @@
 /// <summary>
 /// Represents irregular (jigsaw) line template.
 /// </summary>
-public sealed class JigsawLineTemplate : IndividualBlockLineTemplate
+/// <param name="cellIndexGroups"><inheritdoc cref="CellIndexGroups" path="/summary"/></param>
+/// <param name="mapper"><inheritdoc cref="LineTemplate(PointMapper)" path="/param[@name='mapper']"/></param>
+[method: JsonConstructor]
+public sealed class JigsawLineTemplate(Relative[][] cellIndexGroups, PointMapper mapper) : IndividualBlockLineTemplate(mapper)
 {
 	/// <summary>
 	/// Indicates the relative cell index groups.
 	/// </summary>
-	public required Relative[][] CellIndexGroups { get; init; }
+	public Relative[][] CellIndexGroups { get; } = cellIndexGroups;
 
 	/// <summary>
 	/// Indicates whether cyclic rule will be checked.
@@ -24,20 +27,20 @@ public sealed class JigsawLineTemplate : IndividualBlockLineTemplate
 
 
 	/// <inheritdoc/>
-	protected override void GuardStatements(PointMapper mapper, SKCanvas canvas, CanvasDrawingOptions options)
+	protected override void GuardStatements(SKCanvas canvas, CanvasDrawingOptions options)
 	{
 	}
 
 	/// <inheritdoc/>
-	protected override void DrawBorderRectangle(PointMapper mapper, SKCanvas canvas, CanvasDrawingOptions options)
+	protected override void DrawBorderRectangle(SKCanvas canvas, CanvasDrawingOptions options)
 	{
 	}
 
 	/// <inheritdoc/>
-	protected override void DrawGridLines(PointMapper mapper, SKCanvas canvas, CanvasDrawingOptions options)
+	protected override void DrawGridLines(SKCanvas canvas, CanvasDrawingOptions options)
 	{
-		using var thickLinePaint = CreateThickLinesPaint(mapper, options);
-		using var thinLinePaint = CreateThinLinesPaint(mapper, options);
+		using var thickLinePaint = CreateThickLinesPaint(options);
+		using var thinLinePaint = CreateThinLinesPaint(options);
 
 		// Iterate on each cell index group.
 		var groupIndex = 0;
@@ -46,7 +49,7 @@ public sealed class JigsawLineTemplate : IndividualBlockLineTemplate
 			var lineSegmentsDictionary = LineSegmentFactory.GetLightupDirections(
 				cellIndices,
 				IsCyclicRuleChecked,
-				mapper,
+				Mapper,
 				out var absoluteCellIndices
 			);
 
@@ -61,10 +64,10 @@ public sealed class JigsawLineTemplate : IndividualBlockLineTemplate
 			// Then draw lines onto it, and also fill with cells if worth.
 			foreach (var (cell, directions) in lineSegmentsDictionary)
 			{
-				var topLeft = mapper.GetPoint(cell, CellAlignment.TopLeft);
-				var topRight = mapper.GetPoint(cell, CellAlignment.TopRight);
-				var bottomLeft = mapper.GetPoint(cell, CellAlignment.BottomLeft);
-				var bottomRight = mapper.GetPoint(cell, CellAlignment.BottomRight);
+				var topLeft = Mapper.GetPoint(cell, CellAlignment.TopLeft);
+				var topRight = Mapper.GetPoint(cell, CellAlignment.TopRight);
+				var bottomLeft = Mapper.GetPoint(cell, CellAlignment.BottomLeft);
+				var bottomRight = Mapper.GetPoint(cell, CellAlignment.BottomRight);
 
 				if (AlsoFillGroups)
 				{

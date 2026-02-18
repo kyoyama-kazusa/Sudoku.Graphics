@@ -3,28 +3,29 @@
 public partial class Canvas
 {
 	/// <inheritdoc/>
-	public partial void DrawSmallText(string text, Relative cell, int innerPosition, int splitSize, SKColor color)
-		=> DrawSmallText(text, Mapper.GetAbsoluteIndex(cell), innerPosition, splitSize, color);
+	public partial void DrawSmallText(LineTemplate template, string text, Relative cell, int innerPosition, int splitSize, SKColor color)
+		=> DrawSmallText(template, text, template.Mapper.GetAbsoluteIndex(cell), innerPosition, splitSize, color);
 
 	/// <inheritdoc/>
-	public partial void DrawSmallText(string text, Absolute cell, int innerPosition, int splitSize, SKColor color)
+	public partial void DrawSmallText(LineTemplate template, string text, Absolute cell, int innerPosition, int splitSize, SKColor color)
 	{
 		// The main idea on drawing candidates is to find for the number of rows and columns in a cell should be drawn,
 		// accommodating all possible candidate values.
 		// The general way is to divide a cell into <c>n * n</c> subcells, in order to fill with each candidate value.
 		// Here variable <c>splitSize</c> represents the variable <c>n</c> (for <c>n * n</c> subcells).
 
+		var mapper = template.Mapper;
 		using var typeface = SKTypeface.FromFamilyName(
 			Options.SmallTextFontName.Resolve(Options),
 			Options.SmallTextFontWeight.Resolve(Options),
 			Options.SmallTextFontWidth.Resolve(Options),
 			Options.SmallTextFontSlant.Resolve(Options)
 		);
-		var cellTopLeft = Mapper.GetPoint(cell, CellAlignment.TopLeft);
-		var candidateSize = Mapper.CellSize / splitSize;
+		var cellTopLeft = mapper.GetPoint(cell, CellAlignment.TopLeft);
+		var candidateSize = mapper.CellSize / splitSize;
 		var candidateRowIndex = innerPosition / splitSize;
 		var candidateColumnIndex = innerPosition % splitSize;
-		var factSize = Options.SmallTextFontSizeScale.Resolve(Options).Measure(Mapper.CellSize) / splitSize;
+		var factSize = Options.SmallTextFontSizeScale.Resolve(Options).Measure(mapper.CellSize) / splitSize;
 		using var textFont = new SKFont(typeface, factSize) { Subpixel = true };
 		using var textPaint = new SKPaint { Color = color };
 		var offset = textFont.MeasureText(text, textPaint);
