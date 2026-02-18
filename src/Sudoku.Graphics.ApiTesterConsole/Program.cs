@@ -14,7 +14,7 @@ using Sudoku.Graphics;
 using Sudoku.Graphics.LineTemplates;
 
 var desktop = Environment.DesktopPath;
-var mapper = new PointMapper(cellSize: 120, margin: 15, gridSizeInfo: new(rowsCount: 9, columnsCount: 9, vector: DirectionVector.Zero));
+var mapper = new PointMapper(cellSize: 120, margin: 15, templateSize: new(rowsCount: 9, columnsCount: 9, vector: DirectionVector.Zero));
 using var canvas = new Canvas(
 	mapper: mapper,
 	options: new()

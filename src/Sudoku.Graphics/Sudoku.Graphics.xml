@@ -4,57 +4,6 @@
         <name>Sudoku.Graphics</name>
     </assembly>
     <members>
-        <member name="T:Sudoku.ComponentModel.GridSizeInfo">
-            <summary>
-            Represents logical size information of a grid.
-            </summary>
-            <param name="rowsCount"><inheritdoc cref="P:Sudoku.ComponentModel.GridSizeInfo.RowsCount" path="/summary"/></param>
-            <param name="columnsCount"><inheritdoc cref="P:Sudoku.ComponentModel.GridSizeInfo.ColumnsCount" path="/summary"/></param>
-            <param name="vector"><inheritdoc cref="P:Sudoku.ComponentModel.GridSizeInfo.Vector" path="/summary"/></param>
-        </member>
-        <member name="M:Sudoku.ComponentModel.GridSizeInfo.#ctor(Sudoku.Concepts.Absolute,Sudoku.Concepts.Absolute,Sudoku.Concepts.DirectionVector)">
-            <summary>
-            Represents logical size information of a grid.
-            </summary>
-            <param name="rowsCount"><inheritdoc cref="P:Sudoku.ComponentModel.GridSizeInfo.RowsCount" path="/summary"/></param>
-            <param name="columnsCount"><inheritdoc cref="P:Sudoku.ComponentModel.GridSizeInfo.ColumnsCount" path="/summary"/></param>
-            <param name="vector"><inheritdoc cref="P:Sudoku.ComponentModel.GridSizeInfo.Vector" path="/summary"/></param>
-        </member>
-        <member name="P:Sudoku.ComponentModel.GridSizeInfo.RowsCount">
-            <summary>
-            Indicates the number of rows in main sudoku grid.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.GridSizeInfo.ColumnsCount">
-            <summary>
-            Indicates the number of columns in main sudoku grid.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.GridSizeInfo.AbsoluteRowsCount">
-            <summary>
-            Indicates the number of rows. The number of rows should be an absolute value,
-            including reserved regions (used by drawing outside-like puzzles).
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.GridSizeInfo.AbsoluteColumnsCount">
-            <summary>
-            Indiactes the number of columns. The number of columns should be an absolute value,
-            including reserved regions (used by drawing outside-like puzzles).
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.GridSizeInfo.Vector">
-            <summary>
-            Indicates empty cells count reserved to be empty.
-            </summary>
-        </member>
-        <member name="M:Sudoku.ComponentModel.GridSizeInfo.WithOffset(Sudoku.Concepts.Relative,Sudoku.Concepts.Relative)">
-            <summary>
-            Creates a new <see cref="T:Sudoku.ComponentModel.GridSizeInfo"/> instance via the specified offset of the current instance.
-            </summary>
-            <param name="rowsCount">The number of rows.</param>
-            <param name="columnsCount">The number of columns.</param>
-            <returns>A new <see cref="T:Sudoku.ComponentModel.GridSizeInfo"/> instance.</returns>
-        </member>
         <member name="T:Sudoku.ComponentModel.IValue`1">
             <summary>
             Represents a type that simply encapsulates an <see cref="T:System.Int32"/> value.
@@ -296,6 +245,59 @@
             <param name="mapper">The mapper.</param>
             <param name="absoluteCellIndices">Absolute cell indices.</param>
             <returns>The result dictionary of light-up segments.</returns>
+        </member>
+        <member name="T:Sudoku.ComponentModel.LineTemplateSize">
+            <summary>
+            Represents logical size of a <see cref="T:Sudoku.Graphics.LineTemplate"/> instance.
+            </summary>
+            <param name="rowsCount"><inheritdoc cref="P:Sudoku.ComponentModel.LineTemplateSize.RowsCount" path="/summary"/></param>
+            <param name="columnsCount"><inheritdoc cref="P:Sudoku.ComponentModel.LineTemplateSize.ColumnsCount" path="/summary"/></param>
+            <param name="vector"><inheritdoc cref="P:Sudoku.ComponentModel.LineTemplateSize.Vector" path="/summary"/></param>
+            <seealso cref="T:Sudoku.Graphics.LineTemplate"/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.LineTemplateSize.#ctor(Sudoku.Concepts.Absolute,Sudoku.Concepts.Absolute,Sudoku.Concepts.DirectionVector)">
+            <summary>
+            Represents logical size of a <see cref="T:Sudoku.Graphics.LineTemplate"/> instance.
+            </summary>
+            <param name="rowsCount"><inheritdoc cref="P:Sudoku.ComponentModel.LineTemplateSize.RowsCount" path="/summary"/></param>
+            <param name="columnsCount"><inheritdoc cref="P:Sudoku.ComponentModel.LineTemplateSize.ColumnsCount" path="/summary"/></param>
+            <param name="vector"><inheritdoc cref="P:Sudoku.ComponentModel.LineTemplateSize.Vector" path="/summary"/></param>
+            <seealso cref="T:Sudoku.Graphics.LineTemplate"/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.LineTemplateSize.RowsCount">
+            <summary>
+            Indicates the number of rows in main sudoku grid.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.LineTemplateSize.ColumnsCount">
+            <summary>
+            Indicates the number of columns in main sudoku grid.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.LineTemplateSize.AbsoluteRowsCount">
+            <summary>
+            Indicates the number of rows. The number of rows should be an absolute value,
+            including reserved regions (used by drawing outside-like puzzles).
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.LineTemplateSize.AbsoluteColumnsCount">
+            <summary>
+            Indiactes the number of columns. The number of columns should be an absolute value,
+            including reserved regions (used by drawing outside-like puzzles).
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.LineTemplateSize.Vector">
+            <summary>
+            Indicates empty cells count reserved to be empty.
+            </summary>
+        </member>
+        <member name="M:Sudoku.ComponentModel.LineTemplateSize.WithOffset(Sudoku.Concepts.Relative,Sudoku.Concepts.Relative)">
+            <summary>
+            Creates a new <see cref="T:Sudoku.ComponentModel.LineTemplateSize"/> instance via the specified offset of the current instance.
+            </summary>
+            <param name="rowsCount">The number of rows.</param>
+            <param name="columnsCount">The number of columns.</param>
+            <returns>A new <see cref="T:Sudoku.ComponentModel.LineTemplateSize"/> instance.</returns>
         </member>
         <member name="T:Sudoku.ComponentModel.Scale">
             <summary>
@@ -1507,15 +1509,15 @@
             </summary>
             <param name="cellSize"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.CellSize" path="/summary"/></param>
             <param name="margin"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.Margin" path="/summary"/></param>
-            <param name="gridSizeInfo"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.GridSizeInfo" path="/summary"/></param>
+            <param name="templateSize"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.TemplateSize" path="/summary"/></param>
         </member>
-        <member name="M:Sudoku.Graphics.PointMapper.#ctor(System.Single,System.Single,Sudoku.ComponentModel.GridSizeInfo)">
+        <member name="M:Sudoku.Graphics.PointMapper.#ctor(System.Single,System.Single,Sudoku.ComponentModel.LineTemplateSize)">
             <summary>
             Represents a point mapper instance.
             </summary>
             <param name="cellSize"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.CellSize" path="/summary"/></param>
             <param name="margin"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.Margin" path="/summary"/></param>
-            <param name="gridSizeInfo"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.GridSizeInfo" path="/summary"/></param>
+            <param name="templateSize"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.TemplateSize" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Graphics.PointMapper.#ctor(System.Single,System.Single,Sudoku.Concepts.Absolute,Sudoku.Concepts.Absolute,Sudoku.Concepts.DirectionVector)">
             <summary>
@@ -1541,19 +1543,19 @@
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.PointMapper.RowsCount">
-            <inheritdoc cref="P:Sudoku.ComponentModel.GridSizeInfo.RowsCount"/>
+            <inheritdoc cref="P:Sudoku.ComponentModel.LineTemplateSize.RowsCount"/>
         </member>
         <member name="P:Sudoku.Graphics.PointMapper.ColumnsCount">
-            <inheritdoc cref="P:Sudoku.ComponentModel.GridSizeInfo.ColumnsCount"/>
+            <inheritdoc cref="P:Sudoku.ComponentModel.LineTemplateSize.ColumnsCount"/>
         </member>
         <member name="P:Sudoku.Graphics.PointMapper.AbsoluteRowsCount">
-            <inheritdoc cref="P:Sudoku.ComponentModel.GridSizeInfo.AbsoluteRowsCount"/>
+            <inheritdoc cref="P:Sudoku.ComponentModel.LineTemplateSize.AbsoluteRowsCount"/>
         </member>
         <member name="P:Sudoku.Graphics.PointMapper.AbsoluteColumnsCount">
-            <inheritdoc cref="P:Sudoku.ComponentModel.GridSizeInfo.AbsoluteColumnsCount"/>
+            <inheritdoc cref="P:Sudoku.ComponentModel.LineTemplateSize.AbsoluteColumnsCount"/>
         </member>
         <member name="P:Sudoku.Graphics.PointMapper.Vector">
-            <inheritdoc cref="P:Sudoku.ComponentModel.GridSizeInfo.Vector"/>
+            <inheritdoc cref="P:Sudoku.ComponentModel.LineTemplateSize.Vector"/>
         </member>
         <member name="P:Sudoku.Graphics.PointMapper.GridDrawingSize">
             <summary>
@@ -1565,7 +1567,7 @@
             Indicates full canvas size <see cref="T:SkiaSharp.SKSize"/> instance, of integer type.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.PointMapper.GridSizeInfo">
+        <member name="P:Sudoku.Graphics.PointMapper.TemplateSize">
             <summary>
             Indicates size information of the target grid to be drawn.
             </summary>

@@ -5,9 +5,9 @@
 /// </summary>
 /// <param name="cellSize"><inheritdoc cref="CellSize" path="/summary"/></param>
 /// <param name="margin"><inheritdoc cref="Margin" path="/summary"/></param>
-/// <param name="gridSizeInfo"><inheritdoc cref="GridSizeInfo" path="/summary"/></param>
+/// <param name="templateSize"><inheritdoc cref="TemplateSize" path="/summary"/></param>
 [method: SetsRequiredMembers]
-public sealed class PointMapper(float cellSize, float margin, GridSizeInfo gridSizeInfo)
+public sealed class PointMapper(float cellSize, float margin, LineTemplateSize templateSize)
 {
 	/// <summary>
 	/// Initializes a <see cref="PointMapper"/> instance via the specified information.
@@ -37,20 +37,20 @@ public sealed class PointMapper(float cellSize, float margin, GridSizeInfo gridS
 	/// </summary>
 	public required float Margin { get; init; } = margin;
 
-	/// <inheritdoc cref="GridSizeInfo.RowsCount"/>
-	public Absolute RowsCount => GridSizeInfo.RowsCount;
+	/// <inheritdoc cref="LineTemplateSize.RowsCount"/>
+	public Absolute RowsCount => TemplateSize.RowsCount;
 
-	/// <inheritdoc cref="GridSizeInfo.ColumnsCount"/>
-	public Absolute ColumnsCount => GridSizeInfo.ColumnsCount;
+	/// <inheritdoc cref="LineTemplateSize.ColumnsCount"/>
+	public Absolute ColumnsCount => TemplateSize.ColumnsCount;
 
-	/// <inheritdoc cref="GridSizeInfo.AbsoluteRowsCount"/>
-	public Absolute AbsoluteRowsCount => GridSizeInfo.AbsoluteRowsCount;
+	/// <inheritdoc cref="LineTemplateSize.AbsoluteRowsCount"/>
+	public Absolute AbsoluteRowsCount => TemplateSize.AbsoluteRowsCount;
 
-	/// <inheritdoc cref="GridSizeInfo.AbsoluteColumnsCount"/>
-	public Absolute AbsoluteColumnsCount => GridSizeInfo.AbsoluteColumnsCount;
+	/// <inheritdoc cref="LineTemplateSize.AbsoluteColumnsCount"/>
+	public Absolute AbsoluteColumnsCount => TemplateSize.AbsoluteColumnsCount;
 
-	/// <inheritdoc cref="GridSizeInfo.Vector"/>
-	public DirectionVector Vector => GridSizeInfo.Vector;
+	/// <inheritdoc cref="LineTemplateSize.Vector"/>
+	public DirectionVector Vector => TemplateSize.Vector;
 
 	/// <summary>
 	/// Indicates grid size <see cref="SKSize"/> instance.
@@ -66,7 +66,7 @@ public sealed class PointMapper(float cellSize, float margin, GridSizeInfo gridS
 	/// <summary>
 	/// Indicates size information of the target grid to be drawn.
 	/// </summary>
-	public required GridSizeInfo GridSizeInfo { get; init; } = gridSizeInfo;
+	public required LineTemplateSize TemplateSize { get; init; } = templateSize;
 
 
 	/// <summary>

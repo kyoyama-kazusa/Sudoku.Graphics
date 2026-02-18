@@ -1,13 +1,14 @@
 ﻿namespace Sudoku.ComponentModel;
 
 /// <summary>
-/// Represents logical size information of a grid.
+/// Represents logical size of a <see cref="LineTemplate"/> instance.
 /// </summary>
 /// <param name="rowsCount"><inheritdoc cref="RowsCount" path="/summary"/></param>
 /// <param name="columnsCount"><inheritdoc cref="ColumnsCount" path="/summary"/></param>
 /// <param name="vector"><inheritdoc cref="Vector" path="/summary"/></param>
+/// <seealso cref="LineTemplate"/>
 [method: SetsRequiredMembers]
-public sealed class GridSizeInfo(Absolute rowsCount, Absolute columnsCount, DirectionVector vector)
+public sealed class LineTemplateSize(Absolute rowsCount, Absolute columnsCount, DirectionVector vector)
 {
 	/// <summary>
 	/// Indicates the number of rows in main sudoku grid.
@@ -38,11 +39,11 @@ public sealed class GridSizeInfo(Absolute rowsCount, Absolute columnsCount, Dire
 
 
 	/// <summary>
-	/// Creates a new <see cref="GridSizeInfo"/> instance via the specified offset of the current instance.
+	/// Creates a new <see cref="LineTemplateSize"/> instance via the specified offset of the current instance.
 	/// </summary>
 	/// <param name="rowsCount">The number of rows.</param>
 	/// <param name="columnsCount">The number of columns.</param>
-	/// <returns>A new <see cref="GridSizeInfo"/> instance.</returns>
-	public GridSizeInfo WithOffset(Relative rowsCount, Relative columnsCount)
+	/// <returns>A new <see cref="LineTemplateSize"/> instance.</returns>
+	public LineTemplateSize WithOffset(Relative rowsCount, Relative columnsCount)
 		=> new(RowsCount, ColumnsCount, Vector + new DirectionVector(columnsCount, 0, rowsCount, 0));
 }
