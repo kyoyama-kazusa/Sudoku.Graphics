@@ -15,6 +15,16 @@ public abstract class IndividualBlockLineTemplate : LineTemplate
 	/// </summary>
 	public bool EnableDashForThinLines { get; set; } = false;
 
+	/// <summary>
+	/// Indicates offset of top on drawing.
+	/// </summary>
+	public Relative TopOffset { get; set; } = 0;
+
+	/// <summary>
+	/// Indicates offset of left on drawing.
+	/// </summary>
+	public Relative LeftOffset { get; set; } = 0;
+
 
 	/// <inheritdoc/>
 	public sealed override void DrawLines(PointMapper mapper, SKCanvas canvas, CanvasDrawingOptions options)
