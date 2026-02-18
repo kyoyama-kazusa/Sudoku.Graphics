@@ -9,6 +9,7 @@
 using System;
 using System.IO;
 using System.Text.Json;
+using SkiaSharp;
 using Sudoku.ComponentModel;
 using Sudoku.Concepts;
 using Sudoku.Graphics;
@@ -22,8 +23,7 @@ using var canvas = new Canvas(
 		new StandardLineTemplate(defaultMapper),
 		new StandardLineTemplate(new(defaultMapper) { TemplateSize = new(defaultTemplateSize) { Vector = new(1, 0) } })
 		{
-			ThickLineDashSequence = [20, 20],
-			ThinLineDashSequence = [10, 10]
+			ThickLineDashSequence = [20, 20]
 		}
 		//new SpecifiedLineTemplate(
 		//	[
@@ -60,6 +60,10 @@ using var canvas = new Canvas(
 );
 canvas.FillBackground();
 canvas.DrawLines();
+//for (var digit = 0; digit < 9; digit++)
+//{
+//	canvas.DrawBigText(canvas.Templates[1], (digit + 1).ToString(), (Relative)(digit * 10), SKColors.Black);
+//}
 canvas.Export(Path.Combine(desktop, "output.png"), new() { Quality = 100 });
 
 canvas.Options.WriteTo(Path.Combine(Environment.DesktopPath, "drawing-config.json"), Options);
