@@ -18,7 +18,7 @@ public static class AbsoluteFactory
 		/// <param name="columnsCount">The number of columns as offset.</param>
 		/// <param name="mapper">The mapper instance.</param>
 		/// <returns>The result.</returns>
-		public Absolute[] Offset(Absolute rowsCount, Absolute columnsCount, PointMapper mapper)
+		public Absolute[] WithOffset(Absolute rowsCount, Absolute columnsCount, PointMapper mapper)
 		{
 			var absoluteColumnsCount = mapper.AbsoluteColumnsCount;
 			var result = new Absolute[@this.Length];

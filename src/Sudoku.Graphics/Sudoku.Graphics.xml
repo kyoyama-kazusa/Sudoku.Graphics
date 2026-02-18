@@ -47,7 +47,7 @@
             Indicates empty cells count reserved to be empty.
             </summary>
         </member>
-        <member name="M:Sudoku.ComponentModel.GridSizeInfo.Offset(Sudoku.Concepts.Relative,Sudoku.Concepts.Relative)">
+        <member name="M:Sudoku.ComponentModel.GridSizeInfo.WithOffset(Sudoku.Concepts.Relative,Sudoku.Concepts.Relative)">
             <summary>
             Creates a new <see cref="T:Sudoku.ComponentModel.GridSizeInfo"/> instance via the specified offset of the current instance.
             </summary>
@@ -565,13 +565,13 @@
             <seealso cref="T:Sudoku.Concepts.Absolute"/>
             <seealso cref="T:Sudoku.ComponentModel.LineSegment"/>
         </member>
-        <member name="M:Sudoku.Concepts.AbsoluteFactory.Offset(Sudoku.Concepts.Absolute[],Sudoku.Concepts.Absolute,Sudoku.Concepts.Absolute,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Concepts.AbsoluteFactory.&lt;G&gt;$06967E10E1BDFE254CF47DE1D552A287.Offset(Sudoku.Concepts.Absolute,Sudoku.Concepts.Absolute,Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Concepts.AbsoluteFactory.WithOffset(Sudoku.Concepts.Absolute[],Sudoku.Concepts.Absolute,Sudoku.Concepts.Absolute,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Concepts.AbsoluteFactory.&lt;G&gt;$06967E10E1BDFE254CF47DE1D552A287.WithOffset(Sudoku.Concepts.Absolute,Sudoku.Concepts.Absolute,Sudoku.Graphics.PointMapper)"/>
         </member>
         <member name="T:Sudoku.Concepts.AbsoluteFactory.&lt;G&gt;$06967E10E1BDFE254CF47DE1D552A287.&lt;M&gt;$D9A578683E617CCB9ABB89EAB90F30CE">
             <param name="this">The current instance.</param>
         </member>
-        <member name="M:Sudoku.Concepts.AbsoluteFactory.&lt;G&gt;$06967E10E1BDFE254CF47DE1D552A287.Offset(Sudoku.Concepts.Absolute,Sudoku.Concepts.Absolute,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Concepts.AbsoluteFactory.&lt;G&gt;$06967E10E1BDFE254CF47DE1D552A287.WithOffset(Sudoku.Concepts.Absolute,Sudoku.Concepts.Absolute,Sudoku.Graphics.PointMapper)">
             <summary>
             Get offset of the specified array of cell indices.
             </summary>

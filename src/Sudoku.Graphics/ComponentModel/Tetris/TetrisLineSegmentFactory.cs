@@ -23,7 +23,7 @@ public static class TetrisLineSegmentFactory
 			Absolute offsetRowsCount,
 			Absolute offsetColumnsCount
 		) => LineSegmentFactory.GetOutline(
-			@this.GetTetrisPiece(mapper, rotationType).Offset(offsetRowsCount, offsetColumnsCount, mapper),
+			@this.GetTetrisPiece(mapper, rotationType).WithOffset(offsetRowsCount, offsetColumnsCount, mapper),
 			mapper
 		);
 

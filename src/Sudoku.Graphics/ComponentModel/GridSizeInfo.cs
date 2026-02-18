@@ -43,6 +43,6 @@ public sealed class GridSizeInfo(Absolute rowsCount, Absolute columnsCount, Dire
 	/// <param name="rowsCount">The number of rows.</param>
 	/// <param name="columnsCount">The number of columns.</param>
 	/// <returns>A new <see cref="GridSizeInfo"/> instance.</returns>
-	public GridSizeInfo Offset(Relative rowsCount, Relative columnsCount)
+	public GridSizeInfo WithOffset(Relative rowsCount, Relative columnsCount)
 		=> new(RowsCount, ColumnsCount, Vector + new DirectionVector(columnsCount, 0, rowsCount, 0));
 }
