@@ -3,15 +3,23 @@
 /// <summary>
 /// Represents a point mapper instance.
 /// </summary>
-/// <param name="cellSize"><inheritdoc cref="CellSize" path="/summary"/></param>
-/// <param name="margin"><inheritdoc cref="Margin" path="/summary"/></param>
-/// <param name="templateSize"><inheritdoc cref="TemplateSize" path="/summary"/></param>
-[method: SetsRequiredMembers]
-[method: JsonConstructor]
-public sealed class PointMapper(float cellSize, float margin, LineTemplateSize templateSize) :
-	IEquatable<PointMapper>,
-	IEqualityOperators<PointMapper, PointMapper, bool>
+public sealed record PointMapper : IEqualityOperators<PointMapper, PointMapper, bool>
 {
+	/// <summary>
+	/// Initializes a <see cref="PointMapper"/> instance via the specified cell size, margin and template size.
+	/// </summary>
+	/// <param name="cellSize"><inheritdoc cref="CellSize" path="/summary"/></param>
+	/// <param name="margin"><inheritdoc cref="Margin" path="/summary"/></param>
+	/// <param name="templateSize"><inheritdoc cref="TemplateSize" path="/summary"/></param>
+	[SetsRequiredMembers]
+	[JsonConstructor]
+	public PointMapper(float cellSize, float margin, LineTemplateSize templateSize)
+	{
+		CellSize = cellSize;
+		Margin = margin;
+		TemplateSize = templateSize;
+	}
+
 	/// <summary>
 	/// Initializes a <see cref="PointMapper"/> instance via the specified information.
 	/// </summary>
@@ -26,16 +34,6 @@ public sealed class PointMapper(float cellSize, float margin, LineTemplateSize t
 	{
 	}
 
-	/// <summary>
-	/// Initializes a <see cref="PointMapper"/> instance via the other <see cref="PointMapper"/> instance,
-	/// copying all properties from it.
-	/// </summary>
-	/// <param name="other">The other instance to be copied.</param>
-	[SetsRequiredMembers]
-	public PointMapper(PointMapper other) : this(other.CellSize, other.Margin, other.TemplateSize)
-	{
-	}
-
 
 	/// <summary>
 	/// Indicates cell width and height of pixels. By design, cell width is equal to cell height,
@@ -43,12 +41,12 @@ public sealed class PointMapper(float cellSize, float margin, LineTemplateSize t
 	/// </summary>
 	/// <seealso cref="SKSize"/>
 	/// <seealso cref="SKSizeI"/>
-	public required float CellSize { get; init; } = cellSize;
+	public required float CellSize { get; init; }
 
 	/// <summary>
 	/// Indicates margin (pixel size of empty spaces between the fact sudoku grid and borders of the picture).
 	/// </summary>
-	public required float Margin { get; init; } = margin;
+	public required float Margin { get; init; }
 
 	/// <inheritdoc cref="LineTemplateSize.RowsCount"/>
 	public Absolute RowsCount => TemplateSize.RowsCount;
@@ -79,11 +77,8 @@ public sealed class PointMapper(float cellSize, float margin, LineTemplateSize t
 	/// <summary>
 	/// Indicates size information of the target grid to be drawn.
 	/// </summary>
-	public required LineTemplateSize TemplateSize { get; init; } = templateSize;
+	public required LineTemplateSize TemplateSize { get; init; }
 
-
-	/// <inheritdoc/>
-	public override bool Equals([NotNullWhen(true)] object? obj) => Equals(obj as PointMapper);
 
 	/// <inheritdoc/>
 	public bool Equals([NotNullWhen(true)] PointMapper? other)
@@ -223,11 +218,19 @@ public sealed class PointMapper(float cellSize, float margin, LineTemplateSize t
 		};
 	}
 
-
-	/// <inheritdoc/>
-	public static bool operator ==(PointMapper? left, PointMapper? right)
-		=> (left, right) switch { (null, null) => true, (not null, not null) => left.Equals(right), _ => false };
-
-	/// <inheritdoc/>
-	public static bool operator !=(PointMapper? left, PointMapper? right) => !(left == right);
+	private bool PrintMembers(StringBuilder builder)
+	{
+		builder.Append(nameof(CellSize));
+		builder.Append(" = ");
+		builder.Append(CellSize.ToString("0.0###"));
+		builder.Append(", ");
+		builder.Append(nameof(Margin));
+		builder.Append(" = ");
+		builder.Append(Margin.ToString("0.0###"));
+		builder.Append(", ");
+		builder.Append(nameof(TemplateSize));
+		builder.Append(" = ");
+		builder.Append(TemplateSize.ToString());
+		return true;
+	}
 }

@@ -50,6 +50,9 @@ public readonly partial struct LineDashSequence : IEnumerable<float>
 	/// <param name="value">The value.</param>
 	public void Add(float value) => _intervals.Add(value);
 
+	/// <inheritdoc/>
+	public override string ToString() => $"[{string.Join(", ", from interval in _intervals select $"{interval:0.0###}")}]";
+
 	/// <inheritdoc cref="IEnumerable{T}.GetEnumerator"/>
 	public Enumerator GetEnumerator() => new(Intervals);
 

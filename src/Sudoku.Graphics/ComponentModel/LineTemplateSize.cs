@@ -3,35 +3,41 @@
 /// <summary>
 /// Represents logical size of a <see cref="LineTemplate"/> instance.
 /// </summary>
-/// <param name="rowsCount"><inheritdoc cref="RowsCount" path="/summary"/></param>
-/// <param name="columnsCount"><inheritdoc cref="ColumnsCount" path="/summary"/></param>
-/// <param name="vector"><inheritdoc cref="Vector" path="/summary"/></param>
-/// <seealso cref="LineTemplate"/>
-[method: SetsRequiredMembers]
-public sealed class LineTemplateSize(Absolute rowsCount, Absolute columnsCount, DirectionVector vector) :
-	IEquatable<LineTemplateSize>,
-	IEqualityOperators<LineTemplateSize, LineTemplateSize, bool>
+public sealed record LineTemplateSize : IEqualityOperators<LineTemplateSize, LineTemplateSize, bool>
 {
 	/// <summary>
-	/// Initializes a <see cref="LineTemplateSize"/> instance via the other <see cref="LineTemplateSize"/> instance,
-	/// copying all properties from it.
+	/// Initializes a <see cref="LineTemplate"/> instance.
 	/// </summary>
-	/// <param name="other">The other instance to be copied.</param>
-	[SetsRequiredMembers]
-	public LineTemplateSize(LineTemplateSize other) : this(other.RowsCount, other.ColumnsCount, other.Vector)
+	public LineTemplateSize()
 	{
+	}
+
+	/// <summary>
+	/// Initializes a <see cref="LineTemplateSize"/> instance.
+	/// </summary>
+	/// <param name="rowsCount"><inheritdoc cref="RowsCount" path="/summary"/></param>
+	/// <param name="columnsCount"><inheritdoc cref="ColumnsCount" path="/summary"/></param>
+	/// <param name="vector"><inheritdoc cref="Vector" path="/summary"/></param>
+	/// <seealso cref="LineTemplate"/>
+	[SetsRequiredMembers]
+	[JsonConstructor]
+	public LineTemplateSize(Absolute rowsCount, Absolute columnsCount, DirectionVector vector)
+	{
+		RowsCount = rowsCount;
+		ColumnsCount = columnsCount;
+		Vector = vector;
 	}
 
 
 	/// <summary>
 	/// Indicates the number of rows in main sudoku grid.
 	/// </summary>
-	public required Absolute RowsCount { get; init; } = rowsCount;
+	public required Absolute RowsCount { get; init; }
 
 	/// <summary>
 	/// Indicates the number of columns in main sudoku grid.
 	/// </summary>
-	public required Absolute ColumnsCount { get; init; } = columnsCount;
+	public required Absolute ColumnsCount { get; init; }
 
 	/// <summary>
 	/// Indicates the number of rows. The number of rows should be an absolute value,
@@ -48,11 +54,8 @@ public sealed class LineTemplateSize(Absolute rowsCount, Absolute columnsCount, 
 	/// <summary>
 	/// Indicates empty cells count reserved to be empty.
 	/// </summary>
-	public required DirectionVector Vector { get; init; } = vector;
+	public required DirectionVector Vector { get; init; }
 
-
-	/// <inheritdoc/>
-	public override bool Equals([NotNullWhen(true)] object? obj) => Equals(obj as LineTemplateSize);
 
 	/// <inheritdoc/>
 	public bool Equals([NotNullWhen(true)] LineTemplateSize? other)
@@ -69,6 +72,19 @@ public sealed class LineTemplateSize(Absolute rowsCount, Absolute columnsCount, 
 	/// <returns>A new <see cref="LineTemplateSize"/> instance.</returns>
 	public LineTemplateSize WithOffset(Relative rowsCount, Relative columnsCount)
 		=> new(RowsCount, ColumnsCount, Vector + new DirectionVector(columnsCount, 0, rowsCount, 0));
+
+	private bool PrintMembers(StringBuilder builder)
+	{
+		builder.Append("Size = ");
+		builder.Append(RowsCount);
+		builder.Append('x');
+		builder.Append(ColumnsCount);
+		builder.Append(", ");
+		builder.Append(nameof(Vector));
+		builder.Append(" = ");
+		builder.Append(Vector.ToString());
+		return true;
+	}
 
 
 	/// <summary>
@@ -99,12 +115,4 @@ public sealed class LineTemplateSize(Absolute rowsCount, Absolute columnsCount, 
 		}
 		return new(maxRowsCount, maxColumnsCount, DirectionVector.Zero);
 	}
-
-
-	/// <inheritdoc/>
-	public static bool operator ==(LineTemplateSize? left, LineTemplateSize? right)
-		=> (left, right) switch { (null, null) => true, (not null, not null) => left.Equals(right), _ => false };
-
-	/// <inheritdoc/>
-	public static bool operator !=(LineTemplateSize? left, LineTemplateSize? right) => !(left == right);
 }

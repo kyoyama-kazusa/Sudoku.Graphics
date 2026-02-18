@@ -21,7 +21,7 @@ var defaultMapper = new PointMapper(120, 15, defaultTemplateSize);
 using var canvas = new Canvas(
 	[
 		new StandardLineTemplate(defaultMapper),
-		new StandardLineTemplate(new(defaultMapper) { TemplateSize = new(defaultTemplateSize) { Vector = new(1, 0) } })
+		new StandardLineTemplate(defaultMapper with { TemplateSize = defaultTemplateSize with { Vector = new(1, 0) } })
 		{
 			ThickLineDashSequence = [20, 20]
 		}

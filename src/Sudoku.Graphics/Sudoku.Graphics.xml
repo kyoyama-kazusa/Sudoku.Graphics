@@ -76,6 +76,9 @@
             </summary>
             <param name="value">The value.</param>
         </member>
+        <member name="M:Sudoku.ComponentModel.LineDashSequence.ToString">
+            <inheritdoc/>
+        </member>
         <member name="M:Sudoku.ComponentModel.LineDashSequence.GetEnumerator">
             <inheritdoc cref="M:System.Collections.Generic.IEnumerable`1.GetEnumerator"/>
         </member>
@@ -250,26 +253,20 @@
             <summary>
             Represents logical size of a <see cref="T:Sudoku.Graphics.LineTemplate"/> instance.
             </summary>
-            <param name="rowsCount"><inheritdoc cref="P:Sudoku.ComponentModel.LineTemplateSize.RowsCount" path="/summary"/></param>
-            <param name="columnsCount"><inheritdoc cref="P:Sudoku.ComponentModel.LineTemplateSize.ColumnsCount" path="/summary"/></param>
-            <param name="vector"><inheritdoc cref="P:Sudoku.ComponentModel.LineTemplateSize.Vector" path="/summary"/></param>
-            <seealso cref="T:Sudoku.Graphics.LineTemplate"/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.LineTemplateSize.#ctor">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Graphics.LineTemplate"/> instance.
+            </summary>
         </member>
         <member name="M:Sudoku.ComponentModel.LineTemplateSize.#ctor(Sudoku.Concepts.Absolute,Sudoku.Concepts.Absolute,Sudoku.Concepts.DirectionVector)">
             <summary>
-            Represents logical size of a <see cref="T:Sudoku.Graphics.LineTemplate"/> instance.
+            Initializes a <see cref="T:Sudoku.ComponentModel.LineTemplateSize"/> instance.
             </summary>
             <param name="rowsCount"><inheritdoc cref="P:Sudoku.ComponentModel.LineTemplateSize.RowsCount" path="/summary"/></param>
             <param name="columnsCount"><inheritdoc cref="P:Sudoku.ComponentModel.LineTemplateSize.ColumnsCount" path="/summary"/></param>
             <param name="vector"><inheritdoc cref="P:Sudoku.ComponentModel.LineTemplateSize.Vector" path="/summary"/></param>
             <seealso cref="T:Sudoku.Graphics.LineTemplate"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.LineTemplateSize.#ctor(Sudoku.ComponentModel.LineTemplateSize)">
-            <summary>
-            Initializes a <see cref="T:Sudoku.ComponentModel.LineTemplateSize"/> instance via the other <see cref="T:Sudoku.ComponentModel.LineTemplateSize"/> instance,
-            copying all properties from it.
-            </summary>
-            <param name="other">The other instance to be copied.</param>
         </member>
         <member name="P:Sudoku.ComponentModel.LineTemplateSize.RowsCount">
             <summary>
@@ -298,9 +295,6 @@
             Indicates empty cells count reserved to be empty.
             </summary>
         </member>
-        <member name="M:Sudoku.ComponentModel.LineTemplateSize.Equals(System.Object)">
-            <inheritdoc/>
-        </member>
         <member name="M:Sudoku.ComponentModel.LineTemplateSize.Equals(Sudoku.ComponentModel.LineTemplateSize)">
             <inheritdoc/>
         </member>
@@ -323,12 +317,6 @@
             <param name="templates">The templates.</param>
             <returns>A <see cref="T:Sudoku.ComponentModel.LineTemplateSize"/> instance that is the minimal size, covering all templates specified.</returns>
             <seealso cref="T:Sudoku.Graphics.Canvas"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.LineTemplateSize.op_Equality(Sudoku.ComponentModel.LineTemplateSize,Sudoku.ComponentModel.LineTemplateSize)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.LineTemplateSize.op_Inequality(Sudoku.ComponentModel.LineTemplateSize,Sudoku.ComponentModel.LineTemplateSize)">
-            <inheritdoc/>
         </member>
         <member name="T:Sudoku.ComponentModel.Scale">
             <summary>
@@ -1533,13 +1521,10 @@
             <summary>
             Represents a point mapper instance.
             </summary>
-            <param name="cellSize"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.CellSize" path="/summary"/></param>
-            <param name="margin"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.Margin" path="/summary"/></param>
-            <param name="templateSize"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.TemplateSize" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.Graphics.PointMapper.#ctor(System.Single,System.Single,Sudoku.ComponentModel.LineTemplateSize)">
             <summary>
-            Represents a point mapper instance.
+            Initializes a <see cref="T:Sudoku.Graphics.PointMapper"/> instance via the specified cell size, margin and template size.
             </summary>
             <param name="cellSize"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.CellSize" path="/summary"/></param>
             <param name="margin"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.Margin" path="/summary"/></param>
@@ -1554,13 +1539,6 @@
             <param name="rowsCount"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.RowsCount" path="/summary"/></param>
             <param name="columnsCount"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.ColumnsCount" path="/summary"/></param>
             <param name="vector"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.Vector" path="/summary"/></param>
-        </member>
-        <member name="M:Sudoku.Graphics.PointMapper.#ctor(Sudoku.Graphics.PointMapper)">
-            <summary>
-            Initializes a <see cref="T:Sudoku.Graphics.PointMapper"/> instance via the other <see cref="T:Sudoku.Graphics.PointMapper"/> instance,
-            copying all properties from it.
-            </summary>
-            <param name="other">The other instance to be copied.</param>
         </member>
         <member name="P:Sudoku.Graphics.PointMapper.CellSize">
             <summary>
@@ -1604,9 +1582,6 @@
             <summary>
             Indicates size information of the target grid to be drawn.
             </summary>
-        </member>
-        <member name="M:Sudoku.Graphics.PointMapper.Equals(System.Object)">
-            <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.PointMapper.Equals(Sudoku.Graphics.PointMapper)">
             <inheritdoc/>
@@ -1674,12 +1649,6 @@
             Throws when <paramref name="alignment"/> is not defined or <see cref="F:Sudoku.Concepts.CellAlignment.None"/>.
             </exception>
             <seealso cref="F:Sudoku.Concepts.CellAlignment.None"/>
-        </member>
-        <member name="M:Sudoku.Graphics.PointMapper.op_Equality(Sudoku.Graphics.PointMapper,Sudoku.Graphics.PointMapper)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.PointMapper.op_Inequality(Sudoku.Graphics.PointMapper,Sudoku.Graphics.PointMapper)">
-            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.Primitives.ICanvas`1">
             <summary>
