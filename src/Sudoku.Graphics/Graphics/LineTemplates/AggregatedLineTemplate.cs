@@ -13,11 +13,11 @@ public sealed class AggregatedLineTemplate(params LineTemplate[] templates) : Li
 
 
 	/// <inheritdoc/>
-	public override void DrawLines(float cellSize, float margin, SKCanvas canvas, CanvasDrawingOptions options)
+	public override void DrawLines(PointMapper mapper, SKCanvas canvas, CanvasDrawingOptions options)
 	{
 		foreach (var template in Templates)
 		{
-			template.DrawLines(cellSize, margin, canvas, options);
+			template.DrawLines(mapper, canvas, options);
 		}
 	}
 }

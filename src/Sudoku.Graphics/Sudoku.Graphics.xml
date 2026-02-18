@@ -1305,16 +1305,6 @@
             Indicates whether thin lines will be applied with dash sequence or not.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.TopOffset">
-            <summary>
-            Indicates offset of top on drawing.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.LeftOffset">
-            <summary>
-            Indicates offset of left on drawing.
-            </summary>
-        </member>
         <member name="M:Sudoku.Graphics.LineTemplates.IndividualBlockLineTemplate.DrawLines(Sudoku.Graphics.PointMapper,SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
             <inheritdoc/>
         </member>
