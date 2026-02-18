@@ -301,14 +301,6 @@
         <member name="M:Sudoku.ComponentModel.LineTemplateSize.GetHashCode">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.ComponentModel.LineTemplateSize.WithOffset(Sudoku.Concepts.Relative,Sudoku.Concepts.Relative)">
-            <summary>
-            Creates a new <see cref="T:Sudoku.ComponentModel.LineTemplateSize"/> instance via the specified offset of the current instance.
-            </summary>
-            <param name="rowsCount">The number of rows.</param>
-            <param name="columnsCount">The number of columns.</param>
-            <returns>A new <see cref="T:Sudoku.ComponentModel.LineTemplateSize"/> instance.</returns>
-        </member>
         <member name="M:Sudoku.ComponentModel.LineTemplateSize.Create(System.ReadOnlySpan{Sudoku.Graphics.LineTemplate})">
             <summary>
             Creates a <see cref="T:Sudoku.ComponentModel.LineTemplateSize"/> instance via the specified list of templates.
@@ -1649,6 +1641,20 @@
             Throws when <paramref name="alignment"/> is not defined or <see cref="F:Sudoku.Concepts.CellAlignment.None"/>.
             </exception>
             <seealso cref="F:Sudoku.Concepts.CellAlignment.None"/>
+        </member>
+        <member name="M:Sudoku.Graphics.PointMapper.WithOffset(Sudoku.Concepts.DirectionVector)">
+            <summary>
+            Creates a new <see cref="T:Sudoku.Graphics.PointMapper"/> instance via the specified offset, replacing with new value.
+            </summary>
+            <param name="vector">The direction vector as offset.</param>
+            <returns>The result <see cref="T:Sudoku.Graphics.PointMapper"/> instance.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.PointMapper.AddOffset(Sudoku.Concepts.DirectionVector)">
+            <summary>
+            Creates a new <see cref="T:Sudoku.Graphics.PointMapper"/> instance via the specified offset, adding to original template size direction vector.
+            </summary>
+            <param name="vector">The direction vector as offset.</param>
+            <returns>The result <see cref="T:Sudoku.Graphics.PointMapper"/> instance.</returns>
         </member>
         <member name="T:Sudoku.Graphics.Primitives.ICanvas`1">
             <summary>

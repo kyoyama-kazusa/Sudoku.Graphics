@@ -64,15 +64,6 @@ public sealed record LineTemplateSize : IEqualityOperators<LineTemplateSize, Lin
 	/// <inheritdoc/>
 	public override int GetHashCode() => HashCode.Combine(RowsCount, ColumnsCount, Vector);
 
-	/// <summary>
-	/// Creates a new <see cref="LineTemplateSize"/> instance via the specified offset of the current instance.
-	/// </summary>
-	/// <param name="rowsCount">The number of rows.</param>
-	/// <param name="columnsCount">The number of columns.</param>
-	/// <returns>A new <see cref="LineTemplateSize"/> instance.</returns>
-	public LineTemplateSize WithOffset(Relative rowsCount, Relative columnsCount)
-		=> new(RowsCount, ColumnsCount, Vector + new DirectionVector(columnsCount, 0, rowsCount, 0));
-
 	private bool PrintMembers(StringBuilder builder)
 	{
 		builder.Append("Size = ");

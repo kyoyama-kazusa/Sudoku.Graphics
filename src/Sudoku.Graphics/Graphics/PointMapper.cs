@@ -218,6 +218,21 @@ public sealed record PointMapper : IEqualityOperators<PointMapper, PointMapper, 
 		};
 	}
 
+	/// <summary>
+	/// Creates a new <see cref="PointMapper"/> instance via the specified offset, replacing with new value.
+	/// </summary>
+	/// <param name="vector">The direction vector as offset.</param>
+	/// <returns>The result <see cref="PointMapper"/> instance.</returns>
+	public PointMapper WithOffset(DirectionVector vector) => this with { TemplateSize = TemplateSize with { Vector = vector } };
+
+	/// <summary>
+	/// Creates a new <see cref="PointMapper"/> instance via the specified offset, adding to original template size direction vector.
+	/// </summary>
+	/// <param name="vector">The direction vector as offset.</param>
+	/// <returns>The result <see cref="PointMapper"/> instance.</returns>
+	public PointMapper AddOffset(DirectionVector vector)
+		=> this with { TemplateSize = TemplateSize with { Vector = TemplateSize.Vector + vector } };
+
 	private bool PrintMembers(StringBuilder builder)
 	{
 		builder.Append(nameof(CellSize));

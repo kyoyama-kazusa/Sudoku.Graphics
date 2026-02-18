@@ -20,10 +20,7 @@ var defaultMapper = new PointMapper(120, 15, defaultTemplateSize);
 using var canvas = new Canvas(
 	[
 		new StandardLineTemplate(defaultMapper),
-		new StandardLineTemplate(defaultMapper with { TemplateSize = defaultTemplateSize with { Vector = new(1, 0) } })
-		{
-			ThickLineDashSequence = [20, 20]
-		}
+		new StandardLineTemplate(defaultMapper.AddOffset(new(3, 0))),
 		//new SpecifiedLineTemplate(
 		//	[
 		//		.. Piece.O.GetOutline(RotationType.None, defaultMapper, 10, 0),
