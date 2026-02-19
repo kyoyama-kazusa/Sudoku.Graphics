@@ -8,7 +8,7 @@
 public sealed class DefaultGridTemplate(PointMapper mapper) : IndividualGridTemplate(mapper), IRoundRectangleCornerGridTemplate
 {
 	/// <inheritdoc/>
-	public bool IsRoundedRectangle { get; init; } = true;
+	public bool IsBorderRoundedRectangle { get; init; } = true;
 
 	/// <summary>
 	/// Indicates whether border lines should be drawn as thick lines or not.
@@ -28,13 +28,8 @@ public sealed class DefaultGridTemplate(PointMapper mapper) : IndividualGridTemp
 		var path = new SKPath();
 		path.AddRoundRect(
 			new(
-				SKRect.Create(
-					Mapper.Margin + Mapper.CellSize * Mapper.Vector.Left,
-					Mapper.Margin + Mapper.CellSize * Mapper.Vector.Up,
-					Mapper.CellSize * Mapper.ColumnsCount,
-					Mapper.CellSize * Mapper.RowsCount
-				),
-				IsRoundedRectangle
+				Mapper.GridSize,
+				IsBorderRoundedRectangle
 					? options.GridBorderRoundedRectangleCornerRadius.Resolve(options).Measure(Mapper.CellSize)
 					: 0
 			)

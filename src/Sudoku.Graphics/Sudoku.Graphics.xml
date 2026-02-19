@@ -6,15 +6,27 @@
     <members>
         <member name="T:Sudoku.ComponentModel.GridTemplate">
             <summary>
+            <para>
             Represents a grid template type that draws block (thick) and normal (thin) lines
             onto a canvas via the specified configuration.
+            </para>
+            <para>
+            Because it can define the shape of a grid,
+            the template will also be used as identifiers of puzzles, as basic grid panel.
+            </para>
             </summary>
             <param name="mapper"><inheritdoc cref="P:Sudoku.ComponentModel.GridTemplate.Mapper" path="/summary"/></param>
         </member>
         <member name="M:Sudoku.ComponentModel.GridTemplate.#ctor(Sudoku.Graphics.PointMapper)">
             <summary>
+            <para>
             Represents a grid template type that draws block (thick) and normal (thin) lines
             onto a canvas via the specified configuration.
+            </para>
+            <para>
+            Because it can define the shape of a grid,
+            the template will also be used as identifiers of puzzles, as basic grid panel.
+            </para>
             </summary>
             <param name="mapper"><inheritdoc cref="P:Sudoku.ComponentModel.GridTemplate.Mapper" path="/summary"/></param>
         </member>
@@ -98,7 +110,7 @@
             </summary>
             <param name="mapper"><inheritdoc cref="M:Sudoku.ComponentModel.GridTemplate.#ctor(Sudoku.Graphics.PointMapper)" path="/param[@name='mapper']"/></param>
         </member>
-        <member name="P:Sudoku.ComponentModel.GridTemplates.DefaultGridTemplate.IsRoundedRectangle">
+        <member name="P:Sudoku.ComponentModel.GridTemplates.DefaultGridTemplate.IsBorderRoundedRectangle">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.ComponentModel.GridTemplates.DefaultGridTemplate.DrawBordersAsThickLines">
@@ -185,9 +197,9 @@
             Represents a grid template that supports drawing corners with rounded rectangle.
             </summary>
         </member>
-        <member name="P:Sudoku.ComponentModel.GridTemplates.IRoundRectangleCornerGridTemplate.IsRoundedRectangle">
+        <member name="P:Sudoku.ComponentModel.GridTemplates.IRoundRectangleCornerGridTemplate.IsBorderRoundedRectangle">
             <summary>
-            Indicates whether the border should be drawn as rounded rectangle. By default it's <see langword="true"/>.
+            Indicates whether the border should be drawn as a rounded rectangle. By default it's <see langword="true"/>.
             </summary>
         </member>
         <member name="T:Sudoku.ComponentModel.GridTemplates.JigsawGridTemplate">
@@ -302,7 +314,7 @@
             <param name="uniformSize">The uniformed value.</param>
             <param name="mapper">The mapper.</param>
         </member>
-        <member name="P:Sudoku.ComponentModel.GridTemplates.StandardGridTemplate.IsRoundedRectangle">
+        <member name="P:Sudoku.ComponentModel.GridTemplates.StandardGridTemplate.IsBorderRoundedRectangle">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.ComponentModel.GridTemplates.StandardGridTemplate.RowBlockSize">
@@ -1799,6 +1811,23 @@
             </summary>
             <param name="vector">The direction vector as offset.</param>
             <returns>The result <see cref="T:Sudoku.Graphics.PointMapper"/> instance.</returns>
+        </member>
+        <member name="T:Sudoku.Graphics.PointMapperExtensions">
+            <summary>
+            Provides extension members on <see cref="T:Sudoku.Graphics.PointMapper"/>.
+            </summary>
+            <seealso cref="T:Sudoku.Graphics.PointMapper"/>
+        </member>
+        <member name="M:Sudoku.Graphics.PointMapperExtensions.get_GridSize(Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="P:Sudoku.Graphics.PointMapperExtensions.&lt;G&gt;$16B388937BC1736B25CC55B40740AB8E.GridSize"/>
+        </member>
+        <member name="T:Sudoku.Graphics.PointMapperExtensions.&lt;G&gt;$16B388937BC1736B25CC55B40740AB8E.&lt;M&gt;$7B182DD39DBDB3188640F4E50916E882">
+            <param name="this">The current instance.</param>
+        </member>
+        <member name="P:Sudoku.Graphics.PointMapperExtensions.&lt;G&gt;$16B388937BC1736B25CC55B40740AB8E.GridSize">
+            <summary>
+            Indicates the size of grid.
+            </summary>
         </member>
         <member name="T:Sudoku.Graphics.Primitives.ICanvas`1">
             <summary>

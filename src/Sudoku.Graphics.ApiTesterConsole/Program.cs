@@ -19,8 +19,8 @@ var defaultTemplateSize = new GridTemplateSize(9, 9, DirectionVector.Zero);
 var defaultMapper = new PointMapper(120, 15, defaultTemplateSize);
 using var canvas = new Canvas(
 	[
-		new StandardGridTemplate(defaultMapper) { IsRoundedRectangle = false },
-		new StandardGridTemplate(defaultMapper.AddOffset(new(3, 0))) { IsRoundedRectangle = false },
+		new StandardGridTemplate(defaultMapper) { IsBorderRoundedRectangle = false },
+		new StandardGridTemplate(defaultMapper.AddOffset(new(3, 0))) { IsBorderRoundedRectangle = false },
 		//new SpecifiedLineTemplate(
 		//	[
 		//		.. Piece.O.GetOutline(RotationType.None, defaultMapper, 10, 0),

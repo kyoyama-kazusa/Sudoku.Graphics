@@ -60,7 +60,7 @@ public sealed class StandardGridTemplate : IndividualGridTemplate, IRoundRectang
 
 
 	/// <inheritdoc/>
-	public bool IsRoundedRectangle { get; init; } = true;
+	public bool IsBorderRoundedRectangle { get; init; } = true;
 
 	/// <summary>
 	/// Indicates the number of rows in a rectangular block.
@@ -84,13 +84,8 @@ public sealed class StandardGridTemplate : IndividualGridTemplate, IRoundRectang
 		var path = new SKPath();
 		path.AddRoundRect(
 			new(
-				SKRect.Create(
-					Mapper.Margin + Mapper.CellSize * Mapper.Vector.Left,
-					Mapper.Margin + Mapper.CellSize * Mapper.Vector.Up,
-					Mapper.CellSize * Mapper.ColumnsCount,
-					Mapper.CellSize * Mapper.RowsCount
-				),
-				IsRoundedRectangle
+				Mapper.GridSize,
+				IsBorderRoundedRectangle
 					? options.GridBorderRoundedRectangleCornerRadius.Resolve(options).Measure(Mapper.CellSize)
 					: 0
 			)

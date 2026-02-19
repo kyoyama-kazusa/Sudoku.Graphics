@@ -1,8 +1,14 @@
 ﻿namespace Sudoku.ComponentModel;
 
 /// <summary>
+/// <para>
 /// Represents a grid template type that draws block (thick) and normal (thin) lines
 /// onto a canvas via the specified configuration.
+/// </para>
+/// <para>
+/// Because it can define the shape of a grid,
+/// the template will also be used as identifiers of puzzles, as basic grid panel.
+/// </para>
 /// </summary>
 /// <param name="mapper"><inheritdoc cref="Mapper" path="/summary"/></param>
 [JsonPolymorphic(UnknownDerivedTypeHandling = JsonUnknownDerivedTypeHandling.FailSerialization)]
