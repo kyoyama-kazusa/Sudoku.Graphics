@@ -16,12 +16,12 @@ using Sudoku.Graphics;
 
 var desktop = Environment.DesktopPath;
 var defaultTemplateSize = new GridTemplateSize(9, 9, DirectionVector.Zero);
-var defaultMapper = new PointMapper(120, 15, defaultTemplateSize);
+var baseMapper = new PointMapper(120, 15, defaultTemplateSize);
 using var canvas = new Canvas(
 	[
-		new StandardGridTemplate(defaultMapper.AddOffset(new(0, 0, 3, 0))) { IsBorderRoundedRectangle = false },
-		new StandardGridTemplate(defaultMapper.AddOffset(new(3, 0, 6, 0))) { IsBorderRoundedRectangle = false },
-		new StandardGridTemplate(defaultMapper.AddOffset(new(6, 0, 0, 0))) { IsBorderRoundedRectangle = false },
+		new StandardGridTemplate(baseMapper.AddOffset(new(0, 0, 3, 0))) { IsBorderRoundedRectangle = false },
+		new StandardGridTemplate(baseMapper.AddOffset(new(3, 0, 6, 0))) { IsBorderRoundedRectangle = false },
+		new StandardGridTemplate(baseMapper.AddOffset(new(6, 0, 0, 0))) { IsBorderRoundedRectangle = false },
 		//new SpecifiedGridTemplate(
 		//	[
 		//		.. Piece.O.GetOutline(RotationType.None, defaultMapper, 10, 0),
