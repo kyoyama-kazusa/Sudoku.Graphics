@@ -11,11 +11,10 @@ using System.IO;
 using System.Text.Json;
 using Sudoku.ComponentModel;
 using Sudoku.ComponentModel.GridTemplates;
-using Sudoku.Concepts;
 using Sudoku.Graphics;
 
 var desktop = Environment.DesktopPath;
-var defaultTemplateSize = new GridTemplateSize(9, 9, DirectionVector.Zero);
+var defaultTemplateSize = new GridTemplateSize(9, 9);
 var baseMapper = new PointMapper(120, 15, defaultTemplateSize);
 using var canvas = new Canvas(
 	[

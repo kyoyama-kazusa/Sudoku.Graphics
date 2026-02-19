@@ -1,4 +1,4 @@
-﻿namespace Sudoku.Concepts;
+﻿namespace Sudoku.ComponentModel;
 
 /// <summary>
 /// Provides an easy way to create <see cref="Absolute"/> instances.

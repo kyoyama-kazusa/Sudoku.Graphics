@@ -1,4 +1,4 @@
-﻿namespace Sudoku.Concepts;
+﻿namespace Sudoku.ComponentModel;
 
 /// <summary>
 /// Provides extension members on <see cref="Direction"/>.

@@ -1,4 +1,4 @@
-﻿namespace Sudoku.Concepts;
+﻿namespace Sudoku.ComponentModel;
 
 /// <summary>
 /// Represents an <see cref="int"/> value that describes a relative index.
