@@ -1,4 +1,4 @@
-﻿namespace Sudoku.Graphics;
+﻿namespace Sudoku.ComponentModel;
 
 /// <summary>
 /// Represents a repository-wide color instance that can be serialized and deserialized.

@@ -1,4 +1,4 @@
-﻿namespace Sudoku.Graphics.GridTemplates;
+﻿namespace Sudoku.ComponentModel.GridTemplates;
 
 /// <summary>
 /// Represents irregular (jigsaw) grid template, containing irregular-shaped blocks.

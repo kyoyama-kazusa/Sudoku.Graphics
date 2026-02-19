@@ -1,4 +1,4 @@
-﻿namespace Sudoku.Graphics.GridTemplates;
+﻿namespace Sudoku.ComponentModel.GridTemplates;
 
 /// <summary>
 /// Represents a grid template that specifies a list of thick and thin lines.

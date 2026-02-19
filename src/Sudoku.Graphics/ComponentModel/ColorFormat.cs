@@ -1,4 +1,4 @@
-﻿namespace Sudoku.Graphics;
+﻿namespace Sudoku.ComponentModel;
 
 /// <summary>
 /// Represents a color format.

@@ -10,9 +10,9 @@ using System;
 using System.IO;
 using System.Text.Json;
 using Sudoku.ComponentModel;
+using Sudoku.ComponentModel.GridTemplates;
 using Sudoku.Concepts;
 using Sudoku.Graphics;
-using Sudoku.Graphics.GridTemplates;
 
 var desktop = Environment.DesktopPath;
 var defaultTemplateSize = new GridTemplateSize(9, 9, DirectionVector.Zero);

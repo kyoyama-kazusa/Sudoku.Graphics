@@ -1,4 +1,4 @@
-﻿namespace Sudoku.Graphics;
+﻿namespace Sudoku.ComponentModel;
 
 /// <summary>
 /// Represents a grid template type that draws block (thick) and normal (thin) lines
