@@ -5,8 +5,20 @@ public partial class Canvas
 	/// <inheritdoc/>
 	public partial void DrawLines(bool fillIntersection)
 	{
-		// Fill intersection cells.
+		// Fill intersection cells if worth.
 		if (fillIntersection)
+		{
+			fillIntersectionCells();
+		}
+
+		// Draw templates.
+		foreach (var template in Templates)
+		{
+			template.DrawLines(BackingCanvas, Options);
+		}
+
+
+		void fillIntersectionCells()
 		{
 			using var fillPaint = new SKPaint { Style = SKPaintStyle.Fill, Color = Options.TemplateIntersectionColor.Resolve(Options) };
 
@@ -50,12 +62,6 @@ public partial class Canvas
 					BackingCanvas.DrawRect(rect, fillPaint);
 				}
 			}
-		}
-
-		// Draw templates.
-		foreach (var template in Templates)
-		{
-			template.DrawLines(BackingCanvas, Options);
 		}
 	}
 }
