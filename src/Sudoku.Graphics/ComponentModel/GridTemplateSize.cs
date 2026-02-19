@@ -3,15 +3,8 @@
 /// <summary>
 /// Represents logical size of a <see cref="GridTemplate"/> instance.
 /// </summary>
-public sealed record GridTemplateSize : IEqualityOperators<GridTemplateSize, GridTemplateSize, bool>
+public readonly record struct GridTemplateSize : IEqualityOperators<GridTemplateSize, GridTemplateSize, bool>
 {
-	/// <summary>
-	/// Initializes a <see cref="GridTemplate"/> instance.
-	/// </summary>
-	public GridTemplateSize()
-	{
-	}
-
 	/// <summary>
 	/// Initializes a <see cref="GridTemplateSize"/> instance.
 	/// </summary>
@@ -19,8 +12,8 @@ public sealed record GridTemplateSize : IEqualityOperators<GridTemplateSize, Gri
 	/// <param name="columnsCount"><inheritdoc cref="ColumnsCount" path="/summary"/></param>
 	/// <param name="vector"><inheritdoc cref="Vector" path="/summary"/></param>
 	/// <seealso cref="GridTemplate"/>
-	[SetsRequiredMembers]
 	[JsonConstructor]
+	[SetsRequiredMembers]
 	public GridTemplateSize(Absolute rowsCount, Absolute columnsCount, DirectionVector vector)
 	{
 		RowsCount = rowsCount;
@@ -58,8 +51,8 @@ public sealed record GridTemplateSize : IEqualityOperators<GridTemplateSize, Gri
 
 
 	/// <inheritdoc/>
-	public bool Equals([NotNullWhen(true)] GridTemplateSize? other)
-		=> other is not null && RowsCount == other.RowsCount && ColumnsCount == other.ColumnsCount && Vector == other.Vector;
+	public bool Equals(GridTemplateSize other)
+		=> RowsCount == other.RowsCount && ColumnsCount == other.ColumnsCount && Vector == other.Vector;
 
 	/// <inheritdoc/>
 	public override int GetHashCode() => HashCode.Combine(RowsCount, ColumnsCount, Vector);

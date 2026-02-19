@@ -9,11 +9,6 @@
             Represents logical size of a <see cref="T:Sudoku.Graphics.GridTemplate"/> instance.
             </summary>
         </member>
-        <member name="M:Sudoku.ComponentModel.GridTemplateSize.#ctor">
-            <summary>
-            Initializes a <see cref="T:Sudoku.Graphics.GridTemplate"/> instance.
-            </summary>
-        </member>
         <member name="M:Sudoku.ComponentModel.GridTemplateSize.#ctor(Sudoku.Concepts.Absolute,Sudoku.Concepts.Absolute,Sudoku.Concepts.DirectionVector)">
             <summary>
             Initializes a <see cref="T:Sudoku.ComponentModel.GridTemplateSize"/> instance.
