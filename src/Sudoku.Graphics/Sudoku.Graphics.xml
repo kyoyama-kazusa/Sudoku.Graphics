@@ -4,86 +4,6 @@
         <name>Sudoku.Graphics</name>
     </assembly>
     <members>
-        <member name="T:Sudoku.ComponentModel.ColorFormat">
-            <summary>
-            Represents a color format.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ColorFormat.TupleRgb">
-            <summary>
-            Format <c>(Red, Green, Blue)</c>.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ColorFormat.TupleArgb">
-            <summary>
-            Format <c>(Alpha, Red, Green, Blue)</c>.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ColorFormat.TupleRgba">
-            <summary>
-            Format <c>(Red, Green, Blue, Alpha)</c>.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ColorFormat.HexRgb">
-            <summary>
-            Format <c>#RRGGBB</c>.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ColorFormat.HexRgbShort">
-            <summary>
-            Format <c>#RGB</c>.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ColorFormat.HexArgb">
-            <summary>
-            Format <c>#AARRGGBB</c> (.NET style).
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ColorFormat.HexArgbShort">
-            <summary>
-            Format <c>#ARGB</c>.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ColorFormat.HexRgba">
-            <summary>
-            Format <c>#RRGGBBAA</c> (CSS Level 4).
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ColorFormat.HexRgbaShort">
-            <summary>
-            Format <c>#RGBA</c>.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ColorFormat.RgbFunction">
-            <summary>
-            Format <c>rgb(Red, Green, Blue)</c>.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ColorFormat.RgbaFunction">
-            <summary>
-            Format <c>rgba(Red, Green, Blue, Alpha (float))</c>.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ColorFormat.NamedColor">
-            <summary>
-            Named color format.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ColorFormat.HexInteger">
-            <summary>
-            Format <c>0xAARRGGBB</c>.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ColorFormat.DecimalInteger">
-            <summary>
-            Decimal 32-bit ARGB.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ColorFormat.AnsiTrueColor">
-            <summary>
-            Format <c>\e[38;2;255;0;0m</c>.
-            </summary>
-        </member>
         <member name="T:Sudoku.ComponentModel.GridTemplate">
             <summary>
             Represents a grid template type that draws block (thick) and normal (thin) lines
@@ -880,7 +800,7 @@
         <member name="M:Sudoku.ComponentModel.SerializableColor.ToString">
             <inheritdoc cref="M:System.Object.ToString"/>
         </member>
-        <member name="M:Sudoku.ComponentModel.SerializableColor.ToString(Sudoku.ComponentModel.ColorFormat)">
+        <member name="M:Sudoku.ComponentModel.SerializableColor.ToString(Sudoku.ComponentModel.SerializableColorFormat)">
             <summary>
             Converts the current instance into <see cref="T:System.String"/> representation.
             </summary>
@@ -890,13 +810,13 @@
         <member name="M:Sudoku.ComponentModel.SerializableColor.TryParse(System.String,Sudoku.ComponentModel.SerializableColor@)">
             <inheritdoc cref="M:System.IParsable`1.TryParse(System.String,System.IFormatProvider,`0@)"/>
         </member>
-        <member name="M:Sudoku.ComponentModel.SerializableColor.TryParse(System.String,Sudoku.ComponentModel.ColorFormat,Sudoku.ComponentModel.SerializableColor@)">
+        <member name="M:Sudoku.ComponentModel.SerializableColor.TryParse(System.String,Sudoku.ComponentModel.SerializableColorFormat,Sudoku.ComponentModel.SerializableColor@)">
             <inheritdoc cref="M:System.IParsable`1.TryParse(System.String,System.IFormatProvider,`0@)"/>
         </member>
         <member name="M:Sudoku.ComponentModel.SerializableColor.Parse(System.String)">
             <inheritdoc cref="M:System.IParsable`1.Parse(System.String,System.IFormatProvider)"/>
         </member>
-        <member name="M:Sudoku.ComponentModel.SerializableColor.Parse(System.String,Sudoku.ComponentModel.ColorFormat)">
+        <member name="M:Sudoku.ComponentModel.SerializableColor.Parse(System.String,Sudoku.ComponentModel.SerializableColorFormat)">
             <inheritdoc cref="M:System.IParsable`1.Parse(System.String,System.IFormatProvider)"/>
         </member>
         <member name="M:Sudoku.ComponentModel.SerializableColor.op_Equality(Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor)">
@@ -928,6 +848,87 @@
         </member>
         <member name="M:Sudoku.ComponentModel.Converter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.ComponentModel.SerializableColor,System.Text.Json.JsonSerializerOptions)">
             <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.ComponentModel.SerializableColorFormat">
+            <summary>
+            Represents an enumeration field that describes a kind of format of <see cref="T:Sudoku.ComponentModel.SerializableColor"/>.
+            </summary>
+            <seealso cref="T:Sudoku.ComponentModel.SerializableColor"/>
+        </member>
+        <member name="F:Sudoku.ComponentModel.SerializableColorFormat.TupleRgb">
+            <summary>
+            Format <c>(Red, Green, Blue)</c>.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.SerializableColorFormat.TupleArgb">
+            <summary>
+            Format <c>(Alpha, Red, Green, Blue)</c>.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.SerializableColorFormat.TupleRgba">
+            <summary>
+            Format <c>(Red, Green, Blue, Alpha)</c>.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.SerializableColorFormat.HexRgb">
+            <summary>
+            Format <c>#RRGGBB</c>.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.SerializableColorFormat.HexRgbShort">
+            <summary>
+            Format <c>#RGB</c>.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.SerializableColorFormat.HexArgb">
+            <summary>
+            Format <c>#AARRGGBB</c> (.NET style).
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.SerializableColorFormat.HexArgbShort">
+            <summary>
+            Format <c>#ARGB</c>.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.SerializableColorFormat.HexRgba">
+            <summary>
+            Format <c>#RRGGBBAA</c> (CSS Level 4).
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.SerializableColorFormat.HexRgbaShort">
+            <summary>
+            Format <c>#RGBA</c>.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.SerializableColorFormat.RgbFunction">
+            <summary>
+            Format <c>rgb(Red, Green, Blue)</c>.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.SerializableColorFormat.RgbaFunction">
+            <summary>
+            Format <c>rgba(Red, Green, Blue, Alpha (float))</c>.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.SerializableColorFormat.NamedColor">
+            <summary>
+            Named color format.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.SerializableColorFormat.HexInteger">
+            <summary>
+            Format <c>0xAARRGGBB</c>.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.SerializableColorFormat.DecimalInteger">
+            <summary>
+            Decimal 32-bit ARGB.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.SerializableColorFormat.AnsiTrueColor">
+            <summary>
+            Format <c>\e[38;2;255;0;0m</c>.
+            </summary>
         </member>
         <member name="T:Sudoku.ComponentModel.SerializableColorSet">
             <summary>

@@ -99,42 +99,42 @@ public readonly struct SerializableColor :
 	public override int GetHashCode() => _mask.GetHashCode();
 
 	/// <inheritdoc cref="object.ToString"/>
-	public override string ToString() => ToString(ColorFormat.TupleRgba);
+	public override string ToString() => ToString(SerializableColorFormat.TupleRgba);
 
 	/// <summary>
 	/// Converts the current instance into <see cref="string"/> representation.
 	/// </summary>
 	/// <param name="format">The format.</param>
 	/// <returns>The string representation.</returns>
-	public string ToString(ColorFormat format)
+	public string ToString(SerializableColorFormat format)
 	{
 		var (r, g, b, a) = this;
 		return format switch
 		{
-			ColorFormat.TupleRgb => (r, g, b).ToString(),
-			ColorFormat.TupleArgb => (a, r, g, b).ToString(),
-			ColorFormat.TupleRgba => (r, g, b, a).ToString(),
-			ColorFormat.HexRgb or ColorFormat.HexRgbShort when $"#{r:X2}{g:X2}{b:X2}" is var t => format switch
+			SerializableColorFormat.TupleRgb => (r, g, b).ToString(),
+			SerializableColorFormat.TupleArgb => (a, r, g, b).ToString(),
+			SerializableColorFormat.TupleRgba => (r, g, b, a).ToString(),
+			SerializableColorFormat.HexRgb or SerializableColorFormat.HexRgbShort when $"#{r:X2}{g:X2}{b:X2}" is var t => format switch
 			{
-				ColorFormat.HexRgbShort when t[1] == t[2] && t[3] == t[4] && t[5] == t[6] => $"#{t[1]}{t[3]}{t[5]}",
+				SerializableColorFormat.HexRgbShort when t[1] == t[2] && t[3] == t[4] && t[5] == t[6] => $"#{t[1]}{t[3]}{t[5]}",
 				_ => t
 			},
-			ColorFormat.HexArgb or ColorFormat.HexArgbShort when $"#{a:X2}{r:X2}{g:X2}{b:X2}" is var t => format switch
+			SerializableColorFormat.HexArgb or SerializableColorFormat.HexArgbShort when $"#{a:X2}{r:X2}{g:X2}{b:X2}" is var t => format switch
 			{
-				ColorFormat.HexArgbShort when t[1] == t[2] && t[3] == t[4] && t[5] == t[6] && t[7] == t[8] => $"#{t[1]}{t[3]}{t[5]}{t[7]}",
+				SerializableColorFormat.HexArgbShort when t[1] == t[2] && t[3] == t[4] && t[5] == t[6] && t[7] == t[8] => $"#{t[1]}{t[3]}{t[5]}{t[7]}",
 				_ => t
 			},
-			ColorFormat.HexRgba or ColorFormat.HexRgbaShort when $"#{r:X2}{g:X2}{b:X2}{a:X2}" is var t => format switch
+			SerializableColorFormat.HexRgba or SerializableColorFormat.HexRgbaShort when $"#{r:X2}{g:X2}{b:X2}{a:X2}" is var t => format switch
 			{
-				ColorFormat.HexRgbaShort when t[1] == t[2] && t[3] == t[4] && t[5] == t[6] && t[7] == t[8] => $"#{t[1]}{t[3]}{t[5]}{t[7]}",
+				SerializableColorFormat.HexRgbaShort when t[1] == t[2] && t[3] == t[4] && t[5] == t[6] && t[7] == t[8] => $"#{t[1]}{t[3]}{t[5]}{t[7]}",
 				_ => t
 			},
-			ColorFormat.RgbFunction => $"rgb{(r, g, b)}",
-			ColorFormat.RgbaFunction => $"rgba({r}, {g}, {b}, {a / 255D:0.000})",
-			ColorFormat.NamedColor => WellknownColors.TryGetValue(this, out var colorName) ? colorName : ToString(ColorFormat.HexRgba),
-			ColorFormat.HexInteger => $"0x{a:X2}{r:X2}{g:X2}{b:X2}",
-			ColorFormat.DecimalInteger => ((uint)a << 24 | (uint)r << 16 | (uint)g << 8 | b).ToString(),
-			ColorFormat.AnsiTrueColor => $"\e[38;2;{r};{g};{b}m",
+			SerializableColorFormat.RgbFunction => $"rgb{(r, g, b)}",
+			SerializableColorFormat.RgbaFunction => $"rgba({r}, {g}, {b}, {a / 255D:0.000})",
+			SerializableColorFormat.NamedColor => WellknownColors.TryGetValue(this, out var colorName) ? colorName : ToString(SerializableColorFormat.HexRgba),
+			SerializableColorFormat.HexInteger => $"0x{a:X2}{r:X2}{g:X2}{b:X2}",
+			SerializableColorFormat.DecimalInteger => ((uint)a << 24 | (uint)r << 16 | (uint)g << 8 | b).ToString(),
+			SerializableColorFormat.AnsiTrueColor => $"\e[38;2;{r};{g};{b}m",
 			_ => throw new ArgumentOutOfRangeException(nameof(format))
 		};
 	}
@@ -142,10 +142,10 @@ public readonly struct SerializableColor :
 
 	/// <inheritdoc cref="IParsable{TSelf}.TryParse(string?, IFormatProvider?, out TSelf)"/>
 	public static bool TryParse([NotNullWhen(true)] string? s, out SerializableColor result)
-		=> TryParse(s, ColorFormat.HexRgba, out result);
+		=> TryParse(s, SerializableColorFormat.HexRgba, out result);
 
 	/// <inheritdoc cref="IParsable{TSelf}.TryParse(string?, IFormatProvider?, out TSelf)"/>
-	public static bool TryParse([NotNullWhen(true)] string? s, ColorFormat format, out SerializableColor result)
+	public static bool TryParse([NotNullWhen(true)] string? s, SerializableColorFormat format, out SerializableColor result)
 	{
 		if (s is null)
 		{
@@ -167,70 +167,70 @@ public readonly struct SerializableColor :
 	}
 
 	/// <inheritdoc cref="IParsable{TSelf}.Parse(string, IFormatProvider?)"/>
-	public static SerializableColor Parse(string s) => Parse(s, ColorFormat.HexRgba);
+	public static SerializableColor Parse(string s) => Parse(s, SerializableColorFormat.HexRgba);
 
 	/// <inheritdoc cref="IParsable{TSelf}.Parse(string, IFormatProvider?)"/>
-	public static SerializableColor Parse(string s, ColorFormat format)
+	public static SerializableColor Parse(string s, SerializableColorFormat format)
 	{
 		return (format, s) switch
 		{
-			(ColorFormat.TupleRgb, ['(', .. var p, ')'])
+			(SerializableColorFormat.TupleRgb, ['(', .. var p, ')'])
 				when splitBy(p, ',') is [var r, var g, var b]
 				&& int.TryParse(r, out var red) && red is >= 0 and < 256
 				&& int.TryParse(g, out var green) && green is >= 0 and < 256
 				&& int.TryParse(b, out var blue) && blue is >= 0 and < 256
 				=> new((byte)red, (byte)green, (byte)blue),
-			(ColorFormat.TupleArgb, ['(', .. var p, ')'])
+			(SerializableColorFormat.TupleArgb, ['(', .. var p, ')'])
 				when splitBy(p, ',') is [var a, var r, var g, var b]
 				&& int.TryParse(a, out var alpha) && alpha is >= 0 and < 256
 				&& int.TryParse(r, out var red) && red is >= 0 and < 256
 				&& int.TryParse(g, out var green) && green is >= 0 and < 256
 				&& int.TryParse(b, out var blue) && blue is >= 0 and < 256
 				=> new((byte)red, (byte)green, (byte)blue, (byte)alpha),
-			(ColorFormat.TupleRgba, ['(', .. var p, ')'])
+			(SerializableColorFormat.TupleRgba, ['(', .. var p, ')'])
 				when splitBy(p, ',') is [var r, var g, var b, var a]
 				&& int.TryParse(a, out var alpha) && alpha is >= 0 and < 256
 				&& int.TryParse(r, out var red) && red is >= 0 and < 256
 				&& int.TryParse(g, out var green) && green is >= 0 and < 256
 				&& int.TryParse(b, out var blue) && blue is >= 0 and < 256
 				=> new((byte)red, (byte)green, (byte)blue, (byte)alpha),
-			(ColorFormat.HexRgb or ColorFormat.HexRgbShort, ['#', .. var p]) => p switch
+			(SerializableColorFormat.HexRgb or SerializableColorFormat.HexRgbShort, ['#', .. var p]) => p switch
 			{
 				{ Length: 3 } => rgb(p[0], p[0], p[1], p[1], p[2], p[2]),
 				{ Length: 6 } => rgb(s),
 				_ => throw ex()
 			},
-			(ColorFormat.HexArgb or ColorFormat.HexArgbShort, ['#', .. var p]) => p switch
+			(SerializableColorFormat.HexArgb or SerializableColorFormat.HexArgbShort, ['#', .. var p]) => p switch
 			{
 				{ Length: 4 } => argb(p[0], p[0], p[1], p[1], p[2], p[2], p[3], p[3]),
 				{ Length: 8 } => argb(p),
 				_ => throw ex()
 			},
-			(ColorFormat.HexRgba or ColorFormat.HexRgbaShort, ['#', .. var p]) => p switch
+			(SerializableColorFormat.HexRgba or SerializableColorFormat.HexRgbaShort, ['#', .. var p]) => p switch
 			{
 				{ Length: 4 } => argb(p[3], p[3], p[0], p[0], p[1], p[1], p[2], p[2]),
 				{ Length: 8 } => argb(p[6], p[7], p[0], p[1], p[2], p[3], p[4], p[5]),
 				_ => throw ex()
 			},
-			(ColorFormat.RgbFunction, ['R' or 'r', 'G' or 'g', 'B' or 'b', '(', .. var p, ')'])
+			(SerializableColorFormat.RgbFunction, ['R' or 'r', 'G' or 'g', 'B' or 'b', '(', .. var p, ')'])
 				when splitBy(p, ',') is [var r, var g, var b]
 				&& int.TryParse(r, out var red) && red is >= 0 and < 256
 				&& int.TryParse(g, out var green) && green is >= 0 and < 256
 				&& int.TryParse(b, out var blue) && blue is >= 0 and < 256
 				=> new((byte)red, (byte)green, (byte)blue),
-			(ColorFormat.RgbaFunction, ['R' or 'r', 'G' or 'g', 'B' or 'b', 'A' or 'a', '(', .. var p, ')'])
+			(SerializableColorFormat.RgbaFunction, ['R' or 'r', 'G' or 'g', 'B' or 'b', 'A' or 'a', '(', .. var p, ')'])
 				when splitBy(p, ',') is [var r, var g, var b, var a]
 				&& int.TryParse(a, out var alpha) && alpha is >= 0 and < 256
 				&& int.TryParse(r, out var red) && red is >= 0 and < 256
 				&& int.TryParse(g, out var green) && green is >= 0 and < 256
 				&& int.TryParse(b, out var blue) && blue is >= 0 and < 256
 				=> new((byte)red, (byte)green, (byte)blue, (byte)alpha),
-			(ColorFormat.NamedColor, _) when WellKnownColorsReversed.TryGetValue(s, out var color) => color,
-			(ColorFormat.HexInteger, ['0', 'X' or 'x', .. var p]) when Convert.ToUInt32(p, 16) is var mask
+			(SerializableColorFormat.NamedColor, _) when WellKnownColorsReversed.TryGetValue(s, out var color) => color,
+			(SerializableColorFormat.HexInteger, ['0', 'X' or 'x', .. var p]) when Convert.ToUInt32(p, 16) is var mask
 				=> new((byte)(mask >> 16 & 255), (byte)(mask >> 8 & 255), (byte)(mask & 255), (byte)(mask >> 24 & 255)),
-			(ColorFormat.DecimalInteger, _) when uint.TryParse(s, out var mask)
+			(SerializableColorFormat.DecimalInteger, _) when uint.TryParse(s, out var mask)
 				=> new((byte)(mask >> 16 & 255), (byte)(mask >> 8 & 255), (byte)(mask & 255), (byte)(mask >> 24 & 255)),
-			(ColorFormat.AnsiTrueColor, _)
+			(SerializableColorFormat.AnsiTrueColor, _)
 				when splitBy(s["\e[38;2;".Length..^1], ';') is [var r, var g, var b]
 				&& int.TryParse(r, out var red) && red is >= 0 and < 256
 				&& int.TryParse(g, out var green) && green is >= 0 and < 256
@@ -292,9 +292,9 @@ file sealed class Converter : JsonConverter<SerializableColor>
 {
 	/// <inheritdoc/>
 	public override SerializableColor Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-		=> SerializableColor.Parse(reader.GetString()!, ColorFormat.HexRgba);
+		=> SerializableColor.Parse(reader.GetString()!, SerializableColorFormat.HexRgba);
 
 	/// <inheritdoc/>
 	public override void Write(Utf8JsonWriter writer, SerializableColor value, JsonSerializerOptions options)
-		=> writer.WriteStringValue(value.ToString(ColorFormat.HexRgba));
+		=> writer.WriteStringValue(value.ToString(SerializableColorFormat.HexRgba));
 }

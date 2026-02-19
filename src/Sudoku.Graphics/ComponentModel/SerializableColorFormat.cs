@@ -1,9 +1,10 @@
 ﻿namespace Sudoku.ComponentModel;
 
 /// <summary>
-/// Represents a color format.
+/// Represents an enumeration field that describes a kind of format of <see cref="SerializableColor"/>.
 /// </summary>
-public enum ColorFormat
+/// <seealso cref="SerializableColor"/>
+public enum SerializableColorFormat
 {
 	/// <summary>
 	/// Format <c>(Red, Green, Blue)</c>.
