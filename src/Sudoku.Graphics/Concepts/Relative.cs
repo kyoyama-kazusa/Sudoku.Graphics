@@ -6,7 +6,7 @@
 /// <param name="value">The value.</param>
 [JsonConverter(typeof(ValueConverter<Relative>))]
 [DebuggerDisplay($$"""{{{nameof(ToString)}}(),nq}""")]
-public readonly struct Relative(int value) : IValue<Relative>
+public readonly struct Relative(int value) : IInteger<Relative>
 {
 	/// <summary>
 	/// The backing value.
@@ -15,11 +15,11 @@ public readonly struct Relative(int value) : IValue<Relative>
 
 
 	/// <inheritdoc/>
-	int IValue<Relative>.Value => _value;
+	int IInteger<Relative>.Value => _value;
 
 	/// <inheritdoc/>
 	[UnscopedRef]
-	ref readonly int IValue<Relative>.ValueRef => ref _value;
+	ref readonly int IInteger<Relative>.ValueRef => ref _value;
 
 
 	/// <inheritdoc/>

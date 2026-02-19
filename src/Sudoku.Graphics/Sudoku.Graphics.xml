@@ -60,29 +60,29 @@
             <returns>A <see cref="T:Sudoku.ComponentModel.GridTemplateSize"/> instance that is the minimal size, covering all templates specified.</returns>
             <seealso cref="T:Sudoku.Graphics.Canvas"/>
         </member>
-        <member name="T:Sudoku.ComponentModel.IValue`1">
+        <member name="T:Sudoku.ComponentModel.IInteger`1">
             <summary>
             Represents a type that simply encapsulates an <see cref="T:System.Int32"/> value.
             </summary>
             <typeparam name="TSelf">The type itself.</typeparam>
         </member>
-        <member name="P:Sudoku.ComponentModel.IValue`1.Value">
+        <member name="P:Sudoku.ComponentModel.IInteger`1.Value">
             <summary>
             Indicates the value.
             </summary>
         </member>
-        <member name="P:Sudoku.ComponentModel.IValue`1.ValueRef">
+        <member name="P:Sudoku.ComponentModel.IInteger`1.ValueRef">
             <summary>
             Indicates the reference to field.
             </summary>
         </member>
-        <member name="M:Sudoku.ComponentModel.IValue`1.op_Implicit(`0)~System.Int32">
+        <member name="M:Sudoku.ComponentModel.IInteger`1.op_Implicit(`0)~System.Int32">
             <summary>
             Implicit cast from <see cref="T:System.Int32"/> to <typeparamref name="TSelf"/> value.
             </summary>
             <param name="value">The value.</param>
         </member>
-        <member name="M:Sudoku.ComponentModel.IValue`1.op_Implicit(System.Int32)~`0">
+        <member name="M:Sudoku.ComponentModel.IInteger`1.op_Implicit(System.Int32)~`0">
             <summary>
             Implicit cast from <typeparamref name="TSelf"/> to <see cref="T:System.Int32"/> value.
             </summary>
@@ -520,10 +520,10 @@
             The backing value.
             </summary>
         </member>
-        <member name="P:Sudoku.Concepts.Absolute.Sudoku#ComponentModel#IValue{Sudoku#Concepts#Absolute}#Value">
+        <member name="P:Sudoku.Concepts.Absolute.Sudoku#ComponentModel#IInteger{Sudoku#Concepts#Absolute}#Value">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Concepts.Absolute.Sudoku#ComponentModel#IValue{Sudoku#Concepts#Absolute}#ValueRef">
+        <member name="P:Sudoku.Concepts.Absolute.Sudoku#ComponentModel#IInteger{Sudoku#Concepts#Absolute}#ValueRef">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Concepts.Absolute.Equals(System.Object)">
@@ -810,10 +810,10 @@
             The backing value.
             </summary>
         </member>
-        <member name="P:Sudoku.Concepts.Relative.Sudoku#ComponentModel#IValue{Sudoku#Concepts#Relative}#Value">
+        <member name="P:Sudoku.Concepts.Relative.Sudoku#ComponentModel#IInteger{Sudoku#Concepts#Relative}#Value">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Concepts.Relative.Sudoku#ComponentModel#IValue{Sudoku#Concepts#Relative}#ValueRef">
+        <member name="P:Sudoku.Concepts.Relative.Sudoku#ComponentModel#IInteger{Sudoku#Concepts#Relative}#ValueRef">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Concepts.Relative.Equals(System.Object)">

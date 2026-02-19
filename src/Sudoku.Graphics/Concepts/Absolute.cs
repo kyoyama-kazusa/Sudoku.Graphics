@@ -6,7 +6,7 @@
 /// <param name="value">The value.</param>
 [JsonConverter(typeof(ValueConverter<Absolute>))]
 [DebuggerDisplay($$"""{{{nameof(ToString)}}(),nq}""")]
-public readonly struct Absolute(int value) : IValue<Absolute>
+public readonly struct Absolute(int value) : IInteger<Absolute>
 {
 	/// <summary>
 	/// The backing value.
@@ -15,11 +15,11 @@ public readonly struct Absolute(int value) : IValue<Absolute>
 
 
 	/// <inheritdoc/>
-	int IValue<Absolute>.Value => _value;
+	int IInteger<Absolute>.Value => _value;
 
 	/// <inheritdoc/>
 	[UnscopedRef]
-	ref readonly int IValue<Absolute>.ValueRef => ref _value;
+	ref readonly int IInteger<Absolute>.ValueRef => ref _value;
 
 
 	/// <inheritdoc/>
