@@ -178,6 +178,15 @@ namespace Sudoku.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Templates intersection color.
+        /// </summary>
+        internal static string TemplateIntersectionColor {
+            get {
+                return ResourceManager.GetString("TemplateIntersectionColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Text color set.
         /// </summary>
         internal static string TextColorSet {

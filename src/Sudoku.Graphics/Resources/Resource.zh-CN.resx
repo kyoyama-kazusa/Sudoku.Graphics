@@ -156,6 +156,9 @@
   <data name="SmallTextFontWidth" xml:space="preserve">
     <value>小字符的字体宽窄</value>
   </data>
+  <data name="TemplateIntersectionColor" xml:space="preserve">
+    <value>连体盘面重叠部分的颜色</value>
+  </data>
   <data name="TextColorSet" xml:space="preserve">
     <value>文字信息的颜色集</value>
   </data>

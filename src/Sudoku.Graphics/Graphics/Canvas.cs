@@ -52,7 +52,7 @@ public sealed partial class Canvas : ICanvas<CanvasDrawingOptions>
 
 	public partial void FillBackground();
 	public partial void FillBackground(SKColor color);
-	public partial void DrawLines();
+	public partial void DrawLines(bool fillIntersection);
 	public partial void DrawBigText(GridTemplate template, string text, Relative cell, SKColor color);
 	public partial void DrawBigText(GridTemplate template, string text, Absolute cell, SKColor color);
 	public partial void DrawSmallText(GridTemplate template, string text, Relative cell, int innerPosition, int splitSize, SKColor color);

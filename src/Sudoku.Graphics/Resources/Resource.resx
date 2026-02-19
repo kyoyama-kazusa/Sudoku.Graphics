@@ -156,6 +156,9 @@
   <data name="SmallTextFontWidth" xml:space="preserve">
     <value>Small text font width</value>
   </data>
+  <data name="TemplateIntersectionColor" xml:space="preserve">
+    <value>Templates intersection color</value>
+  </data>
   <data name="TextColorSet" xml:space="preserve">
     <value>Text color set</value>
   </data>

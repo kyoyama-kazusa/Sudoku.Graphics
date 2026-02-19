@@ -150,6 +150,13 @@ public sealed class CanvasDrawingOptions : IOptionsProvider<CanvasDrawingOptions
 	public Inherited<SerializableColor> ThickLineColor { get; set; } = Inherited<SerializableColor>.FromPropertyName(nameof(ThinLineColor));
 
 	/// <summary>
+	/// Represents template intersection color. By default it's initialized as <c><see langword="new"/>(223, 234, 255, 255)</c>
+	/// (light deepblue).
+	/// </summary>
+	[ResourceKey("TemplateIntersectionColor")]
+	public Inherited<SerializableColor> TemplateIntersectionColor { get; set; } = Inherited<SerializableColor>.FromValue(new(223, 234, 255));
+
+	/// <summary>
 	/// Represents text color set. The default color set contains 5 different colors.
 	/// </summary>
 	[ResourceKey("TextColorSet")]

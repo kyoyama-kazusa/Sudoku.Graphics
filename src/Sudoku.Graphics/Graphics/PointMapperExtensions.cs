@@ -10,6 +10,16 @@ public static class PointMapperExtensions
 	extension(PointMapper @this)
 	{
 		/// <summary>
+		/// Indicates the number of cells the template can accommodate, excluding outside cells.
+		/// </summary>
+		public Absolute CellsCount => @this.RowsCount * @this.ColumnsCount;
+
+		/// <summary>
+		/// Indicates the number of cells the template can accommodate, including outside cells.
+		/// </summary>
+		public Absolute AbsoluteCellsCount => @this.AbsoluteRowsCount * @this.AbsoluteColumnsCount;
+
+		/// <summary>
 		/// Indicates the size of grid.
 		/// </summary>
 		public SKRect GridSize

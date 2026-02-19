@@ -19,9 +19,10 @@ var defaultTemplateSize = new GridTemplateSize(9, 9, DirectionVector.Zero);
 var defaultMapper = new PointMapper(120, 15, defaultTemplateSize);
 using var canvas = new Canvas(
 	[
-		new StandardGridTemplate(defaultMapper) { IsBorderRoundedRectangle = false },
-		new StandardGridTemplate(defaultMapper.AddOffset(new(3, 0))) { IsBorderRoundedRectangle = false },
-		//new SpecifiedLineTemplate(
+		new StandardGridTemplate(defaultMapper.AddOffset(new(0, 0, 3, 0))) { IsBorderRoundedRectangle = false },
+		new StandardGridTemplate(defaultMapper.AddOffset(new(3, 0, 6, 0))) { IsBorderRoundedRectangle = false },
+		new StandardGridTemplate(defaultMapper.AddOffset(new(6, 0, 0, 0))) { IsBorderRoundedRectangle = false },
+		//new SpecifiedGridTemplate(
 		//	[
 		//		.. Piece.O.GetOutline(RotationType.None, defaultMapper, 10, 0),
 		//		.. Piece.T.GetOutline(RotationType.None, defaultMapper, 10, 3),
@@ -33,7 +34,7 @@ using var canvas = new Canvas(
 		//	[],
 		//	defaultMapper
 		//)
-		//new JigsawLineTemplate(
+		//new JigsawGridTemplate(
 		//	[
 		//		[0, 1, 2, 9, 10, 11, 12, 21, 22],
 		//		[3, 4, 5, 6, 7, 13, 14, 15, 16],
@@ -50,12 +51,12 @@ using var canvas = new Canvas(
 		//{
 		//	//AlsoFillGroups = true
 		//}
-		//new SujikenLineTemplate(defaultMapper)
-		//new DefaultLineTemplate(defaultMapper)
+		//new SujikenGridTemplate(defaultMapper)
+		//new DefaultGridTemplate(defaultMapper)
 	]
 );
 canvas.FillBackground();
-canvas.DrawLines();
+canvas.DrawLines(true);
 //for (var digit = 0; digit < 9; digit++)
 //{
 //	canvas.DrawBigText(canvas.Templates[1], (digit + 1).ToString(), (Relative)(digit * 10), SKColors.Black);

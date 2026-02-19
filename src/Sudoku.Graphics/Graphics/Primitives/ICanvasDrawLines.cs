@@ -8,5 +8,6 @@ public interface ICanvasDrawLines
 	/// <summary>
 	/// Draws thick and thin lines onto the target templates of the canvas.
 	/// </summary>
-	void DrawLines();
+	/// <param name="fillIntersection">Indicates whether intersection cells will be drawn with extra colors.</param>
+	void DrawLines(bool fillIntersection);
 }

@@ -134,6 +134,60 @@
             </summary>
             <param name="mapper"><inheritdoc cref="M:Sudoku.ComponentModel.GridTemplate.#ctor(Sudoku.Graphics.PointMapper)" path="/param[@name='mapper']"/></param>
         </member>
+        <member name="T:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.AbsoluteCellIndexEnumerator">
+            <summary>
+            Represents an enumerator instance that can iterate on each cell index as <see cref="T:Sudoku.Concepts.Absolute"/> instance.
+            </summary>
+            <param name="_template">The template.</param>
+            <seealso cref="T:Sudoku.Concepts.Absolute"/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.AbsoluteCellIndexEnumerator.#ctor(Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate)">
+            <summary>
+            Represents an enumerator instance that can iterate on each cell index as <see cref="T:Sudoku.Concepts.Absolute"/> instance.
+            </summary>
+            <param name="_template">The template.</param>
+            <seealso cref="T:Sudoku.Concepts.Absolute"/>
+        </member>
+        <member name="F:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.AbsoluteCellIndexEnumerator._index">
+            <summary>
+            Indicates the relative index.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.AbsoluteCellIndexEnumerator.Current">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.AbsoluteCellIndexEnumerator.System#Collections#IEnumerator#Current">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.AbsoluteCellIndexEnumerator.CellsCount">
+            <summary>
+            Indicates the number of cells.
+            </summary>
+        </member>
+        <member name="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.AbsoluteCellIndexEnumerator.MoveNext">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.AbsoluteCellIndexEnumerator.GetEnumerator">
+            <inheritdoc cref="M:System.Collections.Generic.IEnumerable`1.GetEnumerator"/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.AbsoluteCellIndexEnumerator.System#IDisposable#Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.AbsoluteCellIndexEnumerator.System#Collections#IEnumerator#Reset">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.AbsoluteCellIndexEnumerator.System#Collections#IEnumerable#GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.AbsoluteCellIndexEnumerator.System#Collections#Generic#IEnumerable{Sudoku#Concepts#Absolute}#GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.AbsoluteCellIndexEnumerator.GetValuesFallback">
+            <summary>
+            The fallback implementation of calculating all values.
+            </summary>
+            <returns>A list of result values.</returns>
+        </member>
         <member name="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.#ctor(Sudoku.Graphics.PointMapper)">
             <summary>
             Represents a grid template that draws thick and thin lines in a normal way.
@@ -152,6 +206,12 @@
         </member>
         <member name="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.DrawLines(SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
             <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.EnumerateGridCellIndices">
+            <summary>
+            Enumerates all cell indices in template, only containing in-grid cells.
+            </summary>
+            <returns>An <see cref="T:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.AbsoluteCellIndexEnumerator"/> instance.</returns>
         </member>
         <member name="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.GuardStatements(SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
             <summary>
@@ -191,6 +251,41 @@
             <inheritdoc cref="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.CreateThickLinesPaint(Sudoku.Graphics.CanvasDrawingOptions)" path="/remarks"/>
             </remarks>
             <seealso cref="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.DrawGridLines(SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)"/>.
+        </member>
+        <member name="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.TryProjectCellIndex``1(``0,``0,Sudoku.Concepts.Absolute,Sudoku.Concepts.Absolute@)">
+            <summary>
+            Project cell index from source template to target template, aligning as top-left side of the canvas.
+            </summary>
+            <typeparam name="TTemplate">The type of template.</typeparam>
+            <param name="source">The source template.</param>
+            <param name="target">The target template.</param>
+            <param name="sourceCellIndex">The source cell absolute index.</param>
+            <param name="targetCellIndex">The target cell absolute index.</param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating whether the projection operation is successful.</returns>
+        </member>
+        <member name="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.ProjectCellIndex``1(``0,``0,Sudoku.Concepts.Absolute)">
+            <summary>
+            Project cell index from source template to target template, aligning as top-left side of the canvas.
+            </summary>
+            <typeparam name="TTemplate">The type of template.</typeparam>
+            <param name="source">The source template.</param>
+            <param name="target">The target template.</param>
+            <param name="sourceCellIndex">The source cell absolute index.</param>
+            <returns>The target cell absolute index.</returns>
+            <exception cref="T:System.ArgumentException">Throws when failed to project.</exception>
+        </member>
+        <member name="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.GetIntersectionCellIndices``1(``0,``0)">
+            <summary>
+            Gets intersection of 2 templates.
+            </summary>
+            <typeparam name="TTemplate">The type of template.</typeparam>
+            <param name="template1">The template 1.</param>
+            <param name="template2">The template 2.</param>
+            <returns>
+            The intersection cells, representing with <see cref="T:Sudoku.Concepts.Absolute"/> instances.
+            Due to design of absolute cell indices, the return value will be referenced from <paramref name="template1"/>.
+            </returns>
+            <seealso cref="T:Sudoku.Concepts.Absolute"/>
         </member>
         <member name="T:Sudoku.ComponentModel.GridTemplates.IRoundRectangleCornerGridTemplate">
             <summary>
@@ -1475,7 +1570,7 @@
         <member name="M:Sudoku.Graphics.Canvas.FillBackground(SkiaSharp.SKColor)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Canvas.DrawLines">
+        <member name="M:Sudoku.Graphics.Canvas.DrawLines(System.Boolean)">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Canvas.DrawBigText(Sudoku.ComponentModel.GridTemplate,System.String,Sudoku.Concepts.Relative,SkiaSharp.SKColor)">
@@ -1631,6 +1726,12 @@
             Represents thick line color. By default it's same value inherited from property <see cref="P:Sudoku.Graphics.CanvasDrawingOptions.ThinLineColor"/>.
             </summary>
             <seealso cref="P:Sudoku.Graphics.CanvasDrawingOptions.ThinLineColor"/>
+        </member>
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.TemplateIntersectionColor">
+            <summary>
+            Represents template intersection color. By default it's initialized as <c><see langword="new"/>(223, 234, 255, 255)</c>
+            (light deepblue).
+            </summary>
         </member>
         <member name="P:Sudoku.Graphics.CanvasDrawingOptions.TextColorSet">
             <summary>
@@ -1818,11 +1919,27 @@
             </summary>
             <seealso cref="T:Sudoku.Graphics.PointMapper"/>
         </member>
+        <member name="M:Sudoku.Graphics.PointMapperExtensions.get_CellsCount(Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="P:Sudoku.Graphics.PointMapperExtensions.&lt;G&gt;$16B388937BC1736B25CC55B40740AB8E.CellsCount"/>
+        </member>
+        <member name="M:Sudoku.Graphics.PointMapperExtensions.get_AbsoluteCellsCount(Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="P:Sudoku.Graphics.PointMapperExtensions.&lt;G&gt;$16B388937BC1736B25CC55B40740AB8E.AbsoluteCellsCount"/>
+        </member>
         <member name="M:Sudoku.Graphics.PointMapperExtensions.get_GridSize(Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="P:Sudoku.Graphics.PointMapperExtensions.&lt;G&gt;$16B388937BC1736B25CC55B40740AB8E.GridSize"/>
         </member>
         <member name="T:Sudoku.Graphics.PointMapperExtensions.&lt;G&gt;$16B388937BC1736B25CC55B40740AB8E.&lt;M&gt;$7B182DD39DBDB3188640F4E50916E882">
             <param name="this">The current instance.</param>
+        </member>
+        <member name="P:Sudoku.Graphics.PointMapperExtensions.&lt;G&gt;$16B388937BC1736B25CC55B40740AB8E.CellsCount">
+            <summary>
+            Indicates the number of cells the template can accommodate, excluding outside cells.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.PointMapperExtensions.&lt;G&gt;$16B388937BC1736B25CC55B40740AB8E.AbsoluteCellsCount">
+            <summary>
+            Indicates the number of cells the template can accommodate, including outside cells.
+            </summary>
         </member>
         <member name="P:Sudoku.Graphics.PointMapperExtensions.&lt;G&gt;$16B388937BC1736B25CC55B40740AB8E.GridSize">
             <summary>
@@ -1873,10 +1990,11 @@
             Represents a canvas object that supports line-drawing methods.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.Primitives.ICanvasDrawLines.DrawLines">
+        <member name="M:Sudoku.Graphics.Primitives.ICanvasDrawLines.DrawLines(System.Boolean)">
             <summary>
             Draws thick and thin lines onto the target templates of the canvas.
             </summary>
+            <param name="fillIntersection">Indicates whether intersection cells will be drawn with extra colors.</param>
         </member>
         <member name="T:Sudoku.Graphics.Primitives.ICanvasDrawSmallText">
             <summary>
@@ -2032,6 +2150,11 @@
         <member name="P:Sudoku.Resources.Resource.SmallTextFontWidth">
             <summary>
               Looks up a localized string similar to Small text font width.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Resources.Resource.TemplateIntersectionColor">
+            <summary>
+              Looks up a localized string similar to Templates intersection color.
             </summary>
         </member>
         <member name="P:Sudoku.Resources.Resource.TextColorSet">
