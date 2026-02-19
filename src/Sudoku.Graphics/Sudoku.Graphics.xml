@@ -1252,6 +1252,9 @@
             </summary>
             <param name="mapper"><inheritdoc cref="M:Sudoku.Graphics.GridTemplate.#ctor(Sudoku.Graphics.PointMapper)" path="/param[@name='mapper']"/></param>
         </member>
+        <member name="P:Sudoku.Graphics.GridTemplates.DefaultGridTemplate.IsRoundedRectangle">
+            <inheritdoc/>
+        </member>
         <member name="P:Sudoku.Graphics.GridTemplates.DefaultGridTemplate.DrawBordersAsThickLines">
             <summary>
             Indicates whether border lines should be drawn as thick lines or not.
@@ -1330,6 +1333,16 @@
             <inheritdoc cref="M:Sudoku.Graphics.GridTemplates.IndividualGridTemplate.CreateThickLinesPaint(Sudoku.Graphics.CanvasDrawingOptions)" path="/remarks"/>
             </remarks>
             <seealso cref="M:Sudoku.Graphics.GridTemplates.IndividualGridTemplate.DrawGridLines(SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)"/>.
+        </member>
+        <member name="T:Sudoku.Graphics.GridTemplates.IRoundRectangleCornerGridTemplate">
+            <summary>
+            Represents a grid template that supports drawing corners with rounded rectangle.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.GridTemplates.IRoundRectangleCornerGridTemplate.IsRoundedRectangle">
+            <summary>
+            Indicates whether the border should be drawn as rounded rectangle. By default it's <see langword="true"/>.
+            </summary>
         </member>
         <member name="T:Sudoku.Graphics.GridTemplates.JigsawGridTemplate">
             <summary>
@@ -1442,6 +1455,9 @@
             </summary>
             <param name="uniformSize">The uniformed value.</param>
             <param name="mapper">The mapper.</param>
+        </member>
+        <member name="P:Sudoku.Graphics.GridTemplates.StandardGridTemplate.IsRoundedRectangle">
+            <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.GridTemplates.StandardGridTemplate.RowBlockSize">
             <summary>
@@ -1557,16 +1573,6 @@
         </member>
         <member name="P:Sudoku.Graphics.PointMapper.Vector">
             <inheritdoc cref="P:Sudoku.ComponentModel.GridTemplateSize.Vector"/>
-        </member>
-        <member name="P:Sudoku.Graphics.PointMapper.GridDrawingSize">
-            <summary>
-            Indicates grid size <see cref="T:SkiaSharp.SKSize"/> instance.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.PointMapper.FullCanvasDrawingSize">
-            <summary>
-            Indicates full canvas size <see cref="T:SkiaSharp.SKSize"/> instance, of integer type.
-            </summary>
         </member>
         <member name="P:Sudoku.Graphics.PointMapper.TemplateSize">
             <summary>

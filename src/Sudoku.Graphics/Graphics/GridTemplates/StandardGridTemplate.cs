@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a standard (rectangular) grid template.
 /// </summary>
-public sealed class StandardGridTemplate : IndividualGridTemplate
+public sealed class StandardGridTemplate : IndividualGridTemplate, IRoundRectangleCornerGridTemplate
 {
 	/// <summary>
 	/// Initializes a <see cref="PointMapper"/> instance via the specified mapper.
@@ -59,6 +59,9 @@ public sealed class StandardGridTemplate : IndividualGridTemplate
 	}
 
 
+	/// <inheritdoc/>
+	public bool IsRoundedRectangle { get; init; } = true;
+
 	/// <summary>
 	/// Indicates the number of rows in a rectangular block.
 	/// </summary>
@@ -84,10 +87,12 @@ public sealed class StandardGridTemplate : IndividualGridTemplate
 				SKRect.Create(
 					Mapper.Margin + Mapper.CellSize * Mapper.Vector.Left,
 					Mapper.Margin + Mapper.CellSize * Mapper.Vector.Up,
-					Mapper.GridDrawingSize.Width,
-					Mapper.GridDrawingSize.Height
+					Mapper.CellSize * Mapper.ColumnsCount,
+					Mapper.CellSize * Mapper.RowsCount
 				),
-				options.GridBorderRoundedRectangleCornerRadius.Resolve(options).Measure(Mapper.CellSize)
+				IsRoundedRectangle
+					? options.GridBorderRoundedRectangleCornerRadius.Resolve(options).Measure(Mapper.CellSize)
+					: 0
 			)
 		);
 		using var borderPaint = CreateThickLinesPaint(options);

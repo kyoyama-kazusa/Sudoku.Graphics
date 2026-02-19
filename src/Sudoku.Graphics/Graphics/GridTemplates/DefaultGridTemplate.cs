@@ -5,8 +5,11 @@
 /// </summary>
 /// <param name="mapper"><inheritdoc cref="GridTemplate(PointMapper)" path="/param[@name='mapper']"/></param>
 [method: JsonConstructor]
-public sealed class DefaultGridTemplate(PointMapper mapper) : IndividualGridTemplate(mapper)
+public sealed class DefaultGridTemplate(PointMapper mapper) : IndividualGridTemplate(mapper), IRoundRectangleCornerGridTemplate
 {
+	/// <inheritdoc/>
+	public bool IsRoundedRectangle { get; init; } = true;
+
 	/// <summary>
 	/// Indicates whether border lines should be drawn as thick lines or not.
 	/// By default it's <see langword="true"/>.
@@ -28,10 +31,12 @@ public sealed class DefaultGridTemplate(PointMapper mapper) : IndividualGridTemp
 				SKRect.Create(
 					Mapper.Margin + Mapper.CellSize * Mapper.Vector.Left,
 					Mapper.Margin + Mapper.CellSize * Mapper.Vector.Up,
-					Mapper.GridDrawingSize.Width,
-					Mapper.GridDrawingSize.Height
+					Mapper.CellSize * Mapper.ColumnsCount,
+					Mapper.CellSize * Mapper.RowsCount
 				),
-				options.GridBorderRoundedRectangleCornerRadius.Resolve(options).Measure(Mapper.CellSize)
+				IsRoundedRectangle
+					? options.GridBorderRoundedRectangleCornerRadius.Resolve(options).Measure(Mapper.CellSize)
+					: 0
 			)
 		);
 

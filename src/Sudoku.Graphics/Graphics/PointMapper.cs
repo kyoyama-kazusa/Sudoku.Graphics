@@ -64,17 +64,6 @@ public sealed record PointMapper : IEqualityOperators<PointMapper, PointMapper, 
 	public DirectionVector Vector => TemplateSize.Vector;
 
 	/// <summary>
-	/// Indicates grid size <see cref="SKSize"/> instance.
-	/// </summary>
-	public SKSize GridDrawingSize => new(CellSize * ColumnsCount, CellSize * RowsCount);
-
-	/// <summary>
-	/// Indicates full canvas size <see cref="SKSize"/> instance, of integer type.
-	/// </summary>
-	public SKSizeI FullCanvasDrawingSize
-		=> new((int)(CellSize * AbsoluteColumnsCount + 2 * Margin), (int)(CellSize * AbsoluteRowsCount + 2 * Margin));
-
-	/// <summary>
 	/// Indicates size information of the target grid to be drawn.
 	/// </summary>
 	public required GridTemplateSize TemplateSize { get; init; }
