@@ -1,13 +1,22 @@
-﻿namespace Sudoku.Graphics.LineTemplates;
+﻿namespace Sudoku.Graphics.GridTemplates;
 
 /// <summary>
-/// Represents irregular (jigsaw) line template.
+/// Represents irregular (jigsaw) grid template, containing irregular-shaped blocks.
 /// </summary>
 /// <param name="cellIndexGroups"><inheritdoc cref="CellIndexGroups" path="/summary"/></param>
-/// <param name="mapper"><inheritdoc cref="LineTemplate(PointMapper)" path="/param[@name='mapper']"/></param>
-[method: JsonConstructor]
-public sealed class JigsawLineTemplate(Relative[][] cellIndexGroups, PointMapper mapper) : IndividualBlockLineTemplate(mapper)
+/// <param name="mapper"><inheritdoc cref="GridTemplate(PointMapper)" path="/param[@name='mapper']"/></param>
+public sealed class JigsawGridTemplate(Relative[][] cellIndexGroups, PointMapper mapper) : IndividualGridTemplate(mapper)
 {
+	/// <summary>
+	/// Initializes a <see cref="JigsawGridTemplate"/> instance via the specified point mapper.
+	/// </summary>
+	/// <param name="mapper">The point mapper.</param>
+	[JsonConstructor]
+	public JigsawGridTemplate(PointMapper mapper) : this([], mapper)
+	{
+	}
+
+
 	/// <summary>
 	/// Indicates the relative cell index groups.
 	/// </summary>

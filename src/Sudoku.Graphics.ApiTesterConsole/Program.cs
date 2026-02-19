@@ -12,15 +12,15 @@ using System.Text.Json;
 using Sudoku.ComponentModel;
 using Sudoku.Concepts;
 using Sudoku.Graphics;
-using Sudoku.Graphics.LineTemplates;
+using Sudoku.Graphics.GridTemplates;
 
 var desktop = Environment.DesktopPath;
-var defaultTemplateSize = new LineTemplateSize(9, 9, DirectionVector.Zero);
+var defaultTemplateSize = new GridTemplateSize(9, 9, DirectionVector.Zero);
 var defaultMapper = new PointMapper(120, 15, defaultTemplateSize);
 using var canvas = new Canvas(
 	[
-		new StandardLineTemplate(defaultMapper),
-		new StandardLineTemplate(defaultMapper.AddOffset(new(3, 0))),
+		new StandardGridTemplate(defaultMapper),
+		new StandardGridTemplate(defaultMapper.AddOffset(new(3, 0))),
 		//new SpecifiedLineTemplate(
 		//	[
 		//		.. Piece.O.GetOutline(RotationType.None, defaultMapper, 10, 0),

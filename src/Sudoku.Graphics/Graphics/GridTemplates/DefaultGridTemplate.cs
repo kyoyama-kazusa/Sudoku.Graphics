@@ -1,11 +1,11 @@
-﻿namespace Sudoku.Graphics.LineTemplates;
+﻿namespace Sudoku.Graphics.GridTemplates;
 
 /// <summary>
-/// Represents a default line template that doesn't contain any block (thick) lines (except borders).
+/// Represents a default grid template that doesn't contain any block (thick) lines, except borders.
 /// </summary>
-/// <param name="mapper"><inheritdoc cref="LineTemplate(PointMapper)" path="/param[@name='mapper']"/></param>
+/// <param name="mapper"><inheritdoc cref="GridTemplate(PointMapper)" path="/param[@name='mapper']"/></param>
 [method: JsonConstructor]
-public sealed class DefaultLineTemplate(PointMapper mapper) : IndividualBlockLineTemplate(mapper)
+public sealed class DefaultGridTemplate(PointMapper mapper) : IndividualGridTemplate(mapper)
 {
 	/// <summary>
 	/// Indicates whether border lines should be drawn as thick lines or not.

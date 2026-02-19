@@ -16,7 +16,7 @@ global using SkiaSharp;
 global using Sudoku.ComponentModel;
 global using Sudoku.Concepts;
 global using Sudoku.Graphics;
-global using Sudoku.Graphics.LineTemplates;
+global using Sudoku.Graphics.GridTemplates;
 global using Sudoku.Graphics.Primitives;
 global using Sudoku.Resources;
 global using Sudoku.Serialization;

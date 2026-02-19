@@ -16,9 +16,9 @@ public sealed partial class Canvas : ICanvas<CanvasDrawingOptions>
 	/// </summary>
 	/// <param name="templates">The templates to be drawn.</param>
 	/// <param name="options">The drawing options.</param>
-	public Canvas(LineTemplate[] templates, CanvasDrawingOptions? options = null)
+	public Canvas(GridTemplate[] templates, CanvasDrawingOptions? options = null)
 	{
-		GlobalTemplateSize = LineTemplateSize.Create(templates);
+		GlobalTemplateSize = GridTemplateSize.Create(templates);
 		_surface = SKSurface.Create(
 			new SKSizeI(
 				(int)(templates[0].Mapper.CellSize * GlobalTemplateSize.AbsoluteColumnsCount + 2 * templates[0].Mapper.Margin),
@@ -36,12 +36,12 @@ public sealed partial class Canvas : ICanvas<CanvasDrawingOptions>
 	/// <summary>
 	/// Indicates all templates.
 	/// </summary>
-	public LineTemplate[] Templates { get; }
+	public GridTemplate[] Templates { get; }
 
 	/// <summary>
 	/// Indicates the global template size.
 	/// </summary>
-	public LineTemplateSize GlobalTemplateSize { get; }
+	public GridTemplateSize GlobalTemplateSize { get; }
 
 	/// <inheritdoc/>
 	SKCanvas ICanvas<CanvasDrawingOptions>.BackingCanvas => BackingCanvas;
@@ -53,10 +53,10 @@ public sealed partial class Canvas : ICanvas<CanvasDrawingOptions>
 	public partial void FillBackground();
 	public partial void FillBackground(SKColor color);
 	public partial void DrawLines();
-	public partial void DrawBigText(LineTemplate template, string text, Relative cell, SKColor color);
-	public partial void DrawBigText(LineTemplate template, string text, Absolute cell, SKColor color);
-	public partial void DrawSmallText(LineTemplate template, string text, Relative cell, int innerPosition, int splitSize, SKColor color);
-	public partial void DrawSmallText(LineTemplate template, string text, Absolute cell, int innerPosition, int splitSize, SKColor color);
+	public partial void DrawBigText(GridTemplate template, string text, Relative cell, SKColor color);
+	public partial void DrawBigText(GridTemplate template, string text, Absolute cell, SKColor color);
+	public partial void DrawSmallText(GridTemplate template, string text, Relative cell, int innerPosition, int splitSize, SKColor color);
+	public partial void DrawSmallText(GridTemplate template, string text, Absolute cell, int innerPosition, int splitSize, SKColor color);
 	public partial void Dispose();
 	public partial void Export(string path, CanvasExportingOptions? options = null);
 	public partial void Export<TOptions>(string path, TOptions? options) where TOptions : notnull, IOptionsProvider<TOptions>, new();

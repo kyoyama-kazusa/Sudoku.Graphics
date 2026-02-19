@@ -15,7 +15,7 @@ public interface ICanvasDrawSmallText
 	/// <param name="innerPosition">The inner position.</param>
 	/// <param name="splitSize">The number of inner rows and columns.</param>
 	/// <param name="color">The color.</param>
-	void DrawSmallText(LineTemplate template, string text, Relative cell, int innerPosition, int splitSize, SKColor color);
+	void DrawSmallText(GridTemplate template, string text, Relative cell, int innerPosition, int splitSize, SKColor color);
 
 	/// <summary>
 	/// Draws the specified text onto the specified cell, with the specified offset values as inner offsets in a cell;
@@ -27,5 +27,5 @@ public interface ICanvasDrawSmallText
 	/// <param name="innerPosition">The inner position.</param>
 	/// <param name="splitSize">The number of inner rows and columns.</param>
 	/// <param name="color">The color.</param>
-	void DrawSmallText(LineTemplate template, string text, Absolute cell, int innerPosition, int splitSize, SKColor color);
+	void DrawSmallText(GridTemplate template, string text, Absolute cell, int innerPosition, int splitSize, SKColor color);
 }

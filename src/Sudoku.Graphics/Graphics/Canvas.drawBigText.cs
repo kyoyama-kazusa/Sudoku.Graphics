@@ -3,11 +3,11 @@
 public partial class Canvas
 {
 	/// <inheritdoc/>
-	public partial void DrawBigText(LineTemplate template, string text, Relative cell, SKColor color)
+	public partial void DrawBigText(GridTemplate template, string text, Relative cell, SKColor color)
 		=> DrawBigText(template, text, template.Mapper.GetAbsoluteIndex(cell), color);
 
 	/// <inheritdoc/>
-	public partial void DrawBigText(LineTemplate template, string text, Absolute cell, SKColor color)
+	public partial void DrawBigText(GridTemplate template, string text, Absolute cell, SKColor color)
 	{
 		var mapper = template.Mapper;
 		using var typeface = SKTypeface.FromFamilyName(

@@ -1,27 +1,27 @@
 ﻿namespace Sudoku.ComponentModel;
 
 /// <summary>
-/// Represents logical size of a <see cref="LineTemplate"/> instance.
+/// Represents logical size of a <see cref="GridTemplate"/> instance.
 /// </summary>
-public sealed record LineTemplateSize : IEqualityOperators<LineTemplateSize, LineTemplateSize, bool>
+public sealed record GridTemplateSize : IEqualityOperators<GridTemplateSize, GridTemplateSize, bool>
 {
 	/// <summary>
-	/// Initializes a <see cref="LineTemplate"/> instance.
+	/// Initializes a <see cref="GridTemplate"/> instance.
 	/// </summary>
-	public LineTemplateSize()
+	public GridTemplateSize()
 	{
 	}
 
 	/// <summary>
-	/// Initializes a <see cref="LineTemplateSize"/> instance.
+	/// Initializes a <see cref="GridTemplateSize"/> instance.
 	/// </summary>
 	/// <param name="rowsCount"><inheritdoc cref="RowsCount" path="/summary"/></param>
 	/// <param name="columnsCount"><inheritdoc cref="ColumnsCount" path="/summary"/></param>
 	/// <param name="vector"><inheritdoc cref="Vector" path="/summary"/></param>
-	/// <seealso cref="LineTemplate"/>
+	/// <seealso cref="GridTemplate"/>
 	[SetsRequiredMembers]
 	[JsonConstructor]
-	public LineTemplateSize(Absolute rowsCount, Absolute columnsCount, DirectionVector vector)
+	public GridTemplateSize(Absolute rowsCount, Absolute columnsCount, DirectionVector vector)
 	{
 		RowsCount = rowsCount;
 		ColumnsCount = columnsCount;
@@ -58,7 +58,7 @@ public sealed record LineTemplateSize : IEqualityOperators<LineTemplateSize, Lin
 
 
 	/// <inheritdoc/>
-	public bool Equals([NotNullWhen(true)] LineTemplateSize? other)
+	public bool Equals([NotNullWhen(true)] GridTemplateSize? other)
 		=> other is not null && RowsCount == other.RowsCount && ColumnsCount == other.ColumnsCount && Vector == other.Vector;
 
 	/// <inheritdoc/>
@@ -79,13 +79,13 @@ public sealed record LineTemplateSize : IEqualityOperators<LineTemplateSize, Lin
 
 
 	/// <summary>
-	/// Creates a <see cref="LineTemplateSize"/> instance via the specified list of templates.
+	/// Creates a <see cref="GridTemplateSize"/> instance via the specified list of templates.
 	/// Such templates will be drawn into one <see cref="Canvas"/> instance, aligning as top-left cell <c>(0, 0)</c>.
 	/// </summary>
 	/// <param name="templates">The templates.</param>
-	/// <returns>A <see cref="LineTemplateSize"/> instance that is the minimal size, covering all templates specified.</returns>
+	/// <returns>A <see cref="GridTemplateSize"/> instance that is the minimal size, covering all templates specified.</returns>
 	/// <seealso cref="Canvas"/>
-	public static LineTemplateSize Create(params ReadOnlySpan<LineTemplate> templates)
+	public static GridTemplateSize Create(params ReadOnlySpan<GridTemplate> templates)
 	{
 		if (templates.IsEmpty)
 		{

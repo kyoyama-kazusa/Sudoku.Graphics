@@ -3,11 +3,11 @@
 public partial class Canvas
 {
 	/// <inheritdoc/>
-	public partial void DrawSmallText(LineTemplate template, string text, Relative cell, int innerPosition, int splitSize, SKColor color)
+	public partial void DrawSmallText(GridTemplate template, string text, Relative cell, int innerPosition, int splitSize, SKColor color)
 		=> DrawSmallText(template, text, template.Mapper.GetAbsoluteIndex(cell), innerPosition, splitSize, color);
 
 	/// <inheritdoc/>
-	public partial void DrawSmallText(LineTemplate template, string text, Absolute cell, int innerPosition, int splitSize, SKColor color)
+	public partial void DrawSmallText(GridTemplate template, string text, Absolute cell, int innerPosition, int splitSize, SKColor color)
 	{
 		// The main idea on drawing candidates is to find for the number of rows and columns in a cell should be drawn,
 		// accommodating all possible candidate values.

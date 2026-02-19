@@ -1,9 +1,9 @@
-﻿namespace Sudoku.Graphics.LineTemplates;
+﻿namespace Sudoku.Graphics.GridTemplates;
 
 /// <summary>
-/// Represents Sujiken (halfdoku) line template.
+/// Represents Sujiken (halfdoku) grid template.
 /// </summary>
-public sealed class SujikenLineTemplate : IndividualBlockLineTemplate
+public sealed class SujikenGridTemplate : IndividualGridTemplate
 {
 	/// <summary>
 	/// Provides extra lookup dictionary.
@@ -12,13 +12,14 @@ public sealed class SujikenLineTemplate : IndividualBlockLineTemplate
 
 
 	/// <summary>
-	/// Initializes a <see cref="SujikenLineTemplate"/> instance via the specified mapper.
+	/// Initializes a <see cref="SujikenGridTemplate"/> instance via the specified mapper.
 	/// </summary>
 	/// <param name="mapper">The mapper.</param>
 	/// <exception cref="ArgumentException">
 	/// Throws when the mapper doesn't represents a grid with standard <c>n * n</c> size.
 	/// </exception>
-	public SujikenLineTemplate(PointMapper mapper) : base(mapper)
+	[SetsRequiredMembers]
+	public SujikenGridTemplate(PointMapper mapper) : base(mapper)
 	{
 		var linesCount = mapper.RowsCount;
 		var squareRootOfLinesCount = (int)Math.Sqrt(linesCount);
@@ -32,18 +33,19 @@ public sealed class SujikenLineTemplate : IndividualBlockLineTemplate
 	}
 
 	/// <summary>
-	/// Initializes a <see cref="SujikenLineTemplate"/> instance via the specified mapper and uniform block size.
+	/// Initializes a <see cref="SujikenGridTemplate"/> instance via the specified mapper and uniform block size.
 	/// </summary>
 	/// <param name="uniformSize">The uniformed value.</param>
 	/// <param name="mapper">The mapper.</param>
 	[JsonConstructor]
-	public SujikenLineTemplate(Relative uniformSize, PointMapper mapper) : this(mapper) => UniformBlockSize = uniformSize;
+	[SetsRequiredMembers]
+	public SujikenGridTemplate(Relative uniformSize, PointMapper mapper) : this(mapper) => UniformBlockSize = uniformSize;
 
 
 	/// <summary>
 	/// Indicates the number of rows and columns in a block.
 	/// </summary>
-	public Relative UniformBlockSize { get; }
+	public required Relative UniformBlockSize { get; init; }
 
 
 	/// <inheritdoc/>

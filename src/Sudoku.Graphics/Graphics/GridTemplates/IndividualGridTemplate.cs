@@ -1,10 +1,10 @@
-﻿namespace Sudoku.Graphics.LineTemplates;
+﻿namespace Sudoku.Graphics.GridTemplates;
 
 /// <summary>
-/// Represents a line template that draws thick and thin lines in a normal way.
+/// Represents a grid template that draws thick and thin lines in a normal way.
 /// </summary>
-/// <param name="mapper"><inheritdoc cref="LineTemplate(PointMapper)" path="/param[@name='mapper']"/></param>
-public abstract class IndividualBlockLineTemplate(PointMapper mapper) : LineTemplate(mapper)
+/// <param name="mapper"><inheritdoc cref="GridTemplate(PointMapper)" path="/param[@name='mapper']"/></param>
+public abstract class IndividualGridTemplate(PointMapper mapper) : GridTemplate(mapper)
 {
 	/// <summary>
 	/// Indicates thick line dash sequence. By default it's an empty sequence, meaning no dash enabled.

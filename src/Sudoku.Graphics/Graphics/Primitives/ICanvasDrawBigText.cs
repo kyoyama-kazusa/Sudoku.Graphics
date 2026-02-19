@@ -12,7 +12,7 @@ public interface ICanvasDrawBigText
 	/// <param name="text">The text.</param>
 	/// <param name="cell">The relative cell.</param>
 	/// <param name="color">The color.</param>
-	void DrawBigText(LineTemplate template, string text, Relative cell, SKColor color);
+	void DrawBigText(GridTemplate template, string text, Relative cell, SKColor color);
 
 	/// <summary>
 	/// Draws the specified text onto the specified cell.
@@ -21,5 +21,5 @@ public interface ICanvasDrawBigText
 	/// <param name="text">The text.</param>
 	/// <param name="cell">The absolute cell.</param>
 	/// <param name="color">The color.</param>
-	void DrawBigText(LineTemplate template, string text, Absolute cell, SKColor color);
+	void DrawBigText(GridTemplate template, string text, Absolute cell, SKColor color);
 }

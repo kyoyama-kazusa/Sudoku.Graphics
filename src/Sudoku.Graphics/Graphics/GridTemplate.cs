@@ -1,20 +1,20 @@
 ﻿namespace Sudoku.Graphics;
 
 /// <summary>
-/// Represents a line template type that draws block (thick) and normal (thin) lines
+/// Represents a grid template type that draws block (thick) and normal (thin) lines
 /// onto a canvas via the specified configuration.
 /// </summary>
 /// <param name="mapper"><inheritdoc cref="Mapper" path="/summary"/></param>
 [JsonPolymorphic(UnknownDerivedTypeHandling = JsonUnknownDerivedTypeHandling.FailSerialization)]
-[JsonDerivedType(typeof(DefaultLineTemplate), nameof(DefaultLineTemplate))]
-[JsonDerivedType(typeof(JigsawLineTemplate), nameof(JigsawLineTemplate))]
-[JsonDerivedType(typeof(SpecifiedLineTemplate), nameof(SpecifiedLineTemplate))]
-[JsonDerivedType(typeof(StandardLineTemplate), nameof(StandardLineTemplate))]
-[JsonDerivedType(typeof(SujikenLineTemplate), nameof(SujikenLineTemplate))]
-public abstract class LineTemplate(PointMapper mapper)
+[JsonDerivedType(typeof(DefaultGridTemplate), nameof(DefaultGridTemplate))]
+[JsonDerivedType(typeof(JigsawGridTemplate), nameof(JigsawGridTemplate))]
+[JsonDerivedType(typeof(SpecifiedGridTemplate), nameof(SpecifiedGridTemplate))]
+[JsonDerivedType(typeof(StandardGridTemplate), nameof(StandardGridTemplate))]
+[JsonDerivedType(typeof(SujikenGridTemplate), nameof(SujikenGridTemplate))]
+public abstract class GridTemplate(PointMapper mapper)
 {
 	/// <summary>
-	/// Indicates point mapper instance.
+	/// Indicates point mapper instance that can project points into cells.
 	/// </summary>
 	public PointMapper Mapper { get; } = mapper;
 

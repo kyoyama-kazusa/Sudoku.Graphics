@@ -1,16 +1,17 @@
-﻿namespace Sudoku.Graphics.LineTemplates;
+﻿namespace Sudoku.Graphics.GridTemplates;
 
 /// <summary>
-/// Represents a standard (rectangular) line template.
+/// Represents a standard (rectangular) grid template.
 /// </summary>
-public sealed class StandardLineTemplate : IndividualBlockLineTemplate
+public sealed class StandardGridTemplate : IndividualGridTemplate
 {
 	/// <summary>
 	/// Initializes a <see cref="PointMapper"/> instance via the specified mapper.
 	/// </summary>
 	/// <param name="mapper">The mapper.</param>
 	/// <exception cref="ArgumentException">Throws when the rows and columns cannot be divisable by template size.</exception>
-	public StandardLineTemplate(PointMapper mapper) : base(mapper)
+	[SetsRequiredMembers]
+	public StandardGridTemplate(PointMapper mapper) : base(mapper)
 	{
 		var rowsCount = mapper.RowsCount;
 		var squareRootOfRowsCount = (int)Math.Sqrt(rowsCount);
@@ -33,25 +34,27 @@ public sealed class StandardLineTemplate : IndividualBlockLineTemplate
 	}
 
 	/// <summary>
-	/// Initializes a <see cref="StandardLineTemplate"/> instance via the specified number of rows and columns as block size,
+	/// Initializes a <see cref="StandardGridTemplate"/> instance via the specified number of rows and columns as block size,
 	/// and the point mapper instance.
 	/// </summary>
 	/// <param name="rowBlockSize"><inheritdoc cref="RowBlockSize" path="/summary"/></param>
 	/// <param name="columnBlockSize"><inheritdoc cref="ColumnBlockSize" path="/summary"/></param>
 	/// <param name="mapper">The mapper.</param>
 	[JsonConstructor]
-	public StandardLineTemplate(Relative rowBlockSize, Relative columnBlockSize, PointMapper mapper) : base(mapper)
+	[SetsRequiredMembers]
+	public StandardGridTemplate(Relative rowBlockSize, Relative columnBlockSize, PointMapper mapper) : base(mapper)
 	{
 		RowBlockSize = rowBlockSize;
 		ColumnBlockSize = columnBlockSize;
 	}
 
 	/// <summary>
-	/// Initializes a <see cref="StandardLineTemplate"/> instance via the specified size as uniformed value.
+	/// Initializes a <see cref="StandardGridTemplate"/> instance via the specified size as uniformed value.
 	/// </summary>
 	/// <param name="uniformSize">The uniformed value.</param>
 	/// <param name="mapper">The mapper.</param>
-	public StandardLineTemplate(Relative uniformSize, PointMapper mapper) : this(uniformSize, uniformSize, mapper)
+	[SetsRequiredMembers]
+	public StandardGridTemplate(Relative uniformSize, PointMapper mapper) : this(uniformSize, uniformSize, mapper)
 	{
 	}
 
@@ -59,12 +62,12 @@ public sealed class StandardLineTemplate : IndividualBlockLineTemplate
 	/// <summary>
 	/// Indicates the number of rows in a rectangular block.
 	/// </summary>
-	public Relative RowBlockSize { get; }
+	public required Relative RowBlockSize { get; init; }
 
 	/// <summary>
 	/// Indicates the number of columns in a rectangular block.
 	/// </summary>
-	public Relative ColumnBlockSize { get; }
+	public required Relative ColumnBlockSize { get; init; }
 
 
 	/// <inheritdoc/>

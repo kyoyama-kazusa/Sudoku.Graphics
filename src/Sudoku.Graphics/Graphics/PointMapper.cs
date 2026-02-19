@@ -13,7 +13,7 @@ public sealed record PointMapper : IEqualityOperators<PointMapper, PointMapper, 
 	/// <param name="templateSize"><inheritdoc cref="TemplateSize" path="/summary"/></param>
 	[SetsRequiredMembers]
 	[JsonConstructor]
-	public PointMapper(float cellSize, float margin, LineTemplateSize templateSize)
+	public PointMapper(float cellSize, float margin, GridTemplateSize templateSize)
 	{
 		CellSize = cellSize;
 		Margin = margin;
@@ -48,19 +48,19 @@ public sealed record PointMapper : IEqualityOperators<PointMapper, PointMapper, 
 	/// </summary>
 	public required float Margin { get; init; }
 
-	/// <inheritdoc cref="LineTemplateSize.RowsCount"/>
+	/// <inheritdoc cref="GridTemplateSize.RowsCount"/>
 	public Absolute RowsCount => TemplateSize.RowsCount;
 
-	/// <inheritdoc cref="LineTemplateSize.ColumnsCount"/>
+	/// <inheritdoc cref="GridTemplateSize.ColumnsCount"/>
 	public Absolute ColumnsCount => TemplateSize.ColumnsCount;
 
-	/// <inheritdoc cref="LineTemplateSize.AbsoluteRowsCount"/>
+	/// <inheritdoc cref="GridTemplateSize.AbsoluteRowsCount"/>
 	public Absolute AbsoluteRowsCount => TemplateSize.AbsoluteRowsCount;
 
-	/// <inheritdoc cref="LineTemplateSize.AbsoluteColumnsCount"/>
+	/// <inheritdoc cref="GridTemplateSize.AbsoluteColumnsCount"/>
 	public Absolute AbsoluteColumnsCount => TemplateSize.AbsoluteColumnsCount;
 
-	/// <inheritdoc cref="LineTemplateSize.Vector"/>
+	/// <inheritdoc cref="GridTemplateSize.Vector"/>
 	public DirectionVector Vector => TemplateSize.Vector;
 
 	/// <summary>
@@ -77,7 +77,7 @@ public sealed record PointMapper : IEqualityOperators<PointMapper, PointMapper, 
 	/// <summary>
 	/// Indicates size information of the target grid to be drawn.
 	/// </summary>
-	public required LineTemplateSize TemplateSize { get; init; }
+	public required GridTemplateSize TemplateSize { get; init; }
 
 
 	/// <inheritdoc/>

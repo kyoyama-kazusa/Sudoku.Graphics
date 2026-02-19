@@ -1,19 +1,29 @@
-﻿namespace Sudoku.Graphics.LineTemplates;
+﻿namespace Sudoku.Graphics.GridTemplates;
 
 /// <summary>
-/// Represents a line template that specifies a list of thick and thin lines.
+/// Represents a grid template that specifies a list of thick and thin lines.
 /// </summary>
-/// <param name="thickLineSegments"><inheritdoc cref="ThickLineSegments" path="/summary"/></param>
-/// <param name="thinLineSegments"><inheritdoc cref="ThickLineSegments" path="/summary"/></param>
-/// <param name="mapper"><inheritdoc cref="LineTemplate(PointMapper)" path="/param[@name='mapper']"/></param>
-[method: JsonConstructor]
-public sealed class SpecifiedLineTemplate(LineSegment[] thickLineSegments, LineSegment[] thinLineSegments, PointMapper mapper) : IndividualBlockLineTemplate(mapper)
+public sealed class SpecifiedGridTemplate : IndividualGridTemplate
 {
 	/// <summary>
-	/// Initializes a <see cref="SpecifiedLineTemplate"/> instance via the specified mapper.
+	/// Initializes a <see cref="SpecifiedGridTemplate"/> instance via the specified 
+	/// </summary>
+	/// <param name="thickLineSegments">The thick line segments.</param>
+	/// <param name="thinLineSegments">The thin line segments.</param>
+	/// <param name="mapper">The mapper.</param>
+	[JsonConstructor]
+	[SetsRequiredMembers]
+	public SpecifiedGridTemplate(LineSegment[] thickLineSegments, LineSegment[] thinLineSegments, PointMapper mapper) : base(mapper)
+	{
+		ThickLineSegments = thickLineSegments;
+		ThinLineSegments = thinLineSegments;
+	}
+
+	/// <summary>
+	/// Initializes a <see cref="SpecifiedGridTemplate"/> instance via the specified mapper.
 	/// </summary>
 	/// <param name="mapper">The mapper.</param>
-	public SpecifiedLineTemplate(PointMapper mapper) : this([], [], mapper)
+	public SpecifiedGridTemplate(PointMapper mapper) : base(mapper)
 	{
 	}
 
@@ -21,12 +31,12 @@ public sealed class SpecifiedLineTemplate(LineSegment[] thickLineSegments, LineS
 	/// <summary>
 	/// Indicates thick line segments.
 	/// </summary>
-	public LineSegment[] ThickLineSegments { get; init; } = thickLineSegments;
+	public required LineSegment[] ThickLineSegments { get; init; }
 
 	/// <summary>
 	/// Indicates thin line segments.
 	/// </summary>
-	public LineSegment[] ThinLineSegments { get; init; } = thinLineSegments;
+	public required LineSegment[] ThinLineSegments { get; init; }
 
 
 	/// <inheritdoc/>
