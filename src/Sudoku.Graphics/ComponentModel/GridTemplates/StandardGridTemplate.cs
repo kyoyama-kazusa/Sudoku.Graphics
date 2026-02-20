@@ -46,12 +46,16 @@ public sealed class StandardGridTemplate : IndividualGridTemplate, IRoundRectang
 
 	/// <summary>
 	/// Indicates the number of rows in a rectangular block.
+	/// If you want to assign this field, please assign it ahead of assigning <see cref="Mapper"/>.
 	/// </summary>
+	/// <seealso cref="Mapper"/>
 	public Relative RowBlockSize { get; init; }
 
 	/// <summary>
 	/// Indicates the number of columns in a rectangular block.
+	/// If you want to assign this field, please assign it ahead of assigning <see cref="Mapper"/>.
 	/// </summary>
+	/// <seealso cref="Mapper"/>
 	public Relative ColumnBlockSize { get; init; }
 
 

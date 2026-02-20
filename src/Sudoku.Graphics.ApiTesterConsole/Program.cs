@@ -10,6 +10,7 @@ using System;
 using System.IO;
 using System.Text.Json;
 using Sudoku.ComponentModel;
+using Sudoku.ComponentModel.GridTemplates;
 using Sudoku.ComponentModel.Items;
 using Sudoku.Graphics;
 
@@ -18,7 +19,7 @@ var defaultTemplateSize = new GridTemplateSize(9, 9);
 var baseMapper = new PointMapper(120, 15, defaultTemplateSize);
 using var canvas = new Canvas(
 	[
-		.. OverlappingGridTemplates.Gattai3(3, 3, baseMapper),
+		new StandardGridTemplate { Mapper = baseMapper },
 		//new SpecifiedGridTemplate
 		//{
 		//	ThickLineSegments = [
@@ -52,24 +53,17 @@ using var canvas = new Canvas(
 		//new DefaultGridTemplate { Mapper = baseMapper }
 	]
 );
+
 canvas.DrawItems(
 	[
 		new BackgroundFillItem(),
 		new TemplateLineStrokeItem(),
-		//..
-		//from digit in Enumerable.Range(0, 9)
-		//select new BigTextItem
-		//{
-		//	TemplateIndex = 1,
-		//	Text = (digit + 1).ToString(),
-		//	Cell = canvas.Templates[1].Mapper.GetAbsoluteIndex(digit * 10),
-		//	Color = SKColors.Black
-		//}
+		.. JsonSerializer.Deserialize<Item[]>(TestExamples.GridJsonString)!
 	]
 );
 canvas.Export(Path.Combine(desktop, "output.png"), new() { Quality = 100 });
 
-canvas.Options.WriteTo(Path.Combine(Environment.DesktopPath, "drawing-config.json"), Options);
+//canvas.Options.WriteTo(Path.Combine(Environment.DesktopPath, "drawing-config.json"), Options);
 Console.WriteLine("Okay.");
 
 
@@ -78,15 +72,15 @@ Console.WriteLine("Okay.");
 /// </summary>
 file static partial class Program
 {
-	/// <summary>
-	/// Represents options.
-	/// </summary>
-	private static readonly JsonSerializerOptions Options = new()
-	{
-		WriteIndented = true,
-		IndentCharacter = ' ',
-		IndentSize = 2
-	};
+	///// <summary>
+	///// Represents options.
+	///// </summary>
+	//private static readonly JsonSerializerOptions Options = new()
+	//{
+	//	WriteIndented = true,
+	//	IndentCharacter = ' ',
+	//	IndentSize = 2
+	//};
 
 
 	extension(Environment)
@@ -96,4 +90,220 @@ file static partial class Program
 		/// </summary>
 		public static string DesktopPath => Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 	}
+}
+
+file static class TestExamples
+{
+	public const string GridJsonString = """
+		[
+			{
+				"$type": "BigTextItem",
+				"Type": 3,
+				"TemplateIndex": 0,
+				"Text": "1",
+				"Cell": 0,
+				"Color": "#000000FF"
+			},
+			{
+				"$type": "BigTextItem",
+				"Type": 3,
+				"TemplateIndex": 0,
+				"Text": "7",
+				"Cell": 3,
+				"Color": "#000000FF"
+			},
+			{
+				"$type": "BigTextItem",
+				"Type": 3,
+				"TemplateIndex": 0,
+				"Text": "5",
+				"Cell": 6,
+				"Color": "#000000FF"
+			},
+			{
+				"$type": "BigTextItem",
+				"Type": 3,
+				"TemplateIndex": 0,
+				"Text": "7",
+				"Cell": 11,
+				"Color": "#000000FF"
+			},
+			{
+				"$type": "BigTextItem",
+				"Type": 3,
+				"TemplateIndex": 0,
+				"Text": "1",
+				"Cell": 14,
+				"Color": "#000000FF"
+			},
+			{
+				"$type": "BigTextItem",
+				"Type": 3,
+				"TemplateIndex": 0,
+				"Text": "4",
+				"Cell": 19,
+				"Color": "#000000FF"
+			},
+			{
+				"$type": "BigTextItem",
+				"Type": 3,
+				"TemplateIndex": 0,
+				"Text": "5",
+				"Cell": 21,
+				"Color": "#000000FF"
+			},
+			{
+				"$type": "BigTextItem",
+				"Type": 3,
+				"TemplateIndex": 0,
+				"Text": "9",
+				"Cell": 22,
+				"Color": "#000000FF"
+			},
+			{
+				"$type": "BigTextItem",
+				"Type": 3,
+				"TemplateIndex": 0,
+				"Text": "1",
+				"Cell": 29,
+				"Color": "#000000FF"
+			},
+			{
+				"$type": "BigTextItem",
+				"Type": 3,
+				"TemplateIndex": 0,
+				"Text": "4",
+				"Cell": 31,
+				"Color": "#000000FF"
+			},
+			{
+				"$type": "BigTextItem",
+				"Type": 3,
+				"TemplateIndex": 0,
+				"Text": "2",
+				"Cell": 34,
+				"Color": "#000000FF"
+			},
+			{
+				"$type": "BigTextItem",
+				"Type": 3,
+				"TemplateIndex": 0,
+				"Text": "8",
+				"Cell": 36,
+				"Color": "#000000FF"
+			},
+			{
+				"$type": "BigTextItem",
+				"Type": 3,
+				"TemplateIndex": 0,
+				"Text": "9",
+				"Cell": 39,
+				"Color": "#000000FF"
+			},
+			{
+				"$type": "BigTextItem",
+				"Type": 3,
+				"TemplateIndex": 0,
+				"Text": "6",
+				"Cell": 41,
+				"Color": "#000000FF"
+			},
+			{
+				"$type": "BigTextItem",
+				"Type": 3,
+				"TemplateIndex": 0,
+				"Text": "4",
+				"Cell": 42,
+				"Color": "#000000FF"
+			},
+			{
+				"$type": "BigTextItem",
+				"Type": 3,
+				"TemplateIndex": 0,
+				"Text": "6",
+				"Cell": 46,
+				"Color": "#000000FF"
+			},
+			{
+				"$type": "BigTextItem",
+				"Type": 3,
+				"TemplateIndex": 0,
+				"Text": "3",
+				"Cell": 50,
+				"Color": "#000000FF"
+			},
+			{
+				"$type": "BigTextItem",
+				"Type": 3,
+				"TemplateIndex": 0,
+				"Text": "5",
+				"Cell": 53,
+				"Color": "#000000FF"
+			},
+			{
+				"$type": "BigTextItem",
+				"Type": 3,
+				"TemplateIndex": 0,
+				"Text": "1",
+				"Cell": 55,
+				"Color": "#000000FF"
+			},
+			{
+				"$type": "BigTextItem",
+				"Type": 3,
+				"TemplateIndex": 0,
+				"Text": "8",
+				"Cell": 59,
+				"Color": "#000000FF"
+			},
+			{
+				"$type": "BigTextItem",
+				"Type": 3,
+				"TemplateIndex": 0,
+				"Text": "7",
+				"Cell": 62,
+				"Color": "#000000FF"
+			},
+			{
+				"$type": "BigTextItem",
+				"Type": 3,
+				"TemplateIndex": 0,
+				"Text": "8",
+				"Cell": 65,
+				"Color": "#000000FF"
+			},
+			{
+				"$type": "BigTextItem",
+				"Type": 3,
+				"TemplateIndex": 0,
+				"Text": "4",
+				"Cell": 66,
+				"Color": "#000000FF"
+			},
+			{
+				"$type": "BigTextItem",
+				"Type": 3,
+				"TemplateIndex": 0,
+				"Text": "1",
+				"Cell": 69,
+				"Color": "#000000FF"
+			},
+			{
+				"$type": "BigTextItem",
+				"Type": 3,
+				"TemplateIndex": 0,
+				"Text": "9",
+				"Cell": 72,
+				"Color": "#000000FF"
+			},
+			{
+				"$type": "BigTextItem",
+				"Type": 3,
+				"TemplateIndex": 0,
+				"Text": "5",
+				"Cell": 79,
+				"Color": "#000000FF"
+			}
+		]
+		""";
 }

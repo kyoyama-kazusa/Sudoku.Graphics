@@ -16,7 +16,7 @@
 /// </exception>
 /// </shared-doc-comments>
 #pragma warning restore CS1572
-public static partial class OverlappingGridTemplates
+public static partial class OverlappingGridTemplateFactory
 {
 	/// <summary>
 	/// Throws an exception <see cref="ArgumentException"/>.

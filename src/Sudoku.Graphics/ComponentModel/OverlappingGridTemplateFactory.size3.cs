@@ -1,11 +1,11 @@
 ﻿namespace Sudoku.ComponentModel;
 
-public partial class OverlappingGridTemplates
+public partial class OverlappingGridTemplateFactory
 {
 	/// <summary>
 	/// Creates a <see cref="GridTemplate"/> array of Gattai-3, with the specified rows and columns size of a block.
 	/// </summary>
-	/// <inheritdoc cref="OverlappingGridTemplates" path="/shared-doc-comments"/>
+	/// <inheritdoc cref="OverlappingGridTemplateFactory" path="/shared-doc-comments"/>
 	public static GridTemplate[] Gattai3(int blockRowsCount, int blockColumnsCount, PointMapper baseMapper)
 		=> (baseMapper.RowsCount / blockRowsCount, baseMapper.ColumnsCount / blockRowsCount) is var (rowSplitPartsCount, columnSplitPartsCount)
 		&& (rowSplitPartsCount < 3 || columnSplitPartsCount < 3)
@@ -37,7 +37,7 @@ public partial class OverlappingGridTemplates
 	/// <summary>
 	/// Creates a <see cref="GridTemplate"/> array of Wing, with the specified rows and columns size of a block.
 	/// </summary>
-	/// <inheritdoc cref="OverlappingGridTemplates" path="/shared-doc-comments"/>
+	/// <inheritdoc cref="OverlappingGridTemplateFactory" path="/shared-doc-comments"/>
 	public static GridTemplate[] Wing(int blockRowsCount, int blockColumnsCount, PointMapper baseMapper)
 		=> (baseMapper.RowsCount / blockRowsCount, baseMapper.ColumnsCount / blockRowsCount) is var (rowSplitPartsCount, columnSplitPartsCount)
 		&& (rowSplitPartsCount < 3 || columnSplitPartsCount < 3)

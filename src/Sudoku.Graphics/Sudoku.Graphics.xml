@@ -633,12 +633,16 @@
         <member name="P:Sudoku.ComponentModel.GridTemplates.StandardGridTemplate.RowBlockSize">
             <summary>
             Indicates the number of rows in a rectangular block.
+            If you want to assign this field, please assign it ahead of assigning <see cref="P:Sudoku.ComponentModel.GridTemplates.StandardGridTemplate.Mapper"/>.
             </summary>
+            <seealso cref="P:Sudoku.ComponentModel.GridTemplates.StandardGridTemplate.Mapper"/>
         </member>
         <member name="P:Sudoku.ComponentModel.GridTemplates.StandardGridTemplate.ColumnBlockSize">
             <summary>
             Indicates the number of columns in a rectangular block.
+            If you want to assign this field, please assign it ahead of assigning <see cref="P:Sudoku.ComponentModel.GridTemplates.StandardGridTemplate.Mapper"/>.
             </summary>
+            <seealso cref="P:Sudoku.ComponentModel.GridTemplates.StandardGridTemplate.Mapper"/>
         </member>
         <member name="M:Sudoku.ComponentModel.GridTemplates.StandardGridTemplate.GuardStatements(SkiaSharp.SKCanvas,Sudoku.Graphics.CanvasDrawingOptions)">
             <inheritdoc/>
@@ -1220,6 +1224,7 @@
         <member name="T:Sudoku.ComponentModel.Items.BigSmallTextItem">
             <summary>
             Represents a text item that is bound with a big or small text.
+            Outside labels can also created here.
             </summary>
         </member>
         <member name="P:Sudoku.ComponentModel.Items.BigSmallTextItem.TemplateIndex">
@@ -1234,8 +1239,12 @@
         </member>
         <member name="P:Sudoku.ComponentModel.Items.BigSmallTextItem.Cell">
             <summary>
-            Indicates the cell to be drawn.
+            Indicates the cell to be drawn, of absolute cell index.
+            For <see cref="T:Sudoku.ComponentModel.Relative"/> cell indices, you can use <see cref="M:Sudoku.Graphics.PointMapper.GetAbsoluteIndex(Sudoku.ComponentModel.Relative)"/>
+            to create absolute cells.
             </summary>
+            <seealso cref="T:Sudoku.ComponentModel.Relative"/>
+            <seealso cref="M:Sudoku.Graphics.PointMapper.GetAbsoluteIndex(Sudoku.ComponentModel.Relative)"/>
         </member>
         <member name="P:Sudoku.ComponentModel.Items.BigSmallTextItem.Color">
             <summary>
@@ -1591,7 +1600,7 @@
             <param name="absoluteCellIndices">Absolute cell indices.</param>
             <returns>The result dictionary of light-up segments.</returns>
         </member>
-        <member name="T:Sudoku.ComponentModel.OverlappingGridTemplates">
+        <member name="T:Sudoku.ComponentModel.OverlappingGridTemplateFactory">
             <summary>
             Provides a way to create overlapping grid templates.
             </summary>
@@ -1607,48 +1616,48 @@
             </exception>
             </shared-doc-comments>
         </member>
-        <member name="M:Sudoku.ComponentModel.OverlappingGridTemplates.ThrowsArgumentException">
+        <member name="M:Sudoku.ComponentModel.OverlappingGridTemplateFactory.ThrowsArgumentException">
             <summary>
             Throws an exception <see cref="T:System.ArgumentException"/>.
             </summary>
             <returns>This method always throws and don't return anything.</returns>
             <exception cref="T:System.ArgumentException">Always throws.</exception>
         </member>
-        <member name="M:Sudoku.ComponentModel.OverlappingGridTemplates.Overlapped(Sudoku.Graphics.PointMapper,Sudoku.ComponentModel.LineDashSequence)">
+        <member name="M:Sudoku.ComponentModel.OverlappingGridTemplateFactory.Overlapped(Sudoku.Graphics.PointMapper,Sudoku.ComponentModel.LineDashSequence)">
             <summary>
             Creates a <see cref="T:Sudoku.ComponentModel.GridTemplate"/> array of Overlapped sudoku, with the specified grid size.
             </summary>
-            <inheritdoc cref="T:Sudoku.ComponentModel.OverlappingGridTemplates" path="/shared-doc-comments"/>
+            <inheritdoc cref="T:Sudoku.ComponentModel.OverlappingGridTemplateFactory" path="/shared-doc-comments"/>
         </member>
-        <member name="M:Sudoku.ComponentModel.OverlappingGridTemplates.DoubleDoku(System.Int32,System.Int32,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.ComponentModel.OverlappingGridTemplateFactory.DoubleDoku(System.Int32,System.Int32,Sudoku.Graphics.PointMapper)">
             <summary>
             Creates a <see cref="T:Sudoku.ComponentModel.GridTemplate"/> array of Double-doku, with the specified rows and columns size of a block.
             </summary>
-            <inheritdoc cref="T:Sudoku.ComponentModel.OverlappingGridTemplates" path="/shared-doc-comments"/>
+            <inheritdoc cref="T:Sudoku.ComponentModel.OverlappingGridTemplateFactory" path="/shared-doc-comments"/>
         </member>
-        <member name="M:Sudoku.ComponentModel.OverlappingGridTemplates.Sensei(System.Int32,System.Int32,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.ComponentModel.OverlappingGridTemplateFactory.Sensei(System.Int32,System.Int32,Sudoku.Graphics.PointMapper)">
             <summary>
             Creates a <see cref="T:Sudoku.ComponentModel.GridTemplate"/> array of Sensei, with the specified rows and columns size of a block.
             </summary>
-            <inheritdoc cref="T:Sudoku.ComponentModel.OverlappingGridTemplates" path="/shared-doc-comments"/>
+            <inheritdoc cref="T:Sudoku.ComponentModel.OverlappingGridTemplateFactory" path="/shared-doc-comments"/>
         </member>
-        <member name="M:Sudoku.ComponentModel.OverlappingGridTemplates.Gattai2(System.Int32,System.Int32,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.ComponentModel.OverlappingGridTemplateFactory.Gattai2(System.Int32,System.Int32,Sudoku.Graphics.PointMapper)">
             <summary>
             Creates a <see cref="T:Sudoku.ComponentModel.GridTemplate"/> array of Gattai-2, with the specified rows and columns size of a block.
             </summary>
-            <inheritdoc cref="T:Sudoku.ComponentModel.OverlappingGridTemplates" path="/shared-doc-comments"/>
+            <inheritdoc cref="T:Sudoku.ComponentModel.OverlappingGridTemplateFactory" path="/shared-doc-comments"/>
         </member>
-        <member name="M:Sudoku.ComponentModel.OverlappingGridTemplates.Gattai3(System.Int32,System.Int32,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.ComponentModel.OverlappingGridTemplateFactory.Gattai3(System.Int32,System.Int32,Sudoku.Graphics.PointMapper)">
             <summary>
             Creates a <see cref="T:Sudoku.ComponentModel.GridTemplate"/> array of Gattai-3, with the specified rows and columns size of a block.
             </summary>
-            <inheritdoc cref="T:Sudoku.ComponentModel.OverlappingGridTemplates" path="/shared-doc-comments"/>
+            <inheritdoc cref="T:Sudoku.ComponentModel.OverlappingGridTemplateFactory" path="/shared-doc-comments"/>
         </member>
-        <member name="M:Sudoku.ComponentModel.OverlappingGridTemplates.Wing(System.Int32,System.Int32,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.ComponentModel.OverlappingGridTemplateFactory.Wing(System.Int32,System.Int32,Sudoku.Graphics.PointMapper)">
             <summary>
             Creates a <see cref="T:Sudoku.ComponentModel.GridTemplate"/> array of Wing, with the specified rows and columns size of a block.
             </summary>
-            <inheritdoc cref="T:Sudoku.ComponentModel.OverlappingGridTemplates" path="/shared-doc-comments"/>
+            <inheritdoc cref="T:Sudoku.ComponentModel.OverlappingGridTemplateFactory" path="/shared-doc-comments"/>
         </member>
         <member name="T:Sudoku.ComponentModel.Relative">
             <summary>
@@ -3008,6 +3017,48 @@
             </summary>
             <param name="expression">The expression.</param>
             <param name="expressionString">The expression string.</param>
+        </member>
+        <member name="T:System.Text.StringBuilderExtensions">
+            <summary>
+            Provides extension members on <see cref="T:System.Text.StringBuilder"/>.
+            </summary>
+            <seealso cref="T:System.Text.StringBuilder"/>
+        </member>
+        <member name="M:System.Text.StringBuilderExtensions.RemoveFromEnd(System.Text.StringBuilder,System.Int32)">
+            <inheritdoc cref="M:System.Text.StringBuilderExtensions.&lt;G&gt;$CD29E70E0DCA5BBFCFAC7C2BEF3C5C99.RemoveFromEnd(System.Int32)"/>
+        </member>
+        <member name="T:System.Text.StringBuilderExtensions.&lt;G&gt;$CD29E70E0DCA5BBFCFAC7C2BEF3C5C99.&lt;M&gt;$329BE863B51A4C004BBE456502033646">
+            <param name="this">The current string builder.</param>
+        </member>
+        <member name="M:System.Text.StringBuilderExtensions.&lt;G&gt;$CD29E70E0DCA5BBFCFAC7C2BEF3C5C99.RemoveFromEnd(System.Int32)">
+            <summary>
+            Removes the specified number of characters from the end of the current instance.
+            </summary>
+            <param name="count">The number of characters to remove.</param>
+            <returns>The reference same as the current instance.</returns>
+        </member>
+        <member name="T:System.StringExtensions">
+            <summary>
+            Provides extension members on <see cref="T:System.String"/>.
+            </summary>
+            <seealso cref="T:System.String"/>
+        </member>
+        <member name="M:System.StringExtensions.op_Division(System.String,System.Char)">
+            <inheritdoc cref="M:System.StringExtensions.&lt;G&gt;$34505F560D9EACF86A87F3ED1F85E448.op_Division(System.String,System.Char)"/>
+        </member>
+        <member name="M:System.StringExtensions.op_Division(System.String,System.String)">
+            <inheritdoc cref="M:System.StringExtensions.&lt;G&gt;$34505F560D9EACF86A87F3ED1F85E448.op_Division(System.String,System.String)"/>
+        </member>
+        <member name="M:System.StringExtensions.&lt;G&gt;$34505F560D9EACF86A87F3ED1F85E448.op_Division(System.String,System.Char)">
+            <summary>
+            Splits the current instance into the multiple parts.
+            </summary>
+            <param name="original">The original string.</param>
+            <param name="separator">The separator character.</param>
+            <returns>A list of <see cref="T:System.String"/> instances.</returns>
+        </member>
+        <member name="M:System.StringExtensions.&lt;G&gt;$34505F560D9EACF86A87F3ED1F85E448.op_Division(System.String,System.String)">
+            <inheritdoc cref="M:System.StringExtensions.&lt;G&gt;$34505F560D9EACF86A87F3ED1F85E448.op_Division(System.String,System.Char)"/>
         </member>
         <member name="T:SkiaSharp.SKRectExtensions">
             <summary>
