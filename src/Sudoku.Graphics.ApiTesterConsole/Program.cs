@@ -58,7 +58,7 @@ canvas.DrawItems(
 	[
 		new BackgroundFillItem(),
 		new TemplateLineStrokeItem(),
-		.. JsonSerializer.Deserialize<Item[]>(TestExamples.GridJsonString)!
+		.. JsonSerializer.Deserialize<Item[]>(TestExamples.GridJsonString, Options)!
 	]
 );
 canvas.Export(Path.Combine(desktop, "output.png"), new() { Quality = 100 });
@@ -95,187 +95,182 @@ file static partial class Program
 
 file static class TestExamples
 {
-	public const string GridJsonString = """
+	/*lang=json*/
+	public const string GridJsonString =
+		"""
 		[
 			{
-				"$type": "BigTextItem",
+				"$type": "GivenTextItem",
 				"TemplateIndex": 0,
-				"Text": "1",
-				"Cell": 0,
+				"Text": "2",
+				"Cell": 1,
 				"Color": "#000000FF"
 			},
 			{
-				"$type": "BigTextItem",
+				"$type": "GivenTextItem",
+				"TemplateIndex": 0,
+				"Text": "9",
+				"Cell": 4,
+				"Color": "#000000FF"
+			},
+			{
+				"$type": "GivenTextItem",
+				"TemplateIndex": 0,
+				"Text": "6",
+				"Cell": 7,
+				"Color": "#000000FF"
+			},
+			{
+				"$type": "GivenTextItem",
 				"TemplateIndex": 0,
 				"Text": "7",
-				"Cell": 3,
-				"Color": "#000000FF"
-			},
-			{
-				"$type": "BigTextItem",
-				"TemplateIndex": 0,
-				"Text": "5",
-				"Cell": 6,
-				"Color": "#000000FF"
-			},
-			{
-				"$type": "BigTextItem",
-				"TemplateIndex": 0,
-				"Text": "7",
-				"Cell": 11,
-				"Color": "#000000FF"
-			},
-			{
-				"$type": "BigTextItem",
-				"TemplateIndex": 0,
-				"Text": "1",
 				"Cell": 14,
 				"Color": "#000000FF"
 			},
 			{
-				"$type": "BigTextItem",
-				"TemplateIndex": 0,
-				"Text": "4",
-				"Cell": 19,
-				"Color": "#000000FF"
-			},
-			{
-				"$type": "BigTextItem",
+				"$type": "GivenTextItem",
 				"TemplateIndex": 0,
 				"Text": "5",
-				"Cell": 21,
+				"Cell": 20,
 				"Color": "#000000FF"
 			},
 			{
-				"$type": "BigTextItem",
+				"$type": "GivenTextItem",
 				"TemplateIndex": 0,
-				"Text": "9",
+				"Text": "8",
 				"Cell": 22,
 				"Color": "#000000FF"
 			},
 			{
-				"$type": "BigTextItem",
+				"$type": "GivenTextItem",
 				"TemplateIndex": 0,
-				"Text": "1",
-				"Cell": 29,
+				"Text": "9",
+				"Cell": 26,
 				"Color": "#000000FF"
 			},
 			{
-				"$type": "BigTextItem",
+				"$type": "GivenTextItem",
 				"TemplateIndex": 0,
-				"Text": "4",
+				"Text": "3",
+				"Cell": 27,
+				"Color": "#000000FF"
+			},
+			{
+				"$type": "GivenTextItem",
+				"TemplateIndex": 0,
+				"Text": "7",
 				"Cell": 31,
 				"Color": "#000000FF"
 			},
 			{
-				"$type": "BigTextItem",
+				"$type": "GivenTextItem",
 				"TemplateIndex": 0,
-				"Text": "2",
+				"Text": "8",
+				"Cell": 32,
+				"Color": "#000000FF"
+			},
+			{
+				"$type": "GivenTextItem",
+				"TemplateIndex": 0,
+				"Text": "5",
 				"Cell": 34,
 				"Color": "#000000FF"
 			},
 			{
-				"$type": "BigTextItem",
+				"$type": "GivenTextItem",
 				"TemplateIndex": 0,
-				"Text": "8",
-				"Cell": 36,
+				"Text": "5",
+				"Cell": 37,
 				"Color": "#000000FF"
 			},
 			{
-				"$type": "BigTextItem",
+				"$type": "GivenTextItem",
 				"TemplateIndex": 0,
-				"Text": "9",
-				"Cell": 39,
+				"Text": "1",
+				"Cell": 38,
 				"Color": "#000000FF"
 			},
 			{
-				"$type": "BigTextItem",
+				"$type": "GivenTextItem",
 				"TemplateIndex": 0,
 				"Text": "6",
 				"Cell": 41,
 				"Color": "#000000FF"
 			},
 			{
-				"$type": "BigTextItem",
+				"$type": "GivenTextItem",
 				"TemplateIndex": 0,
-				"Text": "4",
+				"Text": "3",
 				"Cell": 42,
 				"Color": "#000000FF"
 			},
 			{
-				"$type": "BigTextItem",
+				"$type": "GivenTextItem",
+				"TemplateIndex": 0,
+				"Text": "1",
+				"Cell": 48,
+				"Color": "#000000FF"
+			},
+			{
+				"$type": "GivenTextItem",
 				"TemplateIndex": 0,
 				"Text": "6",
-				"Cell": 46,
-				"Color": "#000000FF"
-			},
-			{
-				"$type": "BigTextItem",
-				"TemplateIndex": 0,
-				"Text": "3",
-				"Cell": 50,
-				"Color": "#000000FF"
-			},
-			{
-				"$type": "BigTextItem",
-				"TemplateIndex": 0,
-				"Text": "5",
 				"Cell": 53,
 				"Color": "#000000FF"
 			},
 			{
-				"$type": "BigTextItem",
+				"$type": "GivenTextItem",
 				"TemplateIndex": 0,
-				"Text": "1",
+				"Text": "4",
 				"Cell": 55,
 				"Color": "#000000FF"
 			},
 			{
-				"$type": "BigTextItem",
+				"$type": "GivenTextItem",
 				"TemplateIndex": 0,
-				"Text": "8",
+				"Text": "9",
 				"Cell": 59,
 				"Color": "#000000FF"
 			},
 			{
-				"$type": "BigTextItem",
+				"$type": "GivenTextItem",
 				"TemplateIndex": 0,
-				"Text": "7",
-				"Cell": 62,
+				"Text": "2",
+				"Cell": 60,
 				"Color": "#000000FF"
 			},
 			{
-				"$type": "BigTextItem",
-				"TemplateIndex": 0,
-				"Text": "8",
-				"Cell": 65,
-				"Color": "#000000FF"
-			},
-			{
-				"$type": "BigTextItem",
+				"$type": "GivenTextItem",
 				"TemplateIndex": 0,
 				"Text": "4",
 				"Cell": 66,
 				"Color": "#000000FF"
 			},
 			{
-				"$type": "BigTextItem",
+				"$type": "GivenTextItem",
 				"TemplateIndex": 0,
-				"Text": "1",
-				"Cell": 69,
+				"Text": "7",
+				"Cell": 71,
 				"Color": "#000000FF"
 			},
 			{
-				"$type": "BigTextItem",
+				"$type": "GivenTextItem",
 				"TemplateIndex": 0,
-				"Text": "9",
+				"Text": "8",
 				"Cell": 72,
 				"Color": "#000000FF"
 			},
 			{
-				"$type": "BigTextItem",
+				"$type": "GivenTextItem",
 				"TemplateIndex": 0,
-				"Text": "5",
+				"Text": "2",
+				"Cell": 76,
+				"Color": "#000000FF"
+			},
+			{
+				"$type": "GivenTextItem",
+				"TemplateIndex": 0,
+				"Text": "1",
 				"Cell": 79,
 				"Color": "#000000FF"
 			}

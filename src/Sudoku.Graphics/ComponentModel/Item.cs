@@ -7,8 +7,9 @@
 [JsonPolymorphic(UnknownDerivedTypeHandling = JsonUnknownDerivedTypeHandling.FailSerialization)]
 [JsonDerivedType(typeof(BackgroundFillItem), nameof(BackgroundFillItem))]
 [JsonDerivedType(typeof(TemplateLineStrokeItem), nameof(TemplateLineStrokeItem))]
-[JsonDerivedType(typeof(BigTextItem), nameof(BigTextItem))]
-[JsonDerivedType(typeof(SmallTextItem), nameof(SmallTextItem))]
+[JsonDerivedType(typeof(GivenTextItem), nameof(GivenTextItem))]
+[JsonDerivedType(typeof(ModifiableTextItem), nameof(ModifiableTextItem))]
+[JsonDerivedType(typeof(CandidateTextItem), nameof(CandidateTextItem))]
 public abstract class Item : IEquatable<Item>, IEqualityOperators<Item, Item, bool>
 {
 	/// <summary>

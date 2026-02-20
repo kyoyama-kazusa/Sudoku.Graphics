@@ -21,12 +21,17 @@ public enum ItemType
 	TemplateLines,
 
 	/// <summary>
-	/// Indicates big text.
+	/// Indicates given text.
 	/// </summary>
-	BigText,
+	GivenText,
 
 	/// <summary>
-	/// Indicates small text.
+	/// Indicates modifiable text.
 	/// </summary>
-	SmallText,
+	ModifiableText,
+
+	/// <summary>
+	/// Indicates candidate text.
+	/// </summary>
+	CandidateText,
 }

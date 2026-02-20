@@ -28,5 +28,14 @@ public abstract class BigSmallTextItem : TextItem
 	/// <summary>
 	/// Indicates the color to be used.
 	/// </summary>
-	public required SerializableColor Color { get; init; }
+	public SerializableColor Color { get; init; }
+
+
+	/// <summary>
+	/// Unsafe accessor to field of <see cref="Color"/> property.
+	/// </summary>
+	/// <param name="instance">The instance.</param>
+	/// <returns>The reference to the backing field.</returns>
+	[UnsafeAccessor(UnsafeAccessorKind.Field, Name = $"<{nameof(Color)}>k__BackingField")]
+	protected static extern ref SerializableColor GetColorFieldUnsafe(BigSmallTextItem instance);
 }

@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents small text item.
 /// </summary>
-public sealed class SmallTextItem : BigSmallTextItem
+public abstract class SmallTextItem : BigSmallTextItem
 {
 	/// <summary>
 	/// Indicates the size that a cell will be divided into. Like 3 for 3 * 3 subgrid in a cell,
@@ -17,21 +17,28 @@ public sealed class SmallTextItem : BigSmallTextItem
 	/// <seealso cref="CellSplitSize"/>
 	public required Absolute CellInnerPosition { get; init; }
 
-	/// <inheritdoc/>
-	public override ItemType Type => ItemType.SmallText;
 
 	/// <inheritdoc/>
-	protected override Type EqualityContract => typeof(SmallTextItem);
-
-
-	/// <inheritdoc/>
-	public override bool Equals([NotNullWhen(true)] Item? other) => throw new NotImplementedException();
-
-	/// <inheritdoc/>
-	public override int GetHashCode() => throw new NotImplementedException();
+	public sealed override bool Equals([NotNullWhen(true)] Item? other)
+		=> other is SmallTextItem comparer
+		&& TemplateIndex == comparer.TemplateIndex && Text == comparer.Text
+		&& Cell == comparer.Cell && Color == comparer.Color
+		&& CellSplitSize == comparer.CellSplitSize && CellInnerPosition == comparer.CellInnerPosition;
 
 	/// <inheritdoc/>
-	protected override void PrintMembers(StringBuilder builder) => throw new NotImplementedException();
+	public sealed override int GetHashCode()
+		=> HashCode.Combine(EqualityContract, TemplateIndex, Text, Cell, CellSplitSize, CellInnerPosition, Color);
+
+	/// <inheritdoc/>
+	protected sealed override void PrintMembers(StringBuilder builder)
+	{
+		builder.Append($"{nameof(TemplateIndex)} = {TemplateIndex}, ");
+		builder.Append($"{nameof(Text)} = {Text}, ");
+		builder.Append($"{nameof(Cell)} = {Cell}, ");
+		builder.Append($"{nameof(CellSplitSize)} = {CellSplitSize}, ");
+		builder.Append($"{nameof(CellInnerPosition)} = {CellInnerPosition}, ");
+		builder.Append($"{nameof(Color)} = {Color}");
+	}
 
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)

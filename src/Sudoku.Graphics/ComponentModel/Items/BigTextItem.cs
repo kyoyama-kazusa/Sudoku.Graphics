@@ -3,26 +3,19 @@
 /// <summary>
 /// Represents a big text item.
 /// </summary>
-public sealed class BigTextItem : BigSmallTextItem
+public abstract class BigTextItem : BigSmallTextItem
 {
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.BigText;
-
-	/// <inheritdoc/>
-	protected override Type EqualityContract => typeof(BigTextItem);
-
-
-	/// <inheritdoc/>
-	public override bool Equals([NotNullWhen(true)] Item? other)
+	public sealed override bool Equals([NotNullWhen(true)] Item? other)
 		=> other is BigTextItem comparer
 		&& TemplateIndex == comparer.TemplateIndex && Text == comparer.Text
 		&& Cell == comparer.Cell && Color == comparer.Color;
 
 	/// <inheritdoc/>
-	public override int GetHashCode() => HashCode.Combine(EqualityContract, TemplateIndex, Text, Cell, Color);
+	public sealed override int GetHashCode() => HashCode.Combine(EqualityContract, TemplateIndex, Text, Cell, Color);
 
 	/// <inheritdoc/>
-	protected override void PrintMembers(StringBuilder builder)
+	protected sealed override void PrintMembers(StringBuilder builder)
 	{
 		builder.Append($"{nameof(TemplateIndex)} = {TemplateIndex}, ");
 		builder.Append($"{nameof(Text)} = {Text}, ");
