@@ -72,15 +72,16 @@ Console.WriteLine("Okay.");
 /// </summary>
 file static partial class Program
 {
-	///// <summary>
-	///// Represents options.
-	///// </summary>
-	//private static readonly JsonSerializerOptions Options = new()
-	//{
-	//	WriteIndented = true,
-	//	IndentCharacter = ' ',
-	//	IndentSize = 2
-	//};
+	/// <summary>
+	/// Represents options.
+	/// </summary>
+	private static readonly JsonSerializerOptions Options = new()
+	{
+		WriteIndented = true,
+		IndentCharacter = ' ',
+		IndentSize = 2,
+		IgnoreReadOnlyProperties = true
+	};
 
 
 	extension(Environment)
@@ -98,7 +99,6 @@ file static class TestExamples
 		[
 			{
 				"$type": "BigTextItem",
-				"Type": 3,
 				"TemplateIndex": 0,
 				"Text": "1",
 				"Cell": 0,
@@ -106,7 +106,6 @@ file static class TestExamples
 			},
 			{
 				"$type": "BigTextItem",
-				"Type": 3,
 				"TemplateIndex": 0,
 				"Text": "7",
 				"Cell": 3,
@@ -114,7 +113,6 @@ file static class TestExamples
 			},
 			{
 				"$type": "BigTextItem",
-				"Type": 3,
 				"TemplateIndex": 0,
 				"Text": "5",
 				"Cell": 6,
@@ -122,7 +120,6 @@ file static class TestExamples
 			},
 			{
 				"$type": "BigTextItem",
-				"Type": 3,
 				"TemplateIndex": 0,
 				"Text": "7",
 				"Cell": 11,
@@ -130,7 +127,6 @@ file static class TestExamples
 			},
 			{
 				"$type": "BigTextItem",
-				"Type": 3,
 				"TemplateIndex": 0,
 				"Text": "1",
 				"Cell": 14,
@@ -138,7 +134,6 @@ file static class TestExamples
 			},
 			{
 				"$type": "BigTextItem",
-				"Type": 3,
 				"TemplateIndex": 0,
 				"Text": "4",
 				"Cell": 19,
@@ -146,7 +141,6 @@ file static class TestExamples
 			},
 			{
 				"$type": "BigTextItem",
-				"Type": 3,
 				"TemplateIndex": 0,
 				"Text": "5",
 				"Cell": 21,
@@ -154,7 +148,6 @@ file static class TestExamples
 			},
 			{
 				"$type": "BigTextItem",
-				"Type": 3,
 				"TemplateIndex": 0,
 				"Text": "9",
 				"Cell": 22,
@@ -162,7 +155,6 @@ file static class TestExamples
 			},
 			{
 				"$type": "BigTextItem",
-				"Type": 3,
 				"TemplateIndex": 0,
 				"Text": "1",
 				"Cell": 29,
@@ -170,7 +162,6 @@ file static class TestExamples
 			},
 			{
 				"$type": "BigTextItem",
-				"Type": 3,
 				"TemplateIndex": 0,
 				"Text": "4",
 				"Cell": 31,
@@ -178,7 +169,6 @@ file static class TestExamples
 			},
 			{
 				"$type": "BigTextItem",
-				"Type": 3,
 				"TemplateIndex": 0,
 				"Text": "2",
 				"Cell": 34,
@@ -186,7 +176,6 @@ file static class TestExamples
 			},
 			{
 				"$type": "BigTextItem",
-				"Type": 3,
 				"TemplateIndex": 0,
 				"Text": "8",
 				"Cell": 36,
@@ -194,7 +183,6 @@ file static class TestExamples
 			},
 			{
 				"$type": "BigTextItem",
-				"Type": 3,
 				"TemplateIndex": 0,
 				"Text": "9",
 				"Cell": 39,
@@ -202,7 +190,6 @@ file static class TestExamples
 			},
 			{
 				"$type": "BigTextItem",
-				"Type": 3,
 				"TemplateIndex": 0,
 				"Text": "6",
 				"Cell": 41,
@@ -210,7 +197,6 @@ file static class TestExamples
 			},
 			{
 				"$type": "BigTextItem",
-				"Type": 3,
 				"TemplateIndex": 0,
 				"Text": "4",
 				"Cell": 42,
@@ -218,7 +204,6 @@ file static class TestExamples
 			},
 			{
 				"$type": "BigTextItem",
-				"Type": 3,
 				"TemplateIndex": 0,
 				"Text": "6",
 				"Cell": 46,
@@ -226,7 +211,6 @@ file static class TestExamples
 			},
 			{
 				"$type": "BigTextItem",
-				"Type": 3,
 				"TemplateIndex": 0,
 				"Text": "3",
 				"Cell": 50,
@@ -234,7 +218,6 @@ file static class TestExamples
 			},
 			{
 				"$type": "BigTextItem",
-				"Type": 3,
 				"TemplateIndex": 0,
 				"Text": "5",
 				"Cell": 53,
@@ -242,7 +225,6 @@ file static class TestExamples
 			},
 			{
 				"$type": "BigTextItem",
-				"Type": 3,
 				"TemplateIndex": 0,
 				"Text": "1",
 				"Cell": 55,
@@ -250,7 +232,6 @@ file static class TestExamples
 			},
 			{
 				"$type": "BigTextItem",
-				"Type": 3,
 				"TemplateIndex": 0,
 				"Text": "8",
 				"Cell": 59,
@@ -258,7 +239,6 @@ file static class TestExamples
 			},
 			{
 				"$type": "BigTextItem",
-				"Type": 3,
 				"TemplateIndex": 0,
 				"Text": "7",
 				"Cell": 62,
@@ -266,7 +246,6 @@ file static class TestExamples
 			},
 			{
 				"$type": "BigTextItem",
-				"Type": 3,
 				"TemplateIndex": 0,
 				"Text": "8",
 				"Cell": 65,
@@ -274,7 +253,6 @@ file static class TestExamples
 			},
 			{
 				"$type": "BigTextItem",
-				"Type": 3,
 				"TemplateIndex": 0,
 				"Text": "4",
 				"Cell": 66,
@@ -282,7 +260,6 @@ file static class TestExamples
 			},
 			{
 				"$type": "BigTextItem",
-				"Type": 3,
 				"TemplateIndex": 0,
 				"Text": "1",
 				"Cell": 69,
@@ -290,7 +267,6 @@ file static class TestExamples
 			},
 			{
 				"$type": "BigTextItem",
-				"Type": 3,
 				"TemplateIndex": 0,
 				"Text": "9",
 				"Cell": 72,
@@ -298,7 +274,6 @@ file static class TestExamples
 			},
 			{
 				"$type": "BigTextItem",
-				"Type": 3,
 				"TemplateIndex": 0,
 				"Text": "5",
 				"Cell": 79,
