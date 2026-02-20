@@ -5,7 +5,10 @@
 /// candidate highlight, grid lines, and other basic items to draw.
 /// </summary>
 [JsonPolymorphic(UnknownDerivedTypeHandling = JsonUnknownDerivedTypeHandling.FailSerialization)]
-[JsonDerivedType(typeof(CanvasBackgroundItem), nameof(CanvasBackgroundItem))]
+[JsonDerivedType(typeof(BackgroundFillItem), nameof(BackgroundFillItem))]
+[JsonDerivedType(typeof(TemplateLineStrokeItem), nameof(TemplateLineStrokeItem))]
+[JsonDerivedType(typeof(BigTextItem), nameof(BigTextItem))]
+[JsonDerivedType(typeof(SmallTextItem), nameof(SmallTextItem))]
 public abstract class Item : IEquatable<Item>, IEqualityOperators<Item, Item, bool>
 {
 	/// <summary>

@@ -1,19 +1,19 @@
 ﻿namespace Sudoku.ComponentModel.Items;
 
 /// <summary>
-/// Represents canvas background item.
+/// Represents canvas background fill item.
 /// </summary>
-public sealed class CanvasBackgroundItem : BackgroundItem
+public sealed class BackgroundFillItem : FillItem
 {
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.CanvasBackground;
 
 	/// <inheritdoc/>
-	protected override Type EqualityContract => typeof(CanvasBackgroundItem);
+	protected override Type EqualityContract => typeof(BackgroundFillItem);
 
 
 	/// <inheritdoc/>
-	public override bool Equals([NotNullWhen(true)] Item? other) => other is CanvasBackgroundItem;
+	public override bool Equals([NotNullWhen(true)] Item? other) => other is BackgroundFillItem;
 
 	/// <inheritdoc/>
 	public override int GetHashCode() => HashCode.Combine(EqualityContract);

@@ -17,7 +17,6 @@ global using Sudoku.ComponentModel;
 global using Sudoku.ComponentModel.GridTemplates;
 global using Sudoku.ComponentModel.Items;
 global using Sudoku.Graphics;
-global using Sudoku.Graphics.Primitives;
 global using Sudoku.Resources;
 global using Sudoku.Serialization;
 global using Sudoku.Serialization.Specialized;

@@ -19,4 +19,14 @@ public enum ItemType
 	/// Indicates template lines.
 	/// </summary>
 	TemplateLines,
+
+	/// <summary>
+	/// Indicates big text.
+	/// </summary>
+	BigText,
+
+	/// <summary>
+	/// Indicates small text.
+	/// </summary>
+	SmallText,
 }

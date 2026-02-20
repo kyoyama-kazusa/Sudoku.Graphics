@@ -8,7 +8,9 @@
 
 using System;
 using System.IO;
+using System.Linq;
 using System.Text.Json;
+using SkiaSharp;
 using Sudoku.ComponentModel;
 using Sudoku.ComponentModel.GridTemplates;
 using Sudoku.ComponentModel.Items;
@@ -68,13 +70,20 @@ using var canvas = new Canvas(
 	]
 );
 canvas.DrawItems(
-	new CanvasBackgroundItem(),
-	new TemplateLineStrokeItem { FillIntersectionCells = true }
+	[
+		new BackgroundFillItem(),
+		new TemplateLineStrokeItem { FillIntersectionCells = true },
+		..
+		from digit in Enumerable.Range(0, 9)
+		select new BigTextItem
+		{
+			TemplateIndex = 1,
+			Text = (digit + 1).ToString(),
+			Cell = canvas.Templates[1].Mapper.GetAbsoluteIndex(digit * 10),
+			Color = SKColors.Black
+		}
+	]
 );
-//for (var digit = 0; digit < 9; digit++)
-//{
-//	canvas.DrawBigText(canvas.Templates[1], (digit + 1).ToString(), (Relative)(digit * 10), SKColors.Black);
-//}
 canvas.Export(Path.Combine(desktop, "output.png"), new() { Quality = 100 });
 
 canvas.Options.WriteTo(Path.Combine(Environment.DesktopPath, "drawing-config.json"), Options);

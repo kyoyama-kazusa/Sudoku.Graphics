@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a canvas object that allows you drawing items onto it.
 /// </summary>
-public sealed partial class Canvas : ICanvas<CanvasDrawingOptions>
+public sealed class Canvas : IDisposable
 {
 	/// <summary>
 	/// Indicates the backing surface.
@@ -35,7 +35,9 @@ public sealed partial class Canvas : ICanvas<CanvasDrawingOptions>
 	}
 
 
-	/// <inheritdoc/>
+	/// <summary>
+	/// Indicates drawing options.
+	/// </summary>
 	public CanvasDrawingOptions Options { get; }
 
 	/// <summary>
@@ -48,11 +50,10 @@ public sealed partial class Canvas : ICanvas<CanvasDrawingOptions>
 	/// </summary>
 	public GridTemplateSize GlobalTemplateSize { get; }
 
-	/// <inheritdoc cref="ICanvas{TDrawingOptions}.BackingCanvas"/>
+	/// <summary>
+	/// Indicates backing canvas.
+	/// </summary>
 	internal SKCanvas BackingCanvas => _surface.Canvas;
-
-	/// <inheritdoc/>
-	SKCanvas ICanvas<CanvasDrawingOptions>.BackingCanvas => BackingCanvas;
 
 
 	/// <summary>
@@ -109,9 +110,4 @@ public sealed partial class Canvas : ICanvas<CanvasDrawingOptions>
 	/// <param name="options">The options.</param>
 	public void Export<TOptions>(string path, TOptions? options) where TOptions : notnull, IOptionsProvider<TOptions>, new()
 		=> Export(path, options as CanvasExportingOptions);
-
-	public partial void DrawBigText(GridTemplate template, string text, Relative cell, SKColor color);
-	public partial void DrawBigText(GridTemplate template, string text, Absolute cell, SKColor color);
-	public partial void DrawSmallText(GridTemplate template, string text, Relative cell, int innerPosition, int splitSize, SKColor color);
-	public partial void DrawSmallText(GridTemplate template, string text, Absolute cell, int innerPosition, int splitSize, SKColor color);
 }
