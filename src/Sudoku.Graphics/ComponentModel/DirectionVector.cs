@@ -30,21 +30,6 @@ public readonly record struct DirectionVector(Relative Up, Relative Down, Relati
 	}
 
 	/// <summary>
-	/// Initializes a <see cref="DirectionVector"/> instance via the specified value to the specified directions;
-	/// other values are initialized 0.
-	/// </summary>
-	/// <param name="directions">The directions; multiple flags are allowed.</param>
-	/// <param name="value">The value.</param>
-	public DirectionVector(Direction directions, Relative value) : this(
-		directions.HasFlag(Direction.Up) ? value : 0,
-		directions.HasFlag(Direction.Down) ? value : 0,
-		directions.HasFlag(Direction.Left) ? value : 0,
-		directions.HasFlag(Direction.Right) ? value : 0
-	)
-	{
-	}
-
-	/// <summary>
 	/// Initializes a <see cref="DirectionVector"/> instance via two values indicating up (&amp; left) and down (&amp; right).
 	/// For example, <c><see langword="new"/>(0, 1, 0, 1)</c> can be simplified to <c><see langword="new"/>(0, 1)</c>.
 	/// </summary>

@@ -225,14 +225,6 @@
             </summary>
             <param name="uniform">The uniform value.</param>
         </member>
-        <member name="M:Sudoku.ComponentModel.DirectionVector.#ctor(Sudoku.ComponentModel.Direction,Sudoku.ComponentModel.Relative)">
-            <summary>
-            Initializes a <see cref="T:Sudoku.ComponentModel.DirectionVector"/> instance via the specified value to the specified directions;
-            other values are initialized 0.
-            </summary>
-            <param name="directions">The directions; multiple flags are allowed.</param>
-            <param name="value">The value.</param>
-        </member>
         <member name="M:Sudoku.ComponentModel.DirectionVector.#ctor(Sudoku.ComponentModel.Relative,Sudoku.ComponentModel.Relative)">
             <summary>
             Initializes a <see cref="T:Sudoku.ComponentModel.DirectionVector"/> instance via two values indicating up (&amp; left) and down (&amp; right).
@@ -1598,6 +1590,65 @@
             <param name="mapper">The mapper.</param>
             <param name="absoluteCellIndices">Absolute cell indices.</param>
             <returns>The result dictionary of light-up segments.</returns>
+        </member>
+        <member name="T:Sudoku.ComponentModel.OverlappingGridTemplates">
+            <summary>
+            Provides a way to create overlapping grid templates.
+            </summary>
+            <shared-doc-comments>
+            <param name="blockRowsCount">The number of rows in a block.</param>
+            <param name="blockColumnsCount">The number of columns in a block.</param>
+            <param name="baseMapper">
+            The base mapper instance that contains basic information of point mapping rules, like margin (in pixels).
+            </param>
+            <returns>An array of <see cref="T:Sudoku.ComponentModel.GridTemplate"/> instances.</returns>
+            <exception cref="T:System.ArgumentException">
+            Throws when the target template is not enough to create offsets, in order to form a valid such grid type.
+            </exception>
+            </shared-doc-comments>
+        </member>
+        <member name="M:Sudoku.ComponentModel.OverlappingGridTemplates.ThrowsArgumentException">
+            <summary>
+            Throws an exception <see cref="T:System.ArgumentException"/>.
+            </summary>
+            <returns>This method always throws and don't return anything.</returns>
+            <exception cref="T:System.ArgumentException">Always throws.</exception>
+        </member>
+        <member name="M:Sudoku.ComponentModel.OverlappingGridTemplates.Overlapped(Sudoku.Graphics.PointMapper,Sudoku.ComponentModel.LineDashSequence)">
+            <summary>
+            Creates a <see cref="T:Sudoku.ComponentModel.GridTemplate"/> array of Overlapped sudoku, with the specified grid size.
+            </summary>
+            <inheritdoc cref="T:Sudoku.ComponentModel.OverlappingGridTemplates" path="/shared-doc-comments"/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.OverlappingGridTemplates.DoubleDoku(System.Int32,System.Int32,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Creates a <see cref="T:Sudoku.ComponentModel.GridTemplate"/> array of Double-doku, with the specified rows and columns size of a block.
+            </summary>
+            <inheritdoc cref="T:Sudoku.ComponentModel.OverlappingGridTemplates" path="/shared-doc-comments"/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.OverlappingGridTemplates.Sensei(System.Int32,System.Int32,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Creates a <see cref="T:Sudoku.ComponentModel.GridTemplate"/> array of Sensei, with the specified rows and columns size of a block.
+            </summary>
+            <inheritdoc cref="T:Sudoku.ComponentModel.OverlappingGridTemplates" path="/shared-doc-comments"/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.OverlappingGridTemplates.Gattai2(System.Int32,System.Int32,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Creates a <see cref="T:Sudoku.ComponentModel.GridTemplate"/> array of Gattai-2, with the specified rows and columns size of a block.
+            </summary>
+            <inheritdoc cref="T:Sudoku.ComponentModel.OverlappingGridTemplates" path="/shared-doc-comments"/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.OverlappingGridTemplates.Gattai3(System.Int32,System.Int32,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Creates a <see cref="T:Sudoku.ComponentModel.GridTemplate"/> array of Gattai-3, with the specified rows and columns size of a block.
+            </summary>
+            <inheritdoc cref="T:Sudoku.ComponentModel.OverlappingGridTemplates" path="/shared-doc-comments"/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.OverlappingGridTemplates.Wing(System.Int32,System.Int32,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Creates a <see cref="T:Sudoku.ComponentModel.GridTemplate"/> array of Wing, with the specified rows and columns size of a block.
+            </summary>
+            <inheritdoc cref="T:Sudoku.ComponentModel.OverlappingGridTemplates" path="/shared-doc-comments"/>
         </member>
         <member name="T:Sudoku.ComponentModel.Relative">
             <summary>

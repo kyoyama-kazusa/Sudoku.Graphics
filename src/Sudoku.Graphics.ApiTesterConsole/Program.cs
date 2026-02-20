@@ -8,11 +8,8 @@
 
 using System;
 using System.IO;
-using System.Linq;
 using System.Text.Json;
-using SkiaSharp;
 using Sudoku.ComponentModel;
-using Sudoku.ComponentModel.GridTemplates;
 using Sudoku.ComponentModel.Items;
 using Sudoku.Graphics;
 
@@ -21,21 +18,7 @@ var defaultTemplateSize = new GridTemplateSize(9, 9);
 var baseMapper = new PointMapper(120, 15, defaultTemplateSize);
 using var canvas = new Canvas(
 	[
-		new StandardGridTemplate
-		{
-			IsBorderRoundedRectangle = false,
-			Mapper = baseMapper.AddOffset(new(0, 0, 3, 0))
-		},
-		new StandardGridTemplate
-		{
-			IsBorderRoundedRectangle = false,
-			Mapper = baseMapper.AddOffset(new(3, 0, 6, 0))
-		},
-		new StandardGridTemplate
-		{
-			IsBorderRoundedRectangle = false,
-			Mapper = baseMapper.AddOffset(new(6, 0, 0, 0))
-		},
+		.. OverlappingGridTemplates.Gattai3(3, 3, baseMapper),
 		//new SpecifiedGridTemplate
 		//{
 		//	ThickLineSegments = [
@@ -72,16 +55,16 @@ using var canvas = new Canvas(
 canvas.DrawItems(
 	[
 		new BackgroundFillItem(),
-		new TemplateLineStrokeItem { FillIntersectionCells = true },
-		..
-		from digit in Enumerable.Range(0, 9)
-		select new BigTextItem
-		{
-			TemplateIndex = 1,
-			Text = (digit + 1).ToString(),
-			Cell = canvas.Templates[1].Mapper.GetAbsoluteIndex(digit * 10),
-			Color = SKColors.Black
-		}
+		new TemplateLineStrokeItem(),
+		//..
+		//from digit in Enumerable.Range(0, 9)
+		//select new BigTextItem
+		//{
+		//	TemplateIndex = 1,
+		//	Text = (digit + 1).ToString(),
+		//	Cell = canvas.Templates[1].Mapper.GetAbsoluteIndex(digit * 10),
+		//	Color = SKColors.Black
+		//}
 	]
 );
 canvas.Export(Path.Combine(desktop, "output.png"), new() { Quality = 100 });
