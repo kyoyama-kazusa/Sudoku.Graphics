@@ -3,8 +3,7 @@
 /// <summary>
 /// Represents a grid template that draws thick and thin lines in a normal way.
 /// </summary>
-/// <param name="mapper"><inheritdoc cref="GridTemplate(PointMapper)" path="/param[@name='mapper']"/></param>
-public abstract partial class IndividualGridTemplate(PointMapper mapper) : GridTemplate(mapper)
+public abstract partial class IndividualGridTemplate : GridTemplate
 {
 	/// <summary>
 	/// Indicates thick line dash sequence. By default it's an empty sequence, meaning no dash enabled.

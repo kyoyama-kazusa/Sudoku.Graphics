@@ -6,29 +6,6 @@
 public sealed class SpecifiedGridTemplate : IndividualGridTemplate
 {
 	/// <summary>
-	/// Initializes a <see cref="SpecifiedGridTemplate"/> instance via the specified 
-	/// </summary>
-	/// <param name="thickLineSegments">The thick line segments.</param>
-	/// <param name="thinLineSegments">The thin line segments.</param>
-	/// <param name="mapper">The mapper.</param>
-	[JsonConstructor]
-	[SetsRequiredMembers]
-	public SpecifiedGridTemplate(LineSegment[] thickLineSegments, LineSegment[] thinLineSegments, PointMapper mapper) : base(mapper)
-	{
-		ThickLineSegments = thickLineSegments;
-		ThinLineSegments = thinLineSegments;
-	}
-
-	/// <summary>
-	/// Initializes a <see cref="SpecifiedGridTemplate"/> instance via the specified mapper.
-	/// </summary>
-	/// <param name="mapper">The mapper.</param>
-	public SpecifiedGridTemplate(PointMapper mapper) : base(mapper)
-	{
-	}
-
-
-	/// <summary>
 	/// Indicates thick line segments.
 	/// </summary>
 	public required LineSegment[] ThickLineSegments { get; init; }

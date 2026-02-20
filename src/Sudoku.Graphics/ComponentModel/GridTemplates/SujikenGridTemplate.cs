@@ -11,49 +11,41 @@ public sealed class SujikenGridTemplate : IndividualGridTemplate
 	private Dictionary<int, Relative>? _rowCellIndicesLookup, _columnCellIndicesLookup;
 
 
-	/// <summary>
-	/// Initializes a <see cref="SujikenGridTemplate"/> instance via the specified mapper.
-	/// </summary>
-	/// <param name="mapper">The mapper.</param>
-	/// <exception cref="ArgumentException">
-	/// Throws when the mapper doesn't represents a grid with standard <c>n * n</c> size.
-	/// </exception>
-	[SetsRequiredMembers]
-	public SujikenGridTemplate(PointMapper mapper) : base(mapper)
+	/// <inheritdoc/>
+	public override required PointMapper Mapper
 	{
-		var linesCount = mapper.RowsCount;
-		var squareRootOfLinesCount = (int)Math.Sqrt(linesCount);
-		UniformBlockSize = squareRootOfLinesCount * squareRootOfLinesCount == linesCount
-			? squareRootOfLinesCount
-			: throw new ArgumentException(message_InvalidCount(nameof(UniformBlockSize)));
+		get;
 
+		init
+		{
+			ArgumentException.Assert(value.RowsCount == value.ColumnsCount);
 
-		static string message_InvalidCount(string propertyName)
-			=> $"The argument '{propertyName}' isn't a square number when it is uninitialized.";
+			field = value;
+
+			if (UniformBlockSize != 0)
+			{
+				ArgumentException.Assert(value.RowsCount % UniformBlockSize == 0);
+				ArgumentException.Assert(value.ColumnsCount % UniformBlockSize == 0);
+				return;
+			}
+
+			var linesCount = Mapper.RowsCount;
+			var squareRootOfLinesCount = (int)Math.Sqrt(linesCount);
+			UniformBlockSize = squareRootOfLinesCount * squareRootOfLinesCount == linesCount
+				? squareRootOfLinesCount
+				: throw new ArgumentException("Expect a square number.");
+		}
 	}
-
-	/// <summary>
-	/// Initializes a <see cref="SujikenGridTemplate"/> instance via the specified mapper and uniform block size.
-	/// </summary>
-	/// <param name="uniformSize">The uniformed value.</param>
-	/// <param name="mapper">The mapper.</param>
-	[JsonConstructor]
-	[SetsRequiredMembers]
-	public SujikenGridTemplate(Relative uniformSize, PointMapper mapper) : this(mapper) => UniformBlockSize = uniformSize;
-
 
 	/// <summary>
 	/// Indicates the number of rows and columns in a block.
 	/// </summary>
-	public required Relative UniformBlockSize { get; init; }
+	public Relative UniformBlockSize { get; init; }
 
 
 	/// <inheritdoc/>
 	protected override void GuardStatements(SKCanvas canvas, CanvasDrawingOptions options)
 	{
-		ArgumentException.Assert(Mapper.RowsCount % UniformBlockSize == 0);
-		ArgumentException.Assert(Mapper.ColumnsCount % UniformBlockSize == 0);
-		ArgumentException.Assert(Mapper.RowsCount == Mapper.ColumnsCount);
 	}
 
 	/// <inheritdoc/>

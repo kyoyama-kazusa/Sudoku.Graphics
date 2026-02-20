@@ -3,24 +3,12 @@
 /// <summary>
 /// Represents irregular (jigsaw) grid template, containing irregular-shaped blocks.
 /// </summary>
-/// <param name="cellIndexGroups"><inheritdoc cref="CellIndexGroups" path="/summary"/></param>
-/// <param name="mapper"><inheritdoc cref="GridTemplate(PointMapper)" path="/param[@name='mapper']"/></param>
-public sealed class JigsawGridTemplate(Relative[][] cellIndexGroups, PointMapper mapper) : IndividualGridTemplate(mapper)
+public sealed class JigsawGridTemplate : IndividualGridTemplate
 {
 	/// <summary>
-	/// Initializes a <see cref="JigsawGridTemplate"/> instance via the specified point mapper.
+	/// Indicates the relative cell index groups. By default it's an empty array.
 	/// </summary>
-	/// <param name="mapper">The point mapper.</param>
-	[JsonConstructor]
-	public JigsawGridTemplate(PointMapper mapper) : this([], mapper)
-	{
-	}
-
-
-	/// <summary>
-	/// Indicates the relative cell index groups.
-	/// </summary>
-	public Relative[][] CellIndexGroups { get; } = cellIndexGroups;
+	public Relative[][] CellIndexGroups { get; init; } = [];
 
 	/// <summary>
 	/// Indicates whether cyclic rule will be checked.

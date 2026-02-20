@@ -10,6 +10,11 @@ public sealed partial class Canvas : ICanvas<CanvasDrawingOptions>
 	/// </summary>
 	private readonly SKSurface _surface;
 
+	/// <summary>
+	/// Indicates whether the object has already been disposed.
+	/// </summary>
+	private bool _isDisposed;
+
 
 	/// <summary>
 	/// Initializes a <see cref="Canvas"/> instance via the specified values.
@@ -43,21 +48,70 @@ public sealed partial class Canvas : ICanvas<CanvasDrawingOptions>
 	/// </summary>
 	public GridTemplateSize GlobalTemplateSize { get; }
 
+	/// <inheritdoc cref="ICanvas{TDrawingOptions}.BackingCanvas"/>
+	internal SKCanvas BackingCanvas => _surface.Canvas;
+
 	/// <inheritdoc/>
 	SKCanvas ICanvas<CanvasDrawingOptions>.BackingCanvas => BackingCanvas;
 
-	/// <inheritdoc cref="ICanvas{TDrawingOptions}.BackingCanvas"/>
-	private SKCanvas BackingCanvas => _surface.Canvas;
+
+	/// <summary>
+	/// Try to draw the specified item onto the current canvas.
+	/// </summary>
+	/// <param name="item">The item to draw.</param>
+	public void DrawItem(Item item) => item.DrawTo(this);
+
+	/// <summary>
+	/// Try to draw the specified list of items onto the current canvas.
+	/// </summary>
+	/// <param name="items">The items to draw.</param>
+	public void DrawItems(params ItemSet items) => items.ForEach(item => item.DrawTo(this));
+
+	/// <inheritdoc/>
+	public void Dispose()
+	{
+		ObjectDisposedException.ThrowIf(_isDisposed, this);
+
+		_surface.Dispose();
+		_isDisposed = true;
+	}
+
+	/// <inheritdoc cref="Export{TOptions}(string, TOptions)"/>
+	public void Export(string path, CanvasExportingOptions? options)
+	{
+		options ??= CanvasExportingOptions.Default;
+
+		var extension = Path.GetExtension(path);
+		using var image = _surface.Snapshot();
+		using var data = image.Encode(getFormatFromExtension(extension), options.Quality);
+		using var stream = new MemoryStream(data.ToArray());
+		using var fileStream = new FileStream(path, FileMode.Create, FileAccess.Write);
+		stream.CopyTo(fileStream);
 
 
-	public partial void FillBackground();
-	public partial void FillBackground(SKColor color);
-	public partial void DrawLines(bool fillIntersection);
+		static SKEncodedImageFormat getFormatFromExtension(string extension)
+			=> extension switch
+			{
+				".jpg" => SKEncodedImageFormat.Jpeg,
+				".png" => SKEncodedImageFormat.Png,
+				".gif" => SKEncodedImageFormat.Gif,
+				".bmp" => SKEncodedImageFormat.Bmp,
+				".webp" => SKEncodedImageFormat.Webp,
+				_ => throw new NotSupportedException()
+			};
+	}
+
+	/// <summary>
+	/// Export the current canvas into target file.
+	/// </summary>
+	/// <typeparam name="TOptions">The type of options.</typeparam>
+	/// <param name="path">The file path. The extension specified will be used as output file format.</param>
+	/// <param name="options">The options.</param>
+	public void Export<TOptions>(string path, TOptions? options) where TOptions : notnull, IOptionsProvider<TOptions>, new()
+		=> Export(path, options as CanvasExportingOptions);
+
 	public partial void DrawBigText(GridTemplate template, string text, Relative cell, SKColor color);
 	public partial void DrawBigText(GridTemplate template, string text, Absolute cell, SKColor color);
 	public partial void DrawSmallText(GridTemplate template, string text, Relative cell, int innerPosition, int splitSize, SKColor color);
 	public partial void DrawSmallText(GridTemplate template, string text, Absolute cell, int innerPosition, int splitSize, SKColor color);
-	public partial void Dispose();
-	public partial void Export(string path, CanvasExportingOptions? options = null);
-	public partial void Export<TOptions>(string path, TOptions? options) where TOptions : notnull, IOptionsProvider<TOptions>, new();
 }

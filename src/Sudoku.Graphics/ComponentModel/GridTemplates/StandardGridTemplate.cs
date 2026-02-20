@@ -5,57 +5,39 @@
 /// </summary>
 public sealed class StandardGridTemplate : IndividualGridTemplate, IRoundRectangleCornerGridTemplate
 {
-	/// <summary>
-	/// Initializes a <see cref="PointMapper"/> instance via the specified mapper.
-	/// </summary>
-	/// <param name="mapper">The mapper.</param>
-	/// <exception cref="ArgumentException">Throws when the rows and columns cannot be divisable by template size.</exception>
-	[SetsRequiredMembers]
-	public StandardGridTemplate(PointMapper mapper) : base(mapper)
+	/// <inheritdoc/>
+	public override required PointMapper Mapper
 	{
-		var rowsCount = mapper.RowsCount;
-		var squareRootOfRowsCount = (int)Math.Sqrt(rowsCount);
-		RowBlockSize = squareRootOfRowsCount * squareRootOfRowsCount == rowsCount
-			? squareRootOfRowsCount
-			: throw new ArgumentException(message_InvalidCount(nameof(RowBlockSize)));
+		get;
 
-		var columnsCount = mapper.ColumnsCount;
-		var squareRootOfColumnsCount = (int)Math.Sqrt(columnsCount);
-		ColumnBlockSize = squareRootOfColumnsCount * squareRootOfColumnsCount == columnsCount
-			? squareRootOfColumnsCount
-			: throw new ArgumentException(message_InvalidCount(nameof(ColumnBlockSize)));
+		init
+		{
+			field = value;
 
-		ArgumentException.Assert(rowsCount % squareRootOfRowsCount == 0);
-		ArgumentException.Assert(columnsCount % squareRootOfColumnsCount == 0);
+			if (RowBlockSize != 0 && ColumnBlockSize != 0)
+			{
+				return;
+			}
+
+			var rowsCount = value.RowsCount;
+			var squareRootOfRowsCount = (int)Math.Sqrt(rowsCount);
+			RowBlockSize = squareRootOfRowsCount * squareRootOfRowsCount == rowsCount
+				? squareRootOfRowsCount
+				: throw new ArgumentException(message_InvalidCount(nameof(RowBlockSize)));
+
+			var columnsCount = value.ColumnsCount;
+			var squareRootOfColumnsCount = (int)Math.Sqrt(columnsCount);
+			ColumnBlockSize = squareRootOfColumnsCount * squareRootOfColumnsCount == columnsCount
+				? squareRootOfColumnsCount
+				: throw new ArgumentException(message_InvalidCount(nameof(ColumnBlockSize)));
+
+			ArgumentException.Assert(rowsCount % squareRootOfRowsCount == 0);
+			ArgumentException.Assert(columnsCount % squareRootOfColumnsCount == 0);
 
 
-		static string message_InvalidCount(string propertyName)
-			=> $"The argument '{propertyName}' isn't a square number when it is uninitialized.";
-	}
-
-	/// <summary>
-	/// Initializes a <see cref="StandardGridTemplate"/> instance via the specified number of rows and columns as block size,
-	/// and the point mapper instance.
-	/// </summary>
-	/// <param name="rowBlockSize"><inheritdoc cref="RowBlockSize" path="/summary"/></param>
-	/// <param name="columnBlockSize"><inheritdoc cref="ColumnBlockSize" path="/summary"/></param>
-	/// <param name="mapper">The mapper.</param>
-	[JsonConstructor]
-	[SetsRequiredMembers]
-	public StandardGridTemplate(Relative rowBlockSize, Relative columnBlockSize, PointMapper mapper) : base(mapper)
-	{
-		RowBlockSize = rowBlockSize;
-		ColumnBlockSize = columnBlockSize;
-	}
-
-	/// <summary>
-	/// Initializes a <see cref="StandardGridTemplate"/> instance via the specified size as uniformed value.
-	/// </summary>
-	/// <param name="uniformSize">The uniformed value.</param>
-	/// <param name="mapper">The mapper.</param>
-	[SetsRequiredMembers]
-	public StandardGridTemplate(Relative uniformSize, PointMapper mapper) : this(uniformSize, uniformSize, mapper)
-	{
+			static string message_InvalidCount(string propertyName)
+				=> $"The argument '{propertyName}' isn't a square number when it is uninitialized.";
+		}
 	}
 
 
@@ -65,12 +47,12 @@ public sealed class StandardGridTemplate : IndividualGridTemplate, IRoundRectang
 	/// <summary>
 	/// Indicates the number of rows in a rectangular block.
 	/// </summary>
-	public required Relative RowBlockSize { get; init; }
+	public Relative RowBlockSize { get; init; }
 
 	/// <summary>
 	/// Indicates the number of columns in a rectangular block.
 	/// </summary>
-	public required Relative ColumnBlockSize { get; init; }
+	public Relative ColumnBlockSize { get; init; }
 
 
 	/// <inheritdoc/>

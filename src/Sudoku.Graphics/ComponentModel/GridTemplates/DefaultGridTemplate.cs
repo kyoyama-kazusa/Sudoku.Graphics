@@ -3,9 +3,7 @@
 /// <summary>
 /// Represents a default grid template that doesn't contain any block (thick) lines, except borders.
 /// </summary>
-/// <param name="mapper"><inheritdoc cref="GridTemplate(PointMapper)" path="/param[@name='mapper']"/></param>
-[method: JsonConstructor]
-public sealed class DefaultGridTemplate(PointMapper mapper) : IndividualGridTemplate(mapper), IRoundRectangleCornerGridTemplate
+public sealed class DefaultGridTemplate : IndividualGridTemplate, IRoundRectangleCornerGridTemplate
 {
 	/// <inheritdoc/>
 	public bool IsBorderRoundedRectangle { get; init; } = true;

@@ -11,6 +11,7 @@ using System.IO;
 using System.Text.Json;
 using Sudoku.ComponentModel;
 using Sudoku.ComponentModel.GridTemplates;
+using Sudoku.ComponentModel.Items;
 using Sudoku.Graphics;
 
 var desktop = Environment.DesktopPath;
@@ -18,23 +19,37 @@ var defaultTemplateSize = new GridTemplateSize(9, 9);
 var baseMapper = new PointMapper(120, 15, defaultTemplateSize);
 using var canvas = new Canvas(
 	[
-		new StandardGridTemplate(baseMapper.AddOffset(new(0, 0, 3, 0))) { IsBorderRoundedRectangle = false },
-		new StandardGridTemplate(baseMapper.AddOffset(new(3, 0, 6, 0))) { IsBorderRoundedRectangle = false },
-		new StandardGridTemplate(baseMapper.AddOffset(new(6, 0, 0, 0))) { IsBorderRoundedRectangle = false },
-		//new SpecifiedGridTemplate(
-		//	[
-		//		.. Piece.O.GetOutline(RotationType.None, defaultMapper, 10, 0),
-		//		.. Piece.T.GetOutline(RotationType.None, defaultMapper, 10, 3),
-		//		.. Piece.J.GetOutline(RotationType.None, defaultMapper, 10, 6),
-		//		.. Piece.L.GetOutline(RotationType.None, defaultMapper, 13, 0),
-		//		.. Piece.S.GetOutline(RotationType.None, defaultMapper, 13, 3),
-		//		.. Piece.Z.GetOutline(RotationType.None, defaultMapper, 13, 6)
+		new StandardGridTemplate
+		{
+			IsBorderRoundedRectangle = false,
+			Mapper = baseMapper.AddOffset(new(0, 0, 3, 0))
+		},
+		new StandardGridTemplate
+		{
+			IsBorderRoundedRectangle = false,
+			Mapper = baseMapper.AddOffset(new(3, 0, 6, 0))
+		},
+		new StandardGridTemplate
+		{
+			IsBorderRoundedRectangle = false,
+			Mapper = baseMapper.AddOffset(new(6, 0, 0, 0))
+		},
+		//new SpecifiedGridTemplate
+		//{
+		//	ThickLineSegments = [
+		//		.. Piece.O.GetOutline(RotationType.None, baseMapper, 10, 0),
+		//		.. Piece.T.GetOutline(RotationType.None, baseMapper, 10, 3),
+		//		.. Piece.J.GetOutline(RotationType.None, baseMapper, 10, 6),
+		//		.. Piece.L.GetOutline(RotationType.None, baseMapper, 13, 0),
+		//		.. Piece.S.GetOutline(RotationType.None, baseMapper, 13, 3),
+		//		.. Piece.Z.GetOutline(RotationType.None, baseMapper, 13, 6)
 		//	],
-		//	[],
-		//	defaultMapper
-		//)
-		//new JigsawGridTemplate(
-		//	[
+		//	ThinLineSegments = [],
+		//	Mapper = baseMapper
+		//}
+		//new JigsawGridTemplate
+		//{
+		//	CellIndexGroups = [
 		//		[0, 1, 2, 9, 10, 11, 12, 21, 22],
 		//		[3, 4, 5, 6, 7, 13, 14, 15, 16],
 		//		[8, 17, 23, 24, 25, 26, 31, 32, 34],
@@ -45,17 +60,17 @@ using var canvas = new Canvas(
 		//		[49, 50, 52, 59, 60, 61, 62, 71, 80],
 		//		[67, 68, 69, 70, 75, 76, 77, 78, 79]
 		//	],
-		//	defaultMapper
-		//)
-		//{
+		//	Mapper = baseMapper,
 		//	//AlsoFillGroups = true
 		//}
-		//new SujikenGridTemplate(defaultMapper)
-		//new DefaultGridTemplate(defaultMapper)
+		//new SujikenGridTemplate { Mapper = baseMapper }
+		//new DefaultGridTemplate { Mapper = baseMapper }
 	]
 );
-canvas.FillBackground();
-canvas.DrawLines(true);
+canvas.DrawItems(
+	new CanvasBackgroundItem(),
+	new TemplateLineStrokeItem { FillIntersectionCells = true }
+);
 //for (var digit = 0; digit < 9; digit++)
 //{
 //	canvas.DrawBigText(canvas.Templates[1], (digit + 1).ToString(), (Relative)(digit * 10), SKColors.Black);
