@@ -2704,24 +2704,6 @@
             Represents a point mapper instance.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.PointMapper.#ctor(System.Single,System.Single,Sudoku.ComponentModel.GridTemplateSize)">
-            <summary>
-            Initializes a <see cref="T:Sudoku.Graphics.PointMapper"/> instance via the specified cell size, margin and template size.
-            </summary>
-            <param name="cellSize"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.CellSize" path="/summary"/></param>
-            <param name="margin"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.Margin" path="/summary"/></param>
-            <param name="templateSize"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.TemplateSize" path="/summary"/></param>
-        </member>
-        <member name="M:Sudoku.Graphics.PointMapper.#ctor(System.Single,System.Single,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.DirectionVector)">
-            <summary>
-            Initializes a <see cref="T:Sudoku.Graphics.PointMapper"/> instance via the specified information.
-            </summary>
-            <param name="cellSize"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.CellSize" path="/summary"/></param>
-            <param name="margin"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.Margin" path="/summary"/></param>
-            <param name="rowsCount"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.RowsCount" path="/summary"/></param>
-            <param name="columnsCount"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.ColumnsCount" path="/summary"/></param>
-            <param name="vector"><inheritdoc cref="P:Sudoku.Graphics.PointMapper.Vector" path="/summary"/></param>
-        </member>
         <member name="P:Sudoku.Graphics.PointMapper.CellSize">
             <summary>
             Indicates cell width and height of pixels. By design, cell width is equal to cell height,

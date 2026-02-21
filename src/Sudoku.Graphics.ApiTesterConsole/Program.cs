@@ -8,15 +8,24 @@
 
 using System;
 using System.IO;
-using Sudoku.ComponentModel;
 using Sudoku.ComponentModel.GridTemplates;
 using Sudoku.ComponentModel.Items;
 using Sudoku.Graphics;
 
 var desktop = Environment.DesktopPath;
-var defaultTemplateSize = new GridTemplateSize { RowsCount = 9, ColumnsCount = 9 };
-var baseMapper = new PointMapper(120, 15, defaultTemplateSize);
-using var canvas = new Canvas([new StandardGridTemplate { Mapper = baseMapper }]);
+using var canvas = new Canvas(
+	[
+		new StandardGridTemplate
+		{
+			Mapper = new()
+			{
+				CellSize = 120,
+				Margin = 15,
+				TemplateSize = new() { RowsCount = 9, ColumnsCount = 9 }
+			}
+		}
+	]
+);
 canvas.DrawItems(
 	[
 		new BackgroundFillItem { Color = canvas.GetOptionValue(static options => options.BackgroundColor) },

@@ -6,36 +6,6 @@
 public sealed record PointMapper : IEqualityOperators<PointMapper, PointMapper, bool>
 {
 	/// <summary>
-	/// Initializes a <see cref="PointMapper"/> instance via the specified cell size, margin and template size.
-	/// </summary>
-	/// <param name="cellSize"><inheritdoc cref="CellSize" path="/summary"/></param>
-	/// <param name="margin"><inheritdoc cref="Margin" path="/summary"/></param>
-	/// <param name="templateSize"><inheritdoc cref="TemplateSize" path="/summary"/></param>
-	[SetsRequiredMembers]
-	[JsonConstructor]
-	public PointMapper(float cellSize, float margin, GridTemplateSize templateSize)
-	{
-		CellSize = cellSize;
-		Margin = margin;
-		TemplateSize = templateSize;
-	}
-
-	/// <summary>
-	/// Initializes a <see cref="PointMapper"/> instance via the specified information.
-	/// </summary>
-	/// <param name="cellSize"><inheritdoc cref="CellSize" path="/summary"/></param>
-	/// <param name="margin"><inheritdoc cref="Margin" path="/summary"/></param>
-	/// <param name="rowsCount"><inheritdoc cref="RowsCount" path="/summary"/></param>
-	/// <param name="columnsCount"><inheritdoc cref="ColumnsCount" path="/summary"/></param>
-	/// <param name="vector"><inheritdoc cref="Vector" path="/summary"/></param>
-	[SetsRequiredMembers]
-	public PointMapper(float cellSize, float margin, Absolute rowsCount, Absolute columnsCount, DirectionVector vector) :
-		this(cellSize, margin, new() { RowsCount = rowsCount, ColumnsCount = columnsCount, Vector = vector })
-	{
-	}
-
-
-	/// <summary>
 	/// Indicates cell width and height of pixels. By design, cell width is equal to cell height,
 	/// so this property doesn't return an instance of either type <see cref="SKSize"/> or <see cref="SKSizeI"/>.
 	/// </summary>
