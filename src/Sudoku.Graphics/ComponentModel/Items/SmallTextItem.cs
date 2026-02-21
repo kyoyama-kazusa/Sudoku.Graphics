@@ -6,37 +6,27 @@
 public abstract class SmallTextItem : BigSmallTextItem
 {
 	/// <summary>
-	/// Indicates the size that a cell will be divided into. Like 3 for 3 * 3 subgrid in a cell,
-	/// which means a cell will be filled with at most 9 small text strings.
+	/// Indicates candidate position to be set.
 	/// </summary>
-	public required Relative CellSplitSize { get; init; }
-
-	/// <summary>
-	/// Indicates the inner position of the cell having been divided by property <see cref="CellSplitSize"/>.
-	/// </summary>
-	/// <seealso cref="CellSplitSize"/>
-	public required Absolute CellInnerPosition { get; init; }
+	public required CandidatePosition CandidatePosition { get; init; }
 
 
 	/// <inheritdoc/>
 	public sealed override bool Equals([NotNullWhen(true)] Item? other)
 		=> other is SmallTextItem comparer
 		&& TemplateIndex == comparer.TemplateIndex && Text == comparer.Text
-		&& Cell == comparer.Cell && Color == comparer.Color
-		&& CellSplitSize == comparer.CellSplitSize && CellInnerPosition == comparer.CellInnerPosition;
+		&& CandidatePosition == comparer.CandidatePosition && Color == comparer.Color;
 
 	/// <inheritdoc/>
 	public sealed override int GetHashCode()
-		=> HashCode.Combine(EqualityContract, TemplateIndex, Text, Cell, CellSplitSize, CellInnerPosition, Color);
+		=> HashCode.Combine(EqualityContract, TemplateIndex, Text, CandidatePosition, Color);
 
 	/// <inheritdoc/>
 	protected sealed override void PrintMembers(StringBuilder builder)
 	{
 		builder.Append($"{nameof(TemplateIndex)} = {TemplateIndex}, ");
 		builder.Append($"{nameof(Text)} = {Text}, ");
-		builder.Append($"{nameof(Cell)} = {Cell}, ");
-		builder.Append($"{nameof(CellSplitSize)} = {CellSplitSize}, ");
-		builder.Append($"{nameof(CellInnerPosition)} = {CellInnerPosition}, ");
+		builder.Append($"{nameof(CandidatePosition)} = {CandidatePosition}");
 		builder.Append($"{nameof(Color)} = {Color}");
 	}
 
@@ -57,11 +47,13 @@ public abstract class SmallTextItem : BigSmallTextItem
 			options.SmallTextFontWidth.Resolve(options),
 			options.SmallTextFontSlant.Resolve(options)
 		);
-		var cellTopLeft = mapper.GetPoint(Cell, CellAlignment.TopLeft);
-		var candidateSize = mapper.CellSize / CellSplitSize;
-		var candidateRowIndex = CellInnerPosition / CellSplitSize;
-		var candidateColumnIndex = CellInnerPosition % CellSplitSize;
-		var factSize = options.SmallTextFontSizeScale.Resolve(options).Measure(mapper.CellSize) / CellSplitSize;
+
+		var (cell, subgridSize, innerIndex) = CandidatePosition;
+		var cellTopLeft = mapper.GetPoint(cell, CellAlignment.TopLeft);
+		var candidateSize = mapper.CellSize / subgridSize;
+		var candidateRowIndex = innerIndex / subgridSize;
+		var candidateColumnIndex = innerIndex % subgridSize;
+		var factSize = options.SmallTextFontSizeScale.Resolve(options).Measure(mapper.CellSize) / subgridSize;
 		using var textFont = new SKFont(typeface, factSize) { Subpixel = true };
 		using var textPaint = new SKPaint { Color = Color };
 		var offset = textFont.MeasureText(Text, textPaint);

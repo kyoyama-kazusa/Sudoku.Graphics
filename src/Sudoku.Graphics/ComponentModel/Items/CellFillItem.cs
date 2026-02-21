@@ -38,8 +38,8 @@ public sealed class CellFillItem : FillItem
 	/// <inheritdoc/>
 	protected override void PrintMembers(StringBuilder builder)
 	{
-		builder.Append($"{nameof(TemplateIndex)} = {TemplateIndex}");
-		builder.Append($"{nameof(Cell)} = {Cell}");
+		builder.Append($"{nameof(TemplateIndex)} = {TemplateIndex}, ");
+		builder.Append($"{nameof(Cell)} = {Cell}, ");
 		builder.Append($"{nameof(Color)} = {Color}");
 	}
 

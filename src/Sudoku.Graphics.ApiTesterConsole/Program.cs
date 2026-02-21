@@ -67,7 +67,7 @@ canvas.DrawItems(
 		},
 		.. gridTextItems,
 		..
-		from BigSmallTextItem item in gridTextItems
+		from BigTextItem item in gridTextItems
 		select new CellFillItem { TemplateIndex = 0, Cell = item.Cell, Color = SKColors.Yellow }
 	]
 );

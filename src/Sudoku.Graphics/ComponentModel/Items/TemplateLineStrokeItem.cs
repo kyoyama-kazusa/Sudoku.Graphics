@@ -37,7 +37,7 @@ public sealed class TemplateLineStrokeItem : LineStrokeItem
 	/// <inheritdoc/>
 	protected override void PrintMembers(StringBuilder builder)
 	{
-		builder.Append($"{nameof(FillIntersectionCells)} = {FillIntersectionCells}");
+		builder.Append($"{nameof(FillIntersectionCells)} = {FillIntersectionCells}, ");
 		builder.Append($"{nameof(TemplateIntersectionCellsColor)} = {TemplateIntersectionCellsColor}");
 	}
 

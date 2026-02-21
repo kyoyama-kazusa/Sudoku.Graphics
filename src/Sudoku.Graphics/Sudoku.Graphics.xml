@@ -89,6 +89,51 @@
             <param name="mapper">The mapper instance.</param>
             <returns>The result.</returns>
         </member>
+        <member name="T:Sudoku.ComponentModel.CandidatePosition">
+            <summary>
+            Represents a candidate position.
+            </summary>
+            <param name="Cell">Indicates the target cell.</param>
+            <param name="SubgridSize">Indicates subgrid size.</param>
+            <param name="InnerIndex">The internal absolute position index of the candidate.</param>
+            <remarks>
+            <para>
+            By design of candidate drawing system, we will split a cell into a square subgrid of size <i>n</i> by <i>n</i>,
+            where <i>n</i> is equal to value of property <see cref="P:Sudoku.ComponentModel.CandidatePosition.SubgridSize"/>.
+            </para>
+            <para>
+            Then, we define an absolute internal index to describe a cell will be drawn, which is in range [0, <i>n</i> * <i>n</i>) -
+            property <see cref="P:Sudoku.ComponentModel.CandidatePosition.InnerIndex"/>.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:Sudoku.ComponentModel.CandidatePosition.#ctor(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Relative,Sudoku.ComponentModel.Absolute)">
+            <summary>
+            Represents a candidate position.
+            </summary>
+            <param name="Cell">Indicates the target cell.</param>
+            <param name="SubgridSize">Indicates subgrid size.</param>
+            <param name="InnerIndex">The internal absolute position index of the candidate.</param>
+            <remarks>
+            <para>
+            By design of candidate drawing system, we will split a cell into a square subgrid of size <i>n</i> by <i>n</i>,
+            where <i>n</i> is equal to value of property <see cref="P:Sudoku.ComponentModel.CandidatePosition.SubgridSize"/>.
+            </para>
+            <para>
+            Then, we define an absolute internal index to describe a cell will be drawn, which is in range [0, <i>n</i> * <i>n</i>) -
+            property <see cref="P:Sudoku.ComponentModel.CandidatePosition.InnerIndex"/>.
+            </para>
+            </remarks>
+        </member>
+        <member name="P:Sudoku.ComponentModel.CandidatePosition.Cell">
+            <summary>Indicates the target cell.</summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.CandidatePosition.SubgridSize">
+            <summary>Indicates subgrid size.</summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.CandidatePosition.InnerIndex">
+            <summary>The internal absolute position index of the candidate.</summary>
+        </member>
         <member name="T:Sudoku.ComponentModel.CellAlignment">
             <summary>
             Represents a cell alignment type.
@@ -1248,15 +1293,6 @@
             Indicates the text to be drawn.
             </summary>
         </member>
-        <member name="P:Sudoku.ComponentModel.Items.BigSmallTextItem.Cell">
-            <summary>
-            Indicates the cell to be drawn, of absolute cell index.
-            For <see cref="T:Sudoku.ComponentModel.Relative"/> cell indices, you can use <see cref="M:Sudoku.Graphics.PointMapper.GetAbsoluteIndex(Sudoku.ComponentModel.Relative)"/>
-            to create absolute cells.
-            </summary>
-            <seealso cref="T:Sudoku.ComponentModel.Relative"/>
-            <seealso cref="M:Sudoku.Graphics.PointMapper.GetAbsoluteIndex(Sudoku.ComponentModel.Relative)"/>
-        </member>
         <member name="P:Sudoku.ComponentModel.Items.BigSmallTextItem.Color">
             <summary>
             Indicates the color to be used.
@@ -1273,6 +1309,15 @@
             <summary>
             Represents a big text item.
             </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.BigTextItem.Cell">
+            <summary>
+            Indicates the cell to be drawn, of absolute cell index.
+            For <see cref="T:Sudoku.ComponentModel.Relative"/> cell indices, you can use <see cref="M:Sudoku.Graphics.PointMapper.GetAbsoluteIndex(Sudoku.ComponentModel.Relative)"/>
+            to create absolute cells.
+            </summary>
+            <seealso cref="T:Sudoku.ComponentModel.Relative"/>
+            <seealso cref="M:Sudoku.Graphics.PointMapper.GetAbsoluteIndex(Sudoku.ComponentModel.Relative)"/>
         </member>
         <member name="M:Sudoku.ComponentModel.Items.BigTextItem.Equals(Sudoku.ComponentModel.Item)">
             <inheritdoc/>
@@ -1381,17 +1426,10 @@
             Represents small text item.
             </summary>
         </member>
-        <member name="P:Sudoku.ComponentModel.Items.SmallTextItem.CellSplitSize">
+        <member name="P:Sudoku.ComponentModel.Items.SmallTextItem.CandidatePosition">
             <summary>
-            Indicates the size that a cell will be divided into. Like 3 for 3 * 3 subgrid in a cell,
-            which means a cell will be filled with at most 9 small text strings.
+            Indicates candidate position to be set.
             </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Items.SmallTextItem.CellInnerPosition">
-            <summary>
-            Indicates the inner position of the cell having been divided by property <see cref="P:Sudoku.ComponentModel.Items.SmallTextItem.CellSplitSize"/>.
-            </summary>
-            <seealso cref="P:Sudoku.ComponentModel.Items.SmallTextItem.CellSplitSize"/>
         </member>
         <member name="M:Sudoku.ComponentModel.Items.SmallTextItem.Equals(Sudoku.ComponentModel.Item)">
             <inheritdoc/>

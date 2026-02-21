@@ -5,6 +5,16 @@
 /// </summary>
 public abstract class BigTextItem : BigSmallTextItem
 {
+	/// <summary>
+	/// Indicates the cell to be drawn, of absolute cell index.
+	/// For <see cref="Relative"/> cell indices, you can use <see cref="PointMapper.GetAbsoluteIndex(Relative)"/>
+	/// to create absolute cells.
+	/// </summary>
+	/// <seealso cref="Relative"/>
+	/// <seealso cref="PointMapper.GetAbsoluteIndex(Relative)"/>
+	public required Absolute Cell { get; init; }
+
+
 	/// <inheritdoc/>
 	public sealed override bool Equals([NotNullWhen(true)] Item? other)
 		=> other is BigTextItem comparer
