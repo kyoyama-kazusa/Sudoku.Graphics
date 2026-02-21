@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a standard (rectangular) grid template.
 /// </summary>
-public sealed class StandardGridTemplate : IndividualGridTemplate, IRoundRectangleCornerGridTemplate
+public sealed class StandardGridTemplate : GridTemplate, IGridTemplate_RoundedRectangleRelatedProperties
 {
 	/// <inheritdoc/>
 	public override required PointMapper Mapper
@@ -44,9 +44,7 @@ public sealed class StandardGridTemplate : IndividualGridTemplate, IRoundRectang
 	/// <inheritdoc/>
 	public bool IsBorderRoundedRectangle { get; init; } = true;
 
-	/// <summary>
-	/// Indicates corner radius ratio of rounded rectangle of border lines, relative to cell size.
-	/// </summary>
+	/// <inheritdoc/>
 	public Scale BorderCornerRadius { get; init; }
 
 	/// <summary>

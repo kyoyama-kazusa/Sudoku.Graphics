@@ -343,6 +343,60 @@
             </para>
             </summary>
         </member>
+        <member name="T:Sudoku.ComponentModel.GridTemplate.CellEnumerator">
+            <summary>
+            Represents an enumerator instance that can iterate on each cell index as <see cref="T:Sudoku.ComponentModel.Absolute"/> instance.
+            </summary>
+            <param name="_template">The template.</param>
+            <seealso cref="T:Sudoku.ComponentModel.Absolute"/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.GridTemplate.CellEnumerator.#ctor(Sudoku.ComponentModel.GridTemplate)">
+            <summary>
+            Represents an enumerator instance that can iterate on each cell index as <see cref="T:Sudoku.ComponentModel.Absolute"/> instance.
+            </summary>
+            <param name="_template">The template.</param>
+            <seealso cref="T:Sudoku.ComponentModel.Absolute"/>
+        </member>
+        <member name="F:Sudoku.ComponentModel.GridTemplate.CellEnumerator._index">
+            <summary>
+            Indicates the relative index.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.GridTemplate.CellEnumerator.Current">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.GridTemplate.CellEnumerator.System#Collections#IEnumerator#Current">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.GridTemplate.CellEnumerator.CellsCount">
+            <summary>
+            Indicates the number of cells.
+            </summary>
+        </member>
+        <member name="M:Sudoku.ComponentModel.GridTemplate.CellEnumerator.MoveNext">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.GridTemplate.CellEnumerator.GetEnumerator">
+            <inheritdoc cref="M:System.Collections.Generic.IEnumerable`1.GetEnumerator"/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.GridTemplate.CellEnumerator.System#IDisposable#Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.GridTemplate.CellEnumerator.System#Collections#IEnumerator#Reset">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.GridTemplate.CellEnumerator.System#Collections#IEnumerable#GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.GridTemplate.CellEnumerator.System#Collections#Generic#IEnumerable{Sudoku#ComponentModel#Absolute}#GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.GridTemplate.CellEnumerator.GetValuesFallback">
+            <summary>
+            The fallback implementation of calculating all values.
+            </summary>
+            <returns>A list of result values.</returns>
+        </member>
         <member name="P:Sudoku.ComponentModel.GridTemplate.Mapper">
             <summary>
             Indicates point mapper instance that can project points into cells.
@@ -354,11 +408,121 @@
             of this property.
             </remarks>
         </member>
-        <member name="M:Sudoku.ComponentModel.GridTemplate.DrawLines(SkiaSharp.SKCanvas)">
+        <member name="P:Sudoku.ComponentModel.GridTemplate.ThickLineWidth">
             <summary>
-            Try to draw lines onto the target canvas.
+            Indicates thick line width.
             </summary>
-            <param name="canvas">The canvas object to receive drawn items.</param>
+        </member>
+        <member name="P:Sudoku.ComponentModel.GridTemplate.ThinLineWidth">
+            <summary>
+            Indicates thin line width.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.GridTemplate.ThickLineColor">
+            <summary>
+            Indicates thick line color.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.GridTemplate.ThinLineColor">
+            <summary>
+            Indicates thin line color.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.GridTemplate.ThickLineDashSequence">
+            <summary>
+            Indicates thick line dash sequence. By default it's an empty sequence, meaning no dash enabled.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.GridTemplate.ThinLineDashSequence">
+            <summary>
+            Indicates thin line dash sequence. By default it's an empty sequence, meaning no dash enabled.
+            </summary>
+        </member>
+        <member name="M:Sudoku.ComponentModel.GridTemplate.DrawLines(SkiaSharp.SKCanvas)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.GridTemplate.EnumerateGridCellIndices">
+            <summary>
+            Enumerates all cell indices in template, only containing in-grid cells.
+            </summary>
+            <returns>An <see cref="T:Sudoku.ComponentModel.GridTemplate.CellEnumerator"/> instance.</returns>
+        </member>
+        <member name="M:Sudoku.ComponentModel.GridTemplate.GuardStatements(SkiaSharp.SKCanvas)">
+            <summary>
+            Provides guard statements. If failed, an exception instance of type <see cref="T:System.ArgumentException"/> will be thrown.
+            </summary>
+            <param name="canvas">The target canvas to draw.</param>
+            <exception cref="T:System.ArgumentException">Throws when any assertion defined in this method is failed.</exception>
+        </member>
+        <member name="M:Sudoku.ComponentModel.GridTemplate.DrawBorderRectangle(SkiaSharp.SKCanvas)">
+            <summary>
+            Try to draw border rectangle.
+            </summary>
+            <param name="canvas">The target canvas to draw.</param>
+            <inheritdoc cref="M:Sudoku.ComponentModel.GridTemplate.DrawLines(SkiaSharp.SKCanvas)"/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.GridTemplate.DrawGridLines(SkiaSharp.SKCanvas)">
+            <summary>
+            Try to draw grid lines.
+            </summary>
+            <param name="canvas">The target canvas to draw.</param>
+            <inheritdoc cref="M:Sudoku.ComponentModel.GridTemplate.DrawLines(SkiaSharp.SKCanvas)"/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.GridTemplate.CreateThickLinesPaint">
+            <summary>
+            Creates an <see cref="T:SkiaSharp.SKPaint"/> instance that will be used
+            in method <see cref="M:Sudoku.ComponentModel.GridTemplate.DrawGridLines(SkiaSharp.SKCanvas)"/>.
+            </summary>
+            <remarks>
+            The return value of this method should be modified with keyword <see langword="using"/>,
+            in order to keep disposal of this instance.
+            </remarks>
+            <seealso cref="M:Sudoku.ComponentModel.GridTemplate.DrawGridLines(SkiaSharp.SKCanvas)"/>.
+        </member>
+        <member name="M:Sudoku.ComponentModel.GridTemplate.CreateThinLinesPaint">
+            <summary>
+            Creates an <see cref="T:SkiaSharp.SKPaint"/> instance that will be used
+            in method <see cref="M:Sudoku.ComponentModel.GridTemplate.DrawGridLines(SkiaSharp.SKCanvas)"/>.
+            </summary>
+            <remarks>
+            <inheritdoc cref="M:Sudoku.ComponentModel.GridTemplate.CreateThickLinesPaint" path="/remarks"/>
+            </remarks>
+            <seealso cref="M:Sudoku.ComponentModel.GridTemplate.DrawGridLines(SkiaSharp.SKCanvas)"/>.
+        </member>
+        <member name="M:Sudoku.ComponentModel.GridTemplate.TryProjectCellIndex``1(``0,``0,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Absolute@)">
+            <summary>
+            Project cell index from source template to target template, aligning as top-left side of the canvas.
+            </summary>
+            <typeparam name="TTemplate">The type of template.</typeparam>
+            <param name="source">The source template.</param>
+            <param name="target">The target template.</param>
+            <param name="sourceCellIndex">The source cell absolute index.</param>
+            <param name="targetCellIndex">The target cell absolute index.</param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating whether the projection operation is successful.</returns>
+        </member>
+        <member name="M:Sudoku.ComponentModel.GridTemplate.ProjectCellIndex``1(``0,``0,Sudoku.ComponentModel.Absolute)">
+            <summary>
+            Project cell index from source template to target template, aligning as top-left side of the canvas.
+            </summary>
+            <typeparam name="TTemplate">The type of template.</typeparam>
+            <param name="source">The source template.</param>
+            <param name="target">The target template.</param>
+            <param name="sourceCellIndex">The source cell absolute index.</param>
+            <returns>The target cell absolute index.</returns>
+            <exception cref="T:System.ArgumentException">Throws when failed to project.</exception>
+        </member>
+        <member name="M:Sudoku.ComponentModel.GridTemplate.GetIntersectionCellIndices``1(``0,``0)">
+            <summary>
+            Gets intersection of 2 templates.
+            </summary>
+            <typeparam name="TTemplate">The type of template.</typeparam>
+            <param name="template1">The template 1.</param>
+            <param name="template2">The template 2.</param>
+            <returns>
+            The intersection cells, representing with <see cref="T:Sudoku.ComponentModel.Absolute"/> instances.
+            Due to design of absolute cell indices, the return value will be referenced from <paramref name="template1"/>.
+            </returns>
+            <seealso cref="T:Sudoku.ComponentModel.Absolute"/>
         </member>
         <member name="T:Sudoku.ComponentModel.GridTemplateSize">
             <summary>
@@ -430,9 +594,7 @@
             </summary>
         </member>
         <member name="P:Sudoku.ComponentModel.GridTemplates.DefaultGridTemplate.BorderCornerRadius">
-            <summary>
-            Indicates corner radius ratio of rounded rectangle of border lines, relative to cell size.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="M:Sudoku.ComponentModel.GridTemplates.DefaultGridTemplate.GuardStatements(SkiaSharp.SKCanvas)">
             <inheritdoc/>
@@ -443,189 +605,19 @@
         <member name="M:Sudoku.ComponentModel.GridTemplates.DefaultGridTemplate.DrawGridLines(SkiaSharp.SKCanvas)">
             <inheritdoc/>
         </member>
-        <member name="T:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate">
+        <member name="T:Sudoku.ComponentModel.GridTemplates.IGridTemplate_RoundedRectangleRelatedProperties">
             <summary>
-            Represents a grid template that draws thick and thin lines in a normal way.
+            Represents a grid template that supports drawing border lines as a rounded rectangle.
             </summary>
         </member>
-        <member name="T:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.CellIndexEnumerator">
-            <summary>
-            Represents an enumerator instance that can iterate on each cell index as <see cref="T:Sudoku.ComponentModel.Absolute"/> instance.
-            </summary>
-            <param name="_template">The template.</param>
-            <seealso cref="T:Sudoku.ComponentModel.Absolute"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.CellIndexEnumerator.#ctor(Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate)">
-            <summary>
-            Represents an enumerator instance that can iterate on each cell index as <see cref="T:Sudoku.ComponentModel.Absolute"/> instance.
-            </summary>
-            <param name="_template">The template.</param>
-            <seealso cref="T:Sudoku.ComponentModel.Absolute"/>
-        </member>
-        <member name="F:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.CellIndexEnumerator._index">
-            <summary>
-            Indicates the relative index.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.CellIndexEnumerator.Current">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.CellIndexEnumerator.System#Collections#IEnumerator#Current">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.CellIndexEnumerator.CellsCount">
-            <summary>
-            Indicates the number of cells.
-            </summary>
-        </member>
-        <member name="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.CellIndexEnumerator.MoveNext">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.CellIndexEnumerator.GetEnumerator">
-            <inheritdoc cref="M:System.Collections.Generic.IEnumerable`1.GetEnumerator"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.CellIndexEnumerator.System#IDisposable#Dispose">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.CellIndexEnumerator.System#Collections#IEnumerator#Reset">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.CellIndexEnumerator.System#Collections#IEnumerable#GetEnumerator">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.CellIndexEnumerator.System#Collections#Generic#IEnumerable{Sudoku#ComponentModel#Absolute}#GetEnumerator">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.CellIndexEnumerator.GetValuesFallback">
-            <summary>
-            The fallback implementation of calculating all values.
-            </summary>
-            <returns>A list of result values.</returns>
-        </member>
-        <member name="P:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.ThickLineWidth">
-            <summary>
-            Indicates thick line width.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.ThinLineWidth">
-            <summary>
-            Indicates thin line width.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.ThickLineColor">
-            <summary>
-            Indicates thick line color.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.ThinLineColor">
-            <summary>
-            Indicates thin line color.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.ThickLineDashSequence">
-            <summary>
-            Indicates thick line dash sequence. By default it's an empty sequence, meaning no dash enabled.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.ThinLineDashSequence">
-            <summary>
-            Indicates thin line dash sequence. By default it's an empty sequence, meaning no dash enabled.
-            </summary>
-        </member>
-        <member name="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.DrawLines(SkiaSharp.SKCanvas)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.EnumerateGridCellIndices">
-            <summary>
-            Enumerates all cell indices in template, only containing in-grid cells.
-            </summary>
-            <returns>An <see cref="T:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.CellIndexEnumerator"/> instance.</returns>
-        </member>
-        <member name="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.GuardStatements(SkiaSharp.SKCanvas)">
-            <summary>
-            Provides guard statements. If failed, an exception instance of type <see cref="T:System.ArgumentException"/> will be thrown.
-            </summary>
-            <param name="canvas">The target canvas to draw.</param>
-            <exception cref="T:System.ArgumentException">Throws when any assertion defined in this method is failed.</exception>
-        </member>
-        <member name="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.DrawBorderRectangle(SkiaSharp.SKCanvas)">
-            <summary>
-            Try to draw border rectangle.
-            </summary>
-            <param name="canvas">The target canvas to draw.</param>
-            <inheritdoc cref="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.DrawLines(SkiaSharp.SKCanvas)"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.DrawGridLines(SkiaSharp.SKCanvas)">
-            <summary>
-            Try to draw grid lines.
-            </summary>
-            <param name="canvas">The target canvas to draw.</param>
-            <inheritdoc cref="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.DrawLines(SkiaSharp.SKCanvas)"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.CreateThickLinesPaint">
-            <summary>
-            Creates an <see cref="T:SkiaSharp.SKPaint"/> instance that will be used
-            in method <see cref="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.DrawGridLines(SkiaSharp.SKCanvas)"/>.
-            </summary>
-            <remarks>
-            The return value of this method should be modified with keyword <see langword="using"/>,
-            in order to keep disposal of this instance.
-            </remarks>
-            <seealso cref="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.DrawGridLines(SkiaSharp.SKCanvas)"/>.
-        </member>
-        <member name="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.CreateThinLinesPaint">
-            <summary>
-            Creates an <see cref="T:SkiaSharp.SKPaint"/> instance that will be used
-            in method <see cref="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.DrawGridLines(SkiaSharp.SKCanvas)"/>.
-            </summary>
-            <remarks>
-            <inheritdoc cref="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.CreateThickLinesPaint" path="/remarks"/>
-            </remarks>
-            <seealso cref="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.DrawGridLines(SkiaSharp.SKCanvas)"/>.
-        </member>
-        <member name="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.TryProjectCellIndex``1(``0,``0,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Absolute@)">
-            <summary>
-            Project cell index from source template to target template, aligning as top-left side of the canvas.
-            </summary>
-            <typeparam name="TTemplate">The type of template.</typeparam>
-            <param name="source">The source template.</param>
-            <param name="target">The target template.</param>
-            <param name="sourceCellIndex">The source cell absolute index.</param>
-            <param name="targetCellIndex">The target cell absolute index.</param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating whether the projection operation is successful.</returns>
-        </member>
-        <member name="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.ProjectCellIndex``1(``0,``0,Sudoku.ComponentModel.Absolute)">
-            <summary>
-            Project cell index from source template to target template, aligning as top-left side of the canvas.
-            </summary>
-            <typeparam name="TTemplate">The type of template.</typeparam>
-            <param name="source">The source template.</param>
-            <param name="target">The target template.</param>
-            <param name="sourceCellIndex">The source cell absolute index.</param>
-            <returns>The target cell absolute index.</returns>
-            <exception cref="T:System.ArgumentException">Throws when failed to project.</exception>
-        </member>
-        <member name="M:Sudoku.ComponentModel.GridTemplates.IndividualGridTemplate.GetIntersectionCellIndices``1(``0,``0)">
-            <summary>
-            Gets intersection of 2 templates.
-            </summary>
-            <typeparam name="TTemplate">The type of template.</typeparam>
-            <param name="template1">The template 1.</param>
-            <param name="template2">The template 2.</param>
-            <returns>
-            The intersection cells, representing with <see cref="T:Sudoku.ComponentModel.Absolute"/> instances.
-            Due to design of absolute cell indices, the return value will be referenced from <paramref name="template1"/>.
-            </returns>
-            <seealso cref="T:Sudoku.ComponentModel.Absolute"/>
-        </member>
-        <member name="T:Sudoku.ComponentModel.GridTemplates.IRoundRectangleCornerGridTemplate">
-            <summary>
-            Represents a grid template that supports drawing corners with rounded rectangle.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.GridTemplates.IRoundRectangleCornerGridTemplate.IsBorderRoundedRectangle">
+        <member name="P:Sudoku.ComponentModel.GridTemplates.IGridTemplate_RoundedRectangleRelatedProperties.IsBorderRoundedRectangle">
             <summary>
             Indicates whether the border should be drawn as a rounded rectangle. By default it's <see langword="true"/>.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.GridTemplates.IGridTemplate_RoundedRectangleRelatedProperties.BorderCornerRadius">
+            <summary>
+            Indicates corner radius ratio of rounded rectangle of border lines, relative to cell size.
             </summary>
         </member>
         <member name="T:Sudoku.ComponentModel.GridTemplates.JigsawGridTemplate">
@@ -700,9 +692,7 @@
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.ComponentModel.GridTemplates.StandardGridTemplate.BorderCornerRadius">
-            <summary>
-            Indicates corner radius ratio of rounded rectangle of border lines, relative to cell size.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="P:Sudoku.ComponentModel.GridTemplates.StandardGridTemplate.RowBlockSize">
             <summary>

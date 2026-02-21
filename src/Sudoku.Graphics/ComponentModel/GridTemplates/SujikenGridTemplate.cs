@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents Sujiken (halfdoku) grid template.
 /// </summary>
-public sealed class SujikenGridTemplate : IndividualGridTemplate
+public sealed class SujikenGridTemplate : GridTemplate
 {
 	/// <summary>
 	/// Provides extra lookup dictionary.

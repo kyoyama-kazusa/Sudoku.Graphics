@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a grid template that specifies a list of thick and thin lines.
 /// </summary>
-public sealed class SpecifiedGridTemplate : IndividualGridTemplate
+public sealed class SpecifiedGridTemplate : GridTemplate
 {
 	/// <summary>
 	/// Indicates thick line segments.

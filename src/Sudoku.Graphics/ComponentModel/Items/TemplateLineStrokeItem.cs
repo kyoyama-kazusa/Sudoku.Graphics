@@ -75,7 +75,7 @@ public sealed class TemplateLineStrokeItem : Item, IItem_ColorProperty
 			var intersectionCellsDictionary = new Dictionary<int /*TemplateIndex*/, HashSet<Absolute>>();
 			for (var i = 0; i < templates.Length - 1; i++)
 			{
-				if (templates[i] is not IndividualGridTemplate it)
+				if (templates[i] is not GridTemplate it)
 				{
 					// Non-individual templates are not supported to fill intersection cells.
 					continue;
@@ -83,13 +83,13 @@ public sealed class TemplateLineStrokeItem : Item, IItem_ColorProperty
 
 				for (var j = i + 1; j < templates.Length; j++)
 				{
-					if (templates[j] is not IndividualGridTemplate jt)
+					if (templates[j] is not GridTemplate jt)
 					{
 						// Non-individual templates are not supported to fill intersection cells.
 						continue;
 					}
 
-					foreach (var cell in IndividualGridTemplate.GetIntersectionCellIndices(it, jt))
+					foreach (var cell in GridTemplate.GetIntersectionCellIndices(it, jt))
 					{
 						if (!intersectionCellsDictionary.TryAdd(i, [cell]))
 						{

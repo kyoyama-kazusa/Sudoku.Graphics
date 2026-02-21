@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a default grid template that doesn't contain any block (thick) lines, except borders.
 /// </summary>
-public sealed class DefaultGridTemplate : IndividualGridTemplate, IRoundRectangleCornerGridTemplate
+public sealed class DefaultGridTemplate : GridTemplate, IGridTemplate_RoundedRectangleRelatedProperties
 {
 	/// <inheritdoc/>
 	public bool IsBorderRoundedRectangle { get; init; } = true;
@@ -14,9 +14,7 @@ public sealed class DefaultGridTemplate : IndividualGridTemplate, IRoundRectangl
 	/// </summary>
 	public bool DrawBordersAsThickLines { get; init; } = true;
 
-	/// <summary>
-	/// Indicates corner radius ratio of rounded rectangle of border lines, relative to cell size.
-	/// </summary>
+	/// <inheritdoc/>
 	public Scale BorderCornerRadius { get; init; }
 
 

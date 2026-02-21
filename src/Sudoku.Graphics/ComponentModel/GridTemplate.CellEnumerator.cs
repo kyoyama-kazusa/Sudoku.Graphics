@@ -1,13 +1,13 @@
-﻿namespace Sudoku.ComponentModel.GridTemplates;
+﻿namespace Sudoku.ComponentModel;
 
-public partial class IndividualGridTemplate
+public partial class GridTemplate
 {
 	/// <summary>
 	/// Represents an enumerator instance that can iterate on each cell index as <see cref="Absolute"/> instance.
 	/// </summary>
 	/// <param name="_template">The template.</param>
 	/// <seealso cref="Absolute"/>
-	public ref struct CellIndexEnumerator(IndividualGridTemplate _template) : IEnumerable<Absolute>, IEnumerator<Absolute>
+	public ref struct CellEnumerator(GridTemplate _template) : IEnumerable<Absolute>, IEnumerator<Absolute>
 	{
 		/// <summary>
 		/// Indicates the relative index.
@@ -30,7 +30,7 @@ public partial class IndividualGridTemplate
 		public bool MoveNext() => ++_index < CellsCount;
 
 		/// <inheritdoc cref="IEnumerable{T}.GetEnumerator"/>
-		public readonly CellIndexEnumerator GetEnumerator() => this;
+		public readonly CellEnumerator GetEnumerator() => this;
 
 		/// <inheritdoc/>
 		readonly void IDisposable.Dispose()
