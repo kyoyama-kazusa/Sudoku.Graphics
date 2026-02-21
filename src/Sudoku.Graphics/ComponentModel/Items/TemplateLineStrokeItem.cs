@@ -63,7 +63,7 @@ public sealed class TemplateLineStrokeItem : Item, IItem_ColorProperty
 		// Draw templates.
 		foreach (var template in templates)
 		{
-			template.DrawLines(canvas.BackingCanvas, canvas.Options);
+			template.DrawLines(canvas.BackingCanvas);
 		}
 
 

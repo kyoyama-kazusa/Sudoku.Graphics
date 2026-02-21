@@ -13,6 +13,7 @@ using Sudoku.ComponentModel.Items;
 using Sudoku.Graphics;
 
 var desktop = Environment.DesktopPath;
+var options = new CanvasDrawingOptions();
 using var canvas = new Canvas(
 	[
 		new StandardGridTemplate
@@ -22,17 +23,23 @@ using var canvas = new Canvas(
 				CellSize = 120,
 				Margin = 15,
 				TemplateSize = new() { RowsCount = 9, ColumnsCount = 9 }
-			}
+			},
+			IsBorderRoundedRectangle = true,
+			BorderCornerRadius = options.GridBorderRoundedRectangleCornerRadius.Resolve(options),
+			ThickLineWidth = options.ThickLineWidth.Resolve(options),
+			ThinLineWidth = options.ThinLineWidth.Resolve(options),
+			ThickLineColor = options.ThickLineColor.Resolve(options),
+			ThinLineColor = options.ThinLineColor.Resolve(options)
 		}
 	]
 );
 canvas.DrawItems(
 	[
-		new BackgroundFillItem { Color = canvas.GetOptionValue(static options => options.BackgroundColor) },
+		new BackgroundFillItem { Color = options.BackgroundColor.Resolve(options) },
 		new TemplateLineStrokeItem
 		{
 			FillIntersectionCells = true,
-			TemplateIntersectionCellsColor = canvas.GetOptionValue(static options => options.TemplateIntersectionColor)
+			TemplateIntersectionCellsColor = options.TemplateIntersectionColor.Resolve(options)
 		}
 	]
 );

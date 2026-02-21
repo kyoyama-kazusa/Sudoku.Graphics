@@ -6,63 +6,86 @@
 public abstract partial class IndividualGridTemplate : GridTemplate
 {
 	/// <summary>
+	/// Indicates thick line width.
+	/// </summary>
+	public Scale ThickLineWidth { get; init; }
+
+	/// <summary>
+	/// Indicates thin line width.
+	/// </summary>
+	public Scale ThinLineWidth { get; init; }
+
+	/// <summary>
+	/// Indicates thick line color.
+	/// </summary>
+	public SerializableColor ThickLineColor { get; init; }
+
+	/// <summary>
+	/// Indicates thin line color.
+	/// </summary>
+	public SerializableColor ThinLineColor { get; init; }
+
+	/// <summary>
 	/// Indicates thick line dash sequence. By default it's an empty sequence, meaning no dash enabled.
 	/// </summary>
-	public LineDashSequence ThickLineDashSequence { get; set; } = [];
+	public LineDashSequence ThickLineDashSequence { get; init; } = [];
 
 	/// <summary>
 	/// Indicates thin line dash sequence. By default it's an empty sequence, meaning no dash enabled.
 	/// </summary>
-	public LineDashSequence ThinLineDashSequence { get; set; } = [];
+	public LineDashSequence ThinLineDashSequence { get; init; } = [];
 
 
 	/// <inheritdoc/>
-	public sealed override void DrawLines(SKCanvas canvas, CanvasDrawingOptions options)
+	public sealed override void DrawLines(SKCanvas canvas)
 	{
-		GuardStatements(canvas, options);
-		DrawBorderRectangle(canvas, options);
-		DrawGridLines(canvas, options);
+		GuardStatements(canvas);
+		DrawBorderRectangle(canvas);
+		DrawGridLines(canvas);
 	}
 
 	/// <summary>
 	/// Enumerates all cell indices in template, only containing in-grid cells.
 	/// </summary>
-	/// <returns>An <see cref="AbsoluteCellIndexEnumerator"/> instance.</returns>
-	public AbsoluteCellIndexEnumerator EnumerateGridCellIndices() => new(this);
+	/// <returns>An <see cref="CellIndexEnumerator"/> instance.</returns>
+	public CellIndexEnumerator EnumerateGridCellIndices() => new(this);
 
 	/// <summary>
 	/// Provides guard statements. If failed, an exception instance of type <see cref="ArgumentException"/> will be thrown.
 	/// </summary>
+	/// <param name="canvas">The target canvas to draw.</param>
 	/// <exception cref="ArgumentException">Throws when any assertion defined in this method is failed.</exception>
-	protected abstract void GuardStatements(SKCanvas canvas, CanvasDrawingOptions options);
+	protected abstract void GuardStatements(SKCanvas canvas);
 
 	/// <summary>
 	/// Try to draw border rectangle.
 	/// </summary>
-	/// <inheritdoc cref="DrawLines(SKCanvas, CanvasDrawingOptions)"/>
-	protected abstract void DrawBorderRectangle(SKCanvas canvas, CanvasDrawingOptions options);
+	/// <param name="canvas">The target canvas to draw.</param>
+	/// <inheritdoc cref="DrawLines(SKCanvas)"/>
+	protected abstract void DrawBorderRectangle(SKCanvas canvas);
 
 	/// <summary>
 	/// Try to draw grid lines.
 	/// </summary>
-	/// <inheritdoc cref="DrawLines(SKCanvas, CanvasDrawingOptions)"/>
-	protected abstract void DrawGridLines(SKCanvas canvas, CanvasDrawingOptions options);
+	/// <param name="canvas">The target canvas to draw.</param>
+	/// <inheritdoc cref="DrawLines(SKCanvas)"/>
+	protected abstract void DrawGridLines(SKCanvas canvas);
 
 	/// <summary>
 	/// Creates an <see cref="SKPaint"/> instance that will be used
-	/// in method <see cref="DrawGridLines(SKCanvas, CanvasDrawingOptions)"/>.
+	/// in method <see cref="DrawGridLines(SKCanvas)"/>.
 	/// </summary>
 	/// <remarks>
 	/// The return value of this method should be modified with keyword <see langword="using"/>,
 	/// in order to keep disposal of this instance.
 	/// </remarks>
-	/// <seealso cref="DrawGridLines(SKCanvas, CanvasDrawingOptions)"/>.
-	protected SKPaint CreateThickLinesPaint(CanvasDrawingOptions options)
+	/// <seealso cref="DrawGridLines(SKCanvas)"/>.
+	protected SKPaint CreateThickLinesPaint()
 		=> new()
 		{
 			Style = SKPaintStyle.Stroke,
-			Color = options.ThickLineColor.Resolve(options),
-			StrokeWidth = options.ThickLineWidth.Resolve(options).Measure(Mapper.CellSize),
+			Color = ThickLineColor,
+			StrokeWidth = ThickLineWidth.Measure(Mapper.CellSize),
 			StrokeCap = SKStrokeCap.Round,
 			StrokeJoin = SKStrokeJoin.Round,
 			IsAntialias = true,
@@ -71,18 +94,18 @@ public abstract partial class IndividualGridTemplate : GridTemplate
 
 	/// <summary>
 	/// Creates an <see cref="SKPaint"/> instance that will be used
-	/// in method <see cref="DrawGridLines(SKCanvas, CanvasDrawingOptions)"/>.
+	/// in method <see cref="DrawGridLines(SKCanvas)"/>.
 	/// </summary>
 	/// <remarks>
-	/// <inheritdoc cref="CreateThickLinesPaint(CanvasDrawingOptions)" path="/remarks"/>
+	/// <inheritdoc cref="CreateThickLinesPaint()" path="/remarks"/>
 	/// </remarks>
-	/// <seealso cref="DrawGridLines(SKCanvas, CanvasDrawingOptions)"/>.
-	protected SKPaint CreateThinLinesPaint(CanvasDrawingOptions options)
+	/// <seealso cref="DrawGridLines(SKCanvas)"/>.
+	protected SKPaint CreateThinLinesPaint()
 		=> new()
 		{
 			Style = SKPaintStyle.Stroke,
-			Color = options.ThinLineColor.Resolve(options),
-			StrokeWidth = options.ThinLineWidth.Resolve(options).Measure(Mapper.CellSize),
+			Color = ThinLineColor,
+			StrokeWidth = ThinLineWidth.Measure(Mapper.CellSize),
 			StrokeCap = SKStrokeCap.Round,
 			StrokeJoin = SKStrokeJoin.Round,
 			IsAntialias = true,

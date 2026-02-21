@@ -17,7 +17,7 @@ public sealed class SpecifiedGridTemplate : IndividualGridTemplate
 
 
 	/// <inheritdoc/>
-	protected override void GuardStatements(SKCanvas canvas, CanvasDrawingOptions options)
+	protected override void GuardStatements(SKCanvas canvas)
 	{
 		var maxCellIndex = Mapper.AbsoluteRowsCount * Mapper.AbsoluteColumnsCount;
 		foreach (var (cellIndex, directions) in ThickLineSegments)
@@ -52,15 +52,15 @@ public sealed class SpecifiedGridTemplate : IndividualGridTemplate
 	}
 
 	/// <inheritdoc/>
-	protected override void DrawBorderRectangle(SKCanvas canvas, CanvasDrawingOptions options)
+	protected override void DrawBorderRectangle(SKCanvas canvas)
 	{
 	}
 
 	/// <inheritdoc/>
-	protected override void DrawGridLines(SKCanvas canvas, CanvasDrawingOptions options)
+	protected override void DrawGridLines(SKCanvas canvas)
 	{
-		using var thickLinesPaint = CreateThickLinesPaint(options);
-		using var thinLinesPaint = CreateThinLinesPaint(options);
+		using var thickLinesPaint = CreateThickLinesPaint();
+		using var thinLinesPaint = CreateThinLinesPaint();
 		foreach (var (cellIndex, directions) in ThickLineSegments)
 		{
 			drawLine(

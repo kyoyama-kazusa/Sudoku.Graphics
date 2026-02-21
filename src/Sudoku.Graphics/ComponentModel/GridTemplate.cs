@@ -34,6 +34,5 @@ public abstract class GridTemplate
 	/// Try to draw lines onto the target canvas.
 	/// </summary>
 	/// <param name="canvas">The canvas object to receive drawn items.</param>
-	/// <param name="options">The options.</param>
-	public abstract void DrawLines(SKCanvas canvas, CanvasDrawingOptions options);
+	public abstract void DrawLines(SKCanvas canvas);
 }

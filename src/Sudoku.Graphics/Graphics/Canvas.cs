@@ -20,9 +20,9 @@ public sealed class Canvas : IDisposable
 	/// Initializes a <see cref="Canvas"/> instance via the specified values.
 	/// </summary>
 	/// <param name="templates">The templates to be drawn.</param>
-	/// <param name="options">The drawing options.</param>
-	public Canvas(GridTemplate[] templates, CanvasDrawingOptions? options = null)
+	public Canvas(GridTemplate[] templates)
 	{
+		Templates = templates;
 		GlobalTemplateSize = GridTemplateSize.Create(templates);
 		_surface = SKSurface.Create(
 			new SKSizeI(
@@ -30,25 +30,18 @@ public sealed class Canvas : IDisposable
 				(int)(templates[0].Mapper.CellSize * GlobalTemplateSize.AbsoluteRowsCount + 2 * templates[0].Mapper.Margin)
 			)
 		);
-		Options = options ?? CanvasDrawingOptions.Default;
-		Templates = templates;
 	}
 
-
-	/// <summary>
-	/// Indicates drawing options.
-	/// </summary>
-	public CanvasDrawingOptions Options { get; }
-
-	/// <summary>
-	/// Indicates all templates.
-	/// </summary>
-	public GridTemplate[] Templates { get; }
 
 	/// <summary>
 	/// Indicates the global template size.
 	/// </summary>
 	public GridTemplateSize GlobalTemplateSize { get; }
+
+	/// <summary>
+	/// Indicates all templates.
+	/// </summary>
+	public GridTemplate[] Templates { get; }
 
 	/// <summary>
 	/// Indicates backing canvas.
@@ -110,14 +103,4 @@ public sealed class Canvas : IDisposable
 	/// <param name="options">The options.</param>
 	public void Export<TOptions>(string path, TOptions? options) where TOptions : notnull, IOptionsProvider<TOptions>, new()
 		=> Export(path, options as CanvasExportingOptions);
-
-	/// <summary>
-	/// Returns the real value stored of the specified property in <see cref="Options"/>.
-	/// </summary>
-	/// <typeparam name="T">The type of the real value of property.</typeparam>
-	/// <param name="propertySpecifier">The property specified.</param>
-	/// <returns>The value.</returns>
-	/// <seealso cref="Options"/>
-	public T GetOptionValue<T>(Func<CanvasDrawingOptions, Inherited<T>> propertySpecifier) where T : notnull
-		=> propertySpecifier(Options).Resolve(Options);
 }

@@ -44,13 +44,13 @@ public sealed class SujikenGridTemplate : IndividualGridTemplate
 
 
 	/// <inheritdoc/>
-	protected override void GuardStatements(SKCanvas canvas, CanvasDrawingOptions options)
+	protected override void GuardStatements(SKCanvas canvas)
 	{
 	}
 
 	/// <inheritdoc/>
 	[MemberNotNull(nameof(_rowCellIndicesLookup), nameof(_columnCellIndicesLookup))]
-	protected override void DrawBorderRectangle(SKCanvas canvas, CanvasDrawingOptions options)
+	protected override void DrawBorderRectangle(SKCanvas canvas)
 	{
 		_rowCellIndicesLookup = [];
 		_columnCellIndicesLookup = [];
@@ -85,18 +85,18 @@ public sealed class SujikenGridTemplate : IndividualGridTemplate
 			],
 			true
 		);
-		using var borderPaint = CreateThickLinesPaint(options);
+		using var borderPaint = CreateThickLinesPaint();
 		canvas.DrawPath(path, borderPaint);
 	}
 
 	/// <inheritdoc/>
-	protected override void DrawGridLines(SKCanvas canvas, CanvasDrawingOptions options)
+	protected override void DrawGridLines(SKCanvas canvas)
 	{
 		Debug.Assert(_rowCellIndicesLookup is not null);
 		Debug.Assert(_columnCellIndicesLookup is not null);
 
-		using var thickLinePaint = CreateThickLinesPaint(options);
-		using var thinLinePaint = CreateThinLinesPaint(options);
+		using var thickLinePaint = CreateThickLinesPaint();
+		using var thinLinePaint = CreateThinLinesPaint();
 
 		// Horizontal lines.
 		for (var i = 0; i < Mapper.RowsCount; i++)

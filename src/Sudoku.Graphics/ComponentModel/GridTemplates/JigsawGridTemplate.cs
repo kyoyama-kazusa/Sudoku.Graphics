@@ -20,24 +20,30 @@ public sealed class JigsawGridTemplate : IndividualGridTemplate
 	/// by using <see cref="CanvasDrawingOptions.JSudokuColorSet"/>.
 	/// </summary>
 	/// <seealso cref="CanvasDrawingOptions.JSudokuColorSet"/>
+	[MemberNotNullWhen(true, nameof(GroupColorSet))]
 	public bool AlsoFillGroups { get; init; } = false;
 
+	/// <summary>
+	/// Indicates the color set that will be used for colorization of cells.
+	/// </summary>
+	public required SerializableColorSet? GroupColorSet { get; init; }
+
 
 	/// <inheritdoc/>
-	protected override void GuardStatements(SKCanvas canvas, CanvasDrawingOptions options)
+	protected override void GuardStatements(SKCanvas canvas)
 	{
 	}
 
 	/// <inheritdoc/>
-	protected override void DrawBorderRectangle(SKCanvas canvas, CanvasDrawingOptions options)
+	protected override void DrawBorderRectangle(SKCanvas canvas)
 	{
 	}
 
 	/// <inheritdoc/>
-	protected override void DrawGridLines(SKCanvas canvas, CanvasDrawingOptions options)
+	protected override void DrawGridLines(SKCanvas canvas)
 	{
-		using var thickLinePaint = CreateThickLinesPaint(options);
-		using var thinLinePaint = CreateThinLinesPaint(options);
+		using var thickLinePaint = CreateThickLinesPaint();
+		using var thinLinePaint = CreateThinLinesPaint();
 
 		// Iterate on each cell index group.
 		var groupIndex = 0;
@@ -50,7 +56,7 @@ public sealed class JigsawGridTemplate : IndividualGridTemplate
 				out var absoluteCellIndices
 			);
 
-			using var fillPaint = AlsoFillGroups && options.JSudokuColorSet.Resolve(options) is var resolvedColorSet
+			using var fillPaint = AlsoFillGroups && GroupColorSet is { } resolvedColorSet
 				? new SKPaint
 				{
 					Style = SKPaintStyle.Fill,

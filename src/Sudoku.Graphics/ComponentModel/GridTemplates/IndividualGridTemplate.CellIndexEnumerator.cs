@@ -7,7 +7,7 @@ public partial class IndividualGridTemplate
 	/// </summary>
 	/// <param name="_template">The template.</param>
 	/// <seealso cref="Absolute"/>
-	public ref struct AbsoluteCellIndexEnumerator(IndividualGridTemplate _template) : IEnumerable<Absolute>, IEnumerator<Absolute>
+	public ref struct CellIndexEnumerator(IndividualGridTemplate _template) : IEnumerable<Absolute>, IEnumerator<Absolute>
 	{
 		/// <summary>
 		/// Indicates the relative index.
@@ -30,7 +30,7 @@ public partial class IndividualGridTemplate
 		public bool MoveNext() => ++_index < CellsCount;
 
 		/// <inheritdoc cref="IEnumerable{T}.GetEnumerator"/>
-		public readonly AbsoluteCellIndexEnumerator GetEnumerator() => this;
+		public readonly CellIndexEnumerator GetEnumerator() => this;
 
 		/// <inheritdoc/>
 		readonly void IDisposable.Dispose()

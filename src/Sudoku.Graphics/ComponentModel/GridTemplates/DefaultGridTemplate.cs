@@ -14,33 +14,31 @@ public sealed class DefaultGridTemplate : IndividualGridTemplate, IRoundRectangl
 	/// </summary>
 	public bool DrawBordersAsThickLines { get; init; } = true;
 
+	/// <summary>
+	/// Indicates corner radius ratio of rounded rectangle of border lines, relative to cell size.
+	/// </summary>
+	public Scale BorderCornerRadius { get; init; }
+
 
 	/// <inheritdoc/>
-	protected override void GuardStatements(SKCanvas canvas, CanvasDrawingOptions options)
+	protected override void GuardStatements(SKCanvas canvas)
 	{
 	}
 
 	/// <inheritdoc/>
-	protected override void DrawBorderRectangle(SKCanvas canvas, CanvasDrawingOptions options)
+	protected override void DrawBorderRectangle(SKCanvas canvas)
 	{
 		var path = new SKPath();
-		path.AddRoundRect(
-			new(
-				Mapper.GridSize,
-				IsBorderRoundedRectangle
-					? options.GridBorderRoundedRectangleCornerRadius.Resolve(options).Measure(Mapper.CellSize)
-					: 0
-			)
-		);
+		path.AddRoundRect(new(Mapper.GridSize, IsBorderRoundedRectangle ? BorderCornerRadius.Measure(Mapper.CellSize) : 0));
 
-		using var borderPaint = DrawBordersAsThickLines ? CreateThickLinesPaint(options) : CreateThinLinesPaint(options);
+		using var borderPaint = DrawBordersAsThickLines ? CreateThickLinesPaint() : CreateThinLinesPaint();
 		canvas.DrawPath(path, borderPaint);
 	}
 
 	/// <inheritdoc/>
-	protected override void DrawGridLines(SKCanvas canvas, CanvasDrawingOptions options)
+	protected override void DrawGridLines(SKCanvas canvas)
 	{
-		using var thinLinePaint = CreateThinLinesPaint(options);
+		using var thinLinePaint = CreateThinLinesPaint();
 
 		// Horizontal lines.
 		for (var i = 1; i < Mapper.RowsCount; i++)
