@@ -3,15 +3,9 @@
 /// <summary>
 /// Represents a big text item.
 /// </summary>
-public abstract class BigTextItem : BigSmallTextItem
+public abstract class BigTextItem : BigSmallTextItem, IItem_CellProperty
 {
-	/// <summary>
-	/// Indicates the cell to be drawn, of absolute cell index.
-	/// For <see cref="Relative"/> cell indices, you can use <see cref="PointMapper.GetAbsoluteIndex(Relative)"/>
-	/// to create absolute cells.
-	/// </summary>
-	/// <seealso cref="Relative"/>
-	/// <seealso cref="PointMapper.GetAbsoluteIndex(Relative)"/>
+	/// <inheritdoc/>
 	public required Absolute Cell { get; init; }
 
 
@@ -34,7 +28,7 @@ public abstract class BigTextItem : BigSmallTextItem
 	}
 
 	/// <inheritdoc/>
-	protected internal override void DrawTo(Canvas canvas)
+	protected internal sealed override void DrawTo(Canvas canvas)
 	{
 		var template = canvas.Templates[TemplateIndex];
 		var options = canvas.Options;

@@ -3,14 +3,12 @@
 /// <summary>
 /// Represents canvas background fill item.
 /// </summary>
-public sealed class BackgroundFillItem : FillItem
+public sealed class BackgroundFillItem : Item, IItem_ColorProperty
 {
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.BackgroundFill;
 
-	/// <summary>
-	/// Indicates the color to be filled.
-	/// </summary>
+	/// <inheritdoc/>
 	public required SerializableColor Color { get; init; }
 
 	/// <inheritdoc/>

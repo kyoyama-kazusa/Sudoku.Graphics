@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents template line stroke item.
 /// </summary>
-public sealed class TemplateLineStrokeItem : LineStrokeItem
+public sealed class TemplateLineStrokeItem : Item, IItem_ColorProperty
 {
 	/// <summary>
 	/// Indicates whether intersection cells should be filled with another color.
@@ -23,6 +23,14 @@ public sealed class TemplateLineStrokeItem : LineStrokeItem
 
 	/// <inheritdoc/>
 	protected override Type EqualityContract => typeof(TemplateLineStrokeItem);
+
+	/// <inheritdoc/>
+	SerializableColor IItem_ColorProperty.Color
+	{
+		get => TemplateIntersectionCellsColor;
+
+		init => TemplateIntersectionCellsColor = value;
+	}
 
 
 	/// <inheritdoc/>

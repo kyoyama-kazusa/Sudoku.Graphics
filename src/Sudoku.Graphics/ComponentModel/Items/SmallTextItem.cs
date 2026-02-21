@@ -3,11 +3,9 @@
 /// <summary>
 /// Represents small text item.
 /// </summary>
-public abstract class SmallTextItem : BigSmallTextItem
+public abstract class SmallTextItem : BigSmallTextItem, IItem_CandidatePositionProperty
 {
-	/// <summary>
-	/// Indicates candidate position to be set.
-	/// </summary>
+	/// <inheritdoc/>
 	public required CandidatePosition CandidatePosition { get; init; }
 
 
@@ -31,7 +29,7 @@ public abstract class SmallTextItem : BigSmallTextItem
 	}
 
 	/// <inheritdoc/>
-	protected internal override void DrawTo(Canvas canvas)
+	protected internal sealed override void DrawTo(Canvas canvas)
 	{
 		// The main idea on drawing candidates is to find for the number of rows and columns in a cell should be drawn,
 		// accommodating all possible candidate values.

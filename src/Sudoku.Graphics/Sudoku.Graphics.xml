@@ -1252,9 +1252,7 @@
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.ComponentModel.Items.BackgroundFillItem.Color">
-            <summary>
-            Indicates the color to be filled.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="P:Sudoku.ComponentModel.Items.BackgroundFillItem.EqualityContract">
             <inheritdoc/>
@@ -1284,26 +1282,13 @@
             </summary>
         </member>
         <member name="P:Sudoku.ComponentModel.Items.BigSmallTextItem.TemplateIndex">
-            <summary>
-            Indicates the target template index.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="P:Sudoku.ComponentModel.Items.BigSmallTextItem.Text">
-            <summary>
-            Indicates the text to be drawn.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="P:Sudoku.ComponentModel.Items.BigSmallTextItem.Color">
-            <summary>
-            Indicates the color to be used.
-            </summary>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Items.BigSmallTextItem.GetColorFieldUnsafe(Sudoku.ComponentModel.Items.BigSmallTextItem)">
-            <summary>
-            Unsafe accessor to field of <see cref="P:Sudoku.ComponentModel.Items.BigSmallTextItem.Color"/> property.
-            </summary>
-            <param name="instance">The instance.</param>
-            <returns>The reference to the backing field.</returns>
+            <inheritdoc/>
         </member>
         <member name="T:Sudoku.ComponentModel.Items.BigTextItem">
             <summary>
@@ -1311,13 +1296,7 @@
             </summary>
         </member>
         <member name="P:Sudoku.ComponentModel.Items.BigTextItem.Cell">
-            <summary>
-            Indicates the cell to be drawn, of absolute cell index.
-            For <see cref="T:Sudoku.ComponentModel.Relative"/> cell indices, you can use <see cref="M:Sudoku.Graphics.PointMapper.GetAbsoluteIndex(Sudoku.ComponentModel.Relative)"/>
-            to create absolute cells.
-            </summary>
-            <seealso cref="T:Sudoku.ComponentModel.Relative"/>
-            <seealso cref="M:Sudoku.Graphics.PointMapper.GetAbsoluteIndex(Sudoku.ComponentModel.Relative)"/>
+            <inheritdoc/>
         </member>
         <member name="M:Sudoku.ComponentModel.Items.BigTextItem.Equals(Sudoku.ComponentModel.Item)">
             <inheritdoc/>
@@ -1340,19 +1319,13 @@
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.ComponentModel.Items.CandidateFillItem.TemplateIndex">
-            <summary>
-            Indicates template index to draw.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="P:Sudoku.ComponentModel.Items.CandidateFillItem.CandidatePosition">
-            <summary>
-            Indicates candidate position.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="P:Sudoku.ComponentModel.Items.CandidateFillItem.Color">
-            <summary>
-            Indicates the color to fill.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="P:Sudoku.ComponentModel.Items.CandidateFillItem.EqualityContract">
             <inheritdoc/>
@@ -1380,31 +1353,22 @@
         <member name="P:Sudoku.ComponentModel.Items.CandidateTextItem.EqualityContract">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.ComponentModel.Items.CandidateTextItem.DrawTo(Sudoku.Graphics.Canvas)">
-            <inheritdoc/>
-        </member>
         <member name="T:Sudoku.ComponentModel.Items.CellFillItem">
             <summary>
             Represents cell fill item.
             </summary>
         </member>
         <member name="P:Sudoku.ComponentModel.Items.CellFillItem.TemplateIndex">
-            <summary>
-            Indicates target template index.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="P:Sudoku.ComponentModel.Items.CellFillItem.Type">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.ComponentModel.Items.CellFillItem.Cell">
-            <summary>
-            Indicates the cell to be filled.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="P:Sudoku.ComponentModel.Items.CellFillItem.Color">
-            <summary>
-            Indicates the color to be filled.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="P:Sudoku.ComponentModel.Items.CellFillItem.EqualityContract">
             <inheritdoc/>
@@ -1421,11 +1385,6 @@
         <member name="M:Sudoku.ComponentModel.Items.CellFillItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
-        <member name="T:Sudoku.ComponentModel.Items.FillItem">
-            <summary>
-            Represents a fill item.
-            </summary>
-        </member>
         <member name="T:Sudoku.ComponentModel.Items.GivenTextItem">
             <summary>
             Represents given text.
@@ -1437,12 +1396,58 @@
         <member name="P:Sudoku.ComponentModel.Items.GivenTextItem.EqualityContract">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.ComponentModel.Items.GivenTextItem.DrawTo(Sudoku.Graphics.Canvas)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Items.LineStrokeItem">
+        <member name="T:Sudoku.ComponentModel.Items.IItem_CandidatePositionProperty">
             <summary>
-            Represents a line stroke item.
+            Represents a type that includes <see cref="P:Sudoku.ComponentModel.Items.IItem_CandidatePositionProperty.CandidatePosition"/> property.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.IItem_CandidatePositionProperty.CandidatePosition">
+            <summary>
+            Indicates candidate position to be set.
+            </summary>
+        </member>
+        <member name="T:Sudoku.ComponentModel.Items.IItem_CellProperty">
+            <summary>
+            Represents a type that includes <see cref="P:Sudoku.ComponentModel.Items.IItem_CellProperty.Cell"/> property.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.IItem_CellProperty.Cell">
+            <summary>
+            Indicates the cell to be drawn, of absolute cell index.
+            For <see cref="T:Sudoku.ComponentModel.Relative"/> cell indices, you can use <see cref="M:Sudoku.Graphics.PointMapper.GetAbsoluteIndex(Sudoku.ComponentModel.Relative)"/>
+            to create absolute cells.
+            </summary>
+            <seealso cref="T:Sudoku.ComponentModel.Relative"/>
+            <seealso cref="M:Sudoku.Graphics.PointMapper.GetAbsoluteIndex(Sudoku.ComponentModel.Relative)"/>
+        </member>
+        <member name="T:Sudoku.ComponentModel.Items.IItem_ColorProperty">
+            <summary>
+            Represents a type that includes <see cref="P:Sudoku.ComponentModel.Items.IItem_ColorProperty.Color"/> property.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.IItem_ColorProperty.Color">
+            <summary>
+            Indicates the color to fill.
+            </summary>
+        </member>
+        <member name="T:Sudoku.ComponentModel.Items.IItem_TemplateIndexProperty">
+            <summary>
+            Represents a type that includes <see cref="P:Sudoku.ComponentModel.Items.IItem_TemplateIndexProperty.TemplateIndex"/> property.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.IItem_TemplateIndexProperty.TemplateIndex">
+            <summary>
+            Indicates the target template index.
+            </summary>
+        </member>
+        <member name="T:Sudoku.ComponentModel.Items.IItem_TextProperty">
+            <summary>
+            Represents a type that includes <see cref="P:Sudoku.ComponentModel.Items.IItem_TextProperty.Text"/> property.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.IItem_TextProperty.Text">
+            <summary>
+            Indicates the text to draw.
             </summary>
         </member>
         <member name="T:Sudoku.ComponentModel.Items.ModifiableTextItem">
@@ -1456,18 +1461,13 @@
         <member name="P:Sudoku.ComponentModel.Items.ModifiableTextItem.EqualityContract">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.ComponentModel.Items.ModifiableTextItem.DrawTo(Sudoku.Graphics.Canvas)">
-            <inheritdoc/>
-        </member>
         <member name="T:Sudoku.ComponentModel.Items.SmallTextItem">
             <summary>
             Represents small text item.
             </summary>
         </member>
         <member name="P:Sudoku.ComponentModel.Items.SmallTextItem.CandidatePosition">
-            <summary>
-            Indicates candidate position to be set.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="M:Sudoku.ComponentModel.Items.SmallTextItem.Equals(Sudoku.ComponentModel.Item)">
             <inheritdoc/>
@@ -1505,6 +1505,9 @@
         <member name="P:Sudoku.ComponentModel.Items.TemplateLineStrokeItem.EqualityContract">
             <inheritdoc/>
         </member>
+        <member name="P:Sudoku.ComponentModel.Items.TemplateLineStrokeItem.Sudoku#ComponentModel#Items#IItem_ColorProperty#Color">
+            <inheritdoc/>
+        </member>
         <member name="M:Sudoku.ComponentModel.Items.TemplateLineStrokeItem.Equals(Sudoku.ComponentModel.Item)">
             <inheritdoc/>
         </member>
@@ -1516,11 +1519,6 @@
         </member>
         <member name="M:Sudoku.ComponentModel.Items.TemplateLineStrokeItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Items.TextItem">
-            <summary>
-            Represents a text item.
-            </summary>
         </member>
         <member name="T:Sudoku.ComponentModel.ItemType">
             <summary>

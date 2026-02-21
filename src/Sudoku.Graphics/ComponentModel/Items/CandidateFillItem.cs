@@ -3,24 +3,18 @@
 /// <summary>
 /// Represents a candidate fill item.
 /// </summary>
-public sealed class CandidateFillItem : FillItem
+public sealed class CandidateFillItem : Item, IItem_ColorProperty, IItem_CandidatePositionProperty, IItem_TemplateIndexProperty
 {
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.CandidateFill;
 
-	/// <summary>
-	/// Indicates template index to draw.
-	/// </summary>
+	/// <inheritdoc/>
 	public required int TemplateIndex { get; init; }
 
-	/// <summary>
-	/// Indicates candidate position.
-	/// </summary>
+	/// <inheritdoc/>
 	public required CandidatePosition CandidatePosition { get; init; }
 
-	/// <summary>
-	/// Indicates the color to fill.
-	/// </summary>
+	/// <inheritdoc/>
 	public required SerializableColor Color { get; init; }
 
 	/// <inheritdoc/>

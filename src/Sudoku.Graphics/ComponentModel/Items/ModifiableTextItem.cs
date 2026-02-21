@@ -10,12 +10,4 @@ public sealed class ModifiableTextItem : BigTextItem
 
 	/// <inheritdoc/>
 	protected override Type EqualityContract => typeof(ModifiableTextItem);
-
-
-	/// <inheritdoc/>
-	protected internal override void DrawTo(Canvas canvas)
-	{
-		GetColorFieldUnsafe(this) = canvas.Options.TextColorSet.Resolve(canvas.Options)[1];
-		base.DrawTo(canvas);
-	}
 }

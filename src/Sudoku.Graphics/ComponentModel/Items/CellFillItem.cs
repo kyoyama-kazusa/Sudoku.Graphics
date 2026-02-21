@@ -3,24 +3,18 @@
 /// <summary>
 /// Represents cell fill item.
 /// </summary>
-public sealed class CellFillItem : FillItem
+public sealed class CellFillItem : Item, IItem_CellProperty, IItem_ColorProperty, IItem_TemplateIndexProperty
 {
-	/// <summary>
-	/// Indicates target template index.
-	/// </summary>
+	/// <inheritdoc/>
 	public required int TemplateIndex { get; init; }
 
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.CellFill;
 
-	/// <summary>
-	/// Indicates the cell to be filled.
-	/// </summary>
+	/// <inheritdoc/>
 	public required Absolute Cell { get; init; }
 
-	/// <summary>
-	/// Indicates the color to be filled.
-	/// </summary>
+	/// <inheritdoc/>
 	public required SerializableColor Color { get; init; }
 
 	/// <inheritdoc/>
