@@ -1318,7 +1318,22 @@
         <member name="P:Sudoku.ComponentModel.Items.CandidateTextItem.Text">
             <inheritdoc/>
         </member>
+        <member name="P:Sudoku.ComponentModel.Items.CandidateTextItem.FontName">
+            <inheritdoc/>
+        </member>
         <member name="P:Sudoku.ComponentModel.Items.CandidateTextItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CandidateTextItem.FontWeight">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CandidateTextItem.FontWidth">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CandidateTextItem.FontSlant">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CandidateTextItem.FontSizeScale">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.ComponentModel.Items.CandidateTextItem.Color">
@@ -1385,13 +1400,28 @@
         <member name="P:Sudoku.ComponentModel.Items.GivenTextItem.Text">
             <inheritdoc/>
         </member>
+        <member name="P:Sudoku.ComponentModel.Items.GivenTextItem.FontName">
+            <inheritdoc/>
+        </member>
         <member name="P:Sudoku.ComponentModel.Items.GivenTextItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.GivenTextItem.FontWeight">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.GivenTextItem.FontWidth">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.GivenTextItem.FontSlant">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.ComponentModel.Items.GivenTextItem.Cell">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.ComponentModel.Items.GivenTextItem.Color">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.GivenTextItem.FontSizeScale">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.ComponentModel.Items.GivenTextItem.EqualityContract">
@@ -1443,6 +1473,39 @@
             Indicates the color to fill.
             </summary>
         </member>
+        <member name="T:Sudoku.ComponentModel.Items.IItem_FontRelatedProperties">
+            <summary>
+            Represents a type that includes font-related properties.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.IItem_FontRelatedProperties.FontName">
+            <summary>
+            Indicates the font name.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.IItem_FontRelatedProperties.FontSizeScale">
+            <summary>
+            Indicates font size scale.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.IItem_FontRelatedProperties.FontWeight">
+            <summary>
+            Indicates the font weight. By default it's <see cref="F:SkiaSharp.SKFontStyleWeight.Normal"/>.
+            </summary>
+            <seealso cref="F:SkiaSharp.SKFontStyleWeight.Normal"/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.IItem_FontRelatedProperties.FontWidth">
+            <summary>
+            Indicates the font width. By default it's <see cref="F:SkiaSharp.SKFontStyleWidth.Normal"/>.
+            </summary>
+            <seealso cref="F:SkiaSharp.SKFontStyleWidth.Normal"/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.IItem_FontRelatedProperties.FontSlant">
+            <summary>
+            Indicates the font slant. By default it's <see cref="F:SkiaSharp.SKFontStyleSlant.Upright"/>.
+            </summary>
+            <seealso cref="F:SkiaSharp.SKFontStyleSlant.Upright"/>
+        </member>
         <member name="T:Sudoku.ComponentModel.Items.IItem_TemplateIndexProperty">
             <summary>
             Represents a type that includes <see cref="P:Sudoku.ComponentModel.Items.IItem_TemplateIndexProperty.TemplateIndex"/> property.
@@ -1474,13 +1537,28 @@
         <member name="P:Sudoku.ComponentModel.Items.ModifiableTextItem.Text">
             <inheritdoc/>
         </member>
+        <member name="P:Sudoku.ComponentModel.Items.ModifiableTextItem.FontName">
+            <inheritdoc/>
+        </member>
         <member name="P:Sudoku.ComponentModel.Items.ModifiableTextItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.ModifiableTextItem.FontWeight">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.ModifiableTextItem.FontWidth">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.ModifiableTextItem.FontSlant">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.ComponentModel.Items.ModifiableTextItem.Cell">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.ComponentModel.Items.ModifiableTextItem.Color">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.ModifiableTextItem.FontSizeScale">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.ComponentModel.Items.ModifiableTextItem.EqualityContract">
