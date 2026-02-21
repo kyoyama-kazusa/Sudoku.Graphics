@@ -1206,14 +1206,25 @@
         <member name="P:Sudoku.ComponentModel.Items.BackgroundFillItem.Type">
             <inheritdoc/>
         </member>
+        <member name="P:Sudoku.ComponentModel.Items.BackgroundFillItem.Color">
+            <summary>
+            Indicates the color to be filled.
+            </summary>
+        </member>
         <member name="P:Sudoku.ComponentModel.Items.BackgroundFillItem.EqualityContract">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.ComponentModel.Items.BackgroundFillItem.Equals(Sudoku.ComponentModel.Item)">
             <inheritdoc/>
+            <remarks>
+            <b>By design, the global item sequence can only contain one <see cref="T:Sudoku.ComponentModel.Items.BackgroundFillItem"/> instance.</b>
+            </remarks>
         </member>
         <member name="M:Sudoku.ComponentModel.Items.BackgroundFillItem.GetHashCode">
             <inheritdoc/>
+            <remarks>
+            <b>By design, the global item sequence can only contain one <see cref="T:Sudoku.ComponentModel.Items.BackgroundFillItem"/> instance.</b>
+            </remarks>
         </member>
         <member name="M:Sudoku.ComponentModel.Items.BackgroundFillItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
@@ -1294,13 +1305,13 @@
             Represents cell fill item.
             </summary>
         </member>
-        <member name="P:Sudoku.ComponentModel.Items.CellFillItem.Type">
-            <inheritdoc/>
-        </member>
         <member name="P:Sudoku.ComponentModel.Items.CellFillItem.TemplateIndex">
             <summary>
             Indicates target template index.
             </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellFillItem.Type">
+            <inheritdoc/>
         </member>
         <member name="P:Sudoku.ComponentModel.Items.CellFillItem.Cell">
             <summary>
@@ -1404,6 +1415,13 @@
             Indicates whether intersection cells should be filled with another color.
             By default it's <see langword="false"/>.
             </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.TemplateLineStrokeItem.TemplateIntersectionCellsColor">
+            <summary>
+            Indicates the color to be filled in intersection cells.
+            This property must contain a valid color if <see cref="P:Sudoku.ComponentModel.Items.TemplateLineStrokeItem.FillIntersectionCells"/> is <see langword="true"/>.
+            </summary>
+            <seealso cref="P:Sudoku.ComponentModel.Items.TemplateLineStrokeItem.FillIntersectionCells"/>
         </member>
         <member name="P:Sudoku.ComponentModel.Items.TemplateLineStrokeItem.Type">
             <inheritdoc/>
@@ -2328,6 +2346,15 @@
             <typeparam name="TOptions">The type of options.</typeparam>
             <param name="path">The file path. The extension specified will be used as output file format.</param>
             <param name="options">The options.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.Canvas.GetOptionValue``1(System.Func{Sudoku.Graphics.CanvasDrawingOptions,Sudoku.Serialization.Inherited{``0}})">
+            <summary>
+            Returns the real value stored of the specified property in <see cref="P:Sudoku.Graphics.Canvas.Options"/>.
+            </summary>
+            <typeparam name="T">The type of the real value of property.</typeparam>
+            <param name="propertySpecifier">The property specified.</param>
+            <returns>The value.</returns>
+            <seealso cref="P:Sudoku.Graphics.Canvas.Options"/>
         </member>
         <member name="T:Sudoku.Graphics.CanvasDrawingOptions">
             <summary>

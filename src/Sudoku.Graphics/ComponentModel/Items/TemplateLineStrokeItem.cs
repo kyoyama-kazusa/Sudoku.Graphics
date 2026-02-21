@@ -11,6 +11,13 @@ public sealed class TemplateLineStrokeItem : LineStrokeItem
 	/// </summary>
 	public bool FillIntersectionCells { get; init; } = false;
 
+	/// <summary>
+	/// Indicates the color to be filled in intersection cells.
+	/// This property must contain a valid color if <see cref="FillIntersectionCells"/> is <see langword="true"/>.
+	/// </summary>
+	/// <seealso cref="FillIntersectionCells"/>
+	public SerializableColor TemplateIntersectionCellsColor { get; init; }
+
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.TemplateLineStroke;
 
@@ -20,14 +27,19 @@ public sealed class TemplateLineStrokeItem : LineStrokeItem
 
 	/// <inheritdoc/>
 	public override bool Equals([NotNullWhen(true)] Item? other)
-		=> other is TemplateLineStrokeItem comparer && FillIntersectionCells == comparer.FillIntersectionCells;
+		=> other is TemplateLineStrokeItem comparer
+		&& FillIntersectionCells == comparer.FillIntersectionCells
+		&& TemplateIntersectionCellsColor == comparer.TemplateIntersectionCellsColor;
 
 	/// <inheritdoc/>
-	public override int GetHashCode() => HashCode.Combine(EqualityContract, FillIntersectionCells);
+	public override int GetHashCode() => HashCode.Combine(EqualityContract, FillIntersectionCells, TemplateIntersectionCellsColor);
 
 	/// <inheritdoc/>
 	protected override void PrintMembers(StringBuilder builder)
-		=> builder.Append($"{nameof(FillIntersectionCells)} = {FillIntersectionCells}");
+	{
+		builder.Append($"{nameof(FillIntersectionCells)} = {FillIntersectionCells}");
+		builder.Append($"{nameof(TemplateIntersectionCellsColor)} = {TemplateIntersectionCellsColor}");
+	}
 
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)
@@ -49,11 +61,7 @@ public sealed class TemplateLineStrokeItem : LineStrokeItem
 
 		void fillIntersectionCells()
 		{
-			using var fillPaint = new SKPaint
-			{
-				Style = SKPaintStyle.Fill,
-				Color = canvas.Options.TemplateIntersectionColor.Resolve(canvas.Options)
-			};
+			using var fillPaint = new SKPaint { Style = SKPaintStyle.Fill, Color = TemplateIntersectionCellsColor };
 
 			// Collect intersection cells, grouped by template specified by its index.
 			var intersectionCellsDictionary = new Dictionary<int /*TemplateIndex*/, HashSet<Absolute>>();

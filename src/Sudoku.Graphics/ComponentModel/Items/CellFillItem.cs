@@ -5,13 +5,13 @@
 /// </summary>
 public sealed class CellFillItem : FillItem
 {
-	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellFill;
-
 	/// <summary>
 	/// Indicates target template index.
 	/// </summary>
 	public required int TemplateIndex { get; init; }
+
+	/// <inheritdoc/>
+	public override ItemType Type => ItemType.CellFill;
 
 	/// <summary>
 	/// Indicates the cell to be filled.

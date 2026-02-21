@@ -110,4 +110,14 @@ public sealed class Canvas : IDisposable
 	/// <param name="options">The options.</param>
 	public void Export<TOptions>(string path, TOptions? options) where TOptions : notnull, IOptionsProvider<TOptions>, new()
 		=> Export(path, options as CanvasExportingOptions);
+
+	/// <summary>
+	/// Returns the real value stored of the specified property in <see cref="Options"/>.
+	/// </summary>
+	/// <typeparam name="T">The type of the real value of property.</typeparam>
+	/// <param name="propertySpecifier">The property specified.</param>
+	/// <returns>The value.</returns>
+	/// <seealso cref="Options"/>
+	public T GetOptionValue<T>(Func<CanvasDrawingOptions, Inherited<T>> propertySpecifier) where T : notnull
+		=> propertySpecifier(Options).Resolve(Options);
 }

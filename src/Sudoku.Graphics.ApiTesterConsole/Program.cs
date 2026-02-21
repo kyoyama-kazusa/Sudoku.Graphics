@@ -59,12 +59,15 @@ using var canvas = new Canvas(
 var gridTextItems = JsonSerializer.Deserialize<Item[]>(GridJsonString, Options)!;
 canvas.DrawItems(
 	[
-		new BackgroundFillItem(),
-		new TemplateLineStrokeItem(),
+		new BackgroundFillItem { Color = canvas.GetOptionValue(static options => options.BackgroundColor) },
+		new TemplateLineStrokeItem
+		{
+			FillIntersectionCells = true,
+			TemplateIntersectionCellsColor = canvas.GetOptionValue(static options => options.TemplateIntersectionColor)
+		},
 		.. gridTextItems,
 		..
-		from item in gridTextItems
-		select (BigSmallTextItem)item into item
+		from BigSmallTextItem item in gridTextItems
 		select new CellFillItem { TemplateIndex = 0, Cell = item.Cell, Color = SKColors.Yellow }
 	]
 );
