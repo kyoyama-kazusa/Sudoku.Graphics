@@ -1289,6 +1289,44 @@
         <member name="M:Sudoku.ComponentModel.Items.CandidateTextItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.ComponentModel.Items.CellFillItem">
+            <summary>
+            Represents cell fill item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellFillItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellFillItem.TemplateIndex">
+            <summary>
+            Indicates target template index.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellFillItem.Cell">
+            <summary>
+            Indicates the cell to be filled.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellFillItem.Color">
+            <summary>
+            Indicates the color to be filled.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellFillItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Items.CellFillItem.Equals(Sudoku.ComponentModel.Item)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Items.CellFillItem.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Items.CellFillItem.PrintMembers(System.Text.StringBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Items.CellFillItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.ComponentModel.Items.FillItem">
             <summary>
             Represents a fill item.
@@ -1400,14 +1438,19 @@
             Indicates the placeholder of this type.
             </summary>
         </member>
-        <member name="F:Sudoku.ComponentModel.ItemType.CanvasBackground">
+        <member name="F:Sudoku.ComponentModel.ItemType.BackgroundFill">
             <summary>
-            Indicates the canvas background.
+            Indicates the background filling.
             </summary>
         </member>
-        <member name="F:Sudoku.ComponentModel.ItemType.TemplateLines">
+        <member name="F:Sudoku.ComponentModel.ItemType.CellFill">
             <summary>
-            Indicates template lines.
+            Indicates cell filling.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.ItemType.TemplateLineStroke">
+            <summary>
+            Indicates template line strokes.
             </summary>
         </member>
         <member name="F:Sudoku.ComponentModel.ItemType.GivenText">

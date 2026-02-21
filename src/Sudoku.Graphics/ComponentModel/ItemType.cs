@@ -11,14 +11,19 @@ public enum ItemType
 	None = 0,
 
 	/// <summary>
-	/// Indicates the canvas background.
+	/// Indicates the background filling.
 	/// </summary>
-	CanvasBackground,
+	BackgroundFill,
 
 	/// <summary>
-	/// Indicates template lines.
+	/// Indicates cell filling.
 	/// </summary>
-	TemplateLines,
+	CellFill,
+
+	/// <summary>
+	/// Indicates template line strokes.
+	/// </summary>
+	TemplateLineStroke,
 
 	/// <summary>
 	/// Indicates given text.

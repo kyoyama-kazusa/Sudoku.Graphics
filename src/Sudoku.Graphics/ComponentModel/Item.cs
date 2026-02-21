@@ -6,10 +6,11 @@
 /// </summary>
 [JsonPolymorphic(UnknownDerivedTypeHandling = JsonUnknownDerivedTypeHandling.FailSerialization)]
 [JsonDerivedType(typeof(BackgroundFillItem), nameof(BackgroundFillItem))]
-[JsonDerivedType(typeof(TemplateLineStrokeItem), nameof(TemplateLineStrokeItem))]
+[JsonDerivedType(typeof(CandidateTextItem), nameof(CandidateTextItem))]
+[JsonDerivedType(typeof(CellFillItem), nameof(CellFillItem))]
 [JsonDerivedType(typeof(GivenTextItem), nameof(GivenTextItem))]
 [JsonDerivedType(typeof(ModifiableTextItem), nameof(ModifiableTextItem))]
-[JsonDerivedType(typeof(CandidateTextItem), nameof(CandidateTextItem))]
+[JsonDerivedType(typeof(TemplateLineStrokeItem), nameof(TemplateLineStrokeItem))]
 public abstract class Item : IEquatable<Item>, IEqualityOperators<Item, Item, bool>
 {
 	/// <summary>

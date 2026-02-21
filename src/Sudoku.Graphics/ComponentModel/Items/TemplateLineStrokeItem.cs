@@ -12,7 +12,7 @@ public sealed class TemplateLineStrokeItem : LineStrokeItem
 	public bool FillIntersectionCells { get; init; } = false;
 
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.TemplateLines;
+	public override ItemType Type => ItemType.TemplateLineStroke;
 
 	/// <inheritdoc/>
 	protected override Type EqualityContract => typeof(TemplateLineStrokeItem);

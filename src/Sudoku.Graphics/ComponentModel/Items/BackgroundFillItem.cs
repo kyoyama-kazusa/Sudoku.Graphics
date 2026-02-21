@@ -6,7 +6,7 @@
 public sealed class BackgroundFillItem : FillItem
 {
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CanvasBackground;
+	public override ItemType Type => ItemType.BackgroundFill;
 
 	/// <inheritdoc/>
 	protected override Type EqualityContract => typeof(BackgroundFillItem);

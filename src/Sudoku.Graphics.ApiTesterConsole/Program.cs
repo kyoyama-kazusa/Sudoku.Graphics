@@ -8,7 +8,9 @@
 
 using System;
 using System.IO;
+using System.Linq;
 using System.Text.Json;
+using SkiaSharp;
 using Sudoku.ComponentModel;
 using Sudoku.ComponentModel.GridTemplates;
 using Sudoku.ComponentModel.Items;
@@ -54,11 +56,16 @@ using var canvas = new Canvas(
 	]
 );
 
+var gridTextItems = JsonSerializer.Deserialize<Item[]>(GridJsonString, Options)!;
 canvas.DrawItems(
 	[
 		new BackgroundFillItem(),
 		new TemplateLineStrokeItem(),
-		.. JsonSerializer.Deserialize<Item[]>(TestExamples.GridJsonString, Options)!
+		.. gridTextItems,
+		..
+		from item in gridTextItems
+		select (BigSmallTextItem)item into item
+		select new CellFillItem { TemplateIndex = 0, Cell = item.Cell, Color = SKColors.Yellow }
 	]
 );
 canvas.Export(Path.Combine(desktop, "output.png"), new() { Quality = 100 });
@@ -72,32 +79,8 @@ Console.WriteLine("Okay.");
 /// </summary>
 file static partial class Program
 {
-	/// <summary>
-	/// Represents options.
-	/// </summary>
-	private static readonly JsonSerializerOptions Options = new()
-	{
-		WriteIndented = true,
-		IndentCharacter = ' ',
-		IndentSize = 2,
-		IgnoreReadOnlyProperties = true
-	};
-
-
-	extension(Environment)
-	{
-		/// <summary>
-		/// Represents desktop path.
-		/// </summary>
-		public static string DesktopPath => Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-	}
-}
-
-file static class TestExamples
-{
 	/*lang=json*/
-	public const string GridJsonString =
-		"""
+	public const string GridJsonString = """
 		[
 			{
 				"$type": "GivenTextItem",
@@ -276,4 +259,24 @@ file static class TestExamples
 			}
 		]
 		""";
+
+	/// <summary>
+	/// Represents options.
+	/// </summary>
+	private static readonly JsonSerializerOptions Options = new()
+	{
+		WriteIndented = true,
+		IndentCharacter = ' ',
+		IndentSize = 2,
+		IgnoreReadOnlyProperties = true
+	};
+
+
+	extension(Environment)
+	{
+		/// <summary>
+		/// Represents desktop path.
+		/// </summary>
+		public static string DesktopPath => Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+	}
 }
