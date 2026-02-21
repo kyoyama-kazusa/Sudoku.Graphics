@@ -1275,41 +1275,6 @@
         <member name="M:Sudoku.ComponentModel.Items.BackgroundFillItem.PrintMembers(System.Text.StringBuilder)">
             <inheritdoc/>
         </member>
-        <member name="T:Sudoku.ComponentModel.Items.BigSmallTextItem">
-            <summary>
-            Represents a text item that is bound with a big or small text.
-            Outside labels can also created here.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Items.BigSmallTextItem.TemplateIndex">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Items.BigSmallTextItem.Text">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Items.BigSmallTextItem.Color">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Items.BigTextItem">
-            <summary>
-            Represents a big text item.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Items.BigTextItem.Cell">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Items.BigTextItem.Equals(Sudoku.ComponentModel.Item)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Items.BigTextItem.GetHashCode">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Items.BigTextItem.PrintMembers(System.Text.StringBuilder)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Items.BigTextItem.DrawTo(Sudoku.Graphics.Canvas)">
-            <inheritdoc/>
-        </member>
         <member name="T:Sudoku.ComponentModel.Items.CandidateFillItem">
             <summary>
             Represents a candidate fill item.
@@ -1347,10 +1312,34 @@
             Represents candidate text.
             </summary>
         </member>
+        <member name="P:Sudoku.ComponentModel.Items.CandidateTextItem.TemplateIndex">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CandidateTextItem.Text">
+            <inheritdoc/>
+        </member>
         <member name="P:Sudoku.ComponentModel.Items.CandidateTextItem.Type">
             <inheritdoc/>
         </member>
+        <member name="P:Sudoku.ComponentModel.Items.CandidateTextItem.Color">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CandidateTextItem.CandidatePosition">
+            <inheritdoc/>
+        </member>
         <member name="P:Sudoku.ComponentModel.Items.CandidateTextItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Items.CandidateTextItem.Equals(Sudoku.ComponentModel.Item)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Items.CandidateTextItem.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Items.CandidateTextItem.PrintMembers(System.Text.StringBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Items.CandidateTextItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.ComponentModel.Items.CellFillItem">
@@ -1390,10 +1379,34 @@
             Represents given text.
             </summary>
         </member>
+        <member name="P:Sudoku.ComponentModel.Items.GivenTextItem.TemplateIndex">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.GivenTextItem.Text">
+            <inheritdoc/>
+        </member>
         <member name="P:Sudoku.ComponentModel.Items.GivenTextItem.Type">
             <inheritdoc/>
         </member>
+        <member name="P:Sudoku.ComponentModel.Items.GivenTextItem.Cell">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.GivenTextItem.Color">
+            <inheritdoc/>
+        </member>
         <member name="P:Sudoku.ComponentModel.Items.GivenTextItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Items.GivenTextItem.Equals(Sudoku.ComponentModel.Item)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Items.GivenTextItem.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Items.GivenTextItem.PrintMembers(System.Text.StringBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Items.GivenTextItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.ComponentModel.Items.IItem_CandidatePositionProperty">
@@ -1455,30 +1468,34 @@
             Represents modifiable text.
             </summary>
         </member>
+        <member name="P:Sudoku.ComponentModel.Items.ModifiableTextItem.TemplateIndex">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.ModifiableTextItem.Text">
+            <inheritdoc/>
+        </member>
         <member name="P:Sudoku.ComponentModel.Items.ModifiableTextItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.ModifiableTextItem.Cell">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.ModifiableTextItem.Color">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.ComponentModel.Items.ModifiableTextItem.EqualityContract">
             <inheritdoc/>
         </member>
-        <member name="T:Sudoku.ComponentModel.Items.SmallTextItem">
-            <summary>
-            Represents small text item.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Items.SmallTextItem.CandidatePosition">
+        <member name="M:Sudoku.ComponentModel.Items.ModifiableTextItem.Equals(Sudoku.ComponentModel.Item)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.ComponentModel.Items.SmallTextItem.Equals(Sudoku.ComponentModel.Item)">
+        <member name="M:Sudoku.ComponentModel.Items.ModifiableTextItem.GetHashCode">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.ComponentModel.Items.SmallTextItem.GetHashCode">
+        <member name="M:Sudoku.ComponentModel.Items.ModifiableTextItem.PrintMembers(System.Text.StringBuilder)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.ComponentModel.Items.SmallTextItem.PrintMembers(System.Text.StringBuilder)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Items.SmallTextItem.DrawTo(Sudoku.Graphics.Canvas)">
+        <member name="M:Sudoku.ComponentModel.Items.ModifiableTextItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.ComponentModel.Items.TemplateLineStrokeItem">

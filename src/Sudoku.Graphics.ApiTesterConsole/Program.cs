@@ -67,7 +67,7 @@ canvas.DrawItems(
 		},
 		.. gridTextItems,
 		..
-		from BigTextItem item in gridTextItems
+		from GivenTextItem item in gridTextItems
 		let digit = int.Parse(item.Text) - 1
 		select new CandidateFillItem
 		{
