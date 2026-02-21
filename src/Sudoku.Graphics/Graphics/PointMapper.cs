@@ -30,7 +30,7 @@ public sealed record PointMapper : IEqualityOperators<PointMapper, PointMapper, 
 	/// <param name="vector"><inheritdoc cref="Vector" path="/summary"/></param>
 	[SetsRequiredMembers]
 	public PointMapper(float cellSize, float margin, Absolute rowsCount, Absolute columnsCount, DirectionVector vector) :
-		this(cellSize, margin, new(rowsCount, columnsCount, vector))
+		this(cellSize, margin, new() { RowsCount = rowsCount, ColumnsCount = columnsCount, Vector = vector })
 	{
 	}
 

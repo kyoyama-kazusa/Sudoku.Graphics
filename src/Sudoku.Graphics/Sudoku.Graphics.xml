@@ -367,20 +367,11 @@
             </summary>
             <seealso cref="T:Sudoku.ComponentModel.GridTemplate"/>
         </member>
-        <member name="M:Sudoku.ComponentModel.GridTemplateSize.#ctor(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Absolute)">
+        <member name="M:Sudoku.ComponentModel.GridTemplateSize.#ctor">
             <summary>
-            Initializes a <see cref="T:Sudoku.ComponentModel.GridTemplateSize"/> instance via the specified numbers of rows and columns.
+            Represents logical size of a <see cref="T:Sudoku.ComponentModel.GridTemplate"/> instance.
             </summary>
-            <param name="rowsCount">The number of rows.</param>
-            <param name="columnsCount">The number of columns.</param>
-        </member>
-        <member name="M:Sudoku.ComponentModel.GridTemplateSize.#ctor(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.DirectionVector)">
-            <summary>
-            Initializes a <see cref="T:Sudoku.ComponentModel.GridTemplateSize"/> instance.
-            </summary>
-            <param name="rowsCount">The number of rows.</param>
-            <param name="columnsCount">The number of columns.</param>
-            <param name="vector">Indicates the outside number of cells leaving empty to be drawn.</param>
+            <seealso cref="T:Sudoku.ComponentModel.GridTemplate"/>
         </member>
         <member name="P:Sudoku.ComponentModel.GridTemplateSize.RowsCount">
             <summary>
@@ -406,8 +397,9 @@
         </member>
         <member name="P:Sudoku.ComponentModel.GridTemplateSize.Vector">
             <summary>
-            Indicates empty cells count reserved to be empty.
+            Indicates empty cells count reserved to be empty. By default it's <see cref="F:Sudoku.ComponentModel.DirectionVector.Zero"/>.
             </summary>
+            <seealso cref="F:Sudoku.ComponentModel.DirectionVector.Zero"/>
         </member>
         <member name="M:Sudoku.ComponentModel.GridTemplateSize.Equals(Sudoku.ComponentModel.GridTemplateSize)">
             <inheritdoc/>

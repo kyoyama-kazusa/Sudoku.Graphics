@@ -14,7 +14,7 @@ using Sudoku.ComponentModel.Items;
 using Sudoku.Graphics;
 
 var desktop = Environment.DesktopPath;
-var defaultTemplateSize = new GridTemplateSize(9, 9);
+var defaultTemplateSize = new GridTemplateSize { RowsCount = 9, ColumnsCount = 9 };
 var baseMapper = new PointMapper(120, 15, defaultTemplateSize);
 using var canvas = new Canvas([new StandardGridTemplate { Mapper = baseMapper }]);
 canvas.DrawItems(

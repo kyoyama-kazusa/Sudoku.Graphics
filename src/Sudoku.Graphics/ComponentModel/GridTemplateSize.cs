@@ -4,34 +4,8 @@
 /// Represents logical size of a <see cref="GridTemplate"/> instance.
 /// </summary>
 /// <seealso cref="GridTemplate"/>
-public readonly record struct GridTemplateSize : IEqualityOperators<GridTemplateSize, GridTemplateSize, bool>
+public readonly record struct GridTemplateSize() : IEqualityOperators<GridTemplateSize, GridTemplateSize, bool>
 {
-	/// <summary>
-	/// Initializes a <see cref="GridTemplateSize"/> instance via the specified numbers of rows and columns.
-	/// </summary>
-	/// <param name="rowsCount">The number of rows.</param>
-	/// <param name="columnsCount">The number of columns.</param>
-	[SetsRequiredMembers]
-	public GridTemplateSize(Absolute rowsCount, Absolute columnsCount) : this(rowsCount, columnsCount, DirectionVector.Zero)
-	{
-	}
-
-	/// <summary>
-	/// Initializes a <see cref="GridTemplateSize"/> instance.
-	/// </summary>
-	/// <param name="rowsCount">The number of rows.</param>
-	/// <param name="columnsCount">The number of columns.</param>
-	/// <param name="vector">Indicates the outside number of cells leaving empty to be drawn.</param>
-	[JsonConstructor]
-	[SetsRequiredMembers]
-	public GridTemplateSize(Absolute rowsCount, Absolute columnsCount, DirectionVector vector)
-	{
-		RowsCount = rowsCount;
-		ColumnsCount = columnsCount;
-		Vector = vector;
-	}
-
-
 	/// <summary>
 	/// Indicates the number of rows in main sudoku grid.
 	/// </summary>
@@ -55,9 +29,10 @@ public readonly record struct GridTemplateSize : IEqualityOperators<GridTemplate
 	public Absolute AbsoluteColumnsCount => ColumnsCount + Vector.Left + Vector.Right;
 
 	/// <summary>
-	/// Indicates empty cells count reserved to be empty.
+	/// Indicates empty cells count reserved to be empty. By default it's <see cref="DirectionVector.Zero"/>.
 	/// </summary>
-	public required DirectionVector Vector { get; init; }
+	/// <seealso cref="DirectionVector.Zero"/>
+	public DirectionVector Vector { get; init; } = DirectionVector.Zero;
 
 
 	/// <inheritdoc/>
@@ -92,7 +67,7 @@ public readonly record struct GridTemplateSize : IEqualityOperators<GridTemplate
 	{
 		if (templates.IsEmpty)
 		{
-			return new(0, 0);
+			return default;
 		}
 
 		var (maxRowsCount, maxColumnsCount) = (0, 0);
@@ -107,6 +82,6 @@ public readonly record struct GridTemplateSize : IEqualityOperators<GridTemplate
 				maxColumnsCount = c;
 			}
 		}
-		return new(maxRowsCount, maxColumnsCount);
+		return new() { RowsCount = maxRowsCount, ColumnsCount = maxColumnsCount };
 	}
 }
