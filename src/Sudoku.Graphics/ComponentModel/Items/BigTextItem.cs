@@ -52,7 +52,7 @@ public abstract class BigTextItem : BigSmallTextItem
 		var offset = textFont.MeasureText(Text, textPaint);
 		canvas.BackingCanvas.DrawText(
 			Text,
-			mapper.GetPoint(Cell, CellAlignment.Center)
+			mapper.GetPoint(Cell, Alignment.Center)
 				+ new SKPoint(0, offset / (2 * Text.Length)) // Offset adjustment
 				+ new SKPoint(0, mapper.CellSize / 12), // Manual adjustment
 			SKTextAlign.Center,

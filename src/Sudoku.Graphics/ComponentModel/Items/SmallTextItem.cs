@@ -48,20 +48,16 @@ public abstract class SmallTextItem : BigSmallTextItem
 			options.SmallTextFontSlant.Resolve(options)
 		);
 
-		var (cell, subgridSize, innerIndex) = CandidatePosition;
-		var cellTopLeft = mapper.GetPoint(cell, CellAlignment.TopLeft);
+		var (_, subgridSize, _) = CandidatePosition;
 		var candidateSize = mapper.CellSize / subgridSize;
-		var candidateRowIndex = innerIndex / subgridSize;
-		var candidateColumnIndex = innerIndex % subgridSize;
+		var candidateCenterPoint = mapper.GetPoint(CandidatePosition, Alignment.Center);
 		var factSize = options.SmallTextFontSizeScale.Resolve(options).Measure(mapper.CellSize) / subgridSize;
 		using var textFont = new SKFont(typeface, factSize) { Subpixel = true };
 		using var textPaint = new SKPaint { Color = Color };
 		var offset = textFont.MeasureText(Text, textPaint);
 		canvas.BackingCanvas.DrawText(
 			Text,
-			cellTopLeft
-				+ new SKPoint(candidateColumnIndex * candidateSize, candidateRowIndex * candidateSize) // Adjust to candidate position
-				+ new SKPoint(candidateSize / 2, candidateSize / 2) // Adjust to candidate center
+			candidateCenterPoint
 				+ new SKPoint(0, offset / (2 * Text.Length)) // Offset adjustment
 				+ new SKPoint(0, candidateSize / 12), // Manual adjustment
 			SKTextAlign.Center,

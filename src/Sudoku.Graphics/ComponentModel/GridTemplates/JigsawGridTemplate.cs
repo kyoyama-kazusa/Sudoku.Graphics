@@ -61,10 +61,10 @@ public sealed class JigsawGridTemplate : IndividualGridTemplate
 			// Then draw lines onto it, and also fill with cells if worth.
 			foreach (var (cell, directions) in lineSegmentsDictionary)
 			{
-				var topLeft = Mapper.GetPoint(cell, CellAlignment.TopLeft);
-				var topRight = Mapper.GetPoint(cell, CellAlignment.TopRight);
-				var bottomLeft = Mapper.GetPoint(cell, CellAlignment.BottomLeft);
-				var bottomRight = Mapper.GetPoint(cell, CellAlignment.BottomRight);
+				var topLeft = Mapper.GetPoint(cell, Alignment.TopLeft);
+				var topRight = Mapper.GetPoint(cell, Alignment.TopRight);
+				var bottomLeft = Mapper.GetPoint(cell, Alignment.BottomLeft);
+				var bottomRight = Mapper.GetPoint(cell, Alignment.BottomRight);
 
 				if (AlsoFillGroups)
 				{

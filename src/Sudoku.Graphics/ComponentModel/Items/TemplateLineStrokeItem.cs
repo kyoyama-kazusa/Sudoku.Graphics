@@ -97,8 +97,8 @@ public sealed class TemplateLineStrokeItem : LineStrokeItem
 				var template = templates[templateIndex];
 				foreach (var cell in cells.ToArray())
 				{
-					var topLeft = template.Mapper.GetPoint(cell, CellAlignment.TopLeft);
-					var bottomRight = template.Mapper.GetPoint(cell, CellAlignment.BottomRight);
+					var topLeft = template.Mapper.GetPoint(cell, Alignment.TopLeft);
+					var bottomRight = template.Mapper.GetPoint(cell, Alignment.BottomRight);
 					var rect = SKRect.Create(topLeft, bottomRight);
 					canvas.BackingCanvas.DrawRect(rect, fillPaint);
 				}

@@ -89,6 +89,41 @@
             <param name="mapper">The mapper instance.</param>
             <returns>The result.</returns>
         </member>
+        <member name="T:Sudoku.ComponentModel.Alignment">
+            <summary>
+            Represents an alignment type.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Alignment.None">
+            <summary>
+            Indicates the placeholder of this type.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Alignment.Center">
+            <summary>
+            Indicates center point of container.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Alignment.TopLeft">
+            <summary>
+            Indicates top-left point of container.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Alignment.TopRight">
+            <summary>
+            Indicates top-right point of container.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Alignment.BottomLeft">
+            <summary>
+            Indicates bottom-left point of container.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Alignment.BottomRight">
+            <summary>
+            Indicates bottom-right point of container.
+            </summary>
+        </member>
         <member name="T:Sudoku.ComponentModel.CandidatePosition">
             <summary>
             Represents a candidate position.
@@ -133,41 +168,6 @@
         </member>
         <member name="P:Sudoku.ComponentModel.CandidatePosition.InnerIndex">
             <summary>The internal absolute position index of the candidate.</summary>
-        </member>
-        <member name="T:Sudoku.ComponentModel.CellAlignment">
-            <summary>
-            Represents a cell alignment type.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.CellAlignment.None">
-            <summary>
-            Indicates the placeholder of this type.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.CellAlignment.Center">
-            <summary>
-            Indicates center point of the cell.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.CellAlignment.TopLeft">
-            <summary>
-            Indicates top-left point of the cell.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.CellAlignment.TopRight">
-            <summary>
-            Indicates top-right point of the cell.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.CellAlignment.BottomLeft">
-            <summary>
-            Indicates bottom-left point of the cell.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.CellAlignment.BottomRight">
-            <summary>
-            Indicates bottom-right point of the cell.
-            </summary>
         </member>
         <member name="T:Sudoku.ComponentModel.Direction">
             <summary>
@@ -1331,6 +1331,44 @@
         <member name="M:Sudoku.ComponentModel.Items.BigTextItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.ComponentModel.Items.CandidateFillItem">
+            <summary>
+            Represents a candidate fill item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CandidateFillItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CandidateFillItem.TemplateIndex">
+            <summary>
+            Indicates template index to draw.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CandidateFillItem.CandidatePosition">
+            <summary>
+            Indicates candidate position.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CandidateFillItem.Color">
+            <summary>
+            Indicates the color to fill.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CandidateFillItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Items.CandidateFillItem.Equals(Sudoku.ComponentModel.Item)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Items.CandidateFillItem.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Items.CandidateFillItem.PrintMembers(System.Text.StringBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Items.CandidateFillItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.ComponentModel.Items.CandidateTextItem">
             <summary>
             Represents candidate text.
@@ -1502,6 +1540,11 @@
         <member name="F:Sudoku.ComponentModel.ItemType.CellFill">
             <summary>
             Indicates cell filling.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.ItemType.CandidateFill">
+            <summary>
+            Indicates candidate filling.
             </summary>
         </member>
         <member name="F:Sudoku.ComponentModel.ItemType.TemplateLineStroke">
@@ -2669,30 +2712,42 @@
             <param name="isCyclicChecking">Indicates whether the cell overflown in the relative grid will be included to be checked or not.</param>
             <returns>Target cell absolute index.</returns>
         </member>
-        <member name="M:Sudoku.Graphics.PointMapper.GetPoint(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.CellAlignment)">
+        <member name="M:Sudoku.Graphics.PointMapper.GetPoint(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Alignment)">
             <summary>
             Returns the position (point) of the specified alignment type of the specified cell.
             </summary>
             <param name="absoluteCellIndex">Absolute cell index.</param>
-            <param name="alignment">The cell alignment.</param>
+            <param name="alignment">The alignment.</param>
             <returns>The point instance that represents the target center position.</returns>
             <exception cref="T:System.ArgumentOutOfRangeException">
-            Throws when <paramref name="alignment"/> is not defined or <see cref="F:Sudoku.ComponentModel.CellAlignment.None"/>.
+            Throws when <paramref name="alignment"/> is not defined or <see cref="F:Sudoku.ComponentModel.Alignment.None"/>.
             </exception>
-            <seealso cref="F:Sudoku.ComponentModel.CellAlignment.None"/>
+            <seealso cref="F:Sudoku.ComponentModel.Alignment.None"/>
         </member>
-        <member name="M:Sudoku.Graphics.PointMapper.GetPoint(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.CellAlignment)">
+        <member name="M:Sudoku.Graphics.PointMapper.GetPoint(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Alignment)">
             <summary>
             Returns the position (point) of the specified alignment type of the specified cell.
             </summary>
             <param name="absoluteRowIndex">Absolute row index.</param>
             <param name="absoluteColumnIndex">Absolute column index.</param>
-            <param name="alignment">The cell alignment type.</param>
+            <param name="alignment">The alignment type.</param>
             <returns>The point instance that represents the target center position.</returns>
             <exception cref="T:System.ArgumentOutOfRangeException">
-            Throws when <paramref name="alignment"/> is not defined or <see cref="F:Sudoku.ComponentModel.CellAlignment.None"/>.
+            Throws when <paramref name="alignment"/> is not defined or <see cref="F:Sudoku.ComponentModel.Alignment.None"/>.
             </exception>
-            <seealso cref="F:Sudoku.ComponentModel.CellAlignment.None"/>
+            <seealso cref="F:Sudoku.ComponentModel.Alignment.None"/>
+        </member>
+        <member name="M:Sudoku.Graphics.PointMapper.GetPoint(Sudoku.ComponentModel.CandidatePosition,Sudoku.ComponentModel.Alignment)">
+            <summary>
+            Returns the position (point) of the specified alignment type of the specified candidate (absolute).
+            </summary>
+            <param name="candidatePosition">Absolute candidate position.</param>
+            <param name="alignment">The alignment.</param>
+            <returns>The point instance that represents the target center position.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Throws when <paramref name="alignment"/> is not defined or <see cref="F:Sudoku.ComponentModel.Alignment.None"/>.
+            </exception>
+            <seealso cref="F:Sudoku.ComponentModel.Alignment.None"/>
         </member>
         <member name="M:Sudoku.Graphics.PointMapper.WithOffset(Sudoku.ComponentModel.DirectionVector)">
             <summary>

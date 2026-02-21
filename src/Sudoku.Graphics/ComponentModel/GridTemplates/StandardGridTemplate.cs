@@ -89,7 +89,7 @@ public sealed class StandardGridTemplate : IndividualGridTemplate, IRoundRectang
 		// Horizontal lines.
 		for (var i = 1; i < Mapper.RowsCount; i++)
 		{
-			var a = Mapper.GetPoint(Mapper.Vector.Up + i, (Absolute)Mapper.Vector.Left, CellAlignment.TopLeft);
+			var a = Mapper.GetPoint(Mapper.Vector.Up + i, (Absolute)Mapper.Vector.Left, Alignment.TopLeft);
 			var b = a + new SKPoint(Mapper.ColumnsCount * Mapper.CellSize, 0);
 			canvas.DrawLine(a, b, i % RowBlockSize == 0 ? thickLinePaint : thinLinePaint);
 		}
@@ -97,7 +97,7 @@ public sealed class StandardGridTemplate : IndividualGridTemplate, IRoundRectang
 		// Vertical lines.
 		for (var i = 1; i < Mapper.ColumnsCount; i++)
 		{
-			var a = Mapper.GetPoint((Absolute)Mapper.Vector.Up, Mapper.Vector.Left + i, CellAlignment.TopLeft);
+			var a = Mapper.GetPoint((Absolute)Mapper.Vector.Up, Mapper.Vector.Left + i, Alignment.TopLeft);
 			var b = a + new SKPoint(0, Mapper.RowsCount * Mapper.CellSize);
 			canvas.DrawLine(a, b, i % ColumnBlockSize == 0 ? thickLinePaint : thinLinePaint);
 		}

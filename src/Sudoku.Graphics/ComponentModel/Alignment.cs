@@ -1,9 +1,9 @@
 ﻿namespace Sudoku.ComponentModel;
 
 /// <summary>
-/// Represents a cell alignment type.
+/// Represents an alignment type.
 /// </summary>
-public enum CellAlignment : byte
+public enum Alignment : byte
 {
 	/// <summary>
 	/// Indicates the placeholder of this type.
@@ -11,27 +11,27 @@ public enum CellAlignment : byte
 	None = 0,
 
 	/// <summary>
-	/// Indicates center point of the cell.
+	/// Indicates center point of container.
 	/// </summary>
 	Center,
 
 	/// <summary>
-	/// Indicates top-left point of the cell.
+	/// Indicates top-left point of container.
 	/// </summary>
 	TopLeft,
 
 	/// <summary>
-	/// Indicates top-right point of the cell.
+	/// Indicates top-right point of container.
 	/// </summary>
 	TopRight,
 
 	/// <summary>
-	/// Indicates bottom-left point of the cell.
+	/// Indicates bottom-left point of container.
 	/// </summary>
 	BottomLeft,
 
 	/// <summary>
-	/// Indicates bottom-right point of the cell.
+	/// Indicates bottom-right point of container.
 	/// </summary>
 	BottomRight
 }

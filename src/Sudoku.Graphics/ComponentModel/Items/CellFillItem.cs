@@ -48,8 +48,8 @@ public sealed class CellFillItem : FillItem
 	{
 		using var fillPaint = new SKPaint { Style = SKPaintStyle.Fill, Color = Color };
 		var template = canvas.Templates[TemplateIndex];
-		var topLeft = template.Mapper.GetPoint(Cell, CellAlignment.TopLeft);
-		var bottomRight = template.Mapper.GetPoint(Cell, CellAlignment.BottomRight);
+		var topLeft = template.Mapper.GetPoint(Cell, Alignment.TopLeft);
+		var bottomRight = template.Mapper.GetPoint(Cell, Alignment.BottomRight);
 		var rect = SKRect.Create(topLeft, bottomRight);
 		canvas.BackingCanvas.DrawRect(rect, fillPaint);
 	}

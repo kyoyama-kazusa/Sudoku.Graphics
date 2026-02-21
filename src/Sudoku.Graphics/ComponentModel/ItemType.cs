@@ -21,6 +21,11 @@ public enum ItemType
 	CellFill,
 
 	/// <summary>
+	/// Indicates candidate filling.
+	/// </summary>
+	CandidateFill,
+
+	/// <summary>
 	/// Indicates template line strokes.
 	/// </summary>
 	TemplateLineStroke,

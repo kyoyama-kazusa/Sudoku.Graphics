@@ -6,6 +6,7 @@
 /// </summary>
 [JsonPolymorphic(UnknownDerivedTypeHandling = JsonUnknownDerivedTypeHandling.FailSerialization)]
 [JsonDerivedType(typeof(BackgroundFillItem), nameof(BackgroundFillItem))]
+[JsonDerivedType(typeof(CandidateFillItem), nameof(CandidateFillItem))]
 [JsonDerivedType(typeof(CandidateTextItem), nameof(CandidateTextItem))]
 [JsonDerivedType(typeof(CellFillItem), nameof(CellFillItem))]
 [JsonDerivedType(typeof(GivenTextItem), nameof(GivenTextItem))]

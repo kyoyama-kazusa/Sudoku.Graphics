@@ -68,7 +68,13 @@ canvas.DrawItems(
 		.. gridTextItems,
 		..
 		from BigTextItem item in gridTextItems
-		select new CellFillItem { TemplateIndex = 0, Cell = item.Cell, Color = SKColors.Yellow }
+		let digit = int.Parse(item.Text) - 1
+		select new CandidateFillItem
+		{
+			TemplateIndex = 0,
+			CandidatePosition = new(item.Cell, 3, digit),
+			Color = SKColors.Yellow
+		}
 	]
 );
 canvas.Export(Path.Combine(desktop, "output.png"), new() { Quality = 100 });

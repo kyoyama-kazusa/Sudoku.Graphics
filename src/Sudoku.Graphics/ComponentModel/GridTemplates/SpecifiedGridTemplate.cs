@@ -64,10 +64,10 @@ public sealed class SpecifiedGridTemplate : IndividualGridTemplate
 		foreach (var (cellIndex, directions) in ThickLineSegments)
 		{
 			drawLine(
-				Mapper.GetPoint(cellIndex, CellAlignment.TopLeft),
-				Mapper.GetPoint(cellIndex, CellAlignment.TopRight),
-				Mapper.GetPoint(cellIndex, CellAlignment.BottomLeft),
-				Mapper.GetPoint(cellIndex, CellAlignment.BottomRight),
+				Mapper.GetPoint(cellIndex, Alignment.TopLeft),
+				Mapper.GetPoint(cellIndex, Alignment.TopRight),
+				Mapper.GetPoint(cellIndex, Alignment.BottomLeft),
+				Mapper.GetPoint(cellIndex, Alignment.BottomRight),
 				directions,
 				thickLinesPaint
 			);
@@ -75,10 +75,10 @@ public sealed class SpecifiedGridTemplate : IndividualGridTemplate
 		foreach (var (cellIndex, directions) in ThinLineSegments)
 		{
 			drawLine(
-				Mapper.GetPoint(cellIndex, CellAlignment.TopLeft),
-				Mapper.GetPoint(cellIndex, CellAlignment.TopRight),
-				Mapper.GetPoint(cellIndex, CellAlignment.BottomLeft),
-				Mapper.GetPoint(cellIndex, CellAlignment.BottomRight),
+				Mapper.GetPoint(cellIndex, Alignment.TopLeft),
+				Mapper.GetPoint(cellIndex, Alignment.TopRight),
+				Mapper.GetPoint(cellIndex, Alignment.BottomLeft),
+				Mapper.GetPoint(cellIndex, Alignment.BottomRight),
 				directions,
 				thinLinesPaint
 			);

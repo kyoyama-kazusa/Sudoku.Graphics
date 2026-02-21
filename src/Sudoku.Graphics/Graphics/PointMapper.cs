@@ -170,13 +170,13 @@ public sealed record PointMapper : IEqualityOperators<PointMapper, PointMapper, 
 	/// Returns the position (point) of the specified alignment type of the specified cell.
 	/// </summary>
 	/// <param name="absoluteCellIndex">Absolute cell index.</param>
-	/// <param name="alignment">The cell alignment.</param>
+	/// <param name="alignment">The alignment.</param>
 	/// <returns>The point instance that represents the target center position.</returns>
 	/// <exception cref="ArgumentOutOfRangeException">
-	/// Throws when <paramref name="alignment"/> is not defined or <see cref="CellAlignment.None"/>.
+	/// Throws when <paramref name="alignment"/> is not defined or <see cref="Alignment.None"/>.
 	/// </exception>
-	/// <seealso cref="CellAlignment.None"/>
-	public SKPoint GetPoint(Absolute absoluteCellIndex, CellAlignment alignment)
+	/// <seealso cref="Alignment.None"/>
+	public SKPoint GetPoint(Absolute absoluteCellIndex, Alignment alignment)
 	{
 		var columnsCount = AbsoluteColumnsCount;
 		return GetPoint(absoluteCellIndex / columnsCount, absoluteCellIndex % columnsCount, alignment);
@@ -187,22 +187,51 @@ public sealed record PointMapper : IEqualityOperators<PointMapper, PointMapper, 
 	/// </summary>
 	/// <param name="absoluteRowIndex">Absolute row index.</param>
 	/// <param name="absoluteColumnIndex">Absolute column index.</param>
-	/// <param name="alignment">The cell alignment type.</param>
+	/// <param name="alignment">The alignment type.</param>
 	/// <returns>The point instance that represents the target center position.</returns>
 	/// <exception cref="ArgumentOutOfRangeException">
-	/// Throws when <paramref name="alignment"/> is not defined or <see cref="CellAlignment.None"/>.
+	/// Throws when <paramref name="alignment"/> is not defined or <see cref="Alignment.None"/>.
 	/// </exception>
-	/// <seealso cref="CellAlignment.None"/>
-	public SKPoint GetPoint(Absolute absoluteRowIndex, Absolute absoluteColumnIndex, CellAlignment alignment)
+	/// <seealso cref="Alignment.None"/>
+	public SKPoint GetPoint(Absolute absoluteRowIndex, Absolute absoluteColumnIndex, Alignment alignment)
 	{
 		var topLeft = new SKPoint(CellSize * absoluteColumnIndex + Margin, CellSize * absoluteRowIndex + Margin);
 		return alignment switch
 		{
-			CellAlignment.Center => topLeft + new SKPoint(CellSize / 2, CellSize / 2),
-			CellAlignment.TopLeft => topLeft,
-			CellAlignment.TopRight => topLeft + new SKPoint(CellSize, 0),
-			CellAlignment.BottomLeft => topLeft + new SKPoint(0, CellSize),
-			CellAlignment.BottomRight => topLeft + new SKPoint(CellSize, CellSize),
+			Alignment.Center => topLeft + new SKPoint(CellSize / 2, CellSize / 2),
+			Alignment.TopLeft => topLeft,
+			Alignment.TopRight => topLeft + new SKPoint(CellSize, 0),
+			Alignment.BottomLeft => topLeft + new SKPoint(0, CellSize),
+			Alignment.BottomRight => topLeft + new SKPoint(CellSize, CellSize),
+			_ => throw new ArgumentOutOfRangeException(nameof(alignment))
+		};
+	}
+
+	/// <summary>
+	/// Returns the position (point) of the specified alignment type of the specified candidate (absolute).
+	/// </summary>
+	/// <param name="candidatePosition">Absolute candidate position.</param>
+	/// <param name="alignment">The alignment.</param>
+	/// <returns>The point instance that represents the target center position.</returns>
+	/// <exception cref="ArgumentOutOfRangeException">
+	/// Throws when <paramref name="alignment"/> is not defined or <see cref="Alignment.None"/>.
+	/// </exception>
+	/// <seealso cref="Alignment.None"/>
+	public SKPoint GetPoint(CandidatePosition candidatePosition, Alignment alignment)
+	{
+		var (cell, subgridSize, innerIndex) = candidatePosition;
+		var cellTopLeft = GetPoint(cell, Alignment.TopLeft);
+		var candidateSize = CellSize / subgridSize;
+		var candidateRowIndex = innerIndex / subgridSize;
+		var candidateColumnIndex = innerIndex % subgridSize;
+		var topLeft = cellTopLeft + new SKPoint(candidateColumnIndex * candidateSize, candidateRowIndex * candidateSize);
+		return alignment switch
+		{
+			Alignment.Center => topLeft + new SKPoint(candidateSize / 2, candidateSize / 2),
+			Alignment.TopLeft => topLeft,
+			Alignment.TopRight => topLeft + new SKPoint(candidateSize, 0),
+			Alignment.BottomLeft => topLeft + new SKPoint(0, candidateSize),
+			Alignment.BottomRight => topLeft + new SKPoint(candidateSize, candidateSize),
 			_ => throw new ArgumentOutOfRangeException(nameof(alignment))
 		};
 	}
@@ -224,17 +253,9 @@ public sealed record PointMapper : IEqualityOperators<PointMapper, PointMapper, 
 
 	private bool PrintMembers(StringBuilder builder)
 	{
-		builder.Append(nameof(CellSize));
-		builder.Append(" = ");
-		builder.Append(CellSize.ToString("0.0###"));
-		builder.Append(", ");
-		builder.Append(nameof(Margin));
-		builder.Append(" = ");
-		builder.Append(Margin.ToString("0.0###"));
-		builder.Append(", ");
-		builder.Append(nameof(TemplateSize));
-		builder.Append(" = ");
-		builder.Append(TemplateSize.ToString());
+		builder.Append($"{nameof(CellSize)} = {CellSize:0.0###}, ");
+		builder.Append($"{nameof(Margin)} = {Margin:0.0###}, ");
+		builder.Append($"{nameof(TemplateSize)} = {TemplateSize}");
 		return true;
 	}
 }

@@ -57,16 +57,16 @@ public sealed class SujikenGridTemplate : IndividualGridTemplate
 
 		var path = new SKPath();
 		var iteratingCellIndex = 0;
-		var iteratingPoint = Mapper.GetPoint(Mapper.GetAbsoluteIndex(iteratingCellIndex), CellAlignment.TopLeft);
+		var iteratingPoint = Mapper.GetPoint(Mapper.GetAbsoluteIndex(iteratingCellIndex), Alignment.TopLeft);
 		var diagonalPoints = new List<SKPoint> { iteratingPoint };
 		for (var i = 0; i < Mapper.RowsCount - 1; i++)
 		{
 			iteratingCellIndex++;
-			diagonalPoints.Add(Mapper.GetPoint(Mapper.GetAbsoluteIndex(iteratingCellIndex), CellAlignment.TopLeft));
+			diagonalPoints.Add(Mapper.GetPoint(Mapper.GetAbsoluteIndex(iteratingCellIndex), Alignment.TopLeft));
 			_rowCellIndicesLookup.Add(i, iteratingCellIndex - 1);
 
 			iteratingCellIndex += Mapper.ColumnsCount;
-			diagonalPoints.Add(Mapper.GetPoint(Mapper.GetAbsoluteIndex(iteratingCellIndex), CellAlignment.TopLeft));
+			diagonalPoints.Add(Mapper.GetPoint(Mapper.GetAbsoluteIndex(iteratingCellIndex), Alignment.TopLeft));
 			_columnCellIndicesLookup.Add(i, iteratingCellIndex);
 		}
 
@@ -79,9 +79,9 @@ public sealed class SujikenGridTemplate : IndividualGridTemplate
 		path.AddPoly(
 			[
 				.. diagonalPoints,
-				Mapper.GetPoint(lastCellIndex, CellAlignment.TopRight),
-				Mapper.GetPoint(lastCellIndex, CellAlignment.BottomRight),
-				Mapper.GetPoint(firstCellIndexInLastRow, CellAlignment.BottomLeft)
+				Mapper.GetPoint(lastCellIndex, Alignment.TopRight),
+				Mapper.GetPoint(lastCellIndex, Alignment.BottomRight),
+				Mapper.GetPoint(firstCellIndexInLastRow, Alignment.BottomLeft)
 			],
 			true
 		);
@@ -101,16 +101,16 @@ public sealed class SujikenGridTemplate : IndividualGridTemplate
 		// Horizontal lines.
 		for (var i = 0; i < Mapper.RowsCount; i++)
 		{
-			var a = Mapper.GetPoint(Mapper.GetAbsoluteIndex(i * Mapper.ColumnsCount), CellAlignment.TopLeft);
-			var b = Mapper.GetPoint(Mapper.GetAbsoluteIndex(_rowCellIndicesLookup[i]), CellAlignment.TopLeft);
+			var a = Mapper.GetPoint(Mapper.GetAbsoluteIndex(i * Mapper.ColumnsCount), Alignment.TopLeft);
+			var b = Mapper.GetPoint(Mapper.GetAbsoluteIndex(_rowCellIndicesLookup[i]), Alignment.TopLeft);
 			canvas.DrawLine(a, b, i % UniformBlockSize == 0 ? thickLinePaint : thinLinePaint);
 		}
 
 		// Vertical lines.
 		for (var i = 1; i < Mapper.ColumnsCount; i++)
 		{
-			var a = Mapper.GetPoint(Mapper.GetAbsoluteIndex(_columnCellIndicesLookup[i - 1]), CellAlignment.TopLeft);
-			var b = Mapper.GetPoint(Mapper.GetAbsoluteIndex(Mapper.RowsCount * Mapper.ColumnsCount + i), CellAlignment.TopLeft);
+			var a = Mapper.GetPoint(Mapper.GetAbsoluteIndex(_columnCellIndicesLookup[i - 1]), Alignment.TopLeft);
+			var b = Mapper.GetPoint(Mapper.GetAbsoluteIndex(Mapper.RowsCount * Mapper.ColumnsCount + i), Alignment.TopLeft);
 			canvas.DrawLine(a, b, i % UniformBlockSize == 0 ? thickLinePaint : thinLinePaint);
 		}
 	}
