@@ -432,6 +432,7 @@
         <member name="M:Sudoku.ComponentModel.GridTemplate.GuardStatements(SkiaSharp.SKCanvas)">
             <summary>
             Provides guard statements. If failed, an exception instance of type <see cref="T:System.ArgumentException"/> will be thrown.
+            By default, this method doesn't do anything. You can override this method, with values preparing to be checked here.
             </summary>
             <param name="canvas">The target canvas to draw.</param>
             <exception cref="T:System.ArgumentException">Throws when any assertion defined in this method is failed.</exception>
@@ -578,9 +579,6 @@
         <member name="P:Sudoku.ComponentModel.GridTemplates.DefaultGridTemplate.BorderCornerRadius">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.ComponentModel.GridTemplates.DefaultGridTemplate.GuardStatements(SkiaSharp.SKCanvas)">
-            <inheritdoc/>
-        </member>
         <member name="M:Sudoku.ComponentModel.GridTemplates.DefaultGridTemplate.DrawBorderRectangle(SkiaSharp.SKCanvas)">
             <inheritdoc/>
         </member>
@@ -628,9 +626,6 @@
             <summary>
             Indicates the color set that will be used for colorization of cells.
             </summary>
-        </member>
-        <member name="M:Sudoku.ComponentModel.GridTemplates.JigsawGridTemplate.GuardStatements(SkiaSharp.SKCanvas)">
-            <inheritdoc/>
         </member>
         <member name="M:Sudoku.ComponentModel.GridTemplates.JigsawGridTemplate.DrawBorderRectangle(SkiaSharp.SKCanvas)">
             <inheritdoc/>
@@ -690,9 +685,6 @@
             </summary>
             <seealso cref="P:Sudoku.ComponentModel.GridTemplates.StandardGridTemplate.Mapper"/>
         </member>
-        <member name="M:Sudoku.ComponentModel.GridTemplates.StandardGridTemplate.GuardStatements(SkiaSharp.SKCanvas)">
-            <inheritdoc/>
-        </member>
         <member name="M:Sudoku.ComponentModel.GridTemplates.StandardGridTemplate.DrawBorderRectangle(SkiaSharp.SKCanvas)">
             <inheritdoc/>
         </member>
@@ -721,9 +713,6 @@
             <summary>
             Indicates the number of rows and columns in a block.
             </summary>
-        </member>
-        <member name="M:Sudoku.ComponentModel.GridTemplates.SujikenGridTemplate.GuardStatements(SkiaSharp.SKCanvas)">
-            <inheritdoc/>
         </member>
         <member name="M:Sudoku.ComponentModel.GridTemplates.SujikenGridTemplate.DrawBorderRectangle(SkiaSharp.SKCanvas)">
             <inheritdoc/>

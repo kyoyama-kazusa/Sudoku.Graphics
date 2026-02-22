@@ -30,11 +30,6 @@ public sealed class JigsawGridTemplate : GridTemplate
 
 
 	/// <inheritdoc/>
-	protected override void GuardStatements(SKCanvas canvas)
-	{
-	}
-
-	/// <inheritdoc/>
 	protected override void DrawBorderRectangle(SKCanvas canvas)
 	{
 	}

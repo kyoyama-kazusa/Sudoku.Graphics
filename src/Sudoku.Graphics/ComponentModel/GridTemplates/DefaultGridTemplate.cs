@@ -19,11 +19,6 @@ public sealed class DefaultGridTemplate : GridTemplate, IGridTemplate_RoundedRec
 
 
 	/// <inheritdoc/>
-	protected override void GuardStatements(SKCanvas canvas)
-	{
-	}
-
-	/// <inheritdoc/>
 	protected override void DrawBorderRectangle(SKCanvas canvas)
 	{
 		var path = new SKPath();

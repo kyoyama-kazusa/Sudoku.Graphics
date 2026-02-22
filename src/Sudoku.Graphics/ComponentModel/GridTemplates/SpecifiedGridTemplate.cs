@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a grid template that specifies a list of thick and thin lines.
 /// </summary>
-public sealed class SpecifiedGridTemplate : GridTemplate
+public class SpecifiedGridTemplate : GridTemplate
 {
 	/// <summary>
 	/// Indicates thick line segments.
@@ -17,7 +17,7 @@ public sealed class SpecifiedGridTemplate : GridTemplate
 
 
 	/// <inheritdoc/>
-	protected override void GuardStatements(SKCanvas canvas)
+	protected sealed override void GuardStatements(SKCanvas canvas)
 	{
 		var maxCellIndex = Mapper.AbsoluteRowsCount * Mapper.AbsoluteColumnsCount;
 		foreach (var (cellIndex, directions) in ThickLineSegments)
@@ -52,12 +52,12 @@ public sealed class SpecifiedGridTemplate : GridTemplate
 	}
 
 	/// <inheritdoc/>
-	protected override void DrawBorderRectangle(SKCanvas canvas)
+	protected sealed override void DrawBorderRectangle(SKCanvas canvas)
 	{
 	}
 
 	/// <inheritdoc/>
-	protected override void DrawGridLines(SKCanvas canvas)
+	protected sealed override void DrawGridLines(SKCanvas canvas)
 	{
 		using var thickLinesPaint = CreateThickLinesPaint();
 		using var thinLinesPaint = CreateThinLinesPaint();

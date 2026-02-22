@@ -76,10 +76,13 @@ public abstract partial class GridTemplate
 
 	/// <summary>
 	/// Provides guard statements. If failed, an exception instance of type <see cref="ArgumentException"/> will be thrown.
+	/// By default, this method doesn't do anything. You can override this method, with values preparing to be checked here.
 	/// </summary>
 	/// <param name="canvas">The target canvas to draw.</param>
 	/// <exception cref="ArgumentException">Throws when any assertion defined in this method is failed.</exception>
-	protected abstract void GuardStatements(SKCanvas canvas);
+	protected virtual void GuardStatements(SKCanvas canvas)
+	{
+	}
 
 	/// <summary>
 	/// Try to draw border rectangle.
