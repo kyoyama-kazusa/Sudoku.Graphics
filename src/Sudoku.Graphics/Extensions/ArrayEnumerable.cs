@@ -6,6 +6,9 @@
 /// <seealso cref="Array"/>
 public static class ArrayEnumerable
 {
+	/// <param name="source">
+	/// <inheritdoc cref="Enumerable.Index{TSource}(IEnumerable{TSource})" path="/param[@name='source']"/>
+	/// </param>
 	extension<TSource>(TSource[] source)
 	{
 		/// <inheritdoc cref="Enumerable.Index{TSource}(IEnumerable{TSource})"/>
