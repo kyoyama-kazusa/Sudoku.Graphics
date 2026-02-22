@@ -156,6 +156,11 @@
             Represents a crossmath formula.
             </summary>
         </member>
+        <member name="P:Sudoku.ComponentModel.Crossmath.CrossmathFormula.ValueSequence">
+            <summary>
+            Indicates the value sequence that will be filled into the cells.
+            </summary>
+        </member>
         <member name="P:Sudoku.ComponentModel.Crossmath.CrossmathFormula.Cell">
             <summary>
             Indicates the cell as start.
@@ -170,6 +175,25 @@
             <summary>
             Indicates expanding direction of formula.
             </summary>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Crossmath.CrossmathFormula.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.ComponentModel.Crossmath.CrossmathPuzzleCellTextItemFactory">
+            <summary>
+            Provides an easy way to create <see cref="T:Sudoku.ComponentModel.Items.GivenTextItem"/> instances that will be used by rendering a crossmath puzzle.
+            </summary>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Crossmath.CrossmathPuzzleCellTextItemFactory.Create(Sudoku.ComponentModel.Crossmath.CrossmathFormula[],Sudoku.Graphics.PointMapper,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor)">
+            <summary>
+            Creates a list of <see cref="T:Sudoku.ComponentModel.Items.GivenTextItem"/> instances via the specified formulae.
+            </summary>
+            <param name="formulae">The formulae to be loaded.</param>
+            <param name="mapper">The point mapper.</param>
+            <param name="fontName">The font name.</param>
+            <param name="fontSizeScale">The font size scale.</param>
+            <param name="color">The color.</param>
+            <returns>A list of <see cref="T:Sudoku.ComponentModel.Items.GivenTextItem"/> instances.</returns>
         </member>
         <member name="T:Sudoku.ComponentModel.Direction">
             <summary>
@@ -589,8 +613,14 @@
         </member>
         <member name="P:Sudoku.ComponentModel.GridTemplates.CrossmathGridTemplate.Formulae">
             <summary>
-            Represents a list of formulae.
+            Represents a list of formulae. Property <see cref="P:Sudoku.ComponentModel.Crossmath.CrossmathFormula.ValueSequence"/> won't be used here;
+            this property requires property <see cref="P:Sudoku.ComponentModel.GridTemplate.Mapper"/> having been already initialized.
             </summary>
+            <exception cref="T:System.InvalidOperationException">
+            Throws when property <see cref="P:Sudoku.ComponentModel.GridTemplate.Mapper"/> isn't initialized.
+            </exception>
+            <seealso cref="P:Sudoku.ComponentModel.Crossmath.CrossmathFormula.ValueSequence"/>
+            <seealso cref="P:Sudoku.ComponentModel.GridTemplate.Mapper"/>
         </member>
         <member name="T:Sudoku.ComponentModel.GridTemplates.DefaultGridTemplate">
             <summary>
