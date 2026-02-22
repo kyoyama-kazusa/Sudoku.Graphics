@@ -10,7 +10,8 @@
 /// the template will also be used as identifiers of puzzles, as basic grid panel.
 /// </para>
 /// </summary>
-[JsonPolymorphic(UnknownDerivedTypeHandling = JsonUnknownDerivedTypeHandling.FailSerialization)]
+[JsonPolymorphic(UnknownDerivedTypeHandling = JsonUnknownDerivedTypeHandling.FallBackToBaseType)]
+[JsonDerivedType(typeof(CrossmathGridTemplate), nameof(CrossmathGridTemplate))]
 [JsonDerivedType(typeof(DefaultGridTemplate), nameof(DefaultGridTemplate))]
 [JsonDerivedType(typeof(JigsawGridTemplate), nameof(JigsawGridTemplate))]
 [JsonDerivedType(typeof(SpecifiedGridTemplate), nameof(SpecifiedGridTemplate))]

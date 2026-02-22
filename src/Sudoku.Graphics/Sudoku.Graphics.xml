@@ -151,6 +151,26 @@
         <member name="P:Sudoku.ComponentModel.CandidatePosition.InnerIndex">
             <summary>The internal absolute position index of the candidate.</summary>
         </member>
+        <member name="T:Sudoku.ComponentModel.Crossmath.CrossmathFormula">
+            <summary>
+            Represents a crossmath formula.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Crossmath.CrossmathFormula.Cell">
+            <summary>
+            Indicates the cell as start.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Crossmath.CrossmathFormula.CellsCount">
+            <summary>
+            Indicates the number of cells occupied.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Crossmath.CrossmathFormula.ExpandingDirection">
+            <summary>
+            Indicates expanding direction of formula.
+            </summary>
+        </member>
         <member name="T:Sudoku.ComponentModel.Direction">
             <summary>
             Represents a direction.
@@ -562,6 +582,16 @@
             <returns>A <see cref="T:Sudoku.ComponentModel.GridTemplateSize"/> instance that is the minimal size, covering all templates specified.</returns>
             <seealso cref="T:Sudoku.Graphics.Canvas"/>
         </member>
+        <member name="T:Sudoku.ComponentModel.GridTemplates.CrossmathGridTemplate">
+            <summary>
+            Represents crossmath grid template.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.GridTemplates.CrossmathGridTemplate.Formulae">
+            <summary>
+            Represents a list of formulae.
+            </summary>
+        </member>
         <member name="T:Sudoku.ComponentModel.GridTemplates.DefaultGridTemplate">
             <summary>
             Represents a default grid template that doesn't contain any block (thick) lines, except borders.
@@ -640,12 +670,12 @@
         </member>
         <member name="P:Sudoku.ComponentModel.GridTemplates.SpecifiedGridTemplate.ThickLineSegments">
             <summary>
-            Indicates thick line segments.
+            Indicates thick line segments. By default it's an empty array.
             </summary>
         </member>
         <member name="P:Sudoku.ComponentModel.GridTemplates.SpecifiedGridTemplate.ThinLineSegments">
             <summary>
-            Indicates thin line segments.
+            Indicates thin line segments. By default it's an empty array.
             </summary>
         </member>
         <member name="M:Sudoku.ComponentModel.GridTemplates.SpecifiedGridTemplate.GuardStatements(SkiaSharp.SKCanvas)">

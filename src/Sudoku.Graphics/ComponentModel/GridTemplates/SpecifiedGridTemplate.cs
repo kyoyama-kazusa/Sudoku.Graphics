@@ -6,14 +6,14 @@
 public class SpecifiedGridTemplate : GridTemplate
 {
 	/// <summary>
-	/// Indicates thick line segments.
+	/// Indicates thick line segments. By default it's an empty array.
 	/// </summary>
-	public required LineSegment[] ThickLineSegments { get; init; }
+	public LineSegment[] ThickLineSegments { get; init; } = [];
 
 	/// <summary>
-	/// Indicates thin line segments.
+	/// Indicates thin line segments. By default it's an empty array.
 	/// </summary>
-	public required LineSegment[] ThinLineSegments { get; init; }
+	public LineSegment[] ThinLineSegments { get; init; } = [];
 
 
 	/// <inheritdoc/>
