@@ -6,6 +6,7 @@
 /// <param name="value">The value.</param>
 [JsonConverter(typeof(ValueConverter<Relative>))]
 [DebuggerDisplay($$"""{{{nameof(ToString)}}(),nq}""")]
+[SuppressMessage("Usage", "CA2231:Overload operator equals on overriding value type Equals", Justification = "<Pending>")]
 public readonly struct Relative(int value) : IInteger<Relative>
 {
 	/// <summary>
@@ -55,23 +56,4 @@ public readonly struct Relative(int value) : IInteger<Relative>
 	/// </summary>
 	/// <param name="value">The value.</param>
 	public static explicit operator Absolute(Relative value) => (int)value;
-
-
-	/// <inheritdoc/>
-	public static bool operator ==(Relative left, Relative right) => left.Equals(right);
-
-	/// <inheritdoc/>
-	public static bool operator !=(Relative left, Relative right) => !(left == right);
-
-	/// <inheritdoc/>
-	public static bool operator >(Relative left, Relative right) => left.CompareTo(right) > 0;
-
-	/// <inheritdoc/>
-	public static bool operator >=(Relative left, Relative right) => left.CompareTo(right) >= 0;
-
-	/// <inheritdoc/>
-	public static bool operator <(Relative left, Relative right) => left.CompareTo(right) < 0;
-
-	/// <inheritdoc/>
-	public static bool operator <=(Relative left, Relative right) => left.CompareTo(right) <= 0;
 }

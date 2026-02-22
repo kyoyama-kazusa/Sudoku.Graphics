@@ -6,6 +6,7 @@
 /// <param name="value">The value.</param>
 [JsonConverter(typeof(ValueConverter<Absolute>))]
 [DebuggerDisplay($$"""{{{nameof(ToString)}}(),nq}""")]
+[SuppressMessage("Usage", "CA2231:Overload operator equals on overriding value type Equals", Justification = "<Pending>")]
 public readonly struct Absolute(int value) : IInteger<Absolute>
 {
 	/// <summary>
@@ -43,23 +44,4 @@ public readonly struct Absolute(int value) : IInteger<Absolute>
 
 	/// <inheritdoc/>
 	public static implicit operator int(Absolute value) => value._value;
-
-
-	/// <inheritdoc/>
-	public static bool operator ==(Absolute left, Absolute right) => left.Equals(right);
-
-	/// <inheritdoc/>
-	public static bool operator !=(Absolute left, Absolute right) => !(left == right);
-
-	/// <inheritdoc/>
-	public static bool operator >(Absolute left, Absolute right) => left.CompareTo(right) > 0;
-
-	/// <inheritdoc/>
-	public static bool operator >=(Absolute left, Absolute right) => left.CompareTo(right) >= 0;
-
-	/// <inheritdoc/>
-	public static bool operator <(Absolute left, Absolute right) => left.CompareTo(right) < 0;
-
-	/// <inheritdoc/>
-	public static bool operator <=(Absolute left, Absolute right) => left.CompareTo(right) <= 0;
 }
