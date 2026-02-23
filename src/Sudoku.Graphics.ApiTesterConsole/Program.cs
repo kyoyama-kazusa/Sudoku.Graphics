@@ -33,7 +33,7 @@ var formulae = (CrossmathFormula[])[
 	{
 		Cell = 52,
 		ExpandingDirection = Direction.Right,
-		ValueSequence = [null, "x", "4", "=", null]
+		ValueSequence = [null, "×", "4", "=", null]
 	},
 	new()
 	{
@@ -45,7 +45,7 @@ var formulae = (CrossmathFormula[])[
 	{
 		Cell = 30,
 		ExpandingDirection = Direction.Right,
-		ValueSequence = ["2", "x", "2", "=", null]
+		ValueSequence = ["2", "×", "2", "=", null]
 	},
 	new()
 	{
@@ -63,19 +63,19 @@ var formulae = (CrossmathFormula[])[
 	{
 		Cell = 12,
 		ExpandingDirection = Direction.Down,
-		ValueSequence = [null, "x", null, "=", null]
+		ValueSequence = [null, "×", null, "=", null]
 	},
 	new()
 	{
 		Cell = 60,
 		ExpandingDirection = Direction.Right,
-		ValueSequence = [null, "x", null, "=", "45"]
+		ValueSequence = [null, "×", null, "=", "45"]
 	},
 	new()
 	{
 		Cell = 54,
 		ExpandingDirection = Direction.Down,
-		ValueSequence = ["4", "x", null, "=", null]
+		ValueSequence = ["4", "×", null, "=", null]
 	},
 	new()
 	{
@@ -87,7 +87,7 @@ var formulae = (CrossmathFormula[])[
 	{
 		Cell = 104,
 		ExpandingDirection = Direction.Right,
-		ValueSequence = ["3", "x", null, "=", "12"]
+		ValueSequence = ["3", "×", null, "=", "12"]
 	},
 	new()
 	{
@@ -129,13 +129,13 @@ var formulae = (CrossmathFormula[])[
 	{
 		Cell = 116,
 		ExpandingDirection = Direction.Down,
-		ValueSequence = [null, "x", "5", "=", "15"]
+		ValueSequence = [null, "×", "5", "=", "15"]
 	},
 	new()
 	{
 		Cell = 164,
 		ExpandingDirection = Direction.Right,
-		ValueSequence = [null, "x", null, "=", "15"]
+		ValueSequence = [null, "×", null, "=", "15"]
 	}
 ];
 var mapper = new PointMapper
