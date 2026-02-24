@@ -6,39 +6,32 @@
 public sealed class CrossmathGridTemplate : SpecifiedGridTemplate
 {
 	/// <summary>
-	/// Represents a list of formulae. Property <see cref="CrossmathFormula.ValueSequence"/> won't be used here;
-	/// this property requires property <see cref="GridTemplate.Mapper"/> having been already initialized.
+	/// Initializes a <see cref="CrossmathGridTemplate"/> instance, via the formulae.
 	/// </summary>
-	/// <exception cref="InvalidOperationException">
-	/// Throws when property <see cref="GridTemplate.Mapper"/> isn't initialized.
-	/// </exception>
-	/// <seealso cref="CrossmathFormula.ValueSequence"/>
-	/// <seealso cref="GridTemplate.Mapper"/>
-	public required CrossmathFormula[] Formulae
+	/// <param name="formulae">Indicates the formulae.</param>
+	/// <param name="mapper">The mapper.</param>
+	[SetsRequiredMembers]
+	public CrossmathGridTemplate(CrossmathFormula[] formulae, PointMapper mapper) : base(mapper)
 	{
-		get;
-
-		init
+		var thinBorders = new List<LineSegment>();
+		foreach (var formula in formulae)
 		{
-			if (Mapper is null)
+			var startCell = formula.Cell;
+			for (var i = 0; i < formula.CellsCount; i++)
 			{
-				throw new InvalidOperationException($"You should firstly initialize for property '{nameof(Mapper)}'.");
+				var nextCell = i == 0 ? formula.Cell : Mapper.GetAdjacentAbsoluteCellWith(startCell, formula.ExpandingDirection, false);
+				thinBorders.Add(new(nextCell, Direction.Up | Direction.Down | Direction.Left | Direction.Right));
+				startCell = nextCell;
 			}
-
-			field = value;
-
-			var thinBorders = new List<LineSegment>();
-			foreach (var formula in value)
-			{
-				var startCell = formula.Cell;
-				for (var i = 0; i < formula.CellsCount; i++)
-				{
-					var nextCell = i == 0 ? formula.Cell : Mapper.GetAdjacentAbsoluteCellWith(startCell, formula.ExpandingDirection, false);
-					thinBorders.Add(new(nextCell, Direction.Up | Direction.Down | Direction.Left | Direction.Right));
-					startCell = nextCell;
-				}
-			}
-			ThinLineSegments = [.. thinBorders];
 		}
+
+		Formulae = formulae;
+		ThinLineSegments = [.. thinBorders];
 	}
+
+
+	/// <summary>
+	/// Represents a list of formulae.
+	/// </summary>
+	public CrossmathFormula[] Formulae { get; }
 }

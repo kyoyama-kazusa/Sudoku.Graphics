@@ -605,16 +605,17 @@
             Represents crossmath grid template.
             </summary>
         </member>
+        <member name="M:Sudoku.ComponentModel.GridTemplates.CrossmathGridTemplate.#ctor(Sudoku.ComponentModel.Crossmath.CrossmathFormula[],Sudoku.Graphics.PointMapper)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.ComponentModel.GridTemplates.CrossmathGridTemplate"/> instance, via the formulae.
+            </summary>
+            <param name="formulae">Indicates the formulae.</param>
+            <param name="mapper">The mapper.</param>
+        </member>
         <member name="P:Sudoku.ComponentModel.GridTemplates.CrossmathGridTemplate.Formulae">
             <summary>
-            Represents a list of formulae. Property <see cref="P:Sudoku.ComponentModel.Crossmath.CrossmathFormula.ValueSequence"/> won't be used here;
-            this property requires property <see cref="P:Sudoku.ComponentModel.GridTemplate.Mapper"/> having been already initialized.
+            Represents a list of formulae.
             </summary>
-            <exception cref="T:System.InvalidOperationException">
-            Throws when property <see cref="P:Sudoku.ComponentModel.GridTemplate.Mapper"/> isn't initialized.
-            </exception>
-            <seealso cref="P:Sudoku.ComponentModel.Crossmath.CrossmathFormula.ValueSequence"/>
-            <seealso cref="P:Sudoku.ComponentModel.GridTemplate.Mapper"/>
         </member>
         <member name="T:Sudoku.ComponentModel.GridTemplates.DefaultGridTemplate">
             <summary>
@@ -691,6 +692,12 @@
             <summary>
             Represents a grid template that specifies a list of thick and thin lines.
             </summary>
+        </member>
+        <member name="M:Sudoku.ComponentModel.GridTemplates.SpecifiedGridTemplate.#ctor(Sudoku.Graphics.PointMapper)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.ComponentModel.GridTemplates.SpecifiedGridTemplate"/> instance, via the mapper.
+            </summary>
+            <param name="mapper">The mapper instance.</param>
         </member>
         <member name="P:Sudoku.ComponentModel.GridTemplates.SpecifiedGridTemplate.ThickLineSegments">
             <summary>

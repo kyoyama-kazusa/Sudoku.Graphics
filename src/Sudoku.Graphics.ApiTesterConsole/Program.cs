@@ -145,10 +145,8 @@ var mapper = new PointMapper
 	TemplateSize = new() { RowsCount = 13, ColumnsCount = 13 }
 };
 using var canvas = new Canvas(
-	new CrossmathGridTemplate
+	new CrossmathGridTemplate(formulae, mapper)
 	{
-		Mapper = mapper,
-		Formulae = formulae,
 		ThickLineWidth = options.ThickLineWidth.Resolve(options),
 		ThinLineWidth = options.ThinLineWidth.Resolve(options),
 		ThickLineColor = options.ThickLineColor.Resolve(options),

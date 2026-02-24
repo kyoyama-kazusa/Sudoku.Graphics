@@ -6,6 +6,15 @@
 public class SpecifiedGridTemplate : GridTemplate
 {
 	/// <summary>
+	/// Initializes a <see cref="SpecifiedGridTemplate"/> instance, via the mapper.
+	/// </summary>
+	/// <param name="mapper">The mapper instance.</param>
+	[JsonConstructor]
+	[SetsRequiredMembers]
+	public SpecifiedGridTemplate(PointMapper mapper) => Mapper = mapper;
+
+
+	/// <summary>
 	/// Indicates thick line segments. By default it's an empty array.
 	/// </summary>
 	public LineSegment[] ThickLineSegments { get; init; } = [];
