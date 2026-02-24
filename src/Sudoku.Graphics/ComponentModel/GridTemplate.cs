@@ -22,13 +22,7 @@ public abstract partial class GridTemplate
 	/// <summary>
 	/// Indicates point mapper instance that can project points into cells.
 	/// </summary>
-	/// <remarks>
-	/// This is a <see langword="required"/> member, which means you must initialize while a template instance is being initialized.
-	/// However, this member is also modified <see langword="virtual"/>, which means you can override this member.
-	/// Through overridding this property, you can add extra logic to handle complex assignments around <see langword="value"/>
-	/// of this property.
-	/// </remarks>
-	public virtual required PointMapper Mapper { get; init; }
+	public required PointMapper Mapper { get; init; }
 
 	/// <summary>
 	/// Indicates thick line width.

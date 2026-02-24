@@ -11,31 +11,36 @@ public sealed class SujikenGridTemplate : GridTemplate
 	private Dictionary<int, Relative>? _rowCellIndicesLookup, _columnCellIndicesLookup;
 
 
-	/// <inheritdoc/>
-	public override required PointMapper Mapper
+	/// <summary>
+	/// Initializes a <see cref="SujikenGridTemplate"/> instance, with <see langword="required"/> members been set.
+	/// </summary>
+	/// <param name="uniformBlockSize">
+	/// The uniform size. If set -1, it'll be initialized as square root of grid size specified by <paramref name="mapper"/>.
+	/// </param>
+	/// <param name="mapper">The mapper instance.</param>
+	[JsonConstructor]
+	[SetsRequiredMembers]
+	public SujikenGridTemplate(Relative uniformBlockSize, PointMapper mapper)
 	{
-		get;
+		ArgumentException.Assert(mapper.RowsCount == mapper.ColumnsCount);
 
-		init
+		Mapper = mapper;
+
+		var linesCount = Mapper.RowsCount;
+		if (uniformBlockSize == -1)
 		{
-			ArgumentException.Assert(value.RowsCount == value.ColumnsCount);
-
-			field = value;
-
-			if (UniformBlockSize != 0)
-			{
-				ArgumentException.Assert(value.RowsCount % UniformBlockSize == 0);
-				ArgumentException.Assert(value.ColumnsCount % UniformBlockSize == 0);
-				return;
-			}
-
-			var linesCount = Mapper.RowsCount;
-			var squareRootOfLinesCount = (int)Math.Sqrt(linesCount);
-			UniformBlockSize = squareRootOfLinesCount * squareRootOfLinesCount == linesCount
-				? squareRootOfLinesCount
-				: throw new ArgumentException("Expect a square number.");
+			uniformBlockSize = (int)Math.Sqrt(linesCount);
 		}
+
+		ArgumentException.Assert(linesCount % uniformBlockSize == 0);
+
+		if (uniformBlockSize * uniformBlockSize != linesCount)
+		{
+			throw new ArgumentException("Expect a square number.");
+		}
+		UniformBlockSize = uniformBlockSize;
 	}
+
 
 	/// <summary>
 	/// Indicates the number of rows and columns in a block.

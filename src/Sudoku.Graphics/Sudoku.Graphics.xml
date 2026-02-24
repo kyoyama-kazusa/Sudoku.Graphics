@@ -427,12 +427,6 @@
             <summary>
             Indicates point mapper instance that can project points into cells.
             </summary>
-            <remarks>
-            This is a <see langword="required"/> member, which means you must initialize while a template instance is being initialized.
-            However, this member is also modified <see langword="virtual"/>, which means you can override this member.
-            Through overridding this property, you can add extra logic to handle complex assignments around <see langword="value"/>
-            of this property.
-            </remarks>
         </member>
         <member name="P:Sudoku.ComponentModel.GridTemplate.ThickLineWidth">
             <summary>
@@ -722,8 +716,17 @@
             Represents a standard (rectangular) grid template.
             </summary>
         </member>
-        <member name="P:Sudoku.ComponentModel.GridTemplates.StandardGridTemplate.Mapper">
-            <inheritdoc/>
+        <member name="M:Sudoku.ComponentModel.GridTemplates.StandardGridTemplate.#ctor(Sudoku.ComponentModel.Relative,Sudoku.ComponentModel.Relative,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.ComponentModel.GridTemplates.StandardGridTemplate"/> instance, with <see langword="required"/> members been set.
+            </summary>
+            <param name="rowBlockSize">
+            The block size of rows. If set -1, it'll be initialized as square root of grid size specified by <paramref name="mapper"/>.
+            </param>
+            <param name="columnBlockSize">
+            The block size of columns. If set -1, it'll be initialized as square root of grid size specified by <paramref name="mapper"/>.
+            </param>
+            <param name="mapper">The mapper instance.</param>
         </member>
         <member name="P:Sudoku.ComponentModel.GridTemplates.StandardGridTemplate.IsBorderRoundedRectangle">
             <inheritdoc/>
@@ -734,16 +737,16 @@
         <member name="P:Sudoku.ComponentModel.GridTemplates.StandardGridTemplate.RowBlockSize">
             <summary>
             Indicates the number of rows in a rectangular block.
-            If you want to assign this field, please assign it ahead of assigning <see cref="P:Sudoku.ComponentModel.GridTemplates.StandardGridTemplate.Mapper"/>.
+            If you want to assign this field, please assign it ahead of assigning <see cref="P:Sudoku.ComponentModel.GridTemplate.Mapper"/>.
             </summary>
-            <seealso cref="P:Sudoku.ComponentModel.GridTemplates.StandardGridTemplate.Mapper"/>
+            <seealso cref="P:Sudoku.ComponentModel.GridTemplate.Mapper"/>
         </member>
         <member name="P:Sudoku.ComponentModel.GridTemplates.StandardGridTemplate.ColumnBlockSize">
             <summary>
             Indicates the number of columns in a rectangular block.
-            If you want to assign this field, please assign it ahead of assigning <see cref="P:Sudoku.ComponentModel.GridTemplates.StandardGridTemplate.Mapper"/>.
+            If you want to assign this field, please assign it ahead of assigning <see cref="P:Sudoku.ComponentModel.GridTemplate.Mapper"/>.
             </summary>
-            <seealso cref="P:Sudoku.ComponentModel.GridTemplates.StandardGridTemplate.Mapper"/>
+            <seealso cref="P:Sudoku.ComponentModel.GridTemplate.Mapper"/>
         </member>
         <member name="M:Sudoku.ComponentModel.GridTemplates.StandardGridTemplate.DrawBorderRectangle(SkiaSharp.SKCanvas)">
             <inheritdoc/>
@@ -766,8 +769,14 @@
             Provides extra lookup dictionary.
             </summary>
         </member>
-        <member name="P:Sudoku.ComponentModel.GridTemplates.SujikenGridTemplate.Mapper">
-            <inheritdoc/>
+        <member name="M:Sudoku.ComponentModel.GridTemplates.SujikenGridTemplate.#ctor(Sudoku.ComponentModel.Relative,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.ComponentModel.GridTemplates.SujikenGridTemplate"/> instance, with <see langword="required"/> members been set.
+            </summary>
+            <param name="uniformBlockSize">
+            The uniform size. If set -1, it'll be initialized as square root of grid size specified by <paramref name="mapper"/>.
+            </param>
+            <param name="mapper">The mapper instance.</param>
         </member>
         <member name="P:Sudoku.ComponentModel.GridTemplates.SujikenGridTemplate.UniformBlockSize">
             <summary>

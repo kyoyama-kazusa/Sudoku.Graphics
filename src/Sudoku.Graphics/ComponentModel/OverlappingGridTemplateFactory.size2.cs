@@ -8,11 +8,10 @@ public partial class OverlappingGridTemplateFactory
 	/// <inheritdoc cref="OverlappingGridTemplateFactory" path="/shared-doc-comments"/>
 	public static GridTemplate[] Overlapped(PointMapper baseMapper, LineDashSequence secondGridTemplateDashSequence)
 		=> [
-			new StandardGridTemplate { IsBorderRoundedRectangle = false, Mapper = baseMapper.AddOffset(DirectionVector.Zero) },
-			new StandardGridTemplate
+			new StandardGridTemplate(-1, -1, baseMapper.AddOffset(DirectionVector.Zero)) { IsBorderRoundedRectangle = false },
+			new StandardGridTemplate(-1, -1, baseMapper.AddOffset(new(1, 0)))
 			{
 				IsBorderRoundedRectangle = false,
-				Mapper = baseMapper.AddOffset(new(1, 0)),
 				ThickLineDashSequence = secondGridTemplateDashSequence
 			}
 		];
@@ -23,19 +22,13 @@ public partial class OverlappingGridTemplateFactory
 	/// <inheritdoc cref="OverlappingGridTemplateFactory" path="/shared-doc-comments"/>
 	public static GridTemplate[] DoubleDoku(int blockRowsCount, int blockColumnsCount, PointMapper baseMapper)
 		=> [
-			new StandardGridTemplate
+			new StandardGridTemplate(blockRowsCount, blockColumnsCount, baseMapper.AddOffset(DirectionVector.Zero))
 			{
-				IsBorderRoundedRectangle = false,
-				RowBlockSize = blockRowsCount,
-				ColumnBlockSize = blockColumnsCount,
-				Mapper = baseMapper.AddOffset(DirectionVector.Zero)
+				IsBorderRoundedRectangle = false
 			},
-			new StandardGridTemplate
+			new StandardGridTemplate(blockRowsCount, blockColumnsCount, baseMapper.AddOffset(new(blockRowsCount, 0, blockColumnsCount, 0)))
 			{
-				IsBorderRoundedRectangle = false,
-				RowBlockSize = blockRowsCount,
-				ColumnBlockSize = blockColumnsCount,
-				Mapper = baseMapper.AddOffset(new(blockRowsCount, 0, blockColumnsCount, 0))
+				IsBorderRoundedRectangle = false
 			}
 		];
 
@@ -47,19 +40,13 @@ public partial class OverlappingGridTemplateFactory
 		=> baseMapper.RowsCount / blockRowsCount is var rowSplitPartsCount && rowSplitPartsCount < 3
 			? ThrowsArgumentException()
 			: [
-				new StandardGridTemplate
+				new StandardGridTemplate(blockRowsCount, blockColumnsCount, baseMapper.AddOffset(DirectionVector.Zero))
 				{
-					IsBorderRoundedRectangle = false,
-					RowBlockSize = blockRowsCount,
-					ColumnBlockSize = blockColumnsCount,
-					Mapper = baseMapper.AddOffset(DirectionVector.Zero)
+					IsBorderRoundedRectangle = false
 				},
-				new StandardGridTemplate
+				new StandardGridTemplate(blockRowsCount, blockColumnsCount,baseMapper.AddOffset(new(blockRowsCount * (rowSplitPartsCount - 1), 0, blockColumnsCount, 0)) )
 				{
-					IsBorderRoundedRectangle = false,
-					RowBlockSize = blockRowsCount,
-					ColumnBlockSize = blockColumnsCount,
-					Mapper = baseMapper.AddOffset(new(blockRowsCount * (rowSplitPartsCount - 1), 0, blockColumnsCount, 0))
+					IsBorderRoundedRectangle = false
 				}
 			];
 
@@ -72,21 +59,19 @@ public partial class OverlappingGridTemplateFactory
 		&& (rowSplitPartsCount < 3 || columnSplitPartsCount < 3)
 			? ThrowsArgumentException()
 			: [
-				new StandardGridTemplate
+				new StandardGridTemplate(blockRowsCount, blockColumnsCount, baseMapper.AddOffset(DirectionVector.Zero))
 				{
-					IsBorderRoundedRectangle = false,
-					RowBlockSize = blockRowsCount,
-					ColumnBlockSize = blockColumnsCount,
-					Mapper = baseMapper.AddOffset(DirectionVector.Zero)
+					IsBorderRoundedRectangle = false
 				},
-				new StandardGridTemplate
-				{
-					IsBorderRoundedRectangle = false,
-					RowBlockSize = blockRowsCount,
-					ColumnBlockSize = blockColumnsCount,
-					Mapper = baseMapper.AddOffset(
+				new StandardGridTemplate(
+					blockRowsCount,
+					blockColumnsCount,
+					baseMapper.AddOffset(
 						new(blockRowsCount * (rowSplitPartsCount - 1), 0, blockColumnsCount * (columnSplitPartsCount - 1), 0)
 					)
+				)
+				{
+					IsBorderRoundedRectangle = false
 				}
 			];
 }

@@ -5,39 +5,41 @@
 /// </summary>
 public sealed class StandardGridTemplate : GridTemplate, IGridTemplate_RoundedRectangleRelatedProperties
 {
-	/// <inheritdoc/>
-	public override required PointMapper Mapper
+	/// <summary>
+	/// Initializes a <see cref="StandardGridTemplate"/> instance, with <see langword="required"/> members been set.
+	/// </summary>
+	/// <param name="rowBlockSize">
+	/// The block size of rows. If set -1, it'll be initialized as square root of grid size specified by <paramref name="mapper"/>.
+	/// </param>
+	/// <param name="columnBlockSize">
+	/// The block size of columns. If set -1, it'll be initialized as square root of grid size specified by <paramref name="mapper"/>.
+	/// </param>
+	/// <param name="mapper">The mapper instance.</param>
+	[JsonConstructor]
+	[SetsRequiredMembers]
+	public StandardGridTemplate(Relative rowBlockSize, Relative columnBlockSize, PointMapper mapper)
 	{
-		get;
+		Mapper = mapper;
 
-		init
+		var rowsCount = mapper.RowsCount;
+		var squareRootOfRowsCount = (int)Math.Sqrt(rowsCount);
+		if (rowBlockSize == -1)
 		{
-			field = value;
-
-			if (RowBlockSize != 0 && ColumnBlockSize != 0)
-			{
-				return;
-			}
-
-			var rowsCount = value.RowsCount;
-			var squareRootOfRowsCount = (int)Math.Sqrt(rowsCount);
-			RowBlockSize = squareRootOfRowsCount * squareRootOfRowsCount == rowsCount
-				? squareRootOfRowsCount
-				: throw new ArgumentException(message_InvalidCount(nameof(RowBlockSize)));
-
-			var columnsCount = value.ColumnsCount;
-			var squareRootOfColumnsCount = (int)Math.Sqrt(columnsCount);
-			ColumnBlockSize = squareRootOfColumnsCount * squareRootOfColumnsCount == columnsCount
-				? squareRootOfColumnsCount
-				: throw new ArgumentException(message_InvalidCount(nameof(ColumnBlockSize)));
-
-			ArgumentException.Assert(rowsCount % squareRootOfRowsCount == 0);
-			ArgumentException.Assert(columnsCount % squareRootOfColumnsCount == 0);
-
-
-			static string message_InvalidCount(string propertyName)
-				=> $"The argument '{propertyName}' isn't a square number when it is uninitialized.";
+			rowBlockSize = squareRootOfRowsCount;
 		}
+
+		var columnsCount = mapper.ColumnsCount;
+		var squareRootOfColumnsCount = (int)Math.Sqrt(columnsCount);
+		if (columnBlockSize == -1)
+		{
+			columnBlockSize = squareRootOfColumnsCount;
+		}
+
+		ArgumentException.Assert(rowsCount % squareRootOfRowsCount == 0);
+		ArgumentException.Assert(columnsCount % squareRootOfColumnsCount == 0);
+
+		RowBlockSize = rowBlockSize;
+		ColumnBlockSize = columnBlockSize;
 	}
 
 
@@ -49,16 +51,16 @@ public sealed class StandardGridTemplate : GridTemplate, IGridTemplate_RoundedRe
 
 	/// <summary>
 	/// Indicates the number of rows in a rectangular block.
-	/// If you want to assign this field, please assign it ahead of assigning <see cref="Mapper"/>.
+	/// If you want to assign this field, please assign it ahead of assigning <see cref="GridTemplate.Mapper"/>.
 	/// </summary>
-	/// <seealso cref="Mapper"/>
+	/// <seealso cref="GridTemplate.Mapper"/>
 	public Relative RowBlockSize { get; init; }
 
 	/// <summary>
 	/// Indicates the number of columns in a rectangular block.
-	/// If you want to assign this field, please assign it ahead of assigning <see cref="Mapper"/>.
+	/// If you want to assign this field, please assign it ahead of assigning <see cref="GridTemplate.Mapper"/>.
 	/// </summary>
-	/// <seealso cref="Mapper"/>
+	/// <seealso cref="GridTemplate.Mapper"/>
 	public Relative ColumnBlockSize { get; init; }
 
 
