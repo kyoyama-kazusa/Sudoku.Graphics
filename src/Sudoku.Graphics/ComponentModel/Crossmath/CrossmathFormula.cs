@@ -32,4 +32,78 @@ public sealed record CrossmathFormula : IEqualityOperators<CrossmathFormula, Cro
 		var formulaString = string.Concat(from value in ValueSequence select value ?? "?");
 		return $"@{Cell}, {formulaString}, {ExpandingDirection}";
 	}
+
+
+	/// <summary>
+	/// Creates a <see cref="CrossmathGridTemplate"/> instance via the specified formulae.
+	/// </summary>
+	/// <param name="formulae">The formulae to be loaded.</param>
+	/// <param name="mapper">The point mapper.</param>
+	/// <param name="thickLineWidth">Thick line width.</param>
+	/// <param name="thinLineWidth">Thin line width.</param>
+	/// <param name="thickLineColor">Thick line color.</param>
+	/// <param name="thinLineColor">Thin line color.</param>
+	/// <returns>The grid template.</returns>
+	public static CrossmathGridTemplate CreateTemplate(
+		CrossmathFormula[] formulae,
+		PointMapper mapper,
+		Scale thickLineWidth,
+		Scale thinLineWidth,
+		SerializableColor thickLineColor,
+		SerializableColor thinLineColor
+	) => new(formulae, mapper)
+	{
+		ThickLineWidth = thickLineWidth,
+		ThinLineWidth = thinLineWidth,
+		ThickLineColor = thickLineColor,
+		ThinLineColor = thinLineColor
+	};
+
+	/// <summary>
+	/// Creates a list of <see cref="GivenTextItem"/> instances via the specified formulae.
+	/// </summary>
+	/// <param name="formulae">The formulae to be loaded.</param>
+	/// <param name="mapper">The point mapper.</param>
+	/// <param name="fontName">The font name.</param>
+	/// <param name="fontSizeScale">The font size scale.</param>
+	/// <param name="color">The color.</param>
+	/// <returns>A list of <see cref="GivenTextItem"/> instances.</returns>
+	public static GivenTextItem[] CreateItems(
+		CrossmathFormula[] formulae,
+		PointMapper mapper,
+		string fontName,
+		Scale fontSizeScale,
+		SerializableColor color
+	)
+	{
+		var result = new HashSet<GivenTextItem>();
+		foreach (var formula in formulae)
+		{
+			var startCell = formula.Cell;
+			for (var i = 0; i < formula.CellsCount; i++)
+			{
+				var nextCell = i == 0 ? formula.Cell : mapper.GetAdjacentAbsoluteCellWith(startCell, formula.ExpandingDirection, false);
+				if (formula.ValueSequence[i] is not { } textValue)
+				{
+					goto NextElement;
+				}
+
+				result.Add(
+					new()
+					{
+						Cell = nextCell,
+						FontName = fontName,
+						FontSizeScale = fontSizeScale,
+						TemplateIndex = 0,
+						Text = textValue,
+						Color = color
+					}
+				);
+
+			NextElement:
+				startCell = nextCell;
+			}
+		}
+		return [.. result];
+	}
 }

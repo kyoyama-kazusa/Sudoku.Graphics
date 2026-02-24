@@ -10,7 +10,6 @@ using System;
 using System.IO;
 using Sudoku.ComponentModel;
 using Sudoku.ComponentModel.Crossmath;
-using Sudoku.ComponentModel.GridTemplates;
 using Sudoku.ComponentModel.Items;
 using Sudoku.Graphics;
 
@@ -145,13 +144,14 @@ var mapper = new PointMapper
 	TemplateSize = new() { RowsCount = 13, ColumnsCount = 13 }
 };
 using var canvas = new Canvas(
-	new CrossmathGridTemplate(formulae, mapper)
-	{
-		ThickLineWidth = options.ThickLineWidth.Resolve(options),
-		ThinLineWidth = options.ThinLineWidth.Resolve(options),
-		ThickLineColor = options.ThickLineColor.Resolve(options),
-		ThinLineColor = options.ThinLineColor.Resolve(options)
-	}
+	CrossmathFormula.CreateTemplate(
+		formulae,
+		mapper,
+		options.ThickLineWidth.Resolve(options),
+		options.ThinLineWidth.Resolve(options),
+		options.ThickLineColor.Resolve(options),
+		options.ThinLineColor.Resolve(options)
+	)
 );
 canvas.DrawItems(
 	[
@@ -162,7 +162,7 @@ canvas.DrawItems(
 			TemplateIntersectionCellsColor = options.TemplateIntersectionColor.Resolve(options)
 		},
 		..
-		CrossmathPuzzleCellTextItemFactory.Create(
+		CrossmathFormula.CreateItems(
 			formulae,
 			mapper,
 			options.BigTextFontName.Resolve(options),

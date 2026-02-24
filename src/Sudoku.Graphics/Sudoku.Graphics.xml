@@ -179,12 +179,19 @@
         <member name="M:Sudoku.ComponentModel.Crossmath.CrossmathFormula.ToString">
             <inheritdoc/>
         </member>
-        <member name="T:Sudoku.ComponentModel.Crossmath.CrossmathPuzzleCellTextItemFactory">
+        <member name="M:Sudoku.ComponentModel.Crossmath.CrossmathFormula.CreateTemplate(Sudoku.ComponentModel.Crossmath.CrossmathFormula[],Sudoku.Graphics.PointMapper,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor)">
             <summary>
-            Provides an easy way to create <see cref="T:Sudoku.ComponentModel.Items.GivenTextItem"/> instances that will be used by rendering a crossmath puzzle.
+            Creates a <see cref="T:Sudoku.ComponentModel.GridTemplates.CrossmathGridTemplate"/> instance via the specified formulae.
             </summary>
+            <param name="formulae">The formulae to be loaded.</param>
+            <param name="mapper">The point mapper.</param>
+            <param name="thickLineWidth">Thick line width.</param>
+            <param name="thinLineWidth">Thin line width.</param>
+            <param name="thickLineColor">Thick line color.</param>
+            <param name="thinLineColor">Thin line color.</param>
+            <returns>The grid template.</returns>
         </member>
-        <member name="M:Sudoku.ComponentModel.Crossmath.CrossmathPuzzleCellTextItemFactory.Create(Sudoku.ComponentModel.Crossmath.CrossmathFormula[],Sudoku.Graphics.PointMapper,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor)">
+        <member name="M:Sudoku.ComponentModel.Crossmath.CrossmathFormula.CreateItems(Sudoku.ComponentModel.Crossmath.CrossmathFormula[],Sudoku.Graphics.PointMapper,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor)">
             <summary>
             Creates a list of <see cref="T:Sudoku.ComponentModel.Items.GivenTextItem"/> instances via the specified formulae.
             </summary>
