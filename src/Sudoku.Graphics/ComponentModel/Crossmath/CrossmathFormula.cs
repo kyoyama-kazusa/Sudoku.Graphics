@@ -30,6 +30,6 @@ public sealed record CrossmathFormula : IEqualityOperators<CrossmathFormula, Cro
 	public override string ToString()
 	{
 		var formulaString = string.Concat(from value in ValueSequence select value ?? "?");
-		return $"{formulaString}, {ExpandingDirection}";
+		return $"@{Cell}, {formulaString}, {ExpandingDirection}";
 	}
 }
