@@ -3288,6 +3288,9 @@
             <inheritdoc cref="M:System.Linq.ArrayEnumerable.&lt;G&gt;$51ABFD8B8D8A5142371F514AE52D9AA9`1.Index"/>
         </member>
         <member name="T:System.Linq.ArrayEnumerable.&lt;G&gt;$51ABFD8B8D8A5142371F514AE52D9AA9`1.&lt;M&gt;$6EB964B81CE124BD3475F312AC48B617">
+            <typeparam name="TSource">
+            <inheritdoc cref="M:System.Linq.Enumerable.Index``1(System.Collections.Generic.IEnumerable{``0})" path="/typeparam[@name='TSource']"/>
+            </typeparam>
             <param name="source">
             <inheritdoc cref="M:System.Linq.Enumerable.Index``1(System.Collections.Generic.IEnumerable{``0})" path="/param[@name='source']"/>
             </param>
