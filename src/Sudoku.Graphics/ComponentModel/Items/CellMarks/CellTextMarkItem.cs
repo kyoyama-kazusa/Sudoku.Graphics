@@ -37,7 +37,7 @@ public abstract class CellTextMarkItem : CellMarkItem
 		var targetPoint = mapper.GetPoint(Cell, Alignment.Center)
 			+ new SKPoint(0, (textMetrics.Ascent + textMetrics.Descent) / 2) // Baseline adjustment
 			+ new SKPoint(0, textFont.Size / 2) // Centeralize
-			+ new SKPoint(0, mapper.CellSize / 8); // Manual adjustment
+			+ new SKPoint(0, mapper.CellSize / 6); // Manual adjustment
 		canvas.BackingCanvas.DrawText(PrintingText, targetPoint, SKTextAlign.Center, textFont, textStrokePaint);
 		canvas.BackingCanvas.DrawText(PrintingText, targetPoint, SKTextAlign.Center, textFont, textFillPaint);
 	}
