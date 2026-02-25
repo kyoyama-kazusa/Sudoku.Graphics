@@ -10,11 +10,6 @@ public abstract class CellTextMarkItem : CellMarkItem
 	/// </summary>
 	protected abstract string PrintingText { get; }
 
-	/// <summary>
-	/// Indicates the slight scale. By default it's 2.
-	/// </summary>
-	protected virtual float SlightScale => 2;
-
 
 	/// <inheritdoc/>
 	protected internal sealed override void DrawTo(Canvas canvas)
@@ -38,10 +33,11 @@ public abstract class CellTextMarkItem : CellMarkItem
 			StrokeJoin = SKStrokeJoin.Round
 		};
 		using var textFillPaint = new SKPaint { Style = SKPaintStyle.Fill, Color = FillColor, IsAntialias = true };
-		var offset = textFont.MeasureText(PrintingText, textStrokePaint);
+		var textMetrics = textFont.Metrics;
 		var targetPoint = mapper.GetPoint(Cell, Alignment.Center)
-			+ new SKPoint(0, offset / (SlightScale * PrintingText.Length)) // Offset adjustment
-			+ new SKPoint(0, mapper.CellSize / 12); // Manual adjustment
+			+ new SKPoint(0, (textMetrics.Ascent + textMetrics.Descent) / 2) // Baseline adjustment
+			+ new SKPoint(0, textFont.Size / 2) // Centeralize
+			+ new SKPoint(0, mapper.CellSize / 8); // Manual adjustment
 		canvas.BackingCanvas.DrawText(PrintingText, targetPoint, SKTextAlign.Center, textFont, textStrokePaint);
 		canvas.BackingCanvas.DrawText(PrintingText, targetPoint, SKTextAlign.Center, textFont, textFillPaint);
 	}

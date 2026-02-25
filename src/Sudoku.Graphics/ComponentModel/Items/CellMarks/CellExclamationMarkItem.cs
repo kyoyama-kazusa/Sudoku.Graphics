@@ -9,9 +9,6 @@ public sealed class CellExclamationMarkItem : CellTextMarkItem
 	public override ItemType Type => ItemType.CellMark_Exclamation;
 
 	/// <inheritdoc/>
-	protected override float SlightScale => 1;
-
-	/// <inheritdoc/>
 	protected override string PrintingText => "!";
 
 	/// <inheritdoc/>

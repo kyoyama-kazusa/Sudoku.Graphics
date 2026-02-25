@@ -1524,9 +1524,6 @@
         <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellExclamationMarkItem.Type">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellExclamationMarkItem.SlightScale">
-            <inheritdoc/>
-        </member>
         <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellExclamationMarkItem.PrintingText">
             <inheritdoc/>
         </member>
@@ -1555,11 +1552,6 @@
         <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellTextMarkItem.PrintingText">
             <summary>
             Indicates the printing text.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellTextMarkItem.SlightScale">
-            <summary>
-            Indicates the slight scale. By default it's 2.
             </summary>
         </member>
         <member name="M:Sudoku.ComponentModel.Items.CellMarks.CellTextMarkItem.DrawTo(Sudoku.Graphics.Canvas)">

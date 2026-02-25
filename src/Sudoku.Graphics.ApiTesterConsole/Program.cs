@@ -8,6 +8,7 @@
 
 using System;
 using System.IO;
+using SkiaSharp;
 using Sudoku.ComponentModel.GridTemplates;
 using Sudoku.ComponentModel.Items;
 using Sudoku.ComponentModel.Items.CellMarks;
@@ -39,9 +40,7 @@ canvas.DrawItems(
 			TemplateIndex = 0,
 			Cell = 0,
 			TextFontName = options.CellQuestionMarkFontName.Resolve(options),
-			StrokeColor = options.CellQuestionMarkStrokeColor.Resolve(options),
-			StrokeWidthScale = options.CellQuestionMarkStrokeWidthScale.Resolve(options),
-			FillColor = options.CellQuestionMarkFillColor.Resolve(options),
+			FillColor = SKColors.Black,
 			SizeScale = options.CellQuestionMarkSizeScale.Resolve(options)
 		},
 		new CellExclamationMarkItem
@@ -49,9 +48,7 @@ canvas.DrawItems(
 			TemplateIndex = 0,
 			Cell = 1,
 			TextFontName = options.CellExclamationMarkFontName.Resolve(options),
-			StrokeColor = options.CellExclamationMarkStrokeColor.Resolve(options),
-			StrokeWidthScale = options.CellExclamationMarkStrokeWidthScale.Resolve(options),
-			FillColor = options.CellExclamationMarkFillColor.Resolve(options),
+			FillColor = SKColors.Black,
 			SizeScale = options.CellExclamationMarkSizeScale.Resolve(options)
 		}
 	]
