@@ -49,4 +49,9 @@ public enum ItemType
 	/// Indicates cell question mark.
 	/// </summary>
 	CellMark_Question,
+
+	/// <summary>
+	/// Indicates cell exclamation mark.
+	/// </summary>
+	CellMark_Exclamation,
 }

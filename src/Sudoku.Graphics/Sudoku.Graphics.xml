@@ -1516,6 +1516,23 @@
         <member name="M:Sudoku.ComponentModel.Items.CellMarkItem.PrintMembers(System.Text.StringBuilder)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.ComponentModel.Items.CellMarks.CellExclamationMarkItem">
+            <summary>
+            Represents cell exclamation mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellExclamationMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellExclamationMarkItem.SlightScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellExclamationMarkItem.PrintingText">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellExclamationMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.ComponentModel.Items.CellMarks.CellQuestionMarkItem">
             <summary>
             Represents cell question mark item.
@@ -1524,10 +1541,75 @@
         <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellQuestionMarkItem.Type">
             <inheritdoc/>
         </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellQuestionMarkItem.PrintingText">
+            <inheritdoc/>
+        </member>
         <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellQuestionMarkItem.EqualityContract">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.ComponentModel.Items.CellMarks.CellQuestionMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+        <member name="T:Sudoku.ComponentModel.Items.CellMarks.CellTextMarkItem">
+            <summary>
+            Represents cell text mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellTextMarkItem.PrintingText">
+            <summary>
+            Indicates the printing text.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellTextMarkItem.SlightScale">
+            <summary>
+            Indicates the slight scale. By default it's 2.
+            </summary>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Items.CellMarks.CellTextMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.ComponentModel.Items.GivenOrModifiableTextItem">
+            <summary>
+            Represents a text item that displays a given or a modifiable digit.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.GivenOrModifiableTextItem.TemplateIndex">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.GivenOrModifiableTextItem.Text">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.GivenOrModifiableTextItem.FontName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.GivenOrModifiableTextItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.GivenOrModifiableTextItem.FontWeight">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.GivenOrModifiableTextItem.FontWidth">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.GivenOrModifiableTextItem.FontSlant">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.GivenOrModifiableTextItem.Cell">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.GivenOrModifiableTextItem.Color">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.GivenOrModifiableTextItem.FontSizeScale">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Items.GivenOrModifiableTextItem.Equals(Sudoku.ComponentModel.Item)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Items.GivenOrModifiableTextItem.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Items.GivenOrModifiableTextItem.PrintMembers(System.Text.StringBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Items.GivenOrModifiableTextItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.ComponentModel.Items.GivenTextItem">
@@ -1535,49 +1617,7 @@
             Represents given text.
             </summary>
         </member>
-        <member name="P:Sudoku.ComponentModel.Items.GivenTextItem.TemplateIndex">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Items.GivenTextItem.Text">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Items.GivenTextItem.FontName">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Items.GivenTextItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Items.GivenTextItem.FontWeight">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Items.GivenTextItem.FontWidth">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Items.GivenTextItem.FontSlant">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Items.GivenTextItem.Cell">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Items.GivenTextItem.Color">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Items.GivenTextItem.FontSizeScale">
-            <inheritdoc/>
-        </member>
         <member name="P:Sudoku.ComponentModel.Items.GivenTextItem.EqualityContract">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Items.GivenTextItem.Equals(Sudoku.ComponentModel.Item)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Items.GivenTextItem.GetHashCode">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Items.GivenTextItem.PrintMembers(System.Text.StringBuilder)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Items.GivenTextItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.ComponentModel.Items.IItem_CandidatePositionProperty">
@@ -1692,49 +1732,7 @@
             Represents modifiable text.
             </summary>
         </member>
-        <member name="P:Sudoku.ComponentModel.Items.ModifiableTextItem.TemplateIndex">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Items.ModifiableTextItem.Text">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Items.ModifiableTextItem.FontName">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Items.ModifiableTextItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Items.ModifiableTextItem.FontWeight">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Items.ModifiableTextItem.FontWidth">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Items.ModifiableTextItem.FontSlant">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Items.ModifiableTextItem.Cell">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Items.ModifiableTextItem.Color">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Items.ModifiableTextItem.FontSizeScale">
-            <inheritdoc/>
-        </member>
         <member name="P:Sudoku.ComponentModel.Items.ModifiableTextItem.EqualityContract">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Items.ModifiableTextItem.Equals(Sudoku.ComponentModel.Item)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Items.ModifiableTextItem.GetHashCode">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Items.ModifiableTextItem.PrintMembers(System.Text.StringBuilder)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Items.ModifiableTextItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.ComponentModel.Items.TemplateLineStrokeItem">
@@ -1824,6 +1822,11 @@
         <member name="F:Sudoku.ComponentModel.ItemType.CellMark_Question">
             <summary>
             Indicates cell question mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.ItemType.CellMark_Exclamation">
+            <summary>
+            Indicates cell exclamation mark.
             </summary>
         </member>
         <member name="T:Sudoku.ComponentModel.LineDashSequence">

@@ -43,6 +43,16 @@ canvas.DrawItems(
 			StrokeWidthScale = options.CellQuestionMarkStrokeWidthScale.Resolve(options),
 			FillColor = options.CellQuestionMarkFillColor.Resolve(options),
 			SizeScale = options.CellQuestionMarkSizeScale.Resolve(options)
+		},
+		new CellExclamationMarkItem
+		{
+			TemplateIndex = 0,
+			Cell = 1,
+			TextFontName = options.CellQuestionMarkFontName.Resolve(options),
+			StrokeColor = options.CellQuestionMarkStrokeColor.Resolve(options),
+			StrokeWidthScale = options.CellQuestionMarkStrokeWidthScale.Resolve(options),
+			FillColor = options.CellQuestionMarkFillColor.Resolve(options),
+			SizeScale = options.CellQuestionMarkSizeScale.Resolve(options)
 		}
 	]
 );
