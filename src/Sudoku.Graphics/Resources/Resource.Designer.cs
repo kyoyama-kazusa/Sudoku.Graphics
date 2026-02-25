@@ -117,6 +117,51 @@ namespace Sudoku.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Fill color.
         /// </summary>
+        internal static string CellExclamationMarkFillColor {
+            get {
+                return ResourceManager.GetString("CellExclamationMarkFillColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Font name.
+        /// </summary>
+        internal static string CellExclamationMarkFontName {
+            get {
+                return ResourceManager.GetString("CellExclamationMarkFontName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Size scale.
+        /// </summary>
+        internal static string CellExclamationMarkSizeScale {
+            get {
+                return ResourceManager.GetString("CellExclamationMarkSizeScale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stroke color.
+        /// </summary>
+        internal static string CellExclamationMarkStrokeColor {
+            get {
+                return ResourceManager.GetString("CellExclamationMarkStrokeColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stroke width scale.
+        /// </summary>
+        internal static string CellExclamationMarkStrokeWidthScale {
+            get {
+                return ResourceManager.GetString("CellExclamationMarkStrokeWidthScale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fill color.
+        /// </summary>
         internal static string CellQuestionMarkFillColor {
             get {
                 return ResourceManager.GetString("CellQuestionMarkFillColor", resourceCulture);

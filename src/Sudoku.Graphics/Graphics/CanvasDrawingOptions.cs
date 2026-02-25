@@ -35,6 +35,14 @@ public sealed class CanvasDrawingOptions : IOptionsProvider<CanvasDrawingOptions
 	public Inherited<string> CellQuestionMarkFontName { get; set; } = Inherited<string>.FromPropertyName(nameof(BigTextFontName));
 
 	/// <summary>
+	/// Indicates the font name of cell exclamation mark.
+	/// By default it's derived from property <see cref="BigTextFontName"/>.
+	/// </summary>
+	/// <seealso cref="BigTextFontName"/>
+	[ResourceKey("CellExclamationMarkFontName")]
+	public Inherited<string> CellExclamationMarkFontName { get; set; } = Inherited<string>.FromPropertyName(nameof(BigTextFontName));
+
+	/// <summary>
 	/// Indicates font weight of text that will be drawn with big size, like given and modifiable digits.
 	/// By default it's <see cref="SKFontStyleWeight.Normal"/>.
 	/// </summary>
@@ -127,6 +135,14 @@ public sealed class CanvasDrawingOptions : IOptionsProvider<CanvasDrawingOptions
 		Inherited<Scale>.FromPropertyName(nameof(BigTextFontSizeScale));
 
 	/// <summary>
+	/// Indicates cell exclamation mark size scale. By default it's derived from property <see cref="BigTextFontSizeScale"/>.
+	/// </summary>
+	/// <seealso cref="BigTextFontSizeScale"/>
+	[ResourceKey("CellExclamationMarkSizeScale")]
+	public Inherited<Scale> CellExclamationMarkSizeScale { get; set; } =
+		Inherited<Scale>.FromPropertyName(nameof(BigTextFontSizeScale));
+
+	/// <summary>
 	/// Indicates corner radius ratio of rounded rectangle of border lines, relative to cell size. By default it's 0.12.
 	/// </summary>
 	[ResourceKey("GridBorderRoundedRectangleCornerRadius")]
@@ -149,6 +165,15 @@ public sealed class CanvasDrawingOptions : IOptionsProvider<CanvasDrawingOptions
 	/// </summary>
 	[ResourceKey("CellQuestionMarkStrokeWidthScale")]
 	public Inherited<Scale> CellQuestionMarkStrokeWidthScale { get; set; } = Inherited<Scale>.FromValue(.15M);
+
+	/// <summary>
+	/// Indicates stroke width scale of cell exclamation mark, relative to cell size.
+	/// By default it's derived from property <see cref="CellQuestionMarkStrokeWidthScale"/>.
+	/// </summary>
+	/// <seealso cref="CellQuestionMarkStrokeWidthScale"/>
+	[ResourceKey("CellExclamationMarkStrokeWidthScale")]
+	public Inherited<Scale> CellExclamationMarkStrokeWidthScale { get; set; } =
+		Inherited<Scale>.FromPropertyName(nameof(CellQuestionMarkStrokeWidthScale));
 
 	/// <summary>
 	/// Represents background color. By default it's equivalent value of color <see cref="SKColors.White"/>.
@@ -188,11 +213,27 @@ public sealed class CanvasDrawingOptions : IOptionsProvider<CanvasDrawingOptions
 		Inherited<SerializableColor>.FromPropertyName(nameof(ThinLineColor));
 
 	/// <summary>
+	/// Represents cell exclamation mark stroke color. By default it's same value inherited from property <see cref="ThinLineColor"/>.
+	/// </summary>
+	/// <seealso cref="ThinLineColor"/>
+	[ResourceKey("CellExclamationMarkStrokeColor")]
+	public Inherited<SerializableColor> CellExclamationMarkStrokeColor { get; set; } =
+		Inherited<SerializableColor>.FromPropertyName(nameof(ThinLineColor));
+
+	/// <summary>
 	/// Represents question mark fill color. By default it's same value inherited from property <see cref="BackgroundColor"/>.
 	/// </summary>
 	/// <seealso cref="BackgroundColor"/>
 	[ResourceKey("CellQuestionMarkFillColor")]
 	public Inherited<SerializableColor> CellQuestionMarkFillColor { get; set; } =
+		Inherited<SerializableColor>.FromPropertyName(nameof(BackgroundColor));
+
+	/// <summary>
+	/// Represents exclamation mark fill color. By default it's same value inherited from property <see cref="BackgroundColor"/>.
+	/// </summary>
+	/// <seealso cref="BackgroundColor"/>
+	[ResourceKey("CellExclamationMarkFillColor")]
+	public Inherited<SerializableColor> CellExclamationMarkFillColor { get; set; } =
 		Inherited<SerializableColor>.FromPropertyName(nameof(BackgroundColor));
 
 	/// <summary>

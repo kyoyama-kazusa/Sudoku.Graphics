@@ -2696,6 +2696,13 @@
             </summary>
             <seealso cref="P:Sudoku.Graphics.CanvasDrawingOptions.BigTextFontName"/>
         </member>
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.CellExclamationMarkFontName">
+            <summary>
+            Indicates the font name of cell exclamation mark.
+            By default it's derived from property <see cref="P:Sudoku.Graphics.CanvasDrawingOptions.BigTextFontName"/>.
+            </summary>
+            <seealso cref="P:Sudoku.Graphics.CanvasDrawingOptions.BigTextFontName"/>
+        </member>
         <member name="P:Sudoku.Graphics.CanvasDrawingOptions.BigTextFontWeight">
             <summary>
             Indicates font weight of text that will be drawn with big size, like given and modifiable digits.
@@ -2774,6 +2781,12 @@
             </summary>
             <seealso cref="P:Sudoku.Graphics.CanvasDrawingOptions.BigTextFontSizeScale"/>
         </member>
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.CellExclamationMarkSizeScale">
+            <summary>
+            Indicates cell exclamation mark size scale. By default it's derived from property <see cref="P:Sudoku.Graphics.CanvasDrawingOptions.BigTextFontSizeScale"/>.
+            </summary>
+            <seealso cref="P:Sudoku.Graphics.CanvasDrawingOptions.BigTextFontSizeScale"/>
+        </member>
         <member name="P:Sudoku.Graphics.CanvasDrawingOptions.GridBorderRoundedRectangleCornerRadius">
             <summary>
             Indicates corner radius ratio of rounded rectangle of border lines, relative to cell size. By default it's 0.12.
@@ -2793,6 +2806,13 @@
             <summary>
             Indicates stroke width scale of cell question mark, relative to cell size. By default it's 0.15.
             </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.CellExclamationMarkStrokeWidthScale">
+            <summary>
+            Indicates stroke width scale of cell exclamation mark, relative to cell size.
+            By default it's derived from property <see cref="P:Sudoku.Graphics.CanvasDrawingOptions.CellQuestionMarkStrokeWidthScale"/>.
+            </summary>
+            <seealso cref="P:Sudoku.Graphics.CanvasDrawingOptions.CellQuestionMarkStrokeWidthScale"/>
         </member>
         <member name="P:Sudoku.Graphics.CanvasDrawingOptions.BackgroundColor">
             <summary>
@@ -2824,9 +2844,21 @@
             </summary>
             <seealso cref="P:Sudoku.Graphics.CanvasDrawingOptions.ThinLineColor"/>
         </member>
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.CellExclamationMarkStrokeColor">
+            <summary>
+            Represents cell exclamation mark stroke color. By default it's same value inherited from property <see cref="P:Sudoku.Graphics.CanvasDrawingOptions.ThinLineColor"/>.
+            </summary>
+            <seealso cref="P:Sudoku.Graphics.CanvasDrawingOptions.ThinLineColor"/>
+        </member>
         <member name="P:Sudoku.Graphics.CanvasDrawingOptions.CellQuestionMarkFillColor">
             <summary>
             Represents question mark fill color. By default it's same value inherited from property <see cref="P:Sudoku.Graphics.CanvasDrawingOptions.BackgroundColor"/>.
+            </summary>
+            <seealso cref="P:Sudoku.Graphics.CanvasDrawingOptions.BackgroundColor"/>
+        </member>
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.CellExclamationMarkFillColor">
+            <summary>
+            Represents exclamation mark fill color. By default it's same value inherited from property <see cref="P:Sudoku.Graphics.CanvasDrawingOptions.BackgroundColor"/>.
             </summary>
             <seealso cref="P:Sudoku.Graphics.CanvasDrawingOptions.BackgroundColor"/>
         </member>
@@ -3081,6 +3113,31 @@
         <member name="P:Sudoku.Resources.Resource.BigTextFontWidth">
             <summary>
               Looks up a localized string similar to Big text font width.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Resources.Resource.CellExclamationMarkFillColor">
+            <summary>
+              Looks up a localized string similar to Fill color.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Resources.Resource.CellExclamationMarkFontName">
+            <summary>
+              Looks up a localized string similar to Font name.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Resources.Resource.CellExclamationMarkSizeScale">
+            <summary>
+              Looks up a localized string similar to Size scale.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Resources.Resource.CellExclamationMarkStrokeColor">
+            <summary>
+              Looks up a localized string similar to Stroke color.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Resources.Resource.CellExclamationMarkStrokeWidthScale">
+            <summary>
+              Looks up a localized string similar to Stroke width scale.
             </summary>
         </member>
         <member name="P:Sudoku.Resources.Resource.CellQuestionMarkFillColor">

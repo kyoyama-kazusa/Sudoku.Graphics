@@ -138,16 +138,31 @@
   <data name="CellQuestionMarkFillColor" xml:space="preserve">
     <value>填充色</value>
   </data>
+  <data name="CellExclamationMarkFillColor" xml:space="preserve">
+    <value>填充色</value>
+  </data>
   <data name="CellQuestionMarkFontName" xml:space="preserve">
+    <value>字体名</value>
+  </data>
+  <data name="CellExclamationMarkFontName" xml:space="preserve">
     <value>字体名</value>
   </data>
   <data name="CellQuestionMarkSizeScale" xml:space="preserve">
     <value>文字缩放大小</value>
   </data>
+  <data name="CellExclamationMarkSizeScale" xml:space="preserve">
+    <value>文字缩放大小</value>
+  </data>
   <data name="CellQuestionMarkStrokeColor" xml:space="preserve">
     <value>文字外轮廓颜色</value>
   </data>
+  <data name="CellExclamationMarkStrokeColor" xml:space="preserve">
+    <value>文字外轮廓颜色</value>
+  </data>
   <data name="CellQuestionMarkStrokeWidthScale" xml:space="preserve">
+    <value>文字外轮廓粗细</value>
+  </data>
+  <data name="CellExclamationMarkStrokeWidthScale" xml:space="preserve">
     <value>文字外轮廓粗细</value>
   </data>
   <data name="GridBorderRoundedRectangleCornerRadius" xml:space="preserve">

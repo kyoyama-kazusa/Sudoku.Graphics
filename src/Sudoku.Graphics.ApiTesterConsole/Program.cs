@@ -48,11 +48,11 @@ canvas.DrawItems(
 		{
 			TemplateIndex = 0,
 			Cell = 1,
-			TextFontName = options.CellQuestionMarkFontName.Resolve(options),
-			StrokeColor = options.CellQuestionMarkStrokeColor.Resolve(options),
-			StrokeWidthScale = options.CellQuestionMarkStrokeWidthScale.Resolve(options),
-			FillColor = options.CellQuestionMarkFillColor.Resolve(options),
-			SizeScale = options.CellQuestionMarkSizeScale.Resolve(options)
+			TextFontName = options.CellExclamationMarkFontName.Resolve(options),
+			StrokeColor = options.CellExclamationMarkStrokeColor.Resolve(options),
+			StrokeWidthScale = options.CellExclamationMarkStrokeWidthScale.Resolve(options),
+			FillColor = options.CellExclamationMarkFillColor.Resolve(options),
+			SizeScale = options.CellExclamationMarkSizeScale.Resolve(options)
 		}
 	]
 );
