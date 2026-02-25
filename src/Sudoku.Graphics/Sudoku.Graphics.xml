@@ -1462,6 +1462,74 @@
         <member name="M:Sudoku.ComponentModel.Items.CellFillItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.ComponentModel.Items.CellMarkItem">
+            <summary>
+            Represents a cell mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarkItem.TemplateIndex">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarkItem.TextFontName">
+            <summary>
+            Indicates text font.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarkItem.Cell">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarkItem.SizeScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarkItem.StrokeWidthScale">
+            <summary>
+            Indicates stroke width scale.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarkItem.StrokeColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarkItem.FillColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarkItem.Sudoku#ComponentModel#Items#IItem_FontRelatedProperties#FontName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarkItem.Sudoku#ComponentModel#Items#IItem_FontRelatedProperties#FontWeight">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarkItem.Sudoku#ComponentModel#Items#IItem_FontRelatedProperties#FontWidth">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarkItem.Sudoku#ComponentModel#Items#IItem_FontRelatedProperties#FontSlant">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarkItem.Sudoku#ComponentModel#Items#IItem_FontRelatedProperties#FontSizeScale">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Items.CellMarkItem.Equals(Sudoku.ComponentModel.Item)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Items.CellMarkItem.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Items.CellMarkItem.PrintMembers(System.Text.StringBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.ComponentModel.Items.CellMarks.CellQuestionMarkItem">
+            <summary>
+            Represents cell question mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellQuestionMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellQuestionMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Items.CellMarks.CellQuestionMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.ComponentModel.Items.GivenTextItem">
             <summary>
             Represents given text.
@@ -1578,6 +1646,26 @@
             Indicates the font slant. By default it's <see cref="F:SkiaSharp.SKFontStyleSlant.Upright"/>.
             </summary>
             <seealso cref="F:SkiaSharp.SKFontStyleSlant.Upright"/>
+        </member>
+        <member name="T:Sudoku.ComponentModel.Items.IItem_MarkRelatedProperties">
+            <summary>
+            Represents a type that includes mark-related properties.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.IItem_MarkRelatedProperties.SizeScale">
+            <summary>
+            Indicates size scale of mark.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.IItem_MarkRelatedProperties.StrokeColor">
+            <summary>
+            Indicates the stroke color.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.IItem_MarkRelatedProperties.FillColor">
+            <summary>
+            Indicates the fill color.
+            </summary>
         </member>
         <member name="T:Sudoku.ComponentModel.Items.IItem_TemplateIndexProperty">
             <summary>
@@ -1731,6 +1819,11 @@
         <member name="F:Sudoku.ComponentModel.ItemType.CandidateText">
             <summary>
             Indicates candidate text.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.ItemType.CellMark_Question">
+            <summary>
+            Indicates cell question mark.
             </summary>
         </member>
         <member name="T:Sudoku.ComponentModel.LineDashSequence">
@@ -2593,6 +2686,13 @@
             </summary>
             <seealso cref="P:Sudoku.Graphics.CanvasDrawingOptions.BigTextFontName"/>
         </member>
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.CellQuestionMarkFontName">
+            <summary>
+            Indicates the font name of cell question mark.
+            By default it's derived from property <see cref="P:Sudoku.Graphics.CanvasDrawingOptions.BigTextFontName"/>.
+            </summary>
+            <seealso cref="P:Sudoku.Graphics.CanvasDrawingOptions.BigTextFontName"/>
+        </member>
         <member name="P:Sudoku.Graphics.CanvasDrawingOptions.BigTextFontWeight">
             <summary>
             Indicates font weight of text that will be drawn with big size, like given and modifiable digits.
@@ -2665,6 +2765,12 @@
             <seealso cref="P:Sudoku.Graphics.PointMapper.RowsCount"/>
             <seealso cref="P:Sudoku.Graphics.PointMapper.ColumnsCount"/>
         </member>
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.CellQuestionMarkSizeScale">
+            <summary>
+            Indicates cell question mark size scale. By default it's derived from property <see cref="P:Sudoku.Graphics.CanvasDrawingOptions.BigTextFontSizeScale"/>.
+            </summary>
+            <seealso cref="P:Sudoku.Graphics.CanvasDrawingOptions.BigTextFontSizeScale"/>
+        </member>
         <member name="P:Sudoku.Graphics.CanvasDrawingOptions.GridBorderRoundedRectangleCornerRadius">
             <summary>
             Indicates corner radius ratio of rounded rectangle of border lines, relative to cell size. By default it's 0.12.
@@ -2678,6 +2784,11 @@
         <member name="P:Sudoku.Graphics.CanvasDrawingOptions.ThickLineWidth">
             <summary>
             Indicates stroke thickness ratio of thick lines, relative to cell size. By default it's 0.09.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.CellQuestionMarkStrokeWidthScale">
+            <summary>
+            Indicates stroke width scale of cell question mark, relative to cell size. By default it's 0.15.
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.CanvasDrawingOptions.BackgroundColor">
@@ -2703,6 +2814,18 @@
             Represents template intersection color. By default it's initialized as <c><see langword="new"/>(223, 234, 255, 255)</c>
             (light deepblue).
             </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.CellQuestionMarkStrokeColor">
+            <summary>
+            Represents cell question mark stroke color. By default it's same value inherited from property <see cref="P:Sudoku.Graphics.CanvasDrawingOptions.ThinLineColor"/>.
+            </summary>
+            <seealso cref="P:Sudoku.Graphics.CanvasDrawingOptions.ThinLineColor"/>
+        </member>
+        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.CellQuestionMarkFillColor">
+            <summary>
+            Represents question mark fill color. By default it's same value inherited from property <see cref="P:Sudoku.Graphics.CanvasDrawingOptions.BackgroundColor"/>.
+            </summary>
+            <seealso cref="P:Sudoku.Graphics.CanvasDrawingOptions.BackgroundColor"/>
         </member>
         <member name="P:Sudoku.Graphics.CanvasDrawingOptions.TextColorSet">
             <summary>
@@ -2955,6 +3078,31 @@
         <member name="P:Sudoku.Resources.Resource.BigTextFontWidth">
             <summary>
               Looks up a localized string similar to Big text font width.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Resources.Resource.CellQuestionMarkFillColor">
+            <summary>
+              Looks up a localized string similar to Fill color.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Resources.Resource.CellQuestionMarkFontName">
+            <summary>
+              Looks up a localized string similar to Font name.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Resources.Resource.CellQuestionMarkSizeScale">
+            <summary>
+              Looks up a localized string similar to Size scale.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Resources.Resource.CellQuestionMarkStrokeColor">
+            <summary>
+              Looks up a localized string similar to Stroke color.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Resources.Resource.CellQuestionMarkStrokeWidthScale">
+            <summary>
+              Looks up a localized string similar to Stroke width scale.
             </summary>
         </member>
         <member name="P:Sudoku.Resources.Resource.GridBorderRoundedRectangleCornerRadius">

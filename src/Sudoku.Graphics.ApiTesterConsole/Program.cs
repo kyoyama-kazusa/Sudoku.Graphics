@@ -8,167 +8,42 @@
 
 using System;
 using System.IO;
-using Sudoku.ComponentModel;
-using Sudoku.ComponentModel.Crossmath;
+using Sudoku.ComponentModel.GridTemplates;
 using Sudoku.ComponentModel.Items;
+using Sudoku.ComponentModel.Items.CellMarks;
 using Sudoku.Graphics;
 
 var desktop = Environment.DesktopPath;
 var options = new CanvasDrawingOptions();
-var formulae = (CrossmathFormula[])[
-	new()
-	{
-		Cell = 0,
-		ExpandingDirection = Direction.Right,
-		ValueSequence = ["3", "+", null, "=", "14"]
-	},
-	new()
-	{
-		Cell = 0,
-		ExpandingDirection = Direction.Down,
-		ValueSequence = ["3", "+", "1", "=", null]
-	},
-	new()
-	{
-		Cell = 52,
-		ExpandingDirection = Direction.Right,
-		ValueSequence = [null, "×", "4", "=", null]
-	},
-	new()
-	{
-		Cell = 4,
-		ExpandingDirection = Direction.Down,
-		ValueSequence = ["14", "+", "2", "=", null]
-	},
-	new()
-	{
-		Cell = 30,
-		ExpandingDirection = Direction.Right,
-		ValueSequence = ["2", "×", "2", "=", null]
-	},
-	new()
-	{
-		Cell = 8,
-		ExpandingDirection = Direction.Right,
-		ValueSequence = ["5", "+", "10", "=", null]
-	},
-	new()
-	{
-		Cell = 8,
-		ExpandingDirection = Direction.Down,
-		ValueSequence = ["5", "+", null, "=", null]
-	},
-	new()
-	{
-		Cell = 12,
-		ExpandingDirection = Direction.Down,
-		ValueSequence = [null, "×", null, "=", null]
-	},
-	new()
-	{
-		Cell = 60,
-		ExpandingDirection = Direction.Right,
-		ValueSequence = [null, "×", null, "=", "45"]
-	},
-	new()
-	{
-		Cell = 54,
-		ExpandingDirection = Direction.Down,
-		ValueSequence = ["4", "×", null, "=", null]
-	},
-	new()
-	{
-		Cell = 62,
-		ExpandingDirection = Direction.Down,
-		ValueSequence = [null, "-", "3", "=", null]
-	},
-	new()
-	{
-		Cell = 104,
-		ExpandingDirection = Direction.Right,
-		ValueSequence = ["3", "×", null, "=", "12"]
-	},
-	new()
-	{
-		Cell = 104,
-		ExpandingDirection = Direction.Down,
-		ValueSequence = ["3", "+", "17", "=", null]
-	},
-	new()
-	{
-		Cell = 108,
-		ExpandingDirection = Direction.Down,
-		ValueSequence = ["12", "-", "8", "=", null]
-	},
-	new()
-	{
-		Cell = 156,
-		ExpandingDirection = Direction.Right,
-		ValueSequence = [null, "÷", null, "=", null]
-	},
-	new()
-	{
-		Cell = 134,
-		ExpandingDirection = Direction.Right,
-		ValueSequence = ["8", "+", null, "=", null]
-	},
-	new()
-	{
-		Cell = 112,
-		ExpandingDirection = Direction.Right,
-		ValueSequence = ["6", "÷", null, "=", null]
-	},
-	new()
-	{
-		Cell = 112,
-		ExpandingDirection = Direction.Down,
-		ValueSequence = ["6", "+", null, "=", null]
-	},
-	new()
-	{
-		Cell = 116,
-		ExpandingDirection = Direction.Down,
-		ValueSequence = [null, "×", "5", "=", "15"]
-	},
-	new()
-	{
-		Cell = 164,
-		ExpandingDirection = Direction.Right,
-		ValueSequence = [null, "×", null, "=", "15"]
-	}
-];
 var mapper = new PointMapper
 {
 	CellSize = 120,
 	Margin = 15,
-	TemplateSize = new() { RowsCount = 13, ColumnsCount = 13 }
+	TemplateSize = new() { RowsCount = 9, ColumnsCount = 9 }
 };
 using var canvas = new Canvas(
-	CrossmathFormula.CreateTemplate(
-		formulae,
-		mapper,
-		options.ThickLineWidth.Resolve(options),
-		options.ThinLineWidth.Resolve(options),
-		options.ThickLineColor.Resolve(options),
-		options.ThinLineColor.Resolve(options)
-	)
+	new StandardGridTemplate(-1, -1, mapper)
+	{
+		ThickLineWidth = options.ThickLineWidth.Resolve(options),
+		ThinLineWidth = options.ThinLineWidth.Resolve(options),
+		ThickLineColor = options.ThickLineColor.Resolve(options),
+		ThinLineColor = options.ThinLineColor.Resolve(options)
+	}
 );
 canvas.DrawItems(
 	[
 		new BackgroundFillItem { Color = options.BackgroundColor.Resolve(options) },
-		new TemplateLineStrokeItem
+		new TemplateLineStrokeItem(),
+		new CellQuestionMarkItem
 		{
-			FillIntersectionCells = true,
-			TemplateIntersectionCellsColor = options.TemplateIntersectionColor.Resolve(options)
-		},
-		..
-		CrossmathFormula.CreateItems(
-			formulae,
-			mapper,
-			options.BigTextFontName.Resolve(options),
-			options.BigTextFontSizeScale.Resolve(options),
-			options.TextColorSet.Resolve(options)[0]
-		)
+			TemplateIndex = 0,
+			Cell = 0,
+			TextFontName = options.CellQuestionMarkFontName.Resolve(options),
+			StrokeColor = options.CellQuestionMarkStrokeColor.Resolve(options),
+			StrokeWidthScale = options.CellQuestionMarkStrokeWidthScale.Resolve(options),
+			FillColor = options.CellQuestionMarkFillColor.Resolve(options),
+			SizeScale = options.CellQuestionMarkSizeScale.Resolve(options)
+		}
 	]
 );
 canvas.Export(Path.Combine(desktop, "output.png"), new() { Quality = 100 });

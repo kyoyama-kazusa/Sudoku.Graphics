@@ -135,6 +135,21 @@
   <data name="BigTextFontWidth" xml:space="preserve">
     <value>Big text font width</value>
   </data>
+  <data name="CellQuestionMarkFillColor" xml:space="preserve">
+    <value>Fill color</value>
+  </data>
+  <data name="CellQuestionMarkFontName" xml:space="preserve">
+    <value>Font name</value>
+  </data>
+  <data name="CellQuestionMarkSizeScale" xml:space="preserve">
+    <value>Size scale</value>
+  </data>
+  <data name="CellQuestionMarkStrokeColor" xml:space="preserve">
+    <value>Stroke color</value>
+  </data>
+  <data name="CellQuestionMarkStrokeWidthScale" xml:space="preserve">
+    <value>Stroke width scale</value>
+  </data>
   <data name="GridBorderRoundedRectangleCornerRadius" xml:space="preserve">
     <value>Corner radius of grid border</value>
   </data>

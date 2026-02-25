@@ -27,6 +27,14 @@ public sealed class CanvasDrawingOptions : IOptionsProvider<CanvasDrawingOptions
 	public Inherited<string> SmallTextFontName { get; set; } = Inherited<string>.FromPropertyName(nameof(BigTextFontName));
 
 	/// <summary>
+	/// Indicates the font name of cell question mark.
+	/// By default it's derived from property <see cref="BigTextFontName"/>.
+	/// </summary>
+	/// <seealso cref="BigTextFontName"/>
+	[ResourceKey("CellQuestionMarkFontName")]
+	public Inherited<string> CellQuestionMarkFontName { get; set; } = Inherited<string>.FromPropertyName(nameof(BigTextFontName));
+
+	/// <summary>
 	/// Indicates font weight of text that will be drawn with big size, like given and modifiable digits.
 	/// By default it's <see cref="SKFontStyleWeight.Normal"/>.
 	/// </summary>
@@ -111,6 +119,14 @@ public sealed class CanvasDrawingOptions : IOptionsProvider<CanvasDrawingOptions
 	public Inherited<Scale> SmallTextFontSizeScale { get; set; } = Inherited<Scale>.FromPropertyName(nameof(BigTextFontSizeScale));
 
 	/// <summary>
+	/// Indicates cell question mark size scale. By default it's derived from property <see cref="BigTextFontSizeScale"/>.
+	/// </summary>
+	/// <seealso cref="BigTextFontSizeScale"/>
+	[ResourceKey("CellQuestionMarkSizeScale")]
+	public Inherited<Scale> CellQuestionMarkSizeScale { get; set; } =
+		Inherited<Scale>.FromPropertyName(nameof(BigTextFontSizeScale));
+
+	/// <summary>
 	/// Indicates corner radius ratio of rounded rectangle of border lines, relative to cell size. By default it's 0.12.
 	/// </summary>
 	[ResourceKey("GridBorderRoundedRectangleCornerRadius")]
@@ -127,6 +143,12 @@ public sealed class CanvasDrawingOptions : IOptionsProvider<CanvasDrawingOptions
 	/// </summary>
 	[ResourceKey("ThickLineWidth")]
 	public Inherited<Scale> ThickLineWidth { get; set; } = Inherited<Scale>.FromValue(.09M);
+
+	/// <summary>
+	/// Indicates stroke width scale of cell question mark, relative to cell size. By default it's 0.15.
+	/// </summary>
+	[ResourceKey("CellQuestionMarkStrokeWidthScale")]
+	public Inherited<Scale> CellQuestionMarkStrokeWidthScale { get; set; } = Inherited<Scale>.FromValue(.15M);
 
 	/// <summary>
 	/// Represents background color. By default it's equivalent value of color <see cref="SKColors.White"/>.
@@ -154,7 +176,24 @@ public sealed class CanvasDrawingOptions : IOptionsProvider<CanvasDrawingOptions
 	/// (light deepblue).
 	/// </summary>
 	[ResourceKey("TemplateIntersectionColor")]
-	public Inherited<SerializableColor> TemplateIntersectionColor { get; set; } = Inherited<SerializableColor>.FromValue(new(223, 234, 255));
+	public Inherited<SerializableColor> TemplateIntersectionColor { get; set; } =
+		Inherited<SerializableColor>.FromValue(new(223, 234, 255));
+
+	/// <summary>
+	/// Represents cell question mark stroke color. By default it's same value inherited from property <see cref="ThinLineColor"/>.
+	/// </summary>
+	/// <seealso cref="ThinLineColor"/>
+	[ResourceKey("CellQuestionMarkStrokeColor")]
+	public Inherited<SerializableColor> CellQuestionMarkStrokeColor { get; set; } =
+		Inherited<SerializableColor>.FromPropertyName(nameof(ThinLineColor));
+
+	/// <summary>
+	/// Represents question mark fill color. By default it's same value inherited from property <see cref="BackgroundColor"/>.
+	/// </summary>
+	/// <seealso cref="BackgroundColor"/>
+	[ResourceKey("CellQuestionMarkFillColor")]
+	public Inherited<SerializableColor> CellQuestionMarkFillColor { get; set; } =
+		Inherited<SerializableColor>.FromPropertyName(nameof(BackgroundColor));
 
 	/// <summary>
 	/// Represents text color set. The default color set contains 5 different colors.

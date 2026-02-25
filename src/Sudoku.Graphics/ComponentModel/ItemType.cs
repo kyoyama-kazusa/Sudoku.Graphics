@@ -44,4 +44,9 @@ public enum ItemType
 	/// Indicates candidate text.
 	/// </summary>
 	CandidateText,
+
+	/// <summary>
+	/// Indicates cell question mark.
+	/// </summary>
+	CellMark_Question,
 }

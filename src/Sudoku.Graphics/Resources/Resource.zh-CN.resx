@@ -121,19 +121,34 @@
     <value>盘面底色</value>
   </data>
   <data name="BigTextFontName" xml:space="preserve">
-    <value>大字符的字体</value>
+    <value>字体名</value>
   </data>
   <data name="BigTextFontSizeScale" xml:space="preserve">
-    <value>大字符的字体大小缩放比</value>
+    <value>字体缩放大小</value>
   </data>
   <data name="BigTextFontSlant" xml:space="preserve">
-    <value>大字符的字体倾斜</value>
+    <value>字体倾斜方式</value>
   </data>
   <data name="BigTextFontWeight" xml:space="preserve">
-    <value>大字符的字体粗细</value>
+    <value>字体粗细</value>
   </data>
   <data name="BigTextFontWidth" xml:space="preserve">
-    <value>大字符的字体宽窄</value>
+    <value>字体宽窄</value>
+  </data>
+  <data name="CellQuestionMarkFillColor" xml:space="preserve">
+    <value>填充色</value>
+  </data>
+  <data name="CellQuestionMarkFontName" xml:space="preserve">
+    <value>字体名</value>
+  </data>
+  <data name="CellQuestionMarkSizeScale" xml:space="preserve">
+    <value>文字缩放大小</value>
+  </data>
+  <data name="CellQuestionMarkStrokeColor" xml:space="preserve">
+    <value>文字外轮廓颜色</value>
+  </data>
+  <data name="CellQuestionMarkStrokeWidthScale" xml:space="preserve">
+    <value>文字外轮廓粗细</value>
   </data>
   <data name="GridBorderRoundedRectangleCornerRadius" xml:space="preserve">
     <value>盘面边框圆角幅度</value>
@@ -142,19 +157,19 @@
     <value>JSudoku 颜色集</value>
   </data>
   <data name="SmallTextFontName" xml:space="preserve">
-    <value>小字符的字体</value>
+    <value>字体名</value>
   </data>
   <data name="SmallTextFontSizeScale" xml:space="preserve">
-    <value>小字符的字体大小缩放比</value>
+    <value>字体缩放大小</value>
   </data>
   <data name="SmallTextFontSlant" xml:space="preserve">
-    <value>小字符的字体倾斜</value>
+    <value>字体倾斜方式</value>
   </data>
   <data name="SmallTextFontWeight" xml:space="preserve">
-    <value>小字符的字体粗细</value>
+    <value>字体粗细</value>
   </data>
   <data name="SmallTextFontWidth" xml:space="preserve">
-    <value>小字符的字体宽窄</value>
+    <value>字体宽窄</value>
   </data>
   <data name="TemplateIntersectionColor" xml:space="preserve">
     <value>连体盘面重叠部分的颜色</value>
@@ -163,15 +178,15 @@
     <value>文字信息的颜色集</value>
   </data>
   <data name="ThickLineColor" xml:space="preserve">
-    <value>粗线颜色</value>
+    <value>线条颜色</value>
   </data>
   <data name="ThickLineWidth" xml:space="preserve">
-    <value>粗线宽度</value>
+    <value>线条粗细</value>
   </data>
   <data name="ThinLineColor" xml:space="preserve">
-    <value>细线颜色</value>
+    <value>线条颜色</value>
   </data>
   <data name="ThinLineWidth" xml:space="preserve">
-    <value>细线宽度</value>
+    <value>线条粗细</value>
   </data>
 </root>
