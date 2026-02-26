@@ -23,7 +23,7 @@ var mapper = new PointMapper
 	TemplateSize = new() { RowsCount = 9, ColumnsCount = 9 }
 };
 using var canvas = new Canvas(
-	new StandardGridTemplate(-1, -1, mapper)
+	new StandardGridTemplate(3, 3, mapper)
 	{
 		ThickLineWidth = options.ThickLineWidth.Resolve(options),
 		ThinLineWidth = options.ThinLineWidth.Resolve(options),
@@ -41,7 +41,6 @@ canvas.DrawItems(
 		{
 			CandidatePosition = new(0, 3, digit),
 			FontName = "Arial",
-			FontWeight = SKFontStyleWeight.Medium,
 			Color = options.TextColorSet.Resolve(options)[^1],
 			FontSizeScale = .8M,
 			Text = (digit + 1).ToString(),

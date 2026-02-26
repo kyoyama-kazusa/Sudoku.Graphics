@@ -732,14 +732,10 @@
         </member>
         <member name="M:Sudoku.ComponentModel.GridTemplates.StandardGridTemplate.#ctor(Sudoku.ComponentModel.Relative,Sudoku.ComponentModel.Relative,Sudoku.Graphics.PointMapper)">
             <summary>
-            Initializes a <see cref="T:Sudoku.ComponentModel.GridTemplates.StandardGridTemplate"/> instance, with <see langword="required"/> members been set.
+            Initializes a <see cref="T:Sudoku.ComponentModel.GridTemplates.StandardGridTemplate"/> instance.
             </summary>
-            <param name="rowBlockSize">
-            The block size of rows. If set -1, it'll be initialized as square root of grid size specified by <paramref name="mapper"/>.
-            </param>
-            <param name="columnBlockSize">
-            The block size of columns. If set -1, it'll be initialized as square root of grid size specified by <paramref name="mapper"/>.
-            </param>
+            <param name="rowBlockSize">The block size of rows.</param>
+            <param name="columnBlockSize">The block size of columns.</param>
             <param name="mapper">The mapper instance.</param>
         </member>
         <member name="P:Sudoku.ComponentModel.GridTemplates.StandardGridTemplate.IsBorderRoundedRectangle">
@@ -785,11 +781,9 @@
         </member>
         <member name="M:Sudoku.ComponentModel.GridTemplates.SujikenGridTemplate.#ctor(Sudoku.ComponentModel.Relative,Sudoku.Graphics.PointMapper)">
             <summary>
-            Initializes a <see cref="T:Sudoku.ComponentModel.GridTemplates.SujikenGridTemplate"/> instance, with <see langword="required"/> members been set.
+            Initializes a <see cref="T:Sudoku.ComponentModel.GridTemplates.SujikenGridTemplate"/> instance.
             </summary>
-            <param name="uniformBlockSize">
-            The uniform size. If set -1, it'll be initialized as square root of grid size specified by <paramref name="mapper"/>.
-            </param>
+            <param name="uniformBlockSize">The uniform size.</param>
             <param name="mapper">The mapper instance.</param>
         </member>
         <member name="P:Sudoku.ComponentModel.GridTemplates.SujikenGridTemplate.UniformBlockSize">

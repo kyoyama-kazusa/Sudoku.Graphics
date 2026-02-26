@@ -12,11 +12,9 @@ public sealed class SujikenGridTemplate : GridTemplate
 
 
 	/// <summary>
-	/// Initializes a <see cref="SujikenGridTemplate"/> instance, with <see langword="required"/> members been set.
+	/// Initializes a <see cref="SujikenGridTemplate"/> instance.
 	/// </summary>
-	/// <param name="uniformBlockSize">
-	/// The uniform size. If set -1, it'll be initialized as square root of grid size specified by <paramref name="mapper"/>.
-	/// </param>
+	/// <param name="uniformBlockSize">The uniform size.</param>
 	/// <param name="mapper">The mapper instance.</param>
 	[JsonConstructor]
 	[SetsRequiredMembers]
@@ -27,11 +25,6 @@ public sealed class SujikenGridTemplate : GridTemplate
 		Mapper = mapper;
 
 		var linesCount = Mapper.RowsCount;
-		if (uniformBlockSize == -1)
-		{
-			uniformBlockSize = (int)Math.Sqrt(linesCount);
-		}
-
 		ArgumentException.Assert(linesCount % uniformBlockSize == 0);
 
 		if (uniformBlockSize * uniformBlockSize != linesCount)

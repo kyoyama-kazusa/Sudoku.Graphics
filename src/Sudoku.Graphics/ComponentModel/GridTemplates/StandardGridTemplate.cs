@@ -6,14 +6,10 @@
 public sealed class StandardGridTemplate : GridTemplate, IGridTemplate_RoundedRectangleRelatedProperties
 {
 	/// <summary>
-	/// Initializes a <see cref="StandardGridTemplate"/> instance, with <see langword="required"/> members been set.
+	/// Initializes a <see cref="StandardGridTemplate"/> instance.
 	/// </summary>
-	/// <param name="rowBlockSize">
-	/// The block size of rows. If set -1, it'll be initialized as square root of grid size specified by <paramref name="mapper"/>.
-	/// </param>
-	/// <param name="columnBlockSize">
-	/// The block size of columns. If set -1, it'll be initialized as square root of grid size specified by <paramref name="mapper"/>.
-	/// </param>
+	/// <param name="rowBlockSize">The block size of rows.</param>
+	/// <param name="columnBlockSize">The block size of columns.</param>
 	/// <param name="mapper">The mapper instance.</param>
 	[JsonConstructor]
 	[SetsRequiredMembers]
@@ -22,21 +18,10 @@ public sealed class StandardGridTemplate : GridTemplate, IGridTemplate_RoundedRe
 		Mapper = mapper;
 
 		var rowsCount = mapper.RowsCount;
-		var squareRootOfRowsCount = (int)Math.Sqrt(rowsCount);
-		if (rowBlockSize == -1)
-		{
-			rowBlockSize = squareRootOfRowsCount;
-		}
-
 		var columnsCount = mapper.ColumnsCount;
-		var squareRootOfColumnsCount = (int)Math.Sqrt(columnsCount);
-		if (columnBlockSize == -1)
-		{
-			columnBlockSize = squareRootOfColumnsCount;
-		}
 
-		ArgumentException.Assert(rowsCount % squareRootOfRowsCount == 0);
-		ArgumentException.Assert(columnsCount % squareRootOfColumnsCount == 0);
+		ArgumentException.Assert(rowsCount % (int)Math.Sqrt(rowsCount) == 0);
+		ArgumentException.Assert(columnsCount % (int)Math.Sqrt(columnsCount) == 0);
 
 		RowBlockSize = rowBlockSize;
 		ColumnBlockSize = columnBlockSize;
