@@ -1,10 +1,10 @@
-﻿namespace SkiaSharp;
+﻿namespace Sudoku.Graphics;
 
 /// <summary>
 /// Provides extension members on <see cref="SKCanvas"/>.
 /// </summary>
 /// <seealso cref="SKCanvas"/>
-public static class SKCanvasExtensions
+public static class SKCanvasDrawingExtensions
 {
 	/// <param name="this">The current instance.</param>
 	extension(SKCanvas @this)
