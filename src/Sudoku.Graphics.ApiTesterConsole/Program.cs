@@ -44,13 +44,12 @@ canvas.DrawItems(
 		..
 		from rowIndex in Enumerable.Range(0, 9)
 		from columnIndex in Enumerable.Range(0, 9)
-		select new CellTetrisMarkItem
+		select new CellDiceMarkItem
 		{
 			Cell = rowIndex * 9 + columnIndex,
 			SizeScale = .2M,
 			TemplateIndex = 0,
-			Piece = pieces[rng.Next(0, pieces.Length)],
-			RotationType = (RotationType)rng.Next(0, 4),
+			DiceValue = rng.Next(0, 9),
 			StrokeColor = SKColors.Black,
 			FillColor = SKColors.White,
 			StrokeWidthScale = options.ThinLineWidth.Resolve(options)

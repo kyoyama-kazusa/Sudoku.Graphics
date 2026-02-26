@@ -54,7 +54,7 @@ public partial class SKCanvasDrawingExtensions
 			var totalWidth = shapeColumnsCount * pieceEachBlockSize;
 			var totalHeight = shapeRowsCount * pieceEachBlockSize;
 
-			// 将整个 tetromino 矩形在单元格内居中
+			// Aligned as center for the whole piece.
 			var startX = x + (cellSize - totalWidth) / 2;
 			var startY = y + (cellSize - totalHeight) / 2;
 			using var strokePaint = new SKPaint
@@ -66,7 +66,7 @@ public partial class SKCanvasDrawingExtensions
 			};
 			using var fillPaint = new SKPaint { Style = SKPaintStyle.Fill, Color = fillColor, IsAntialias = true };
 
-			// 内边距像素值
+			// Calculate for pixels for padding between two minicells in a piece.
 			var blockPaddingFactValue = blockPadding.Measure(pieceEachBlockSize);
 			var cellInner = Math.Max(pieceEachBlockSize - 2F * blockPaddingFactValue, 0);
 			for (var r = 0; r < shapeRowsCount; r++)

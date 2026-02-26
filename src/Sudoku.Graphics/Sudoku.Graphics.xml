@@ -202,6 +202,16 @@
             <param name="color">The color.</param>
             <returns>A list of <see cref="T:Sudoku.ComponentModel.Items.GivenTextItem"/> instances.</returns>
         </member>
+        <member name="T:Sudoku.ComponentModel.Dices.DiceTable">
+            <summary>
+            Provides dice table.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Dices.DiceTable.Values">
+            <summary>
+            Represents values.
+            </summary>
+        </member>
         <member name="T:Sudoku.ComponentModel.Direction">
             <summary>
             Represents a direction.
@@ -1510,6 +1520,25 @@
         <member name="M:Sudoku.ComponentModel.Items.CellMarkItem.PrintMembers(System.Text.StringBuilder)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.ComponentModel.Items.CellMarks.CellDiceMarkItem">
+            <summary>
+            Represents cell dice mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellDiceMarkItem.DiceValue">
+            <summary>
+            Indicates dice value.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellDiceMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellDiceMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Items.CellMarks.CellDiceMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.ComponentModel.Items.CellMarks.CellExclamationMarkItem">
             <summary>
             Represents cell exclamation mark item.
@@ -1845,6 +1874,11 @@
         <member name="F:Sudoku.ComponentModel.ItemType.CellMark_Tetris">
             <summary>
             Indicates cell tetris mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.ItemType.CellMark_Dice">
+            <summary>
+            Indicates cell dice mark.
             </summary>
         </member>
         <member name="T:Sudoku.ComponentModel.LineDashSequence">
