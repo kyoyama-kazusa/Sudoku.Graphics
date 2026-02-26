@@ -41,6 +41,7 @@ canvas.DrawItems(
 		{
 			CandidatePosition = new(0, 3, digit),
 			FontName = "Arial",
+			FontWeight = SKFontStyleWeight.Medium,
 			Color = options.TextColorSet.Resolve(options)[^1],
 			FontSizeScale = .8M,
 			Text = (digit + 1).ToString(),
