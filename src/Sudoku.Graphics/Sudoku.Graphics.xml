@@ -3588,6 +3588,31 @@
         <member name="M:System.StringExtensions.&lt;G&gt;$34505F560D9EACF86A87F3ED1F85E448.op_Division(System.String,System.String)">
             <inheritdoc cref="M:System.StringExtensions.&lt;G&gt;$34505F560D9EACF86A87F3ED1F85E448.op_Division(System.String,System.Char)"/>
         </member>
+        <member name="T:SkiaSharp.SKCanvasExtensions">
+            <summary>
+            Provides extension members on <see cref="T:SkiaSharp.SKCanvas"/>.
+            </summary>
+            <seealso cref="T:SkiaSharp.SKCanvas"/>
+        </member>
+        <member name="M:SkiaSharp.SKCanvasExtensions.DrawTextToCell(SkiaSharp.SKCanvas,System.String,Sudoku.ComponentModel.Absolute,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:SkiaSharp.SKCanvasExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextToCell(System.String,Sudoku.ComponentModel.Absolute,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
+        </member>
+        <member name="M:SkiaSharp.SKCanvasExtensions.DrawShadowedTextToCell(SkiaSharp.SKCanvas,System.String,Sudoku.ComponentModel.Absolute,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:SkiaSharp.SKCanvasExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawShadowedTextToCell(System.String,Sudoku.ComponentModel.Absolute,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
+        </member>
+        <member name="T:SkiaSharp.SKCanvasExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.&lt;M&gt;$21C1C87F40B24560160CB1CD20F6362E">
+            <param name="this">The current instance.</param>
+        </member>
+        <member name="M:SkiaSharp.SKCanvasExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextToCell(System.String,Sudoku.ComponentModel.Absolute,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SkiaSharp.SKCanvasExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawShadowedTextToCell(System.String,Sudoku.ComponentModel.Absolute,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:SkiaSharp.SKRectExtensions">
             <summary>
             Provides extension members on type <see cref="T:SkiaSharp.SKRect"/>.

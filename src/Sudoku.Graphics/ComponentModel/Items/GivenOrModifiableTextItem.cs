@@ -83,22 +83,15 @@ public abstract class GivenOrModifiableTextItem :
 
 	/// <inheritdoc/>
 	protected internal sealed override void DrawTo(Canvas canvas)
-	{
-		var template = canvas.Templates[TemplateIndex];
-		var mapper = template.Mapper;
-		using var typeface = SKTypeface.FromFamilyName(FontName, FontWeight, FontWidth, FontSlant);
-		var factSize = FontSizeScale.Measure(mapper.CellSize);
-		using var textFont = new SKFont(typeface, factSize) { Subpixel = true };
-		using var textPaint = new SKPaint { Color = Color };
-		var offset = textFont.MeasureText(Text, textPaint);
-		canvas.BackingCanvas.DrawText(
+		=> canvas.BackingCanvas.DrawTextToCell(
 			Text,
-			mapper.GetPoint(Cell, Alignment.Center)
-				+ new SKPoint(0, offset / (2 * Text.Length)) // Offset adjustment
-				+ new SKPoint(0, mapper.CellSize / 12), // Manual adjustment
-			SKTextAlign.Center,
-			textFont,
-			textPaint
+			Cell,
+			FontName,
+			FontSizeScale,
+			FontWeight,
+			FontWidth,
+			FontSlant,
+			Color,
+			canvas.Templates[TemplateIndex].Mapper
 		);
-	}
 }

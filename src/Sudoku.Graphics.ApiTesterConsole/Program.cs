@@ -8,10 +8,10 @@
 
 using System;
 using System.IO;
+using System.Linq;
 using SkiaSharp;
 using Sudoku.ComponentModel.GridTemplates;
 using Sudoku.ComponentModel.Items;
-using Sudoku.ComponentModel.Items.CellMarks;
 using Sudoku.Graphics;
 
 var desktop = Environment.DesktopPath;
@@ -35,21 +35,19 @@ canvas.DrawItems(
 	[
 		new BackgroundFillItem { Color = options.BackgroundColor.Resolve(options) },
 		new TemplateLineStrokeItem(),
-		new CellQuestionMarkItem
+		..
+		from pair in "...4...8.....2...4.7...39....1....3.5...1...7.2.8..1....6..14..4...9.31..3.7....2".Index()
+		let index = pair.Index
+		let ch = pair.Item
+		where ch != '.'
+		select new GivenTextItem
 		{
-			TemplateIndex = 0,
-			Cell = 0,
-			TextFontName = options.CellQuestionMarkFontName.Resolve(options),
-			FillColor = SKColors.Black,
-			SizeScale = options.CellQuestionMarkSizeScale.Resolve(options)
-		},
-		new CellExclamationMarkItem
-		{
-			TemplateIndex = 0,
-			Cell = 1,
-			TextFontName = options.CellExclamationMarkFontName.Resolve(options),
-			FillColor = SKColors.Black,
-			SizeScale = options.CellExclamationMarkSizeScale.Resolve(options)
+			Cell = index,
+			FontName = "Arial",
+			Color = SKColors.Black,
+			FontSizeScale = options.BigTextFontSizeScale.Resolve(options),
+			Text = ch.ToString(),
+			TemplateIndex = 0
 		}
 	]
 );
