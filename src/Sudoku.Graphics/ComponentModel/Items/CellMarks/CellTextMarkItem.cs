@@ -16,7 +16,7 @@ public abstract class CellTextMarkItem : CellMarkItem
 	{
 		var template = canvas.Templates[TemplateIndex];
 		var mapper = template.Mapper;
-		canvas.BackingCanvas.DrawShadowedTextToCell(
+		canvas.BackingCanvas.DrawOutlinedTextToCell(
 			PrintingText,
 			Cell,
 			TextFontName ?? throw new InvalidOperationException("Expected a valid text font name."),

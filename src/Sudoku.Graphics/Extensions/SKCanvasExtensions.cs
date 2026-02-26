@@ -10,8 +10,9 @@ public static class SKCanvasExtensions
 	extension(SKCanvas @this)
 	{
 		/// <summary>
-		/// 
+		/// Draws the specified text into the target cell.
 		/// </summary>
+		/// <inheritdoc cref="DrawOutlinedTextToCell"/>
 		public void DrawTextToCell(
 			string text,
 			Absolute cell,
@@ -22,7 +23,7 @@ public static class SKCanvasExtensions
 			SKFontStyleSlant fontSlant,
 			SerializableColor fillColor,
 			PointMapper mapper
-		) => @this.DrawShadowedTextToCell(
+		) => @this.DrawOutlinedTextToCell(
 			text,
 			cell,
 			fontName,
@@ -37,18 +38,31 @@ public static class SKCanvasExtensions
 		);
 
 		/// <summary>
-		/// 
+		/// Draws the specified text into the target cell, with outlined.
 		/// </summary>
-		public void DrawShadowedTextToCell(
+		/// <param name="text">The text.</param>
+		/// <param name="cell">The cell.</param>
+		/// <param name="fontName">The font name.</param>
+		/// <param name="fontScale">The font scale, relative to cell size.</param>
+		/// <param name="outlineThicknessScale">
+		/// The outline width scale, relative to text fact size calculated from <paramref name="fontScale"/>.
+		/// </param>
+		/// <param name="fontWeight">The font weight.</param>
+		/// <param name="fontWidth">The font width.</param>
+		/// <param name="fontSlant">The font slant.</param>
+		/// <param name="outlineColor">The outline color.</param>
+		/// <param name="fillColor">The fill color of text.</param>
+		/// <param name="mapper">The mapper.</param>
+		public void DrawOutlinedTextToCell(
 			string text,
 			Absolute cell,
 			string fontName,
 			Scale fontScale,
-			Scale strokeWidthScale,
+			Scale outlineThicknessScale,
 			SKFontStyleWeight fontWeight,
 			SKFontStyleWidth fontWidth,
 			SKFontStyleSlant fontSlant,
-			SerializableColor strokeColor,
+			SerializableColor outlineColor,
 			SerializableColor fillColor,
 			PointMapper mapper
 		)
@@ -59,9 +73,9 @@ public static class SKCanvasExtensions
 			using var textStrokePaint = new SKPaint
 			{
 				Style = SKPaintStyle.Stroke,
-				Color = strokeColor,
+				Color = outlineColor,
 				IsAntialias = true,
-				StrokeWidth = strokeWidthScale.Measure(factSize),
+				StrokeWidth = outlineThicknessScale.Measure(factSize),
 				StrokeJoin = SKStrokeJoin.Round
 			};
 			using var textFillPaint = new SKPaint { Style = SKPaintStyle.Fill, Color = fillColor, IsAntialias = true };
