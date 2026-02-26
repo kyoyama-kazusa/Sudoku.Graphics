@@ -5,6 +5,9 @@
 /// </summary>
 public abstract class CellTextMarkItem : CellMarkItem
 {
+	/// <inheritdoc/>
+	public sealed override required string? TextFontName { get; init; }
+
 	/// <summary>
 	/// Indicates the printing text.
 	/// </summary>

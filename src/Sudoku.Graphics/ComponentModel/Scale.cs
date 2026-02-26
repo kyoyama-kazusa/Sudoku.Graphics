@@ -16,6 +16,16 @@ public readonly struct Scale(decimal value) :
 	IEqualityOperators<Scale, Scale, bool>
 {
 	/// <summary>
+	/// Indicates whether the current scale value is negative (&lt; 0).
+	/// </summary>
+	public bool IsNegative => value < 0;
+
+	/// <summary>
+	/// Indicates whether the current scale value is positive (&gt; 0).
+	/// </summary>
+	public bool IsPositive => value > 0;
+
+	/// <summary>
 	/// Indicates the value.
 	/// </summary>
 	public decimal Value { get; } = value is >= 0 and <= 1 ? value : throw new ArgumentOutOfRangeException(nameof(value));

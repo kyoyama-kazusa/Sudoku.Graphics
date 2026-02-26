@@ -54,4 +54,9 @@ public enum ItemType
 	/// Indicates cell exclamation mark.
 	/// </summary>
 	CellMark_Exclamation,
+
+	/// <summary>
+	/// Indicates cell tetris mark.
+	/// </summary>
+	CellMark_Tetris,
 }

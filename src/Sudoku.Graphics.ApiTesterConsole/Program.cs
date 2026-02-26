@@ -10,8 +10,11 @@ using System;
 using System.IO;
 using System.Linq;
 using SkiaSharp;
+using Sudoku.ComponentModel;
 using Sudoku.ComponentModel.GridTemplates;
 using Sudoku.ComponentModel.Items;
+using Sudoku.ComponentModel.Items.CellMarks;
+using Sudoku.ComponentModel.Tetris;
 using Sudoku.Graphics;
 
 var desktop = Environment.DesktopPath;
@@ -31,20 +34,26 @@ using var canvas = new Canvas(
 		ThinLineColor = options.ThinLineColor.Resolve(options)
 	}
 );
+
+var rng = Random.Shared;
+var pieces = Enum.GetValues<Piece>();
 canvas.DrawItems(
 	[
 		new BackgroundFillItem { Color = options.BackgroundColor.Resolve(options) },
 		new TemplateLineStrokeItem(),
 		..
-		from digit in Enumerable.Range(0, 9)
-		select new CandidateTextItem
+		from rowIndex in Enumerable.Range(0, 9)
+		from columnIndex in Enumerable.Range(0, 9)
+		select new CellTetrisMarkItem
 		{
-			CandidatePosition = new(0, 3, digit),
-			FontName = "Arial",
-			Color = options.TextColorSet.Resolve(options)[^1],
-			FontSizeScale = .8M,
-			Text = (digit + 1).ToString(),
-			TemplateIndex = 0
+			Cell = rowIndex * 9 + columnIndex,
+			SizeScale = .2M,
+			TemplateIndex = 0,
+			Piece = pieces[rng.Next(0, pieces.Length)],
+			RotationType = (RotationType)rng.Next(0, 4),
+			StrokeColor = SKColors.Black,
+			FillColor = SKColors.White,
+			StrokeWidthScale = options.ThinLineWidth.Resolve(options)
 		}
 	]
 );

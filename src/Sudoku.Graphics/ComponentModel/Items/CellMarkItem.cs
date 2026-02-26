@@ -16,7 +16,7 @@ public abstract class CellMarkItem :
 	/// <summary>
 	/// Indicates text font.
 	/// </summary>
-	public required string? TextFontName { get; init; }
+	public virtual string? TextFontName { get; init; }
 
 	/// <inheritdoc/>
 	public required Absolute Cell { get; init; }

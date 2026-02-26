@@ -18,6 +18,7 @@ global using Sudoku.ComponentModel.Crossmath;
 global using Sudoku.ComponentModel.GridTemplates;
 global using Sudoku.ComponentModel.Items;
 global using Sudoku.ComponentModel.Items.CellMarks;
+global using Sudoku.ComponentModel.Tetris;
 global using Sudoku.Graphics;
 global using Sudoku.Resources;
 global using Sudoku.Serialization;

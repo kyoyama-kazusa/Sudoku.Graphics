@@ -10,6 +10,42 @@ public static class TetrisLineSegmentFactory
 	extension(Piece @this)
 	{
 		/// <summary>
+		/// Try to get sequence of tetris piece, after rotated.
+		/// </summary>
+		/// <param name="rotationType">The rotation type.</param>
+		/// <returns>The boolean sequence.</returns>
+		/// <exception cref="ArgumentOutOfRangeException">Throws when <paramref name="rotationType"/> is not defined.</exception>
+		public bool[,] GetTetrisPieceBooleanSequence(RotationType rotationType)
+		{
+			// Get table.
+			var resultCoordinates = RotateViaCoordinateTable(
+				(int)rotationType % 4,
+				@this switch
+				{
+					Piece.I => PieceInfo.PiecesCoordinateTable[0],
+					Piece.O => PieceInfo.PiecesCoordinateTable[1],
+					Piece.T => PieceInfo.PiecesCoordinateTable[2],
+					Piece.J => PieceInfo.PiecesCoordinateTable[3],
+					Piece.L => PieceInfo.PiecesCoordinateTable[4],
+					Piece.S => PieceInfo.PiecesCoordinateTable[5],
+					Piece.Z => PieceInfo.PiecesCoordinateTable[6],
+					_ => throw new ArgumentOutOfRangeException(nameof(@this))
+				}
+			);
+
+			var rowsCount = resultCoordinates.Max(static c => c.RowIndex) + 1;
+			var columnsCount = resultCoordinates.Max(static c => c.ColumnIndex) + 1;
+
+			// Return the table after projected into a boolean array.
+			var result = new bool[rowsCount, columnsCount];
+			foreach (var (rowIndex, columnIndex) in resultCoordinates)
+			{
+				result[rowIndex, columnIndex] = true;
+			}
+			return result;
+		}
+
+		/// <summary>
 		/// Creates a <see cref="LineSegment"/> array that describes outlines of a tetris piece.
 		/// </summary>
 		/// <param name="rotationType">The rotation type.</param>
@@ -39,7 +75,7 @@ public static class TetrisLineSegmentFactory
 		/// <seealso cref="RotationType.None"/>
 		public Absolute[] GetTetrisPiece(PointMapper mapper, RotationType rotationType = RotationType.None)
 		{
-			var resultCoordinates = rotate(
+			var resultCoordinates = RotateViaCoordinateTable(
 				(int)rotationType % 4,
 				@this switch
 				{
@@ -60,35 +96,40 @@ public static class TetrisLineSegmentFactory
 				result[i] = r * columnsCount + c;
 			}
 			return [.. result];
-
-
-			static (Absolute RowIndex, Absolute ColumnIndex)[] rotate(int times, (Absolute RowIndex, Absolute ColumnIndex)[] coordinates)
-			{
-				for (var i = 0; i < times; i++)
-				{
-					var target = new List<(Absolute RowIndex, Absolute ColumnIndex)>(coordinates.Length);
-					foreach (var (r, c) in coordinates)
-					{
-						target.Add((+c, -r));
-					}
-
-					// Find minimal row index and column index; negate it.
-					var minRowIndex = -target.Min(static coordinate => coordinate.RowIndex);
-					var minColumnIndex = -target.Min(static coordinate => coordinate.ColumnIndex);
-
-					// Shift all coordinates by add (minRowIndex, minColumnIndex).
-					foreach (ref var coordinate in CollectionsMarshal.AsSpan(target))
-					{
-						coordinate.RowIndex += minRowIndex;
-						coordinate.ColumnIndex += minColumnIndex;
-					}
-
-					// Reassign array.
-					coordinates = [.. target];
-				}
-
-				return coordinates;
-			}
 		}
+	}
+
+	/// <summary>
+	/// Rotates tetris piece via coordinate table.
+	/// </summary>
+	/// <param name="times">The times to rotate.</param>
+	/// <param name="coordinates">The coordinate table.</param>
+	/// <returns>The target coordinate table.</returns>
+	private static (Absolute RowIndex, Absolute ColumnIndex)[] RotateViaCoordinateTable(int times, (Absolute RowIndex, Absolute ColumnIndex)[] coordinates)
+	{
+		for (var i = 0; i < times; i++)
+		{
+			var target = new List<(Absolute RowIndex, Absolute ColumnIndex)>(coordinates.Length);
+			foreach (var (r, c) in coordinates)
+			{
+				target.Add((+c, -r));
+			}
+
+			// Find minimal row index and column index; negate it.
+			var minRowIndex = -target.Min(static coordinate => coordinate.RowIndex);
+			var minColumnIndex = -target.Min(static coordinate => coordinate.ColumnIndex);
+
+			// Shift all coordinates by add (minRowIndex, minColumnIndex).
+			foreach (ref var coordinate in CollectionsMarshal.AsSpan(target))
+			{
+				coordinate.RowIndex += minRowIndex;
+				coordinate.ColumnIndex += minColumnIndex;
+			}
+
+			// Reassign array.
+			coordinates = [.. target];
+		}
+
+		return coordinates;
 	}
 }

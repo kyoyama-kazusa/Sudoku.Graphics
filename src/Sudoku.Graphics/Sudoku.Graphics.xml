@@ -1538,10 +1538,37 @@
         <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellQuestionMarkItem.EqualityContract">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.ComponentModel.Items.CellMarks.CellTetrisMarkItem">
+            <summary>
+            Represents a cell tetris mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellTetrisMarkItem.Piece">
+            <summary>
+            Indicates the piece used.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellTetrisMarkItem.RotationType">
+            <summary>
+            Indicates rotation type of piece.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellTetrisMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellTetrisMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Items.CellMarks.CellTetrisMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.ComponentModel.Items.CellMarks.CellTextMarkItem">
             <summary>
             Represents cell text mark item.
             </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellTextMarkItem.TextFontName">
+            <inheritdoc/>
         </member>
         <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellTextMarkItem.PrintingText">
             <summary>
@@ -1813,6 +1840,11 @@
         <member name="F:Sudoku.ComponentModel.ItemType.CellMark_Exclamation">
             <summary>
             Indicates cell exclamation mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.ItemType.CellMark_Tetris">
+            <summary>
+            Indicates cell tetris mark.
             </summary>
         </member>
         <member name="T:Sudoku.ComponentModel.LineDashSequence">
@@ -2192,6 +2224,16 @@
             Throws when the argument <paramref name="value"/> is greater than 1 or less than 0.
             </exception>
         </member>
+        <member name="P:Sudoku.ComponentModel.Scale.IsNegative">
+            <summary>
+            Indicates whether the current scale value is negative (&lt; 0).
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Scale.IsPositive">
+            <summary>
+            Indicates whether the current scale value is positive (&gt; 0).
+            </summary>
+        </member>
         <member name="P:Sudoku.ComponentModel.Scale.Value">
             <summary>
             Indicates the value.
@@ -2559,14 +2601,33 @@
             </summary>
             <seealso cref="T:Sudoku.ComponentModel.Tetris.Piece"/>
         </member>
+        <member name="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.GetTetrisPieceBooleanSequence(Sudoku.ComponentModel.Tetris.Piece,Sudoku.ComponentModel.RotationType)">
+            <inheritdoc cref="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.&lt;G&gt;$C66C61D5C78EA6C835A71BF5AF9528DF.GetTetrisPieceBooleanSequence(Sudoku.ComponentModel.RotationType)"/>
+        </member>
         <member name="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.GetOutline(Sudoku.ComponentModel.Tetris.Piece,Sudoku.ComponentModel.RotationType,Sudoku.Graphics.PointMapper,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Absolute)">
             <inheritdoc cref="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.&lt;G&gt;$C66C61D5C78EA6C835A71BF5AF9528DF.GetOutline(Sudoku.ComponentModel.RotationType,Sudoku.Graphics.PointMapper,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Absolute)"/>
         </member>
         <member name="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.GetTetrisPiece(Sudoku.ComponentModel.Tetris.Piece,Sudoku.Graphics.PointMapper,Sudoku.ComponentModel.RotationType)">
             <inheritdoc cref="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.&lt;G&gt;$C66C61D5C78EA6C835A71BF5AF9528DF.GetTetrisPiece(Sudoku.Graphics.PointMapper,Sudoku.ComponentModel.RotationType)"/>
         </member>
+        <member name="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.RotateViaCoordinateTable(System.Int32,System.ValueTuple{Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Absolute}[])">
+            <summary>
+            Rotates tetris piece via coordinate table.
+            </summary>
+            <param name="times">The times to rotate.</param>
+            <param name="coordinates">The coordinate table.</param>
+            <returns>The target coordinate table.</returns>
+        </member>
         <member name="T:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.&lt;G&gt;$C66C61D5C78EA6C835A71BF5AF9528DF.&lt;M&gt;$59043A45185263A8DDF656B780FAD796">
             <param name="this">The specified tetris piece.</param>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.&lt;G&gt;$C66C61D5C78EA6C835A71BF5AF9528DF.GetTetrisPieceBooleanSequence(Sudoku.ComponentModel.RotationType)">
+            <summary>
+            Try to get sequence of tetris piece, after rotated.
+            </summary>
+            <param name="rotationType">The rotation type.</param>
+            <returns>The boolean sequence.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Throws when <paramref name="rotationType"/> is not defined.</exception>
         </member>
         <member name="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.&lt;G&gt;$C66C61D5C78EA6C835A71BF5AF9528DF.GetOutline(Sudoku.ComponentModel.RotationType,Sudoku.Graphics.PointMapper,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Absolute)">
             <summary>
@@ -3073,6 +3134,9 @@
         <member name="M:Sudoku.Graphics.SKCanvasDrawingExtensions.DrawOutlinedTextToCandidate(SkiaSharp.SKCanvas,System.String,Sudoku.ComponentModel.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCandidate(System.String,Sudoku.ComponentModel.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawingExtensions.DrawTetromino(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,System.Boolean[0:,0:],Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTetromino(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,System.Boolean[0:,0:],Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
+        </member>
         <member name="T:Sudoku.Graphics.SKCanvasDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.&lt;M&gt;$21C1C87F40B24560160CB1CD20F6362E">
             <param name="this">The current instance.</param>
         </member>
@@ -3122,6 +3186,33 @@
             <param name="fontSlant">The font slant.</param>
             <param name="outlineColor">The outline color.</param>
             <param name="fillColor">The fill color of text.</param>
+            <param name="mapper">The mapper.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTetromino(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,System.Boolean[0:,0:],Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Try to draw a tetris piece (or not, specified as a <see cref="T:System.Boolean"/> matrix) into the specified cell.
+            </summary>
+            <param name="cell">The cell.</param>
+            <param name="strokeWidthScale">The stroke width scale.</param>
+            <param name="pieceMinicellSizeScale">
+            The scale that is a value between 0 and 1,
+            representing the ratio between each piece inner cell size and the whole cell size of <paramref name="cell"/>.
+            </param>
+            <param name="shapeMatrix">
+            The shape matrix. Specify a <see cref="T:System.Boolean"/> matrix indicating which coordinates are filled and which are not.
+            For example, the following pattern is for a Z piece:
+            <code><![CDATA[
+            new bool[,]
+            {
+                { true, true, false },
+                { false, true, true }
+            }
+            ]]></code>
+            </param>
+            <param name="strokeColor">The stroke color.</param>
+            <param name="fillColor">The fill color.</param>
+            <param name="blockPadding">The block padding.</param>
+            <param name="cornerRadius">The corner radius.</param>
             <param name="mapper">The mapper.</param>
         </member>
         <member name="T:Sudoku.Resources.Resource">
@@ -3650,6 +3741,23 @@
         </member>
         <member name="M:System.StringExtensions.&lt;G&gt;$34505F560D9EACF86A87F3ED1F85E448.op_Division(System.String,System.String)">
             <inheritdoc cref="M:System.StringExtensions.&lt;G&gt;$34505F560D9EACF86A87F3ED1F85E448.op_Division(System.String,System.Char)"/>
+        </member>
+        <member name="T:SkiaSharp.SKPointExtensions">
+            <summary>
+            Provdies extension members on <see cref="T:SkiaSharp.SKPoint"/>.
+            </summary>
+            <seealso cref="T:SkiaSharp.SKPoint"/>
+        </member>
+        <member name="M:SkiaSharp.SKPointExtensions.Deconstruct(SkiaSharp.SKPoint,System.Single@,System.Single@)">
+            <inheritdoc cref="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.Deconstruct(System.Single@,System.Single@)"/>
+        </member>
+        <member name="T:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.&lt;M&gt;$2023CE56BCC22CD6134ABED1557DF74B">
+            <param name="this">The current instance.</param>
+        </member>
+        <member name="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.Deconstruct(System.Single@,System.Single@)">
+            <summary>
+            Deconstruct instance into multiple values.
+            </summary>
         </member>
         <member name="T:SkiaSharp.SKRectExtensions">
             <summary>
