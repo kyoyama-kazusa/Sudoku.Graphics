@@ -87,29 +87,18 @@ public sealed class CandidateTextItem :
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)
 	{
-		// The main idea on drawing candidates is to find for the number of rows and columns in a cell should be drawn,
-		// accommodating all possible candidate values.
-		// The general way is to divide a cell into <c>n * n</c> subcells, in order to fill with each candidate value.
-		// Here variable <c>subgridSize</c> represents the variable <c>n</c> (for <c>n * n</c> subcells).
-
 		var template = canvas.Templates[TemplateIndex];
 		var mapper = template.Mapper;
-		using var typeface = SKTypeface.FromFamilyName(FontName, FontWeight, FontWidth, FontSlant);
-		var (_, subgridSize, _) = CandidatePosition;
-		var candidateSize = mapper.CellSize / subgridSize;
-		var candidateCenterPoint = mapper.GetPoint(CandidatePosition, Alignment.Center);
-		var factSize = FontSizeScale.Measure(mapper.CellSize) / subgridSize;
-		using var textFont = new SKFont(typeface, factSize) { Subpixel = true };
-		using var textPaint = new SKPaint { Color = Color };
-		var offset = textFont.MeasureText(Text, textPaint);
-		canvas.BackingCanvas.DrawText(
+		canvas.BackingCanvas.DrawTextToCandidate(
 			Text,
-			candidateCenterPoint
-				+ new SKPoint(0, offset / (2 * Text.Length)) // Offset adjustment
-				+ new SKPoint(0, candidateSize / 12), // Manual adjustment
-			SKTextAlign.Center,
-			textFont,
-			textPaint
+			CandidatePosition,
+			FontName,
+			FontSizeScale,
+			FontWeight,
+			FontWidth,
+			FontSlant,
+			Color,
+			mapper
 		);
 	}
 }

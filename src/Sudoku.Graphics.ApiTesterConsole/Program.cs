@@ -36,17 +36,14 @@ canvas.DrawItems(
 		new BackgroundFillItem { Color = options.BackgroundColor.Resolve(options) },
 		new TemplateLineStrokeItem(),
 		..
-		from pair in "...4...8.....2...4.7...39....1....3.5...1...7.2.8..1....6..14..4...9.31..3.7....2".Index()
-		let index = pair.Index
-		let ch = pair.Item
-		where ch != '.'
-		select new GivenTextItem
+		from digit in Enumerable.Range(0, 9)
+		select new CandidateTextItem
 		{
-			Cell = index,
+			CandidatePosition = new(0, 3, digit),
 			FontName = "Arial",
-			Color = SKColors.Black,
-			FontSizeScale = options.BigTextFontSizeScale.Resolve(options),
-			Text = ch.ToString(),
+			Color = options.TextColorSet.Resolve(options)[^1],
+			FontSizeScale = .8M,
+			Text = (digit + 1).ToString(),
 			TemplateIndex = 0
 		}
 	]

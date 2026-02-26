@@ -3070,8 +3070,14 @@
         <member name="M:Sudoku.Graphics.SKCanvasDrawingExtensions.DrawTextToCell(SkiaSharp.SKCanvas,System.String,Sudoku.ComponentModel.Absolute,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextToCell(System.String,Sudoku.ComponentModel.Absolute,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawingExtensions.DrawTextToCandidate(SkiaSharp.SKCanvas,System.String,Sudoku.ComponentModel.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextToCandidate(System.String,Sudoku.ComponentModel.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
+        </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawingExtensions.DrawOutlinedTextToCell(SkiaSharp.SKCanvas,System.String,Sudoku.ComponentModel.Absolute,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCell(System.String,Sudoku.ComponentModel.Absolute,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawingExtensions.DrawOutlinedTextToCandidate(SkiaSharp.SKCanvas,System.String,Sudoku.ComponentModel.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCandidate(System.String,Sudoku.ComponentModel.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
         <member name="T:Sudoku.Graphics.SKCanvasDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.&lt;M&gt;$21C1C87F40B24560160CB1CD20F6362E">
             <param name="this">The current instance.</param>
@@ -3080,7 +3086,13 @@
             <summary>
             Draws the specified text into the target cell.
             </summary>
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawingExtensions.DrawOutlinedTextToCell(SkiaSharp.SKCanvas,System.String,Sudoku.ComponentModel.Absolute,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCell(System.String,Sudoku.ComponentModel.Absolute,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextToCandidate(System.String,Sudoku.ComponentModel.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Draws the specified text into the target candidate.
+            </summary>
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCandidate(System.String,Sudoku.ComponentModel.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCell(System.String,Sudoku.ComponentModel.Absolute,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <summary>
@@ -3088,6 +3100,24 @@
             </summary>
             <param name="text">The text.</param>
             <param name="cell">The cell.</param>
+            <param name="fontName">The font name.</param>
+            <param name="fontScale">The font scale, relative to cell size.</param>
+            <param name="outlineThicknessScale">
+            The outline width scale, relative to text fact size calculated from <paramref name="fontScale"/>.
+            </param>
+            <param name="fontWeight">The font weight.</param>
+            <param name="fontWidth">The font width.</param>
+            <param name="fontSlant">The font slant.</param>
+            <param name="outlineColor">The outline color.</param>
+            <param name="fillColor">The fill color of text.</param>
+            <param name="mapper">The mapper.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCandidate(System.String,Sudoku.ComponentModel.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Draws the specified text into the target candidate, with outlined.
+            </summary>
+            <param name="text">The text.</param>
+            <param name="candidatePosition">The candidate position.</param>
             <param name="fontName">The font name.</param>
             <param name="fontScale">The font scale, relative to cell size.</param>
             <param name="outlineThicknessScale">
