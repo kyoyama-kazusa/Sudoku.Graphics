@@ -2737,13 +2737,9 @@
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Canvas.Export(System.String,Sudoku.Graphics.CanvasExportingOptions)">
-            <inheritdoc cref="M:Sudoku.Graphics.Canvas.Export``1(System.String,``0)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.Canvas.Export``1(System.String,``0)">
             <summary>
             Export the current canvas into target file.
             </summary>
-            <typeparam name="TOptions">The type of options.</typeparam>
             <param name="path">The file path. The extension specified will be used as output file format.</param>
             <param name="options">The options.</param>
         </member>
@@ -2953,14 +2949,20 @@
             Represents JSudoku color set. The default color set contains 28 different colors.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.CanvasDrawingOptions.Sudoku#Serialization#IOptionsProvider{Sudoku#Graphics#CanvasDrawingOptions}#DefaultInstance">
-            <inheritdoc/>
-        </member>
         <member name="M:Sudoku.Graphics.CanvasDrawingOptions.WriteTo(System.String,System.Text.Json.JsonSerializerOptions)">
-            <inheritdoc/>
+            <summary>
+            Writes the configuration of this instance into target path (serialize the instance).
+            </summary>
+            <param name="path">The path.</param>
+            <param name="options">The options.</param>
         </member>
         <member name="M:Sudoku.Graphics.CanvasDrawingOptions.ReadFrom(System.String,System.Text.Json.JsonSerializerOptions)">
-            <inheritdoc/>
+            <summary>
+            Reads the configuration from the specified path, and load it, converting it into <see cref="T:Sudoku.Graphics.CanvasDrawingOptions"/> instance.
+            </summary>
+            <param name="path">The path.</param>
+            <param name="options">The options.</param>
+            <returns>The instance loaded.</returns>
         </member>
         <member name="T:Sudoku.Graphics.CanvasExportingOptions">
             <summary>
@@ -2976,15 +2978,6 @@
             <summary>
             Indicates the quality. Range 0..100. Default 80.
             </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.CanvasExportingOptions.Sudoku#Serialization#IOptionsProvider{Sudoku#Graphics#CanvasExportingOptions}#DefaultInstance">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.CanvasExportingOptions.WriteTo(System.String,System.Text.Json.JsonSerializerOptions)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.CanvasExportingOptions.ReadFrom(System.String,System.Text.Json.JsonSerializerOptions)">
-            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.PointMapper">
             <summary>
@@ -3630,43 +3623,6 @@
         </member>
         <member name="M:Sudoku.Serialization.StringConverter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.Serialization.Inherited{System.String},System.Text.Json.JsonSerializerOptions)">
             <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Serialization.IOptionsProvider`1">
-            <summary>
-            Defines an options type.
-            </summary>
-            <typeparam name="TSelf">The type itself.</typeparam>
-        </member>
-        <member name="F:Sudoku.Serialization.IOptionsProvider`1.SerializerOptions">
-            <summary>
-            Represents serializer options.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Serialization.IOptionsProvider`1.DefaultInstance">
-            <summary>
-            Indicates the default options instance.
-            </summary>
-        </member>
-        <member name="T:Sudoku.Serialization.IOptionsSupportsSerialization`1">
-            <summary>
-            Represents an instance of type <typeparamref name="TSelf"/> that supports serialization and deserialization.
-            </summary>
-            <typeparam name="TSelf">The type itself.</typeparam>
-        </member>
-        <member name="M:Sudoku.Serialization.IOptionsSupportsSerialization`1.WriteTo(System.String,System.Text.Json.JsonSerializerOptions)">
-            <summary>
-            Writes the configuration of this instance into target path (serialize the instance).
-            </summary>
-            <param name="path">The path.</param>
-            <param name="options">The options.</param>
-        </member>
-        <member name="M:Sudoku.Serialization.IOptionsSupportsSerialization`1.ReadFrom(System.String,System.Text.Json.JsonSerializerOptions)">
-            <summary>
-            Reads the configuration from the specified path, and load it, converting it into <typeparamref name="TSelf"/> instance.
-            </summary>
-            <param name="path">The path.</param>
-            <param name="options">The options.</param>
-            <returns>The instance loaded.</returns>
         </member>
         <member name="T:Sudoku.Serialization.Specialized.ValueConverter`1">
             <summary>

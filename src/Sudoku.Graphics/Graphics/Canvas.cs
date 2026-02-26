@@ -70,7 +70,11 @@ public sealed class Canvas : IDisposable
 		_isDisposed = true;
 	}
 
-	/// <inheritdoc cref="Export{TOptions}(string, TOptions)"/>
+	/// <summary>
+	/// Export the current canvas into target file.
+	/// </summary>
+	/// <param name="path">The file path. The extension specified will be used as output file format.</param>
+	/// <param name="options">The options.</param>
 	public void Export(string path, CanvasExportingOptions? options)
 	{
 		options ??= CanvasExportingOptions.Default;
@@ -94,13 +98,4 @@ public sealed class Canvas : IDisposable
 				_ => throw new NotSupportedException()
 			};
 	}
-
-	/// <summary>
-	/// Export the current canvas into target file.
-	/// </summary>
-	/// <typeparam name="TOptions">The type of options.</typeparam>
-	/// <param name="path">The file path. The extension specified will be used as output file format.</param>
-	/// <param name="options">The options.</param>
-	public void Export<TOptions>(string path, TOptions? options) where TOptions : notnull, IOptionsProvider<TOptions>, new()
-		=> Export(path, options as CanvasExportingOptions);
 }

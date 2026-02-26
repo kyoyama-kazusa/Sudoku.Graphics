@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents drawing options.
 /// </summary>
-public sealed class CanvasDrawingOptions : IOptionsProvider<CanvasDrawingOptions>
+public sealed class CanvasDrawingOptions
 {
 	/// <summary>
 	/// Indicates the default instance.
@@ -288,11 +288,11 @@ public sealed class CanvasDrawingOptions : IOptionsProvider<CanvasDrawingOptions
 	);
 
 
-	/// <inheritdoc/>
-	static CanvasDrawingOptions IOptionsProvider<CanvasDrawingOptions>.DefaultInstance => Default;
-
-
-	/// <inheritdoc/>
+	/// <summary>
+	/// Writes the configuration of this instance into target path (serialize the instance).
+	/// </summary>
+	/// <param name="path">The path.</param>
+	/// <param name="options">The options.</param>
 	public void WriteTo(string path, JsonSerializerOptions? options = null)
 	{
 		var json = JsonSerializer.Serialize(this, options);
@@ -300,7 +300,12 @@ public sealed class CanvasDrawingOptions : IOptionsProvider<CanvasDrawingOptions
 	}
 
 
-	/// <inheritdoc/>
+	/// <summary>
+	/// Reads the configuration from the specified path, and load it, converting it into <see cref="CanvasDrawingOptions"/> instance.
+	/// </summary>
+	/// <param name="path">The path.</param>
+	/// <param name="options">The options.</param>
+	/// <returns>The instance loaded.</returns>
 	public static CanvasDrawingOptions ReadFrom(string path, JsonSerializerOptions? options = null)
 	{
 		var json = File.ReadAllText(path);
