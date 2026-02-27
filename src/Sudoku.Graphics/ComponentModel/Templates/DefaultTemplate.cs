@@ -1,4 +1,4 @@
-﻿namespace Sudoku.ComponentModel.GridTemplates;
+﻿namespace Sudoku.ComponentModel.Templates;
 
 /// <summary>
 /// Represents a default grid template that doesn't contain any block (thick) lines, except borders.

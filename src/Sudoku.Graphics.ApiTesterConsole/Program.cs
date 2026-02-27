@@ -10,7 +10,7 @@ using System;
 using System.IO;
 using System.Linq;
 using SkiaSharp;
-using Sudoku.ComponentModel.GridTemplates;
+using Sudoku.ComponentModel.Templates;
 using Sudoku.ComponentModel.Items;
 using Sudoku.ComponentModel.Items.CellMarks;
 using Sudoku.ComponentModel.Tetris;

@@ -1,4 +1,4 @@
-﻿namespace Sudoku.ComponentModel.GridTemplates;
+﻿namespace Sudoku.ComponentModel.Templates;
 
 /// <summary>
 /// Represents a standard (rectangular) grid template.
