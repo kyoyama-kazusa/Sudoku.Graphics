@@ -1,6 +1,4 @@
-﻿using Sudoku.ComponentModel.Dices;
-
-namespace Sudoku.ComponentModel.Items.CellMarks;
+﻿namespace Sudoku.ComponentModel.Items.CellMarks;
 
 /// <summary>
 /// Represents cell dice mark item.

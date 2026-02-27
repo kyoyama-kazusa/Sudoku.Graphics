@@ -10,10 +10,9 @@ using System;
 using System.IO;
 using System.Linq;
 using SkiaSharp;
-using Sudoku.ComponentModel.Templates;
 using Sudoku.ComponentModel.Items;
 using Sudoku.ComponentModel.Items.CellMarks;
-using Sudoku.ComponentModel.Tetris;
+using Sudoku.ComponentModel.Templates;
 using Sudoku.Graphics;
 
 var desktop = Environment.DesktopPath;
@@ -35,22 +34,22 @@ using var canvas = new Canvas(
 );
 
 var rng = Random.Shared;
-var pieces = Enum.GetValues<Piece>();
 canvas.DrawItems(
 	[
 		new BackgroundFillItem { Color = options.BackgroundColor.Resolve(options) },
 		new TemplateLineStrokeItem(),
 		..
-		from rowIndex in Enumerable.Range(0, 9)
-		from columnIndex in Enumerable.Range(0, 9)
-		select new CellDiceMarkItem
+		from cell in Enumerable.Range(0, 6)
+		select new CellSurroundingTrianglesMarkItem
 		{
-			Cell = rowIndex * 9 + columnIndex,
+			Cell = cell,
 			SizeScale = .25M,
 			TemplateIndex = 0,
-			DiceValue = rng.Next(0, 9),
+			TrianglesCount = cell + 1,
+			TipDistanceScale = .25F,
 			StrokeColor = SKColors.Black,
 			FillColor = SKColors.White,
+			TrianglesCornerRadiusScale = .25F,
 			StrokeWidthScale = options.ThinLineWidth.Resolve(options)
 		}
 	]

@@ -64,4 +64,9 @@ public enum ItemType
 	/// Indicates cell dice mark.
 	/// </summary>
 	CellMark_Dice,
+
+	/// <summary>
+	/// Indicates cell surrounding triangles mark.
+	/// </summary>
+	CellMark_SurroundingTriangles,
 }
