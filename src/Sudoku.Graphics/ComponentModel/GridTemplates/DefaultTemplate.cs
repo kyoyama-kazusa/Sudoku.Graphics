@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a default grid template that doesn't contain any block (thick) lines, except borders.
 /// </summary>
-public sealed class DefaultGridTemplate : GridTemplate, IGridTemplate_RoundedRectangleRelatedProperties
+public sealed class DefaultTemplate : Template, ITemplate_RoundedRectangleRelatedProperties
 {
 	/// <inheritdoc/>
 	public bool IsBorderRoundedRectangle { get; init; } = true;

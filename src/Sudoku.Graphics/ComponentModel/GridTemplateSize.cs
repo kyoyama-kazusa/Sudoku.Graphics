@@ -1,9 +1,9 @@
 ﻿namespace Sudoku.ComponentModel;
 
 /// <summary>
-/// Represents logical size of a <see cref="GridTemplate"/> instance.
+/// Represents logical size of a <see cref="Template"/> instance.
 /// </summary>
-/// <seealso cref="GridTemplate"/>
+/// <seealso cref="Template"/>
 public readonly record struct GridTemplateSize() : IEqualityOperators<GridTemplateSize, GridTemplateSize, bool>
 {
 	/// <summary>
@@ -63,7 +63,7 @@ public readonly record struct GridTemplateSize() : IEqualityOperators<GridTempla
 	/// <param name="templates">The templates.</param>
 	/// <returns>A <see cref="GridTemplateSize"/> instance that is the minimal size, covering all templates specified.</returns>
 	/// <seealso cref="Canvas"/>
-	public static GridTemplateSize Create(params ReadOnlySpan<GridTemplate> templates)
+	public static GridTemplateSize Create(params ReadOnlySpan<Template> templates)
 	{
 		if (templates.IsEmpty)
 		{

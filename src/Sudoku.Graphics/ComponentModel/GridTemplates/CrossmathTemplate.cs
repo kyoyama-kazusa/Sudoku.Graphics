@@ -3,15 +3,15 @@
 /// <summary>
 /// Represents crossmath grid template.
 /// </summary>
-public sealed class CrossmathGridTemplate : SpecifiedGridTemplate
+public sealed class CrossmathTemplate : SpecifiedTemplate
 {
 	/// <summary>
-	/// Initializes a <see cref="CrossmathGridTemplate"/> instance, via the formulae.
+	/// Initializes a <see cref="CrossmathTemplate"/> instance, via the formulae.
 	/// </summary>
 	/// <param name="formulae">Indicates the formulae.</param>
 	/// <param name="mapper">The mapper.</param>
 	[SetsRequiredMembers]
-	public CrossmathGridTemplate(CrossmathFormula[] formulae, PointMapper mapper) : base(mapper)
+	public CrossmathTemplate(CrossmathFormula[] formulae, PointMapper mapper) : base(mapper)
 	{
 		var thinBorders = new List<LineSegment>();
 		foreach (var formula in formulae)

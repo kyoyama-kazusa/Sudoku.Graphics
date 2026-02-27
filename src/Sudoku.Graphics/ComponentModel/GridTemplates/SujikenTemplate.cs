@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents Sujiken (halfdoku) grid template.
 /// </summary>
-public sealed class SujikenGridTemplate : GridTemplate
+public sealed class SujikenTemplate : Template
 {
 	/// <summary>
 	/// Provides extra lookup dictionary.
@@ -12,13 +12,13 @@ public sealed class SujikenGridTemplate : GridTemplate
 
 
 	/// <summary>
-	/// Initializes a <see cref="SujikenGridTemplate"/> instance.
+	/// Initializes a <see cref="SujikenTemplate"/> instance.
 	/// </summary>
 	/// <param name="uniformBlockSize">The uniform size.</param>
 	/// <param name="mapper">The mapper instance.</param>
 	[JsonConstructor]
 	[SetsRequiredMembers]
-	public SujikenGridTemplate(Relative uniformBlockSize, PointMapper mapper)
+	public SujikenTemplate(Relative uniformBlockSize, PointMapper mapper)
 	{
 		ArgumentException.Assert(mapper.RowsCount == mapper.ColumnsCount);
 

@@ -3,15 +3,15 @@
 /// <summary>
 /// Represents a grid template that specifies a list of thick and thin lines.
 /// </summary>
-public class SpecifiedGridTemplate : GridTemplate
+public class SpecifiedTemplate : Template
 {
 	/// <summary>
-	/// Initializes a <see cref="SpecifiedGridTemplate"/> instance, via the mapper.
+	/// Initializes a <see cref="SpecifiedTemplate"/> instance, via the mapper.
 	/// </summary>
 	/// <param name="mapper">The mapper instance.</param>
 	[JsonConstructor]
 	[SetsRequiredMembers]
-	public SpecifiedGridTemplate(PointMapper mapper) => Mapper = mapper;
+	public SpecifiedTemplate(PointMapper mapper) => Mapper = mapper;
 
 
 	/// <summary>

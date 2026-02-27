@@ -11,13 +11,13 @@
 /// </para>
 /// </summary>
 [JsonPolymorphic(UnknownDerivedTypeHandling = JsonUnknownDerivedTypeHandling.FallBackToBaseType)]
-[JsonDerivedType(typeof(CrossmathGridTemplate), nameof(CrossmathGridTemplate))]
-[JsonDerivedType(typeof(DefaultGridTemplate), nameof(DefaultGridTemplate))]
-[JsonDerivedType(typeof(JigsawGridTemplate), nameof(JigsawGridTemplate))]
-[JsonDerivedType(typeof(SpecifiedGridTemplate), nameof(SpecifiedGridTemplate))]
-[JsonDerivedType(typeof(StandardGridTemplate), nameof(StandardGridTemplate))]
-[JsonDerivedType(typeof(SujikenGridTemplate), nameof(SujikenGridTemplate))]
-public abstract partial class GridTemplate
+[JsonDerivedType(typeof(CrossmathTemplate), nameof(CrossmathTemplate))]
+[JsonDerivedType(typeof(DefaultTemplate), nameof(DefaultTemplate))]
+[JsonDerivedType(typeof(JigsawTemplate), nameof(JigsawTemplate))]
+[JsonDerivedType(typeof(SpecifiedTemplate), nameof(SpecifiedTemplate))]
+[JsonDerivedType(typeof(StandardTemplate), nameof(StandardTemplate))]
+[JsonDerivedType(typeof(SujikenTemplate), nameof(SujikenTemplate))]
+public abstract partial class Template
 {
 	/// <summary>
 	/// Indicates point mapper instance that can project points into cells.
@@ -150,7 +150,7 @@ public abstract partial class GridTemplate
 		Absolute sourceCellIndex,
 		out Absolute targetCellIndex
 	)
-		where TTemplate : GridTemplate
+		where TTemplate : Template
 	{
 		if (sourceCellIndex < 0 || sourceCellIndex >= source.Mapper.AbsoluteCellsCount)
 		{
@@ -193,7 +193,7 @@ public abstract partial class GridTemplate
 	/// <returns>The target cell absolute index.</returns>
 	/// <exception cref="ArgumentException">Throws when failed to project.</exception>
 	public static Absolute ProjectCellIndex<TTemplate>(TTemplate source, TTemplate target, Absolute sourceCellIndex)
-		where TTemplate : GridTemplate
+		where TTemplate : Template
 		=> TryProjectCellIndex(source, target, sourceCellIndex, out var targetCellIndex)
 			? targetCellIndex
 			: throw new ArgumentException("Cannot project cell index because source cell index is invalid.", nameof(sourceCellIndex));
@@ -210,7 +210,7 @@ public abstract partial class GridTemplate
 	/// </returns>
 	/// <seealso cref="Absolute"/>
 	public static Absolute[] GetIntersectionCellIndices<TTemplate>(TTemplate template1, TTemplate template2)
-		where TTemplate : GridTemplate
+		where TTemplate : Template
 	{
 		var result = new HashSet<Absolute>();
 		foreach (var index in template1.EnumerateGridCellIndices())

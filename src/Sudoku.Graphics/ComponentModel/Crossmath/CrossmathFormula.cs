@@ -35,7 +35,7 @@ public sealed record CrossmathFormula : IEqualityOperators<CrossmathFormula, Cro
 
 
 	/// <summary>
-	/// Creates a <see cref="CrossmathGridTemplate"/> instance via the specified formulae.
+	/// Creates a <see cref="CrossmathTemplate"/> instance via the specified formulae.
 	/// </summary>
 	/// <param name="formulae">The formulae to be loaded.</param>
 	/// <param name="mapper">The point mapper.</param>
@@ -44,7 +44,7 @@ public sealed record CrossmathFormula : IEqualityOperators<CrossmathFormula, Cro
 	/// <param name="thickLineColor">Thick line color.</param>
 	/// <param name="thinLineColor">Thin line color.</param>
 	/// <returns>The grid template.</returns>
-	public static CrossmathGridTemplate CreateTemplate(
+	public static CrossmathTemplate CreateTemplate(
 		CrossmathFormula[] formulae,
 		PointMapper mapper,
 		Scale thickLineWidth,

@@ -3,17 +3,17 @@
 /// <summary>
 /// Represents a standard (rectangular) grid template.
 /// </summary>
-public sealed class StandardGridTemplate : GridTemplate, IGridTemplate_RoundedRectangleRelatedProperties
+public sealed class StandardTemplate : Template, ITemplate_RoundedRectangleRelatedProperties
 {
 	/// <summary>
-	/// Initializes a <see cref="StandardGridTemplate"/> instance.
+	/// Initializes a <see cref="StandardTemplate"/> instance.
 	/// </summary>
 	/// <param name="rowBlockSize">The block size of rows.</param>
 	/// <param name="columnBlockSize">The block size of columns.</param>
 	/// <param name="mapper">The mapper instance.</param>
 	[JsonConstructor]
 	[SetsRequiredMembers]
-	public StandardGridTemplate(Relative rowBlockSize, Relative columnBlockSize, PointMapper mapper)
+	public StandardTemplate(Relative rowBlockSize, Relative columnBlockSize, PointMapper mapper)
 	{
 		Mapper = mapper;
 
@@ -36,16 +36,16 @@ public sealed class StandardGridTemplate : GridTemplate, IGridTemplate_RoundedRe
 
 	/// <summary>
 	/// Indicates the number of rows in a rectangular block.
-	/// If you want to assign this field, please assign it ahead of assigning <see cref="GridTemplate.Mapper"/>.
+	/// If you want to assign this field, please assign it ahead of assigning <see cref="Template.Mapper"/>.
 	/// </summary>
-	/// <seealso cref="GridTemplate.Mapper"/>
+	/// <seealso cref="Template.Mapper"/>
 	public Relative RowBlockSize { get; init; }
 
 	/// <summary>
 	/// Indicates the number of columns in a rectangular block.
-	/// If you want to assign this field, please assign it ahead of assigning <see cref="GridTemplate.Mapper"/>.
+	/// If you want to assign this field, please assign it ahead of assigning <see cref="Template.Mapper"/>.
 	/// </summary>
-	/// <seealso cref="GridTemplate.Mapper"/>
+	/// <seealso cref="Template.Mapper"/>
 	public Relative ColumnBlockSize { get; init; }
 
 

@@ -25,7 +25,7 @@ var mapper = new PointMapper
 	TemplateSize = new() { RowsCount = 9, ColumnsCount = 9 }
 };
 using var canvas = new Canvas(
-	new StandardGridTemplate(3, 3, mapper)
+	new StandardTemplate(3, 3, mapper)
 	{
 		ThickLineWidth = options.ThickLineWidth.Resolve(options),
 		ThinLineWidth = options.ThinLineWidth.Resolve(options),
@@ -46,7 +46,7 @@ canvas.DrawItems(
 		select new CellDiceMarkItem
 		{
 			Cell = rowIndex * 9 + columnIndex,
-			SizeScale = .2M,
+			SizeScale = .25M,
 			TemplateIndex = 0,
 			DiceValue = rng.Next(0, 9),
 			StrokeColor = SKColors.Black,

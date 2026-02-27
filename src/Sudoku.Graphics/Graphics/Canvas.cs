@@ -20,7 +20,7 @@ public sealed class Canvas : IDisposable
 	/// Initializes a <see cref="Canvas"/> instance via the specified values.
 	/// </summary>
 	/// <param name="templates">The templates to be drawn.</param>
-	public Canvas(params GridTemplate[] templates)
+	public Canvas(params Template[] templates)
 	{
 		Templates = templates;
 		GlobalTemplateSize = GridTemplateSize.Create(templates);
@@ -41,7 +41,7 @@ public sealed class Canvas : IDisposable
 	/// <summary>
 	/// Indicates all templates.
 	/// </summary>
-	public GridTemplate[] Templates { get; }
+	public Template[] Templates { get; }
 
 	/// <summary>
 	/// Indicates backing canvas.

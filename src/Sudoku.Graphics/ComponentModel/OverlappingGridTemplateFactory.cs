@@ -10,7 +10,7 @@
 /// <param name="baseMapper">
 /// The base mapper instance that contains basic information of point mapping rules, like margin (in pixels).
 /// </param>
-/// <returns>An array of <see cref="GridTemplate"/> instances.</returns>
+/// <returns>An array of <see cref="Template"/> instances.</returns>
 /// <exception cref="ArgumentException">
 /// Throws when the target template is not enough to create offsets, in order to form a valid such grid type.
 /// </exception>
@@ -24,6 +24,6 @@ public static partial class OverlappingGridTemplateFactory
 	/// <returns>This method always throws and don't return anything.</returns>
 	/// <exception cref="ArgumentException">Always throws.</exception>
 	[DoesNotReturn]
-	private static GridTemplate[] ThrowsArgumentException()
+	private static Template[] ThrowsArgumentException()
 		=> throw new ArgumentException("The current block rows or columns count is invalid - The target grid must hold at least 3 parts to be split, in order to form such overlapping grid template.");
 }

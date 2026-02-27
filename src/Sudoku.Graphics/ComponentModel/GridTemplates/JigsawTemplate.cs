@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents irregular (jigsaw) grid template, containing irregular-shaped blocks.
 /// </summary>
-public sealed class JigsawGridTemplate : GridTemplate
+public sealed class JigsawTemplate : Template
 {
 	/// <summary>
 	/// Indicates the relative cell index groups. By default it's an empty array.
