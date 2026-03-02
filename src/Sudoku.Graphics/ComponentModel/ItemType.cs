@@ -84,4 +84,9 @@ public enum ItemType
 	/// Indicates cell polygon mark.
 	/// </summary>
 	CellMark_Polygon,
+
+	/// <summary>
+	/// Indicates cell cross mark.
+	/// </summary>
+	CellMark_Cross,
 }

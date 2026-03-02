@@ -9,6 +9,7 @@
 [JsonDerivedType(typeof(CandidateFillItem), nameof(CandidateFillItem))]
 [JsonDerivedType(typeof(CandidateTextItem), nameof(CandidateTextItem))]
 [JsonDerivedType(typeof(CellCircleMarkItem), nameof(CellCircleMarkItem))]
+[JsonDerivedType(typeof(CellCrossMarkItem), nameof(CellCrossMarkItem))]
 [JsonDerivedType(typeof(CellDiceMarkItem), nameof(CellDiceMarkItem))]
 [JsonDerivedType(typeof(CellExclamationMarkItem), nameof(CellExclamationMarkItem))]
 [JsonDerivedType(typeof(CellFillItem), nameof(CellFillItem))]

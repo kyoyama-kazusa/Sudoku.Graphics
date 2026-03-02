@@ -38,7 +38,7 @@ public abstract class CellMarkItem :
 	public SerializableColor StrokeColor { get; init; }
 
 	/// <inheritdoc/>
-	public required SerializableColor FillColor { get; init; }
+	public SerializableColor FillColor { get; init; }
 
 	/// <inheritdoc/>
 	string IItem_FontRelatedProperties.FontName { get => TextFontName!; init => TextFontName = value; }

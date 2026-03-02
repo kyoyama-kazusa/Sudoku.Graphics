@@ -1161,6 +1161,20 @@
         <member name="M:Sudoku.ComponentModel.Items.CellMarks.CellCircleMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.ComponentModel.Items.CellMarks.CellCrossMarkItem">
+            <summary>
+            Represents a cell cross item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellCrossMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellCrossMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Items.CellMarks.CellCrossMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.ComponentModel.Items.CellMarks.CellDiceMarkItem">
             <summary>
             Represents cell dice mark item.
@@ -1612,6 +1626,11 @@
         <member name="F:Sudoku.ComponentModel.ItemType.CellMark_Polygon">
             <summary>
             Indicates cell polygon mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.ItemType.CellMark_Cross">
+            <summary>
+            Indicates cell cross mark.
             </summary>
         </member>
         <member name="T:Sudoku.ComponentModel.LineDashSequence">
@@ -3278,6 +3297,9 @@
         <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.DrawCircleToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCircleToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper)"/>
         </member>
+        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.DrawCrossInCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper,SkiaSharp.SKStrokeCap)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCrossInCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper,SkiaSharp.SKStrokeCap)"/>
+        </member>
         <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.DrawPolygonToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper,System.Single)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawPolygonToCell(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper,System.Single)"/>
         </member>
@@ -3363,6 +3385,18 @@
             <param name="strokeWidthScale">The scale of stroke width, related to cell.</param>
             <param name="fillColor">The fill color.</param>
             <param name="mapper">The mapper instance.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCrossInCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper,SkiaSharp.SKStrokeCap)">
+            <summary>
+            Draws a cross symbol into the specified cell.
+            </summary>
+            <param name="cell">The cell.</param>
+            <param name="sizeScale">The scale of size, related to cell size.</param>
+            <param name="strokeWidthScale">The stroke width scale.</param>
+            <param name="color">The color.</param>
+            <param name="mapper">The mapper instance.</param>
+            <param name="cap">The stroke cap. By default it's <see cref="F:SkiaSharp.SKStrokeCap.Round"/>.</param>
+            <seealso cref="F:SkiaSharp.SKStrokeCap.Round"/>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawPolygonToCell(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper,System.Single)">
             <summary>

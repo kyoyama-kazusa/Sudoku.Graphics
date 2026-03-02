@@ -39,14 +39,13 @@ canvas.DrawItems(
 		new TemplateLineStrokeItem(),
 		..
 		from cell in SpanEnumerable.Range(0, 81)
-		select new CellPolygonMarkItem
+		select new CellCrossMarkItem
 		{
 			Cell = cell,
-			SidesCount = rng.Next(3, 9 + 1),
 			SizeScale = .75M,
 			TemplateIndex = 0,
-			FillColor = options.JSudokuColorSet.Resolve(options)[rng.Next(0, 28)],
-			StrokeWidthScale = options.ThinLineWidth.Resolve(options)
+			StrokeColor = options.JSudokuColorSet.Resolve(options)[rng.Next(0, 28)],
+			StrokeWidthScale = options.ThickLineWidth.Resolve(options)
 		}
 	]
 );
