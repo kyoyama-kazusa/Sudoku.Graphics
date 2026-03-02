@@ -39,17 +39,13 @@ canvas.DrawItems(
 		new BackgroundFillItem { Color = options.BackgroundColor.Resolve(options) },
 		new TemplateLineStrokeItem(),
 		..
-		from cell in Enumerable.Range(0, 6)
-		select new CellSurroundingTrianglesMarkItem
+		from cell in Enumerable.Range(0, 81)
+		select new CellSquareMarkItem
 		{
 			Cell = cell,
-			SizeScale = .25M,
+			SizeScale = .75M,
 			TemplateIndex = 0,
-			TrianglesCount = cell + 1,
-			TipDistanceScale = .25F,
-			StrokeColor = SKColors.Black,
-			FillColor = SKColors.White,
-			TrianglesCornerRadiusScale = .25F,
+			FillColor = options.JSudokuColorSet.Resolve(options)[cell % 28],
 			StrokeWidthScale = options.ThinLineWidth.Resolve(options)
 		}
 	]

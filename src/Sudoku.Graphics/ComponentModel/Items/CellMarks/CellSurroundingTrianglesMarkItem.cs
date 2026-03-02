@@ -11,11 +11,6 @@ public sealed class CellSurroundingTrianglesMarkItem : CellMarkItem
 	public required int TrianglesCount { get; init; }
 
 	/// <summary>
-	/// Indicates corner radius of triangles.
-	/// </summary>
-	public Scale TrianglesCornerRadiusScale { get; init; } = 0M;
-
-	/// <summary>
 	/// Indicates the tip distance with cell center point.
 	/// </summary>
 	public required Scale TipDistanceScale { get; init; }
@@ -40,7 +35,7 @@ public sealed class CellSurroundingTrianglesMarkItem : CellMarkItem
 			StrokeWidthScale,
 			FillColor,
 			TipDistanceScale,
-			TrianglesCornerRadiusScale,
+			CornerRadiusScale,
 			mapper
 		);
 	}

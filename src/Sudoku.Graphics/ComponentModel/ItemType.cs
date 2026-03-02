@@ -69,4 +69,9 @@ public enum ItemType
 	/// Indicates cell surrounding triangles mark.
 	/// </summary>
 	CellMark_SurroundingTriangles,
+
+	/// <summary>
+	/// Indicates cell square mark.
+	/// </summary>
+	CellMark_Square,
 }

@@ -8,7 +8,7 @@ public sealed class CellDiceMarkItem : CellMarkItem
 	/// <summary>
 	/// Indicates dice value.
 	/// </summary>
-	public required int DiceValue { get; init; }
+	public required int Value { get; init; }
 
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.CellMark_Dice;
@@ -26,7 +26,7 @@ public sealed class CellDiceMarkItem : CellMarkItem
 			Cell,
 			StrokeWidthScale,
 			SizeScale,
-			DiceTable.Values[DiceValue],
+			DiceTable.Values[Value],
 			StrokeColor,
 			FillColor,
 			.2M,

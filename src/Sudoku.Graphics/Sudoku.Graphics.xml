@@ -1112,6 +1112,11 @@
             Indicates stroke width scale.
             </summary>
         </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarkItem.CornerRadiusScale">
+            <summary>
+            Indicates corner radius scale.
+            </summary>
+        </member>
         <member name="P:Sudoku.ComponentModel.Items.CellMarkItem.StrokeColor">
             <inheritdoc/>
         </member>
@@ -1147,7 +1152,7 @@
             Represents cell dice mark item.
             </summary>
         </member>
-        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellDiceMarkItem.DiceValue">
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellDiceMarkItem.Value">
             <summary>
             Indicates dice value.
             </summary>
@@ -1189,6 +1194,20 @@
         <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellQuestionMarkItem.EqualityContract">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.ComponentModel.Items.CellMarks.CellSquareMarkItem">
+            <summary>
+            Represents a cell square mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellSquareMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellSquareMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Items.CellMarks.CellSquareMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.ComponentModel.Items.CellMarks.CellSurroundingTrianglesMarkItem">
             <summary>
             Represents a cell mark item that renders a list of triangles, surrounding with cell center.
@@ -1197,11 +1216,6 @@
         <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellSurroundingTrianglesMarkItem.TrianglesCount">
             <summary>
             Indicates the number of triangles.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellSurroundingTrianglesMarkItem.TrianglesCornerRadiusScale">
-            <summary>
-            Indicates corner radius of triangles.
             </summary>
         </member>
         <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellSurroundingTrianglesMarkItem.TipDistanceScale">
@@ -1535,6 +1549,11 @@
         <member name="F:Sudoku.ComponentModel.ItemType.CellMark_SurroundingTriangles">
             <summary>
             Indicates cell surrounding triangles mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.ItemType.CellMark_Square">
+            <summary>
+            Indicates cell square mark.
             </summary>
         </member>
         <member name="T:Sudoku.ComponentModel.LineDashSequence">
@@ -3195,6 +3214,9 @@
         <member name="M:Sudoku.Graphics.SKCanvasDrawingExtensions.DrawOutlinedTextToCandidate(SkiaSharp.SKCanvas,System.String,Sudoku.ComponentModel.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCandidate(System.String,Sudoku.ComponentModel.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawingExtensions.DrawSquareToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawSquareToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
+        </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawingExtensions.DrawTrianglesInCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTrianglesInCell(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
         </member>
@@ -3251,6 +3273,18 @@
             <param name="outlineColor">The outline color.</param>
             <param name="fillColor">The fill color of text.</param>
             <param name="mapper">The mapper.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawSquareToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Draws a square into the specified cell.
+            </summary>
+            <param name="cell">The cell.</param>
+            <param name="sizeScale">The scale of size, related to cell.</param>
+            <param name="strokeColor">The stroke color.</param>
+            <param name="strokeWidthScale">The scale of stroke width, related to cell.</param>
+            <param name="fillColor">The fill color.</param>
+            <param name="cornerRadiusScale">The scale of corner radiuse, related to drawn square size.</param>
+            <param name="mapper">The mapper instance.</param>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTrianglesInCell(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
             <summary>
