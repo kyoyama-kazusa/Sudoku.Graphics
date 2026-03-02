@@ -131,5 +131,87 @@ public partial class SKCanvasSymbolDrawingExtensions
 				@this.DrawCircle(topLeft.X, topLeft.Y, radius, strokePaint);
 			}
 		}
+
+		public void DrawPolygonToCell(
+			Absolute cell,
+			int sidesCount,
+			Scale sizeScale,
+			Scale strokeWidthScale,
+			SKColor strokeColor,
+			SKColor fillColor,
+			PointMapper mapper,
+			float rotationDegrees = 0
+		)
+		{
+			if (sizeScale.IsNegative)
+			{
+				// Nothing to draw.
+				return;
+			}
+
+			if (sidesCount < 3)
+			{
+				throw new ArgumentException("The number of sides must be at least 3.", nameof(sidesCount));
+			}
+			if (sidesCount > 16)
+			{
+				throw new InvalidOperationException("The sides is too large to draw. The maximum value expected is 16.");
+			}
+
+			sidesCount = Math.Clamp(sidesCount, 3, 16);
+
+			var (x, y) = mapper.GetPoint(cell, Alignment.TopLeft);
+			var cellSize = mapper.CellSize;
+			var outerSide = sizeScale.Measure(cellSize);
+			var outerR = outerSide / 2;
+			var strokeWidth = strokeWidthScale.Measure(cellSize);
+			var innerR = Math.Max(0, outerR - strokeWidth / 2);
+			if (innerR <= 0)
+			{
+				return;
+			}
+
+			var cx = x + cellSize / 2;
+			var cy = y + cellSize / 2;
+			var startAngle = rotationDegrees * MathF.PI / 180 - MathF.PI / 2;
+			var delta = MathF.Tau / sidesCount;
+
+			// Construct path.
+			using var path = new SKPath();
+			for (var i = 0; i < sidesCount; i++)
+			{
+				var angle = startAngle + i * delta;
+				var px = cx + innerR * MathF.Cos(angle);
+				var py = cy + innerR * MathF.Sin(angle);
+				if (i == 0) path.MoveTo(px, py);
+				else path.LineTo(px, py);
+			}
+			path.Close();
+
+			// Fill paint.
+			if (fillColor.Alpha > 0)
+			{
+				using var fillPaint = new SKPaint
+				{
+					Style = SKPaintStyle.Fill,
+					IsAntialias = true,
+					Color = fillColor
+				};
+				@this.DrawPath(path, fillPaint);
+			}
+
+			// Stroke paint.
+			if (strokeWidth > 0f && strokeColor.Alpha > 0)
+			{
+				using var strokePaint = new SKPaint
+				{
+					Style = SKPaintStyle.Stroke,
+					IsAntialias = true,
+					Color = strokeColor,
+					StrokeWidth = strokeWidth
+				};
+				@this.DrawPath(path, strokePaint);
+			}
+		}
 	}
 }

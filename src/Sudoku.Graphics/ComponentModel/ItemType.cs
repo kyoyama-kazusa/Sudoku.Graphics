@@ -79,4 +79,9 @@ public enum ItemType
 	/// Indicates cell circle mark.
 	/// </summary>
 	CellMark_Circle,
+
+	/// <summary>
+	/// Indicates cell polygon mark.
+	/// </summary>
+	CellMark_Polygon,
 }

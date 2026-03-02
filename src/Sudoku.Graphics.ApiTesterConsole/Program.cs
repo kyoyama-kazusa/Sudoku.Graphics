@@ -39,9 +39,10 @@ canvas.DrawItems(
 		new TemplateLineStrokeItem(),
 		..
 		from cell in SpanEnumerable.Range(0, 81)
-		select new CellCircleMarkItem
+		select new CellPolygonMarkItem
 		{
 			Cell = cell,
+			SidesCount = rng.Next(3, 9 + 1),
 			SizeScale = .75M,
 			TemplateIndex = 0,
 			FillColor = options.JSudokuColorSet.Resolve(options)[rng.Next(0, 28)],
