@@ -1147,6 +1147,20 @@
         <member name="M:Sudoku.ComponentModel.Items.CellMarkItem.PrintMembers(System.Text.StringBuilder)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.ComponentModel.Items.CellMarks.CellCircleMarkItem">
+            <summary>
+            Represents a cell circle mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellCircleMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellCircleMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Items.CellMarks.CellCircleMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.ComponentModel.Items.CellMarks.CellDiceMarkItem">
             <summary>
             Represents cell dice mark item.
@@ -1554,6 +1568,11 @@
         <member name="F:Sudoku.ComponentModel.ItemType.CellMark_Square">
             <summary>
             Indicates cell square mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.ItemType.CellMark_Circle">
+            <summary>
+            Indicates cell circle mark.
             </summary>
         </member>
         <member name="T:Sudoku.ComponentModel.LineDashSequence">
@@ -3217,6 +3236,9 @@
         <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.DrawSquareToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawSquareToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
         </member>
+        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.DrawCircleToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCircleToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
+        </member>
         <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.DrawTrianglesInCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTrianglesInCell(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
         </member>
@@ -3275,6 +3297,18 @@
             <param name="mapper">The mapper.</param>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawSquareToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Draws a square into the specified cell.
+            </summary>
+            <param name="cell">The cell.</param>
+            <param name="sizeScale">The scale of size, related to cell.</param>
+            <param name="strokeColor">The stroke color.</param>
+            <param name="strokeWidthScale">The scale of stroke width, related to cell.</param>
+            <param name="fillColor">The fill color.</param>
+            <param name="cornerRadiusScale">The scale of corner radiuse, related to drawn square size.</param>
+            <param name="mapper">The mapper instance.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCircleToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
             <summary>
             Draws a square into the specified cell.
             </summary>

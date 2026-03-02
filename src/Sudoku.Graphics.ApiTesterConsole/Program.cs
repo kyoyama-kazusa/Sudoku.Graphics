@@ -39,7 +39,7 @@ canvas.DrawItems(
 		new TemplateLineStrokeItem(),
 		..
 		from cell in SpanEnumerable.Range(0, 81)
-		select new CellSquareMarkItem
+		select new CellCircleMarkItem
 		{
 			Cell = cell,
 			SizeScale = .75M,
