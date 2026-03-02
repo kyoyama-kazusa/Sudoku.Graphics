@@ -12,19 +12,21 @@ public readonly struct SerializableColor :
 	/// Indicates well-known colors.
 	/// </summary>
 	[SuppressMessage("Style", "IDE0028:Simplify collection initialization", Justification = "<Pending>")]
-	private static readonly Dictionary<SKColor, string> WellknownColors = new(
+	private static readonly Dictionary<SKColor, string> WellknownColors = new([
+		..
 		from fieldInfo in typeof(SKColors).GetFields(BindingFlags.Public | BindingFlags.Static)
 		select KeyValuePair.Create((SKColor)fieldInfo.GetValue(null)!, fieldInfo.Name)
-	);
+	]);
 
 	/// <summary>
 	/// Indicates well-known colors, in reversed lookup.
 	/// </summary>
 	[SuppressMessage("Style", "IDE0028:Simplify collection initialization", Justification = "<Pending>")]
-	private static readonly Dictionary<string, SKColor> WellKnownColorsReversed = new(
+	private static readonly Dictionary<string, SKColor> WellKnownColorsReversed = new([
+		..
 		from fieldInfo in typeof(SKColors).GetFields(BindingFlags.Public | BindingFlags.Static)
 		select KeyValuePair.Create(fieldInfo.Name, (SKColor)fieldInfo.GetValue(null)!)
-	);
+	]);
 
 
 	/// <summary>

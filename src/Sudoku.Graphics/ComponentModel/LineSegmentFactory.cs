@@ -73,11 +73,12 @@ public static class LineSegmentFactory
 		PointMapper mapper,
 		out HashSet<Absolute> absoluteCellIndices
 	) => GetLightupDirectionsCore(
-		new(
+		new([
+			..
 			from cell in cellIndices
 			let absoluteIndex = mapper.GetAbsoluteIndex(cell)
 			select KeyValuePair.Create(absoluteIndex, Direction.Up | Direction.Down | Direction.Left | Direction.Right)
-		),
+		]),
 		isCyclicRuleChecked,
 		mapper,
 		out absoluteCellIndices
@@ -91,10 +92,11 @@ public static class LineSegmentFactory
 		PointMapper mapper,
 		out HashSet<Absolute> absoluteCellIndices
 	) => GetLightupDirectionsCore(
-		new(
+		new([
+			..
 			from cell in cellIndices
 			select KeyValuePair.Create(cell, Direction.Up | Direction.Down | Direction.Left | Direction.Right)
-		),
+		]),
 		isCyclicRuleChecked,
 		mapper,
 		out absoluteCellIndices

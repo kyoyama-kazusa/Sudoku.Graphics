@@ -39,13 +39,13 @@ canvas.DrawItems(
 		new BackgroundFillItem { Color = options.BackgroundColor.Resolve(options) },
 		new TemplateLineStrokeItem(),
 		..
-		from cell in Enumerable.Range(0, 81)
+		from cell in SpanEnumerable.Range(0, 81)
 		select new CellSquareMarkItem
 		{
 			Cell = cell,
 			SizeScale = .75M,
 			TemplateIndex = 0,
-			FillColor = options.JSudokuColorSet.Resolve(options)[cell % 28],
+			FillColor = options.JSudokuColorSet.Resolve(options)[rng.Next(0, 28)],
 			StrokeWidthScale = options.ThinLineWidth.Resolve(options)
 		}
 	]
