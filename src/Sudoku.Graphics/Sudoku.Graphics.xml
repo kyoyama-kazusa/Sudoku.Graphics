@@ -1199,9 +1199,9 @@
             Represents a cell polygon mark item.
             </summary>
         </member>
-        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellPolygonMarkItem.SidesCount">
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellPolygonMarkItem.DrawConcavePolygon">
             <summary>
-            Indicates the number of sides.
+            Indicates whether this type draws for concave polygon or not. By default it's <see langword="false"/>.
             </summary>
         </member>
         <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellPolygonMarkItem.RotationDegrees">
@@ -1209,8 +1209,18 @@
             Indicates rotation degrees, in angles. By default it's 0.
             </summary>
         </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellPolygonMarkItem.SidesCount">
+            <summary>
+            Indicates the number of sides.
+            </summary>
+        </member>
         <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellPolygonMarkItem.Type">
             <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellPolygonMarkItem.ConcaveInnerScale">
+            <summary>
+            Indicates concave inner scale. By default it's 0.
+            </summary>
         </member>
         <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellPolygonMarkItem.EqualityContract">
             <inheritdoc/>
