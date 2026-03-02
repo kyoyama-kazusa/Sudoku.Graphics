@@ -4,4 +4,4 @@
 /// Provides extension members on <see cref="SKCanvas"/>.
 /// </summary>
 /// <seealso cref="SKCanvas"/>
-public static partial class SKCanvasDrawingExtensions;
+public static partial class SKCanvasSymbolDrawingExtensions;

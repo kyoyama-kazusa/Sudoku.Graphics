@@ -3196,49 +3196,49 @@
             Indicates the size of grid.
             </summary>
         </member>
-        <member name="T:Sudoku.Graphics.SKCanvasDrawingExtensions">
+        <member name="T:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions">
             <summary>
             Provides extension members on <see cref="T:SkiaSharp.SKCanvas"/>.
             </summary>
             <seealso cref="T:SkiaSharp.SKCanvas"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawingExtensions.DrawTextToCell(SkiaSharp.SKCanvas,System.String,Sudoku.ComponentModel.Absolute,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextToCell(System.String,Sudoku.ComponentModel.Absolute,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.DrawTextToCell(SkiaSharp.SKCanvas,System.String,Sudoku.ComponentModel.Absolute,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextToCell(System.String,Sudoku.ComponentModel.Absolute,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawingExtensions.DrawTextToCandidate(SkiaSharp.SKCanvas,System.String,Sudoku.ComponentModel.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextToCandidate(System.String,Sudoku.ComponentModel.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.DrawTextToCandidate(SkiaSharp.SKCanvas,System.String,Sudoku.ComponentModel.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextToCandidate(System.String,Sudoku.ComponentModel.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawingExtensions.DrawOutlinedTextToCell(SkiaSharp.SKCanvas,System.String,Sudoku.ComponentModel.Absolute,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCell(System.String,Sudoku.ComponentModel.Absolute,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.DrawOutlinedTextToCell(SkiaSharp.SKCanvas,System.String,Sudoku.ComponentModel.Absolute,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCell(System.String,Sudoku.ComponentModel.Absolute,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawingExtensions.DrawOutlinedTextToCandidate(SkiaSharp.SKCanvas,System.String,Sudoku.ComponentModel.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCandidate(System.String,Sudoku.ComponentModel.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.DrawOutlinedTextToCandidate(SkiaSharp.SKCanvas,System.String,Sudoku.ComponentModel.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCandidate(System.String,Sudoku.ComponentModel.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawingExtensions.DrawSquareToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawSquareToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.DrawSquareToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawSquareToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawingExtensions.DrawTrianglesInCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTrianglesInCell(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.DrawTrianglesInCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTrianglesInCell(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawingExtensions.DrawTetromino(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,System.Boolean[0:,0:],Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTetromino(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,System.Boolean[0:,0:],Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.DrawTetromino(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,System.Boolean[0:,0:],Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTetromino(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,System.Boolean[0:,0:],Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="T:Sudoku.Graphics.SKCanvasDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.&lt;M&gt;$21C1C87F40B24560160CB1CD20F6362E">
+        <member name="T:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.&lt;M&gt;$21C1C87F40B24560160CB1CD20F6362E">
             <param name="this">The current instance.</param>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextToCell(System.String,Sudoku.ComponentModel.Absolute,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextToCell(System.String,Sudoku.ComponentModel.Absolute,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <summary>
             Draws the specified text into the target cell.
             </summary>
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCell(System.String,Sudoku.ComponentModel.Absolute,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCell(System.String,Sudoku.ComponentModel.Absolute,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextToCandidate(System.String,Sudoku.ComponentModel.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextToCandidate(System.String,Sudoku.ComponentModel.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <summary>
             Draws the specified text into the target candidate.
             </summary>
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCandidate(System.String,Sudoku.ComponentModel.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCandidate(System.String,Sudoku.ComponentModel.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCell(System.String,Sudoku.ComponentModel.Absolute,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCell(System.String,Sudoku.ComponentModel.Absolute,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <summary>
             Draws the specified text into the target cell, with outlined.
             </summary>
@@ -3256,7 +3256,7 @@
             <param name="fillColor">The fill color of text.</param>
             <param name="mapper">The mapper.</param>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCandidate(System.String,Sudoku.ComponentModel.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCandidate(System.String,Sudoku.ComponentModel.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <summary>
             Draws the specified text into the target candidate, with outlined.
             </summary>
@@ -3274,7 +3274,7 @@
             <param name="fillColor">The fill color of text.</param>
             <param name="mapper">The mapper.</param>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawSquareToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawSquareToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
             <summary>
             Draws a square into the specified cell.
             </summary>
@@ -3286,7 +3286,7 @@
             <param name="cornerRadiusScale">The scale of corner radiuse, related to drawn square size.</param>
             <param name="mapper">The mapper instance.</param>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTrianglesInCell(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTrianglesInCell(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
             <summary>
             Draws a several triangles, surrounding with cell center point.
             </summary>
@@ -3303,7 +3303,7 @@
             Throws when <paramref name="trianglesCount"/> is below than 1.
             </exception>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTetromino(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,System.Boolean[0:,0:],Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTetromino(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,System.Boolean[0:,0:],Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
             <summary>
             Try to draw a tetris piece (or not, specified as a <see cref="T:System.Boolean"/> matrix) into the specified cell.
             </summary>

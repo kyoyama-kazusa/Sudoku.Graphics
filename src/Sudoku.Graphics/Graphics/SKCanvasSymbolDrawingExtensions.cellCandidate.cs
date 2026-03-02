@@ -1,6 +1,6 @@
 ﻿namespace Sudoku.Graphics;
 
-public partial class SKCanvasDrawingExtensions
+public partial class SKCanvasSymbolDrawingExtensions
 {
 	/// <param name="this">The current instance.</param>
 	extension(SKCanvas @this)
