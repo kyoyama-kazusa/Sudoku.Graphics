@@ -88,7 +88,6 @@ public partial class SKCanvasSymbolDrawingExtensions
 		/// <param name="strokeColor">The stroke color.</param>
 		/// <param name="strokeWidthScale">The scale of stroke width, related to cell.</param>
 		/// <param name="fillColor">The fill color.</param>
-		/// <param name="cornerRadiusScale">The scale of corner radiuse, related to drawn square size.</param>
 		/// <param name="mapper">The mapper instance.</param>
 		public void DrawCircleToCell(
 			Absolute cell,
@@ -96,7 +95,6 @@ public partial class SKCanvasSymbolDrawingExtensions
 			SKColor strokeColor,
 			Scale strokeWidthScale,
 			SKColor fillColor,
-			Scale cornerRadiusScale,
 			PointMapper mapper
 		)
 		{
