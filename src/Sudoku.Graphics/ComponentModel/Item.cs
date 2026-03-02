@@ -12,6 +12,7 @@
 [JsonDerivedType(typeof(CellDiceMarkItem), nameof(CellDiceMarkItem))]
 [JsonDerivedType(typeof(CellExclamationMarkItem), nameof(CellExclamationMarkItem))]
 [JsonDerivedType(typeof(CellFillItem), nameof(CellFillItem))]
+[JsonDerivedType(typeof(CellPolygonMarkItem), nameof(CellPolygonMarkItem))]
 [JsonDerivedType(typeof(CellQuestionMarkItem), nameof(CellQuestionMarkItem))]
 [JsonDerivedType(typeof(CellSquareMarkItem), nameof(CellSquareMarkItem))]
 [JsonDerivedType(typeof(CellSurroundingTrianglesMarkItem), nameof(CellSurroundingTrianglesMarkItem))]

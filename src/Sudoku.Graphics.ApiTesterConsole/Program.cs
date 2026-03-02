@@ -42,8 +42,6 @@ canvas.DrawItems(
 		select new CellPolygonMarkItem
 		{
 			Cell = cell,
-			DrawConcavePolygon = true,
-			ConcaveInnerScale = .5M,
 			SidesCount = rng.Next(3, 9 + 1),
 			SizeScale = .75M,
 			TemplateIndex = 0,

@@ -132,6 +132,19 @@ public partial class SKCanvasSymbolDrawingExtensions
 			}
 		}
 
+		/// <summary>
+		/// Draw a (convex) polygon into the specified cell.
+		/// </summary>
+		/// <param name="cell">The cell.</param>
+		/// <param name="sidesCount">The number of sides.</param>
+		/// <param name="sizeScale">The scale of polygon size, related to cell size.</param>
+		/// <param name="strokeWidthScale">The scale of stroke width, related to cell size.</param>
+		/// <param name="strokeColor">The stroke color.</param>
+		/// <param name="fillColor">The fill color.</param>
+		/// <param name="mapper">The mapper instance.</param>
+		/// <param name="rotationDegrees">The initial rotation degrees, in angle.</param>
+		/// <exception cref="ArgumentException">Throws when the number of sides is invalid (below 3).</exception>
+		/// <exception cref="InvalidOperationException">Throws when the number of sides is too large (above 16).</exception>
 		public void DrawPolygonToCell(
 			Absolute cell,
 			int sidesCount,
@@ -212,6 +225,20 @@ public partial class SKCanvasSymbolDrawingExtensions
 			}
 		}
 
+		/// <summary>
+		/// Draw a concave polygon into the specified cell.
+		/// </summary>
+		/// <param name="cell">The cell.</param>
+		/// <param name="sidesCount">The number of sides.</param>
+		/// <param name="sizeScale">The scale of polygon size, related to cell size.</param>
+		/// <param name="innerScale">The scale of inner corner point to center of cell, related to shape size.</param>
+		/// <param name="strokeWidthScale">The scale of stroke width, related to cell size.</param>
+		/// <param name="strokeColor">The stroke color.</param>
+		/// <param name="fillColor">The fill color.</param>
+		/// <param name="mapper">The mapper instance.</param>
+		/// <param name="rotationDegrees">The initial rotation degrees, in angle.</param>
+		/// <exception cref="ArgumentException">Throws when the number of sides is invalid (below 3).</exception>
+		/// <exception cref="InvalidOperationException">Throws when the number of sides is too large (above 16).</exception>
 		public void DrawConcavePolygon(
 			Absolute cell,
 			int sidesCount,

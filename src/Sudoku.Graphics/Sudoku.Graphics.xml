@@ -3278,6 +3278,12 @@
         <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.DrawCircleToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCircleToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper)"/>
         </member>
+        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.DrawPolygonToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper,System.Single)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawPolygonToCell(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper,System.Single)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.DrawConcavePolygon(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper,System.Single)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawConcavePolygon(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper,System.Single)"/>
+        </member>
         <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.DrawTrianglesInCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTrianglesInCell(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
         </member>
@@ -3357,6 +3363,37 @@
             <param name="strokeWidthScale">The scale of stroke width, related to cell.</param>
             <param name="fillColor">The fill color.</param>
             <param name="mapper">The mapper instance.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawPolygonToCell(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper,System.Single)">
+            <summary>
+            Draw a (convex) polygon into the specified cell.
+            </summary>
+            <param name="cell">The cell.</param>
+            <param name="sidesCount">The number of sides.</param>
+            <param name="sizeScale">The scale of polygon size, related to cell size.</param>
+            <param name="strokeWidthScale">The scale of stroke width, related to cell size.</param>
+            <param name="strokeColor">The stroke color.</param>
+            <param name="fillColor">The fill color.</param>
+            <param name="mapper">The mapper instance.</param>
+            <param name="rotationDegrees">The initial rotation degrees, in angle.</param>
+            <exception cref="T:System.ArgumentException">Throws when the number of sides is invalid (below 3).</exception>
+            <exception cref="T:System.InvalidOperationException">Throws when the number of sides is too large (above 16).</exception>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawConcavePolygon(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper,System.Single)">
+            <summary>
+            Draw a concave polygon into the specified cell.
+            </summary>
+            <param name="cell">The cell.</param>
+            <param name="sidesCount">The number of sides.</param>
+            <param name="sizeScale">The scale of polygon size, related to cell size.</param>
+            <param name="innerScale">The scale of inner corner point to center of cell, related to shape size.</param>
+            <param name="strokeWidthScale">The scale of stroke width, related to cell size.</param>
+            <param name="strokeColor">The stroke color.</param>
+            <param name="fillColor">The fill color.</param>
+            <param name="mapper">The mapper instance.</param>
+            <param name="rotationDegrees">The initial rotation degrees, in angle.</param>
+            <exception cref="T:System.ArgumentException">Throws when the number of sides is invalid (below 3).</exception>
+            <exception cref="T:System.InvalidOperationException">Throws when the number of sides is too large (above 16).</exception>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTrianglesInCell(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
             <summary>
