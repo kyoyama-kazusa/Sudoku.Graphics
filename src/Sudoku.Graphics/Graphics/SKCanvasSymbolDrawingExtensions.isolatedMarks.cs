@@ -235,25 +235,26 @@ public partial class SKCanvasSymbolDrawingExtensions
 				var angle = startAngle + i * delta;
 				var px = cx + innerR * MathF.Cos(angle);
 				var py = cy + innerR * MathF.Sin(angle);
-				if (i == 0) path.MoveTo(px, py);
-				else path.LineTo(px, py);
+				if (i == 0)
+				{
+					path.MoveTo(px, py);
+				}
+				else
+				{
+					path.LineTo(px, py);
+				}
 			}
 			path.Close();
 
 			// Fill paint.
 			if (fillColor.Alpha > 0)
 			{
-				using var fillPaint = new SKPaint
-				{
-					Style = SKPaintStyle.Fill,
-					IsAntialias = true,
-					Color = fillColor
-				};
+				using var fillPaint = new SKPaint { Style = SKPaintStyle.Fill, IsAntialias = true, Color = fillColor };
 				@this.DrawPath(path, fillPaint);
 			}
 
 			// Stroke paint.
-			if (strokeWidth > 0f && strokeColor.Alpha > 0)
+			if (strokeWidth > 0F && strokeColor.Alpha > 0)
 			{
 				using var strokePaint = new SKPaint
 				{
