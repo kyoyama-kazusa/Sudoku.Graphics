@@ -41,12 +41,12 @@ canvas.DrawItems(
 		new BackgroundFillItem { Color = options.BackgroundColor.Resolve(options) },
 		new TemplateLineStrokeItem(),
 		..
-		from cell in SpanEnumerable.Range(0, 81)
+		from cell in SpanEnumerable.Range(1, count: 5)
 		select new CellMoonPhaseMarkItem
 		{
 			Cell = cell,
 			SizeScale = .75M,
-			Phase = phases[rng.Next(1, phases.Length)],
+			Phase = phases[cell],
 			TemplateIndex = 0,
 			StrokeColor = SKColors.Black,
 			FillColor = SKColors.Yellow,

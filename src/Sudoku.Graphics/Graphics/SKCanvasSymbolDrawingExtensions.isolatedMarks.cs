@@ -247,14 +247,14 @@ public partial class SKCanvasSymbolDrawingExtensions
 			path.Close();
 
 			// Fill paint.
-			if (fillColor.Alpha > 0)
+			if (fillColor.Alpha != 0)
 			{
 				using var fillPaint = new SKPaint { Style = SKPaintStyle.Fill, IsAntialias = true, Color = fillColor };
 				@this.DrawPath(path, fillPaint);
 			}
 
 			// Stroke paint.
-			if (strokeWidth > 0F && strokeColor.Alpha > 0)
+			if (strokeWidth != 0 && strokeColor.Alpha != 0)
 			{
 				using var strokePaint = new SKPaint
 				{
@@ -353,14 +353,14 @@ public partial class SKCanvasSymbolDrawingExtensions
 			path.Close();
 
 			// Fill paint.
-			if (fillColor.Alpha > 0)
+			if (fillColor.Alpha != 0)
 			{
 				using var fillPaint = new SKPaint { Style = SKPaintStyle.Fill, IsAntialias = true, Color = fillColor };
 				@this.DrawPath(path, fillPaint);
 			}
 
 			// Stroke paint.
-			if (strokeWidth > 0f && strokeColor.Alpha > 0)
+			if (strokeWidth != 0 && strokeColor.Alpha != 0)
 			{
 				using var strokePaint = new SKPaint
 				{
@@ -416,7 +416,7 @@ public partial class SKCanvasSymbolDrawingExtensions
 				case MoonPhase.Full:
 				{
 					@this.DrawCircle(cx, cy, radiusOfMainCircle, fillPaint);
-					if (strokeWidth > 0)
+					if (strokeWidth != 0)
 					{
 						@this.DrawCircle(cx, cy, radiusOfMainCircle, strokePaint);
 					}
@@ -463,7 +463,7 @@ public partial class SKCanvasSymbolDrawingExtensions
 						// Using type Even-Odd is unnecessary here.
 						crescentPath.FillType = SKPathFillType.Winding;
 						@this.DrawPath(crescentPath, fillPaint);
-						if (strokeWidth > 0)
+						if (strokeWidth != 0)
 						{
 							@this.DrawPath(crescentPath, strokePaint);
 						}
@@ -475,7 +475,7 @@ public partial class SKCanvasSymbolDrawingExtensions
 						fallback.AddCircle(cx, cy, radiusOfMainCircle);
 						fallback.AddCircle(c2x, c2y, r2);
 						@this.DrawPath(fallback, fillPaint);
-						if (strokeWidth > 0)
+						if (strokeWidth != 0)
 						{
 							@this.DrawCircle(cx, cy, radiusOfMainCircle, strokePaint);
 						}
