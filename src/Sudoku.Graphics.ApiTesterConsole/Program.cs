@@ -10,9 +10,9 @@ using System;
 using System.IO;
 using System.Linq;
 using SkiaSharp;
+using Sudoku.ComponentModel.Arrows;
 using Sudoku.ComponentModel.Items;
 using Sudoku.ComponentModel.Items.CellMarks;
-using Sudoku.ComponentModel.Moons;
 using Sudoku.ComponentModel.Templates;
 using Sudoku.Graphics;
 
@@ -35,22 +35,24 @@ using var canvas = new Canvas(
 );
 
 var rng = Random.Shared;
-var phases = Enum.GetValues<MoonPhase>();
+var directions = Enum.GetValues<ArrowDirection>();
 canvas.DrawItems(
 	[
 		new BackgroundFillItem { Color = options.BackgroundColor.Resolve(options) },
 		new TemplateLineStrokeItem(),
 		..
-		from cell in SpanEnumerable.Range(1, count: 5)
-		select new CellMoonPhaseMarkItem
+		from cell in SpanEnumerable.Range(0, 81)
+		select new CellArrowMarkItem
 		{
 			Cell = cell,
-			SizeScale = .75M,
-			Phase = phases[cell],
+			Direction = directions[rng.Next(1, directions.Length)],
 			TemplateIndex = 0,
 			StrokeColor = SKColors.Black,
-			FillColor = SKColors.Yellow,
-			StrokeWidthScale = options.ThinLineWidth.Resolve(options)
+			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
+			TriangleWidthScale = .75M,
+			TriangleHeightScale = .375M,
+			ShaftWidthScale = .375M,
+			ShaftHeightScale = .375M
 		}
 	]
 );

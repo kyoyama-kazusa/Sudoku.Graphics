@@ -106,6 +106,77 @@
             Indicates bottom-right point of container.
             </summary>
         </member>
+        <member name="T:Sudoku.ComponentModel.Arrows.ArrowDirection">
+            <summary>
+            Represents a direction of arrow.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Arrows.ArrowDirection.None">
+            <summary>
+            Indicates placeholder of this type.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Arrows.ArrowDirection.N">
+            <summary>
+            Indicates north direction (up).
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Arrows.ArrowDirection.NE">
+            <summary>
+            Indicates north-east direction (right-up).
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Arrows.ArrowDirection.E">
+            <summary>
+            Indicates east direction (right).
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Arrows.ArrowDirection.SE">
+            <summary>
+            Indicates south-east direction (right-down).
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Arrows.ArrowDirection.S">
+            <summary>
+            Indicates south direction (down).
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Arrows.ArrowDirection.SW">
+            <summary>
+            Indicates south-west direction (left-down).
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Arrows.ArrowDirection.W">
+            <summary>
+            Indicates west direction (left).
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Arrows.ArrowDirection.NW">
+            <summary>
+            Indicates north west direction (left-up).
+            </summary>
+        </member>
+        <member name="T:Sudoku.ComponentModel.Arrows.ArrowDirectionExtensions">
+            <summary>
+            Provides extension methods on <see cref="T:Sudoku.ComponentModel.Arrows.ArrowDirection"/>.
+            </summary>
+            <seealso cref="T:Sudoku.ComponentModel.Arrows.ArrowDirection"/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Arrows.ArrowDirectionExtensions.get_AngleDegrees(Sudoku.ComponentModel.Arrows.ArrowDirection)">
+            <inheritdoc cref="P:Sudoku.ComponentModel.Arrows.ArrowDirectionExtensions.&lt;G&gt;$EE715421AC2119A086121A2D11A78143.AngleDegrees"/>
+        </member>
+        <member name="T:Sudoku.ComponentModel.Arrows.ArrowDirectionExtensions.&lt;G&gt;$EE715421AC2119A086121A2D11A78143.&lt;M&gt;$E67E3F61CB155F48BBBB5A22166ED4A9">
+            <param name="this">The current instance.</param>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Arrows.ArrowDirectionExtensions.&lt;G&gt;$EE715421AC2119A086121A2D11A78143.AngleDegrees">
+            <summary>
+            Indicates the degrees of the arrow direction, in angle.
+            </summary>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Throws when the current instance is not defined or <see cref="F:Sudoku.ComponentModel.Arrows.ArrowDirection.None"/>.
+            </exception>
+            <seealso cref="F:Sudoku.ComponentModel.Arrows.ArrowDirection.None"/>
+        </member>
         <member name="T:Sudoku.ComponentModel.CandidatePosition">
             <summary>
             Represents a candidate position.
@@ -1147,6 +1218,69 @@
         <member name="M:Sudoku.ComponentModel.Items.CellMarkItem.PrintMembers(System.Text.StringBuilder)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.ComponentModel.Items.CellMarks.CellArrowMarkItem">
+            <summary>
+            Represents a cell arrow mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellArrowMarkItem.Direction">
+            <summary>
+            Indicates the direction.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellArrowMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellArrowMarkItem.TriangleWidthScale">
+            <summary>
+            Indicates the triangle width scale, related to cell size.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellArrowMarkItem.TriangleHeightScale">
+            <summary>
+            Indicates the triangle height scale, related to cell size.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellArrowMarkItem.ShaftWidthScale">
+            <summary>
+            Indicates the shaft width scale, related to cell size.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellArrowMarkItem.ShaftHeightScale">
+            <summary>
+            Indicates the shaft height scale, related to cell size.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellArrowMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Items.CellMarks.CellArrowMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.ComponentModel.Items.CellMarks.CellArrowTriangleMarkItem">
+            <summary>
+            Represents a cell arrow triangle mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellArrowTriangleMarkItem.Direction">
+            <summary>
+            Indicates the arrow direction.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellArrowTriangleMarkItem.BaseScale">
+            <summary>
+            Indicates the base scale.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellArrowTriangleMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellArrowTriangleMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Items.CellMarks.CellArrowTriangleMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.ComponentModel.Items.CellMarks.CellCircleMarkItem">
             <summary>
             Represents a cell circle mark item.
@@ -1655,6 +1789,16 @@
         <member name="F:Sudoku.ComponentModel.ItemType.CellMark_MoonPhase">
             <summary>
             Indicates cell moon phase mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.ItemType.CellMark_ArrowTriangle">
+            <summary>
+            Indicates cell arrow triangle mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.ItemType.CellMark_Arrow">
+            <summary>
+            Indicates cell arrow mark.
             </summary>
         </member>
         <member name="T:Sudoku.ComponentModel.LineDashSequence">
@@ -3368,6 +3512,12 @@
         <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.DrawMoonToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Moons.MoonPhase,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawMoonToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Moons.MoonPhase,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
         </member>
+        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.DrawArrowTriangleToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Arrows.ArrowDirection,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowTriangleToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Arrows.ArrowDirection,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.DrawArrowToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Arrows.ArrowDirection,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Arrows.ArrowDirection,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper)"/>
+        </member>
         <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.DrawTrianglesInCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTrianglesInCell(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
         </member>
@@ -3503,6 +3653,34 @@
             <param name="radiusScale">The radius scale, related to half cell size.</param>
             <param name="mapper">The point mapper.</param>
         </member>
+        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowTriangleToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Arrows.ArrowDirection,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Draws an arrow triangle into the specifie cell.
+            </summary>
+            <param name="cell">The cell.</param>
+            <param name="direction">The direction.</param>
+            <param name="sizeScale">The scale of size, related to cell size.</param>
+            <param name="baseScale">The scale of base line, related to cell size.</param>
+            <param name="strokeWidthScale">The stroke width scale, related to cell size.</param>
+            <param name="strokeColor">The stroke color.</param>
+            <param name="fillColor">The fill color.</param>
+            <param name="mapper">The mapper instance.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Arrows.ArrowDirection,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Draws an arrow symbol into the specified cell.
+            </summary>
+            <param name="cell">The cell.</param>
+            <param name="direction">The direction.</param>
+            <param name="triangleWidthScale">The triangle width scale, related to cell size.</param>
+            <param name="triangleHeightScale">The triangle height scale, related to cell size.</param>
+            <param name="shaftWidthScale">The shaft width scale, related to cell size.</param>
+            <param name="shaftHeightScale">The shaft height scale, related to cell size.</param>
+            <param name="strokeWidthScale">The stroke width scale, related to cell size.</param>
+            <param name="strokeColor">The stroke coloor.</param>
+            <param name="fillColor">The fill color.</param>
+            <param name="mapper">The mapper instance.</param>
+        </member>
         <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTrianglesInCell(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
             <summary>
             Draws a several triangles, surrounding with cell center point.
@@ -3547,12 +3725,12 @@
             <param name="cornerRadius">The corner radius.</param>
             <param name="mapper">The mapper.</param>
         </member>
-        <member name="T:Sudoku.Graphics.MoonPainterHelpers">
+        <member name="T:Sudoku.Graphics.MoonPainterHelper">
             <summary>
             The helper type that draws for moon.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.MoonPainterHelpers.CircleCircleIntersection(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,SkiaSharp.SKPoint@,SkiaSharp.SKPoint@)">
+        <member name="M:Sudoku.Graphics.MoonPainterHelper.CircleCircleIntersection(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,SkiaSharp.SKPoint@,SkiaSharp.SKPoint@)">
             <summary>
             Calculates intersection of two circles, finding out two points intersected. If found, return <see langword="true"/>.
             </summary>
@@ -3566,7 +3744,7 @@
             <param name="p2">Intersection point 2.</param>
             <returns>A <see cref="T:System.Boolean"/> result.</returns>
         </member>
-        <member name="M:Sudoku.Graphics.MoonPainterHelpers.BuildCrescentPath(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+        <member name="M:Sudoku.Graphics.MoonPainterHelper.BuildCrescentPath(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
             <summary>
             Build crescent path if can, from main circle <c>(<paramref name="cx"/>, <paramref name="cy"/>, <paramref name="r"/>)</c>
             and side circle <c>(<paramref name="c2x"/>, <paramref name="c2y"/>, <paramref name="r2"/>)</c>.
@@ -3579,6 +3757,42 @@
             <param name="c2y">Y value of center point of side circle.</param>
             <param name="r2">Radius of side circle.</param>
             <returns>The path built. If failed to be built, <see langword="null"/>.</returns>
+        </member>
+        <member name="T:Sudoku.Graphics.ArrowPainterHelper">
+            <summary>
+            The helper type that draws for arrows.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.ArrowPainterHelper.CreateArrowTrianglePath(SkiaSharp.SKRect,Sudoku.ComponentModel.Scale,System.Single,Sudoku.ComponentModel.Arrows.ArrowDirection,Sudoku.ComponentModel.Scale)">
+            <summary>
+            Creates a path of arrow, pointing to the specified direction.
+            </summary>
+            <param name="cell">The cell rectangle.</param>
+            <param name="sizeScale">The scale of size.</param>
+            <param name="strokeWidth">The stroke width.</param>
+            <param name="direction">The direction.</param>
+            <param name="baseScale">The base scale.</param>
+            <returns>
+            A <see cref="T:SkiaSharp.SKPath"/> instance.
+            Note: You must call <see cref="M:SkiaSharp.SKNativeObject.Dispose"/> method manually
+            or use <see langword="using"/> statements to release resources.
+            </returns>
+            <seealso cref="T:SkiaSharp.SKPath"/>
+            <seealso cref="M:SkiaSharp.SKNativeObject.Dispose"/>
+        </member>
+        <member name="M:Sudoku.Graphics.ArrowPainterHelper.CreateArrowPath(SkiaSharp.SKRect,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,System.Single,Sudoku.ComponentModel.Arrows.ArrowDirection)">
+            <summary>
+            Draws arrow path.
+            </summary>
+            <param name="cellRect">The cell rectangle.</param>
+            <param name="triangleWidthScale">The triangle width scale, related to cell size.</param>
+            <param name="triangleHeightScale">The triangle height scale, related to cell size.</param>
+            <param name="shaftWidthScale">The shaft width scale, related to cell size.</param>
+            <param name="shaftLengthScale">The shaft height scale, related to cell size.</param>
+            <param name="strokeWidth">The stroke width.</param>
+            <param name="direction">The direction.</param>
+            <returns><inheritdoc cref="M:Sudoku.Graphics.ArrowPainterHelper.CreateArrowTrianglePath(SkiaSharp.SKRect,Sudoku.ComponentModel.Scale,System.Single,Sudoku.ComponentModel.Arrows.ArrowDirection,Sudoku.ComponentModel.Scale)" path="/returns"/></returns>
+            <exception cref="T:System.InvalidOperationException">Throws when shaft width is greater than triangle width.</exception>
         </member>
         <member name="T:Sudoku.Resources.Resource">
             <summary>

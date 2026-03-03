@@ -94,4 +94,14 @@ public enum ItemType
 	/// Indicates cell moon phase mark.
 	/// </summary>
 	CellMark_MoonPhase,
+
+	/// <summary>
+	/// Indicates cell arrow triangle mark.
+	/// </summary>
+	CellMark_ArrowTriangle,
+
+	/// <summary>
+	/// Indicates cell arrow mark.
+	/// </summary>
+	CellMark_Arrow,
 }

@@ -22,7 +22,7 @@ public abstract class CellMarkItem :
 	public required Absolute Cell { get; init; }
 
 	/// <inheritdoc/>
-	public required Scale SizeScale { get; init; }
+	public Scale SizeScale { get; init; }
 
 	/// <summary>
 	/// Indicates stroke width scale.

@@ -14,6 +14,7 @@ global using System.Text.Json;
 global using System.Text.Json.Serialization;
 global using SkiaSharp;
 global using Sudoku.ComponentModel;
+global using Sudoku.ComponentModel.Arrows;
 global using Sudoku.ComponentModel.Crossmath;
 global using Sudoku.ComponentModel.Dices;
 global using Sudoku.ComponentModel.Items;
