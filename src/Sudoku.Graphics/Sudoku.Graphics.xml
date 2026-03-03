@@ -1208,6 +1208,25 @@
         <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellExclamationMarkItem.EqualityContract">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.ComponentModel.Items.CellMarks.CellMoonPhaseMarkItem">
+            <summary>
+            Represents a cell moon phase mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellMoonPhaseMarkItem.Phase">
+            <summary>
+            Indicates the moon phase.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellMoonPhaseMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Items.CellMarks.CellMoonPhaseMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Items.CellMarks.CellMoonPhaseMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.ComponentModel.Items.CellMarks.CellPolygonMarkItem">
             <summary>
             Represents a cell polygon mark item.
@@ -1633,6 +1652,11 @@
             Indicates cell cross mark.
             </summary>
         </member>
+        <member name="F:Sudoku.ComponentModel.ItemType.CellMark_MoonPhase">
+            <summary>
+            Indicates cell moon phase mark.
+            </summary>
+        </member>
         <member name="T:Sudoku.ComponentModel.LineDashSequence">
             <summary>
             Represents a sequence of dash intervals.
@@ -1849,6 +1873,41 @@
             <param name="mapper">The mapper.</param>
             <param name="absoluteCellIndices">Absolute cell indices.</param>
             <returns>The result dictionary of light-up segments.</returns>
+        </member>
+        <member name="T:Sudoku.ComponentModel.Moons.MoonPhase">
+            <summary>
+            Represents a moon phase.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Moons.MoonPhase.Unknown">
+            <summary>
+            Indicates the phase is unknown.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Moons.MoonPhase.Full">
+            <summary>
+            Indicates the phase is full.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Moons.MoonPhase.UpperHalf_Line">
+            <summary>
+            Indicates upper half, line.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Moons.MoonPhase.UpperHalf_Curve">
+            <summary>
+            Indicates upper half, curve.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Moons.MoonPhase.LowerHalf_Line">
+            <summary>
+            Indicates lower half, line.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Moons.MoonPhase.LowerHalf_Curve">
+            <summary>
+            Indicates lower curve, curve.
+            </summary>
         </member>
         <member name="T:Sudoku.ComponentModel.OverlappingGridTemplateFactory">
             <summary>
@@ -3303,8 +3362,11 @@
         <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.DrawPolygonToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper,System.Single)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawPolygonToCell(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper,System.Single)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.DrawConcavePolygon(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper,System.Single)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawConcavePolygon(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper,System.Single)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.DrawConcavePolygonToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper,System.Single)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawConcavePolygonToCell(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper,System.Single)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.DrawMoonToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Moons.MoonPhase,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawMoonToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Moons.MoonPhase,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.DrawTrianglesInCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTrianglesInCell(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
@@ -3413,7 +3475,7 @@
             <exception cref="T:System.ArgumentException">Throws when the number of sides is invalid (below 3).</exception>
             <exception cref="T:System.InvalidOperationException">Throws when the number of sides is too large (above 16).</exception>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawConcavePolygon(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper,System.Single)">
+        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawConcavePolygonToCell(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper,System.Single)">
             <summary>
             Draw a concave polygon into the specified cell.
             </summary>
@@ -3428,6 +3490,18 @@
             <param name="rotationDegrees">The initial rotation degrees, in angle.</param>
             <exception cref="T:System.ArgumentException">Throws when the number of sides is invalid (below 3).</exception>
             <exception cref="T:System.InvalidOperationException">Throws when the number of sides is too large (above 16).</exception>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawMoonToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Moons.MoonPhase,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Draws a moon to the specified cell, using the specified phase.
+            </summary>
+            <param name="cell">The cell.</param>
+            <param name="phase">The moon phase.</param>
+            <param name="strokeWidthScale">The scale of stroke width, related to cell size.</param>
+            <param name="strokeColor">The stroke color.</param>
+            <param name="fillColor">The fill color.</param>
+            <param name="radiusScale">The radius scale, related to half cell size.</param>
+            <param name="mapper">The point mapper.</param>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTrianglesInCell(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
             <summary>
@@ -3472,6 +3546,39 @@
             <param name="blockPadding">The block padding.</param>
             <param name="cornerRadius">The corner radius.</param>
             <param name="mapper">The mapper.</param>
+        </member>
+        <member name="T:Sudoku.Graphics.MoonPainterHelpers">
+            <summary>
+            The helper type that draws for moon.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.MoonPainterHelpers.CircleCircleIntersection(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,SkiaSharp.SKPoint@,SkiaSharp.SKPoint@)">
+            <summary>
+            Calculates intersection of two circles, finding out two points intersected. If found, return <see langword="true"/>.
+            </summary>
+            <param name="x0">X value of point, in circle 1.</param>
+            <param name="y0">Y value of point, in circle 1.</param>
+            <param name="r0">Radius of circle 1.</param>
+            <param name="x1">X value of point, in circle 2.</param>
+            <param name="y1">Y value of point, in circle 2.</param>
+            <param name="r1">Radius of circle 2.</param>
+            <param name="p1">Intersection point 1.</param>
+            <param name="p2">Intersection point 2.</param>
+            <returns>A <see cref="T:System.Boolean"/> result.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.MoonPainterHelpers.BuildCrescentPath(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Build crescent path if can, from main circle <c>(<paramref name="cx"/>, <paramref name="cy"/>, <paramref name="r"/>)</c>
+            and side circle <c>(<paramref name="c2x"/>, <paramref name="c2y"/>, <paramref name="r2"/>)</c>.
+            If failed to build, <see langword="null"/> will be returned.
+            </summary>
+            <param name="cx">X value of center point of main circle.</param>
+            <param name="cy">Y value of center point of main circle.</param>
+            <param name="r">Radius of main circle.</param>
+            <param name="c2x">X value of center point of side circle.</param>
+            <param name="c2y">Y value of center point of side circle.</param>
+            <param name="r2">Radius of side circle.</param>
+            <returns>The path built. If failed to be built, <see langword="null"/>.</returns>
         </member>
         <member name="T:Sudoku.Resources.Resource">
             <summary>

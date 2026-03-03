@@ -39,7 +39,7 @@ public sealed class CellPolygonMarkItem : CellMarkItem
 		var mapper = template.Mapper;
 		if (DrawConcavePolygon)
 		{
-			canvas.BackingCanvas.DrawConcavePolygon(
+			canvas.BackingCanvas.DrawConcavePolygonToCell(
 				Cell,
 				SidesCount,
 				SizeScale,

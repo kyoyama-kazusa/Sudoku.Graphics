@@ -89,4 +89,9 @@ public enum ItemType
 	/// Indicates cell cross mark.
 	/// </summary>
 	CellMark_Cross,
+
+	/// <summary>
+	/// Indicates cell moon phase mark.
+	/// </summary>
+	CellMark_MoonPhase,
 }
