@@ -10,6 +10,7 @@ using System;
 using System.IO;
 using System.Linq;
 using SkiaSharp;
+using Sudoku.ComponentModel;
 using Sudoku.ComponentModel.Templates;
 using Sudoku.ComponentModel.Zodiac;
 using Sudoku.Graphics;
@@ -34,7 +35,7 @@ using var canvas = new Canvas(
 	}
 );
 
-var zodiac = Enum.GetValues<ZodiacAnimal>();
+var alignments = Enum.GetValues<Alignment>();
 var rng = Random.Shared;
 canvas.DrawItems(
 	[
@@ -42,16 +43,15 @@ canvas.DrawItems(
 		new TemplateLineStrokeItem(),
 		..
 		from cell in SpanEnumerable.Range(0, 81)
-		select new CellZodiacEmojiMarkItem
+		select new CellApexCornerTriangleMarkItem
 		{
 			Cell = cell,
-			Zodiac = zodiac[rng.Next(0, 12) + 1],
+			CornerAlignment = alignments[rng.Next(2, alignments.Length)],
 			TemplateIndex = 0,
-			SizeScale = .75M,
-			StrokeColor = SKColors.Black,
-			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
-			TextFontName = "Segoe UI Emoji"
-		}
+			SizeScale = .25M,
+			FillColor = SKColors.LightGray,
+			PaddingScale = .1M,
+		},
 	]
 );
 canvas.Export(Path.Combine(desktop, "output.png"), new() { Quality = 100 });

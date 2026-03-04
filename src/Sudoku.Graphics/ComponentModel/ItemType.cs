@@ -1,7 +1,8 @@
 ﻿namespace Sudoku.ComponentModel;
 
 /// <summary>
-/// Represents a type of item.
+/// Represents a type of item. The value of field represents ordering of the items of this type to draw.
+/// The greater the value is, the lower priority the item will be drawn.
 /// </summary>
 public enum ItemType
 {
@@ -13,7 +14,7 @@ public enum ItemType
 	/// <summary>
 	/// Indicates the background filling.
 	/// </summary>
-	BackgroundFill,
+	BackgroundFill = 1,
 
 	/// <summary>
 	/// Indicates cell filling.
@@ -26,14 +27,9 @@ public enum ItemType
 	CandidateFill,
 
 	/// <summary>
-	/// Indicates template line strokes.
-	/// </summary>
-	TemplateLineStroke,
-
-	/// <summary>
 	/// Indicates given text.
 	/// </summary>
-	GivenText,
+	GivenText = 101,
 
 	/// <summary>
 	/// Indicates modifiable text.
@@ -48,7 +44,7 @@ public enum ItemType
 	/// <summary>
 	/// Indicates cell question mark.
 	/// </summary>
-	CellMark_Question,
+	CellMark_Question = 201,
 
 	/// <summary>
 	/// Indicates cell exclamation mark.
@@ -119,4 +115,14 @@ public enum ItemType
 	/// Indicates cell zodiac emoji mark.
 	/// </summary>
 	CellMark_ZodiacEmoji,
+
+	/// <summary>
+	/// Indicates cell apex corner triangle mark.
+	/// </summary>
+	CellMark_ApexCornerTriangle,
+
+	/// <summary>
+	/// Indicates template line strokes.
+	/// </summary>
+	TemplateLineStroke = 1000,
 }

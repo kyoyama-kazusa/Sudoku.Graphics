@@ -1015,7 +1015,8 @@
         </member>
         <member name="T:Sudoku.ComponentModel.ItemType">
             <summary>
-            Represents a type of item.
+            Represents a type of item. The value of field represents ordering of the items of this type to draw.
+            The greater the value is, the lower priority the item will be drawn.
             </summary>
         </member>
         <member name="F:Sudoku.ComponentModel.ItemType.None">
@@ -1036,11 +1037,6 @@
         <member name="F:Sudoku.ComponentModel.ItemType.CandidateFill">
             <summary>
             Indicates candidate filling.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ItemType.TemplateLineStroke">
-            <summary>
-            Indicates template line strokes.
             </summary>
         </member>
         <member name="F:Sudoku.ComponentModel.ItemType.GivenText">
@@ -1131,6 +1127,16 @@
         <member name="F:Sudoku.ComponentModel.ItemType.CellMark_ZodiacEmoji">
             <summary>
             Indicates cell zodiac emoji mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.ItemType.CellMark_ApexCornerTriangle">
+            <summary>
+            Indicates cell apex corner triangle mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.ItemType.TemplateLineStroke">
+            <summary>
+            Indicates template line strokes.
             </summary>
         </member>
         <member name="T:Sudoku.ComponentModel.LineDashSequence">
@@ -2967,6 +2973,9 @@
         <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.DrawArrowToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Arrows.ArrowDirection,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Arrows.ArrowDirection,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper)"/>
         </member>
+        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.DrawApexTriangleToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Alignment,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawApexTriangleToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Alignment,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper)"/>
+        </member>
         <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.DrawTrianglesInCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTrianglesInCell(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
         </member>
@@ -3129,6 +3138,22 @@
             <param name="strokeColor">The stroke coloor.</param>
             <param name="fillColor">The fill color.</param>
             <param name="mapper">The mapper instance.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawApexTriangleToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Alignment,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Draws apex triangle to specified cell.
+            </summary>
+            <param name="cell">The cell.</param>
+            <param name="cornerAlignment">The corner alignment.</param>
+            <param name="paddingScale">The scale of padding, related to cell size.</param>
+            <param name="lengthScale">The scale of length of triangle, related to cell size.</param>
+            <param name="strokeColor">The stroke color.</param>
+            <param name="strokeWidthScale">The stroke width scale, related to cell size.</param>
+            <param name="fillColor">The fill color.</param>
+            <param name="mapper">The mapper instance.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Throws when <paramref name="cornerAlignment"/> is not defined.
+            </exception>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTrianglesInCell(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
             <summary>
@@ -3446,6 +3471,31 @@
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Items.CellMarkItem.PrintMembers(System.Text.StringBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Items.CellMarks.CellApexCornerTriangleMarkItem">
+            <summary>
+            Provides cell apex corner triangle mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Items.CellMarks.CellApexCornerTriangleMarkItem.CornerAlignment">
+            <summary>
+            Indicates corner alignment. The value cannot be <see cref="F:Sudoku.ComponentModel.Alignment.Center"/> due to design.
+            </summary>
+            <seealso cref="F:Sudoku.ComponentModel.Alignment.Center"/>
+        </member>
+        <member name="P:Sudoku.Items.CellMarks.CellApexCornerTriangleMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Items.CellMarks.CellApexCornerTriangleMarkItem.PaddingScale">
+            <summary>
+            Indicates padding scale (distance to border of cells).
+            </summary>
+        </member>
+        <member name="P:Sudoku.Items.CellMarks.CellApexCornerTriangleMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Items.CellMarks.CellApexCornerTriangleMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Items.CellMarks.CellArrowMarkItem">
