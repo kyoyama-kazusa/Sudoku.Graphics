@@ -9,11 +9,11 @@
 using System;
 using System.IO;
 using System.Linq;
-using Sudoku.ComponentModel.Items;
-using Sudoku.ComponentModel.Items.CellMarks;
 using Sudoku.ComponentModel.Suits;
 using Sudoku.ComponentModel.Templates;
 using Sudoku.Graphics;
+using Sudoku.Items;
+using Sudoku.Items.CellMarks;
 
 var desktop = Environment.DesktopPath;
 var options = new CanvasDrawingOptions();
