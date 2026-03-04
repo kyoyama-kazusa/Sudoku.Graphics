@@ -10,9 +10,8 @@ using System;
 using System.IO;
 using System.Linq;
 using SkiaSharp;
-using Sudoku.ComponentModel;
+using Sudoku.ComponentModel.Arrows;
 using Sudoku.ComponentModel.Templates;
-using Sudoku.ComponentModel.Zodiac;
 using Sudoku.Graphics;
 using Sudoku.Items;
 using Sudoku.Items.CellMarks;
@@ -35,7 +34,7 @@ using var canvas = new Canvas(
 	}
 );
 
-var alignments = Enum.GetValues<Alignment>();
+var directions = Enum.GetValues<ArrowDirection>();
 var rng = Random.Shared;
 canvas.DrawItems(
 	[
@@ -43,14 +42,14 @@ canvas.DrawItems(
 		new TemplateLineStrokeItem(),
 		..
 		from cell in SpanEnumerable.Range(0, 81)
-		select new CellApexCornerTriangleMarkItem
+		select new CellHalveLineMarkItem
 		{
 			Cell = cell,
-			CornerAlignment = alignments[rng.Next(2, alignments.Length)],
+			Direction = directions[rng.Next(1, directions.Length)],
 			TemplateIndex = 0,
-			SizeScale = .25M,
-			FillColor = SKColors.LightGray,
-			PaddingScale = .1M,
+			SizeScale = .75M,
+			StrokeColor = SKColors.LightGray,
+			StrokeWidthScale = options.ThickLineWidth.Resolve(options)
 		},
 	]
 );

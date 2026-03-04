@@ -1134,6 +1134,11 @@
             Indicates cell apex corner triangle mark.
             </summary>
         </member>
+        <member name="F:Sudoku.ComponentModel.ItemType.CellMark_HalveLine">
+            <summary>
+            Indicates cell halve line mark.
+            </summary>
+        </member>
         <member name="F:Sudoku.ComponentModel.ItemType.TemplateLineStroke">
             <summary>
             Indicates template line strokes.
@@ -2976,6 +2981,9 @@
         <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.DrawApexTriangleToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Alignment,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawApexTriangleToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Alignment,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper)"/>
         </member>
+        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.DrawHalveLineToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Arrows.ArrowDirection,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawHalveLineToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Arrows.ArrowDirection,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
+        </member>
         <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.DrawTrianglesInCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTrianglesInCell(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
         </member>
@@ -3154,6 +3162,18 @@
             <exception cref="T:System.ArgumentOutOfRangeException">
             Throws when <paramref name="cornerAlignment"/> is not defined.
             </exception>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawHalveLineToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Arrows.ArrowDirection,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Draws halve line to specified cell.
+            </summary>
+            <param name="cell">The cell.</param>
+            <param name="direction">The direction.</param>
+            <param name="sizeScale">The scale of padding, related to cell size.</param>
+            <param name="strokeColor">The stroke color.</param>
+            <param name="strokeWidthScale">The stroke width scale, related to cell size.</param>
+            <param name="mapper">The mapper instance.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">Throws when <paramref name="direction"/> is not defined.</exception>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTrianglesInCell(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
             <summary>
@@ -3639,6 +3659,25 @@
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Items.CellMarks.CellExclamationMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Items.CellMarks.CellHalveLineMarkItem">
+            <summary>
+            Represents cell halve line mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Items.CellMarks.CellHalveLineMarkItem.Direction">
+            <summary>
+            Indicates the direction.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Items.CellMarks.CellHalveLineMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Items.CellMarks.CellHalveLineMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Items.CellMarks.CellHalveLineMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Items.CellMarks.CellMoonPhaseMarkItem">

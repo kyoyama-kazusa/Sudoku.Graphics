@@ -6,11 +6,20 @@
 /// </summary>
 public enum ItemType
 {
+	//
+	// Placeholder
+	//
+	#region Placeholder
 	/// <summary>
 	/// Indicates the placeholder of this type.
 	/// </summary>
 	None = 0,
+	#endregion
 
+	//
+	// Background
+	//
+	#region Background
 	/// <summary>
 	/// Indicates the background filling.
 	/// </summary>
@@ -25,7 +34,12 @@ public enum ItemType
 	/// Indicates candidate filling.
 	/// </summary>
 	CandidateFill,
+	#endregion
 
+	//
+	// Text
+	//
+	#region Text
 	/// <summary>
 	/// Indicates given text.
 	/// </summary>
@@ -40,7 +54,12 @@ public enum ItemType
 	/// Indicates candidate text.
 	/// </summary>
 	CandidateText,
+	#endregion
 
+	//
+	// Cell marks
+	//
+	#region Cell marks
 	/// <summary>
 	/// Indicates cell question mark.
 	/// </summary>
@@ -122,7 +141,18 @@ public enum ItemType
 	CellMark_ApexCornerTriangle,
 
 	/// <summary>
+	/// Indicates cell halve line mark.
+	/// </summary>
+	CellMark_HalveLine,
+	#endregion
+
+	//
+	// Template lines
+	//
+	#region Template lines
+	/// <summary>
 	/// Indicates template line strokes.
 	/// </summary>
 	TemplateLineStroke = 1000,
+	#endregion
 }

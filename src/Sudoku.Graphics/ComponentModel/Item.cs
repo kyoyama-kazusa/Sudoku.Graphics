@@ -17,6 +17,7 @@
 [JsonDerivedType(typeof(CellEmojiMarkItem), nameof(CellEmojiMarkItem))]
 [JsonDerivedType(typeof(CellExclamationMarkItem), nameof(CellExclamationMarkItem))]
 [JsonDerivedType(typeof(CellFillItem), nameof(CellFillItem))]
+[JsonDerivedType(typeof(CellHalveLineMarkItem), nameof(CellHalveLineMarkItem))]
 [JsonDerivedType(typeof(CellMoonPhaseMarkItem), nameof(CellMoonPhaseMarkItem))]
 [JsonDerivedType(typeof(CellPolygonMarkItem), nameof(CellPolygonMarkItem))]
 [JsonDerivedType(typeof(CellQuestionMarkItem), nameof(CellQuestionMarkItem))]
