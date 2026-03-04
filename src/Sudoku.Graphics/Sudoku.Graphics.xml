@@ -1123,6 +1123,16 @@
             Indicates cell suit mark.
             </summary>
         </member>
+        <member name="F:Sudoku.ComponentModel.ItemType.CellMark_Emoji">
+            <summary>
+            Indicates cell emoji mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.ItemType.CellMark_ZodiacEmoji">
+            <summary>
+            Indicates cell zodiac emoji mark.
+            </summary>
+        </member>
         <member name="T:Sudoku.ComponentModel.LineDashSequence">
             <summary>
             Represents a sequence of dash intervals.
@@ -2387,6 +2397,76 @@
             </exception>
             <seealso cref="F:Sudoku.ComponentModel.RotationType.None"/>
         </member>
+        <member name="T:Sudoku.ComponentModel.Zodiac.ZodiacAnimal">
+            <summary>
+            Represents a zodiac animal.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Zodiac.ZodiacAnimal.None">
+            <summary>
+            The placeholder of this type.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Zodiac.ZodiacAnimal.Rat">
+            <summary>
+            Indicates rat.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Zodiac.ZodiacAnimal.Ox">
+            <summary>
+            Indicates ox.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Zodiac.ZodiacAnimal.Tiger">
+            <summary>
+            Indicates tiger.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Zodiac.ZodiacAnimal.Rabbit">
+            <summary>
+            Indicates rabbit.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Zodiac.ZodiacAnimal.Dragon">
+            <summary>
+            Indicates dragon.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Zodiac.ZodiacAnimal.Snake">
+            <summary>
+            Indicates snake.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Zodiac.ZodiacAnimal.Horse">
+            <summary>
+            Indicates horse.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Zodiac.ZodiacAnimal.Sheep">
+            <summary>
+            Indicates sheep.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Zodiac.ZodiacAnimal.Monkey">
+            <summary>
+            Indicates monkey.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Zodiac.ZodiacAnimal.Rooster">
+            <summary>
+            Indicates rooster.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Zodiac.ZodiacAnimal.Dog">
+            <summary>
+            Indicates dog.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Zodiac.ZodiacAnimal.Pig">
+            <summary>
+            Indicates pig.
+            </summary>
+        </member>
         <member name="T:Sudoku.Graphics.Canvas">
             <summary>
             Represents a canvas object that allows you drawing items onto it.
@@ -3478,6 +3558,25 @@
         <member name="M:Sudoku.Items.CellMarks.CellDiceMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Items.CellMarks.CellEmojiMarkItem">
+            <summary>
+            Represents emoji mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Items.CellMarks.CellEmojiMarkItem.Emoji">
+            <summary>
+            Indicates the emoji.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Items.CellMarks.CellEmojiMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Items.CellMarks.CellEmojiMarkItem.PrintingText">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Items.CellMarks.CellEmojiMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Items.CellMarks.CellExclamationMarkItem">
             <summary>
             Represents cell exclamation mark item.
@@ -3654,6 +3753,25 @@
             </summary>
         </member>
         <member name="M:Sudoku.Items.CellMarks.CellTextMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Items.CellMarks.CellZodiacEmojiMarkItem">
+            <summary>
+            Represents a cell zodiac emoji mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Items.CellMarks.CellZodiacEmojiMarkItem.Zodiac">
+            <summary>
+            Indicates the zodiac animal.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Items.CellMarks.CellZodiacEmojiMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Items.CellMarks.CellZodiacEmojiMarkItem.PrintingText">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Items.CellMarks.CellZodiacEmojiMarkItem.EqualityContract">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Items.GivenOrModifiableTextItem">

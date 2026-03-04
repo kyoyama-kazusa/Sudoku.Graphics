@@ -9,8 +9,9 @@
 using System;
 using System.IO;
 using System.Linq;
-using Sudoku.ComponentModel.Suits;
+using SkiaSharp;
 using Sudoku.ComponentModel.Templates;
+using Sudoku.ComponentModel.Zodiac;
 using Sudoku.Graphics;
 using Sudoku.Items;
 using Sudoku.Items.CellMarks;
@@ -33,23 +34,23 @@ using var canvas = new Canvas(
 	}
 );
 
+var zodiac = Enum.GetValues<ZodiacAnimal>();
 var rng = Random.Shared;
-var suits = Enum.GetValues<Suit>();
 canvas.DrawItems(
 	[
 		new BackgroundFillItem { Color = options.BackgroundColor.Resolve(options) },
 		new TemplateLineStrokeItem(),
 		..
 		from cell in SpanEnumerable.Range(0, 81)
-		let suit = suits[rng.Next(0, 4) + 1]
-		select new CellSuitMarkItem
+		select new CellZodiacEmojiMarkItem
 		{
 			Cell = cell,
-			Suit = suit,
+			Zodiac = zodiac[rng.Next(0, 12) + 1],
 			TemplateIndex = 0,
-			FillColor = suit.FillColor,
 			SizeScale = .75M,
-			TextFontName = "Arial"
+			StrokeColor = SKColors.Black,
+			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
+			TextFontName = "Segoe UI Emoji"
 		}
 	]
 );

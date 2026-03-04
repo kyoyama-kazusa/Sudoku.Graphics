@@ -21,6 +21,7 @@ global using Sudoku.ComponentModel.Moons;
 global using Sudoku.ComponentModel.Suits;
 global using Sudoku.ComponentModel.Templates;
 global using Sudoku.ComponentModel.Tetris;
+global using Sudoku.ComponentModel.Zodiac;
 global using Sudoku.Graphics;
 global using Sudoku.Items;
 global using Sudoku.Items.CellMarks;

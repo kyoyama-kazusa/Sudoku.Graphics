@@ -109,4 +109,14 @@ public enum ItemType
 	/// Indicates cell suit mark.
 	/// </summary>
 	CellMark_Suit,
+
+	/// <summary>
+	/// Indicates cell emoji mark.
+	/// </summary>
+	CellMark_Emoji,
+
+	/// <summary>
+	/// Indicates cell zodiac emoji mark.
+	/// </summary>
+	CellMark_ZodiacEmoji,
 }
