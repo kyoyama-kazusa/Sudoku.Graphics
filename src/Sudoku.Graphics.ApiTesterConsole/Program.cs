@@ -48,7 +48,7 @@ canvas.DrawItems(
 			Direction = directions[rng.Next(1, directions.Length)],
 			TemplateIndex = 0,
 			SizeScale = .75M,
-			StrokeColor = SKColors.LightGray,
+			StrokeColor = SKColors.Gray,
 			StrokeWidthScale = options.ThickLineWidth.Resolve(options)
 		},
 	]
