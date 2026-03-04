@@ -664,7 +664,7 @@ file static class MoonPainterHelper
 		var midMainPoint = pointOnCircle(cx, cy, r, midMainAngle);
 		var distMidToC2 = Math.Sqrt((midMainPoint.X - c2x) * (midMainPoint.X - c2x) + (midMainPoint.Y - c2y) * (midMainPoint.Y - c2y));
 		var midMainInsideC2 = distMidToC2 < r2 - 1E-6;
-		var finalMainSweepDeg = !midMainInsideC2 ? sweepMainCCW : sweepMainCCW - 360;
+		var finalMainSweepDegree = midMainInsideC2 ? sweepMainCCW - 360 : sweepMainCCW;
 		var sweepMaskCCW = angleDiffCCW(b2, b1);
 		var midMaskAngle = b2 + sweepMaskCCW / 2;
 		var midMaskPoint = pointOnCircle(c2x, c2y, r2, midMaskAngle);
@@ -675,7 +675,7 @@ file static class MoonPainterHelper
 		// Build path: move P1 -> arc on main (a1, finalMainSweepDeg) -> arc on mask (b2, finalMaskSweepDeg) back to P1.
 		var path = new SKPath();
 		path.MoveTo(p1);
-		path.ArcTo(new(cx - r, cy - r, cx + r, cy + r), a1, finalMainSweepDeg, false);
+		path.ArcTo(new(cx - r, cy - r, cx + r, cy + r), a1, finalMainSweepDegree, false);
 		path.ArcTo(new(c2x - r2, c2y - r2, c2x + r2, c2y + r2), b2, finalMaskSweepDeg, false);
 		path.Close();
 		return path;
