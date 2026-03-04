@@ -48,7 +48,7 @@ canvas.DrawItems(
 			Cell = cell,
 			Suit = suit,
 			TemplateIndex = 0,
-			FillColor = suit switch { Suit.Heart or Suit.Diamond => SKColors.Red, _ => SKColors.Black },
+			FillColor = suit.FillColor,
 			SizeScale = .75M,
 			TextFontName = "Arial"
 		}

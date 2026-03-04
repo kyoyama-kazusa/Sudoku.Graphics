@@ -2582,6 +2582,23 @@
             Indicates diamond.
             </summary>
         </member>
+        <member name="T:Sudoku.ComponentModel.Suits.SuitExtensions">
+            <summary>
+            Provides extension members on <see cref="T:Sudoku.ComponentModel.Suits.Suit"/>.
+            </summary>
+            <seealso cref="T:Sudoku.ComponentModel.Suits.Suit"/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Suits.SuitExtensions.get_FillColor(Sudoku.ComponentModel.Suits.Suit)">
+            <inheritdoc cref="P:Sudoku.ComponentModel.Suits.SuitExtensions.&lt;G&gt;$9E2E3DFD6F02A80A12B197A0563F0CEC.FillColor"/>
+        </member>
+        <member name="T:Sudoku.ComponentModel.Suits.SuitExtensions.&lt;G&gt;$9E2E3DFD6F02A80A12B197A0563F0CEC.&lt;M&gt;$F10E279FE6C3868DA10DEE419760D19D">
+            <param name="this">The current instance.</param>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Suits.SuitExtensions.&lt;G&gt;$9E2E3DFD6F02A80A12B197A0563F0CEC.FillColor">
+            <summary>
+            Indicates fill color.
+            </summary>
+        </member>
         <member name="T:Sudoku.ComponentModel.Template">
             <summary>
             <para>
