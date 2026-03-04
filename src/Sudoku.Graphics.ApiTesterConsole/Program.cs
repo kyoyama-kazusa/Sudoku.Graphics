@@ -10,9 +10,9 @@ using System;
 using System.IO;
 using System.Linq;
 using SkiaSharp;
-using Sudoku.ComponentModel.Arrows;
 using Sudoku.ComponentModel.Items;
 using Sudoku.ComponentModel.Items.CellMarks;
+using Sudoku.ComponentModel.Suits;
 using Sudoku.ComponentModel.Templates;
 using Sudoku.Graphics;
 
@@ -35,24 +35,22 @@ using var canvas = new Canvas(
 );
 
 var rng = Random.Shared;
-var directions = Enum.GetValues<ArrowDirection>();
+var suits = Enum.GetValues<Suit>();
 canvas.DrawItems(
 	[
 		new BackgroundFillItem { Color = options.BackgroundColor.Resolve(options) },
 		new TemplateLineStrokeItem(),
 		..
 		from cell in SpanEnumerable.Range(0, 81)
-		select new CellArrowMarkItem
+		let suit = suits[rng.Next(0, 4) + 1]
+		select new CellSuitMarkItem
 		{
 			Cell = cell,
-			Direction = directions[rng.Next(1, directions.Length)],
+			Suit = suit,
 			TemplateIndex = 0,
-			StrokeColor = SKColors.Black,
-			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
-			TriangleWidthScale = .75M,
-			TriangleHeightScale = .375M,
-			ShaftWidthScale = .375M,
-			ShaftHeightScale = .375M
+			FillColor = suit switch { Suit.Heart or Suit.Diamond => SKColors.Red, _ => SKColors.Black },
+			SizeScale = .75M,
+			TextFontName = "Arial"
 		}
 	]
 );

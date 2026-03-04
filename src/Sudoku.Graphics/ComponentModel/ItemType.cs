@@ -104,4 +104,9 @@ public enum ItemType
 	/// Indicates cell arrow mark.
 	/// </summary>
 	CellMark_Arrow,
+
+	/// <summary>
+	/// Indicates cell suit mark.
+	/// </summary>
+	CellMark_Suit,
 }

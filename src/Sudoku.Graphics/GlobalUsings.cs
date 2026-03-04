@@ -20,6 +20,7 @@ global using Sudoku.ComponentModel.Dices;
 global using Sudoku.ComponentModel.Items;
 global using Sudoku.ComponentModel.Items.CellMarks;
 global using Sudoku.ComponentModel.Moons;
+global using Sudoku.ComponentModel.Suits;
 global using Sudoku.ComponentModel.Templates;
 global using Sudoku.ComponentModel.Tetris;
 global using Sudoku.Graphics;
