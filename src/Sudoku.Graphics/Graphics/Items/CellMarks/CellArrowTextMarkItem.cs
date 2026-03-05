@@ -5,7 +5,9 @@
 /// </summary>
 public sealed class CellArrowTextMarkItem : CellTextMarkItem
 {
-	/// <inheritdoc/>
+	/// <summary>
+	/// Indicates the direction of arrow text.
+	/// </summary>
 	public new required Direction8 Direction { get; init; }
 
 	/// <inheritdoc/>

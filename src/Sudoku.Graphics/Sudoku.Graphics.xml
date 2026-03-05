@@ -3166,7 +3166,9 @@
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellArrowTextMarkItem.Direction">
-            <inheritdoc/>
+            <summary>
+            Indicates the direction of arrow text.
+            </summary>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellArrowTextMarkItem.Type">
             <inheritdoc/>
