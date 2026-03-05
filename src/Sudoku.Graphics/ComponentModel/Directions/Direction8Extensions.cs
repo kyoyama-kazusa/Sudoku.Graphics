@@ -37,7 +37,7 @@ public static class Direction8Extensions
 		/// Throws when the current instance is not defined or <see cref="Direction8.None"/>.
 		/// </exception>
 		/// <seealso cref="Direction8.None"/>
-		public float AngleDegrees
+		public float RotationDegrees
 			=> @this switch
 			{
 				Direction8.Up => 0,

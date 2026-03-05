@@ -92,6 +92,7 @@ public abstract class GivenOrModifiableTextItem :
 			FontWidth,
 			FontSlant,
 			Color,
+			0,
 			canvas.Templates[TemplateIndex].Mapper
 		);
 }

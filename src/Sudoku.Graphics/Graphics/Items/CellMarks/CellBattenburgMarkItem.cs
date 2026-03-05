@@ -1,7 +1,7 @@
 ﻿namespace Sudoku.Graphics.Items.CellMarks;
 
 /// <summary>
-/// Represents a cell battenburg mark item.
+/// Represents a cell battenburg (battenberg) mark item.
 /// </summary>
 public sealed class CellBattenburgMarkItem : CellMarkItem
 {

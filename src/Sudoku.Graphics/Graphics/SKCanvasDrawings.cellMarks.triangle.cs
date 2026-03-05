@@ -34,7 +34,7 @@ public partial class SKCanvasDrawings
 			strokeColor,
 			fillColor,
 			mapper,
-			direction.AngleDegrees
+			direction.RotationDegrees
 		);
 	}
 }

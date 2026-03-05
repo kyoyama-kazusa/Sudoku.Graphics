@@ -18,6 +18,7 @@ public partial class SKCanvasDrawings
 			SKFontStyleWidth fontWidth,
 			SKFontStyleSlant fontSlant,
 			SerializableColor fillColor,
+			float rotationDegree,
 			PointMapper mapper
 		) => @this.DrawOutlinedTextToCell(
 			text,
@@ -30,6 +31,7 @@ public partial class SKCanvasDrawings
 			fontSlant,
 			SKColors.Transparent,
 			fillColor,
+			rotationDegree,
 			mapper
 		);
 
@@ -76,6 +78,7 @@ public partial class SKCanvasDrawings
 		/// <param name="fontSlant">The font slant.</param>
 		/// <param name="outlineColor">The outline color.</param>
 		/// <param name="fillColor">The fill color of text.</param>
+		/// <param name="rotationDegree">The rotation degrees, in angle.</param>
 		/// <param name="mapper">The mapper.</param>
 		public void DrawOutlinedTextToCell(
 			string text,
@@ -88,6 +91,7 @@ public partial class SKCanvasDrawings
 			SKFontStyleSlant fontSlant,
 			SerializableColor outlineColor,
 			SerializableColor fillColor,
+			float rotationDegree,
 			PointMapper mapper
 		)
 		{
@@ -104,12 +108,25 @@ public partial class SKCanvasDrawings
 			};
 			using var textFillPaint = new SKPaint { Style = SKPaintStyle.Fill, Color = fillColor, IsAntialias = true };
 			var textMetrics = textFont.Metrics;
-			var targetPoint = mapper.GetPoint(cell, Alignment.Center)
+			var cellCenterPoint = mapper.GetPoint(cell, Alignment.Center);
+			var targetPoint = cellCenterPoint
 				+ new SKPoint(0, (textMetrics.Ascent + textMetrics.Descent) / 2) // Baseline adjustment
 				+ new SKPoint(0, textFont.Size / 2) // Centeralize
 				+ new SKPoint(0, mapper.CellSize / 6); // Manual adjustment
+
+			if (rotationDegree != 0)
+			{
+				@this.Save();
+				@this.RotateDegrees(rotationDegree, cellCenterPoint.X, cellCenterPoint.Y);
+			}
+
 			@this.DrawText(text, targetPoint, SKTextAlign.Center, textFont, textStrokePaint);
 			@this.DrawText(text, targetPoint, SKTextAlign.Center, textFont, textFillPaint);
+
+			if (rotationDegree != 0)
+			{
+				@this.Restore();
+			}
 		}
 
 		/// <summary>

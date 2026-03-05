@@ -10,6 +10,7 @@ using System;
 using System.IO;
 using System.Linq;
 using SkiaSharp;
+using Sudoku.ComponentModel.Directions;
 using Sudoku.ComponentModel.Maths;
 using Sudoku.ComponentModel.Templates;
 using Sudoku.Graphics;
@@ -34,23 +35,23 @@ using var canvas = new Canvas(
 	}
 );
 
+var directions = Enum.GetValues<Direction8>()[1..];
 var rng = Random.Shared;
 canvas.DrawItems(
 	[
 		new BackgroundFillItem { Color = options.BackgroundColor.Resolve(options) },
 		new TemplateLineStrokeItem(),
 		..
-		from cell in SpanEnumerable.Range(0, 3)
-		select new CellBattenburgMarkItem
+		from cell in SpanEnumerable.Range(0, 81)
+		select new CellComparisonOperatorTextMarkItem
 		{
 			Cell = cell,
 			TemplateIndex = 0,
-			Color1 = SKColors.Pink.WithAlpha(192),
-			Color2 = SKColors.Yellow.WithAlpha(192),
-			SizeScale = .5M,
-			UniformCornerRadius = .2M,
-			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
-			StrokeColor = SKColors.DimGray
+			Operator = ComparisonOperator.GreaterThan,
+			TextFontName = "Arial",
+			Direction = directions[rng.Next(0, directions.Length)],
+			SizeScale = .75M,
+			FillColor = SKColors.DimGray
 		},
 	]
 );

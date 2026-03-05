@@ -5,6 +5,12 @@
 /// </summary>
 public abstract class CellTextMarkItem : CellMarkItem
 {
+	/// <summary>
+	/// Indicates the direction. By default it's <see cref="Direction8.Up"/>.
+	/// </summary>
+	/// <seealso cref="Direction8.Up"/>
+	public Direction8 Direction { get; init; }
+
 	/// <inheritdoc/>
 	public sealed override required string? TextFontName { get; init; }
 
@@ -30,6 +36,7 @@ public abstract class CellTextMarkItem : CellMarkItem
 			((IItem_FontRelatedProperties)this).FontSlant,
 			StrokeColor,
 			FillColor,
+			Direction.RotationDegrees,
 			mapper
 		);
 	}

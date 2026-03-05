@@ -5,10 +5,8 @@
 /// </summary>
 public sealed class CellArrowTextMarkItem : CellTextMarkItem
 {
-	/// <summary>
-	/// Indicates the direction.
-	/// </summary>
-	public required Direction8 Direction { get; init; }
+	/// <inheritdoc/>
+	public new required Direction8 Direction { get; init; }
 
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.CellMark_ArrowText;
