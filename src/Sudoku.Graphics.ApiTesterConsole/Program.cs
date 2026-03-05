@@ -14,8 +14,8 @@ using Sudoku.ComponentModel;
 using Sudoku.ComponentModel.Arrows;
 using Sudoku.ComponentModel.Templates;
 using Sudoku.Graphics;
-using Sudoku.Items;
-using Sudoku.Items.CellMarks;
+using Sudoku.Graphics.Items;
+using Sudoku.Graphics.Items.CellMarks;
 
 var desktop = Environment.DesktopPath;
 var options = new CanvasDrawingOptions();

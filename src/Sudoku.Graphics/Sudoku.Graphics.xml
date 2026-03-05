@@ -264,14 +264,14 @@
         </member>
         <member name="M:Sudoku.ComponentModel.Crossmath.CrossmathFormula.CreateItems(Sudoku.ComponentModel.Crossmath.CrossmathFormula[],Sudoku.Graphics.PointMapper,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor)">
             <summary>
-            Creates a list of <see cref="T:Sudoku.Items.GivenTextItem"/> instances via the specified formulae.
+            Creates a list of <see cref="T:Sudoku.Graphics.Items.GivenTextItem"/> instances via the specified formulae.
             </summary>
             <param name="formulae">The formulae to be loaded.</param>
             <param name="mapper">The point mapper.</param>
             <param name="fontName">The font name.</param>
             <param name="fontSizeScale">The font size scale.</param>
             <param name="color">The color.</param>
-            <returns>A list of <see cref="T:Sudoku.Items.GivenTextItem"/> instances.</returns>
+            <returns>A list of <see cref="T:Sudoku.Graphics.Items.GivenTextItem"/> instances.</returns>
         </member>
         <member name="T:Sudoku.ComponentModel.Dices.DiceTable">
             <summary>
@@ -2802,6 +2802,823 @@
             Indicates the quality. Range 0..100. Default 80.
             </summary>
         </member>
+        <member name="T:Sudoku.Graphics.Items.BackgroundFillItem">
+            <summary>
+            Represents canvas background fill item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.BackgroundFillItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.BackgroundFillItem.Color">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.BackgroundFillItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.BackgroundFillItem.Equals(Sudoku.ComponentModel.Item)">
+            <inheritdoc/>
+            <remarks>
+            <b>By design, the global item sequence can only contain one <see cref="T:Sudoku.Graphics.Items.BackgroundFillItem"/> instance.</b>
+            </remarks>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.BackgroundFillItem.GetHashCode">
+            <inheritdoc/>
+            <remarks>
+            <b>By design, the global item sequence can only contain one <see cref="T:Sudoku.Graphics.Items.BackgroundFillItem"/> instance.</b>
+            </remarks>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.BackgroundFillItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.BackgroundFillItem.PrintMembers(System.Text.StringBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CandidateFillItem">
+            <summary>
+            Represents a candidate fill item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidateFillItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidateFillItem.TemplateIndex">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidateFillItem.CandidatePosition">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidateFillItem.Color">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidateFillItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CandidateFillItem.Equals(Sudoku.ComponentModel.Item)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CandidateFillItem.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CandidateFillItem.PrintMembers(System.Text.StringBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CandidateFillItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CandidateTextItem">
+            <summary>
+            Represents candidate text.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidateTextItem.TemplateIndex">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidateTextItem.Text">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidateTextItem.FontName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidateTextItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidateTextItem.FontWeight">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidateTextItem.FontWidth">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidateTextItem.FontSlant">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidateTextItem.FontSizeScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidateTextItem.Color">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidateTextItem.CandidatePosition">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidateTextItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CandidateTextItem.Equals(Sudoku.ComponentModel.Item)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CandidateTextItem.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CandidateTextItem.PrintMembers(System.Text.StringBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CandidateTextItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellFillItem">
+            <summary>
+            Represents cell fill item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellFillItem.TemplateIndex">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellFillItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellFillItem.Cell">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellFillItem.Color">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellFillItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellFillItem.Equals(Sudoku.ComponentModel.Item)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellFillItem.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellFillItem.PrintMembers(System.Text.StringBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellFillItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarkItem">
+            <summary>
+            Represents a cell mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarkItem.TemplateIndex">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarkItem.TextFontName">
+            <summary>
+            Indicates text font.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarkItem.Cell">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarkItem.SizeScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarkItem.StrokeWidthScale">
+            <summary>
+            Indicates stroke width scale.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarkItem.CornerRadiusScale">
+            <summary>
+            Indicates corner radius scale.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarkItem.StrokeColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarkItem.FillColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarkItem.Sudoku#Graphics#Items#IItem_FontRelatedProperties#FontName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarkItem.Sudoku#Graphics#Items#IItem_FontRelatedProperties#FontWeight">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarkItem.Sudoku#Graphics#Items#IItem_FontRelatedProperties#FontWidth">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarkItem.Sudoku#Graphics#Items#IItem_FontRelatedProperties#FontSlant">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarkItem.Sudoku#Graphics#Items#IItem_FontRelatedProperties#FontSizeScale">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellMarkItem.Equals(Sudoku.ComponentModel.Item)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellMarkItem.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellMarkItem.PrintMembers(System.Text.StringBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.CellApexCornerTriangleMarkItem">
+            <summary>
+            Provides cell apex corner triangle mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellApexCornerTriangleMarkItem.CornerAlignment">
+            <summary>
+            Indicates corner alignment. The value cannot be <see cref="F:Sudoku.ComponentModel.Alignment.Center"/> due to design.
+            </summary>
+            <seealso cref="F:Sudoku.ComponentModel.Alignment.Center"/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellApexCornerTriangleMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellApexCornerTriangleMarkItem.PaddingScale">
+            <summary>
+            Indicates padding scale (distance to border of cells).
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellApexCornerTriangleMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellMarks.CellApexCornerTriangleMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.CellArrowMarkItem">
+            <summary>
+            Represents a cell arrow mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellArrowMarkItem.Direction">
+            <summary>
+            Indicates the direction.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellArrowMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellArrowMarkItem.TriangleWidthScale">
+            <summary>
+            Indicates the triangle width scale, related to cell size.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellArrowMarkItem.TriangleHeightScale">
+            <summary>
+            Indicates the triangle height scale, related to cell size.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellArrowMarkItem.ShaftWidthScale">
+            <summary>
+            Indicates the shaft width scale, related to cell size.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellArrowMarkItem.ShaftHeightScale">
+            <summary>
+            Indicates the shaft height scale, related to cell size.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellArrowMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellMarks.CellArrowMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.CellArrowTriangleMarkItem">
+            <summary>
+            Represents a cell arrow triangle mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellArrowTriangleMarkItem.Direction">
+            <summary>
+            Indicates the arrow direction.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellArrowTriangleMarkItem.BaseScale">
+            <summary>
+            Indicates the base scale.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellArrowTriangleMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellArrowTriangleMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellMarks.CellArrowTriangleMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.CellCircleMarkItem">
+            <summary>
+            Represents a cell circle mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellCircleMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellCircleMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellMarks.CellCircleMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.CellCrossMarkItem">
+            <summary>
+            Represents a cell cross item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellCrossMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellCrossMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellMarks.CellCrossMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.CellDiamondMarkItem">
+            <summary>
+            Provides cell diamond mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellDiamondMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellDiamondMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellMarks.CellDiamondMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.CellDiceMarkItem">
+            <summary>
+            Represents cell dice mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellDiceMarkItem.Value">
+            <summary>
+            Indicates dice value.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellDiceMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellDiceMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellMarks.CellDiceMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.CellEmojiMarkItem">
+            <summary>
+            Represents emoji mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellEmojiMarkItem.Emoji">
+            <summary>
+            Indicates the emoji.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellEmojiMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellEmojiMarkItem.PrintingText">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellEmojiMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.CellExclamationMarkItem">
+            <summary>
+            Represents cell exclamation mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellExclamationMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellExclamationMarkItem.PrintingText">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellExclamationMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.CellHalveLineMarkItem">
+            <summary>
+            Represents cell halve line mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellHalveLineMarkItem.Direction">
+            <summary>
+            Indicates the direction.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellHalveLineMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellHalveLineMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellMarks.CellHalveLineMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.CellHexagonMarkItem">
+            <summary>
+            Represents a cell hexagon mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellHexagonMarkItem.Orientation">
+            <summary>
+            Indicates orientation of this symbol.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellHexagonMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellHexagonMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellMarks.CellHexagonMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.CellMoonPhaseMarkItem">
+            <summary>
+            Represents a cell moon phase mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellMoonPhaseMarkItem.Phase">
+            <summary>
+            Indicates the moon phase.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellMoonPhaseMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellMoonPhaseMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellMarks.CellMoonPhaseMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.CellPolygonMarkItem">
+            <summary>
+            Represents a cell polygon mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellPolygonMarkItem.DrawConcavePolygon">
+            <summary>
+            Indicates whether this type draws for concave polygon or not. By default it's <see langword="false"/>.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellPolygonMarkItem.RotationDegrees">
+            <summary>
+            Indicates rotation degrees, in angles. By default it's 0.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellPolygonMarkItem.SidesCount">
+            <summary>
+            Indicates the number of sides.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellPolygonMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellPolygonMarkItem.ConcaveInnerScale">
+            <summary>
+            Indicates concave inner scale. By default it's 0.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellPolygonMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellMarks.CellPolygonMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.CellQuestionMarkItem">
+            <summary>
+            Represents cell question mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellQuestionMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellQuestionMarkItem.PrintingText">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellQuestionMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.CellSquareMarkItem">
+            <summary>
+            Represents a cell square mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellSquareMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellSquareMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellMarks.CellSquareMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.CellSuitMarkItem">
+            <summary>
+            Represents a cell suit mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellSuitMarkItem.Suit">
+            <summary>
+            Indicates the suit.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellSuitMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellSuitMarkItem.PrintingText">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellSuitMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.CellSurroundingTrianglesMarkItem">
+            <summary>
+            Represents a cell mark item that renders a list of triangles, surrounding with cell center.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellSurroundingTrianglesMarkItem.TrianglesCount">
+            <summary>
+            Indicates the number of triangles.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellSurroundingTrianglesMarkItem.TipDistanceScale">
+            <summary>
+            Indicates the tip distance with cell center point.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellSurroundingTrianglesMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellSurroundingTrianglesMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellMarks.CellSurroundingTrianglesMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.CellTetrisMarkItem">
+            <summary>
+            Represents a cell tetris mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellTetrisMarkItem.Piece">
+            <summary>
+            Indicates the piece used.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellTetrisMarkItem.RotationType">
+            <summary>
+            Indicates rotation type of piece.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellTetrisMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellTetrisMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellMarks.CellTetrisMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.CellTextMarkItem">
+            <summary>
+            Represents cell text mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellTextMarkItem.TextFontName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellTextMarkItem.PrintingText">
+            <summary>
+            Indicates the printing text.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellMarks.CellTextMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.CellZodiacEmojiMarkItem">
+            <summary>
+            Represents a cell zodiac emoji mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellZodiacEmojiMarkItem.Zodiac">
+            <summary>
+            Indicates the zodiac animal.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellZodiacEmojiMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellZodiacEmojiMarkItem.PrintingText">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellZodiacEmojiMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.GivenOrModifiableTextItem">
+            <summary>
+            Represents a text item that displays a given or a modifiable digit.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.GivenOrModifiableTextItem.TemplateIndex">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.GivenOrModifiableTextItem.Text">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.GivenOrModifiableTextItem.FontName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.GivenOrModifiableTextItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.GivenOrModifiableTextItem.FontWeight">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.GivenOrModifiableTextItem.FontWidth">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.GivenOrModifiableTextItem.FontSlant">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.GivenOrModifiableTextItem.Cell">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.GivenOrModifiableTextItem.Color">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.GivenOrModifiableTextItem.FontSizeScale">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.GivenOrModifiableTextItem.Equals(Sudoku.ComponentModel.Item)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.GivenOrModifiableTextItem.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.GivenOrModifiableTextItem.PrintMembers(System.Text.StringBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.GivenOrModifiableTextItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.GivenTextItem">
+            <summary>
+            Represents given text.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.GivenTextItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.IItem_CandidatePositionProperty">
+            <summary>
+            Represents a type that includes <see cref="P:Sudoku.Graphics.Items.IItem_CandidatePositionProperty.CandidatePosition"/> property.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.IItem_CandidatePositionProperty.CandidatePosition">
+            <summary>
+            Indicates candidate position to be set.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.IItem_CellProperty">
+            <summary>
+            Represents a type that includes <see cref="P:Sudoku.Graphics.Items.IItem_CellProperty.Cell"/> property.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.IItem_CellProperty.Cell">
+            <summary>
+            Indicates the cell to be drawn, of absolute cell index.
+            For <see cref="T:Sudoku.ComponentModel.Relative"/> cell indices, you can use <see cref="M:Sudoku.Graphics.PointMapper.GetAbsoluteIndex(Sudoku.ComponentModel.Relative)"/>
+            to create absolute cells.
+            </summary>
+            <seealso cref="T:Sudoku.ComponentModel.Relative"/>
+            <seealso cref="M:Sudoku.Graphics.PointMapper.GetAbsoluteIndex(Sudoku.ComponentModel.Relative)"/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.IItem_ColorProperty">
+            <summary>
+            Represents a type that includes <see cref="P:Sudoku.Graphics.Items.IItem_ColorProperty.Color"/> property.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.IItem_ColorProperty.Color">
+            <summary>
+            Indicates the color to fill.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.IItem_FontRelatedProperties">
+            <summary>
+            Represents a type that includes font-related properties.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.IItem_FontRelatedProperties.FontName">
+            <summary>
+            Indicates the font name.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.IItem_FontRelatedProperties.FontSizeScale">
+            <summary>
+            Indicates font size scale.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.IItem_FontRelatedProperties.FontWeight">
+            <summary>
+            Indicates the font weight. By default it's <see cref="F:SkiaSharp.SKFontStyleWeight.Normal"/>.
+            </summary>
+            <seealso cref="F:SkiaSharp.SKFontStyleWeight.Normal"/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.IItem_FontRelatedProperties.FontWidth">
+            <summary>
+            Indicates the font width. By default it's <see cref="F:SkiaSharp.SKFontStyleWidth.Normal"/>.
+            </summary>
+            <seealso cref="F:SkiaSharp.SKFontStyleWidth.Normal"/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.IItem_FontRelatedProperties.FontSlant">
+            <summary>
+            Indicates the font slant. By default it's <see cref="F:SkiaSharp.SKFontStyleSlant.Upright"/>.
+            </summary>
+            <seealso cref="F:SkiaSharp.SKFontStyleSlant.Upright"/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.IItem_MarkRelatedProperties">
+            <summary>
+            Represents a type that includes mark-related properties.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.IItem_MarkRelatedProperties.SizeScale">
+            <summary>
+            Indicates size scale of mark.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.IItem_MarkRelatedProperties.StrokeColor">
+            <summary>
+            Indicates the stroke color.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.IItem_MarkRelatedProperties.FillColor">
+            <summary>
+            Indicates the fill color.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.IItem_TemplateIndexProperty">
+            <summary>
+            Represents a type that includes <see cref="P:Sudoku.Graphics.Items.IItem_TemplateIndexProperty.TemplateIndex"/> property.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.IItem_TemplateIndexProperty.TemplateIndex">
+            <summary>
+            Indicates the target template index.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.IItem_TextProperty">
+            <summary>
+            Represents a type that includes <see cref="P:Sudoku.Graphics.Items.IItem_TextProperty.Text"/> property.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.IItem_TextProperty.Text">
+            <summary>
+            Indicates the text to draw.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.ModifiableTextItem">
+            <summary>
+            Represents modifiable text.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.ModifiableTextItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.TemplateLineStrokeItem">
+            <summary>
+            Represents template line stroke item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.TemplateLineStrokeItem.FillIntersectionCells">
+            <summary>
+            Indicates whether intersection cells should be filled with another color.
+            By default it's <see langword="false"/>.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.TemplateLineStrokeItem.TemplateIntersectionCellsColor">
+            <summary>
+            Indicates the color to be filled in intersection cells.
+            This property must contain a valid color if <see cref="P:Sudoku.Graphics.Items.TemplateLineStrokeItem.FillIntersectionCells"/> is <see langword="true"/>.
+            </summary>
+            <seealso cref="P:Sudoku.Graphics.Items.TemplateLineStrokeItem.FillIntersectionCells"/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.TemplateLineStrokeItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.TemplateLineStrokeItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.TemplateLineStrokeItem.Sudoku#Graphics#Items#IItem_ColorProperty#Color">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.TemplateLineStrokeItem.Equals(Sudoku.ComponentModel.Item)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.TemplateLineStrokeItem.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.TemplateLineStrokeItem.PrintMembers(System.Text.StringBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.TemplateLineStrokeItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.PointMapper">
             <summary>
             Represents a point mapper instance.
@@ -3350,823 +4167,6 @@
             <param name="direction">The direction.</param>
             <returns><inheritdoc cref="M:Sudoku.Graphics.ArrowPainterHelper.CreateArrowTrianglePath(SkiaSharp.SKRect,Sudoku.ComponentModel.Scale,System.Single,Sudoku.ComponentModel.Arrows.ArrowDirection,Sudoku.ComponentModel.Scale)" path="/returns"/></returns>
             <exception cref="T:System.InvalidOperationException">Throws when shaft width is greater than triangle width.</exception>
-        </member>
-        <member name="T:Sudoku.Items.BackgroundFillItem">
-            <summary>
-            Represents canvas background fill item.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.BackgroundFillItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.BackgroundFillItem.Color">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.BackgroundFillItem.EqualityContract">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.BackgroundFillItem.Equals(Sudoku.ComponentModel.Item)">
-            <inheritdoc/>
-            <remarks>
-            <b>By design, the global item sequence can only contain one <see cref="T:Sudoku.Items.BackgroundFillItem"/> instance.</b>
-            </remarks>
-        </member>
-        <member name="M:Sudoku.Items.BackgroundFillItem.GetHashCode">
-            <inheritdoc/>
-            <remarks>
-            <b>By design, the global item sequence can only contain one <see cref="T:Sudoku.Items.BackgroundFillItem"/> instance.</b>
-            </remarks>
-        </member>
-        <member name="M:Sudoku.Items.BackgroundFillItem.DrawTo(Sudoku.Graphics.Canvas)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.BackgroundFillItem.PrintMembers(System.Text.StringBuilder)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Items.CandidateFillItem">
-            <summary>
-            Represents a candidate fill item.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CandidateFillItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CandidateFillItem.TemplateIndex">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CandidateFillItem.CandidatePosition">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CandidateFillItem.Color">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CandidateFillItem.EqualityContract">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.CandidateFillItem.Equals(Sudoku.ComponentModel.Item)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.CandidateFillItem.GetHashCode">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.CandidateFillItem.PrintMembers(System.Text.StringBuilder)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.CandidateFillItem.DrawTo(Sudoku.Graphics.Canvas)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Items.CandidateTextItem">
-            <summary>
-            Represents candidate text.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CandidateTextItem.TemplateIndex">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CandidateTextItem.Text">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CandidateTextItem.FontName">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CandidateTextItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CandidateTextItem.FontWeight">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CandidateTextItem.FontWidth">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CandidateTextItem.FontSlant">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CandidateTextItem.FontSizeScale">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CandidateTextItem.Color">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CandidateTextItem.CandidatePosition">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CandidateTextItem.EqualityContract">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.CandidateTextItem.Equals(Sudoku.ComponentModel.Item)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.CandidateTextItem.GetHashCode">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.CandidateTextItem.PrintMembers(System.Text.StringBuilder)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.CandidateTextItem.DrawTo(Sudoku.Graphics.Canvas)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Items.CellFillItem">
-            <summary>
-            Represents cell fill item.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellFillItem.TemplateIndex">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellFillItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellFillItem.Cell">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellFillItem.Color">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellFillItem.EqualityContract">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.CellFillItem.Equals(Sudoku.ComponentModel.Item)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.CellFillItem.GetHashCode">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.CellFillItem.PrintMembers(System.Text.StringBuilder)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.CellFillItem.DrawTo(Sudoku.Graphics.Canvas)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Items.CellMarkItem">
-            <summary>
-            Represents a cell mark item.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarkItem.TemplateIndex">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellMarkItem.TextFontName">
-            <summary>
-            Indicates text font.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarkItem.Cell">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellMarkItem.SizeScale">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellMarkItem.StrokeWidthScale">
-            <summary>
-            Indicates stroke width scale.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarkItem.CornerRadiusScale">
-            <summary>
-            Indicates corner radius scale.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarkItem.StrokeColor">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellMarkItem.FillColor">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellMarkItem.Sudoku#Items#IItem_FontRelatedProperties#FontName">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellMarkItem.Sudoku#Items#IItem_FontRelatedProperties#FontWeight">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellMarkItem.Sudoku#Items#IItem_FontRelatedProperties#FontWidth">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellMarkItem.Sudoku#Items#IItem_FontRelatedProperties#FontSlant">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellMarkItem.Sudoku#Items#IItem_FontRelatedProperties#FontSizeScale">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.CellMarkItem.Equals(Sudoku.ComponentModel.Item)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.CellMarkItem.GetHashCode">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.CellMarkItem.PrintMembers(System.Text.StringBuilder)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Items.CellMarks.CellApexCornerTriangleMarkItem">
-            <summary>
-            Provides cell apex corner triangle mark item.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellApexCornerTriangleMarkItem.CornerAlignment">
-            <summary>
-            Indicates corner alignment. The value cannot be <see cref="F:Sudoku.ComponentModel.Alignment.Center"/> due to design.
-            </summary>
-            <seealso cref="F:Sudoku.ComponentModel.Alignment.Center"/>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellApexCornerTriangleMarkItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellApexCornerTriangleMarkItem.PaddingScale">
-            <summary>
-            Indicates padding scale (distance to border of cells).
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellApexCornerTriangleMarkItem.EqualityContract">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.CellMarks.CellApexCornerTriangleMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Items.CellMarks.CellArrowMarkItem">
-            <summary>
-            Represents a cell arrow mark item.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellArrowMarkItem.Direction">
-            <summary>
-            Indicates the direction.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellArrowMarkItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellArrowMarkItem.TriangleWidthScale">
-            <summary>
-            Indicates the triangle width scale, related to cell size.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellArrowMarkItem.TriangleHeightScale">
-            <summary>
-            Indicates the triangle height scale, related to cell size.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellArrowMarkItem.ShaftWidthScale">
-            <summary>
-            Indicates the shaft width scale, related to cell size.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellArrowMarkItem.ShaftHeightScale">
-            <summary>
-            Indicates the shaft height scale, related to cell size.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellArrowMarkItem.EqualityContract">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.CellMarks.CellArrowMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Items.CellMarks.CellArrowTriangleMarkItem">
-            <summary>
-            Represents a cell arrow triangle mark item.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellArrowTriangleMarkItem.Direction">
-            <summary>
-            Indicates the arrow direction.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellArrowTriangleMarkItem.BaseScale">
-            <summary>
-            Indicates the base scale.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellArrowTriangleMarkItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellArrowTriangleMarkItem.EqualityContract">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.CellMarks.CellArrowTriangleMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Items.CellMarks.CellCircleMarkItem">
-            <summary>
-            Represents a cell circle mark item.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellCircleMarkItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellCircleMarkItem.EqualityContract">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.CellMarks.CellCircleMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Items.CellMarks.CellCrossMarkItem">
-            <summary>
-            Represents a cell cross item.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellCrossMarkItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellCrossMarkItem.EqualityContract">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.CellMarks.CellCrossMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Items.CellMarks.CellDiamondMarkItem">
-            <summary>
-            Provides cell diamond mark item.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellDiamondMarkItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellDiamondMarkItem.EqualityContract">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.CellMarks.CellDiamondMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Items.CellMarks.CellDiceMarkItem">
-            <summary>
-            Represents cell dice mark item.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellDiceMarkItem.Value">
-            <summary>
-            Indicates dice value.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellDiceMarkItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellDiceMarkItem.EqualityContract">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.CellMarks.CellDiceMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Items.CellMarks.CellEmojiMarkItem">
-            <summary>
-            Represents emoji mark item.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellEmojiMarkItem.Emoji">
-            <summary>
-            Indicates the emoji.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellEmojiMarkItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellEmojiMarkItem.PrintingText">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellEmojiMarkItem.EqualityContract">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Items.CellMarks.CellExclamationMarkItem">
-            <summary>
-            Represents cell exclamation mark item.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellExclamationMarkItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellExclamationMarkItem.PrintingText">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellExclamationMarkItem.EqualityContract">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Items.CellMarks.CellHalveLineMarkItem">
-            <summary>
-            Represents cell halve line mark item.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellHalveLineMarkItem.Direction">
-            <summary>
-            Indicates the direction.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellHalveLineMarkItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellHalveLineMarkItem.EqualityContract">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.CellMarks.CellHalveLineMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Items.CellMarks.CellHexagonMarkItem">
-            <summary>
-            Represents a cell hexagon mark item.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellHexagonMarkItem.Orientation">
-            <summary>
-            Indicates orientation of this symbol.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellHexagonMarkItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellHexagonMarkItem.EqualityContract">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.CellMarks.CellHexagonMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Items.CellMarks.CellMoonPhaseMarkItem">
-            <summary>
-            Represents a cell moon phase mark item.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellMoonPhaseMarkItem.Phase">
-            <summary>
-            Indicates the moon phase.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellMoonPhaseMarkItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellMoonPhaseMarkItem.EqualityContract">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.CellMarks.CellMoonPhaseMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Items.CellMarks.CellPolygonMarkItem">
-            <summary>
-            Represents a cell polygon mark item.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellPolygonMarkItem.DrawConcavePolygon">
-            <summary>
-            Indicates whether this type draws for concave polygon or not. By default it's <see langword="false"/>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellPolygonMarkItem.RotationDegrees">
-            <summary>
-            Indicates rotation degrees, in angles. By default it's 0.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellPolygonMarkItem.SidesCount">
-            <summary>
-            Indicates the number of sides.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellPolygonMarkItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellPolygonMarkItem.ConcaveInnerScale">
-            <summary>
-            Indicates concave inner scale. By default it's 0.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellPolygonMarkItem.EqualityContract">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.CellMarks.CellPolygonMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Items.CellMarks.CellQuestionMarkItem">
-            <summary>
-            Represents cell question mark item.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellQuestionMarkItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellQuestionMarkItem.PrintingText">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellQuestionMarkItem.EqualityContract">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Items.CellMarks.CellSquareMarkItem">
-            <summary>
-            Represents a cell square mark item.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellSquareMarkItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellSquareMarkItem.EqualityContract">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.CellMarks.CellSquareMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Items.CellMarks.CellSuitMarkItem">
-            <summary>
-            Represents a cell suit mark item.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellSuitMarkItem.Suit">
-            <summary>
-            Indicates the suit.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellSuitMarkItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellSuitMarkItem.PrintingText">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellSuitMarkItem.EqualityContract">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Items.CellMarks.CellSurroundingTrianglesMarkItem">
-            <summary>
-            Represents a cell mark item that renders a list of triangles, surrounding with cell center.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellSurroundingTrianglesMarkItem.TrianglesCount">
-            <summary>
-            Indicates the number of triangles.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellSurroundingTrianglesMarkItem.TipDistanceScale">
-            <summary>
-            Indicates the tip distance with cell center point.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellSurroundingTrianglesMarkItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellSurroundingTrianglesMarkItem.EqualityContract">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.CellMarks.CellSurroundingTrianglesMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Items.CellMarks.CellTetrisMarkItem">
-            <summary>
-            Represents a cell tetris mark item.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellTetrisMarkItem.Piece">
-            <summary>
-            Indicates the piece used.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellTetrisMarkItem.RotationType">
-            <summary>
-            Indicates rotation type of piece.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellTetrisMarkItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellTetrisMarkItem.EqualityContract">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.CellMarks.CellTetrisMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Items.CellMarks.CellTextMarkItem">
-            <summary>
-            Represents cell text mark item.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellTextMarkItem.TextFontName">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellTextMarkItem.PrintingText">
-            <summary>
-            Indicates the printing text.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Items.CellMarks.CellTextMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Items.CellMarks.CellZodiacEmojiMarkItem">
-            <summary>
-            Represents a cell zodiac emoji mark item.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellZodiacEmojiMarkItem.Zodiac">
-            <summary>
-            Indicates the zodiac animal.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellZodiacEmojiMarkItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellZodiacEmojiMarkItem.PrintingText">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.CellMarks.CellZodiacEmojiMarkItem.EqualityContract">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Items.GivenOrModifiableTextItem">
-            <summary>
-            Represents a text item that displays a given or a modifiable digit.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.GivenOrModifiableTextItem.TemplateIndex">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.GivenOrModifiableTextItem.Text">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.GivenOrModifiableTextItem.FontName">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.GivenOrModifiableTextItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.GivenOrModifiableTextItem.FontWeight">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.GivenOrModifiableTextItem.FontWidth">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.GivenOrModifiableTextItem.FontSlant">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.GivenOrModifiableTextItem.Cell">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.GivenOrModifiableTextItem.Color">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.GivenOrModifiableTextItem.FontSizeScale">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.GivenOrModifiableTextItem.Equals(Sudoku.ComponentModel.Item)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.GivenOrModifiableTextItem.GetHashCode">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.GivenOrModifiableTextItem.PrintMembers(System.Text.StringBuilder)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.GivenOrModifiableTextItem.DrawTo(Sudoku.Graphics.Canvas)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Items.GivenTextItem">
-            <summary>
-            Represents given text.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.GivenTextItem.EqualityContract">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Items.IItem_CandidatePositionProperty">
-            <summary>
-            Represents a type that includes <see cref="P:Sudoku.Items.IItem_CandidatePositionProperty.CandidatePosition"/> property.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.IItem_CandidatePositionProperty.CandidatePosition">
-            <summary>
-            Indicates candidate position to be set.
-            </summary>
-        </member>
-        <member name="T:Sudoku.Items.IItem_CellProperty">
-            <summary>
-            Represents a type that includes <see cref="P:Sudoku.Items.IItem_CellProperty.Cell"/> property.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.IItem_CellProperty.Cell">
-            <summary>
-            Indicates the cell to be drawn, of absolute cell index.
-            For <see cref="T:Sudoku.ComponentModel.Relative"/> cell indices, you can use <see cref="M:Sudoku.Graphics.PointMapper.GetAbsoluteIndex(Sudoku.ComponentModel.Relative)"/>
-            to create absolute cells.
-            </summary>
-            <seealso cref="T:Sudoku.ComponentModel.Relative"/>
-            <seealso cref="M:Sudoku.Graphics.PointMapper.GetAbsoluteIndex(Sudoku.ComponentModel.Relative)"/>
-        </member>
-        <member name="T:Sudoku.Items.IItem_ColorProperty">
-            <summary>
-            Represents a type that includes <see cref="P:Sudoku.Items.IItem_ColorProperty.Color"/> property.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.IItem_ColorProperty.Color">
-            <summary>
-            Indicates the color to fill.
-            </summary>
-        </member>
-        <member name="T:Sudoku.Items.IItem_FontRelatedProperties">
-            <summary>
-            Represents a type that includes font-related properties.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.IItem_FontRelatedProperties.FontName">
-            <summary>
-            Indicates the font name.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.IItem_FontRelatedProperties.FontSizeScale">
-            <summary>
-            Indicates font size scale.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.IItem_FontRelatedProperties.FontWeight">
-            <summary>
-            Indicates the font weight. By default it's <see cref="F:SkiaSharp.SKFontStyleWeight.Normal"/>.
-            </summary>
-            <seealso cref="F:SkiaSharp.SKFontStyleWeight.Normal"/>
-        </member>
-        <member name="P:Sudoku.Items.IItem_FontRelatedProperties.FontWidth">
-            <summary>
-            Indicates the font width. By default it's <see cref="F:SkiaSharp.SKFontStyleWidth.Normal"/>.
-            </summary>
-            <seealso cref="F:SkiaSharp.SKFontStyleWidth.Normal"/>
-        </member>
-        <member name="P:Sudoku.Items.IItem_FontRelatedProperties.FontSlant">
-            <summary>
-            Indicates the font slant. By default it's <see cref="F:SkiaSharp.SKFontStyleSlant.Upright"/>.
-            </summary>
-            <seealso cref="F:SkiaSharp.SKFontStyleSlant.Upright"/>
-        </member>
-        <member name="T:Sudoku.Items.IItem_MarkRelatedProperties">
-            <summary>
-            Represents a type that includes mark-related properties.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.IItem_MarkRelatedProperties.SizeScale">
-            <summary>
-            Indicates size scale of mark.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.IItem_MarkRelatedProperties.StrokeColor">
-            <summary>
-            Indicates the stroke color.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.IItem_MarkRelatedProperties.FillColor">
-            <summary>
-            Indicates the fill color.
-            </summary>
-        </member>
-        <member name="T:Sudoku.Items.IItem_TemplateIndexProperty">
-            <summary>
-            Represents a type that includes <see cref="P:Sudoku.Items.IItem_TemplateIndexProperty.TemplateIndex"/> property.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.IItem_TemplateIndexProperty.TemplateIndex">
-            <summary>
-            Indicates the target template index.
-            </summary>
-        </member>
-        <member name="T:Sudoku.Items.IItem_TextProperty">
-            <summary>
-            Represents a type that includes <see cref="P:Sudoku.Items.IItem_TextProperty.Text"/> property.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.IItem_TextProperty.Text">
-            <summary>
-            Indicates the text to draw.
-            </summary>
-        </member>
-        <member name="T:Sudoku.Items.ModifiableTextItem">
-            <summary>
-            Represents modifiable text.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.ModifiableTextItem.EqualityContract">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Items.TemplateLineStrokeItem">
-            <summary>
-            Represents template line stroke item.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.TemplateLineStrokeItem.FillIntersectionCells">
-            <summary>
-            Indicates whether intersection cells should be filled with another color.
-            By default it's <see langword="false"/>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Items.TemplateLineStrokeItem.TemplateIntersectionCellsColor">
-            <summary>
-            Indicates the color to be filled in intersection cells.
-            This property must contain a valid color if <see cref="P:Sudoku.Items.TemplateLineStrokeItem.FillIntersectionCells"/> is <see langword="true"/>.
-            </summary>
-            <seealso cref="P:Sudoku.Items.TemplateLineStrokeItem.FillIntersectionCells"/>
-        </member>
-        <member name="P:Sudoku.Items.TemplateLineStrokeItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.TemplateLineStrokeItem.EqualityContract">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Items.TemplateLineStrokeItem.Sudoku#Items#IItem_ColorProperty#Color">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.TemplateLineStrokeItem.Equals(Sudoku.ComponentModel.Item)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.TemplateLineStrokeItem.GetHashCode">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.TemplateLineStrokeItem.PrintMembers(System.Text.StringBuilder)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Items.TemplateLineStrokeItem.DrawTo(Sudoku.Graphics.Canvas)">
-            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Resources.Resource">
             <summary>
