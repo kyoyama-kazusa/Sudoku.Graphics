@@ -179,3 +179,6 @@ dotnet_diagnostic.IDE0007.severity = suggestion
 
 # IDE0051: Remove unused private members
 dotnet_diagnostic.IDE0051.severity = none
+
+# CA1707: Identifiers should not contain underscores
+dotnet_diagnostic.CA1707.severity = none
