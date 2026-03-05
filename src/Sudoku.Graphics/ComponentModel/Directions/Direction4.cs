@@ -1,10 +1,10 @@
-﻿namespace Sudoku.ComponentModel;
+﻿namespace Sudoku.ComponentModel.Directions;
 
 /// <summary>
-/// Represents a direction.
+/// Represents a direction with 4 values.
 /// </summary>
 [Flags]
-public enum Direction : byte
+public enum Direction4 : byte
 {
 	/// <summary>
 	/// Indicates the placeholder of this type.

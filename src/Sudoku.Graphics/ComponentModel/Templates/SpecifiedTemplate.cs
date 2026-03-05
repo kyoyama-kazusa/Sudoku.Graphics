@@ -51,9 +51,9 @@ public class SpecifiedTemplate : Template
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		static void checkDirections(Direction directions)
+		static void checkDirections(Direction4 directions)
 		{
-			if (directions < 0 || directions > (Direction.Up | Direction.Down | Direction.Left | Direction.Right))
+			if (directions < 0 || directions > (Direction4.Up | Direction4.Down | Direction4.Left | Direction4.Right))
 			{
 				throw new ArgumentException($"Invalid direction '{directions}'.");
 			}
@@ -95,21 +95,21 @@ public class SpecifiedTemplate : Template
 
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		void drawLine(SKPoint topLeft, SKPoint topRight, SKPoint bottomLeft, SKPoint bottomRight, Direction directions, SKPaint paint)
+		void drawLine(SKPoint topLeft, SKPoint topRight, SKPoint bottomLeft, SKPoint bottomRight, Direction4 directions, SKPaint paint)
 		{
-			if (directions.HasFlag(Direction.Up))
+			if (directions.HasFlag(Direction4.Up))
 			{
 				canvas.DrawLine(topLeft, topRight, paint);
 			}
-			if (directions.HasFlag(Direction.Down))
+			if (directions.HasFlag(Direction4.Down))
 			{
 				canvas.DrawLine(bottomLeft, bottomRight, paint);
 			}
-			if (directions.HasFlag(Direction.Left))
+			if (directions.HasFlag(Direction4.Left))
 			{
 				canvas.DrawLine(topLeft, bottomLeft, paint);
 			}
-			if (directions.HasFlag(Direction.Right))
+			if (directions.HasFlag(Direction4.Right))
 			{
 				canvas.DrawLine(topRight, bottomRight, paint);
 			}

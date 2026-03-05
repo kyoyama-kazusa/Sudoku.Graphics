@@ -8,7 +8,7 @@ public sealed class CellArrowTriangleMarkItem : CellMarkItem
 	/// <summary>
 	/// Indicates the arrow direction.
 	/// </summary>
-	public required ArrowDirection Direction { get; init; }
+	public required Direction8 Direction { get; init; }
 
 	/// <summary>
 	/// Indicates the base scale.

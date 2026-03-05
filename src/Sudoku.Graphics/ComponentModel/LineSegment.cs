@@ -6,14 +6,14 @@
 /// <param name="cellIndex">The cell index.</param>
 /// <param name="directions">The shown directions.</param>
 [method: JsonConstructor]
-public readonly struct LineSegment(Absolute cellIndex, Direction directions) :
+public readonly struct LineSegment(Absolute cellIndex, Direction4 directions) :
 	IEquatable<LineSegment>,
 	IEqualityOperators<LineSegment, LineSegment, bool>
 {
 	/// <summary>
 	/// Indicates the directions to be shown.
 	/// </summary>
-	public Direction Directions { get; } = directions;
+	public Direction4 Directions { get; } = directions;
 
 	/// <summary>
 	/// Indicates absolute cell index.
@@ -24,7 +24,7 @@ public readonly struct LineSegment(Absolute cellIndex, Direction directions) :
 	/// <summary>
 	/// Deconstruct instance into multiple values.
 	/// </summary>
-	public void Deconstruct(out Absolute cellIndex, out Direction directions) => (cellIndex, directions) = (CellIndex, Directions);
+	public void Deconstruct(out Absolute cellIndex, out Direction4 directions) => (cellIndex, directions) = (CellIndex, Directions);
 
 	/// <inheritdoc/>
 	public override bool Equals([NotNullWhen(true)] object? obj) => obj is LineSegment comparer && Equals(comparer);

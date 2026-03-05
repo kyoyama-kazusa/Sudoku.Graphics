@@ -6,9 +6,9 @@
 public sealed class CellHalveLineMarkItem : CellMarkItem
 {
 	/// <summary>
-	/// Indicates the direction.
+	/// Indicates the orientation.
 	/// </summary>
-	public required ArrowDirection Direction { get; init; }
+	public required Orientation4 Orientation { get; init; }
 
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.CellMark_HalveLine;
@@ -24,7 +24,7 @@ public sealed class CellHalveLineMarkItem : CellMarkItem
 		var mapper = template.Mapper;
 		canvas.BackingCanvas.DrawHalveLineToCell(
 			Cell,
-			Direction,
+			Orientation,
 			SizeScale,
 			StrokeColor,
 			StrokeWidthScale,

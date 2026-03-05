@@ -39,7 +39,7 @@ public static class LineSegmentFactory
 			for (var j = 0; j < mapper.AbsoluteColumnsCount; j++)
 			{
 				var cellIndex = i * mapper.AbsoluteColumnsCount + j;
-				result.Add(cellIndex, new(cellIndex, Direction.Up | Direction.Down | Direction.Left | Direction.Right));
+				result.Add(cellIndex, new(cellIndex, Direction4.Up | Direction4.Down | Direction4.Left | Direction4.Right));
 			}
 		}
 
@@ -56,7 +56,7 @@ public static class LineSegmentFactory
 	}
 
 	/// <summary>
-	/// Creates a <see cref="Dictionary{TKey, TValue}"/> of <see cref="Absolute"/> and <see cref="Direction"/> key-value pairs,
+	/// Creates a <see cref="Dictionary{TKey, TValue}"/> of <see cref="Absolute"/> and <see cref="Direction4"/> key-value pairs,
 	/// indicating lightup segments of cells to be shown.
 	/// </summary>
 	/// <param name="cellIndices">The cell indices.</param>
@@ -67,7 +67,7 @@ public static class LineSegmentFactory
 	/// <param name="absoluteCellIndices">Absolute cell indices.</param>
 	/// <returns>The result dictionary of light-up segments.</returns>
 	[SuppressMessage("Style", "IDE0028:Simplify collection initialization", Justification = "<Pending>")]
-	internal static Dictionary<Absolute, Direction> GetLightupDirections(
+	internal static Dictionary<Absolute, Direction4> GetLightupDirections(
 		Relative[] cellIndices,
 		bool isCyclicRuleChecked,
 		PointMapper mapper,
@@ -77,7 +77,7 @@ public static class LineSegmentFactory
 			..
 			from cell in cellIndices
 			let absoluteIndex = mapper.GetAbsoluteIndex(cell)
-			select KeyValuePair.Create(absoluteIndex, Direction.Up | Direction.Down | Direction.Left | Direction.Right)
+			select KeyValuePair.Create(absoluteIndex, Direction4.Up | Direction4.Down | Direction4.Left | Direction4.Right)
 		]),
 		isCyclicRuleChecked,
 		mapper,
@@ -86,7 +86,7 @@ public static class LineSegmentFactory
 
 	/// <inheritdoc cref="GetLightupDirections(Relative[], bool, PointMapper, out HashSet{Absolute})"/>
 	[SuppressMessage("Style", "IDE0028:Simplify collection initialization", Justification = "<Pending>")]
-	internal static Dictionary<Absolute, Direction> GetLightupDirections(
+	internal static Dictionary<Absolute, Direction4> GetLightupDirections(
 		Absolute[] cellIndices,
 		bool isCyclicRuleChecked,
 		PointMapper mapper,
@@ -95,7 +95,7 @@ public static class LineSegmentFactory
 		new([
 			..
 			from cell in cellIndices
-			select KeyValuePair.Create(cell, Direction.Up | Direction.Down | Direction.Left | Direction.Right)
+			select KeyValuePair.Create(cell, Direction4.Up | Direction4.Down | Direction4.Left | Direction4.Right)
 		]),
 		isCyclicRuleChecked,
 		mapper,
@@ -103,7 +103,7 @@ public static class LineSegmentFactory
 	);
 
 	/// <summary>
-	/// Creates a <see cref="Dictionary{TKey, TValue}"/> of <see cref="Absolute"/> and <see cref="Direction"/> key-value pairs,
+	/// Creates a <see cref="Dictionary{TKey, TValue}"/> of <see cref="Absolute"/> and <see cref="Direction4"/> key-value pairs,
 	/// indicating lightup segments of cells to be shown.
 	/// </summary>
 	/// <param name="lineSegmentsDictionary">The original entry dictionary.</param>
@@ -113,8 +113,8 @@ public static class LineSegmentFactory
 	/// <param name="mapper">The mapper.</param>
 	/// <param name="absoluteCellIndices">Absolute cell indices.</param>
 	/// <returns>The result dictionary of light-up segments.</returns>
-	private static Dictionary<Absolute, Direction> GetLightupDirectionsCore(
-		Dictionary<Absolute, Direction> lineSegmentsDictionary,
+	private static Dictionary<Absolute, Direction4> GetLightupDirectionsCore(
+		Dictionary<Absolute, Direction4> lineSegmentsDictionary,
 		bool isCyclicRuleChecked,
 		PointMapper mapper,
 		out HashSet<Absolute> absoluteCellIndices
@@ -125,7 +125,7 @@ public static class LineSegmentFactory
 		// Iterate on each cell (absolute), to find for adjacent cells.
 		foreach (var cell in lineSegmentsDictionary.Keys)
 		{
-			foreach (var direction in Direction.AllDirections)
+			foreach (var direction in Direction4.AllDirections)
 			{
 				if (absoluteCellIndices.Contains(mapper.GetAdjacentAbsoluteCellWith(cell, direction, isCyclicRuleChecked)))
 				{

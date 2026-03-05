@@ -498,7 +498,7 @@ public partial class SKCanvasSymbolDrawingExtensions
 		/// <param name="mapper">The mapper instance.</param>
 		public void DrawArrowTriangleToCell(
 			Absolute cell,
-			ArrowDirection direction,
+			Direction8 direction,
 			Scale sizeScale,
 			Scale baseScale,
 			Scale strokeWidthScale,
@@ -542,7 +542,7 @@ public partial class SKCanvasSymbolDrawingExtensions
 		/// <param name="mapper">The mapper instance.</param>
 		public void DrawArrowToCell(
 			Absolute cell,
-			ArrowDirection direction,
+			Direction8 direction,
 			Scale triangleWidthScale,
 			Scale triangleHeightScale,
 			Scale shaftWidthScale,
@@ -653,15 +653,15 @@ public partial class SKCanvasSymbolDrawingExtensions
 		/// Draws halve line to specified cell.
 		/// </summary>
 		/// <param name="cell">The cell.</param>
-		/// <param name="direction">The direction.</param>
+		/// <param name="orientation">The orientation.</param>
 		/// <param name="sizeScale">The scale of padding, related to cell size.</param>
 		/// <param name="strokeColor">The stroke color.</param>
 		/// <param name="strokeWidthScale">The stroke width scale, related to cell size.</param>
 		/// <param name="mapper">The mapper instance.</param>
-		/// <exception cref="ArgumentOutOfRangeException">Throws when <paramref name="direction"/> is not defined.</exception>
+		/// <exception cref="ArgumentOutOfRangeException">Throws when <paramref name="orientation"/> is not defined.</exception>
 		public void DrawHalveLineToCell(
 			Absolute cell,
-			ArrowDirection direction,
+			Orientation4 orientation,
 			Scale sizeScale,
 			SerializableColor strokeColor,
 			Scale strokeWidthScale,
@@ -679,13 +679,13 @@ public partial class SKCanvasSymbolDrawingExtensions
 			var bottom = bottomLeft + new SKPoint(lineContainingBoxSize / 2, 0);
 			var left = topLeft + new SKPoint(0, lineContainingBoxSize / 2);
 			var right = topRight + new SKPoint(0, lineContainingBoxSize / 2);
-			var (start, end) = direction switch
+			var (start, end) = orientation switch
 			{
-				ArrowDirection.N or ArrowDirection.S => (top, bottom),
-				ArrowDirection.NE or ArrowDirection.SW => (topRight, bottomLeft),
-				ArrowDirection.E or ArrowDirection.W => (left, right),
-				ArrowDirection.SE or ArrowDirection.NW => (topLeft, bottomRight),
-				_ => throw new ArgumentOutOfRangeException(nameof(direction))
+				Orientation4.Horizontal => (left, right),
+				Orientation4.Vertical => (top, bottom),
+				Orientation4.Slash => (topRight, bottomLeft),
+				Orientation4.Backslash => (topLeft, bottomRight),
+				_ => throw new ArgumentOutOfRangeException(nameof(orientation))
 			};
 
 			var strokeWidth = strokeWidthScale.Measure(cellSize);
@@ -764,16 +764,16 @@ public partial class SKCanvasSymbolDrawingExtensions
 		/// <param name="orientation">The orientation.</param>
 		/// <param name="mapper">The mapper.</param>
 		/// <exception cref="ArgumentOutOfRangeException">
-		/// Throws when <paramref name="orientation"/> is not defined or <see cref="Orientation.None"/>.
+		/// Throws when <paramref name="orientation"/> is not defined or <see cref="Orientation2.None"/>.
 		/// </exception>
-		/// <seealso cref="Orientation.None"/>
+		/// <seealso cref="Orientation2.None"/>
 		public void DrawHexagonToCell(
 			Absolute cell,
 			Scale sizeScale,
 			SerializableColor strokeColor,
 			Scale strokeWidthScale,
 			SerializableColor fillColor,
-			Orientation orientation,
+			Orientation2 orientation,
 			PointMapper mapper
 		) => @this.DrawPolygonToCell(
 			cell,
@@ -785,8 +785,8 @@ public partial class SKCanvasSymbolDrawingExtensions
 			mapper,
 			orientation switch
 			{
-				Orientation.Horizontal => 30,
-				Orientation.Vertical => 0,
+				Orientation2.Horizontal => 30,
+				Orientation2.Vertical => 0,
 				_ => throw new ArgumentOutOfRangeException(nameof(orientation))
 			}
 		);
@@ -930,7 +930,7 @@ file static class ArrowPainterHelper
 	/// </returns>
 	/// <seealso cref="SKPath"/>
 	/// <seealso cref="SKNativeObject.Dispose()"/>
-	public static SKPath CreateArrowTrianglePath(SKRect cell, Scale sizeScale, float strokeWidth, ArrowDirection direction, Scale baseScale)
+	public static SKPath CreateArrowTrianglePath(SKRect cell, Scale sizeScale, float strokeWidth, Direction8 direction, Scale baseScale)
 	{
 		var cellSize = Math.Min(cell.Width, cell.Height);
 		var halfStroke = strokeWidth / 2;
@@ -985,7 +985,7 @@ file static class ArrowPainterHelper
 	/// <param name="shaftLengthScale">The shaft height scale, related to cell size.</param>
 	/// <param name="strokeWidth">The stroke width.</param>
 	/// <param name="direction">The direction.</param>
-	/// <returns><inheritdoc cref="CreateArrowTrianglePath(SKRect, Scale, float, ArrowDirection, Scale)" path="/returns"/></returns>
+	/// <returns><inheritdoc cref="CreateArrowTrianglePath(SKRect, Scale, float, Direction8, Scale)" path="/returns"/></returns>
 	/// <exception cref="InvalidOperationException">Throws when shaft width is greater than triangle width.</exception>
 	public static SKPath CreateArrowPath(
 		SKRect cellRect,
@@ -994,7 +994,7 @@ file static class ArrowPainterHelper
 		Scale shaftWidthScale,
 		Scale shaftLengthScale,
 		float strokeWidth,
-		ArrowDirection direction
+		Direction8 direction
 	)
 	{
 		var cellSize = Math.Min(cellRect.Width, cellRect.Height);

@@ -71,7 +71,7 @@ public sealed record PointMapper : IEqualityOperators<PointMapper, PointMapper, 
 	/// <returns>The result absolute index.</returns>
 	/// <exception cref="ArgumentException">Throws when <paramref name="outsideDirection"/> is not a flag.</exception>
 	/// <exception cref="ArgumentOutOfRangeException">Throws when <paramref name="outsideDirection"/> is not defined.</exception>
-	public Absolute GetAbsoluteIndex(Relative relativeCellIndex, Direction outsideDirection, Absolute offset)
+	public Absolute GetAbsoluteIndex(Relative relativeCellIndex, Direction4 outsideDirection, Absolute offset)
 	{
 		ArgumentException.Assert(BitOperations.IsPow2((int)outsideDirection));
 		ArgumentOutOfRangeException.ThrowIfUndefined(outsideDirection);
@@ -86,10 +86,10 @@ public sealed record PointMapper : IEqualityOperators<PointMapper, PointMapper, 
 		// a + b switch {} <=> a + (b switch {})
 		return GetAbsoluteIndex(relativeCellIndex) + outsideDirection switch
 		{
-			Direction.Up => -(AbsoluteColumnsCount * offset),
-			Direction.Down => +(AbsoluteColumnsCount * offset),
-			Direction.Left => -offset,
-			Direction.Right => +offset,
+			Direction4.Up => -(AbsoluteColumnsCount * offset),
+			Direction4.Down => +(AbsoluteColumnsCount * offset),
+			Direction4.Left => -offset,
+			Direction4.Right => +offset,
 			_ => throw new UnreachableException()
 		};
 	}
@@ -116,7 +116,7 @@ public sealed record PointMapper : IEqualityOperators<PointMapper, PointMapper, 
 	/// <param name="direction">The direction.</param>
 	/// <param name="isCyclicChecking">Indicates whether the cell overflown in the relative grid will be included to be checked or not.</param>
 	/// <returns>Target cell absolute index.</returns>
-	public Absolute GetAdjacentAbsoluteCellWith(Absolute absoluteCellIndex, Direction direction, bool isCyclicChecking)
+	public Absolute GetAdjacentAbsoluteCellWith(Absolute absoluteCellIndex, Direction4 direction, bool isCyclicChecking)
 	{
 		var rowsCount = AbsoluteRowsCount;
 		var columnsCount = AbsoluteColumnsCount;
@@ -124,14 +124,14 @@ public sealed record PointMapper : IEqualityOperators<PointMapper, PointMapper, 
 		var column = absoluteCellIndex % columnsCount;
 		return direction switch
 		{
-			Direction.Up when row >= 1 => (row - 1) * columnsCount + column,
-			Direction.Up when row == 0 && isCyclicChecking => (rowsCount - 1) * columnsCount + column,
-			Direction.Down when row < rowsCount => (row + 1) * columnsCount + column,
-			Direction.Down when row == rowsCount && isCyclicChecking => 0 * columnsCount + column,
-			Direction.Left when column >= 1 => row * columnsCount + column - 1,
-			Direction.Left when column == 0 && isCyclicChecking => row * columnsCount + columnsCount - 1,
-			Direction.Right when column < columnsCount => row * columnsCount + column + 1,
-			Direction.Right when column == columnsCount && isCyclicChecking => row + columnsCount + 0,
+			Direction4.Up when row >= 1 => (row - 1) * columnsCount + column,
+			Direction4.Up when row == 0 && isCyclicChecking => (rowsCount - 1) * columnsCount + column,
+			Direction4.Down when row < rowsCount => (row + 1) * columnsCount + column,
+			Direction4.Down when row == rowsCount && isCyclicChecking => 0 * columnsCount + column,
+			Direction4.Left when column >= 1 => row * columnsCount + column - 1,
+			Direction4.Left when column == 0 && isCyclicChecking => row * columnsCount + columnsCount - 1,
+			Direction4.Right when column < columnsCount => row * columnsCount + column + 1,
+			Direction4.Right when column == columnsCount && isCyclicChecking => row + columnsCount + 0,
 			_ => -1
 		};
 	}

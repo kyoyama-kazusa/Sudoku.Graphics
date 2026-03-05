@@ -73,10 +73,10 @@ public sealed class JigsawTemplate : Template
 					canvas.DrawRect(rect, fillPaint);
 				}
 
-				canvas.DrawLine(topLeft, topRight, (directions & Direction.Up) != Direction.None ? thickLinePaint : thinLinePaint);
-				canvas.DrawLine(bottomLeft, bottomRight, (directions & Direction.Down) != Direction.None ? thickLinePaint : thinLinePaint);
-				canvas.DrawLine(topLeft, bottomLeft, (directions & Direction.Left) != Direction.None ? thickLinePaint : thinLinePaint);
-				canvas.DrawLine(topRight, bottomRight, (directions & Direction.Right) != Direction.None ? thickLinePaint : thinLinePaint);
+				canvas.DrawLine(topLeft, topRight, (directions & Direction4.Up) != Direction4.None ? thickLinePaint : thinLinePaint);
+				canvas.DrawLine(bottomLeft, bottomRight, (directions & Direction4.Down) != Direction4.None ? thickLinePaint : thinLinePaint);
+				canvas.DrawLine(topLeft, bottomLeft, (directions & Direction4.Left) != Direction4.None ? thickLinePaint : thinLinePaint);
+				canvas.DrawLine(topRight, bottomRight, (directions & Direction4.Right) != Direction4.None ? thickLinePaint : thinLinePaint);
 			}
 
 			// Increment group index.

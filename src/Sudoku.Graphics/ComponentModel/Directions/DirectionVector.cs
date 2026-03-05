@@ -1,4 +1,4 @@
-﻿namespace Sudoku.ComponentModel;
+﻿namespace Sudoku.ComponentModel.Directions;
 
 /// <summary>
 /// Represents an encapsulated type of a quadruple of <see cref="Relative"/> values,
@@ -46,16 +46,16 @@ public readonly record struct DirectionVector(Relative Up, Relative Down, Relati
 	/// <param name="direction">The direction.</param>
 	/// <returns>Result value.</returns>
 	/// <exception cref="ArgumentOutOfRangeException">
-	/// Throws when <paramref name="direction"/> is not defined or <see cref="Direction.None"/>.
+	/// Throws when <paramref name="direction"/> is not defined or <see cref="Direction4.None"/>.
 	/// </exception>
-	/// <seealso cref="Direction.None"/>
-	public Relative GetValue(Direction direction)
+	/// <seealso cref="Direction4.None"/>
+	public Relative GetValue(Direction4 direction)
 		=> direction switch
 		{
-			Direction.Up => Up,
-			Direction.Down => Down,
-			Direction.Left => Left,
-			Direction.Right => Right,
+			Direction4.Up => Up,
+			Direction4.Down => Down,
+			Direction4.Left => Left,
+			Direction4.Right => Right,
 			_ => throw new ArgumentOutOfRangeException(nameof(direction))
 		};
 

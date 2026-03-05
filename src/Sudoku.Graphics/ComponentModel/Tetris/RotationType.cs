@@ -1,4 +1,4 @@
-﻿namespace Sudoku.ComponentModel;
+﻿namespace Sudoku.ComponentModel.Tetris;
 
 /// <summary>
 /// Represents a type of rotation.

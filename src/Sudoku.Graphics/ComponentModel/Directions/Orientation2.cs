@@ -1,9 +1,10 @@
-﻿namespace Sudoku.ComponentModel;
+﻿namespace Sudoku.ComponentModel.Directions;
 
 /// <summary>
-/// Represents an orientation.
+/// Represents an orientation, with 2 values.
 /// </summary>
-public enum Orientation
+[Flags]
+public enum Orientation2
 {
 	/// <summary>
 	/// Represents placeholder of this type.
@@ -13,10 +14,10 @@ public enum Orientation
 	/// <summary>
 	/// Indicates horizontal.
 	/// </summary>
-	Horizontal,
+	Horizontal = 1 << 0,
 
 	/// <summary>
 	/// Indicates vertical.
 	/// </summary>
-	Vertical
+	Vertical = 1 << 1
 }

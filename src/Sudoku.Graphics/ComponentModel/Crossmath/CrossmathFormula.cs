@@ -23,7 +23,7 @@ public sealed record CrossmathFormula : IEqualityOperators<CrossmathFormula, Cro
 	/// <summary>
 	/// Indicates expanding direction of formula.
 	/// </summary>
-	public required Direction ExpandingDirection { get; init; }
+	public required Direction4 ExpandingDirection { get; init; }
 
 
 	/// <inheritdoc/>

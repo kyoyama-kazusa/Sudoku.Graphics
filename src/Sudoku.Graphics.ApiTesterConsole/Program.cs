@@ -10,8 +10,7 @@ using System;
 using System.IO;
 using System.Linq;
 using SkiaSharp;
-using Sudoku.ComponentModel;
-using Sudoku.ComponentModel.Arrows;
+using Sudoku.ComponentModel.Directions;
 using Sudoku.ComponentModel.Templates;
 using Sudoku.Graphics;
 using Sudoku.Graphics.Items;
@@ -35,7 +34,7 @@ using var canvas = new Canvas(
 	}
 );
 
-var directions = Enum.GetValues<ArrowDirection>();
+var directions = Enum.GetValues<Direction8>();
 var rng = Random.Shared;
 canvas.DrawItems(
 	[
@@ -50,7 +49,7 @@ canvas.DrawItems(
 			SizeScale = .75M,
 			StrokeColor = SKColors.Gray,
 			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
-			Orientation = rng.NextDouble() > .5 ? Orientation.Horizontal : Orientation.Vertical,
+			Orientation = rng.NextDouble() > .5 ? Orientation2.Horizontal : Orientation2.Vertical,
 			FillColor = SKColors.White
 		},
 	]

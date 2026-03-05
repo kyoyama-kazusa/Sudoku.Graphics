@@ -8,7 +8,7 @@ public sealed class CellHexagonMarkItem : CellMarkItem
 	/// <summary>
 	/// Indicates orientation of this symbol.
 	/// </summary>
-	public required Orientation Orientation { get; init; }
+	public required Orientation2 Orientation { get; init; }
 
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.CellMark_Hexagon;

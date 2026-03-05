@@ -17,6 +17,7 @@ global using Sudoku.ComponentModel;
 global using Sudoku.ComponentModel.Arrows;
 global using Sudoku.ComponentModel.Crossmath;
 global using Sudoku.ComponentModel.Dices;
+global using Sudoku.ComponentModel.Directions;
 global using Sudoku.ComponentModel.Moons;
 global using Sudoku.ComponentModel.Suits;
 global using Sudoku.ComponentModel.Templates;
