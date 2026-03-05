@@ -4309,9 +4309,16 @@
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBattenburgToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale[],Sudoku.Graphics.PointMapper)">
             <summary>
-            在单元格 (x,y)（边长 cellSize）中心绘制一个 2x2 的 battenburg 图标。
-            cornerRatios: 长度 4，顺序为 top-left, top-right, bottom-right, bottom-left（每个 0..1）。
+            Draws a battenburg mark into the specified cell.
             </summary>
+            <param name="cell">The cell.</param>
+            <param name="sizeScale">The scale of size, related to cell size.</param>
+            <param name="colorA">Indicates color 1 (top-left and bottom-right).</param>
+            <param name="colorB">Indicates color 2 (top-right and bottom-left).</param>
+            <param name="strokeColor">The stroke line color.</param>
+            <param name="strokeWidthScale">The scale of stroke width, related to cell size.</param>
+            <param name="cornerRadiiScale">The scale of corner radii.</param>
+            <param name="mapper">The mapper instance.</param>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCircleToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <summary>
