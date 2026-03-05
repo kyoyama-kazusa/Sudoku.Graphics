@@ -1144,6 +1144,11 @@
             Indicates cell diamond mark.
             </summary>
         </member>
+        <member name="F:Sudoku.ComponentModel.ItemType.CellMark_Hexagon">
+            <summary>
+            Indicates cell hexagon mark.
+            </summary>
+        </member>
         <member name="F:Sudoku.ComponentModel.ItemType.TemplateLineStroke">
             <summary>
             Indicates template line strokes.
@@ -1399,6 +1404,26 @@
         <member name="F:Sudoku.ComponentModel.Moons.MoonPhase.LowerHalf_Curve">
             <summary>
             Indicates lower curve, curve.
+            </summary>
+        </member>
+        <member name="T:Sudoku.ComponentModel.Orientation">
+            <summary>
+            Represents an orientation.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Orientation.None">
+            <summary>
+            Represents placeholder of this type.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Orientation.Horizontal">
+            <summary>
+            Indicates horizontal.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Orientation.Vertical">
+            <summary>
+            Indicates vertical.
             </summary>
         </member>
         <member name="T:Sudoku.ComponentModel.OverlappingGridTemplateFactory">
@@ -2992,6 +3017,9 @@
         <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.DrawDiamondToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawDiamondToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
+        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.DrawHexagonToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Orientation,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawHexagonToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Orientation,Sudoku.Graphics.PointMapper)"/>
+        </member>
         <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.DrawTrianglesInCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTrianglesInCell(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
         </member>
@@ -3193,6 +3221,22 @@
             <param name="strokeWidthScale">The stroke width scale.</param>
             <param name="fillColor">The fill color.</param>
             <param name="mapper">The mapper.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawHexagonToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Orientation,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Draws a hexagon symbol into the specified cell.
+            </summary>
+            <param name="cell">The cell.</param>
+            <param name="sizeScale">The scale of size.</param>
+            <param name="strokeColor">The stroke color.</param>
+            <param name="strokeWidthScale">The stroke width scale.</param>
+            <param name="fillColor">The fill color.</param>
+            <param name="orientation">The orientation.</param>
+            <param name="mapper">The mapper.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Throws when <paramref name="orientation"/> is not defined or <see cref="F:Sudoku.ComponentModel.Orientation.None"/>.
+            </exception>
+            <seealso cref="F:Sudoku.ComponentModel.Orientation.None"/>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasSymbolDrawingExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTrianglesInCell(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
             <summary>
@@ -3711,6 +3755,25 @@
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Items.CellMarks.CellHalveLineMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Items.CellMarks.CellHexagonMarkItem">
+            <summary>
+            Represents a cell hexagon mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Items.CellMarks.CellHexagonMarkItem.Orientation">
+            <summary>
+            Indicates orientation of this symbol.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Items.CellMarks.CellHexagonMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Items.CellMarks.CellHexagonMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Items.CellMarks.CellHexagonMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Items.CellMarks.CellMoonPhaseMarkItem">

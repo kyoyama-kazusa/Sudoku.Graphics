@@ -752,6 +752,44 @@ public partial class SKCanvasSymbolDrawingExtensions
 				@this.DrawPath(path, strokePaint);
 			}
 		}
+
+		/// <summary>
+		/// Draws a hexagon symbol into the specified cell.
+		/// </summary>
+		/// <param name="cell">The cell.</param>
+		/// <param name="sizeScale">The scale of size.</param>
+		/// <param name="strokeColor">The stroke color.</param>
+		/// <param name="strokeWidthScale">The stroke width scale.</param>
+		/// <param name="fillColor">The fill color.</param>
+		/// <param name="orientation">The orientation.</param>
+		/// <param name="mapper">The mapper.</param>
+		/// <exception cref="ArgumentOutOfRangeException">
+		/// Throws when <paramref name="orientation"/> is not defined or <see cref="Orientation.None"/>.
+		/// </exception>
+		/// <seealso cref="Orientation.None"/>
+		public void DrawHexagonToCell(
+			Absolute cell,
+			Scale sizeScale,
+			SerializableColor strokeColor,
+			Scale strokeWidthScale,
+			SerializableColor fillColor,
+			Orientation orientation,
+			PointMapper mapper
+		) => @this.DrawPolygonToCell(
+			cell,
+			6,
+			sizeScale,
+			strokeWidthScale,
+			strokeColor,
+			fillColor,
+			mapper,
+			orientation switch
+			{
+				Orientation.Horizontal => 30,
+				Orientation.Vertical => 0,
+				_ => throw new ArgumentOutOfRangeException(nameof(orientation))
+			}
+		);
 	}
 }
 

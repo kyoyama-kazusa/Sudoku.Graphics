@@ -10,6 +10,7 @@ using System;
 using System.IO;
 using System.Linq;
 using SkiaSharp;
+using Sudoku.ComponentModel;
 using Sudoku.ComponentModel.Arrows;
 using Sudoku.ComponentModel.Templates;
 using Sudoku.Graphics;
@@ -42,13 +43,14 @@ canvas.DrawItems(
 		new TemplateLineStrokeItem(),
 		..
 		from cell in SpanEnumerable.Range(0, 81)
-		select new CellDiamondMarkItem
+		select new CellHexagonMarkItem
 		{
 			Cell = cell,
 			TemplateIndex = 0,
 			SizeScale = .75M,
 			StrokeColor = SKColors.Gray,
-			StrokeWidthScale = options.ThickLineWidth.Resolve(options),
+			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
+			Orientation = rng.NextDouble() > .5 ? Orientation.Horizontal : Orientation.Vertical,
 			FillColor = SKColors.White
 		},
 	]

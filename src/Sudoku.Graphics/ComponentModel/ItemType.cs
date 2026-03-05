@@ -149,6 +149,11 @@ public enum ItemType
 	/// Indicates cell diamond mark.
 	/// </summary>
 	CellMark_Diamond,
+
+	/// <summary>
+	/// Indicates cell hexagon mark.
+	/// </summary>
+	CellMark_Hexagon,
 	#endregion
 
 	//
