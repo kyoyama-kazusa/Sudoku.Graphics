@@ -35,7 +35,6 @@ using var canvas = new Canvas(
 	}
 );
 
-var directions = Enum.GetValues<Direction8>()[1..];
 var rng = Random.Shared;
 canvas.DrawItems(
 	[
@@ -43,14 +42,19 @@ canvas.DrawItems(
 		new TemplateLineStrokeItem(),
 		..
 		from cell in SpanEnumerable.Range(0, 81)
-		select new CellComparisonOperatorTextMarkItem
+		select new CellSevenSegmentDisplayMarkItem
 		{
 			Cell = cell,
 			TemplateIndex = 0,
-			Operator = ComparisonOperator.GreaterThan,
-			TextFontName = "Arial",
-			Direction = directions[rng.Next(0, directions.Length)],
+			Value = rng.Next(0, 10),
+			ShowPhantomSegments = true,
 			SizeScale = .75M,
+			SegmentRectWidthScale = .28M,
+			SegmentRectHeightScale = .1M,
+			TextFontName = "Arial",
+			StrokeColor = SKColors.DimGray,
+			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
+			PhantomStrokeWidthScale = (decimal)options.ThinLineWidth.Resolve(options) / 6,
 			FillColor = SKColors.DimGray
 		},
 	]

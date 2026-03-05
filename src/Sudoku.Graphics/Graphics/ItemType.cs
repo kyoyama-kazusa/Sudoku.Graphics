@@ -184,6 +184,11 @@ public enum ItemType
 	/// Indicates cell battenburg mark.
 	/// </summary>
 	CellMark_Battenburg,
+
+	/// <summary>
+	/// Indicates cell seven segment display mark.
+	/// </summary>
+	CellMark_SevenSegmentDisplay,
 	#endregion
 
 	//

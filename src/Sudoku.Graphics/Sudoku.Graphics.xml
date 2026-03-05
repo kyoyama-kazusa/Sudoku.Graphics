@@ -1469,6 +1469,32 @@
         <member name="M:Sudoku.ComponentModel.SerializableColorSet.Slice(System.Int32,System.Int32)">
             <inheritdoc cref="M:System.Collections.Generic.List`1.Slice(System.Int32,System.Int32)"/>
         </member>
+        <member name="T:Sudoku.ComponentModel.SevenSegmentsDisplay.LedStatesTable">
+            <summary>
+            Represents LED seven-segment display table.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.SevenSegmentsDisplay.LedStatesTable.Value">
+            <summary>
+            Provides a table of light-up segments in LED display.
+            </summary>
+            <remarks>
+            Order:
+            <code><![CDATA[
+                   [0]
+                 -------
+                |       |
+            [1] |       | [2]
+                |  [3]  |
+                 -------
+                |       |
+            [4] |       | [5]
+                |       |
+                 -------
+                   [6]
+            ]]></code>
+            </remarks>
+        </member>
         <member name="T:Sudoku.ComponentModel.Suits.Suit">
             <summary>
             Represents a suit.
@@ -3467,6 +3493,45 @@
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellQuestionMarkItem.EqualityContract">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.CellSevenSegmentDisplayMarkItem">
+            <summary>
+            Represents a cell seven-segment display mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellSevenSegmentDisplayMarkItem.ShowPhantomSegments">
+            <summary>
+            Indicates whether phantom segments (segments not shown in specified value) are also shown, but not filled.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellSevenSegmentDisplayMarkItem.Value">
+            <summary>
+            Indicates the value.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellSevenSegmentDisplayMarkItem.SegmentRectWidthScale">
+            <summary>
+            Indicates the scale of width of segment rectangles, related to cell size.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellSevenSegmentDisplayMarkItem.SegmentRectHeightScale">
+            <summary>
+            Indicates the scale of height of segment rectangles, related to cell size.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellSevenSegmentDisplayMarkItem.PhantomStrokeWidthScale">
+            <summary>
+            Indicates scale of stroke width of phantom segments, related to cell size.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellSevenSegmentDisplayMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellSevenSegmentDisplayMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellMarks.CellSevenSegmentDisplayMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.Items.CellMarks.CellSquareMarkItem">
             <summary>
             Represents a cell square mark item.
@@ -3983,6 +4048,11 @@
             Indicates cell battenburg mark.
             </summary>
         </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellMark_SevenSegmentDisplay">
+            <summary>
+            Indicates cell seven segment display mark.
+            </summary>
+        </member>
         <member name="F:Sudoku.Graphics.ItemType.TemplateLineStroke">
             <summary>
             Indicates template line strokes.
@@ -4205,6 +4275,9 @@
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawConcavePolygonToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,System.Single)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawConcavePolygonToCell(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,System.Single)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawSevenSegmentsDisplayToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,System.Int32,System.Boolean,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawSevenSegmentsDisplayToCell(Sudoku.ComponentModel.Absolute,System.Int32,System.Boolean,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawSquareToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawSquareToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
@@ -4431,6 +4504,22 @@
             <param name="rotationDegrees">The initial rotation degrees, in angle.</param>
             <exception cref="T:System.ArgumentException">Throws when the number of sides is invalid (below 3).</exception>
             <exception cref="T:System.InvalidOperationException">Throws when the number of sides is too large (above 16).</exception>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawSevenSegmentsDisplayToCell(Sudoku.ComponentModel.Absolute,System.Int32,System.Boolean,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Draws seven-segment display into the specified cell.
+            </summary>
+            <param name="cell">The cell.</param>
+            <param name="value">The value.</param>
+            <param name="showPhantomSegments">Indicates whether phantom segments will also be shown.</param>
+            <param name="sizeScale">The scale of size, related to cell size.</param>
+            <param name="strokeWidthScale">The scale of stroke width, related to cell size.</param>
+            <param name="strokeColor">The stroke color.</param>
+            <param name="fillColor">The fill color.</param>
+            <param name="segmentRectWidthScale">The scale of width of every segment.</param>
+            <param name="segmentRectHeightScale">The scale of height of every segment.</param>
+            <param name="phantomStrokeWidthScale">The scale of phantom stroke width.</param>
+            <param name="mapper">The mapper instance.</param>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawSquareToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
             <summary>

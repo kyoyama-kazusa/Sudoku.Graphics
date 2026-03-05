@@ -24,6 +24,7 @@
 [JsonDerivedType(typeof(CellMoonPhaseMarkItem), nameof(CellMoonPhaseMarkItem))]
 [JsonDerivedType(typeof(CellPolygonMarkItem), nameof(CellPolygonMarkItem))]
 [JsonDerivedType(typeof(CellQuestionMarkItem), nameof(CellQuestionMarkItem))]
+[JsonDerivedType(typeof(CellSevenSegmentDisplayMarkItem), nameof(CellSevenSegmentDisplayMarkItem))]
 [JsonDerivedType(typeof(CellSquareMarkItem), nameof(CellSquareMarkItem))]
 [JsonDerivedType(typeof(CellSuitMarkItem), nameof(CellSuitMarkItem))]
 [JsonDerivedType(typeof(CellSurroundingTrianglesMarkItem), nameof(CellSurroundingTrianglesMarkItem))]
