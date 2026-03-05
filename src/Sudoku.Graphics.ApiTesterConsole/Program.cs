@@ -42,14 +42,14 @@ canvas.DrawItems(
 		new TemplateLineStrokeItem(),
 		..
 		from cell in SpanEnumerable.Range(0, 81)
-		select new CellHalveLineMarkItem
+		select new CellDiamondMarkItem
 		{
 			Cell = cell,
-			Direction = directions[rng.Next(1, directions.Length)],
 			TemplateIndex = 0,
 			SizeScale = .75M,
 			StrokeColor = SKColors.Gray,
-			StrokeWidthScale = options.ThickLineWidth.Resolve(options)
+			StrokeWidthScale = options.ThickLineWidth.Resolve(options),
+			FillColor = SKColors.White
 		},
 	]
 );

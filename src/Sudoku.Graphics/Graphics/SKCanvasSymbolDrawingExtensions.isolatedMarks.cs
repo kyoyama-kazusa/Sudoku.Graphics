@@ -701,6 +701,48 @@ public partial class SKCanvasSymbolDrawingExtensions
 				@this.DrawLine(start, end, strokePaint);
 			}
 		}
+
+		public void DrawDiamondToCell(
+			Absolute cell,
+			Scale sizeScale,
+			SKColor strokeColor,
+			Scale strokeWidthScale,
+			SKColor fillColor,
+			PointMapper mapper
+		)
+		{
+			var cellSize = mapper.CellSize;
+			var lineContainingBoxSize = sizeScale.Measure(cellSize);
+			var halfPadding = (cellSize - lineContainingBoxSize) / 2;
+			var topLeft = mapper.GetPoint(cell, Alignment.TopLeft) + new SKPoint(+halfPadding, +halfPadding);
+			var topRight = mapper.GetPoint(cell, Alignment.TopRight) + new SKPoint(-halfPadding, +halfPadding);
+			var bottomLeft = mapper.GetPoint(cell, Alignment.BottomLeft) + new SKPoint(+halfPadding, -halfPadding);
+			var top = topLeft + new SKPoint(lineContainingBoxSize / 2, 0);
+			var bottom = bottomLeft + new SKPoint(lineContainingBoxSize / 2, 0);
+			var left = topLeft + new SKPoint(0, lineContainingBoxSize / 2);
+			var right = topRight + new SKPoint(0, lineContainingBoxSize / 2);
+			using var path = new SKPath();
+			path.MoveTo(top);
+			path.LineTo(left);
+			path.LineTo(bottom);
+			path.LineTo(right);
+			path.Close();
+
+			var strokeWidth = strokeWidthScale.Measure(cellSize);
+			if (strokeWidth != 0 && strokeColor.Alpha != 0)
+			{
+				using var strokePaint = new SKPaint
+				{
+					Style = SKPaintStyle.Stroke,
+					Color = strokeColor,
+					StrokeWidth = strokeWidth,
+					IsAntialias = true
+				};
+				using var fillPaint = new SKPaint { Style = SKPaintStyle.Fill, Color = fillColor, IsAntialias = true };
+				@this.DrawPath(path, fillPaint);
+				@this.DrawPath(path, strokePaint);
+			}
+		}
 	}
 }
 

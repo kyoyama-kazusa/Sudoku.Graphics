@@ -144,6 +144,11 @@ public enum ItemType
 	/// Indicates cell halve line mark.
 	/// </summary>
 	CellMark_HalveLine,
+
+	/// <summary>
+	/// Indicates cell diamond mark.
+	/// </summary>
+	CellMark_Diamond,
 	#endregion
 
 	//

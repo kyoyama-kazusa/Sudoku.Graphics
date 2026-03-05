@@ -1139,6 +1139,11 @@
             Indicates cell halve line mark.
             </summary>
         </member>
+        <member name="F:Sudoku.ComponentModel.ItemType.CellMark_Diamond">
+            <summary>
+            Indicates cell diamond mark.
+            </summary>
+        </member>
         <member name="F:Sudoku.ComponentModel.ItemType.TemplateLineStroke">
             <summary>
             Indicates template line strokes.
@@ -3607,6 +3612,20 @@
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Items.CellMarks.CellCrossMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Items.CellMarks.CellDiamondMarkItem">
+            <summary>
+            Provides cell diamond mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Items.CellMarks.CellDiamondMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Items.CellMarks.CellDiamondMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Items.CellMarks.CellDiamondMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Items.CellMarks.CellDiceMarkItem">

@@ -13,6 +13,7 @@
 [JsonDerivedType(typeof(CellArrowTriangleMarkItem), nameof(CellArrowTriangleMarkItem))]
 [JsonDerivedType(typeof(CellCircleMarkItem), nameof(CellCircleMarkItem))]
 [JsonDerivedType(typeof(CellCrossMarkItem), nameof(CellCrossMarkItem))]
+[JsonDerivedType(typeof(CellDiamondMarkItem), nameof(CellDiamondMarkItem))]
 [JsonDerivedType(typeof(CellDiceMarkItem), nameof(CellDiceMarkItem))]
 [JsonDerivedType(typeof(CellEmojiMarkItem), nameof(CellEmojiMarkItem))]
 [JsonDerivedType(typeof(CellExclamationMarkItem), nameof(CellExclamationMarkItem))]
