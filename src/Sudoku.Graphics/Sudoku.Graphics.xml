@@ -3203,6 +3203,35 @@
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellArrowTriangleMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.CellBattenburgMarkItem">
+            <summary>
+            Represents a cell battenburg mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellBattenburgMarkItem.Color1">
+            <summary>
+            Indicates the color 1.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellBattenburgMarkItem.Color2">
+            <summary>
+            Indicates the color 2.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellBattenburgMarkItem.UniformCornerRadius">
+            <summary>
+            Indicates uniform corner radius.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellBattenburgMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellBattenburgMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellMarks.CellBattenburgMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.Items.CellMarks.CellBitwiseOperatorTextMarkItem">
             <summary>
             Represents a bitwise operator text mark item.
@@ -3943,6 +3972,11 @@
             Indicates comparison operator text mark.
             </summary>
         </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellMark_Battenburg">
+            <summary>
+            Indicates cell battenburg mark.
+            </summary>
+        </member>
         <member name="F:Sudoku.Graphics.ItemType.TemplateLineStroke">
             <summary>
             Indicates template line strokes.
@@ -4139,6 +4173,9 @@
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawArrowTriangleToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowTriangleToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawBattenburgToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale[],Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBattenburgToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale[],Sudoku.Graphics.PointMapper)"/>
+        </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawCircleToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCircleToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
@@ -4269,6 +4306,12 @@
             <param name="strokeColor">The stroke color.</param>
             <param name="fillColor">The fill color.</param>
             <param name="mapper">The mapper instance.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBattenburgToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale[],Sudoku.Graphics.PointMapper)">
+            <summary>
+            在单元格 (x,y)（边长 cellSize）中心绘制一个 2x2 的 battenburg 图标。
+            cornerRatios: 长度 4，顺序为 top-left, top-right, bottom-right, bottom-left（每个 0..1）。
+            </summary>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCircleToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <summary>

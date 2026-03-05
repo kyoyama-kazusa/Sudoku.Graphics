@@ -179,6 +179,11 @@ public enum ItemType
 	/// Indicates comparison operator text mark.
 	/// </summary>
 	CellMark_ComparisonOperator,
+
+	/// <summary>
+	/// Indicates cell battenburg mark.
+	/// </summary>
+	CellMark_Battenburg,
 	#endregion
 
 	//

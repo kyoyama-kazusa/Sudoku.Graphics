@@ -34,46 +34,23 @@ using var canvas = new Canvas(
 	}
 );
 
-var operators1 = Enum.GetValues<ArithmeticOperator>()[1..];
-var operators2 = Enum.GetValues<BitwiseOperator>()[1..];
-var operators3 = Enum.GetValues<ComparisonOperator>()[1..];
 var rng = Random.Shared;
 canvas.DrawItems(
 	[
 		new BackgroundFillItem { Color = options.BackgroundColor.Resolve(options) },
 		new TemplateLineStrokeItem(),
 		..
-		from cell in SpanEnumerable.Range(0, 81)
-		select rng.NextDouble() switch
+		from cell in SpanEnumerable.Range(0, 3)
+		select new CellBattenburgMarkItem
 		{
-			< .33 => new CellArithmeticOperatorTextMarkItem
-			{
-				Cell = cell,
-				Operator = operators1[rng.Next(0, operators1.Length)],
-				TemplateIndex = 0,
-				TextFontName = "Times New Roman",
-				FillColor = SKColors.Gray,
-				SizeScale = .75M
-			},
-			< .66 => new CellBitwiseOperatorTextMarkItem
-			{
-				Cell = cell,
-				Operator = operators2[rng.Next(0, operators2.Length)],
-				TemplateIndex = 0,
-				TextFontName = "Times New Roman",
-				FillColor = SKColors.Gray,
-				SizeScale = .75M
-			},
-			<= 1 => new CellComparisonOperatorTextMarkItem
-			{
-				Cell = cell,
-				Operator = operators3[rng.Next(0, operators3.Length)],
-				TemplateIndex = 0,
-				TextFontName = "Times New Roman",
-				FillColor = SKColors.Gray,
-				SizeScale = .75M
-			},
-			_ => default(CellTextMarkItem)
+			Cell = cell,
+			TemplateIndex = 0,
+			Color1 = SKColors.Pink.WithAlpha(192),
+			Color2 = SKColors.Yellow.WithAlpha(192),
+			SizeScale = .5M,
+			UniformCornerRadius = .2M,
+			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
+			StrokeColor = SKColors.DimGray
 		},
 	]
 );

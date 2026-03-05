@@ -9,6 +9,7 @@
 [JsonDerivedType(typeof(CellArrowMarkItem), nameof(CellArrowMarkItem))]
 [JsonDerivedType(typeof(CellArrowTextMarkItem), nameof(CellArrowTextMarkItem))]
 [JsonDerivedType(typeof(CellArrowTriangleMarkItem), nameof(CellArrowTriangleMarkItem))]
+[JsonDerivedType(typeof(CellBattenburgMarkItem), nameof(CellBattenburgMarkItem))]
 [JsonDerivedType(typeof(CellBitwiseOperatorTextMarkItem), nameof(CellBitwiseOperatorTextMarkItem))]
 [JsonDerivedType(typeof(CellCircleMarkItem), nameof(CellCircleMarkItem))]
 [JsonDerivedType(typeof(CellComparisonOperatorTextMarkItem), nameof(CellComparisonOperatorTextMarkItem))]
