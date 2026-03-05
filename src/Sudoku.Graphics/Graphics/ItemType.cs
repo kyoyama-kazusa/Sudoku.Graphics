@@ -164,6 +164,21 @@ public enum ItemType
 	/// Indicates cell arrow text mark.
 	/// </summary>
 	CellMark_ArrowText,
+
+	/// <summary>
+	/// Indicates arithmetic operator text mark.
+	/// </summary>
+	CellMark_ArithmeticOperator,
+
+	/// <summary>
+	/// Indicates bitwise operator text mark.
+	/// </summary>
+	CellMark_BitwiseOperator,
+
+	/// <summary>
+	/// Indicates comparison operator text mark.
+	/// </summary>
+	CellMark_ComparisonOperator,
 	#endregion
 
 	//

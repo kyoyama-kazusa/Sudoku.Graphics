@@ -807,6 +807,183 @@
             <param name="absoluteCellIndices">Absolute cell indices.</param>
             <returns>The result dictionary of light-up segments.</returns>
         </member>
+        <member name="T:Sudoku.ComponentModel.Maths.ArithmeticOperator">
+            <summary>
+            Represents an arithmetic operator.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Maths.ArithmeticOperator.None">
+            <summary>
+            Represents placeholder of this type.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Maths.ArithmeticOperator.Add">
+            <summary>
+            Indicates add operator (+).
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Maths.ArithmeticOperator.Subtract">
+            <summary>
+            Indicates subtract operator (-).
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Maths.ArithmeticOperator.Multiply_Cross">
+            <summary>
+            Indicates multiply operator (&#215;).
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Maths.ArithmeticOperator.Multiply_Dot">
+            <summary>
+            Indicates multiply operator (&#183;).
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Maths.ArithmeticOperator.Multiply_Asterisk">
+            <summary>
+            Indicates multiply operator (*).
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Maths.ArithmeticOperator.Division_DivisionSign">
+            <summary>
+            Indicates division operator (&#247;).
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Maths.ArithmeticOperator.Division_Slash">
+            <summary>
+            Indicates division operator (/).
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Maths.ArithmeticOperator.Division_Ratio">
+            <summary>
+            Indicates division operator (:).
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Maths.ArithmeticOperator.Modulo">
+            <summary>
+            Indicates modulo operator (%).
+            </summary>
+        </member>
+        <member name="T:Sudoku.ComponentModel.Maths.BitwiseOperator">
+            <summary>
+            Represents bitwise operator.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Maths.BitwiseOperator.None">
+            <summary>
+            Indicates placeholder.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Maths.BitwiseOperator.And">
+            <summary>
+            Indicates and operator (&amp;).
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Maths.BitwiseOperator.Or">
+            <summary>
+            Indicates or operator (|).
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Maths.BitwiseOperator.Not">
+            <summary>
+            Indicates not operator (~).
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Maths.BitwiseOperator.ExclusiveOr">
+            <summary>
+            Indicates exclusive or operator (^).
+            </summary>
+        </member>
+        <member name="T:Sudoku.ComponentModel.Maths.ComparisonOperator">
+            <summary>
+            Represents an operator that will be used in comparison.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Maths.ComparisonOperator.None">
+            <summary>
+            Represents placeholder of this type.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Maths.ComparisonOperator.Equals">
+            <summary>
+            Indicates equals operator (==).
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Maths.ComparisonOperator.Inequals">
+            <summary>
+            Indicates inequals operator (!=, &lt;&gt;).
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Maths.ComparisonOperator.GreaterThan">
+            <summary>
+            Indicates greater than operator (>).
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Maths.ComparisonOperator.GreaterThanOrEqual">
+            <summary>
+            Indicates greater than or equals operator (&gt;=).
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Maths.ComparisonOperator.LessThan">
+            <summary>
+            Indicates less than operator (&lt;).
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Maths.ComparisonOperator.LessThanOrEqual">
+            <summary>
+            Indicates less than or equals operator (&lt;=).
+            </summary>
+        </member>
+        <member name="T:Sudoku.ComponentModel.Maths.OperatorExtensions">
+            <summary>
+            Provides extension members on <see cref="T:Sudoku.ComponentModel.Maths.ArithmeticOperator"/>, <see cref="T:Sudoku.ComponentModel.Maths.BitwiseOperator"/>
+            and <see cref="T:Sudoku.ComponentModel.Maths.ComparisonOperator"/>.
+            </summary>
+            <seealso cref="T:Sudoku.ComponentModel.Maths.ArithmeticOperator"/>
+            <seealso cref="T:Sudoku.ComponentModel.Maths.BitwiseOperator"/>
+            <seealso cref="T:Sudoku.ComponentModel.Maths.ComparisonOperator"/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Maths.OperatorExtensions.get_Text``1(``0)">
+            <inheritdoc cref="P:Sudoku.ComponentModel.Maths.OperatorExtensions.&lt;G&gt;$F7BAB7F8979284A7204DC29891C39285`1.Text"/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Maths.OperatorExtensions.get_Text(Sudoku.ComponentModel.Maths.ArithmeticOperator)">
+            <inheritdoc cref="P:Sudoku.ComponentModel.Maths.OperatorExtensions.&lt;G&gt;$F634E77E6E510E35420061FF31771CEC.Text"/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Maths.OperatorExtensions.get_Text(Sudoku.ComponentModel.Maths.BitwiseOperator)">
+            <inheritdoc cref="P:Sudoku.ComponentModel.Maths.OperatorExtensions.&lt;G&gt;$8B58915707D260BCD65209C199A7C639.Text"/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Maths.OperatorExtensions.get_Text(Sudoku.ComponentModel.Maths.ComparisonOperator)">
+            <inheritdoc cref="P:Sudoku.ComponentModel.Maths.OperatorExtensions.&lt;G&gt;$9697A4287BCBFA7FF775579354F937A3.Text"/>
+        </member>
+        <member name="T:Sudoku.ComponentModel.Maths.OperatorExtensions.&lt;G&gt;$F7BAB7F8979284A7204DC29891C39285`1.&lt;M&gt;$818489F2DA80AA790B968867D0FDCD54">
+            <typeparam name="TOperatorEnum">The type of this enumeration field.</typeparam>
+            <param name="this">The current instance.</param>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Maths.OperatorExtensions.&lt;G&gt;$F7BAB7F8979284A7204DC29891C39285`1.Text">
+            <inheritdoc cref="P:Sudoku.ComponentModel.Maths.OperatorExtensions.&lt;G&gt;$F634E77E6E510E35420061FF31771CEC.Text"/>
+        </member>
+        <member name="T:Sudoku.ComponentModel.Maths.OperatorExtensions.&lt;G&gt;$F634E77E6E510E35420061FF31771CEC.&lt;M&gt;$3B3AE328430594741AE2AC298BC21BD8">
+            <param name="this">The current instance.</param>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Maths.OperatorExtensions.&lt;G&gt;$F634E77E6E510E35420061FF31771CEC.Text">
+            <summary>
+            Indicates text of this operator.
+            </summary>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Throws when <paramref name="this"/> is not defined, or equals <see langword="default"/> value
+            of this type (placeholder).
+            </exception>
+        </member>
+        <member name="T:Sudoku.ComponentModel.Maths.OperatorExtensions.&lt;G&gt;$8B58915707D260BCD65209C199A7C639.&lt;M&gt;$F6D7988931123CA85D8D90CE307D748E">
+            <param name="this">The current instance.</param>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Maths.OperatorExtensions.&lt;G&gt;$8B58915707D260BCD65209C199A7C639.Text">
+            <inheritdoc cref="P:Sudoku.ComponentModel.Maths.OperatorExtensions.&lt;G&gt;$F634E77E6E510E35420061FF31771CEC.Text"/>
+        </member>
+        <member name="T:Sudoku.ComponentModel.Maths.OperatorExtensions.&lt;G&gt;$9697A4287BCBFA7FF775579354F937A3.&lt;M&gt;$583FFD56CB6230175D13908A415E261B">
+            <param name="this">The current instance.</param>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Maths.OperatorExtensions.&lt;G&gt;$9697A4287BCBFA7FF775579354F937A3.Text">
+            <inheritdoc cref="P:Sudoku.ComponentModel.Maths.OperatorExtensions.&lt;G&gt;$F634E77E6E510E35420061FF31771CEC.Text"/>
+        </member>
         <member name="T:Sudoku.ComponentModel.Moons.MoonPhase">
             <summary>
             Represents a moon phase.
@@ -2933,6 +3110,17 @@
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellApexCornerTriangleMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.CellArithmeticOperatorTextMarkItem">
+            <summary>
+            Represents an arithmetic operator text mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellArithmeticOperatorTextMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellArithmeticOperatorTextMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.Items.CellMarks.CellArrowMarkItem">
             <summary>
             Represents a cell arrow mark item.
@@ -3015,6 +3203,17 @@
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellArrowTriangleMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.CellBitwiseOperatorTextMarkItem">
+            <summary>
+            Represents a bitwise operator text mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellBitwiseOperatorTextMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellBitwiseOperatorTextMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.Items.CellMarks.CellCircleMarkItem">
             <summary>
             Represents a cell circle mark item.
@@ -3027,6 +3226,17 @@
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellCircleMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.CellComparisonOperatorTextMarkItem">
+            <summary>
+            Represents a comparison operator text mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellComparisonOperatorTextMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellComparisonOperatorTextMarkItem.EqualityContract">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.Items.CellMarks.CellCrossMarkItem">
@@ -3145,6 +3355,20 @@
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellHexagonMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.CellMathSymbolTextMarkItem`1">
+            <summary>
+            Represents a text mark item in cell, for a math symbol.
+            </summary>
+            <typeparam name="TOperator">The type of operator symbol enumeration.</typeparam>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellMathSymbolTextMarkItem`1.Operator">
+            <summary>
+            Indicates the operator.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellMathSymbolTextMarkItem`1.PrintingText">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.Items.CellMarks.CellMoonPhaseMarkItem">
@@ -3702,6 +3926,21 @@
         <member name="F:Sudoku.Graphics.ItemType.CellMark_ArrowText">
             <summary>
             Indicates cell arrow text mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellMark_ArithmeticOperator">
+            <summary>
+            Indicates arithmetic operator text mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellMark_BitwiseOperator">
+            <summary>
+            Indicates bitwise operator text mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellMark_ComparisonOperator">
+            <summary>
+            Indicates comparison operator text mark.
             </summary>
         </member>
         <member name="F:Sudoku.Graphics.ItemType.TemplateLineStroke">

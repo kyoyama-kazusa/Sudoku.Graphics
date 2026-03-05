@@ -10,7 +10,7 @@ using System;
 using System.IO;
 using System.Linq;
 using SkiaSharp;
-using Sudoku.ComponentModel.Directions;
+using Sudoku.ComponentModel.Maths;
 using Sudoku.ComponentModel.Templates;
 using Sudoku.Graphics;
 using Sudoku.Graphics.Items;
@@ -34,7 +34,9 @@ using var canvas = new Canvas(
 	}
 );
 
-var directions = Enum.GetValues<Direction8>();
+var operators1 = Enum.GetValues<ArithmeticOperator>()[1..];
+var operators2 = Enum.GetValues<BitwiseOperator>()[1..];
+var operators3 = Enum.GetValues<ComparisonOperator>()[1..];
 var rng = Random.Shared;
 canvas.DrawItems(
 	[
@@ -42,20 +44,40 @@ canvas.DrawItems(
 		new TemplateLineStrokeItem(),
 		..
 		from cell in SpanEnumerable.Range(0, 81)
-		select new CellArrowTextMarkItem
+		select rng.NextDouble() switch
 		{
-			Cell = cell,
-			Direction = directions[rng.Next(1, directions.Length)],
-			TemplateIndex = 0,
-			TextFontName = "JetBrains Mono",
-			FillColor = SKColors.Gray,
-			SizeScale = .8M
+			< .33 => new CellArithmeticOperatorTextMarkItem
+			{
+				Cell = cell,
+				Operator = operators1[rng.Next(0, operators1.Length)],
+				TemplateIndex = 0,
+				TextFontName = "Times New Roman",
+				FillColor = SKColors.Gray,
+				SizeScale = .75M
+			},
+			< .66 => new CellBitwiseOperatorTextMarkItem
+			{
+				Cell = cell,
+				Operator = operators2[rng.Next(0, operators2.Length)],
+				TemplateIndex = 0,
+				TextFontName = "Times New Roman",
+				FillColor = SKColors.Gray,
+				SizeScale = .75M
+			},
+			<= 1 => new CellComparisonOperatorTextMarkItem
+			{
+				Cell = cell,
+				Operator = operators3[rng.Next(0, operators3.Length)],
+				TemplateIndex = 0,
+				TextFontName = "Times New Roman",
+				FillColor = SKColors.Gray,
+				SizeScale = .75M
+			},
+			_ => default(CellTextMarkItem)
 		},
 	]
 );
 canvas.Export(Path.Combine(desktop, "output.png"), new() { Quality = 100 });
-
-//canvas.Options.WriteTo(Path.Combine(Environment.DesktopPath, "drawing-config.json"), Options);
 Console.WriteLine("Okay.");
 
 
@@ -64,18 +86,6 @@ Console.WriteLine("Okay.");
 /// </summary>
 file static partial class Program
 {
-	///// <summary>
-	///// Represents options.
-	///// </summary>
-	//private static readonly JsonSerializerOptions Options = new()
-	//{
-	//	WriteIndented = true,
-	//	IndentCharacter = ' ',
-	//	IndentSize = 2,
-	//	IgnoreReadOnlyProperties = true
-	//};
-
-
 	extension(Environment)
 	{
 		/// <summary>

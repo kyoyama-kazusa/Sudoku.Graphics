@@ -4,36 +4,7 @@
 /// Represents an item to be drawn. The item can be anything the canvas can draw - cell background, canvas background,
 /// candidate highlight, grid lines, and other basic items to draw.
 /// </summary>
-[JsonPolymorphic(UnknownDerivedTypeHandling = JsonUnknownDerivedTypeHandling.FailSerialization)]
-[JsonDerivedType(typeof(BackgroundFillItem), nameof(BackgroundFillItem))]
-[JsonDerivedType(typeof(CandidateFillItem), nameof(CandidateFillItem))]
-[JsonDerivedType(typeof(CandidateTextItem), nameof(CandidateTextItem))]
-[JsonDerivedType(typeof(CellApexCornerTriangleMarkItem), nameof(CellApexCornerTriangleMarkItem))]
-[JsonDerivedType(typeof(CellArrowMarkItem), nameof(CellArrowMarkItem))]
-[JsonDerivedType(typeof(CellArrowTextMarkItem), nameof(CellArrowTextMarkItem))]
-[JsonDerivedType(typeof(CellArrowTriangleMarkItem), nameof(CellArrowTriangleMarkItem))]
-[JsonDerivedType(typeof(CellCircleMarkItem), nameof(CellCircleMarkItem))]
-[JsonDerivedType(typeof(CellCrossMarkItem), nameof(CellCrossMarkItem))]
-[JsonDerivedType(typeof(CellDiamondMarkItem), nameof(CellDiamondMarkItem))]
-[JsonDerivedType(typeof(CellDiceMarkItem), nameof(CellDiceMarkItem))]
-[JsonDerivedType(typeof(CellEmojiMarkItem), nameof(CellEmojiMarkItem))]
-[JsonDerivedType(typeof(CellExclamationMarkItem), nameof(CellExclamationMarkItem))]
-[JsonDerivedType(typeof(CellFillItem), nameof(CellFillItem))]
-[JsonDerivedType(typeof(CellHalveLineMarkItem), nameof(CellHalveLineMarkItem))]
-[JsonDerivedType(typeof(CellHexagonMarkItem), nameof(CellHexagonMarkItem))]
-[JsonDerivedType(typeof(CellMoonPhaseMarkItem), nameof(CellMoonPhaseMarkItem))]
-[JsonDerivedType(typeof(CellPolygonMarkItem), nameof(CellPolygonMarkItem))]
-[JsonDerivedType(typeof(CellQuestionMarkItem), nameof(CellQuestionMarkItem))]
-[JsonDerivedType(typeof(CellSquareMarkItem), nameof(CellSquareMarkItem))]
-[JsonDerivedType(typeof(CellSuitMarkItem), nameof(CellSuitMarkItem))]
-[JsonDerivedType(typeof(CellSurroundingTrianglesMarkItem), nameof(CellSurroundingTrianglesMarkItem))]
-[JsonDerivedType(typeof(CellTetrisMarkItem), nameof(CellTetrisMarkItem))]
-[JsonDerivedType(typeof(CellTriangleMarkItem), nameof(CellTriangleMarkItem))]
-[JsonDerivedType(typeof(CellZodiacEmojiMarkItem), nameof(CellZodiacEmojiMarkItem))]
-[JsonDerivedType(typeof(GivenTextItem), nameof(GivenTextItem))]
-[JsonDerivedType(typeof(ModifiableTextItem), nameof(ModifiableTextItem))]
-[JsonDerivedType(typeof(TemplateLineStrokeItem), nameof(TemplateLineStrokeItem))]
-public abstract class Item : IEquatable<Item>, IEqualityOperators<Item, Item, bool>
+public abstract partial class Item : IEquatable<Item>, IEqualityOperators<Item, Item, bool>
 {
 	/// <summary>
 	/// Indicates the type of item.

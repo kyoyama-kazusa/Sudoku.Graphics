@@ -1,0 +1,13 @@
+﻿namespace Sudoku.Graphics.Items.CellMarks;
+
+/// <summary>
+/// Represents a bitwise operator text mark item.
+/// </summary>
+public sealed class CellBitwiseOperatorTextMarkItem : CellMathSymbolTextMarkItem<BitwiseOperator>
+{
+	/// <inheritdoc/>
+	public override ItemType Type => ItemType.CellMark_BitwiseOperator;
+
+	/// <inheritdoc/>
+	protected override Type EqualityContract => typeof(CellBitwiseOperatorTextMarkItem);
+}
