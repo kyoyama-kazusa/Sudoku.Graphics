@@ -30,17 +30,17 @@ public partial class SKCanvasDrawings
 
 			if (cornerRadiiScale.Length != 4)
 			{
-				throw new ArgumentException("cornerRatios must be null or an array of length 4 (tl,tr,br,bl).");
+				throw new ArgumentException("Expects an array of length 4.", nameof(cornerRadiiScale));
 			}
 
 			var cellSize = mapper.CellSize;
 			var (x, y) = mapper.GetPoint(cell, Alignment.TopLeft);
-			var iconSize = sizeScale.Measure(cellSize);
-			var offset = (cellSize - iconSize) / 2;
-			var iconLeft = x + offset;
-			var iconTop = y + offset;
-			var small = iconSize / 2;
-			var cornerRadii = (stackalloc float[]
+			var size = sizeScale.Measure(cellSize);
+			var offset = (cellSize - size) / 2;
+			var left = x + offset;
+			var top = y + offset;
+			var small = size / 2;
+			var cornerRadii = (stackalloc[]
 			{
 				cornerRadiiScale[0].Measure(small),
 				cornerRadiiScale[1].Measure(small),
@@ -61,7 +61,7 @@ public partial class SKCanvasDrawings
 
 			// Top left
 			{
-				var rect = new SKRect(iconLeft, iconTop, iconLeft + small, iconTop + small);
+				var rect = new SKRect(left, top, left + small, top + small);
 				var rr = new SKRoundRect();
 				rr.SetRectRadii(rect, makeCornerRadii(cornerRadii[0], 0, 0, 0));
 				fillPaint.Color = colorA;
@@ -71,7 +71,7 @@ public partial class SKCanvasDrawings
 
 			// Top-right
 			{
-				var rect = new SKRect(iconLeft + small, iconTop, iconLeft + iconSize, iconTop + small);
+				var rect = new SKRect(left + small, top, left + size, top + small);
 				var rr = new SKRoundRect();
 				rr.SetRectRadii(rect, makeCornerRadii(0, cornerRadii[1], 0, 0));
 				fillPaint.Color = colorB;
@@ -81,7 +81,7 @@ public partial class SKCanvasDrawings
 
 			// Bottom-right
 			{
-				var rect = new SKRect(iconLeft + small, iconTop + small, iconLeft + iconSize, iconTop + iconSize);
+				var rect = new SKRect(left + small, top + small, left + size, top + size);
 				var rr = new SKRoundRect();
 				rr.SetRectRadii(rect, makeCornerRadii(0, 0, cornerRadii[2], 0));
 				fillPaint.Color = colorA;
@@ -91,7 +91,7 @@ public partial class SKCanvasDrawings
 
 			// Bottom-left
 			{
-				var rect = new SKRect(iconLeft, iconTop + small, iconLeft + small, iconTop + iconSize);
+				var rect = new SKRect(left, top + small, left + small, top + size);
 				var rr = new SKRoundRect();
 				rr.SetRectRadii(rect, makeCornerRadii(0, 0, 0, cornerRadii[3]));
 				fillPaint.Color = colorB;
