@@ -10,6 +10,27 @@ public static class Direction8Extensions
 	extension(Direction8 @this)
 	{
 		/// <summary>
+		/// Indicates arrow string of this direction pointing to.
+		/// </summary>
+		/// <exception cref="ArgumentOutOfRangeException">
+		/// Throws when <paramref name="this"/> is not defined or <see cref="Direction8.None"/>.
+		/// </exception>
+		/// <seealso cref="Direction8.None"/>
+		public string ArrowString
+			=> @this switch
+			{
+				Direction8.Up => "\u2191",
+				Direction8.Down => "\u2193",
+				Direction8.Left => "\u2190",
+				Direction8.Right => "\u2192",
+				Direction8.LeftUp => "\u2196",
+				Direction8.RightUp => "\u2197",
+				Direction8.LeftDown => "\u2199",
+				Direction8.RightDown => "\u2198",
+				_ => throw new ArgumentOutOfRangeException(nameof(@this))
+			};
+
+		/// <summary>
 		/// Indicates the degrees of the arrow direction, in angle.
 		/// </summary>
 		/// <exception cref="ArgumentOutOfRangeException">

@@ -159,6 +159,11 @@ public enum ItemType
 	/// Indicates cell triangle mark.
 	/// </summary>
 	CellMark_Triangle,
+
+	/// <summary>
+	/// Indicates cell arrow text mark.
+	/// </summary>
+	CellMark_ArrowText,
 	#endregion
 
 	//

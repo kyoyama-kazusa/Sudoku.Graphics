@@ -42,15 +42,14 @@ canvas.DrawItems(
 		new TemplateLineStrokeItem(),
 		..
 		from cell in SpanEnumerable.Range(0, 81)
-		select new CellTriangleMarkItem
+		select new CellArrowTextMarkItem
 		{
 			Cell = cell,
 			Direction = directions[rng.Next(1, directions.Length)],
 			TemplateIndex = 0,
-			SizeScale = .75M,
-			StrokeColor = SKColors.Gray,
-			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
-			FillColor = SKColors.LightGray
+			TextFontName = "JetBrains Mono",
+			FillColor = SKColors.Gray,
+			SizeScale = .8M
 		},
 	]
 );

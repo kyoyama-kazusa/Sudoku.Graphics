@@ -480,11 +480,23 @@
             </summary>
             <seealso cref="T:Sudoku.ComponentModel.Directions.Direction8"/>
         </member>
+        <member name="M:Sudoku.ComponentModel.Arrows.Direction8Extensions.get_ArrowString(Sudoku.ComponentModel.Directions.Direction8)">
+            <inheritdoc cref="P:Sudoku.ComponentModel.Arrows.Direction8Extensions.&lt;G&gt;$86875FD76E049402F61EE37C6818224B.ArrowString"/>
+        </member>
         <member name="M:Sudoku.ComponentModel.Arrows.Direction8Extensions.get_AngleDegrees(Sudoku.ComponentModel.Directions.Direction8)">
             <inheritdoc cref="P:Sudoku.ComponentModel.Arrows.Direction8Extensions.&lt;G&gt;$86875FD76E049402F61EE37C6818224B.AngleDegrees"/>
         </member>
         <member name="T:Sudoku.ComponentModel.Arrows.Direction8Extensions.&lt;G&gt;$86875FD76E049402F61EE37C6818224B.&lt;M&gt;$9691BE04B4AA63155CF318614E86F5A4">
             <param name="this">The current instance.</param>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Arrows.Direction8Extensions.&lt;G&gt;$86875FD76E049402F61EE37C6818224B.ArrowString">
+            <summary>
+            Indicates arrow string of this direction pointing to.
+            </summary>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Throws when <paramref name="this"/> is not defined or <see cref="F:Sudoku.ComponentModel.Directions.Direction8.None"/>.
+            </exception>
+            <seealso cref="F:Sudoku.ComponentModel.Directions.Direction8.None"/>
         </member>
         <member name="P:Sudoku.ComponentModel.Arrows.Direction8Extensions.&lt;G&gt;$86875FD76E049402F61EE37C6818224B.AngleDegrees">
             <summary>
@@ -2960,6 +2972,25 @@
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellArrowMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.CellArrowTextMarkItem">
+            <summary>
+            Represents cell arrow text mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellArrowTextMarkItem.Direction">
+            <summary>
+            Indicates the direction.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellArrowTextMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellArrowTextMarkItem.PrintingText">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellArrowTextMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.Items.CellMarks.CellArrowTriangleMarkItem">
             <summary>
             Represents a cell arrow triangle mark item.
@@ -3666,6 +3697,11 @@
         <member name="F:Sudoku.Graphics.ItemType.CellMark_Triangle">
             <summary>
             Indicates cell triangle mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellMark_ArrowText">
+            <summary>
+            Indicates cell arrow text mark.
             </summary>
         </member>
         <member name="F:Sudoku.Graphics.ItemType.TemplateLineStroke">
