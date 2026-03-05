@@ -17,9 +17,9 @@ public partial class SKCanvasSymbolDrawingExtensions
 		public void DrawSquareToCell(
 			Absolute cell,
 			Scale sizeScale,
-			SKColor strokeColor,
+			SerializableColor strokeColor,
 			Scale strokeWidthScale,
-			SKColor fillColor,
+			SerializableColor fillColor,
 			Scale cornerRadiusScale,
 			PointMapper mapper
 		)
@@ -92,9 +92,9 @@ public partial class SKCanvasSymbolDrawingExtensions
 		public void DrawCircleToCell(
 			Absolute cell,
 			Scale sizeScale,
-			SKColor strokeColor,
+			SerializableColor strokeColor,
 			Scale strokeWidthScale,
-			SKColor fillColor,
+			SerializableColor fillColor,
 			PointMapper mapper
 		)
 		{
@@ -146,7 +146,7 @@ public partial class SKCanvasSymbolDrawingExtensions
 			Absolute cell,
 			Scale sizeScale,
 			Scale strokeWidthScale,
-			SKColor color,
+			SerializableColor color,
 			PointMapper mapper,
 			SKStrokeCap cap = SKStrokeCap.Round
 		)
@@ -191,8 +191,8 @@ public partial class SKCanvasSymbolDrawingExtensions
 			int sidesCount,
 			Scale sizeScale,
 			Scale strokeWidthScale,
-			SKColor strokeColor,
-			SKColor fillColor,
+			SerializableColor strokeColor,
+			SerializableColor fillColor,
 			PointMapper mapper,
 			float rotationDegrees = 0
 		)
@@ -287,8 +287,8 @@ public partial class SKCanvasSymbolDrawingExtensions
 			Scale sizeScale,
 			Scale innerScale,
 			Scale strokeWidthScale,
-			SKColor strokeColor,
-			SKColor fillColor,
+			SerializableColor strokeColor,
+			SerializableColor fillColor,
 			PointMapper mapper,
 			float rotationDegrees = 0
 		)
@@ -387,8 +387,8 @@ public partial class SKCanvasSymbolDrawingExtensions
 			Absolute cell,
 			MoonPhase phase,
 			Scale strokeWidthScale,
-			SKColor strokeColor,
-			SKColor fillColor,
+			SerializableColor strokeColor,
+			SerializableColor fillColor,
 			Scale radiusScale,
 			PointMapper mapper
 		)
@@ -502,8 +502,8 @@ public partial class SKCanvasSymbolDrawingExtensions
 			Scale sizeScale,
 			Scale baseScale,
 			Scale strokeWidthScale,
-			SKColor strokeColor,
-			SKColor fillColor,
+			SerializableColor strokeColor,
+			SerializableColor fillColor,
 			PointMapper mapper
 		)
 		{
@@ -548,8 +548,8 @@ public partial class SKCanvasSymbolDrawingExtensions
 			Scale shaftWidthScale,
 			Scale shaftHeightScale,
 			Scale strokeWidthScale,
-			SKColor strokeColor,
-			SKColor fillColor,
+			SerializableColor strokeColor,
+			SerializableColor fillColor,
 			PointMapper mapper
 		)
 		{
@@ -600,9 +600,9 @@ public partial class SKCanvasSymbolDrawingExtensions
 			Alignment cornerAlignment,
 			Scale paddingScale,
 			Scale lengthScale,
-			SKColor strokeColor,
+			SerializableColor strokeColor,
 			Scale strokeWidthScale,
-			SKColor fillColor,
+			SerializableColor fillColor,
 			PointMapper mapper
 		)
 		{
@@ -663,7 +663,7 @@ public partial class SKCanvasSymbolDrawingExtensions
 			Absolute cell,
 			ArrowDirection direction,
 			Scale sizeScale,
-			SKColor strokeColor,
+			SerializableColor strokeColor,
 			Scale strokeWidthScale,
 			PointMapper mapper
 		)
@@ -702,12 +702,21 @@ public partial class SKCanvasSymbolDrawingExtensions
 			}
 		}
 
+		/// <summary>
+		/// Draws a diamond symbol into the specified cell.
+		/// </summary>
+		/// <param name="cell">The cell.</param>
+		/// <param name="sizeScale">The scale of size.</param>
+		/// <param name="strokeColor">The stroke color.</param>
+		/// <param name="strokeWidthScale">The stroke width scale.</param>
+		/// <param name="fillColor">The fill color.</param>
+		/// <param name="mapper">The mapper.</param>
 		public void DrawDiamondToCell(
 			Absolute cell,
 			Scale sizeScale,
-			SKColor strokeColor,
+			SerializableColor strokeColor,
 			Scale strokeWidthScale,
-			SKColor fillColor,
+			SerializableColor fillColor,
 			PointMapper mapper
 		)
 		{
