@@ -1,4 +1,4 @@
-﻿namespace Sudoku.ComponentModel;
+﻿namespace Sudoku.Graphics;
 
 /// <summary>
 /// Represents a type of item. The value of field represents ordering of the items of this type to draw.

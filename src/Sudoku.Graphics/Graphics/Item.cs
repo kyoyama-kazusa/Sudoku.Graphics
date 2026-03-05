@@ -1,4 +1,4 @@
-﻿namespace Sudoku.ComponentModel;
+﻿namespace Sudoku.Graphics;
 
 /// <summary>
 /// Represents an item to be drawn. The item can be anything the canvas can draw - cell background, canvas background,

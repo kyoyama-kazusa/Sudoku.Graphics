@@ -1,4 +1,4 @@
-﻿namespace Sudoku.ComponentModel;
+﻿namespace Sudoku.Graphics;
 
 /// <summary>
 /// Represents a set of <see cref="Item"/> instances.

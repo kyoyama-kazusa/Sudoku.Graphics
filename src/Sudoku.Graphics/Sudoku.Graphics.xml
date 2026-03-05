@@ -528,632 +528,6 @@
             </summary>
             <param name="value">The value.</param>
         </member>
-        <member name="T:Sudoku.ComponentModel.Item">
-            <summary>
-            Represents an item to be drawn. The item can be anything the canvas can draw - cell background, canvas background,
-            candidate highlight, grid lines, and other basic items to draw.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Item.Type">
-            <summary>
-            Indicates the type of item.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Item.EqualityContract">
-            <summary>
-            Gets the equality contract for this instance.
-            </summary>
-            <remarks>
-            <para>
-            The equality contract represents the runtime type identity used when evaluating value-based equality.
-            It allows derived types to participate in equality comparisons while preserving type consistency
-            across an inheritance hierarchy.
-            </para>
-            <para>
-            By default, this property returns the concrete runtime type of the current instance.
-            Derived types may override this property to customize how type identity is considered during equality comparisons.
-            </para>
-            <para>
-            This mechanism enables polymorphic equality semantics without relying directly on <see cref="M:System.Object.GetType"/>.
-            </para>
-            </remarks>
-            <seealso cref="M:System.Object.GetType"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Item.Equals(System.Object)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Item.Equals(Sudoku.ComponentModel.Item)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Item.GetHashCode">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Item.ToString">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Item.DrawTo(Sudoku.Graphics.Canvas)">
-            <summary>
-            Try to draw the current item onto the specified canvas.
-            </summary>
-            <param name="canvas">The canvas to draw.</param>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Item.PrintMembers(System.Text.StringBuilder)">
-            <summary>
-            Provides a way to concatenate string values, in order to write out string text to be shown.
-            </summary>
-            <param name="builder">The string builder instance.</param>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Item.op_Equality(Sudoku.ComponentModel.Item,Sudoku.ComponentModel.Item)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Item.op_Inequality(Sudoku.ComponentModel.Item,Sudoku.ComponentModel.Item)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.ComponentModel.ItemSet">
-            <summary>
-            Represents a set of <see cref="T:Sudoku.ComponentModel.Item"/> instances.
-            </summary>
-            <seealso cref="T:Sudoku.ComponentModel.Item"/>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ItemSet._itemsLookup">
-            <summary>
-            Indicates the backing lookup dictionary of items, grouped by ites layer priority property, ordered.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.ItemSet.Count">
-            <summary>
-            Indicates the number of items stored in this collection.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.ItemSet.System#Collections#Generic#ICollection{Sudoku#ComponentModel#Item}#IsReadOnly">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.ComponentModel.ItemSet.Empty">
-            <summary>
-            Creates a new <see cref="T:Sudoku.ComponentModel.ItemSet"/> instance.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.ItemSet.HashSetItemsComparer">
-            <summary>
-            Returns an <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> of <see cref="T:System.Collections.Generic.HashSet`1"/> of <see cref="T:Sudoku.ComponentModel.Item"/> instance
-            to be considered as equality comparison of items.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.ItemSet.Item(Sudoku.ComponentModel.ItemType)">
-            <summary>
-            Returns an instance of items filtered, with the specified item type.
-            If the target item type cannot be found in the collection, an empty sequence will be returned without throwing exceptions.
-            </summary>
-            <param name="type">The item type.</param>
-            <returns>The filtered items that supports iteration and viewing.</returns>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.ForEach(System.Action{Sudoku.ComponentModel.Item})">
-            <summary>
-            Performs an iteration of the current collection, applying the specified operation over each element.
-            </summary>
-            <param name="action">An action to be applied to all elements.</param>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.Clear">
-            <summary>
-            Clears the whole collection, removing all stored elements.
-            </summary>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.Clear(Sudoku.ComponentModel.ItemType)">
-            <summary>
-            Clears all elements of the specified item type.
-            </summary>
-            <param name="type">The item type to remove.</param>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.Equals(System.Object)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.Equals(Sudoku.ComponentModel.ItemSet)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.Add(Sudoku.ComponentModel.Item)">
-            <summary>
-            Adds a new item into the current collection.
-            </summary>
-            <param name="item">The item to add.</param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating whether the item is successfully added.</returns>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.Remove(Sudoku.ComponentModel.Item)">
-            <summary>
-            Removes an item from the current collection.
-            </summary>
-            <param name="item">The item to remove.</param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating whether the item is successfully removed.</returns>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.Contains(Sudoku.ComponentModel.Item)">
-            <summary>
-            Determines whether the specified item is stored in this collection, of value equality.
-            </summary>
-            <param name="item">The item to check.</param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating whether the item exists or not.</returns>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.GetHashCode">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.AddRange(System.ReadOnlySpan{Sudoku.ComponentModel.Item})">
-            <summary>
-            Adds a list of items into the current collection.
-            </summary>
-            <param name="items">A list of items to add.</param>
-            <returns>An <see cref="T:System.Int32"/> value indicating how many items are successfully added.</returns>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.AddRange``1(``0)">
-            <summary>
-            Adds a list of items into the current collection.
-            </summary>
-            <typeparam name="TEnumerable">The type of enumerable sequence of <see cref="T:Sudoku.ComponentModel.Item"/> instances.</typeparam>
-            <param name="items">A list of items to add.</param>
-            <returns>An <see cref="T:System.Int32"/> value indicating how many items are successfully added.</returns>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.GetEnumerator">
-            <inheritdoc cref="M:System.Collections.Generic.IEnumerable`1.GetEnumerator"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.EnumerateItemsOf(Sudoku.ComponentModel.ItemType)">
-            <summary>
-            Returns an enumerable object that can iterate on each item of the specified item type.
-            </summary>
-            <param name="type">The item type.</param>
-            <returns>An enumerator object.</returns>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.ToArray">
-            <summary>
-            Converts the current instance into an array, and return that array.
-            </summary>
-            <returns>The array instance.</returns>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.Clone">
-            <summary>
-            Creates a new <see cref="T:Sudoku.ComponentModel.ItemSet"/> instance, containing same values as the current instance, shallow-copied.
-            </summary>
-            <returns>A new <see cref="T:Sudoku.ComponentModel.ItemSet"/> instance.</returns>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.Flatten">
-            <summary>
-            Flattens the current collection into a read-only set.
-            </summary>
-            <returns>The read-only set flattened.</returns>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.System#Collections#Generic#ICollection{Sudoku#ComponentModel#Item}#Add(Sudoku.ComponentModel.Item)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.System#Collections#Generic#ICollection{Sudoku#ComponentModel#Item}#CopyTo(Sudoku.ComponentModel.Item[],System.Int32)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.System#Collections#Generic#ISet{Sudoku#ComponentModel#Item}#ExceptWith(System.Collections.Generic.IEnumerable{Sudoku.ComponentModel.Item})">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.System#Collections#Generic#ISet{Sudoku#ComponentModel#Item}#IntersectWith(System.Collections.Generic.IEnumerable{Sudoku.ComponentModel.Item})">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.System#ICloneable#Clone">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.System#Collections#Generic#IReadOnlySet{Sudoku#ComponentModel#Item}#SetEquals(System.Collections.Generic.IEnumerable{Sudoku.ComponentModel.Item})">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.System#Collections#Generic#IReadOnlySet{Sudoku#ComponentModel#Item}#IsProperSubsetOf(System.Collections.Generic.IEnumerable{Sudoku.ComponentModel.Item})">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.System#Collections#Generic#IReadOnlySet{Sudoku#ComponentModel#Item}#IsProperSupersetOf(System.Collections.Generic.IEnumerable{Sudoku.ComponentModel.Item})">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.System#Collections#Generic#IReadOnlySet{Sudoku#ComponentModel#Item}#IsSubsetOf(System.Collections.Generic.IEnumerable{Sudoku.ComponentModel.Item})">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.System#Collections#Generic#IReadOnlySet{Sudoku#ComponentModel#Item}#IsSupersetOf(System.Collections.Generic.IEnumerable{Sudoku.ComponentModel.Item})">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.System#Collections#Generic#IReadOnlySet{Sudoku#ComponentModel#Item}#Overlaps(System.Collections.Generic.IEnumerable{Sudoku.ComponentModel.Item})">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.System#Collections#Generic#ISet{Sudoku#ComponentModel#Item}#SetEquals(System.Collections.Generic.IEnumerable{Sudoku.ComponentModel.Item})">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.System#Collections#Generic#ISet{Sudoku#ComponentModel#Item}#IsProperSubsetOf(System.Collections.Generic.IEnumerable{Sudoku.ComponentModel.Item})">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.System#Collections#Generic#ISet{Sudoku#ComponentModel#Item}#IsProperSupersetOf(System.Collections.Generic.IEnumerable{Sudoku.ComponentModel.Item})">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.System#Collections#Generic#ISet{Sudoku#ComponentModel#Item}#IsSubsetOf(System.Collections.Generic.IEnumerable{Sudoku.ComponentModel.Item})">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.System#Collections#Generic#ISet{Sudoku#ComponentModel#Item}#IsSupersetOf(System.Collections.Generic.IEnumerable{Sudoku.ComponentModel.Item})">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.System#Collections#Generic#ISet{Sudoku#ComponentModel#Item}#Overlaps(System.Collections.Generic.IEnumerable{Sudoku.ComponentModel.Item})">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.System#Collections#Generic#ISet{Sudoku#ComponentModel#Item}#SymmetricExceptWith(System.Collections.Generic.IEnumerable{Sudoku.ComponentModel.Item})">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.System#Collections#Generic#ISet{Sudoku#ComponentModel#Item}#UnionWith(System.Collections.Generic.IEnumerable{Sudoku.ComponentModel.Item})">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.System#Collections#IEnumerable#GetEnumerator">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.System#Collections#Generic#IEnumerable{Sudoku#ComponentModel#Item}#GetEnumerator">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.op_SubtractionAssignment(Sudoku.ComponentModel.ItemSet)">
-            <summary>
-            Performs subtraction and reassigns the result into the current instance.
-            </summary>
-            <param name="items">The items to check.</param>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.op_BitwiseAndAssignment(Sudoku.ComponentModel.ItemSet)">
-            <summary>
-            Performs intersection and reassigns the result into the current instance.
-            </summary>
-            <param name="items">The items to check.</param>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.op_BitwiseOrAssignment(Sudoku.ComponentModel.ItemSet)">
-            <summary>
-            Performs union and reassigns the result into the current instance.
-            </summary>
-            <param name="items">The items to check.</param>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.op_ExclusiveOrAssignment(Sudoku.ComponentModel.ItemSet)">
-            <summary>
-            Performs symmetric except operation and reassigns the result into the current instance.
-            </summary>
-            <param name="items">The items to check.</param>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.op_Equality(Sudoku.ComponentModel.ItemSet,Sudoku.ComponentModel.ItemSet)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.op_Inequality(Sudoku.ComponentModel.ItemSet,Sudoku.ComponentModel.ItemSet)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.op_Subtraction(Sudoku.ComponentModel.ItemSet,Sudoku.ComponentModel.ItemSet)">
-            <summary>
-            Returns a list of <see cref="T:Sudoku.ComponentModel.Item"/> instances that are stored in <paramref name="left"/> but not in <paramref name="right"/>.
-            </summary>
-            <param name="left">The first instance.</param>
-            <param name="right">The second instance.</param>
-            <returns>The result.</returns>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.op_BitwiseAnd(Sudoku.ComponentModel.ItemSet,Sudoku.ComponentModel.ItemSet)">
-            <summary>
-            Returns a list of <see cref="T:Sudoku.ComponentModel.Item"/> instances that are both held by <paramref name="left"/> and <paramref name="right"/>.
-            </summary>
-            <param name="left">The first instance.</param>
-            <param name="right">The second instance.</param>
-            <returns>The result.</returns>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.op_BitwiseOr(Sudoku.ComponentModel.ItemSet,Sudoku.ComponentModel.ItemSet)">
-            <summary>
-            Returns a list of <see cref="T:Sudoku.ComponentModel.Item"/> instances that are
-            from both collections <paramref name="left"/> and <paramref name="right"/>.
-            </summary>
-            <param name="left">The first instance.</param>
-            <param name="right">The second instance.</param>
-            <returns>The result.</returns>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.op_ExclusiveOr(Sudoku.ComponentModel.ItemSet,Sudoku.ComponentModel.ItemSet)">
-            <summary>
-            Returns a list of <see cref="T:Sudoku.ComponentModel.Item"/> instances that are
-            only held by either collection <paramref name="left"/> or <paramref name="right"/>;
-            both contains are not included in result.
-            </summary>
-            <param name="left">The first instance.</param>
-            <param name="right">The second instance.</param>
-            <returns>The result.</returns>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.System#Numerics#IBitwiseOperators{Sudoku#ComponentModel#ItemSet,Sudoku#ComponentModel#ItemSet,Sudoku#ComponentModel#ItemSet}#op_OnesComplement(Sudoku.ComponentModel.ItemSet)">
-            <inheritdoc/>
-            <exception cref="T:System.NotSupportedException">
-            Always throws. The complement of <see cref="T:Sudoku.ComponentModel.Item"/> set is not well-defined.
-            </exception>
-        </member>
-        <member name="T:Sudoku.ComponentModel.ItemSet.Enumerator">
-            <summary>
-            Represents an enumerator type that iterates on each <see cref="T:Sudoku.ComponentModel.Item"/> instances, grouped and sorted by its key (item type).
-            </summary>
-            <param name="_items">The items.</param>
-            <seealso cref="T:Sudoku.ComponentModel.Item"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.Enumerator.#ctor(System.Collections.Generic.SortedDictionary{Sudoku.ComponentModel.ItemType,System.Collections.Generic.HashSet{Sudoku.ComponentModel.Item}})">
-            <summary>
-            Represents an enumerator type that iterates on each <see cref="T:Sudoku.ComponentModel.Item"/> instances, grouped and sorted by its key (item type).
-            </summary>
-            <param name="_items">The items.</param>
-            <seealso cref="T:Sudoku.ComponentModel.Item"/>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ItemSet.Enumerator._isStarted">
-            <summary>
-            Indicates whether the enumerator is started or not.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ItemSet.Enumerator._enumerator">
-            <summary>
-            Indicates the backing enumerator.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ItemSet.Enumerator._itemTypeEnumerator">
-            <summary>
-            The item type enumerator instance.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.ItemSet.Enumerator.CurrentItemType">
-            <summary>
-            Indicates the current item type to be iterated.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.ItemSet.Enumerator.Current">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.ComponentModel.ItemSet.Enumerator.System#Collections#IEnumerator#Current">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.Enumerator.GetEnumerator">
-            <inheritdoc cref="M:System.Collections.Generic.IEnumerable`1.GetEnumerator"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.Enumerator.MoveNext">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.Enumerator.System#Collections#IEnumerable#GetEnumerator">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.Enumerator.System#Collections#Generic#IEnumerable{Sudoku#ComponentModel#Item}#GetEnumerator">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.Enumerator.System#Collections#IEnumerator#Reset">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.Enumerator.System#IDisposable#Dispose">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.Enumerator.GetItemsFallback">
-            <summary>
-            Returns a <see cref="T:System.Collections.Generic.List`1"/> of <see cref="T:Sudoku.ComponentModel.Item"/> instances to be iterated.
-            </summary>
-            <returns>A <see cref="T:System.Collections.Generic.List`1"/> of <see cref="T:Sudoku.ComponentModel.Item"/> instances to be iterated.</returns>
-        </member>
-        <member name="T:Sudoku.ComponentModel.ItemSet.FilteredItems">
-            <summary>
-            Returns a subview under the specified item type.
-            </summary>
-            <param name="type">The type.</param>
-            <param name="_items">The items.</param>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.FilteredItems.#ctor(Sudoku.ComponentModel.ItemType,System.Collections.Generic.HashSet{Sudoku.ComponentModel.Item})">
-            <summary>
-            Returns a subview under the specified item type.
-            </summary>
-            <param name="type">The type.</param>
-            <param name="_items">The items.</param>
-        </member>
-        <member name="P:Sudoku.ComponentModel.ItemSet.FilteredItems.Count">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.ComponentModel.ItemSet.FilteredItems.ItemType">
-            <summary>
-            Indicates the target type.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.ItemSet.FilteredItems.Items">
-            <summary>
-            Indicates the items.
-            </summary>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.FilteredItems.GetEnumerator">
-            <inheritdoc cref="M:System.Collections.Generic.IEnumerable`1.GetEnumerator"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.FilteredItems.System#Collections#Generic#IReadOnlySet{Sudoku#ComponentModel#Item}#Contains(Sudoku.ComponentModel.Item)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.FilteredItems.System#Collections#Generic#IReadOnlySet{Sudoku#ComponentModel#Item}#IsProperSubsetOf(System.Collections.Generic.IEnumerable{Sudoku.ComponentModel.Item})">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.FilteredItems.System#Collections#Generic#IReadOnlySet{Sudoku#ComponentModel#Item}#IsProperSupersetOf(System.Collections.Generic.IEnumerable{Sudoku.ComponentModel.Item})">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.FilteredItems.System#Collections#Generic#IReadOnlySet{Sudoku#ComponentModel#Item}#IsSubsetOf(System.Collections.Generic.IEnumerable{Sudoku.ComponentModel.Item})">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.FilteredItems.System#Collections#Generic#IReadOnlySet{Sudoku#ComponentModel#Item}#IsSupersetOf(System.Collections.Generic.IEnumerable{Sudoku.ComponentModel.Item})">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.FilteredItems.System#Collections#Generic#IReadOnlySet{Sudoku#ComponentModel#Item}#Overlaps(System.Collections.Generic.IEnumerable{Sudoku.ComponentModel.Item})">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.FilteredItems.System#Collections#Generic#IReadOnlySet{Sudoku#ComponentModel#Item}#SetEquals(System.Collections.Generic.IEnumerable{Sudoku.ComponentModel.Item})">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.FilteredItems.System#Collections#IEnumerable#GetEnumerator">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.FilteredItems.System#Collections#Generic#IEnumerable{Sudoku#ComponentModel#Item}#GetEnumerator">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.ComponentModel.ItemSet.FilteredItemsEnumerator">
-            <summary>
-            Represents an enumerator object that can iterate items of the specified item type.
-            </summary>
-            <param name="_items">The items.</param>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.FilteredItemsEnumerator.#ctor(System.Collections.Generic.HashSet{Sudoku.ComponentModel.Item})">
-            <summary>
-            Represents an enumerator object that can iterate items of the specified item type.
-            </summary>
-            <param name="_items">The items.</param>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ItemSet.FilteredItemsEnumerator._enumerator">
-            <summary>
-            Indicates the backing enumerator.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.ItemSet.FilteredItemsEnumerator.Current">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.ComponentModel.ItemSet.FilteredItemsEnumerator.System#Collections#IEnumerator#Current">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.FilteredItemsEnumerator.GetEnumerator">
-            <inheritdoc cref="M:System.Collections.Generic.IEnumerable`1.GetEnumerator"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.FilteredItemsEnumerator.MoveNext">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.FilteredItemsEnumerator.System#IDisposable#Dispose">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.FilteredItemsEnumerator.System#Collections#IEnumerator#Reset">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.FilteredItemsEnumerator.System#Collections#IEnumerable#GetEnumerator">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.ItemSet.FilteredItemsEnumerator.System#Collections#Generic#IEnumerable{Sudoku#ComponentModel#Item}#GetEnumerator">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.ComponentModel.ItemType">
-            <summary>
-            Represents a type of item. The value of field represents ordering of the items of this type to draw.
-            The greater the value is, the lower priority the item will be drawn.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ItemType.None">
-            <summary>
-            Indicates the placeholder of this type.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ItemType.BackgroundFill">
-            <summary>
-            Indicates the background filling.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ItemType.CellFill">
-            <summary>
-            Indicates cell filling.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ItemType.CandidateFill">
-            <summary>
-            Indicates candidate filling.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ItemType.GivenText">
-            <summary>
-            Indicates given text.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ItemType.ModifiableText">
-            <summary>
-            Indicates modifiable text.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ItemType.CandidateText">
-            <summary>
-            Indicates candidate text.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ItemType.CellMark_Question">
-            <summary>
-            Indicates cell question mark.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ItemType.CellMark_Exclamation">
-            <summary>
-            Indicates cell exclamation mark.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ItemType.CellMark_Tetris">
-            <summary>
-            Indicates cell tetris mark.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ItemType.CellMark_Dice">
-            <summary>
-            Indicates cell dice mark.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ItemType.CellMark_SurroundingTriangles">
-            <summary>
-            Indicates cell surrounding triangles mark.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ItemType.CellMark_Square">
-            <summary>
-            Indicates cell square mark.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ItemType.CellMark_Circle">
-            <summary>
-            Indicates cell circle mark.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ItemType.CellMark_Polygon">
-            <summary>
-            Indicates cell polygon mark.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ItemType.CellMark_Cross">
-            <summary>
-            Indicates cell cross mark.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ItemType.CellMark_MoonPhase">
-            <summary>
-            Indicates cell moon phase mark.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ItemType.CellMark_ArrowTriangle">
-            <summary>
-            Indicates cell arrow triangle mark.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ItemType.CellMark_Arrow">
-            <summary>
-            Indicates cell arrow mark.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ItemType.CellMark_Suit">
-            <summary>
-            Indicates cell suit mark.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ItemType.CellMark_Emoji">
-            <summary>
-            Indicates cell emoji mark.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ItemType.CellMark_ZodiacEmoji">
-            <summary>
-            Indicates cell zodiac emoji mark.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ItemType.CellMark_ApexCornerTriangle">
-            <summary>
-            Indicates cell apex corner triangle mark.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ItemType.CellMark_HalveLine">
-            <summary>
-            Indicates cell halve line mark.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ItemType.CellMark_Diamond">
-            <summary>
-            Indicates cell diamond mark.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ItemType.CellMark_Hexagon">
-            <summary>
-            Indicates cell hexagon mark.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.ItemType.TemplateLineStroke">
-            <summary>
-            Indicates template line strokes.
-            </summary>
-        </member>
         <member name="T:Sudoku.ComponentModel.LineDashSequence">
             <summary>
             Represents a sequence of dash intervals.
@@ -2544,13 +1918,13 @@
             Indicates backing canvas.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.Canvas.DrawItem(Sudoku.ComponentModel.Item)">
+        <member name="M:Sudoku.Graphics.Canvas.DrawItem(Sudoku.Graphics.Item)">
             <summary>
             Try to draw the specified item onto the current canvas.
             </summary>
             <param name="item">The item to draw.</param>
         </member>
-        <member name="M:Sudoku.Graphics.Canvas.DrawItems(Sudoku.ComponentModel.ItemSet)">
+        <member name="M:Sudoku.Graphics.Canvas.DrawItems(Sudoku.Graphics.ItemSet)">
             <summary>
             Try to draw the specified list of items onto the current canvas.
             </summary>
@@ -2802,6 +2176,491 @@
             Indicates the quality. Range 0..100. Default 80.
             </summary>
         </member>
+        <member name="T:Sudoku.Graphics.Item">
+            <summary>
+            Represents an item to be drawn. The item can be anything the canvas can draw - cell background, canvas background,
+            candidate highlight, grid lines, and other basic items to draw.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Item.Type">
+            <summary>
+            Indicates the type of item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Item.EqualityContract">
+            <summary>
+            Gets the equality contract for this instance.
+            </summary>
+            <remarks>
+            <para>
+            The equality contract represents the runtime type identity used when evaluating value-based equality.
+            It allows derived types to participate in equality comparisons while preserving type consistency
+            across an inheritance hierarchy.
+            </para>
+            <para>
+            By default, this property returns the concrete runtime type of the current instance.
+            Derived types may override this property to customize how type identity is considered during equality comparisons.
+            </para>
+            <para>
+            This mechanism enables polymorphic equality semantics without relying directly on <see cref="M:System.Object.GetType"/>.
+            </para>
+            </remarks>
+            <seealso cref="M:System.Object.GetType"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Item.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Item.Equals(Sudoku.Graphics.Item)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Item.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Item.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Item.DrawTo(Sudoku.Graphics.Canvas)">
+            <summary>
+            Try to draw the current item onto the specified canvas.
+            </summary>
+            <param name="canvas">The canvas to draw.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.Item.PrintMembers(System.Text.StringBuilder)">
+            <summary>
+            Provides a way to concatenate string values, in order to write out string text to be shown.
+            </summary>
+            <param name="builder">The string builder instance.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.Item.op_Equality(Sudoku.Graphics.Item,Sudoku.Graphics.Item)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Item.op_Inequality(Sudoku.Graphics.Item,Sudoku.Graphics.Item)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.ItemSet">
+            <summary>
+            Represents a set of <see cref="T:Sudoku.Graphics.Item"/> instances.
+            </summary>
+            <seealso cref="T:Sudoku.Graphics.Item"/>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemSet._itemsLookup">
+            <summary>
+            Indicates the backing lookup dictionary of items, grouped by ites layer priority property, ordered.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.ItemSet.Count">
+            <summary>
+            Indicates the number of items stored in this collection.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.ItemSet.System#Collections#Generic#ICollection{Sudoku#Graphics#Item}#IsReadOnly">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.ItemSet.Empty">
+            <summary>
+            Creates a new <see cref="T:Sudoku.Graphics.ItemSet"/> instance.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.ItemSet.HashSetItemsComparer">
+            <summary>
+            Returns an <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> of <see cref="T:System.Collections.Generic.HashSet`1"/> of <see cref="T:Sudoku.Graphics.Item"/> instance
+            to be considered as equality comparison of items.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.ItemSet.Item(Sudoku.Graphics.ItemType)">
+            <summary>
+            Returns an instance of items filtered, with the specified item type.
+            If the target item type cannot be found in the collection, an empty sequence will be returned without throwing exceptions.
+            </summary>
+            <param name="type">The item type.</param>
+            <returns>The filtered items that supports iteration and viewing.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.ForEach(System.Action{Sudoku.Graphics.Item})">
+            <summary>
+            Performs an iteration of the current collection, applying the specified operation over each element.
+            </summary>
+            <param name="action">An action to be applied to all elements.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.Clear">
+            <summary>
+            Clears the whole collection, removing all stored elements.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.Clear(Sudoku.Graphics.ItemType)">
+            <summary>
+            Clears all elements of the specified item type.
+            </summary>
+            <param name="type">The item type to remove.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.Equals(Sudoku.Graphics.ItemSet)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.Add(Sudoku.Graphics.Item)">
+            <summary>
+            Adds a new item into the current collection.
+            </summary>
+            <param name="item">The item to add.</param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating whether the item is successfully added.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.Remove(Sudoku.Graphics.Item)">
+            <summary>
+            Removes an item from the current collection.
+            </summary>
+            <param name="item">The item to remove.</param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating whether the item is successfully removed.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.Contains(Sudoku.Graphics.Item)">
+            <summary>
+            Determines whether the specified item is stored in this collection, of value equality.
+            </summary>
+            <param name="item">The item to check.</param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating whether the item exists or not.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.AddRange(System.ReadOnlySpan{Sudoku.Graphics.Item})">
+            <summary>
+            Adds a list of items into the current collection.
+            </summary>
+            <param name="items">A list of items to add.</param>
+            <returns>An <see cref="T:System.Int32"/> value indicating how many items are successfully added.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.AddRange``1(``0)">
+            <summary>
+            Adds a list of items into the current collection.
+            </summary>
+            <typeparam name="TEnumerable">The type of enumerable sequence of <see cref="T:Sudoku.Graphics.Item"/> instances.</typeparam>
+            <param name="items">A list of items to add.</param>
+            <returns>An <see cref="T:System.Int32"/> value indicating how many items are successfully added.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.GetEnumerator">
+            <inheritdoc cref="M:System.Collections.Generic.IEnumerable`1.GetEnumerator"/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.EnumerateItemsOf(Sudoku.Graphics.ItemType)">
+            <summary>
+            Returns an enumerable object that can iterate on each item of the specified item type.
+            </summary>
+            <param name="type">The item type.</param>
+            <returns>An enumerator object.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.ToArray">
+            <summary>
+            Converts the current instance into an array, and return that array.
+            </summary>
+            <returns>The array instance.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.Clone">
+            <summary>
+            Creates a new <see cref="T:Sudoku.Graphics.ItemSet"/> instance, containing same values as the current instance, shallow-copied.
+            </summary>
+            <returns>A new <see cref="T:Sudoku.Graphics.ItemSet"/> instance.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.Flatten">
+            <summary>
+            Flattens the current collection into a read-only set.
+            </summary>
+            <returns>The read-only set flattened.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.System#Collections#Generic#ICollection{Sudoku#Graphics#Item}#Add(Sudoku.Graphics.Item)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.System#Collections#Generic#ICollection{Sudoku#Graphics#Item}#CopyTo(Sudoku.Graphics.Item[],System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.System#Collections#Generic#ISet{Sudoku#Graphics#Item}#ExceptWith(System.Collections.Generic.IEnumerable{Sudoku.Graphics.Item})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.System#Collections#Generic#ISet{Sudoku#Graphics#Item}#IntersectWith(System.Collections.Generic.IEnumerable{Sudoku.Graphics.Item})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.System#ICloneable#Clone">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.System#Collections#Generic#IReadOnlySet{Sudoku#Graphics#Item}#SetEquals(System.Collections.Generic.IEnumerable{Sudoku.Graphics.Item})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.System#Collections#Generic#IReadOnlySet{Sudoku#Graphics#Item}#IsProperSubsetOf(System.Collections.Generic.IEnumerable{Sudoku.Graphics.Item})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.System#Collections#Generic#IReadOnlySet{Sudoku#Graphics#Item}#IsProperSupersetOf(System.Collections.Generic.IEnumerable{Sudoku.Graphics.Item})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.System#Collections#Generic#IReadOnlySet{Sudoku#Graphics#Item}#IsSubsetOf(System.Collections.Generic.IEnumerable{Sudoku.Graphics.Item})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.System#Collections#Generic#IReadOnlySet{Sudoku#Graphics#Item}#IsSupersetOf(System.Collections.Generic.IEnumerable{Sudoku.Graphics.Item})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.System#Collections#Generic#IReadOnlySet{Sudoku#Graphics#Item}#Overlaps(System.Collections.Generic.IEnumerable{Sudoku.Graphics.Item})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.System#Collections#Generic#ISet{Sudoku#Graphics#Item}#SetEquals(System.Collections.Generic.IEnumerable{Sudoku.Graphics.Item})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.System#Collections#Generic#ISet{Sudoku#Graphics#Item}#IsProperSubsetOf(System.Collections.Generic.IEnumerable{Sudoku.Graphics.Item})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.System#Collections#Generic#ISet{Sudoku#Graphics#Item}#IsProperSupersetOf(System.Collections.Generic.IEnumerable{Sudoku.Graphics.Item})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.System#Collections#Generic#ISet{Sudoku#Graphics#Item}#IsSubsetOf(System.Collections.Generic.IEnumerable{Sudoku.Graphics.Item})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.System#Collections#Generic#ISet{Sudoku#Graphics#Item}#IsSupersetOf(System.Collections.Generic.IEnumerable{Sudoku.Graphics.Item})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.System#Collections#Generic#ISet{Sudoku#Graphics#Item}#Overlaps(System.Collections.Generic.IEnumerable{Sudoku.Graphics.Item})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.System#Collections#Generic#ISet{Sudoku#Graphics#Item}#SymmetricExceptWith(System.Collections.Generic.IEnumerable{Sudoku.Graphics.Item})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.System#Collections#Generic#ISet{Sudoku#Graphics#Item}#UnionWith(System.Collections.Generic.IEnumerable{Sudoku.Graphics.Item})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.System#Collections#IEnumerable#GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.System#Collections#Generic#IEnumerable{Sudoku#Graphics#Item}#GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.op_SubtractionAssignment(Sudoku.Graphics.ItemSet)">
+            <summary>
+            Performs subtraction and reassigns the result into the current instance.
+            </summary>
+            <param name="items">The items to check.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.op_BitwiseAndAssignment(Sudoku.Graphics.ItemSet)">
+            <summary>
+            Performs intersection and reassigns the result into the current instance.
+            </summary>
+            <param name="items">The items to check.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.op_BitwiseOrAssignment(Sudoku.Graphics.ItemSet)">
+            <summary>
+            Performs union and reassigns the result into the current instance.
+            </summary>
+            <param name="items">The items to check.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.op_ExclusiveOrAssignment(Sudoku.Graphics.ItemSet)">
+            <summary>
+            Performs symmetric except operation and reassigns the result into the current instance.
+            </summary>
+            <param name="items">The items to check.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.op_Equality(Sudoku.Graphics.ItemSet,Sudoku.Graphics.ItemSet)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.op_Inequality(Sudoku.Graphics.ItemSet,Sudoku.Graphics.ItemSet)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.op_Subtraction(Sudoku.Graphics.ItemSet,Sudoku.Graphics.ItemSet)">
+            <summary>
+            Returns a list of <see cref="T:Sudoku.Graphics.Item"/> instances that are stored in <paramref name="left"/> but not in <paramref name="right"/>.
+            </summary>
+            <param name="left">The first instance.</param>
+            <param name="right">The second instance.</param>
+            <returns>The result.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.op_BitwiseAnd(Sudoku.Graphics.ItemSet,Sudoku.Graphics.ItemSet)">
+            <summary>
+            Returns a list of <see cref="T:Sudoku.Graphics.Item"/> instances that are both held by <paramref name="left"/> and <paramref name="right"/>.
+            </summary>
+            <param name="left">The first instance.</param>
+            <param name="right">The second instance.</param>
+            <returns>The result.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.op_BitwiseOr(Sudoku.Graphics.ItemSet,Sudoku.Graphics.ItemSet)">
+            <summary>
+            Returns a list of <see cref="T:Sudoku.Graphics.Item"/> instances that are
+            from both collections <paramref name="left"/> and <paramref name="right"/>.
+            </summary>
+            <param name="left">The first instance.</param>
+            <param name="right">The second instance.</param>
+            <returns>The result.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.op_ExclusiveOr(Sudoku.Graphics.ItemSet,Sudoku.Graphics.ItemSet)">
+            <summary>
+            Returns a list of <see cref="T:Sudoku.Graphics.Item"/> instances that are
+            only held by either collection <paramref name="left"/> or <paramref name="right"/>;
+            both contains are not included in result.
+            </summary>
+            <param name="left">The first instance.</param>
+            <param name="right">The second instance.</param>
+            <returns>The result.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.System#Numerics#IBitwiseOperators{Sudoku#Graphics#ItemSet,Sudoku#Graphics#ItemSet,Sudoku#Graphics#ItemSet}#op_OnesComplement(Sudoku.Graphics.ItemSet)">
+            <inheritdoc/>
+            <exception cref="T:System.NotSupportedException">
+            Always throws. The complement of <see cref="T:Sudoku.Graphics.Item"/> set is not well-defined.
+            </exception>
+        </member>
+        <member name="T:Sudoku.Graphics.ItemSet.Enumerator">
+            <summary>
+            Represents an enumerator type that iterates on each <see cref="T:Sudoku.Graphics.Item"/> instances, grouped and sorted by its key (item type).
+            </summary>
+            <param name="_items">The items.</param>
+            <seealso cref="T:Sudoku.Graphics.Item"/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.Enumerator.#ctor(System.Collections.Generic.SortedDictionary{Sudoku.Graphics.ItemType,System.Collections.Generic.HashSet{Sudoku.Graphics.Item}})">
+            <summary>
+            Represents an enumerator type that iterates on each <see cref="T:Sudoku.Graphics.Item"/> instances, grouped and sorted by its key (item type).
+            </summary>
+            <param name="_items">The items.</param>
+            <seealso cref="T:Sudoku.Graphics.Item"/>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemSet.Enumerator._isStarted">
+            <summary>
+            Indicates whether the enumerator is started or not.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemSet.Enumerator._enumerator">
+            <summary>
+            Indicates the backing enumerator.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemSet.Enumerator._itemTypeEnumerator">
+            <summary>
+            The item type enumerator instance.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.ItemSet.Enumerator.CurrentItemType">
+            <summary>
+            Indicates the current item type to be iterated.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.ItemSet.Enumerator.Current">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.ItemSet.Enumerator.System#Collections#IEnumerator#Current">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.Enumerator.GetEnumerator">
+            <inheritdoc cref="M:System.Collections.Generic.IEnumerable`1.GetEnumerator"/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.Enumerator.MoveNext">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.Enumerator.System#Collections#IEnumerable#GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.Enumerator.System#Collections#Generic#IEnumerable{Sudoku#Graphics#Item}#GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.Enumerator.System#Collections#IEnumerator#Reset">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.Enumerator.System#IDisposable#Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.Enumerator.GetItemsFallback">
+            <summary>
+            Returns a <see cref="T:System.Collections.Generic.List`1"/> of <see cref="T:Sudoku.Graphics.Item"/> instances to be iterated.
+            </summary>
+            <returns>A <see cref="T:System.Collections.Generic.List`1"/> of <see cref="T:Sudoku.Graphics.Item"/> instances to be iterated.</returns>
+        </member>
+        <member name="T:Sudoku.Graphics.ItemSet.FilteredItems">
+            <summary>
+            Returns a subview under the specified item type.
+            </summary>
+            <param name="type">The type.</param>
+            <param name="_items">The items.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.FilteredItems.#ctor(Sudoku.Graphics.ItemType,System.Collections.Generic.HashSet{Sudoku.Graphics.Item})">
+            <summary>
+            Returns a subview under the specified item type.
+            </summary>
+            <param name="type">The type.</param>
+            <param name="_items">The items.</param>
+        </member>
+        <member name="P:Sudoku.Graphics.ItemSet.FilteredItems.Count">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.ItemSet.FilteredItems.ItemType">
+            <summary>
+            Indicates the target type.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.ItemSet.FilteredItems.Items">
+            <summary>
+            Indicates the items.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.FilteredItems.GetEnumerator">
+            <inheritdoc cref="M:System.Collections.Generic.IEnumerable`1.GetEnumerator"/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.FilteredItems.System#Collections#Generic#IReadOnlySet{Sudoku#Graphics#Item}#Contains(Sudoku.Graphics.Item)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.FilteredItems.System#Collections#Generic#IReadOnlySet{Sudoku#Graphics#Item}#IsProperSubsetOf(System.Collections.Generic.IEnumerable{Sudoku.Graphics.Item})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.FilteredItems.System#Collections#Generic#IReadOnlySet{Sudoku#Graphics#Item}#IsProperSupersetOf(System.Collections.Generic.IEnumerable{Sudoku.Graphics.Item})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.FilteredItems.System#Collections#Generic#IReadOnlySet{Sudoku#Graphics#Item}#IsSubsetOf(System.Collections.Generic.IEnumerable{Sudoku.Graphics.Item})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.FilteredItems.System#Collections#Generic#IReadOnlySet{Sudoku#Graphics#Item}#IsSupersetOf(System.Collections.Generic.IEnumerable{Sudoku.Graphics.Item})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.FilteredItems.System#Collections#Generic#IReadOnlySet{Sudoku#Graphics#Item}#Overlaps(System.Collections.Generic.IEnumerable{Sudoku.Graphics.Item})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.FilteredItems.System#Collections#Generic#IReadOnlySet{Sudoku#Graphics#Item}#SetEquals(System.Collections.Generic.IEnumerable{Sudoku.Graphics.Item})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.FilteredItems.System#Collections#IEnumerable#GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.FilteredItems.System#Collections#Generic#IEnumerable{Sudoku#Graphics#Item}#GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.ItemSet.FilteredItemsEnumerator">
+            <summary>
+            Represents an enumerator object that can iterate items of the specified item type.
+            </summary>
+            <param name="_items">The items.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.FilteredItemsEnumerator.#ctor(System.Collections.Generic.HashSet{Sudoku.Graphics.Item})">
+            <summary>
+            Represents an enumerator object that can iterate items of the specified item type.
+            </summary>
+            <param name="_items">The items.</param>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemSet.FilteredItemsEnumerator._enumerator">
+            <summary>
+            Indicates the backing enumerator.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.ItemSet.FilteredItemsEnumerator.Current">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.ItemSet.FilteredItemsEnumerator.System#Collections#IEnumerator#Current">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.FilteredItemsEnumerator.GetEnumerator">
+            <inheritdoc cref="M:System.Collections.Generic.IEnumerable`1.GetEnumerator"/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.FilteredItemsEnumerator.MoveNext">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.FilteredItemsEnumerator.System#IDisposable#Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.FilteredItemsEnumerator.System#Collections#IEnumerator#Reset">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.FilteredItemsEnumerator.System#Collections#IEnumerable#GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.FilteredItemsEnumerator.System#Collections#Generic#IEnumerable{Sudoku#Graphics#Item}#GetEnumerator">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.Items.BackgroundFillItem">
             <summary>
             Represents canvas background fill item.
@@ -2816,7 +2675,7 @@
         <member name="P:Sudoku.Graphics.Items.BackgroundFillItem.EqualityContract">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Items.BackgroundFillItem.Equals(Sudoku.ComponentModel.Item)">
+        <member name="M:Sudoku.Graphics.Items.BackgroundFillItem.Equals(Sudoku.Graphics.Item)">
             <inheritdoc/>
             <remarks>
             <b>By design, the global item sequence can only contain one <see cref="T:Sudoku.Graphics.Items.BackgroundFillItem"/> instance.</b>
@@ -2854,7 +2713,7 @@
         <member name="P:Sudoku.Graphics.Items.CandidateFillItem.EqualityContract">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Items.CandidateFillItem.Equals(Sudoku.ComponentModel.Item)">
+        <member name="M:Sudoku.Graphics.Items.CandidateFillItem.Equals(Sudoku.Graphics.Item)">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Items.CandidateFillItem.GetHashCode">
@@ -2904,7 +2763,7 @@
         <member name="P:Sudoku.Graphics.Items.CandidateTextItem.EqualityContract">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Items.CandidateTextItem.Equals(Sudoku.ComponentModel.Item)">
+        <member name="M:Sudoku.Graphics.Items.CandidateTextItem.Equals(Sudoku.Graphics.Item)">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Items.CandidateTextItem.GetHashCode">
@@ -2936,7 +2795,7 @@
         <member name="P:Sudoku.Graphics.Items.CellFillItem.EqualityContract">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Items.CellFillItem.Equals(Sudoku.ComponentModel.Item)">
+        <member name="M:Sudoku.Graphics.Items.CellFillItem.Equals(Sudoku.Graphics.Item)">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Items.CellFillItem.GetHashCode">
@@ -2998,7 +2857,7 @@
         <member name="P:Sudoku.Graphics.Items.CellMarkItem.Sudoku#Graphics#Items#IItem_FontRelatedProperties#FontSizeScale">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Items.CellMarkItem.Equals(Sudoku.ComponentModel.Item)">
+        <member name="M:Sudoku.Graphics.Items.CellMarkItem.Equals(Sudoku.Graphics.Item)">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Items.CellMarkItem.GetHashCode">
@@ -3445,7 +3304,7 @@
         <member name="P:Sudoku.Graphics.Items.GivenOrModifiableTextItem.FontSizeScale">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Items.GivenOrModifiableTextItem.Equals(Sudoku.ComponentModel.Item)">
+        <member name="M:Sudoku.Graphics.Items.GivenOrModifiableTextItem.Equals(Sudoku.Graphics.Item)">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Items.GivenOrModifiableTextItem.GetHashCode">
@@ -3607,7 +3466,7 @@
         <member name="P:Sudoku.Graphics.Items.TemplateLineStrokeItem.Sudoku#Graphics#Items#IItem_ColorProperty#Color">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Items.TemplateLineStrokeItem.Equals(Sudoku.ComponentModel.Item)">
+        <member name="M:Sudoku.Graphics.Items.TemplateLineStrokeItem.Equals(Sudoku.Graphics.Item)">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Items.TemplateLineStrokeItem.GetHashCode">
@@ -3618,6 +3477,147 @@
         </member>
         <member name="M:Sudoku.Graphics.Items.TemplateLineStrokeItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.ItemType">
+            <summary>
+            Represents a type of item. The value of field represents ordering of the items of this type to draw.
+            The greater the value is, the lower priority the item will be drawn.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.None">
+            <summary>
+            Indicates the placeholder of this type.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.BackgroundFill">
+            <summary>
+            Indicates the background filling.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellFill">
+            <summary>
+            Indicates cell filling.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CandidateFill">
+            <summary>
+            Indicates candidate filling.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.GivenText">
+            <summary>
+            Indicates given text.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.ModifiableText">
+            <summary>
+            Indicates modifiable text.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CandidateText">
+            <summary>
+            Indicates candidate text.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellMark_Question">
+            <summary>
+            Indicates cell question mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellMark_Exclamation">
+            <summary>
+            Indicates cell exclamation mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellMark_Tetris">
+            <summary>
+            Indicates cell tetris mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellMark_Dice">
+            <summary>
+            Indicates cell dice mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellMark_SurroundingTriangles">
+            <summary>
+            Indicates cell surrounding triangles mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellMark_Square">
+            <summary>
+            Indicates cell square mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellMark_Circle">
+            <summary>
+            Indicates cell circle mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellMark_Polygon">
+            <summary>
+            Indicates cell polygon mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellMark_Cross">
+            <summary>
+            Indicates cell cross mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellMark_MoonPhase">
+            <summary>
+            Indicates cell moon phase mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellMark_ArrowTriangle">
+            <summary>
+            Indicates cell arrow triangle mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellMark_Arrow">
+            <summary>
+            Indicates cell arrow mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellMark_Suit">
+            <summary>
+            Indicates cell suit mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellMark_Emoji">
+            <summary>
+            Indicates cell emoji mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellMark_ZodiacEmoji">
+            <summary>
+            Indicates cell zodiac emoji mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellMark_ApexCornerTriangle">
+            <summary>
+            Indicates cell apex corner triangle mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellMark_HalveLine">
+            <summary>
+            Indicates cell halve line mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellMark_Diamond">
+            <summary>
+            Indicates cell diamond mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellMark_Hexagon">
+            <summary>
+            Indicates cell hexagon mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.TemplateLineStroke">
+            <summary>
+            Indicates template line strokes.
+            </summary>
         </member>
         <member name="T:Sudoku.Graphics.PointMapper">
             <summary>
