@@ -154,6 +154,11 @@ public enum ItemType
 	/// Indicates cell hexagon mark.
 	/// </summary>
 	CellMark_Hexagon,
+
+	/// <summary>
+	/// Indicates cell triangle mark.
+	/// </summary>
+	CellMark_Triangle,
 	#endregion
 
 	//

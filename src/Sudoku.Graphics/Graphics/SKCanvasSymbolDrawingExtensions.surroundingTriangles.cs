@@ -19,7 +19,7 @@ public partial class SKCanvasSymbolDrawingExtensions
 		/// <exception cref="ArgumentException">
 		/// Throws when <paramref name="trianglesCount"/> is below than 1.
 		/// </exception>
-		public void DrawTrianglesInCell(
+		public void DrawSurroundingTrianglesInCell(
 			Absolute cell,
 			int trianglesCount,
 			Scale triangleSizeScale,

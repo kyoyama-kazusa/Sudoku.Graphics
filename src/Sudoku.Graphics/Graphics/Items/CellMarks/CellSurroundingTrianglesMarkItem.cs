@@ -27,7 +27,7 @@ public sealed class CellSurroundingTrianglesMarkItem : CellMarkItem
 	{
 		var template = canvas.Templates[TemplateIndex];
 		var mapper = template.Mapper;
-		canvas.BackingCanvas.DrawTrianglesInCell(
+		canvas.BackingCanvas.DrawSurroundingTrianglesInCell(
 			Cell,
 			TrianglesCount,
 			SizeScale,

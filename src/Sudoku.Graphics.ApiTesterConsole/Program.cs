@@ -42,15 +42,15 @@ canvas.DrawItems(
 		new TemplateLineStrokeItem(),
 		..
 		from cell in SpanEnumerable.Range(0, 81)
-		select new CellHexagonMarkItem
+		select new CellTriangleMarkItem
 		{
 			Cell = cell,
+			Direction = directions[rng.Next(1, directions.Length)],
 			TemplateIndex = 0,
 			SizeScale = .75M,
 			StrokeColor = SKColors.Gray,
 			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
-			Orientation = rng.NextDouble() > .5 ? Orientation2.Horizontal : Orientation2.Vertical,
-			FillColor = SKColors.White
+			FillColor = SKColors.LightGray
 		},
 	]
 );
