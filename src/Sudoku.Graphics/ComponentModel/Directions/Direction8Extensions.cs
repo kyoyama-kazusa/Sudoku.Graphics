@@ -10,6 +10,11 @@ public static class Direction8Extensions
 	extension(Direction8 @this)
 	{
 		/// <summary>
+		/// Indicates whether the direction points to diagonal direction.
+		/// </summary>
+		public bool IsDiagonal => @this is Direction8.LeftUp or Direction8.RightUp or Direction8.LeftDown or Direction8.RightDown;
+
+		/// <summary>
 		/// Indicates arrow string of this direction pointing to.
 		/// </summary>
 		/// <exception cref="ArgumentOutOfRangeException">
@@ -31,7 +36,7 @@ public static class Direction8Extensions
 			};
 
 		/// <summary>
-		/// Indicates the degrees of the arrow direction, in angle.
+		/// Indicates the degrees of the specified direction, in angle.
 		/// </summary>
 		/// <exception cref="ArgumentOutOfRangeException">
 		/// Throws when the current instance is not defined or <see cref="Direction8.None"/>.

@@ -242,6 +242,49 @@
             Indicates right direction.
             </summary>
         </member>
+        <member name="T:Sudoku.ComponentModel.Directions.Direction4Extensions">
+            <summary>
+            Provides extension members on <see cref="T:Sudoku.ComponentModel.Directions.Direction4"/>.
+            </summary>
+            <seealso cref="T:Sudoku.ComponentModel.Directions.Direction4"/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Directions.Direction4Extensions.get_Reversed(Sudoku.ComponentModel.Directions.Direction4)">
+            <inheritdoc cref="P:Sudoku.ComponentModel.Directions.Direction4Extensions.&lt;G&gt;$46499EBB6DA2398900472858BB7B575A.Reversed"/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Directions.Direction4Extensions.get_Negated(Sudoku.ComponentModel.Directions.Direction4)">
+            <inheritdoc cref="P:Sudoku.ComponentModel.Directions.Direction4Extensions.&lt;G&gt;$46499EBB6DA2398900472858BB7B575A.Negated"/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Directions.Direction4Extensions.AsDirection8(Sudoku.ComponentModel.Directions.Direction4)">
+            <inheritdoc cref="M:Sudoku.ComponentModel.Directions.Direction4Extensions.&lt;G&gt;$46499EBB6DA2398900472858BB7B575A.AsDirection8"/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Directions.Direction4Extensions.get_AllDirections">
+            <inheritdoc cref="P:Sudoku.ComponentModel.Directions.Direction4Extensions.&lt;G&gt;$46499EBB6DA2398900472858BB7B575A.AllDirections"/>
+        </member>
+        <member name="T:Sudoku.ComponentModel.Directions.Direction4Extensions.&lt;G&gt;$46499EBB6DA2398900472858BB7B575A.&lt;M&gt;$5D31F7507F04C33E2EC3EE48FD455D82">
+            <param name="this">The current direction.</param>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Directions.Direction4Extensions.&lt;G&gt;$46499EBB6DA2398900472858BB7B575A.Reversed">
+            <summary>
+            Indicates the reversed direction of the current direction.
+            </summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Directions.Direction4Extensions.&lt;G&gt;$46499EBB6DA2398900472858BB7B575A.Negated">
+            <summary>
+            Indicates the negated direction of the current direction.
+            If the current instance contains multiple directions as flags, it'll negate all directions contained.
+            </summary>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Directions.Direction4Extensions.&lt;G&gt;$46499EBB6DA2398900472858BB7B575A.AsDirection8">
+            <summary>
+            Returns an equivalent <see cref="T:Sudoku.ComponentModel.Directions.Direction8"/> instance (8-direction enumeration type).
+            </summary>
+            <returns>An equivalent <see cref="T:Sudoku.ComponentModel.Directions.Direction8"/> instance.</returns>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Directions.Direction4Extensions.&lt;G&gt;$46499EBB6DA2398900472858BB7B575A.AllDirections">
+            <summary>
+            Indicates all directions.
+            </summary>
+        </member>
         <member name="T:Sudoku.ComponentModel.Directions.Direction8">
             <summary>
             Represents a direction with 8 values.
@@ -290,32 +333,6 @@
         <member name="F:Sudoku.ComponentModel.Directions.Direction8.RightDown">
             <summary>
             Indicates right down direction.
-            </summary>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Directions.DirectionExtensions">
-            <summary>
-            Provides extension members on <see cref="T:Sudoku.ComponentModel.Directions.Direction4"/>.
-            </summary>
-            <seealso cref="T:Sudoku.ComponentModel.Directions.Direction4"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Directions.DirectionExtensions.get_Negated(Sudoku.ComponentModel.Directions.Direction4)">
-            <inheritdoc cref="P:Sudoku.ComponentModel.Directions.DirectionExtensions.&lt;G&gt;$46499EBB6DA2398900472858BB7B575A.Negated"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Directions.DirectionExtensions.get_AllDirections">
-            <inheritdoc cref="P:Sudoku.ComponentModel.Directions.DirectionExtensions.&lt;G&gt;$46499EBB6DA2398900472858BB7B575A.AllDirections"/>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Directions.DirectionExtensions.&lt;G&gt;$46499EBB6DA2398900472858BB7B575A.&lt;M&gt;$5D31F7507F04C33E2EC3EE48FD455D82">
-            <param name="this">The current direction.</param>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Directions.DirectionExtensions.&lt;G&gt;$46499EBB6DA2398900472858BB7B575A.Negated">
-            <summary>
-            Indicates the negated direction of the current direction.
-            If the current instance contains multiple directions as flags, it'll negate all directions contained.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Directions.DirectionExtensions.&lt;G&gt;$46499EBB6DA2398900472858BB7B575A.AllDirections">
-            <summary>
-            Indicates all directions.
             </summary>
         </member>
         <member name="T:Sudoku.ComponentModel.Directions.DirectionVector">
@@ -474,11 +491,34 @@
             Indicates backslash (\).
             </summary>
         </member>
+        <member name="T:Sudoku.ComponentModel.Directions.RotationDirection">
+            <summary>
+            Represents a rotation direction.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Directions.RotationDirection.None">
+            <summary>
+            Indicates placeholder of this type.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Directions.RotationDirection.Clockwise">
+            <summary>
+            Indicates rotation direction is clockwise.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.Directions.RotationDirection.Counterclockwise">
+            <summary>
+            Indicates rotation direction is counterclockwise.
+            </summary>
+        </member>
         <member name="T:Sudoku.ComponentModel.Arrows.Direction8Extensions">
             <summary>
             Provides extension methods on <see cref="T:Sudoku.ComponentModel.Directions.Direction8"/>.
             </summary>
             <seealso cref="T:Sudoku.ComponentModel.Directions.Direction8"/>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Arrows.Direction8Extensions.get_IsDiagonal(Sudoku.ComponentModel.Directions.Direction8)">
+            <inheritdoc cref="P:Sudoku.ComponentModel.Arrows.Direction8Extensions.&lt;G&gt;$86875FD76E049402F61EE37C6818224B.IsDiagonal"/>
         </member>
         <member name="M:Sudoku.ComponentModel.Arrows.Direction8Extensions.get_ArrowString(Sudoku.ComponentModel.Directions.Direction8)">
             <inheritdoc cref="P:Sudoku.ComponentModel.Arrows.Direction8Extensions.&lt;G&gt;$86875FD76E049402F61EE37C6818224B.ArrowString"/>
@@ -488,6 +528,11 @@
         </member>
         <member name="T:Sudoku.ComponentModel.Arrows.Direction8Extensions.&lt;G&gt;$86875FD76E049402F61EE37C6818224B.&lt;M&gt;$9691BE04B4AA63155CF318614E86F5A4">
             <param name="this">The current instance.</param>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Arrows.Direction8Extensions.&lt;G&gt;$86875FD76E049402F61EE37C6818224B.IsDiagonal">
+            <summary>
+            Indicates whether the direction points to diagonal direction.
+            </summary>
         </member>
         <member name="P:Sudoku.ComponentModel.Arrows.Direction8Extensions.&lt;G&gt;$86875FD76E049402F61EE37C6818224B.ArrowString">
             <summary>
@@ -500,7 +545,7 @@
         </member>
         <member name="P:Sudoku.ComponentModel.Arrows.Direction8Extensions.&lt;G&gt;$86875FD76E049402F61EE37C6818224B.RotationDegrees">
             <summary>
-            Indicates the degrees of the arrow direction, in angle.
+            Indicates the degrees of the specified direction, in angle.
             </summary>
             <exception cref="T:System.ArgumentOutOfRangeException">
             Throws when the current instance is not defined or <see cref="F:Sudoku.ComponentModel.Directions.Direction8.None"/>.
@@ -3269,6 +3314,35 @@
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellBitwiseOperatorTextMarkItem.EqualityContract">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedArrowMarkItem">
+            <summary>
+            Represents cell border-aligned arrow mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedArrowMarkItem.PaddingScale">
+            <summary>
+            Indicates arrows padding scale.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedArrowMarkItem.Direction">
+            <summary>
+            Indicates the direction of arrow pointing to.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedArrowMarkItem.RotationDirection">
+            <summary>
+            Indicates the rotation direction.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedArrowMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedArrowMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedArrowMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedTriangleMarkItem">
             <summary>
             Represents a cell border-aligned triangle mark item.
@@ -4077,6 +4151,11 @@
             Indicates cell border-aligned triangle mark.
             </summary>
         </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellMark_BorderAlignedArrow">
+            <summary>
+            Indicates cell border-aligned arrow mark.
+            </summary>
+        </member>
         <member name="F:Sudoku.Graphics.ItemType.TemplateLineStroke">
             <summary>
             Indicates template line strokes.
@@ -4267,8 +4346,8 @@
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawApexTriangleToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Alignment,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawApexTriangleToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Alignment,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawArrowToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawArrowToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Directions.Direction4,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Directions.Direction4,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawArrowTriangleToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowTriangleToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
@@ -4386,7 +4465,7 @@
             Throws when <paramref name="cornerAlignment"/> is not defined.
             </exception>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Directions.Direction4,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
             <summary>
             Draws an arrow symbol into the specified cell.
             </summary>
@@ -4399,7 +4478,17 @@
             <param name="strokeWidthScale">The stroke width scale, related to cell size.</param>
             <param name="strokeColor">The stroke coloor.</param>
             <param name="fillColor">The fill color.</param>
+            <param name="alignedBorderDirection">
+            The aligned border direction. The value can be <see cref="F:Sudoku.ComponentModel.Directions.Direction4.None"/> if you don't want to align with borders.
+            </param>
+            <param name="alignedBorderPaddingScale">
+            The scale of padding aligning to border lines, related to cell size.
+            The value becomes unncessary if <paramref name="alignedBorderDirection"/> is <see cref="F:Sudoku.ComponentModel.Directions.Direction4.None"/>.
+            </param>
             <param name="mapper">The mapper instance.</param>
+            <exception cref="T:System.NotSupportedException">
+            Throws when <paramref name="alignedBorderDirection"/> is not defined.
+            </exception>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowTriangleToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <summary>
@@ -4658,7 +4747,7 @@
             <seealso cref="T:SkiaSharp.SKPath"/>
             <seealso cref="M:SkiaSharp.SKNativeObject.Dispose"/>
         </member>
-        <member name="M:Sudoku.Graphics.ArrowPainterHelper.CreateArrowPath(SkiaSharp.SKRect,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,System.Single,Sudoku.ComponentModel.Directions.Direction8)">
+        <member name="M:Sudoku.Graphics.ArrowPainterHelper.CreateArrowPath(SkiaSharp.SKRect,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,System.Single,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Directions.Direction4,Sudoku.ComponentModel.Scale)">
             <summary>
             Draws arrow path.
             </summary>
@@ -4666,9 +4755,11 @@
             <param name="triangleWidthScale">The triangle width scale, related to cell size.</param>
             <param name="triangleHeightScale">The triangle height scale, related to cell size.</param>
             <param name="shaftWidthScale">The shaft width scale, related to cell size.</param>
-            <param name="shaftLengthScale">The shaft height scale, related to cell size.</param>
+            <param name="shaftHeightScale">The shaft height scale, related to cell size.</param>
             <param name="strokeWidth">The stroke width.</param>
             <param name="direction">The direction.</param>
+            <param name="alignedBorderDirection">The aligned direction.</param>
+            <param name="alignedBorderPaddingScale">The scale of aligned border padding, related to cell size.</param>
             <returns><inheritdoc cref="M:Sudoku.Graphics.ArrowPainterHelper.CreateArrowTrianglePath(SkiaSharp.SKRect,Sudoku.ComponentModel.Scale,System.Single,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale)" path="/returns"/></returns>
             <exception cref="T:System.InvalidOperationException">Throws when shaft width is greater than triangle width.</exception>
         </member>

@@ -11,6 +11,7 @@
 [JsonDerivedType(typeof(CellArrowTriangleMarkItem), nameof(CellArrowTriangleMarkItem))]
 [JsonDerivedType(typeof(CellBattenburgMarkItem), nameof(CellBattenburgMarkItem))]
 [JsonDerivedType(typeof(CellBitwiseOperatorTextMarkItem), nameof(CellBitwiseOperatorTextMarkItem))]
+[JsonDerivedType(typeof(CellBorderAlignedArrowMarkItem), nameof(CellBorderAlignedArrowMarkItem))]
 [JsonDerivedType(typeof(CellBorderAlignedTriangleMarkItem), nameof(CellBorderAlignedTriangleMarkItem))]
 [JsonDerivedType(typeof(CellCircleMarkItem), nameof(CellCircleMarkItem))]
 [JsonDerivedType(typeof(CellComparisonOperatorTextMarkItem), nameof(CellComparisonOperatorTextMarkItem))]

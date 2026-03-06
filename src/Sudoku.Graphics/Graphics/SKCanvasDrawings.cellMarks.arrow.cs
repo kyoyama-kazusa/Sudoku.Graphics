@@ -84,7 +84,17 @@ public partial class SKCanvasDrawings
 		/// <param name="strokeWidthScale">The stroke width scale, related to cell size.</param>
 		/// <param name="strokeColor">The stroke coloor.</param>
 		/// <param name="fillColor">The fill color.</param>
+		/// <param name="alignedBorderDirection">
+		/// The aligned border direction. The value can be <see cref="Direction4.None"/> if you don't want to align with borders.
+		/// </param>
+		/// <param name="alignedBorderPaddingScale">
+		/// The scale of padding aligning to border lines, related to cell size.
+		/// The value becomes unncessary if <paramref name="alignedBorderDirection"/> is <see cref="Direction4.None"/>.
+		/// </param>
 		/// <param name="mapper">The mapper instance.</param>
+		/// <exception cref="NotSupportedException">
+		/// Throws when <paramref name="alignedBorderDirection"/> is not defined.
+		/// </exception>
 		public void DrawArrowToCell(
 			Absolute cell,
 			Direction8 direction,
@@ -95,6 +105,8 @@ public partial class SKCanvasDrawings
 			Scale strokeWidthScale,
 			SerializableColor strokeColor,
 			SerializableColor fillColor,
+			Direction4 alignedBorderDirection,
+			Scale alignedBorderPaddingScale,
 			PointMapper mapper
 		)
 		{
@@ -120,7 +132,9 @@ public partial class SKCanvasDrawings
 				shaftWidthScale,
 				shaftHeightScale,
 				strokeWidth,
-				direction
+				direction,
+				alignedBorderDirection,
+				alignedBorderPaddingScale
 			);
 			@this.DrawPath(arrowPath, fillPaint);
 			@this.DrawPath(arrowPath, strokePaint);
@@ -242,9 +256,11 @@ file static class ArrowPainterHelper
 	/// <param name="triangleWidthScale">The triangle width scale, related to cell size.</param>
 	/// <param name="triangleHeightScale">The triangle height scale, related to cell size.</param>
 	/// <param name="shaftWidthScale">The shaft width scale, related to cell size.</param>
-	/// <param name="shaftLengthScale">The shaft height scale, related to cell size.</param>
+	/// <param name="shaftHeightScale">The shaft height scale, related to cell size.</param>
 	/// <param name="strokeWidth">The stroke width.</param>
 	/// <param name="direction">The direction.</param>
+	/// <param name="alignedBorderDirection">The aligned direction.</param>
+	/// <param name="alignedBorderPaddingScale">The scale of aligned border padding, related to cell size.</param>
 	/// <returns><inheritdoc cref="CreateArrowTrianglePath(SKRect, Scale, float, Direction8, Scale)" path="/returns"/></returns>
 	/// <exception cref="InvalidOperationException">Throws when shaft width is greater than triangle width.</exception>
 	public static SKPath CreateArrowPath(
@@ -252,9 +268,11 @@ file static class ArrowPainterHelper
 		Scale triangleWidthScale,
 		Scale triangleHeightScale,
 		Scale shaftWidthScale,
-		Scale shaftLengthScale,
+		Scale shaftHeightScale,
 		float strokeWidth,
-		Direction8 direction
+		Direction8 direction,
+		Direction4 alignedBorderDirection,
+		Scale alignedBorderPaddingScale
 	)
 	{
 		var cellSize = Math.Min(cellRect.Width, cellRect.Height);
@@ -269,7 +287,7 @@ file static class ArrowPainterHelper
 		var triangleWidth = triangleWidthScale.Measure(cellSize);
 		var triangleHeight = triangleHeightScale.Measure(cellSize);
 		var shaftWidth = shaftWidthScale.Measure(cellSize);
-		var shaftHeight = shaftLengthScale.Measure(cellSize);
+		var shaftHeight = shaftHeightScale.Measure(cellSize);
 		var totalLength = triangleHeight + shaftHeight;
 		if (totalLength > insetCellSize)
 		{
@@ -295,9 +313,10 @@ file static class ArrowPainterHelper
 		var halfShaftWidth = shaftWidth / 2;
 		if (halfShaftWidth > halfTriangleWidth)
 		{
-			throw new InvalidOperationException("Invalid size of shaft size - it is greater than triangle!");
+			throw new InvalidOperationException("Shaft size cannot be greater than triangle.");
 		}
 
+		// Construct points.
 		var tipPoint = new SKPoint(0, tipY);
 		var baseLeftPoint = new SKPoint(-halfTriangleWidth, baseY);
 		var shaftBottomLeftPoint = new SKPoint(-halfShaftWidth, shaftBottomY);
@@ -305,21 +324,66 @@ file static class ArrowPainterHelper
 		var baseRightPoint = new SKPoint(halfTriangleWidth, baseY);
 		var shaftTopLeftPoint = new SKPoint(-halfShaftWidth, baseY);
 		var shaftTopRightPoint = new SKPoint(halfShaftWidth, baseY);
-		var angleDegree = direction.RotationDegrees;
 
+		// Transform to center point.
+		var angleDegree = direction.RotationDegrees;
+		tipPoint = rotateAndTranslate(tipPoint, angleDegree, cx, cy);
+		baseLeftPoint = rotateAndTranslate(baseLeftPoint, angleDegree, cx, cy);
+		shaftTopLeftPoint = rotateAndTranslate(shaftTopLeftPoint, angleDegree, cx, cy);
+		shaftBottomLeftPoint = rotateAndTranslate(shaftBottomLeftPoint, angleDegree, cx, cy);
+		shaftBottomRightPoint = rotateAndTranslate(shaftBottomRightPoint, angleDegree, cx, cy);
+		shaftTopRightPoint = rotateAndTranslate(shaftTopRightPoint, angleDegree, cx, cy);
+		baseRightPoint = rotateAndTranslate(baseRightPoint, angleDegree, cx, cy);
+
+		// Transform to border-aligned if worth.
+		if (!direction.IsDiagonal && alignedBorderDirection != Direction4.None)
+		{
+			var padding = alignedBorderPaddingScale.Measure(cellSize);
+			var deltaXOrY = (direction, alignedBorderDirection) switch
+			{
+				(Direction8.Left, Direction4.Up) => baseLeftPoint.Y - cellRect.Top - padding,
+				(Direction8.Right, Direction4.Up) => baseRightPoint.Y - cellRect.Top - padding,
+				(Direction8.Left, Direction4.Down) => baseRightPoint.Y - cellRect.Bottom + padding,
+				(Direction8.Right, Direction4.Down) => baseLeftPoint.Y - cellRect.Bottom + padding,
+				(Direction8.Up, Direction4.Left) => baseLeftPoint.X - cellRect.Left - padding,
+				(Direction8.Down, Direction4.Left) => baseRightPoint.X - cellRect.Left - padding,
+				(Direction8.Up, Direction4.Right) => baseRightPoint.X - cellRect.Right + padding,
+				(Direction8.Down, Direction4.Right) => baseLeftPoint.X - cellRect.Right + padding,
+				_ => default
+			};
+
+			tipPoint = translateAsBorder(tipPoint, alignedBorderDirection);
+			baseLeftPoint = translateAsBorder(baseLeftPoint, alignedBorderDirection);
+			shaftTopLeftPoint = translateAsBorder(shaftTopLeftPoint, alignedBorderDirection);
+			shaftBottomLeftPoint = translateAsBorder(shaftBottomLeftPoint, alignedBorderDirection);
+			shaftBottomRightPoint = translateAsBorder(shaftBottomRightPoint, alignedBorderDirection);
+			shaftTopRightPoint = translateAsBorder(shaftTopRightPoint, alignedBorderDirection);
+			baseRightPoint = translateAsBorder(baseRightPoint, alignedBorderDirection);
+
+
+			SKPoint translateAsBorder(SKPoint p, Direction4 alignedBorderDirection)
+				=> alignedBorderDirection switch
+				{
+					Direction4.Up or Direction4.Down => p with { Y = p.Y - deltaXOrY },
+					Direction4.Left or Direction4.Right => p with { X = p.X - deltaXOrY },
+					_ => throw new ArgumentOutOfRangeException(nameof(alignedBorderDirection))
+				};
+		}
+
+		// Construct a path.
 		var path = new SKPath { FillType = SKPathFillType.EvenOdd };
-		path.MoveTo(RotateAndTranslate(tipPoint, angleDegree, cx, cy));
-		path.LineTo(RotateAndTranslate(baseLeftPoint, angleDegree, cx, cy));
-		path.LineTo(RotateAndTranslate(shaftTopLeftPoint, angleDegree, cx, cy));
-		path.LineTo(RotateAndTranslate(shaftBottomLeftPoint, angleDegree, cx, cy));
-		path.LineTo(RotateAndTranslate(shaftBottomRightPoint, angleDegree, cx, cy));
-		path.LineTo(RotateAndTranslate(shaftTopRightPoint, angleDegree, cx, cy));
-		path.LineTo(RotateAndTranslate(baseRightPoint, angleDegree, cx, cy));
+		path.MoveTo(tipPoint);
+		path.LineTo(baseLeftPoint);
+		path.LineTo(shaftTopLeftPoint);
+		path.LineTo(shaftBottomLeftPoint);
+		path.LineTo(shaftBottomRightPoint);
+		path.LineTo(shaftTopRightPoint);
+		path.LineTo(baseRightPoint);
 		path.Close();
 		return path;
 
 
-		static SKPoint RotateAndTranslate(SKPoint p, float degreesClockwise, float tx, float ty)
+		static SKPoint rotateAndTranslate(SKPoint p, float degreesClockwise, float tx, float ty)
 		{
 			var rad = degreesClockwise * MathF.PI / 180;
 			var cosine = MathF.Cos(rad);

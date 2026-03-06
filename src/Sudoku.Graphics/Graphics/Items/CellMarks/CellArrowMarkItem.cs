@@ -52,6 +52,8 @@ public sealed class CellArrowMarkItem : CellMarkItem
 			StrokeWidthScale,
 			StrokeColor,
 			FillColor,
+			Direction4.None,
+			default,
 			mapper
 		);
 	}

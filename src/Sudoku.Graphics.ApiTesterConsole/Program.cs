@@ -42,12 +42,14 @@ canvas.DrawItems(
 		new TemplateLineStrokeItem(),
 		..
 		from cell in SpanEnumerable.Range(0, 81)
-		select new CellBorderAlignedTriangleMarkItem
+		select new CellBorderAlignedArrowMarkItem
 		{
 			Cell = cell,
 			TemplateIndex = 0,
-			AlignedDirection = Enum.GetValues<Direction4>()[1..][rng.Next(0, 4)],
-			SizeScale = .4M,
+			Direction = Enum.GetValues<Direction4>()[1..][rng.Next(0, 4)],
+			RotationDirection = Enum.GetValues<RotationDirection>()[1..][rng.Next(0, 2)],
+			SizeScale = .55M,
+			PaddingScale = .1M,
 			StrokeColor = SKColors.DimGray,
 			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
 			FillColor = SKColors.DimGray

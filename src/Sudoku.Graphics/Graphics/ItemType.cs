@@ -194,6 +194,11 @@ public enum ItemType
 	/// Indicates cell border-aligned triangle mark.
 	/// </summary>
 	CellMark_BorderAlignedTriangle,
+
+	/// <summary>
+	/// Indicates cell border-aligned arrow mark.
+	/// </summary>
+	CellMark_BorderAlignedArrow,
 	#endregion
 
 	//
