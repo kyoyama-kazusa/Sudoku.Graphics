@@ -93,6 +93,7 @@ public abstract class GivenOrModifiableTextItem :
 			FontSlant,
 			Color,
 			0,
+			Direction8.None,
 			canvas.Templates[TemplateIndex].Mapper
 		);
 }

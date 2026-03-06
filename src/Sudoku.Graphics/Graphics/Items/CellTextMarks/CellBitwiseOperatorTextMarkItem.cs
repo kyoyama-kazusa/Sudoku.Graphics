@@ -6,7 +6,7 @@
 public sealed class CellBitwiseOperatorTextMarkItem : CellMathSymbolTextMarkItem<BitwiseOperator>
 {
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellMark_BitwiseOperator;
+	public override ItemType Type => ItemType.CellMark_BitwiseOperatorText;
 
 	/// <inheritdoc/>
 	protected override Type EqualityContract => typeof(CellBitwiseOperatorTextMarkItem);

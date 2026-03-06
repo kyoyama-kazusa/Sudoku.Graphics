@@ -6,7 +6,7 @@
 public sealed class CellArithmeticOperatorTextMarkItem : CellMathSymbolTextMarkItem<ArithmeticOperator>
 {
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellMark_ArithmeticOperator;
+	public override ItemType Type => ItemType.CellMark_ArithmeticOperatorText;
 
 	/// <inheritdoc/>
 	protected override Type EqualityContract => typeof(CellArithmeticOperatorTextMarkItem);

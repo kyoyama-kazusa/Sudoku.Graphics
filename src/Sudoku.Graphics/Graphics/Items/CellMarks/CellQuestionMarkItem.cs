@@ -6,7 +6,7 @@
 public sealed class CellQuestionMarkItem : CellTextMarkItem
 {
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellMark_Question;
+	public override ItemType Type => ItemType.CellMark_QuestionText;
 
 	/// <inheritdoc/>
 	protected override string PrintingText => "?";

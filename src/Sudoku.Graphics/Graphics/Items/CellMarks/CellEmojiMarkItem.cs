@@ -11,7 +11,7 @@ public sealed class CellEmojiMarkItem : CellTextMarkItem
 	public required string Emoji { get; init; }
 
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellMark_Emoji;
+	public override ItemType Type => ItemType.CellMark_EmojiText;
 
 	/// <inheritdoc/>
 	protected override string PrintingText => Emoji;

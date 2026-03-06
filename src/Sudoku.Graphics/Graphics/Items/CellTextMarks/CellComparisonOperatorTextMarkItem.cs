@@ -6,7 +6,7 @@
 public sealed class CellComparisonOperatorTextMarkItem : CellMathSymbolTextMarkItem<ComparisonOperator>
 {
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellMark_ComparisonOperator;
+	public override ItemType Type => ItemType.CellMark_ComparisonOperatorText;
 
 	/// <inheritdoc/>
 	protected override Type EqualityContract => typeof(CellComparisonOperatorTextMarkItem);

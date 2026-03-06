@@ -6,10 +6,15 @@
 public abstract class CellTextMarkItem : CellMarkItem
 {
 	/// <summary>
-	/// Indicates the direction. By default it's <see cref="Direction8.Up"/>.
+	/// Indicates the aligned direction.
+	/// </summary>
+	public virtual Direction8 AlignedDirection { get; init; }
+
+	/// <summary>
+	/// Indicates the rotation direction. By default it's <see cref="Direction8.Up"/> (upright, no rotation).
 	/// </summary>
 	/// <seealso cref="Direction8.Up"/>
-	public Direction8 Direction { get; init; }
+	public Direction8 RotationDirection { get; init; }
 
 	/// <inheritdoc/>
 	public sealed override required string? TextFontName { get; init; }
@@ -22,10 +27,7 @@ public abstract class CellTextMarkItem : CellMarkItem
 
 	/// <inheritdoc/>
 	protected internal sealed override void DrawTo(Canvas canvas)
-	{
-		var template = canvas.Templates[TemplateIndex];
-		var mapper = template.Mapper;
-		canvas.BackingCanvas.DrawOutlinedTextToCell(
+		=> canvas.BackingCanvas.DrawOutlinedTextToCell(
 			PrintingText,
 			Cell,
 			TextFontName ?? throw new InvalidOperationException("Expected a valid text font name."),
@@ -36,8 +38,8 @@ public abstract class CellTextMarkItem : CellMarkItem
 			((IItem_FontRelatedProperties)this).FontSlant,
 			StrokeColor,
 			FillColor,
-			Direction.RotationDegrees,
-			mapper
+			RotationDirection.RotationDegrees,
+			AlignedDirection,
+			canvas.Templates[TemplateIndex].Mapper
 		);
-	}
 }

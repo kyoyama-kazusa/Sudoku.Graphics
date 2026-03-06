@@ -19,6 +19,7 @@ public partial class SKCanvasDrawings
 			SKFontStyleSlant fontSlant,
 			SerializableColor fillColor,
 			float rotationDegree,
+			Direction8 alignedDirection,
 			PointMapper mapper
 		) => @this.DrawOutlinedTextToCell(
 			text,
@@ -32,6 +33,7 @@ public partial class SKCanvasDrawings
 			SKColors.Transparent,
 			fillColor,
 			rotationDegree,
+			alignedDirection,
 			mapper
 		);
 
@@ -79,7 +81,14 @@ public partial class SKCanvasDrawings
 		/// <param name="outlineColor">The outline color.</param>
 		/// <param name="fillColor">The fill color of text.</param>
 		/// <param name="rotationDegree">The rotation degrees, in angle.</param>
+		/// <param name="alignedDirection">The aligned direction.</param>
 		/// <param name="mapper">The mapper.</param>
+		/// <exception cref="InvalidOperationException">
+		/// Throws when <paramref name="alignedDirection"/> is not diagonally aligned.
+		/// </exception>
+		/// <exception cref="ArgumentOutOfRangeException">
+		/// Throws when <paramref name="alignedDirection"/> is not defined.
+		/// </exception>
 		public void DrawOutlinedTextToCell(
 			string text,
 			Absolute cell,
@@ -92,36 +101,75 @@ public partial class SKCanvasDrawings
 			SerializableColor outlineColor,
 			SerializableColor fillColor,
 			float rotationDegree,
+			Direction8 alignedDirection,
 			PointMapper mapper
 		)
 		{
+			if (!Enum.IsDefined(alignedDirection))
+			{
+				throw new ArgumentOutOfRangeException(nameof(alignedDirection));
+			}
+
 			using var typeface = SKTypeface.FromFamilyName(fontName, fontWeight, fontWidth, fontSlant);
 			var factSize = fontScale.Measure(mapper.CellSize);
 			using var textFont = new SKFont(typeface, factSize) { Subpixel = true };
-			using var textStrokePaint = new SKPaint
+
+			var center = mapper.GetPoint(cell, Alignment.Center);
+			var targetPoint = center;
+			if (alignedDirection != Direction8.None)
 			{
-				Style = SKPaintStyle.Stroke,
-				Color = outlineColor,
-				IsAntialias = true,
-				StrokeWidth = outlineThicknessScale.Measure(factSize),
-				StrokeJoin = SKStrokeJoin.Round
-			};
-			using var textFillPaint = new SKPaint { Style = SKPaintStyle.Fill, Color = fillColor, IsAntialias = true };
-			var textMetrics = textFont.Metrics;
-			var cellCenterPoint = mapper.GetPoint(cell, Alignment.Center);
-			var targetPoint = cellCenterPoint
-				+ new SKPoint(0, (textMetrics.Ascent + textMetrics.Descent) / 2) // Baseline adjustment
-				+ new SKPoint(0, textFont.Size / 2) // Centeralize
-				+ new SKPoint(0, mapper.CellSize / 6); // Manual adjustment
+				if (!alignedDirection.IsDiagonal)
+				{
+					throw new InvalidOperationException($"The specified direction '{alignedDirection}' is not supported.");
+				}
+
+				var quarterCellSize = mapper.CellSize / 4;
+				targetPoint = alignedDirection switch
+				{
+					Direction8.LeftUp => targetPoint + new SKPoint(-quarterCellSize, -quarterCellSize),
+					Direction8.RightUp => targetPoint + new SKPoint(+quarterCellSize, -quarterCellSize),
+					Direction8.LeftDown => targetPoint + new SKPoint(-quarterCellSize, +quarterCellSize),
+					Direction8.RightDown => targetPoint + new SKPoint(+quarterCellSize, +quarterCellSize),
+					_ => throw new ArgumentOutOfRangeException(nameof(alignedDirection))
+				};
+			}
 
 			if (rotationDegree != 0)
 			{
 				@this.Save();
-				@this.RotateDegrees(rotationDegree, cellCenterPoint.X, cellCenterPoint.Y);
+				@this.RotateDegrees(rotationDegree, targetPoint.X, targetPoint.Y);
 			}
 
-			@this.DrawText(text, targetPoint, SKTextAlign.Center, textFont, textStrokePaint);
-			@this.DrawText(text, targetPoint, SKTextAlign.Center, textFont, textFillPaint);
+			// Baseline adjustment
+			var textMetrics = textFont.Metrics;
+			targetPoint += new SKPoint(0, (textMetrics.Ascent + textMetrics.Descent) / 2);
+
+			// Centeralize
+			targetPoint += new SKPoint(0, textFont.Size / 2);
+
+			// Manual adjustment
+			targetPoint += new SKPoint(0, mapper.CellSize / 12);
+
+			var outlineStrokeWidth = outlineThicknessScale.Measure(factSize);
+			if (outlineStrokeWidth != 0 && outlineColor.Alpha != 0)
+			{
+				using var textStrokePaint = new SKPaint
+				{
+					Style = SKPaintStyle.Stroke,
+					Color = outlineColor,
+					IsAntialias = true,
+					StrokeWidth = outlineStrokeWidth,
+					StrokeJoin = SKStrokeJoin.Round
+				};
+
+				@this.DrawText(text, targetPoint, SKTextAlign.Center, textFont, textStrokePaint);
+			}
+
+			if (fillColor.Alpha != 0)
+			{
+				using var textFillPaint = new SKPaint { Style = SKPaintStyle.Fill, Color = fillColor, IsAntialias = true };
+				@this.DrawText(text, targetPoint, SKTextAlign.Center, textFont, textFillPaint);
+			}
 
 			if (rotationDegree != 0)
 			{

@@ -61,19 +61,9 @@ public enum ItemType
 	//
 	#region Cell marks
 	/// <summary>
-	/// Indicates cell question mark.
-	/// </summary>
-	CellMark_Question = 201,
-
-	/// <summary>
-	/// Indicates cell exclamation mark.
-	/// </summary>
-	CellMark_Exclamation,
-
-	/// <summary>
 	/// Indicates cell tetris mark.
 	/// </summary>
-	CellMark_Tetris,
+	CellMark_Tetris = 201,
 
 	/// <summary>
 	/// Indicates cell dice mark.
@@ -126,21 +116,6 @@ public enum ItemType
 	CellMark_Arrow,
 
 	/// <summary>
-	/// Indicates cell suit text mark.
-	/// </summary>
-	CellMark_SuitText,
-
-	/// <summary>
-	/// Indicates cell emoji mark.
-	/// </summary>
-	CellMark_Emoji,
-
-	/// <summary>
-	/// Indicates cell zodiac emoji mark.
-	/// </summary>
-	CellMark_ZodiacEmoji,
-
-	/// <summary>
 	/// Indicates cell apex corner triangle mark.
 	/// </summary>
 	CellMark_ApexCornerTriangle,
@@ -166,26 +141,6 @@ public enum ItemType
 	CellMark_Triangle,
 
 	/// <summary>
-	/// Indicates cell arrow text mark.
-	/// </summary>
-	CellMark_ArrowText,
-
-	/// <summary>
-	/// Indicates arithmetic operator text mark.
-	/// </summary>
-	CellMark_ArithmeticOperator,
-
-	/// <summary>
-	/// Indicates bitwise operator text mark.
-	/// </summary>
-	CellMark_BitwiseOperator,
-
-	/// <summary>
-	/// Indicates comparison operator text mark.
-	/// </summary>
-	CellMark_ComparisonOperator,
-
-	/// <summary>
 	/// Indicates cell battenburg mark.
 	/// </summary>
 	CellMark_Battenburg,
@@ -204,6 +159,61 @@ public enum ItemType
 	/// Indicates cell border-aligned arrow mark.
 	/// </summary>
 	CellMark_BorderAlignedArrow,
+	#endregion
+
+	//
+	// Cell text marks
+	//
+	#region Cell text marks
+	/// <summary>
+	/// Indicates cell question mark.
+	/// </summary>
+	CellMark_QuestionText = 301,
+
+	/// <summary>
+	/// Indicates cell exclamation mark.
+	/// </summary>
+	CellMark_ExclamationText,
+
+	/// <summary>
+	/// Indicates cell suit text mark.
+	/// </summary>
+	CellMark_SuitText,
+
+	/// <summary>
+	/// Indicates cell emoji mark.
+	/// </summary>
+	CellMark_EmojiText,
+
+	/// <summary>
+	/// Indicates cell zodiac emoji mark.
+	/// </summary>
+	CellMark_ZodiacEmojiText,
+
+	/// <summary>
+	/// Indicates cell arrow text mark.
+	/// </summary>
+	CellMark_ArrowText,
+
+	/// <summary>
+	/// Indicates arithmetic operator text mark.
+	/// </summary>
+	CellMark_ArithmeticOperatorText,
+
+	/// <summary>
+	/// Indicates bitwise operator text mark.
+	/// </summary>
+	CellMark_BitwiseOperatorText,
+
+	/// <summary>
+	/// Indicates comparison operator text mark.
+	/// </summary>
+	CellMark_ComparisonOperatorText,
+
+	/// <summary>
+	/// Indicates cell border-aligned text mark.
+	/// </summary>
+	CellMark_BorderAlignedText,
 	#endregion
 
 	//

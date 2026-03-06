@@ -10,10 +10,11 @@ using System;
 using System.IO;
 using System.Linq;
 using SkiaSharp;
+using Sudoku.ComponentModel.Directions;
 using Sudoku.ComponentModel.Templates;
 using Sudoku.Graphics;
 using Sudoku.Graphics.Items;
-using Sudoku.Graphics.Items.CellMarks;
+using Sudoku.Graphics.Items.CellTextMarks;
 
 var desktop = Environment.DesktopPath;
 var options = new CanvasDrawingOptions();
@@ -40,28 +41,15 @@ canvas.DrawItems(
 		new TemplateLineStrokeItem(),
 		..
 		from cell in SpanEnumerable.Range(0, 81)
-		select new CellPhantomDiceMarkItem
+		select new CellBorderAlignedTextMarkItem
 		{
 			Cell = cell,
 			TemplateIndex = 0,
-			States = new(
-				[
-					rng.NextDouble() > .5,
-					rng.NextDouble() > .5,
-					rng.NextDouble() > .5,
-					rng.NextDouble() > .5,
-					rng.NextDouble() > .5,
-					rng.NextDouble() > .5,
-					rng.NextDouble() > .5,
-					rng.NextDouble() > .5,
-					rng.NextDouble() > .5
-				]
-			),
-			SubgridSize = 3,
-			SizeScale = .2M,
-			PhantomStrokeWidthScale = (decimal)options.ThinLineWidth.Resolve(options) / 4,
-			StrokeColor = SKColors.DimGray,
-			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
+			AlignedDirection = Enum.GetValues<Direction8>()[5..][rng.Next(0, 4)],
+			//RotationDirection = Enum.GetValues<Direction8>()[rng.Next(0, 9)],
+			SizeScale = .35M,
+			Text = (rng.Next(0, 9) + 1).ToString(),
+			TextFontName = "Arial",
 			FillColor = SKColors.DimGray
 		},
 	]
