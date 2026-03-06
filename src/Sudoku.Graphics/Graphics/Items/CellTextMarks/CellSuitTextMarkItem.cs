@@ -1,9 +1,9 @@
-﻿namespace Sudoku.Graphics.Items.CellMarks;
+﻿namespace Sudoku.Graphics.Items.CellTextMarks;
 
 /// <summary>
 /// Represents a cell suit mark item.
 /// </summary>
-public sealed class CellSuitMarkItem : CellTextMarkItem
+public sealed class CellSuitTextMarkItem : CellTextMarkItem
 {
 	/// <summary>
 	/// Indicates the suit.
@@ -11,7 +11,7 @@ public sealed class CellSuitMarkItem : CellTextMarkItem
 	public required Suit Suit { get; init; }
 
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellMark_Suit;
+	public override ItemType Type => ItemType.CellMark_SuitText;
 
 	/// <inheritdoc/>
 	protected override string PrintingText
@@ -25,5 +25,5 @@ public sealed class CellSuitMarkItem : CellTextMarkItem
 		};
 
 	/// <inheritdoc/>
-	protected override Type EqualityContract => typeof(CellSuitMarkItem);
+	protected override Type EqualityContract => typeof(CellSuitTextMarkItem);
 }

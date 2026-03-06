@@ -1,4 +1,4 @@
-﻿namespace Sudoku.Graphics.Items.CellMarks;
+﻿namespace Sudoku.Graphics.Items.CellTextMarks;
 
 /// <summary>
 /// Represents an arithmetic operator text mark item.

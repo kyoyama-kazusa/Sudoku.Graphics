@@ -126,9 +126,9 @@ public enum ItemType
 	CellMark_Arrow,
 
 	/// <summary>
-	/// Indicates cell suit mark.
+	/// Indicates cell suit text mark.
 	/// </summary>
-	CellMark_Suit,
+	CellMark_SuitText,
 
 	/// <summary>
 	/// Indicates cell emoji mark.

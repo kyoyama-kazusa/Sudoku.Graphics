@@ -1,4 +1,4 @@
-﻿namespace Sudoku.Graphics.Items.CellMarks;
+﻿namespace Sudoku.Graphics.Items.CellTextMarks;
 
 /// <summary>
 /// Represents a text mark item in cell, for a math symbol.

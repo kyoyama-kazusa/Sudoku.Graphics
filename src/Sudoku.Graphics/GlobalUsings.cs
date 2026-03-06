@@ -28,6 +28,7 @@ global using Sudoku.ComponentModel.Zodiac;
 global using Sudoku.Graphics;
 global using Sudoku.Graphics.Items;
 global using Sudoku.Graphics.Items.CellMarks;
+global using Sudoku.Graphics.Items.CellTextMarks;
 global using Sudoku.Resources;
 global using Sudoku.Serialization;
 global using Sudoku.Serialization.Specialized;

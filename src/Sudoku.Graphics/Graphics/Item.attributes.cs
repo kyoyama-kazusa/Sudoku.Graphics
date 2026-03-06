@@ -29,7 +29,7 @@
 [JsonDerivedType(typeof(CellQuestionMarkItem), nameof(CellQuestionMarkItem))]
 [JsonDerivedType(typeof(CellSevenSegmentDisplayMarkItem), nameof(CellSevenSegmentDisplayMarkItem))]
 [JsonDerivedType(typeof(CellSquareMarkItem), nameof(CellSquareMarkItem))]
-[JsonDerivedType(typeof(CellSuitMarkItem), nameof(CellSuitMarkItem))]
+[JsonDerivedType(typeof(CellSuitTextMarkItem), nameof(CellSuitTextMarkItem))]
 [JsonDerivedType(typeof(CellSurroundingTrianglesMarkItem), nameof(CellSurroundingTrianglesMarkItem))]
 [JsonDerivedType(typeof(CellTetrisMarkItem), nameof(CellTetrisMarkItem))]
 [JsonDerivedType(typeof(CellTriangleMarkItem), nameof(CellTriangleMarkItem))]
