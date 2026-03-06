@@ -189,6 +189,11 @@ public enum ItemType
 	/// Indicates cell seven segment display mark.
 	/// </summary>
 	CellMark_SevenSegmentDisplay,
+
+	/// <summary>
+	/// Indicates cell border-aligned triangle mark.
+	/// </summary>
+	CellMark_BorderAlignedTriangle,
 	#endregion
 
 	//

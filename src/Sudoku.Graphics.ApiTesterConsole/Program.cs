@@ -42,19 +42,14 @@ canvas.DrawItems(
 		new TemplateLineStrokeItem(),
 		..
 		from cell in SpanEnumerable.Range(0, 81)
-		select new CellSevenSegmentDisplayMarkItem
+		select new CellBorderAlignedTriangleMarkItem
 		{
 			Cell = cell,
 			TemplateIndex = 0,
-			Value = rng.Next(0, 10),
-			ShowPhantomSegments = true,
-			SizeScale = .75M,
-			SegmentRectWidthScale = .28M,
-			SegmentRectHeightScale = .1M,
-			TextFontName = "Arial",
+			AlignedDirection = Enum.GetValues<Direction4>()[1..][rng.Next(0, 4)],
+			SizeScale = .4M,
 			StrokeColor = SKColors.DimGray,
 			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
-			PhantomStrokeWidthScale = (decimal)options.ThinLineWidth.Resolve(options) / 6,
 			FillColor = SKColors.DimGray
 		},
 	]
