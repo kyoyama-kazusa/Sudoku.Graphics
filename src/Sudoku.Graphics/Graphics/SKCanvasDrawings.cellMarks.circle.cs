@@ -32,14 +32,14 @@ public partial class SKCanvasDrawings
 			var outerSide = sizeScale.Measure(cellSize);
 			var strokeWidth = strokeWidthScale.Measure(cellSize);
 			var innerSide = Math.Max(0F, outerSide - strokeWidth);
-			var topLeft = mapper.GetPoint(cell, Alignment.Center);
+			var center = mapper.GetPoint(cell, Alignment.Center);
 			var radius = innerSide / 2;
 
 			// Fill paint.
 			if (fillColor.Alpha != 0 && innerSide != 0)
 			{
 				using var fillPaint = new SKPaint { Style = SKPaintStyle.Fill, IsAntialias = true, Color = fillColor };
-				@this.DrawCircle(topLeft.X, topLeft.Y, radius, fillPaint);
+				@this.DrawCircle(center.X, center.Y, radius, fillPaint);
 			}
 
 			// Stroke paint.
@@ -52,7 +52,7 @@ public partial class SKCanvasDrawings
 					Color = strokeColor,
 					StrokeWidth = strokeWidth
 				};
-				@this.DrawCircle(topLeft.X, topLeft.Y, radius, strokePaint);
+				@this.DrawCircle(center.X, center.Y, radius, strokePaint);
 			}
 		}
 	}

@@ -3538,6 +3538,35 @@
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellMoonPhaseMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.CellPhantomDiceMarkItem">
+            <summary>
+            Provides with a cell phantom dice mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellPhantomDiceMarkItem.SubgridSize">
+            <summary>
+            Indicates subgrid size.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellPhantomDiceMarkItem.PhantomStrokeWidthScale">
+            <summary>
+            Indicates scale of phantom stroke width, related to cell size.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellPhantomDiceMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellPhantomDiceMarkItem.States">
+            <summary>
+            Indicates the states.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellPhantomDiceMarkItem.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellMarks.CellPhantomDiceMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.Items.CellMarks.CellPolygonMarkItem">
             <summary>
             Represents a cell polygon mark item.
@@ -4036,6 +4065,11 @@
             Indicates cell dice mark.
             </summary>
         </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellMark_PhantomDice">
+            <summary>
+            Indicates cell phantom dice mark.
+            </summary>
+        </member>
         <member name="F:Sudoku.Graphics.ItemType.CellMark_SurroundingTriangles">
             <summary>
             Indicates cell surrounding triangles mark.
@@ -4376,6 +4410,9 @@
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawMoonToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Moons.MoonPhase,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawMoonToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Moons.MoonPhase,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
         </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawPhantomDiceToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Relative,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,System.Collections.BitArray,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawPhantomDiceToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Relative,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,System.Collections.BitArray,Sudoku.Graphics.PointMapper)"/>
+        </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawPolygonToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,System.Single)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawPolygonToCell(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,System.Single)"/>
         </member>
@@ -4605,6 +4642,20 @@
             <param name="fillColor">The fill color.</param>
             <param name="radiusScale">The radius scale, related to half cell size.</param>
             <param name="mapper">The point mapper.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawPhantomDiceToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Relative,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,System.Collections.BitArray,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Draws phantom dice to the specified cell.
+            </summary>
+            <param name="cell">The cell.</param>
+            <param name="subgridSize">The subgrid szie.</param>
+            <param name="sizeScale">The scale of size, related to cell.</param>
+            <param name="strokeColor">The stroke color.</param>
+            <param name="strokeWidthScale">The scale of stroke width, related to cell size.</param>
+            <param name="phantomStrokeWidthScale">The scale of phantom stroke width, related to cell size.</param>
+            <param name="fillColor">The fill color.</param>
+            <param name="states">The on/off states table.</param>
+            <param name="mapper">The mapper instance.</param>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawPolygonToCell(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,System.Single)">
             <summary>

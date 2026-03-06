@@ -10,8 +10,6 @@ using System;
 using System.IO;
 using System.Linq;
 using SkiaSharp;
-using Sudoku.ComponentModel.Directions;
-using Sudoku.ComponentModel.Maths;
 using Sudoku.ComponentModel.Templates;
 using Sudoku.Graphics;
 using Sudoku.Graphics.Items;
@@ -42,14 +40,26 @@ canvas.DrawItems(
 		new TemplateLineStrokeItem(),
 		..
 		from cell in SpanEnumerable.Range(0, 81)
-		select new CellBorderAlignedArrowMarkItem
+		select new CellPhantomDiceMarkItem
 		{
 			Cell = cell,
 			TemplateIndex = 0,
-			Direction = Enum.GetValues<Direction4>()[1..][rng.Next(0, 4)],
-			RotationDirection = Enum.GetValues<RotationDirection>()[1..][rng.Next(0, 2)],
-			SizeScale = .55M,
-			PaddingScale = .1M,
+			States = new(
+				[
+					rng.NextDouble() > .5,
+					rng.NextDouble() > .5,
+					rng.NextDouble() > .5,
+					rng.NextDouble() > .5,
+					rng.NextDouble() > .5,
+					rng.NextDouble() > .5,
+					rng.NextDouble() > .5,
+					rng.NextDouble() > .5,
+					rng.NextDouble() > .5
+				]
+			),
+			SubgridSize = 3,
+			SizeScale = .2M,
+			PhantomStrokeWidthScale = (decimal)options.ThinLineWidth.Resolve(options) / 4,
 			StrokeColor = SKColors.DimGray,
 			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
 			FillColor = SKColors.DimGray

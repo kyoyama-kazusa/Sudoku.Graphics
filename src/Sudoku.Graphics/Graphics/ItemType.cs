@@ -81,6 +81,11 @@ public enum ItemType
 	CellMark_Dice,
 
 	/// <summary>
+	/// Indicates cell phantom dice mark.
+	/// </summary>
+	CellMark_PhantomDice,
+
+	/// <summary>
 	/// Indicates cell surrounding triangles mark.
 	/// </summary>
 	CellMark_SurroundingTriangles,
