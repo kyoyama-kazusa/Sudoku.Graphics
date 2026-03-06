@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a cell mark item.
 /// </summary>
-public abstract class CellMarkItem :
+public abstract record CellMarkItem :
 	Item,
 	IItem_CellProperty,
 	IItem_FontRelatedProperties,
@@ -54,42 +54,4 @@ public abstract class CellMarkItem :
 
 	/// <inheritdoc/>
 	Scale IItem_FontRelatedProperties.FontSizeScale { get => SizeScale; init => SizeScale = value; }
-
-
-	/// <inheritdoc/>
-	public sealed override bool Equals([NotNullWhen(true)] Item? other)
-		=> other is CellMarkItem comparer && EqualityContract == comparer.EqualityContract
-		&& TemplateIndex == comparer.TemplateIndex && Cell == comparer.Cell && SizeScale == comparer.SizeScale
-		&& TextFontName == comparer.TextFontName
-		&& StrokeWidthScale == comparer.StrokeWidthScale && CornerRadiusScale == comparer.CornerRadiusScale
-		&& StrokeColor == comparer.StrokeColor && FillColor == comparer.FillColor;
-
-	/// <inheritdoc/>
-	public sealed override int GetHashCode()
-	{
-		var hashCode = new HashCode();
-		hashCode.Add(EqualityContract);
-		hashCode.Add(TemplateIndex);
-		hashCode.Add(Cell);
-		hashCode.Add(SizeScale);
-		hashCode.Add(TextFontName);
-		hashCode.Add(StrokeWidthScale);
-		hashCode.Add(CornerRadiusScale);
-		hashCode.Add(StrokeColor);
-		hashCode.Add(FillColor);
-		return hashCode.ToHashCode();
-	}
-
-	/// <inheritdoc/>
-	protected sealed override void PrintMembers(StringBuilder builder)
-	{
-		builder.Append($"{nameof(TemplateIndex)} = {TemplateIndex}, ");
-		builder.Append($"{nameof(Cell)} = {Cell}, ");
-		builder.Append($"{nameof(SizeScale)} = {SizeScale}, ");
-		builder.Append($"{nameof(TextFontName)} = \"{TextFontName}\", ");
-		builder.Append($"{nameof(StrokeWidthScale)} = {StrokeWidthScale}, ");
-		builder.Append($"{nameof(StrokeColor)} = {StrokeColor}, ");
-		builder.Append($"{nameof(CornerRadiusScale)} = {CornerRadiusScale}, ");
-		builder.Append($"{nameof(FillColor)} = {FillColor}");
-	}
 }

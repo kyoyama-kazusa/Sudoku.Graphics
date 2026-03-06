@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a cell arrow mark item.
 /// </summary>
-public sealed class CellArrowMarkItem : CellMarkItem
+public sealed record CellArrowMarkItem : CellMarkItem
 {
 	/// <summary>
 	/// Indicates the direction.
@@ -32,9 +32,6 @@ public sealed class CellArrowMarkItem : CellMarkItem
 	/// Indicates the shaft height scale, related to cell size.
 	/// </summary>
 	public required Scale ShaftHeightScale { get; init; }
-
-	/// <inheritdoc/>
-	protected override Type EqualityContract => typeof(CellArrowMarkItem);
 
 
 	/// <inheritdoc/>

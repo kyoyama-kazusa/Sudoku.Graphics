@@ -2475,55 +2475,11 @@
             Indicates the type of item.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Item.EqualityContract">
-            <summary>
-            Gets the equality contract for this instance.
-            </summary>
-            <remarks>
-            <para>
-            The equality contract represents the runtime type identity used when evaluating value-based equality.
-            It allows derived types to participate in equality comparisons while preserving type consistency
-            across an inheritance hierarchy.
-            </para>
-            <para>
-            By default, this property returns the concrete runtime type of the current instance.
-            Derived types may override this property to customize how type identity is considered during equality comparisons.
-            </para>
-            <para>
-            This mechanism enables polymorphic equality semantics without relying directly on <see cref="M:System.Object.GetType"/>.
-            </para>
-            </remarks>
-            <seealso cref="M:System.Object.GetType"/>
-        </member>
-        <member name="M:Sudoku.Graphics.Item.Equals(System.Object)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Item.Equals(Sudoku.Graphics.Item)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Item.GetHashCode">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Item.ToString">
-            <inheritdoc/>
-        </member>
         <member name="M:Sudoku.Graphics.Item.DrawTo(Sudoku.Graphics.Canvas)">
             <summary>
             Try to draw the current item onto the specified canvas.
             </summary>
             <param name="canvas">The canvas to draw.</param>
-        </member>
-        <member name="M:Sudoku.Graphics.Item.PrintMembers(System.Text.StringBuilder)">
-            <summary>
-            Provides a way to concatenate string values, in order to write out string text to be shown.
-            </summary>
-            <param name="builder">The string builder instance.</param>
-        </member>
-        <member name="M:Sudoku.Graphics.Item.op_Equality(Sudoku.Graphics.Item,Sudoku.Graphics.Item)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Item.op_Inequality(Sudoku.Graphics.Item,Sudoku.Graphics.Item)">
-            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.ItemSet">
             <summary>
@@ -2960,25 +2916,7 @@
         <member name="P:Sudoku.Graphics.Items.BackgroundFillItem.Color">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.BackgroundFillItem.EqualityContract">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Items.BackgroundFillItem.Equals(Sudoku.Graphics.Item)">
-            <inheritdoc/>
-            <remarks>
-            <b>By design, the global item sequence can only contain one <see cref="T:Sudoku.Graphics.Items.BackgroundFillItem"/> instance.</b>
-            </remarks>
-        </member>
-        <member name="M:Sudoku.Graphics.Items.BackgroundFillItem.GetHashCode">
-            <inheritdoc/>
-            <remarks>
-            <b>By design, the global item sequence can only contain one <see cref="T:Sudoku.Graphics.Items.BackgroundFillItem"/> instance.</b>
-            </remarks>
-        </member>
         <member name="M:Sudoku.Graphics.Items.BackgroundFillItem.DrawTo(Sudoku.Graphics.Canvas)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Items.BackgroundFillItem.PrintMembers(System.Text.StringBuilder)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.Items.CandidateFillItem">
@@ -2996,18 +2934,6 @@
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.CandidateFillItem.Color">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CandidateFillItem.EqualityContract">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Items.CandidateFillItem.Equals(Sudoku.Graphics.Item)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Items.CandidateFillItem.GetHashCode">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Items.CandidateFillItem.PrintMembers(System.Text.StringBuilder)">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Items.CandidateFillItem.DrawTo(Sudoku.Graphics.Canvas)">
@@ -3048,18 +2974,6 @@
         <member name="P:Sudoku.Graphics.Items.CandidateTextItem.CandidatePosition">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CandidateTextItem.EqualityContract">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Items.CandidateTextItem.Equals(Sudoku.Graphics.Item)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Items.CandidateTextItem.GetHashCode">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Items.CandidateTextItem.PrintMembers(System.Text.StringBuilder)">
-            <inheritdoc/>
-        </member>
         <member name="M:Sudoku.Graphics.Items.CandidateTextItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
@@ -3078,18 +2992,6 @@
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellFillItem.Color">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellFillItem.EqualityContract">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Items.CellFillItem.Equals(Sudoku.Graphics.Item)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Items.CellFillItem.GetHashCode">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Items.CellFillItem.PrintMembers(System.Text.StringBuilder)">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Items.CellFillItem.DrawTo(Sudoku.Graphics.Canvas)">
@@ -3145,15 +3047,6 @@
         <member name="P:Sudoku.Graphics.Items.CellMarkItem.Sudoku#Graphics#Items#IItem_FontRelatedProperties#FontSizeScale">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Items.CellMarkItem.Equals(Sudoku.Graphics.Item)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Items.CellMarkItem.GetHashCode">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Items.CellMarkItem.PrintMembers(System.Text.StringBuilder)">
-            <inheritdoc/>
-        </member>
         <member name="T:Sudoku.Graphics.Items.CellMarks.CellApexCornerTriangleMarkItem">
             <summary>
             Provides cell apex corner triangle mark item.
@@ -3172,9 +3065,6 @@
             <summary>
             Indicates padding scale (distance to border of cells).
             </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellApexCornerTriangleMarkItem.EqualityContract">
-            <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellApexCornerTriangleMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
@@ -3212,9 +3102,6 @@
             Indicates the shaft height scale, related to cell size.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellArrowMarkItem.EqualityContract">
-            <inheritdoc/>
-        </member>
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellArrowMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
@@ -3234,9 +3121,6 @@
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellArrowTriangleMarkItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellArrowTriangleMarkItem.EqualityContract">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellArrowTriangleMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
@@ -3265,9 +3149,6 @@
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellBattenburgMarkItem.Type">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellBattenburgMarkItem.EqualityContract">
-            <inheritdoc/>
-        </member>
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellBattenburgMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
@@ -3294,9 +3175,6 @@
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedArrowMarkItem.Type">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedArrowMarkItem.EqualityContract">
-            <inheritdoc/>
-        </member>
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedArrowMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
@@ -3313,9 +3191,6 @@
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedTriangleMarkItem.Type">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedTriangleMarkItem.EqualityContract">
-            <inheritdoc/>
-        </member>
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedTriangleMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
@@ -3325,9 +3200,6 @@
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellCircleMarkItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellCircleMarkItem.EqualityContract">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellCircleMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
@@ -3341,9 +3213,6 @@
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellCrossMarkItem.Type">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellCrossMarkItem.EqualityContract">
-            <inheritdoc/>
-        </member>
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellCrossMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
@@ -3353,9 +3222,6 @@
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellDiamondMarkItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellDiamondMarkItem.EqualityContract">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellDiamondMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
@@ -3372,9 +3238,6 @@
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellDiceMarkItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellDiceMarkItem.EqualityContract">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellDiceMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
@@ -3396,9 +3259,6 @@
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellEmojiMarkItem.PrintingText">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellEmojiMarkItem.EqualityContract">
-            <inheritdoc/>
-        </member>
         <member name="T:Sudoku.Graphics.Items.CellMarks.CellHalveLineMarkItem">
             <summary>
             Represents cell halve line mark item.
@@ -3410,9 +3270,6 @@
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellHalveLineMarkItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellHalveLineMarkItem.EqualityContract">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellHalveLineMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
@@ -3431,9 +3288,6 @@
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellHexagonMarkItem.Type">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellHexagonMarkItem.EqualityContract">
-            <inheritdoc/>
-        </member>
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellHexagonMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
@@ -3448,9 +3302,6 @@
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellMoonPhaseMarkItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellMoonPhaseMarkItem.EqualityContract">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellMoonPhaseMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
@@ -3478,9 +3329,6 @@
             <summary>
             Indicates the states.
             </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellPhantomDiceMarkItem.EqualityContract">
-            <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellPhantomDiceMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
@@ -3513,9 +3361,6 @@
             Indicates concave inner scale. By default it's 0.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellPolygonMarkItem.EqualityContract">
-            <inheritdoc/>
-        </member>
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellPolygonMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
@@ -3528,9 +3373,6 @@
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellQuestionMarkItem.PrintingText">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellQuestionMarkItem.EqualityContract">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.Items.CellMarks.CellSevenSegmentDisplayMarkItem">
@@ -3566,9 +3408,6 @@
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellSevenSegmentDisplayMarkItem.Type">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellSevenSegmentDisplayMarkItem.EqualityContract">
-            <inheritdoc/>
-        </member>
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellSevenSegmentDisplayMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
@@ -3578,9 +3417,6 @@
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellSquareMarkItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellSquareMarkItem.EqualityContract">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellSquareMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
@@ -3604,9 +3440,6 @@
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellSurroundingTrianglesMarkItem.Type">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellSurroundingTrianglesMarkItem.EqualityContract">
-            <inheritdoc/>
-        </member>
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellSurroundingTrianglesMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
@@ -3628,9 +3461,6 @@
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellTetrisMarkItem.Type">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellTetrisMarkItem.EqualityContract">
-            <inheritdoc/>
-        </member>
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellTetrisMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
@@ -3647,9 +3477,6 @@
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellTriangleMarkItem.Type">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellTriangleMarkItem.EqualityContract">
-            <inheritdoc/>
-        </member>
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellTriangleMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
@@ -3659,9 +3486,6 @@
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellArithmeticOperatorTextMarkItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellArithmeticOperatorTextMarkItem.EqualityContract">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.Items.CellTextMarks.CellArrowTextMarkItem">
@@ -3680,18 +3504,12 @@
         <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellArrowTextMarkItem.PrintingText">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellArrowTextMarkItem.EqualityContract">
-            <inheritdoc/>
-        </member>
         <member name="T:Sudoku.Graphics.Items.CellTextMarks.CellBitwiseOperatorTextMarkItem">
             <summary>
             Represents a bitwise operator text mark item.
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellBitwiseOperatorTextMarkItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellBitwiseOperatorTextMarkItem.EqualityContract">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.Items.CellTextMarks.CellBorderAlignedTextMarkItem">
@@ -3713,18 +3531,12 @@
         <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellBorderAlignedTextMarkItem.PrintingText">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellBorderAlignedTextMarkItem.EqualityContract">
-            <inheritdoc/>
-        </member>
         <member name="T:Sudoku.Graphics.Items.CellTextMarks.CellComparisonOperatorTextMarkItem">
             <summary>
             Represents a comparison operator text mark item.
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellComparisonOperatorTextMarkItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellComparisonOperatorTextMarkItem.EqualityContract">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.Items.CellTextMarks.CellExclamationMarkItem">
@@ -3736,9 +3548,6 @@
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellExclamationMarkItem.PrintingText">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellExclamationMarkItem.EqualityContract">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.Items.CellTextMarks.CellMathSymbolTextMarkItem`1">
@@ -3769,9 +3578,6 @@
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellSuitTextMarkItem.PrintingText">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellSuitTextMarkItem.EqualityContract">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.Items.CellTextMarks.CellTextMarkItem">
@@ -3817,9 +3623,6 @@
         <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellZodiacEmojiMarkItem.PrintingText">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellZodiacEmojiMarkItem.EqualityContract">
-            <inheritdoc/>
-        </member>
         <member name="T:Sudoku.Graphics.Items.GivenOrModifiableTextItem">
             <summary>
             Represents a text item that displays a given or a modifiable digit.
@@ -3855,15 +3658,6 @@
         <member name="P:Sudoku.Graphics.Items.GivenOrModifiableTextItem.FontSizeScale">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Items.GivenOrModifiableTextItem.Equals(Sudoku.Graphics.Item)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Items.GivenOrModifiableTextItem.GetHashCode">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Items.GivenOrModifiableTextItem.PrintMembers(System.Text.StringBuilder)">
-            <inheritdoc/>
-        </member>
         <member name="M:Sudoku.Graphics.Items.GivenOrModifiableTextItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
@@ -3871,9 +3665,6 @@
             <summary>
             Represents given text.
             </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.GivenTextItem.EqualityContract">
-            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.Items.IItem_CandidatePositionProperty">
             <summary>
@@ -3987,9 +3778,6 @@
             Represents modifiable text.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.ModifiableTextItem.EqualityContract">
-            <inheritdoc/>
-        </member>
         <member name="T:Sudoku.Graphics.Items.TemplateLineStrokeItem">
             <summary>
             Represents template line stroke item.
@@ -4011,19 +3799,7 @@
         <member name="P:Sudoku.Graphics.Items.TemplateLineStrokeItem.Type">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.TemplateLineStrokeItem.EqualityContract">
-            <inheritdoc/>
-        </member>
         <member name="P:Sudoku.Graphics.Items.TemplateLineStrokeItem.Sudoku#Graphics#Items#IItem_ColorProperty#Color">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Items.TemplateLineStrokeItem.Equals(Sudoku.Graphics.Item)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Items.TemplateLineStrokeItem.GetHashCode">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Items.TemplateLineStrokeItem.PrintMembers(System.Text.StringBuilder)">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Items.TemplateLineStrokeItem.DrawTo(Sudoku.Graphics.Canvas)">

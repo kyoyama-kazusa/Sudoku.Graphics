@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents template line stroke item.
 /// </summary>
-public sealed class TemplateLineStrokeItem : Item, IItem_ColorProperty
+public sealed record TemplateLineStrokeItem : Item, IItem_ColorProperty
 {
 	/// <summary>
 	/// Indicates whether intersection cells should be filled with another color.
@@ -22,9 +22,6 @@ public sealed class TemplateLineStrokeItem : Item, IItem_ColorProperty
 	public override ItemType Type => ItemType.TemplateLineStroke;
 
 	/// <inheritdoc/>
-	protected override Type EqualityContract => typeof(TemplateLineStrokeItem);
-
-	/// <inheritdoc/>
 	SerializableColor IItem_ColorProperty.Color
 	{
 		get => TemplateIntersectionCellsColor;
@@ -32,22 +29,6 @@ public sealed class TemplateLineStrokeItem : Item, IItem_ColorProperty
 		init => TemplateIntersectionCellsColor = value;
 	}
 
-
-	/// <inheritdoc/>
-	public override bool Equals([NotNullWhen(true)] Item? other)
-		=> other is TemplateLineStrokeItem comparer
-		&& FillIntersectionCells == comparer.FillIntersectionCells
-		&& TemplateIntersectionCellsColor == comparer.TemplateIntersectionCellsColor;
-
-	/// <inheritdoc/>
-	public override int GetHashCode() => HashCode.Combine(EqualityContract, FillIntersectionCells, TemplateIntersectionCellsColor);
-
-	/// <inheritdoc/>
-	protected override void PrintMembers(StringBuilder builder)
-	{
-		builder.Append($"{nameof(FillIntersectionCells)} = {FillIntersectionCells}, ");
-		builder.Append($"{nameof(TemplateIntersectionCellsColor)} = {TemplateIntersectionCellsColor}");
-	}
 
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)

@@ -3,13 +3,10 @@
 /// <summary>
 /// Represents a cell cross item.
 /// </summary>
-public sealed class CellCrossMarkItem : CellMarkItem
+public sealed record CellCrossMarkItem : CellMarkItem
 {
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.CellMark_Cross;
-
-	/// <inheritdoc/>
-	protected override Type EqualityContract => typeof(CellCrossMarkItem);
 
 
 	/// <inheritdoc/>

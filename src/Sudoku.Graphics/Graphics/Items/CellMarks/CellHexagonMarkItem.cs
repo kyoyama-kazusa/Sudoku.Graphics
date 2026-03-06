@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a cell hexagon mark item.
 /// </summary>
-public sealed class CellHexagonMarkItem : CellMarkItem
+public sealed record CellHexagonMarkItem : CellMarkItem
 {
 	/// <summary>
 	/// Indicates orientation of this symbol.
@@ -12,9 +12,6 @@ public sealed class CellHexagonMarkItem : CellMarkItem
 
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.CellMark_Hexagon;
-
-	/// <inheritdoc/>
-	protected override Type EqualityContract => typeof(CellHexagonMarkItem);
 
 
 	/// <inheritdoc/>

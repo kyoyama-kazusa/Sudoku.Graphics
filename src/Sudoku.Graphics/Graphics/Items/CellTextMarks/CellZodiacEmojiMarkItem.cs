@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a cell zodiac emoji mark item.
 /// </summary>
-public sealed class CellZodiacEmojiMarkItem : CellTextMarkItem
+public sealed record CellZodiacEmojiMarkItem : CellTextMarkItem
 {
 	/// <summary>
 	/// Indicates the zodiac animal.
@@ -31,7 +31,4 @@ public sealed class CellZodiacEmojiMarkItem : CellTextMarkItem
 			ZodiacAnimal.Pig => "\uD83D\uDC37",
 			_ => throw new InvalidOperationException("The specified zodiac is not defined or invalid.")
 		};
-
-	/// <inheritdoc/>
-	protected override Type EqualityContract => typeof(CellZodiacEmojiMarkItem);
 }

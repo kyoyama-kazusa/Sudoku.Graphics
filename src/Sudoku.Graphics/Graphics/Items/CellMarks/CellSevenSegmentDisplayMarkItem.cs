@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a cell seven-segment display mark item.
 /// </summary>
-public sealed class CellSevenSegmentDisplayMarkItem : CellMarkItem
+public sealed record CellSevenSegmentDisplayMarkItem : CellMarkItem
 {
 	/// <summary>
 	/// Indicates whether phantom segments (segments not shown in specified value) are also shown, but not filled.
@@ -32,9 +32,6 @@ public sealed class CellSevenSegmentDisplayMarkItem : CellMarkItem
 
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.CellMark_SevenSegmentDisplay;
-
-	/// <inheritdoc/>
-	protected override Type EqualityContract => typeof(CellSevenSegmentDisplayMarkItem);
 
 
 	/// <inheritdoc/>

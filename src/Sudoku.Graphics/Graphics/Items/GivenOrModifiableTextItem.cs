@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a text item that displays a given or a modifiable digit.
 /// </summary>
-public abstract class GivenOrModifiableTextItem :
+public abstract record GivenOrModifiableTextItem :
 	Item,
 	IItem_CellProperty,
 	IItem_ColorProperty,
@@ -41,45 +41,6 @@ public abstract class GivenOrModifiableTextItem :
 	/// <inheritdoc/>
 	public required Scale FontSizeScale { get; init; }
 
-
-	/// <inheritdoc/>
-	public sealed override bool Equals([NotNullWhen(true)] Item? other)
-		=> other is GivenOrModifiableTextItem comparer && EqualityContract == comparer.EqualityContract
-		&& TemplateIndex == comparer.TemplateIndex && Text == comparer.Text
-		&& Cell == comparer.Cell && Color == comparer.Color
-		&& FontName == comparer.FontName && FontSizeScale == comparer.FontSizeScale
-		&& FontWeight == comparer.FontWeight && FontWidth == comparer.FontWidth && FontSlant == comparer.FontSlant;
-
-	/// <inheritdoc/>
-	public sealed override int GetHashCode()
-	{
-		var hashCode = new HashCode();
-		hashCode.Add(EqualityContract);
-		hashCode.Add(TemplateIndex);
-		hashCode.Add(Text);
-		hashCode.Add(Cell);
-		hashCode.Add(Color);
-		hashCode.Add(FontName);
-		hashCode.Add(FontSizeScale);
-		hashCode.Add(FontWeight);
-		hashCode.Add(FontWidth);
-		hashCode.Add(FontSlant);
-		return hashCode.ToHashCode();
-	}
-
-	/// <inheritdoc/>
-	protected sealed override void PrintMembers(StringBuilder builder)
-	{
-		builder.Append($"{nameof(TemplateIndex)} = {TemplateIndex}, ");
-		builder.Append($"{nameof(Text)} = {Text}, ");
-		builder.Append($"{nameof(Cell)} = {Cell}, ");
-		builder.Append($"{nameof(Color)} = {Color}, ");
-		builder.Append($"{nameof(FontName)} = \"{FontName}\", ");
-		builder.Append($"{nameof(FontSizeScale)} = {FontSizeScale}, ");
-		builder.Append($"{nameof(FontWeight)} = {FontWeight}, ");
-		builder.Append($"{nameof(FontWidth)} = {FontWidth}, ");
-		builder.Append($"{nameof(FontSlant)} = {FontSlant}");
-	}
 
 	/// <inheritdoc/>
 	protected internal sealed override void DrawTo(Canvas canvas)

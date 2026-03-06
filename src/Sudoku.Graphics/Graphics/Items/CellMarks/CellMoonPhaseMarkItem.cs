@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a cell moon phase mark item.
 /// </summary>
-public sealed class CellMoonPhaseMarkItem : CellMarkItem
+public sealed record CellMoonPhaseMarkItem : CellMarkItem
 {
 	/// <summary>
 	/// Indicates the moon phase.
@@ -12,9 +12,6 @@ public sealed class CellMoonPhaseMarkItem : CellMarkItem
 
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.CellMark_MoonPhase;
-
-	/// <inheritdoc/>
-	protected override Type EqualityContract => typeof(CellMoonPhaseMarkItem);
 
 
 	/// <inheritdoc/>

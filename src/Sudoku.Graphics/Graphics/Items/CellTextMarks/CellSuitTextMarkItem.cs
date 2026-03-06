@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a cell suit mark item.
 /// </summary>
-public sealed class CellSuitTextMarkItem : CellTextMarkItem
+public sealed record CellSuitTextMarkItem : CellTextMarkItem
 {
 	/// <summary>
 	/// Indicates the suit.
@@ -23,7 +23,4 @@ public sealed class CellSuitTextMarkItem : CellTextMarkItem
 			Suit.Diamond => "\u2666",
 			_ => string.Empty
 		};
-
-	/// <inheritdoc/>
-	protected override Type EqualityContract => typeof(CellSuitTextMarkItem);
 }

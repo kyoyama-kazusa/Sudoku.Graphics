@@ -3,11 +3,8 @@
 /// <summary>
 /// Represents an arithmetic operator text mark item.
 /// </summary>
-public sealed class CellArithmeticOperatorTextMarkItem : CellMathSymbolTextMarkItem<ArithmeticOperator>
+public sealed record CellArithmeticOperatorTextMarkItem : CellMathSymbolTextMarkItem<ArithmeticOperator>
 {
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.CellMark_ArithmeticOperatorText;
-
-	/// <inheritdoc/>
-	protected override Type EqualityContract => typeof(CellArithmeticOperatorTextMarkItem);
 }

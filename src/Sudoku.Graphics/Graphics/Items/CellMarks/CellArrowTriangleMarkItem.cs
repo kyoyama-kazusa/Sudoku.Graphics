@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a cell arrow triangle mark item.
 /// </summary>
-public sealed class CellArrowTriangleMarkItem : CellMarkItem
+public sealed record CellArrowTriangleMarkItem : CellMarkItem
 {
 	/// <summary>
 	/// Indicates the arrow direction.
@@ -17,9 +17,6 @@ public sealed class CellArrowTriangleMarkItem : CellMarkItem
 
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.CellMark_ArrowTriangle;
-
-	/// <inheritdoc/>
-	protected override Type EqualityContract => typeof(CellArrowTriangleMarkItem);
 
 
 	/// <inheritdoc/>

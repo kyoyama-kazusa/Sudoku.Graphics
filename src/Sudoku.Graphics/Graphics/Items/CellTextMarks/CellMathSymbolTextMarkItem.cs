@@ -4,7 +4,7 @@
 /// Represents a text mark item in cell, for a math symbol.
 /// </summary>
 /// <typeparam name="TOperator">The type of operator symbol enumeration.</typeparam>
-public abstract class CellMathSymbolTextMarkItem<TOperator> : CellTextMarkItem where TOperator : unmanaged, Enum
+public abstract record CellMathSymbolTextMarkItem<TOperator> : CellTextMarkItem where TOperator : unmanaged, Enum
 {
 	/// <summary>
 	/// Indicates the operator.

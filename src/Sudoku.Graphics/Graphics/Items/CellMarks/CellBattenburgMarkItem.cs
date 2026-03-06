@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a cell battenburg (battenberg) mark item.
 /// </summary>
-public sealed class CellBattenburgMarkItem : CellMarkItem
+public sealed record CellBattenburgMarkItem : CellMarkItem
 {
 	/// <summary>
 	/// Indicates the color 1.
@@ -22,9 +22,6 @@ public sealed class CellBattenburgMarkItem : CellMarkItem
 
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.CellMark_Battenburg;
-
-	/// <inheritdoc/>
-	protected override Type EqualityContract => typeof(CellBattenburgMarkItem);
 
 
 	/// <inheritdoc/>

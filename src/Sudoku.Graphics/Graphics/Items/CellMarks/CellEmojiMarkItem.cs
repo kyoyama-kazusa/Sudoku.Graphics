@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents emoji mark item.
 /// </summary>
-public sealed class CellEmojiMarkItem : CellTextMarkItem
+public sealed record CellEmojiMarkItem : CellTextMarkItem
 {
 	/// <summary>
 	/// Indicates the emoji.
@@ -15,7 +15,4 @@ public sealed class CellEmojiMarkItem : CellTextMarkItem
 
 	/// <inheritdoc/>
 	protected override string PrintingText => Emoji;
-
-	/// <inheritdoc/>
-	protected override Type EqualityContract => typeof(CellEmojiMarkItem);
 }

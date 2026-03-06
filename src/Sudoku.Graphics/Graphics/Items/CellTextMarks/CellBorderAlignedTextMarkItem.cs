@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a cell border-aligned text mark item.
 /// </summary>
-public sealed class CellBorderAlignedTextMarkItem : CellTextMarkItem
+public sealed record CellBorderAlignedTextMarkItem : CellTextMarkItem
 {
 	/// <summary>
 	/// Indicates text.
@@ -18,7 +18,4 @@ public sealed class CellBorderAlignedTextMarkItem : CellTextMarkItem
 
 	/// <inheritdoc/>
 	protected override string PrintingText => Text;
-
-	/// <inheritdoc/>
-	protected override Type EqualityContract => typeof(CellBorderAlignedTextMarkItem);
 }

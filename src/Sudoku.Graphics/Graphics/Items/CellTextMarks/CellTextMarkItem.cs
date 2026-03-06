@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents cell text mark item.
 /// </summary>
-public abstract class CellTextMarkItem : CellMarkItem
+public abstract record CellTextMarkItem : CellMarkItem
 {
 	/// <summary>
 	/// Indicates the aligned direction.

@@ -3,13 +3,10 @@
 /// <summary>
 /// Provides cell diamond mark item.
 /// </summary>
-public sealed class CellDiamondMarkItem : CellMarkItem
+public sealed record CellDiamondMarkItem : CellMarkItem
 {
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.CellMark_Diamond;
-
-	/// <inheritdoc/>
-	protected override Type EqualityContract => typeof(CellDiamondMarkItem);
 
 
 	/// <inheritdoc/>

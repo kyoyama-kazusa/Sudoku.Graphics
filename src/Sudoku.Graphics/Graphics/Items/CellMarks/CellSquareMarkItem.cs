@@ -3,28 +3,21 @@
 /// <summary>
 /// Represents a cell square mark item.
 /// </summary>
-public sealed class CellSquareMarkItem : CellMarkItem
+public sealed record CellSquareMarkItem : CellMarkItem
 {
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.CellMark_Square;
 
-	/// <inheritdoc/>
-	protected override Type EqualityContract => typeof(CellSquareMarkItem);
-
 
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)
-	{
-		var template = canvas.Templates[TemplateIndex];
-		var mapper = template.Mapper;
-		canvas.BackingCanvas.DrawSquareToCell(
+		=> canvas.BackingCanvas.DrawSquareToCell(
 			Cell,
 			SizeScale,
 			StrokeColor,
 			StrokeWidthScale,
 			FillColor,
 			CornerRadiusScale,
-			mapper
+			canvas.Templates[TemplateIndex].Mapper
 		);
-	}
 }

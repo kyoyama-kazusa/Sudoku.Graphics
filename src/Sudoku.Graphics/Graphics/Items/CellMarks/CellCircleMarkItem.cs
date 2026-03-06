@@ -3,13 +3,10 @@
 /// <summary>
 /// Represents a cell circle mark item.
 /// </summary>
-public sealed class CellCircleMarkItem : CellMarkItem
+public sealed record CellCircleMarkItem : CellMarkItem
 {
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.CellMark_Circle;
-
-	/// <inheritdoc/>
-	protected override Type EqualityContract => typeof(CellCircleMarkItem);
 
 
 	/// <inheritdoc/>

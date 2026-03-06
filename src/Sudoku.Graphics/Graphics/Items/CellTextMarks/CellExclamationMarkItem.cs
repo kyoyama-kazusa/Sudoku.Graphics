@@ -3,14 +3,11 @@
 /// <summary>
 /// Represents cell exclamation mark item.
 /// </summary>
-public sealed class CellExclamationMarkItem : CellTextMarkItem
+public sealed record CellExclamationMarkItem : CellTextMarkItem
 {
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.CellMark_ExclamationText;
 
 	/// <inheritdoc/>
 	protected override string PrintingText => "!";
-
-	/// <inheritdoc/>
-	protected override Type EqualityContract => typeof(CellExclamationMarkItem);
 }

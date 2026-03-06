@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a cell triangle mark item.
 /// </summary>
-public sealed class CellTriangleMarkItem : CellMarkItem
+public sealed record CellTriangleMarkItem : CellMarkItem
 {
 	/// <summary>
 	/// Indicates the direction.
@@ -13,23 +13,16 @@ public sealed class CellTriangleMarkItem : CellMarkItem
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.CellMark_Triangle;
 
-	/// <inheritdoc/>
-	protected override Type EqualityContract => typeof(CellTriangleMarkItem);
-
 
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)
-	{
-		var template = canvas.Templates[TemplateIndex];
-		var mapper = template.Mapper;
-		canvas.BackingCanvas.DrawTriangleToCell(
+		=> canvas.BackingCanvas.DrawTriangleToCell(
 			Cell,
 			Direction,
 			SizeScale,
 			StrokeColor,
 			StrokeWidthScale,
 			FillColor,
-			mapper
+			canvas.Templates[TemplateIndex].Mapper
 		);
-	}
 }

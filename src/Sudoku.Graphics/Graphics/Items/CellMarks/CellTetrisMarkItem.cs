@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a cell tetris mark item.
 /// </summary>
-public sealed class CellTetrisMarkItem : CellMarkItem
+public sealed record CellTetrisMarkItem : CellMarkItem
 {
 	/// <summary>
 	/// Indicates the piece used.
@@ -17,9 +17,6 @@ public sealed class CellTetrisMarkItem : CellMarkItem
 
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.CellMark_Tetris;
-
-	/// <inheritdoc/>
-	protected override Type EqualityContract => typeof(CellTetrisMarkItem);
 
 
 	/// <inheritdoc/>

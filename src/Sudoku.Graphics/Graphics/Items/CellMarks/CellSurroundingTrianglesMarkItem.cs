@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a cell mark item that renders a list of triangles, surrounding with cell center.
 /// </summary>
-public sealed class CellSurroundingTrianglesMarkItem : CellMarkItem
+public sealed record CellSurroundingTrianglesMarkItem : CellMarkItem
 {
 	/// <summary>
 	/// Indicates the number of triangles.
@@ -17,9 +17,6 @@ public sealed class CellSurroundingTrianglesMarkItem : CellMarkItem
 
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.CellMark_SurroundingTriangles;
-
-	/// <inheritdoc/>
-	protected override Type EqualityContract => typeof(CellSurroundingTrianglesMarkItem);
 
 
 	/// <inheritdoc/>

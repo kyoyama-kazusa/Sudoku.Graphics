@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents cell halve line mark item.
 /// </summary>
-public sealed class CellHalveLineMarkItem : CellMarkItem
+public sealed record CellHalveLineMarkItem : CellMarkItem
 {
 	/// <summary>
 	/// Indicates the orientation.
@@ -12,9 +12,6 @@ public sealed class CellHalveLineMarkItem : CellMarkItem
 
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.CellMark_HalveLine;
-
-	/// <inheritdoc/>
-	protected override Type EqualityContract => typeof(CellHalveLineMarkItem);
 
 
 	/// <inheritdoc/>

@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a candidate fill item.
 /// </summary>
-public sealed class CandidateFillItem : Item, IItem_ColorProperty, IItem_CandidatePositionProperty, IItem_TemplateIndexProperty
+public sealed record CandidateFillItem : Item, IItem_ColorProperty, IItem_CandidatePositionProperty, IItem_TemplateIndexProperty
 {
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.CandidateFill;
@@ -17,23 +17,6 @@ public sealed class CandidateFillItem : Item, IItem_ColorProperty, IItem_Candida
 	/// <inheritdoc/>
 	public required SerializableColor Color { get; init; }
 
-	/// <inheritdoc/>
-	protected override Type EqualityContract => typeof(CandidateFillItem);
-
-
-	/// <inheritdoc/>
-	public override bool Equals([NotNullWhen(true)] Item? other)
-		=> other is CandidateFillItem comparer && CandidatePosition == comparer.CandidatePosition && Color == comparer.Color;
-
-	/// <inheritdoc/>
-	public override int GetHashCode() => HashCode.Combine(EqualityContract, CandidatePosition, Color);
-
-	/// <inheritdoc/>
-	protected override void PrintMembers(StringBuilder builder)
-	{
-		builder.Append($"{nameof(CandidatePosition)} = {CandidatePosition}, ");
-		builder.Append($"{nameof(Color)} = {Color}");
-	}
 
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)

@@ -3,7 +3,7 @@
 /// <summary>
 /// Provides with a cell phantom dice mark item.
 /// </summary>
-public sealed class CellPhantomDiceMarkItem : CellMarkItem
+public sealed record CellPhantomDiceMarkItem : CellMarkItem
 {
 	/// <summary>
 	/// Indicates subgrid size.
@@ -22,9 +22,6 @@ public sealed class CellPhantomDiceMarkItem : CellMarkItem
 	/// Indicates the states.
 	/// </summary>
 	public required BitArray States { get; init; }
-
-	/// <inheritdoc/>
-	protected override Type EqualityContract => typeof(CellPhantomDiceMarkItem);
 
 
 	/// <inheritdoc/>

@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a cell polygon mark item.
 /// </summary>
-public sealed class CellPolygonMarkItem : CellMarkItem
+public sealed record CellPolygonMarkItem : CellMarkItem
 {
 	/// <summary>
 	/// Indicates whether this type draws for concave polygon or not. By default it's <see langword="false"/>.
@@ -27,9 +27,6 @@ public sealed class CellPolygonMarkItem : CellMarkItem
 	/// Indicates concave inner scale. By default it's 0.
 	/// </summary>
 	public Scale ConcaveInnerScale { get; init; } = 0M;
-
-	/// <inheritdoc/>
-	protected override Type EqualityContract => typeof(CellPolygonMarkItem);
 
 
 	/// <inheritdoc/>

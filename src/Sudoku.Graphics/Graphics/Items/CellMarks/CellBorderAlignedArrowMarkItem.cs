@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents cell border-aligned arrow mark item.
 /// </summary>
-public sealed class CellBorderAlignedArrowMarkItem : CellMarkItem
+public sealed record CellBorderAlignedArrowMarkItem : CellMarkItem
 {
 	/// <summary>
 	/// Indicates arrows padding scale.
@@ -22,9 +22,6 @@ public sealed class CellBorderAlignedArrowMarkItem : CellMarkItem
 
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.CellMark_BorderAlignedArrow;
-
-	/// <inheritdoc/>
-	protected override Type EqualityContract => typeof(CellBorderAlignedArrowMarkItem);
 
 
 	/// <inheritdoc/>

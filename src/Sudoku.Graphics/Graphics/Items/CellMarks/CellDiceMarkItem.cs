@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents cell dice mark item.
 /// </summary>
-public sealed class CellDiceMarkItem : CellMarkItem
+public sealed record CellDiceMarkItem : CellMarkItem
 {
 	/// <summary>
 	/// Indicates dice value.
@@ -12,9 +12,6 @@ public sealed class CellDiceMarkItem : CellMarkItem
 
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.CellMark_Dice;
-
-	/// <inheritdoc/>
-	protected override Type EqualityContract => typeof(CellDiceMarkItem);
 
 
 	/// <inheritdoc/>
