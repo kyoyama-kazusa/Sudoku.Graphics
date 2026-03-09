@@ -17,11 +17,8 @@ public sealed class StandardTemplate : Template, ITemplate_RoundedRectangleRelat
 	{
 		Mapper = mapper;
 
-		var rowsCount = mapper.RowsCount;
-		var columnsCount = mapper.ColumnsCount;
-
-		ArgumentException.Assert(rowsCount % (int)Math.Sqrt(rowsCount) == 0);
-		ArgumentException.Assert(columnsCount % (int)Math.Sqrt(columnsCount) == 0);
+		ArgumentException.Assert(mapper.RowsCount % (int)Math.Sqrt(mapper.RowsCount) == 0);
+		ArgumentException.Assert(mapper.ColumnsCount % (int)Math.Sqrt(mapper.ColumnsCount) == 0);
 
 		RowBlockSize = rowBlockSize;
 		ColumnBlockSize = columnBlockSize;
