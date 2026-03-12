@@ -217,12 +217,17 @@ public enum ItemType
 	#endregion
 
 	//
-	// Template lines
+	// Lines
 	//
-	#region Template lines
+	#region Lines
 	/// <summary>
 	/// Indicates template line strokes.
 	/// </summary>
 	TemplateLineStroke = 1000,
+
+	/// <summary>
+	/// Indicates variant line strokes.
+	/// </summary>
+	VariantLineStroke,
 	#endregion
 }

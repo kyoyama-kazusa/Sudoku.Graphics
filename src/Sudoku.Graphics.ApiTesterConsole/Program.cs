@@ -10,6 +10,7 @@ using System;
 using System.IO;
 using System.Linq;
 using SkiaSharp;
+using Sudoku.ComponentModel;
 using Sudoku.ComponentModel.Directions;
 using Sudoku.ComponentModel.Templates;
 using Sudoku.Graphics;
@@ -39,19 +40,46 @@ canvas.DrawItems(
 	[
 		new BackgroundFillItem { Color = options.BackgroundColor.Resolve(options) },
 		new TemplateLineStrokeItem(),
-		..
-		from cell in SpanEnumerable.Range(0, 81)
-		select new CellBorderAlignedTextMarkItem
+		new VariantLineStrokeItem
 		{
-			Cell = cell,
-			TemplateIndex = 0,
-			AlignedDirection = Enum.GetValues<Direction8>()[5..][rng.Next(0, 4)],
-			//RotationDirection = Enum.GetValues<Direction8>()[rng.Next(0, 9)],
-			SizeScale = .35M,
-			Text = (rng.Next(0, 9) + 1).ToString(),
-			TextFontName = "Arial",
-			FillColor = SKColors.DimGray
+			StartCell = 0,
+			StartCellAlignment = Alignment.TopLeft,
+			InterimCell = 1,
+			InterimCellAlignment = Alignment.BottomRight,
+			Color = SKColors.Gray.WithAlpha(160),
+			StrokeWidthScale = options.ThickLineWidth.Resolve(options),
+			TemplateIndex = 0
 		},
+		new VariantLineStrokeItem
+		{
+			StartCell = 0,
+			StartCellAlignment = Alignment.TopLeft,
+			InterimCell = 10,
+			InterimCellAlignment = Alignment.BottomRight,
+			Color = SKColors.Gray.WithAlpha(160),
+			StrokeWidthScale = options.ThickLineWidth.Resolve(options),
+			TemplateIndex = 0
+		},
+		new VariantLineStrokeItem
+		{
+			StartCell = 0,
+			StartCellAlignment = Alignment.TopLeft,
+			InterimCell = 19,
+			InterimCellAlignment = Alignment.BottomRight,
+			Color = SKColors.Gray.WithAlpha(160),
+			StrokeWidthScale = options.ThickLineWidth.Resolve(options),
+			TemplateIndex = 0
+		},
+		new VariantLineStrokeItem
+		{
+			StartCell = 0,
+			StartCellAlignment = Alignment.TopLeft,
+			InterimCell = 28,
+			InterimCellAlignment = Alignment.BottomRight,
+			Color = SKColors.Gray.WithAlpha(160),
+			StrokeWidthScale = options.ThickLineWidth.Resolve(options),
+			TemplateIndex = 0
+		}
 	]
 );
 canvas.Export(Path.Combine(desktop, "output.png"), new() { Quality = 100 });

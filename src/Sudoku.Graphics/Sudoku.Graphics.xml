@@ -3805,6 +3805,95 @@
         <member name="M:Sudoku.Graphics.Items.TemplateLineStrokeItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.Items.VariantLineStrokeItem">
+            <summary>
+            Represents variant line stroke item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.VariantLineStrokeItem.TemplateIndex">
+            <summary>
+            Indicates template index.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.VariantLineStrokeItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.VariantLineStrokeItem.StartCellAlignment">
+            <summary>
+            Indicates start cell alignment.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.VariantLineStrokeItem.InterimCellAlignment">
+            <summary>
+            Indicates interim cell alignment.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.VariantLineStrokeItem.StartCell">
+            <summary>
+            Indicates the start cell.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.VariantLineStrokeItem.InterimCell">
+            <summary>
+            Indicates the interim cell.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.VariantLineStrokeItem.Color">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.VariantLineStrokeItem.StrokeWidthScale">
+            <summary>
+            Indicates stroke width scale.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.VariantLineStrokeItem.LineDashSequence">
+            <summary>
+            Indicates line dash sequence.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.VariantLineStrokeItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.GridLineExtender">
+            <summary>
+            Represents a grid line extender.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.GridLineExtender.Epsilon">
+            <summary>
+            Represents epsilon.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.GridLineExtender.ExtendRayToRectangleBoundary(SkiaSharp.SKPoint,SkiaSharp.SKPoint,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Gives start and anchor (interim) points, to calculate the target point intersected with grid border.
+            </summary>
+            <param name="start">The start point.</param>
+            <param name="anchor">The anchor point.</param>
+            <param name="left">The left value of grid.</param>
+            <param name="top">The top value of grid.</param>
+            <param name="right">The right value of grid.</param>
+            <param name="bottom">The bottom value of grid.</param>
+            <returns>The result point.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.GridLineExtender.ComputeExtendedLine(SkiaSharp.SKPoint,Sudoku.ComponentModel.Alignment,SkiaSharp.SKPoint,Sudoku.ComponentModel.Alignment,System.Single,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Absolute,System.Single,System.Single)">
+            <summary>
+            Calculates start and end point, with line extended.
+            </summary>
+            <param name="start">Represents point of start cell.</param>
+            <param name="startAlignment">The start cell alignment.</param>
+            <param name="interim">Represents point of interim cell.</param>
+            <param name="interimCorner">The interim cell alignment.</param>
+            <param name="cellSize">The cell size.</param>
+            <param name="rowsCount">The number of rows.</param>
+            <param name="columnsCount">The number of columns.</param>
+            <param name="marginLeft">The margin X value.</param>
+            <param name="marginTop">The margin Y value.</param>
+            <returns>The pair of points.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Throws when either variable <paramref name="startAlignment"/> or <paramref name="interimCorner"/> is not defined.
+            </exception>
+        </member>
         <member name="T:Sudoku.Graphics.ItemType">
             <summary>
             Represents a type of item. The value of field represents ordering of the items of this type to draw.
@@ -3999,6 +4088,11 @@
         <member name="F:Sudoku.Graphics.ItemType.TemplateLineStroke">
             <summary>
             Indicates template line strokes.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.VariantLineStroke">
+            <summary>
+            Indicates variant line strokes.
             </summary>
         </member>
         <member name="T:Sudoku.Graphics.PointMapper">
