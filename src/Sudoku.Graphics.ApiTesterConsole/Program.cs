@@ -10,12 +10,10 @@ using System;
 using System.IO;
 using System.Linq;
 using SkiaSharp;
-using Sudoku.ComponentModel;
 using Sudoku.Graphics;
 using Sudoku.Graphics.Items.CandidateMarks;
 using Sudoku.Graphics.Items.Fills;
 using Sudoku.Graphics.Items.Lines;
-using Sudoku.Graphics.Items.Texts;
 using Sudoku.Graphics.Templates;
 
 var desktop = Environment.DesktopPath;
