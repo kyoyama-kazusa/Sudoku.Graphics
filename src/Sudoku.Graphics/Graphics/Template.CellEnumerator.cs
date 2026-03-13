@@ -1,4 +1,4 @@
-﻿namespace Sudoku.ComponentModel;
+﻿namespace Sudoku.Graphics;
 
 public partial class Template
 {

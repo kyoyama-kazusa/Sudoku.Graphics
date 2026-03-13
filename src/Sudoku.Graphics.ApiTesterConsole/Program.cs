@@ -10,10 +10,10 @@ using System;
 using System.IO;
 using SkiaSharp;
 using Sudoku.ComponentModel;
-using Sudoku.ComponentModel.Templates;
 using Sudoku.Graphics;
 using Sudoku.Graphics.Items.Fills;
 using Sudoku.Graphics.Items.Lines;
+using Sudoku.Graphics.Templates;
 
 var desktop = Environment.DesktopPath;
 var options = new CanvasDrawingOptions();
