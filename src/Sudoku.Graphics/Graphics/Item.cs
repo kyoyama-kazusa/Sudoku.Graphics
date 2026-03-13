@@ -7,6 +7,7 @@
 [JsonPolymorphic(UnknownDerivedTypeHandling = JsonUnknownDerivedTypeHandling.FailSerialization)]
 [JsonDerivedType(typeof(BackgroundFillItem), nameof(BackgroundFillItem))]
 [JsonDerivedType(typeof(CandidateCircleMarkItem), nameof(CandidateCircleMarkItem))]
+[JsonDerivedType(typeof(CandidateCrossMarkItem), nameof(CandidateCrossMarkItem))]
 [JsonDerivedType(typeof(CandidateFillItem), nameof(CandidateFillItem))]
 [JsonDerivedType(typeof(CandidateTextItem), nameof(CandidateTextItem))]
 [JsonDerivedType(typeof(CellApexCornerTriangleMarkItem), nameof(CellApexCornerTriangleMarkItem))]

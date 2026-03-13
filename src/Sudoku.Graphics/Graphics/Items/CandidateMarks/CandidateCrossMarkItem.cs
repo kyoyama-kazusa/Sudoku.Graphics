@@ -1,17 +1,17 @@
 ﻿namespace Sudoku.Graphics.Items.CandidateMarks;
 
 /// <summary>
-/// Represents a candidate circle mark item.
+/// Represents a candidate cross mark item.
 /// </summary>
-public sealed record CandidateCircleMarkItem : CandidateMarkItem
+public sealed record CandidateCrossMarkItem : CandidateMarkItem
 {
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CandidateMark_Circle;
+	public override ItemType Type => ItemType.CandidateMark_Cross;
 
 	/// <summary>
-	/// Indicates stroke width scale.
+	/// Indicates scale of stroke width.
 	/// </summary>
-	public Scale StrokeWidthScale { get; init; }
+	public required Scale StrokeWidthScale { get; init; }
 
 
 	/// <inheritdoc/>
@@ -19,12 +19,11 @@ public sealed record CandidateCircleMarkItem : CandidateMarkItem
 	{
 		var template = canvas.Templates[TemplateIndex];
 		var mapper = template.Mapper;
-		canvas.BackingCanvas.DrawCircleTo(
+		canvas.BackingCanvas.DrawCrossTo(
 			CandidatePosition,
 			SizeScale,
-			StrokeColor,
 			StrokeWidthScale,
-			FillColor,
+			StrokeColor,
 			mapper
 		);
 	}

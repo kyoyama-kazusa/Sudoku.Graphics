@@ -148,7 +148,12 @@ public enum ItemType
 	/// <summary>
 	/// Indicates circle candidate mark.
 	/// </summary>
-	CandidateCircleMark,
+	CandidateMark_Circle,
+
+	/// <summary>
+	/// Indicates candidate cross mark.
+	/// </summary>
+	CandidateMark_Cross,
 	#endregion
 
 	//

@@ -2493,6 +2493,22 @@
         <member name="M:Sudoku.Graphics.Items.CandidateMarks.CandidateCircleMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.Items.CandidateMarks.CandidateCrossMarkItem">
+            <summary>
+            Represents a candidate cross mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidateMarks.CandidateCrossMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidateMarks.CandidateCrossMarkItem.StrokeWidthScale">
+            <summary>
+            Indicates scale of stroke width.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CandidateMarks.CandidateCrossMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.Items.CandidateMarks.CandidateMarkItem">
             <summary>
             Represents a candidate mark item.
@@ -3634,9 +3650,14 @@
             Indicates cell border-aligned arrow mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CandidateCircleMark">
+        <member name="F:Sudoku.Graphics.ItemType.CandidateMark_Circle">
             <summary>
             Indicates circle candidate mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CandidateMark_Cross">
+            <summary>
+            Indicates candidate cross mark.
             </summary>
         </member>
         <member name="F:Sudoku.Graphics.ItemType.GivenText">
@@ -3983,8 +4004,8 @@
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawCircleTo``1(SkiaSharp.SKCanvas,``0,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCircleTo``1(``0,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawCrossInCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,SkiaSharp.SKStrokeCap)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCrossInCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,SkiaSharp.SKStrokeCap)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawCrossTo``1(SkiaSharp.SKCanvas,``0,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,SkiaSharp.SKStrokeCap)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCrossTo``1(``0,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,SkiaSharp.SKStrokeCap)"/>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawDiamondToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawDiamondToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
@@ -4176,11 +4197,12 @@
             <param name="fillColor">The fill color.</param>
             <param name="mapper">The mapper instance.</param>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCrossInCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,SkiaSharp.SKStrokeCap)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCrossTo``1(``0,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,SkiaSharp.SKStrokeCap)">
             <summary>
-            Draws a cross symbol into the specified cell.
+            Draws a cross symbol into the specified cell or candidate.
             </summary>
-            <param name="cell">The cell.</param>
+            <typeparam name="TLocator">The type of cell or candidate.</typeparam>
+            <param name="locator">The cell or candidate.</param>
             <param name="sizeScale">The scale of size, related to cell size.</param>
             <param name="strokeWidthScale">The stroke width scale.</param>
             <param name="color">The color.</param>

@@ -14,7 +14,7 @@ public sealed record CellCrossMarkItem : CellMarkItem
 	{
 		var template = canvas.Templates[TemplateIndex];
 		var mapper = template.Mapper;
-		canvas.BackingCanvas.DrawCrossInCell(
+		canvas.BackingCanvas.DrawCrossTo(
 			Cell,
 			SizeScale,
 			StrokeWidthScale,

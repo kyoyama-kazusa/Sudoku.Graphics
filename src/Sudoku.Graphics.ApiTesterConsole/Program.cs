@@ -47,24 +47,14 @@ canvas.DrawItems(
 		let cell = pair.Index
 		let digit = pair.Item is '.' or '0' ? -1 : pair.Item - '1'
 		where digit != -1
-		let a = new CandidateCircleMarkItem
+		select new CandidateCrossMarkItem
 		{
 			CandidatePosition = new(cell, 3, digit),
+			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
 			TemplateIndex = 0,
 			SizeScale = .25M,
-			FillColor = new(134, 242, 128)
+			StrokeColor = SKColors.Red
 		}
-		let b = new CandidateTextItem
-		{
-			Text = (digit + 1).ToString(),
-			FontName = "Arial",
-			CandidatePosition = new(cell, 3, digit),
-			FontSizeScale = .75M,
-			TemplateIndex = 0,
-			Color = SKColors.Black
-		}
-		from item in (Item[])[a, b]
-		select item
 	]
 );
 canvas.Export(Path.Combine(desktop, "output.png"), new() { Quality = 100 });

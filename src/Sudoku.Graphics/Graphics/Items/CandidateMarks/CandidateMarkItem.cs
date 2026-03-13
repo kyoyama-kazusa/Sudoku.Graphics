@@ -22,5 +22,5 @@ public abstract record CandidateMarkItem :
 	public SerializableColor StrokeColor { get; init; }
 
 	/// <inheritdoc/>
-	public required SerializableColor FillColor { get; init; }
+	public SerializableColor FillColor { get; init; }
 }
