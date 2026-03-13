@@ -6,6 +6,11 @@
 public sealed record VariantLineStrokeItem : Item, IItem_ColorProperty
 {
 	/// <summary>
+	/// Indicates whether this line will be extended to grid border.
+	/// </summary>
+	public required bool WillExtendLine { get; init; }
+
+	/// <summary>
 	/// Indicates template index.
 	/// </summary>
 	public required int TemplateIndex { get; init; }
@@ -19,9 +24,9 @@ public sealed record VariantLineStrokeItem : Item, IItem_ColorProperty
 	public required Alignment StartCellAlignment { get; init; }
 
 	/// <summary>
-	/// Indicates interim cell alignment.
+	/// Indicates anchor (interim) cell alignment.
 	/// </summary>
-	public required Alignment InterimCellAlignment { get; init; }
+	public required Alignment AnchorCellAlignment { get; init; }
 
 	/// <summary>
 	/// Indicates the start cell.
@@ -29,9 +34,9 @@ public sealed record VariantLineStrokeItem : Item, IItem_ColorProperty
 	public required Absolute StartCell { get; init; }
 
 	/// <summary>
-	/// Indicates the interim cell.
+	/// Indicates the anchor (interim) cell.
 	/// </summary>
-	public required Absolute InterimCell { get; init; }
+	public required Absolute AnchorCell { get; init; }
 
 	/// <inheritdoc/>
 	public required SerializableColor Color { get; init; }
@@ -51,17 +56,19 @@ public sealed record VariantLineStrokeItem : Item, IItem_ColorProperty
 	protected internal override void DrawTo(Canvas canvas)
 	{
 		var mapper = canvas.Templates[TemplateIndex].Mapper;
-		var (start, end) = GridLineExtender.ComputeExtendedLine(
-			mapper.GetPoint(StartCell, Alignment.TopLeft),
-			StartCellAlignment,
-			mapper.GetPoint(InterimCell, Alignment.TopLeft),
-			InterimCellAlignment,
-			mapper.CellSize,
-			mapper.RowsCount,
-			mapper.ColumnsCount,
-			mapper.Margin,
-			mapper.Margin
-		);
+		var (start, end) = WillExtendLine
+			? GridLineExtender.ComputeExtendedLine(
+				mapper.GetPoint(StartCell, Alignment.TopLeft),
+				StartCellAlignment,
+				mapper.GetPoint(AnchorCell, Alignment.TopLeft),
+				AnchorCellAlignment,
+				mapper.CellSize,
+				mapper.RowsCount,
+				mapper.ColumnsCount,
+				mapper.Margin,
+				mapper.Margin
+			)
+			: (mapper.GetPoint(StartCell, StartCellAlignment), mapper.GetPoint(AnchorCell, AnchorCellAlignment));
 		using var strokePaint = new SKPaint
 		{
 			Style = SKPaintStyle.Stroke,

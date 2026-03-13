@@ -44,41 +44,45 @@ canvas.DrawItems(
 		{
 			StartCell = 0,
 			StartCellAlignment = Alignment.TopLeft,
-			InterimCell = 1,
-			InterimCellAlignment = Alignment.BottomRight,
+			AnchorCell = 1,
+			AnchorCellAlignment = Alignment.BottomRight,
 			Color = SKColors.Gray.WithAlpha(160),
 			StrokeWidthScale = options.ThickLineWidth.Resolve(options),
-			TemplateIndex = 0
+			TemplateIndex = 0,
+			WillExtendLine = true
 		},
 		new VariantLineStrokeItem
 		{
 			StartCell = 0,
 			StartCellAlignment = Alignment.TopLeft,
-			InterimCell = 10,
-			InterimCellAlignment = Alignment.BottomRight,
+			AnchorCell = 10,
+			AnchorCellAlignment = Alignment.BottomRight,
 			Color = SKColors.Gray.WithAlpha(160),
 			StrokeWidthScale = options.ThickLineWidth.Resolve(options),
-			TemplateIndex = 0
+			TemplateIndex = 0,
+			WillExtendLine = true
 		},
 		new VariantLineStrokeItem
 		{
 			StartCell = 0,
 			StartCellAlignment = Alignment.TopLeft,
-			InterimCell = 19,
-			InterimCellAlignment = Alignment.BottomRight,
+			AnchorCell = 19,
+			AnchorCellAlignment = Alignment.BottomRight,
 			Color = SKColors.Gray.WithAlpha(160),
 			StrokeWidthScale = options.ThickLineWidth.Resolve(options),
-			TemplateIndex = 0
+			TemplateIndex = 0,
+			WillExtendLine = true
 		},
 		new VariantLineStrokeItem
 		{
 			StartCell = 0,
 			StartCellAlignment = Alignment.TopLeft,
-			InterimCell = 28,
-			InterimCellAlignment = Alignment.BottomRight,
+			AnchorCell = 28,
+			AnchorCellAlignment = Alignment.BottomRight,
 			Color = SKColors.Gray.WithAlpha(160),
 			StrokeWidthScale = options.ThickLineWidth.Resolve(options),
-			TemplateIndex = 0
+			TemplateIndex = 0,
+			WillExtendLine = true
 		}
 	]
 );

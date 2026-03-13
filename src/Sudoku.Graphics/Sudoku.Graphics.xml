@@ -3810,6 +3810,11 @@
             Represents variant line stroke item.
             </summary>
         </member>
+        <member name="P:Sudoku.Graphics.Items.VariantLineStrokeItem.WillExtendLine">
+            <summary>
+            Indicates whether this line will be extended to grid border.
+            </summary>
+        </member>
         <member name="P:Sudoku.Graphics.Items.VariantLineStrokeItem.TemplateIndex">
             <summary>
             Indicates template index.
@@ -3823,9 +3828,9 @@
             Indicates start cell alignment.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.VariantLineStrokeItem.InterimCellAlignment">
+        <member name="P:Sudoku.Graphics.Items.VariantLineStrokeItem.AnchorCellAlignment">
             <summary>
-            Indicates interim cell alignment.
+            Indicates anchor (interim) cell alignment.
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.Items.VariantLineStrokeItem.StartCell">
@@ -3833,9 +3838,9 @@
             Indicates the start cell.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.VariantLineStrokeItem.InterimCell">
+        <member name="P:Sudoku.Graphics.Items.VariantLineStrokeItem.AnchorCell">
             <summary>
-            Indicates the interim cell.
+            Indicates the anchor (interim) cell.
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.Items.VariantLineStrokeItem.Color">
