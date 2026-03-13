@@ -3,13 +3,7 @@
 /// <summary>
 /// Represents candidate text.
 /// </summary>
-public sealed record CandidateTextItem :
-	TextItem,
-	IItem_CandidatePositionProperty,
-	IItem_ColorProperty,
-	IItem_FontRelatedProperties,
-	IItem_TemplateIndexProperty,
-	IItem_TextProperty
+public sealed record CandidateTextItem : TextItem, IItem_CandidatePositionProperty
 {
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.CandidateText;

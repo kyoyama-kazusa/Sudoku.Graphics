@@ -3,16 +3,14 @@
 /// <summary>
 /// Represents cell border-aligned arrow mark item.
 /// </summary>
-public sealed record CellBorderAlignedArrowMarkItem : CellMarkItem
+public sealed record CellBorderAlignedArrowMarkItem : CellMarkItem, IItem_DirectionProperty<Direction4>
 {
 	/// <summary>
 	/// Indicates arrows padding scale.
 	/// </summary>
 	public required Scale PaddingScale { get; init; }
 
-	/// <summary>
-	/// Indicates the direction of arrow pointing to.
-	/// </summary>
+	/// <inheritdoc/>
 	public required Direction4 Direction { get; init; }
 
 	/// <summary>

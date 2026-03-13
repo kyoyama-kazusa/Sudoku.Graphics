@@ -3,11 +3,9 @@
 /// <summary>
 /// Represents a cell hexagon mark item.
 /// </summary>
-public sealed record CellHexagonMarkItem : CellMarkItem
+public sealed record CellHexagonMarkItem : CellMarkItem, IItem_OrientationProperty<Orientation2>
 {
-	/// <summary>
-	/// Indicates orientation of this symbol.
-	/// </summary>
+	/// <inheritdoc/>
 	public required Orientation2 Orientation { get; init; }
 
 	/// <inheritdoc/>

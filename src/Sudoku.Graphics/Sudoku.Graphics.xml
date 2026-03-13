@@ -2933,9 +2933,7 @@
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellArrowMarkItem.Direction">
-            <summary>
-            Indicates the direction.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellArrowMarkItem.Type">
             <inheritdoc/>
@@ -2969,9 +2967,7 @@
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellArrowTriangleMarkItem.Direction">
-            <summary>
-            Indicates the arrow direction.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellArrowTriangleMarkItem.BaseScale">
             <summary>
@@ -3021,9 +3017,7 @@
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedArrowMarkItem.Direction">
-            <summary>
-            Indicates the direction of arrow pointing to.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedArrowMarkItem.RotationDirection">
             <summary>
@@ -3047,6 +3041,9 @@
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedTriangleMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedTriangleMarkItem.Sudoku#Graphics#Items#IItem_DirectionProperty{Sudoku#ComponentModel#Directions#Direction4}#Direction">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedTriangleMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
@@ -3091,9 +3088,7 @@
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellDiceMarkItem.Value">
-            <summary>
-            Indicates dice value.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellDiceMarkItem.Type">
             <inheritdoc/>
@@ -3123,9 +3118,7 @@
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellHalveLineMarkItem.Orientation">
-            <summary>
-            Indicates the orientation.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellHalveLineMarkItem.Type">
             <inheritdoc/>
@@ -3139,9 +3132,7 @@
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellHexagonMarkItem.Orientation">
-            <summary>
-            Indicates orientation of this symbol.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellHexagonMarkItem.Type">
             <inheritdoc/>
@@ -3294,9 +3285,7 @@
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellSevenSegmentDisplayMarkItem.Value">
-            <summary>
-            Indicates the value.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellSevenSegmentDisplayMarkItem.SegmentRectWidthScale">
             <summary>
@@ -3378,9 +3367,7 @@
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellTriangleMarkItem.Direction">
-            <summary>
-            Indicates the direction.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellTriangleMarkItem.Type">
             <inheritdoc/>
@@ -3618,6 +3605,16 @@
             Indicates the color to fill.
             </summary>
         </member>
+        <member name="T:Sudoku.Graphics.Items.IItem_DirectionProperty`1">
+            <summary>
+            Represents an item type that supports direction property.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.IItem_DirectionProperty`1.Direction">
+            <summary>
+            Indicates the direction.
+            </summary>
+        </member>
         <member name="T:Sudoku.Graphics.Items.IItem_FontRelatedProperties">
             <summary>
             Represents a type that includes font-related properties.
@@ -3671,6 +3668,16 @@
             Indicates the fill color.
             </summary>
         </member>
+        <member name="T:Sudoku.Graphics.Items.IItem_OrientationProperty`1">
+            <summary>
+            Represents an item type that supports orientation property.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.IItem_OrientationProperty`1.Orientation">
+            <summary>
+            Indicates the orientation.
+            </summary>
+        </member>
         <member name="T:Sudoku.Graphics.Items.IItem_TemplateIndexProperty">
             <summary>
             Represents a type that includes <see cref="P:Sudoku.Graphics.Items.IItem_TemplateIndexProperty.TemplateIndex"/> property.
@@ -3689,6 +3696,17 @@
         <member name="P:Sudoku.Graphics.Items.IItem_TextProperty.Text">
             <summary>
             Indicates the text to draw.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.IItem_ValueProperty`1">
+            <summary>
+            Represents an item type that supports value property.
+            </summary>
+            <typeparam name="T">The type of value.</typeparam>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.IItem_ValueProperty`1.Value">
+            <summary>
+            Indicates the value.
             </summary>
         </member>
         <member name="T:Sudoku.Graphics.Items.Lines.LineItem">
@@ -3717,6 +3735,9 @@
         <member name="P:Sudoku.Graphics.Items.Lines.TemplateLineItem.Type">
             <inheritdoc/>
         </member>
+        <member name="P:Sudoku.Graphics.Items.Lines.TemplateLineItem.Sudoku#Graphics#Items#IItem_ColorProperty#Color">
+            <inheritdoc/>
+        </member>
         <member name="M:Sudoku.Graphics.Items.Lines.TemplateLineItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
@@ -3731,9 +3752,7 @@
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.Items.Lines.VariantLineItem.TemplateIndex">
-            <summary>
-            Indicates template index.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.Lines.VariantLineItem.Type">
             <inheritdoc/>

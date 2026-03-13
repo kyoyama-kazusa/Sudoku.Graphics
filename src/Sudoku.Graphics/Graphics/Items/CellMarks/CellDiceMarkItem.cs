@@ -3,11 +3,9 @@
 /// <summary>
 /// Represents cell dice mark item.
 /// </summary>
-public sealed record CellDiceMarkItem : CellMarkItem
+public sealed record CellDiceMarkItem : CellMarkItem, IItem_ValueProperty<int>
 {
-	/// <summary>
-	/// Indicates dice value.
-	/// </summary>
+	/// <inheritdoc/>
 	public required int Value { get; init; }
 
 	/// <inheritdoc/>

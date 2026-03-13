@@ -3,11 +3,9 @@
 /// <summary>
 /// Represents a cell triangle mark item.
 /// </summary>
-public sealed record CellTriangleMarkItem : CellMarkItem
+public sealed record CellTriangleMarkItem : CellMarkItem, IItem_DirectionProperty<Direction8>
 {
-	/// <summary>
-	/// Indicates the direction.
-	/// </summary>
+	/// <inheritdoc/>
 	public required Direction8 Direction { get; init; }
 
 	/// <inheritdoc/>

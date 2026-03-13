@@ -3,16 +3,14 @@
 /// <summary>
 /// Represents a cell seven-segment display mark item.
 /// </summary>
-public sealed record CellSevenSegmentDisplayMarkItem : CellMarkItem
+public sealed record CellSevenSegmentDisplayMarkItem : CellMarkItem, IItem_ValueProperty<int>
 {
 	/// <summary>
 	/// Indicates whether phantom segments (segments not shown in specified value) are also shown, but not filled.
 	/// </summary>
 	public required bool ShowPhantomSegments { get; init; }
 
-	/// <summary>
-	/// Indicates the value.
-	/// </summary>
+	/// <inheritdoc/>
 	public required int Value { get; init; }
 
 	/// <summary>

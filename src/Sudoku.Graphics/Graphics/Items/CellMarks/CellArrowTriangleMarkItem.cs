@@ -3,11 +3,9 @@
 /// <summary>
 /// Represents a cell arrow triangle mark item.
 /// </summary>
-public sealed record CellArrowTriangleMarkItem : CellMarkItem
+public sealed record CellArrowTriangleMarkItem : CellMarkItem, IItem_DirectionProperty<Direction8>
 {
-	/// <summary>
-	/// Indicates the arrow direction.
-	/// </summary>
+	/// <inheritdoc/>
 	public required Direction8 Direction { get; init; }
 
 	/// <summary>

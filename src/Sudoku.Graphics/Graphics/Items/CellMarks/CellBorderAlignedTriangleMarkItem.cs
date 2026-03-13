@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a cell border-aligned triangle mark item.
 /// </summary>
-public sealed record CellBorderAlignedTriangleMarkItem : CellMarkItem
+public sealed record CellBorderAlignedTriangleMarkItem : CellMarkItem, IItem_DirectionProperty<Direction4>
 {
 	/// <summary>
 	/// Indicates the direction, meaning which direction the triangle will be put in.
@@ -12,6 +12,14 @@ public sealed record CellBorderAlignedTriangleMarkItem : CellMarkItem
 
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.CellMark_BorderAlignedTriangle;
+
+	/// <inheritdoc/>
+	Direction4 IItem_DirectionProperty<Direction4>.Direction
+	{
+		get => AlignedDirection;
+
+		init => AlignedDirection = value;
+	}
 
 
 	/// <inheritdoc/>

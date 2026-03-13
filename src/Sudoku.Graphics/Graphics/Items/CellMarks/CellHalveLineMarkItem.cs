@@ -3,11 +3,9 @@
 /// <summary>
 /// Represents cell halve line mark item.
 /// </summary>
-public sealed record CellHalveLineMarkItem : CellMarkItem
+public sealed record CellHalveLineMarkItem : CellMarkItem, IItem_OrientationProperty<Orientation4>
 {
-	/// <summary>
-	/// Indicates the orientation.
-	/// </summary>
+	/// <inheritdoc/>
 	public required Orientation4 Orientation { get; init; }
 
 	/// <inheritdoc/>

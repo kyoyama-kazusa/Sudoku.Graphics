@@ -3,13 +3,7 @@
 /// <summary>
 /// Represents a text item that displays a given or a modifiable digit.
 /// </summary>
-public abstract record GivenOrModifiableTextItem :
-	TextItem,
-	IItem_CellProperty,
-	IItem_ColorProperty,
-	IItem_FontRelatedProperties,
-	IItem_TemplateIndexProperty,
-	IItem_TextProperty
+public abstract record GivenOrModifiableTextItem : TextItem, IItem_CellProperty
 {
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.GivenText;

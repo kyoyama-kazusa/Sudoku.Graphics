@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents template line item.
 /// </summary>
-public sealed record TemplateLineItem : LineItem
+public sealed record TemplateLineItem : LineItem, IItem_ColorProperty
 {
 	/// <summary>
 	/// Indicates whether intersection cells should be filled with another color.
@@ -20,6 +20,14 @@ public sealed record TemplateLineItem : LineItem
 
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.TemplateLine;
+
+	/// <inheritdoc/>
+	SerializableColor IItem_ColorProperty.Color
+	{
+		get => TemplateIntersectionCellsColor;
+
+		init => TemplateIntersectionCellsColor = value;
+	}
 
 
 	/// <inheritdoc/>
