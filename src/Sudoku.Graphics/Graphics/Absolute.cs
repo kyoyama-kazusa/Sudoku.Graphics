@@ -1,4 +1,4 @@
-﻿namespace Sudoku.ComponentModel;
+﻿namespace Sudoku.Graphics;
 
 /// <summary>
 /// Represents an <see cref="int"/> value that describes an absolute index.
@@ -7,7 +7,7 @@
 [JsonConverter(typeof(ValueConverter<Absolute>))]
 [DebuggerDisplay($$"""{{{nameof(ToString)}}(),nq}""")]
 [SuppressMessage("Usage", "CA2231:Overload operator equals on overriding value type Equals", Justification = "<Pending>")]
-public readonly struct Absolute(int value) : IInteger<Absolute>
+public readonly struct Absolute(int value) : IInteger<Absolute>, ILocator<Absolute>
 {
 	/// <summary>
 	/// The backing value.

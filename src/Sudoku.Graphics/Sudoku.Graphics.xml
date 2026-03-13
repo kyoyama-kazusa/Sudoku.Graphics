@@ -4,73 +4,6 @@
         <name>Sudoku.Graphics</name>
     </assembly>
     <members>
-        <member name="T:Sudoku.ComponentModel.Absolute">
-            <summary>
-            Represents an <see cref="T:System.Int32"/> value that describes an absolute index.
-            </summary>
-            <param name="value">The value.</param>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Absolute.#ctor(System.Int32)">
-            <summary>
-            Represents an <see cref="T:System.Int32"/> value that describes an absolute index.
-            </summary>
-            <param name="value">The value.</param>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Absolute._value">
-            <summary>
-            The backing value.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Absolute.Sudoku#ComponentModel#IInteger{Sudoku#ComponentModel#Absolute}#Value">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Absolute.Sudoku#ComponentModel#IInteger{Sudoku#ComponentModel#Absolute}#ValueRef">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Absolute.Equals(System.Object)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Absolute.Equals(Sudoku.ComponentModel.Absolute)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Absolute.GetHashCode">
-            <inheritdoc cref="M:System.Object.GetHashCode"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Absolute.CompareTo(Sudoku.ComponentModel.Absolute)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Absolute.ToString">
-            <inheritdoc cref="M:System.Object.ToString"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Absolute.op_Implicit(System.Int32)~Sudoku.ComponentModel.Absolute">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Absolute.op_Implicit(Sudoku.ComponentModel.Absolute)~System.Int32">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.ComponentModel.AbsoluteFactory">
-            <summary>
-            Provides an easy way to create <see cref="T:Sudoku.ComponentModel.Absolute"/> instances.
-            Generally it will be used by creating <see cref="T:Sudoku.ComponentModel.LineSegment"/> instances.
-            </summary>
-            <seealso cref="T:Sudoku.ComponentModel.Absolute"/>
-            <seealso cref="T:Sudoku.ComponentModel.LineSegment"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.AbsoluteFactory.WithOffset(Sudoku.ComponentModel.Absolute[],Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Absolute,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.ComponentModel.AbsoluteFactory.&lt;G&gt;$18D0EB48B94E8C2E6923C6E96CFEC807.WithOffset(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Absolute,Sudoku.Graphics.PointMapper)"/>
-        </member>
-        <member name="T:Sudoku.ComponentModel.AbsoluteFactory.&lt;G&gt;$18D0EB48B94E8C2E6923C6E96CFEC807.&lt;M&gt;$1C4CA7C6D7467F9CC92D72E05BE26149">
-            <param name="this">The current instance.</param>
-        </member>
-        <member name="M:Sudoku.ComponentModel.AbsoluteFactory.&lt;G&gt;$18D0EB48B94E8C2E6923C6E96CFEC807.WithOffset(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Absolute,Sudoku.Graphics.PointMapper)">
-            <summary>
-            Get offset of the specified array of cell indices.
-            </summary>
-            <param name="rowsCount">The number of rows as offset.</param>
-            <param name="columnsCount">The number of columns as offset.</param>
-            <param name="mapper">The mapper instance.</param>
-            <returns>The result.</returns>
-        </member>
         <member name="T:Sudoku.ComponentModel.Alignment">
             <summary>
             Represents an alignment type.
@@ -105,51 +38,6 @@
             <summary>
             Indicates bottom-right point of container.
             </summary>
-        </member>
-        <member name="T:Sudoku.ComponentModel.CandidatePosition">
-            <summary>
-            Represents a candidate position.
-            </summary>
-            <param name="Cell">Indicates the target cell.</param>
-            <param name="SubgridSize">Indicates subgrid size.</param>
-            <param name="InnerIndex">The internal absolute position index of the candidate.</param>
-            <remarks>
-            <para>
-            By design of candidate drawing system, we will split a cell into a square subgrid of size <i>n</i> by <i>n</i>,
-            where <i>n</i> is equal to value of property <see cref="P:Sudoku.ComponentModel.CandidatePosition.SubgridSize"/>.
-            </para>
-            <para>
-            Then, we define an absolute internal index to describe a cell will be drawn, which is in range [0, <i>n</i> * <i>n</i>) -
-            property <see cref="P:Sudoku.ComponentModel.CandidatePosition.InnerIndex"/>.
-            </para>
-            </remarks>
-        </member>
-        <member name="M:Sudoku.ComponentModel.CandidatePosition.#ctor(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Relative,Sudoku.ComponentModel.Absolute)">
-            <summary>
-            Represents a candidate position.
-            </summary>
-            <param name="Cell">Indicates the target cell.</param>
-            <param name="SubgridSize">Indicates subgrid size.</param>
-            <param name="InnerIndex">The internal absolute position index of the candidate.</param>
-            <remarks>
-            <para>
-            By design of candidate drawing system, we will split a cell into a square subgrid of size <i>n</i> by <i>n</i>,
-            where <i>n</i> is equal to value of property <see cref="P:Sudoku.ComponentModel.CandidatePosition.SubgridSize"/>.
-            </para>
-            <para>
-            Then, we define an absolute internal index to describe a cell will be drawn, which is in range [0, <i>n</i> * <i>n</i>) -
-            property <see cref="P:Sudoku.ComponentModel.CandidatePosition.InnerIndex"/>.
-            </para>
-            </remarks>
-        </member>
-        <member name="P:Sudoku.ComponentModel.CandidatePosition.Cell">
-            <summary>Indicates the target cell.</summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.CandidatePosition.SubgridSize">
-            <summary>Indicates subgrid size.</summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.CandidatePosition.InnerIndex">
-            <summary>The internal absolute position index of the candidate.</summary>
         </member>
         <member name="T:Sudoku.ComponentModel.Crossmath.CrossmathFormula">
             <summary>
@@ -337,7 +225,7 @@
         </member>
         <member name="T:Sudoku.ComponentModel.Directions.DirectionVector">
             <summary>
-            Represents an encapsulated type of a quadruple of <see cref="T:Sudoku.ComponentModel.Relative"/> values,
+            Represents an encapsulated type of a quadruple of <see cref="T:Sudoku.Graphics.Relative"/> values,
             indicating direction offsets.
             </summary>
             <param name="Up">Indicates upside offsets.</param>
@@ -346,9 +234,9 @@
             <param name="Right">Indicates rightside offsets.</param>
             <completionlist cref="T:Sudoku.ComponentModel.Directions.DirectionVector"/>
         </member>
-        <member name="M:Sudoku.ComponentModel.Directions.DirectionVector.#ctor(Sudoku.ComponentModel.Relative,Sudoku.ComponentModel.Relative,Sudoku.ComponentModel.Relative,Sudoku.ComponentModel.Relative)">
+        <member name="M:Sudoku.ComponentModel.Directions.DirectionVector.#ctor(Sudoku.Graphics.Relative,Sudoku.Graphics.Relative,Sudoku.Graphics.Relative,Sudoku.Graphics.Relative)">
             <summary>
-            Represents an encapsulated type of a quadruple of <see cref="T:Sudoku.ComponentModel.Relative"/> values,
+            Represents an encapsulated type of a quadruple of <see cref="T:Sudoku.Graphics.Relative"/> values,
             indicating direction offsets.
             </summary>
             <param name="Up">Indicates upside offsets.</param>
@@ -374,13 +262,13 @@
             Indicates the instance whose members are initialized zero.
             </summary>
         </member>
-        <member name="M:Sudoku.ComponentModel.Directions.DirectionVector.#ctor(Sudoku.ComponentModel.Relative)">
+        <member name="M:Sudoku.ComponentModel.Directions.DirectionVector.#ctor(Sudoku.Graphics.Relative)">
             <summary>
             Initializes a <see cref="T:Sudoku.ComponentModel.Directions.DirectionVector"/> instance via the uniform value.
             </summary>
             <param name="uniform">The uniform value.</param>
         </member>
-        <member name="M:Sudoku.ComponentModel.Directions.DirectionVector.#ctor(Sudoku.ComponentModel.Relative,Sudoku.ComponentModel.Relative)">
+        <member name="M:Sudoku.ComponentModel.Directions.DirectionVector.#ctor(Sudoku.Graphics.Relative,Sudoku.Graphics.Relative)">
             <summary>
             Initializes a <see cref="T:Sudoku.ComponentModel.Directions.DirectionVector"/> instance via two values indicating up (&amp; left) and down (&amp; right).
             For example, <c><see langword="new"/>(0, 1, 0, 1)</c> can be simplified to <c><see langword="new"/>(0, 1)</c>.
@@ -605,34 +493,6 @@
             <returns>A <see cref="T:Sudoku.ComponentModel.GridTemplateSize"/> instance that is the minimal size, covering all templates specified.</returns>
             <seealso cref="T:Sudoku.Graphics.Canvas"/>
         </member>
-        <member name="T:Sudoku.ComponentModel.IInteger`1">
-            <summary>
-            Represents a type that simply encapsulates an <see cref="T:System.Int32"/> value.
-            </summary>
-            <typeparam name="TSelf">The type itself.</typeparam>
-        </member>
-        <member name="P:Sudoku.ComponentModel.IInteger`1.Value">
-            <summary>
-            Indicates the value.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.IInteger`1.ValueRef">
-            <summary>
-            Indicates the reference to field.
-            </summary>
-        </member>
-        <member name="M:Sudoku.ComponentModel.IInteger`1.op_Implicit(`0)~System.Int32">
-            <summary>
-            Implicit cast from <see cref="T:System.Int32"/> to <typeparamref name="TSelf"/> value.
-            </summary>
-            <param name="value">The value.</param>
-        </member>
-        <member name="M:Sudoku.ComponentModel.IInteger`1.op_Implicit(System.Int32)~`0">
-            <summary>
-            Implicit cast from <typeparamref name="TSelf"/> to <see cref="T:System.Int32"/> value.
-            </summary>
-            <param name="value">The value.</param>
-        </member>
         <member name="T:Sudoku.ComponentModel.LineDashSequence">
             <summary>
             Represents a sequence of dash intervals.
@@ -758,7 +618,7 @@
             <param name="cellIndex">The cell index.</param>
             <param name="directions">The shown directions.</param>
         </member>
-        <member name="M:Sudoku.ComponentModel.LineSegment.#ctor(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Directions.Direction4)">
+        <member name="M:Sudoku.ComponentModel.LineSegment.#ctor(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction4)">
             <summary>
             Represents an instance that describes possible shown line segments under the specified directions specified of the specified cell.
             </summary>
@@ -775,7 +635,7 @@
             Indicates absolute cell index.
             </summary>
         </member>
-        <member name="M:Sudoku.ComponentModel.LineSegment.Deconstruct(Sudoku.ComponentModel.Absolute@,Sudoku.ComponentModel.Directions.Direction4@)">
+        <member name="M:Sudoku.ComponentModel.LineSegment.Deconstruct(Sudoku.Graphics.Absolute@,Sudoku.ComponentModel.Directions.Direction4@)">
             <summary>
             Deconstruct instance into multiple values.
             </summary>
@@ -804,7 +664,7 @@
             </summary>
             <seealso cref="T:Sudoku.ComponentModel.LineSegment"/>
         </member>
-        <member name="M:Sudoku.ComponentModel.LineSegmentFactory.GetOutline(Sudoku.ComponentModel.Absolute[],Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.ComponentModel.LineSegmentFactory.GetOutline(Sudoku.Graphics.Absolute[],Sudoku.Graphics.PointMapper)">
             <summary>
             Returns a list of <see cref="T:Sudoku.ComponentModel.LineSegment"/> instances indicating light-up segments to be shown,
             forming a outline cage that includes all the specified cells.
@@ -821,9 +681,9 @@
             <param name="mapper">The mapper.</param>
             <returns>Except range of line segments.</returns>
         </member>
-        <member name="M:Sudoku.ComponentModel.LineSegmentFactory.GetLightupDirections(Sudoku.ComponentModel.Relative[],System.Boolean,Sudoku.Graphics.PointMapper,System.Collections.Generic.HashSet{Sudoku.ComponentModel.Absolute}@)">
+        <member name="M:Sudoku.ComponentModel.LineSegmentFactory.GetLightupDirections(Sudoku.Graphics.Relative[],System.Boolean,Sudoku.Graphics.PointMapper,System.Collections.Generic.HashSet{Sudoku.Graphics.Absolute}@)">
             <summary>
-            Creates a <see cref="T:System.Collections.Generic.Dictionary`2"/> of <see cref="T:Sudoku.ComponentModel.Absolute"/> and <see cref="T:Sudoku.ComponentModel.Directions.Direction4"/> key-value pairs,
+            Creates a <see cref="T:System.Collections.Generic.Dictionary`2"/> of <see cref="T:Sudoku.Graphics.Absolute"/> and <see cref="T:Sudoku.ComponentModel.Directions.Direction4"/> key-value pairs,
             indicating lightup segments of cells to be shown.
             </summary>
             <param name="cellIndices">The cell indices.</param>
@@ -834,12 +694,12 @@
             <param name="absoluteCellIndices">Absolute cell indices.</param>
             <returns>The result dictionary of light-up segments.</returns>
         </member>
-        <member name="M:Sudoku.ComponentModel.LineSegmentFactory.GetLightupDirections(Sudoku.ComponentModel.Absolute[],System.Boolean,Sudoku.Graphics.PointMapper,System.Collections.Generic.HashSet{Sudoku.ComponentModel.Absolute}@)">
-            <inheritdoc cref="M:Sudoku.ComponentModel.LineSegmentFactory.GetLightupDirections(Sudoku.ComponentModel.Relative[],System.Boolean,Sudoku.Graphics.PointMapper,System.Collections.Generic.HashSet{Sudoku.ComponentModel.Absolute}@)"/>
+        <member name="M:Sudoku.ComponentModel.LineSegmentFactory.GetLightupDirections(Sudoku.Graphics.Absolute[],System.Boolean,Sudoku.Graphics.PointMapper,System.Collections.Generic.HashSet{Sudoku.Graphics.Absolute}@)">
+            <inheritdoc cref="M:Sudoku.ComponentModel.LineSegmentFactory.GetLightupDirections(Sudoku.Graphics.Relative[],System.Boolean,Sudoku.Graphics.PointMapper,System.Collections.Generic.HashSet{Sudoku.Graphics.Absolute}@)"/>
         </member>
-        <member name="M:Sudoku.ComponentModel.LineSegmentFactory.GetLightupDirectionsCore(System.Collections.Generic.Dictionary{Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Directions.Direction4},System.Boolean,Sudoku.Graphics.PointMapper,System.Collections.Generic.HashSet{Sudoku.ComponentModel.Absolute}@)">
+        <member name="M:Sudoku.ComponentModel.LineSegmentFactory.GetLightupDirectionsCore(System.Collections.Generic.Dictionary{Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction4},System.Boolean,Sudoku.Graphics.PointMapper,System.Collections.Generic.HashSet{Sudoku.Graphics.Absolute}@)">
             <summary>
-            Creates a <see cref="T:System.Collections.Generic.Dictionary`2"/> of <see cref="T:Sudoku.ComponentModel.Absolute"/> and <see cref="T:Sudoku.ComponentModel.Directions.Direction4"/> key-value pairs,
+            Creates a <see cref="T:System.Collections.Generic.Dictionary`2"/> of <see cref="T:Sudoku.Graphics.Absolute"/> and <see cref="T:Sudoku.ComponentModel.Directions.Direction4"/> key-value pairs,
             indicating lightup segments of cells to be shown.
             </summary>
             <param name="lineSegmentsDictionary">The original entry dictionary.</param>
@@ -1120,62 +980,6 @@
             Creates a <see cref="T:Sudoku.Graphics.Template"/> array of Wing, with the specified rows and columns size of a block.
             </summary>
             <inheritdoc cref="T:Sudoku.ComponentModel.OverlappingGridTemplateFactory" path="/shared-doc-comments"/>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Relative">
-            <summary>
-            Represents an <see cref="T:System.Int32"/> value that describes a relative index.
-            </summary>
-            <param name="value">The value.</param>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Relative.#ctor(System.Int32)">
-            <summary>
-            Represents an <see cref="T:System.Int32"/> value that describes a relative index.
-            </summary>
-            <param name="value">The value.</param>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Relative._value">
-            <summary>
-            The backing value.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Relative.Sudoku#ComponentModel#IInteger{Sudoku#ComponentModel#Relative}#Value">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Relative.Sudoku#ComponentModel#IInteger{Sudoku#ComponentModel#Relative}#ValueRef">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Relative.Equals(System.Object)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Relative.Equals(Sudoku.ComponentModel.Relative)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Relative.GetHashCode">
-            <inheritdoc cref="M:System.Object.GetHashCode"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Relative.CompareTo(Sudoku.ComponentModel.Relative)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Relative.ToString">
-            <inheritdoc cref="M:System.Object.ToString"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Relative.op_Implicit(System.Int32)~Sudoku.ComponentModel.Relative">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Relative.op_Implicit(Sudoku.ComponentModel.Relative)~System.Int32">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Relative.op_Explicit(Sudoku.ComponentModel.Absolute)~Sudoku.ComponentModel.Relative">
-            <summary>
-            Explicit cast from <see cref="T:Sudoku.ComponentModel.Absolute"/> to <see cref="T:Sudoku.ComponentModel.Relative"/> value.
-            </summary>
-            <param name="value">The value.</param>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Relative.op_Explicit(Sudoku.ComponentModel.Relative)~Sudoku.ComponentModel.Absolute">
-            <summary>
-            Explicit cast from <see cref="T:Sudoku.ComponentModel.Relative"/> to <see cref="T:Sudoku.ComponentModel.Absolute"/> value.
-            </summary>
-            <param name="value">The value.</param>
         </member>
         <member name="T:Sudoku.ComponentModel.Scale">
             <summary>
@@ -1675,13 +1479,13 @@
         <member name="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.GetTetrisPieceBooleanSequence(Sudoku.ComponentModel.Tetris.Piece,Sudoku.ComponentModel.Tetris.RotationType)">
             <inheritdoc cref="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.&lt;G&gt;$C66C61D5C78EA6C835A71BF5AF9528DF.GetTetrisPieceBooleanSequence(Sudoku.ComponentModel.Tetris.RotationType)"/>
         </member>
-        <member name="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.GetOutline(Sudoku.ComponentModel.Tetris.Piece,Sudoku.ComponentModel.Tetris.RotationType,Sudoku.Graphics.PointMapper,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Absolute)">
-            <inheritdoc cref="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.&lt;G&gt;$C66C61D5C78EA6C835A71BF5AF9528DF.GetOutline(Sudoku.ComponentModel.Tetris.RotationType,Sudoku.Graphics.PointMapper,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Absolute)"/>
+        <member name="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.GetOutline(Sudoku.ComponentModel.Tetris.Piece,Sudoku.ComponentModel.Tetris.RotationType,Sudoku.Graphics.PointMapper,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute)">
+            <inheritdoc cref="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.&lt;G&gt;$C66C61D5C78EA6C835A71BF5AF9528DF.GetOutline(Sudoku.ComponentModel.Tetris.RotationType,Sudoku.Graphics.PointMapper,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute)"/>
         </member>
         <member name="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.GetTetrisPiece(Sudoku.ComponentModel.Tetris.Piece,Sudoku.Graphics.PointMapper,Sudoku.ComponentModel.Tetris.RotationType)">
             <inheritdoc cref="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.&lt;G&gt;$C66C61D5C78EA6C835A71BF5AF9528DF.GetTetrisPiece(Sudoku.Graphics.PointMapper,Sudoku.ComponentModel.Tetris.RotationType)"/>
         </member>
-        <member name="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.RotateViaCoordinateTable(System.Int32,System.ValueTuple{Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Absolute}[])">
+        <member name="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.RotateViaCoordinateTable(System.Int32,System.ValueTuple{Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute}[])">
             <summary>
             Rotates tetris piece via coordinate table.
             </summary>
@@ -1700,7 +1504,7 @@
             <returns>The boolean sequence.</returns>
             <exception cref="T:System.ArgumentOutOfRangeException">Throws when <paramref name="rotationType"/> is not defined.</exception>
         </member>
-        <member name="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.&lt;G&gt;$C66C61D5C78EA6C835A71BF5AF9528DF.GetOutline(Sudoku.ComponentModel.Tetris.RotationType,Sudoku.Graphics.PointMapper,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Absolute)">
+        <member name="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.&lt;G&gt;$C66C61D5C78EA6C835A71BF5AF9528DF.GetOutline(Sudoku.ComponentModel.Tetris.RotationType,Sudoku.Graphics.PointMapper,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute)">
             <summary>
             Creates a <see cref="T:Sudoku.ComponentModel.LineSegment"/> array that describes outlines of a tetris piece.
             </summary>
@@ -1791,6 +1595,118 @@
             <summary>
             Indicates pig.
             </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.Absolute">
+            <summary>
+            Represents an <see cref="T:System.Int32"/> value that describes an absolute index.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.Absolute.#ctor(System.Int32)">
+            <summary>
+            Represents an <see cref="T:System.Int32"/> value that describes an absolute index.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="F:Sudoku.Graphics.Absolute._value">
+            <summary>
+            The backing value.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Absolute.Sudoku#Graphics#IInteger{Sudoku#Graphics#Absolute}#Value">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Absolute.Sudoku#Graphics#IInteger{Sudoku#Graphics#Absolute}#ValueRef">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Absolute.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Absolute.Equals(Sudoku.Graphics.Absolute)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Absolute.GetHashCode">
+            <inheritdoc cref="M:System.Object.GetHashCode"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Absolute.CompareTo(Sudoku.Graphics.Absolute)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Absolute.ToString">
+            <inheritdoc cref="M:System.Object.ToString"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Absolute.op_Implicit(System.Int32)~Sudoku.Graphics.Absolute">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Absolute.op_Implicit(Sudoku.Graphics.Absolute)~System.Int32">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.AbsoluteFactory">
+            <summary>
+            Provides an easy way to create <see cref="T:Sudoku.Graphics.Absolute"/> instances.
+            Generally it will be used by creating <see cref="T:Sudoku.ComponentModel.LineSegment"/> instances.
+            </summary>
+            <seealso cref="T:Sudoku.Graphics.Absolute"/>
+            <seealso cref="T:Sudoku.ComponentModel.LineSegment"/>
+        </member>
+        <member name="M:Sudoku.Graphics.AbsoluteFactory.WithOffset(Sudoku.Graphics.Absolute[],Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.AbsoluteFactory.&lt;G&gt;$2B3A0EEDA995D6B24C8DA9591ABEAD47.WithOffset(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.Graphics.PointMapper)"/>
+        </member>
+        <member name="T:Sudoku.Graphics.AbsoluteFactory.&lt;G&gt;$2B3A0EEDA995D6B24C8DA9591ABEAD47.&lt;M&gt;$C65B9CD1E16D9C420033342B99DE5371">
+            <param name="this">The current instance.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.AbsoluteFactory.&lt;G&gt;$2B3A0EEDA995D6B24C8DA9591ABEAD47.WithOffset(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Get offset of the specified array of cell indices.
+            </summary>
+            <param name="rowsCount">The number of rows as offset.</param>
+            <param name="columnsCount">The number of columns as offset.</param>
+            <param name="mapper">The mapper instance.</param>
+            <returns>The result.</returns>
+        </member>
+        <member name="T:Sudoku.Graphics.CandidatePosition">
+            <summary>
+            Represents a candidate position.
+            </summary>
+            <param name="Cell">Indicates the target cell.</param>
+            <param name="SubgridSize">Indicates subgrid size.</param>
+            <param name="InnerIndex">The internal absolute position index of the candidate.</param>
+            <remarks>
+            <para>
+            By design of candidate drawing system, we will split a cell into a square subgrid of size <i>n</i> by <i>n</i>,
+            where <i>n</i> is equal to value of property <see cref="P:Sudoku.Graphics.CandidatePosition.SubgridSize"/>.
+            </para>
+            <para>
+            Then, we define an absolute internal index to describe a cell will be drawn, which is in range [0, <i>n</i> * <i>n</i>) -
+            property <see cref="P:Sudoku.Graphics.CandidatePosition.InnerIndex"/>.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:Sudoku.Graphics.CandidatePosition.#ctor(Sudoku.Graphics.Absolute,Sudoku.Graphics.Relative,Sudoku.Graphics.Absolute)">
+            <summary>
+            Represents a candidate position.
+            </summary>
+            <param name="Cell">Indicates the target cell.</param>
+            <param name="SubgridSize">Indicates subgrid size.</param>
+            <param name="InnerIndex">The internal absolute position index of the candidate.</param>
+            <remarks>
+            <para>
+            By design of candidate drawing system, we will split a cell into a square subgrid of size <i>n</i> by <i>n</i>,
+            where <i>n</i> is equal to value of property <see cref="P:Sudoku.Graphics.CandidatePosition.SubgridSize"/>.
+            </para>
+            <para>
+            Then, we define an absolute internal index to describe a cell will be drawn, which is in range [0, <i>n</i> * <i>n</i>) -
+            property <see cref="P:Sudoku.Graphics.CandidatePosition.InnerIndex"/>.
+            </para>
+            </remarks>
+        </member>
+        <member name="P:Sudoku.Graphics.CandidatePosition.Cell">
+            <summary>Indicates the target cell.</summary>
+        </member>
+        <member name="P:Sudoku.Graphics.CandidatePosition.SubgridSize">
+            <summary>Indicates subgrid size.</summary>
+        </member>
+        <member name="P:Sudoku.Graphics.CandidatePosition.InnerIndex">
+            <summary>The internal absolute position index of the candidate.</summary>
         </member>
         <member name="T:Sudoku.Graphics.Canvas">
             <summary>
@@ -2085,6 +2001,40 @@
             <summary>
             Indicates the quality. Range 0..100. Default 80.
             </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.IInteger`1">
+            <summary>
+            Represents a type that simply encapsulates an <see cref="T:System.Int32"/> value.
+            </summary>
+            <typeparam name="TSelf">The type itself.</typeparam>
+        </member>
+        <member name="P:Sudoku.Graphics.IInteger`1.Value">
+            <summary>
+            Indicates the value.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.IInteger`1.ValueRef">
+            <summary>
+            Indicates the reference to field.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.IInteger`1.op_Implicit(`0)~System.Int32">
+            <summary>
+            Implicit cast from <see cref="T:System.Int32"/> to <typeparamref name="TSelf"/> value.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.IInteger`1.op_Implicit(System.Int32)~`0">
+            <summary>
+            Implicit cast from <typeparamref name="TSelf"/> to <see cref="T:System.Int32"/> value.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="T:Sudoku.Graphics.ILocator`1">
+            <summary>
+            Represents a locator object.
+            </summary>
+            <typeparam name="TSelf">The type implementing this interface.</typeparam>
         </member>
         <member name="T:Sudoku.Graphics.Item">
             <summary>
@@ -2525,6 +2475,42 @@
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.ItemSet.FilteredItemsEnumerator.System#Collections#Generic#IEnumerable{Sudoku#Graphics#Item}#GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CandidateMarks.CandidateCircleMarkItem">
+            <summary>
+            Represents a candidate circle mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidateMarks.CandidateCircleMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidateMarks.CandidateCircleMarkItem.StrokeWidthScale">
+            <summary>
+            Indicates stroke width scale.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CandidateMarks.CandidateCircleMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CandidateMarks.CandidateMarkItem">
+            <summary>
+            Represents a candidate mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidateMarks.CandidateMarkItem.TemplateIndex">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidateMarks.CandidateMarkItem.CandidatePosition">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidateMarks.CandidateMarkItem.SizeScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidateMarks.CandidateMarkItem.StrokeColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidateMarks.CandidateMarkItem.FillColor">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.Items.CellMarks.CellApexCornerTriangleMarkItem">
@@ -3211,11 +3197,11 @@
         <member name="P:Sudoku.Graphics.Items.IItem_CellProperty.Cell">
             <summary>
             Indicates the cell to be drawn, of absolute cell index.
-            For <see cref="T:Sudoku.ComponentModel.Relative"/> cell indices, you can use <see cref="M:Sudoku.Graphics.PointMapper.GetAbsoluteIndex(Sudoku.ComponentModel.Relative)"/>
+            For <see cref="T:Sudoku.Graphics.Relative"/> cell indices, you can use <see cref="M:Sudoku.Graphics.PointMapper.GetAbsoluteIndex(Sudoku.Graphics.Relative)"/>
             to create absolute cells.
             </summary>
-            <seealso cref="T:Sudoku.ComponentModel.Relative"/>
-            <seealso cref="M:Sudoku.Graphics.PointMapper.GetAbsoluteIndex(Sudoku.ComponentModel.Relative)"/>
+            <seealso cref="T:Sudoku.Graphics.Relative"/>
+            <seealso cref="M:Sudoku.Graphics.PointMapper.GetAbsoluteIndex(Sudoku.Graphics.Relative)"/>
         </member>
         <member name="T:Sudoku.Graphics.Items.IItem_ColorProperty">
             <summary>
@@ -3437,7 +3423,7 @@
             <param name="bottom">The bottom value of grid.</param>
             <returns>The result point.</returns>
         </member>
-        <member name="M:Sudoku.Graphics.Items.Lines.GridLineExtender.ComputeExtendedLine(SkiaSharp.SKPoint,Sudoku.ComponentModel.Alignment,SkiaSharp.SKPoint,Sudoku.ComponentModel.Alignment,System.Single,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Absolute,System.Single,System.Single)">
+        <member name="M:Sudoku.Graphics.Items.Lines.GridLineExtender.ComputeExtendedLine(SkiaSharp.SKPoint,Sudoku.ComponentModel.Alignment,SkiaSharp.SKPoint,Sudoku.ComponentModel.Alignment,System.Single,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,System.Single,System.Single)">
             <summary>
             Calculates start and end point, with line extended.
             </summary>
@@ -3548,21 +3534,6 @@
             Indicates candidate filling.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.GivenText">
-            <summary>
-            Indicates given text.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Graphics.ItemType.ModifiableText">
-            <summary>
-            Indicates modifiable text.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Graphics.ItemType.CandidateText">
-            <summary>
-            Indicates candidate text.
-            </summary>
-        </member>
         <member name="F:Sudoku.Graphics.ItemType.CellMark_Tetris">
             <summary>
             Indicates cell tetris mark.
@@ -3661,6 +3632,26 @@
         <member name="F:Sudoku.Graphics.ItemType.CellMark_BorderAlignedArrow">
             <summary>
             Indicates cell border-aligned arrow mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CandidateCircleMark">
+            <summary>
+            Indicates circle candidate mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.GivenText">
+            <summary>
+            Indicates given text.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.ModifiableText">
+            <summary>
+            Indicates modifiable text.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CandidateText">
+            <summary>
+            Indicates candidate text.
             </summary>
         </member>
         <member name="F:Sudoku.Graphics.ItemType.CellMark_QuestionText">
@@ -3767,14 +3758,14 @@
         <member name="M:Sudoku.Graphics.PointMapper.GetHashCode">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.PointMapper.GetAbsoluteIndex(Sudoku.ComponentModel.Relative)">
+        <member name="M:Sudoku.Graphics.PointMapper.GetAbsoluteIndex(Sudoku.Graphics.Relative)">
             <summary>
             Projects the specified relative cell index into absolute one.
             </summary>
             <param name="relativeCellIndex">Relative cell index.</param>
             <returns>The result absolute index.</returns>
         </member>
-        <member name="M:Sudoku.Graphics.PointMapper.GetAbsoluteIndex(Sudoku.ComponentModel.Relative,Sudoku.ComponentModel.Directions.Direction4,Sudoku.ComponentModel.Absolute)">
+        <member name="M:Sudoku.Graphics.PointMapper.GetAbsoluteIndex(Sudoku.Graphics.Relative,Sudoku.ComponentModel.Directions.Direction4,Sudoku.Graphics.Absolute)">
             <summary>
             Projects the specified relative cell index into absolute one;
             with the specified direction as outside offset one, and an offset value <paramref name="offset"/>
@@ -3787,14 +3778,14 @@
             <exception cref="T:System.ArgumentException">Throws when <paramref name="outsideDirection"/> is not a flag.</exception>
             <exception cref="T:System.ArgumentOutOfRangeException">Throws when <paramref name="outsideDirection"/> is not defined.</exception>
         </member>
-        <member name="M:Sudoku.Graphics.PointMapper.GetRelativeIndex(Sudoku.ComponentModel.Absolute)">
+        <member name="M:Sudoku.Graphics.PointMapper.GetRelativeIndex(Sudoku.Graphics.Absolute)">
             <summary>
             Projects the specified absolute cell index into relative one.
             </summary>
             <param name="absoluteCellIndex">Absolute cell index.</param>
             <returns>The result relative index.</returns>
         </member>
-        <member name="M:Sudoku.Graphics.PointMapper.GetAdjacentAbsoluteCellWith(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Directions.Direction4,System.Boolean)">
+        <member name="M:Sudoku.Graphics.PointMapper.GetAdjacentAbsoluteCellWith(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction4,System.Boolean)">
             <summary>
             Gets the adjacent cell at the specified direction of the specified absolute cell index.
             </summary>
@@ -3803,38 +3794,51 @@
             <param name="isCyclicChecking">Indicates whether the cell overflown in the relative grid will be included to be checked or not.</param>
             <returns>Target cell absolute index.</returns>
         </member>
-        <member name="M:Sudoku.Graphics.PointMapper.GetPoint(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Alignment)">
+        <member name="M:Sudoku.Graphics.PointMapper.GetPoint(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Alignment)">
             <summary>
             Returns the position (point) of the specified alignment type of the specified cell.
             </summary>
             <param name="absoluteCellIndex">Absolute cell index.</param>
             <param name="alignment">The alignment.</param>
-            <returns>The point instance that represents the target center position.</returns>
+            <returns>The point instance that represents the target position.</returns>
             <exception cref="T:System.ArgumentOutOfRangeException">
             Throws when <paramref name="alignment"/> is not defined or <see cref="F:Sudoku.ComponentModel.Alignment.None"/>.
             </exception>
             <seealso cref="F:Sudoku.ComponentModel.Alignment.None"/>
         </member>
-        <member name="M:Sudoku.Graphics.PointMapper.GetPoint(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Alignment)">
+        <member name="M:Sudoku.Graphics.PointMapper.GetPoint(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Alignment)">
             <summary>
             Returns the position (point) of the specified alignment type of the specified cell.
             </summary>
             <param name="absoluteRowIndex">Absolute row index.</param>
             <param name="absoluteColumnIndex">Absolute column index.</param>
             <param name="alignment">The alignment type.</param>
-            <returns>The point instance that represents the target center position.</returns>
+            <returns>The point instance that represents the target position.</returns>
             <exception cref="T:System.ArgumentOutOfRangeException">
             Throws when <paramref name="alignment"/> is not defined or <see cref="F:Sudoku.ComponentModel.Alignment.None"/>.
             </exception>
             <seealso cref="F:Sudoku.ComponentModel.Alignment.None"/>
         </member>
-        <member name="M:Sudoku.Graphics.PointMapper.GetPoint(Sudoku.ComponentModel.CandidatePosition,Sudoku.ComponentModel.Alignment)">
+        <member name="M:Sudoku.Graphics.PointMapper.GetPoint``1(``0,Sudoku.ComponentModel.Alignment)">
+            <summary>
+            Returns the position (point) of the specified alignment type of the specified cell or candidate.
+            </summary>
+            <typeparam name="TLocator">The type of locator (cell or candidate).</typeparam>
+            <param name="locator">The locator object (cell or candidate).</param>
+            <param name="alignment">The alignment.</param>
+            <returns>The point instance that represents the target position.</returns>
+            <exception cref="T:System.NotSupportedException">
+            Throws when type <typeparamref name="TLocator"/> is not <see cref="T:Sudoku.Graphics.Absolute"/>,
+            <see cref="T:Sudoku.Graphics.Relative"/> or <see cref="T:Sudoku.Graphics.CandidatePosition"/>.
+            </exception>
+        </member>
+        <member name="M:Sudoku.Graphics.PointMapper.GetPoint(Sudoku.Graphics.CandidatePosition,Sudoku.ComponentModel.Alignment)">
             <summary>
             Returns the position (point) of the specified alignment type of the specified candidate (absolute).
             </summary>
             <param name="candidatePosition">Absolute candidate position.</param>
             <param name="alignment">The alignment.</param>
-            <returns>The point instance that represents the target center position.</returns>
+            <returns>The point instance that represents the target position.</returns>
             <exception cref="T:System.ArgumentOutOfRangeException">
             Throws when <paramref name="alignment"/> is not defined or <see cref="F:Sudoku.ComponentModel.Alignment.None"/>.
             </exception>
@@ -3887,97 +3891,153 @@
             Indicates the size of grid.
             </summary>
         </member>
+        <member name="T:Sudoku.Graphics.Relative">
+            <summary>
+            Represents an <see cref="T:System.Int32"/> value that describes a relative index.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.Relative.#ctor(System.Int32)">
+            <summary>
+            Represents an <see cref="T:System.Int32"/> value that describes a relative index.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="F:Sudoku.Graphics.Relative._value">
+            <summary>
+            The backing value.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Relative.Sudoku#Graphics#IInteger{Sudoku#Graphics#Relative}#Value">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Relative.Sudoku#Graphics#IInteger{Sudoku#Graphics#Relative}#ValueRef">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Relative.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Relative.Equals(Sudoku.Graphics.Relative)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Relative.GetHashCode">
+            <inheritdoc cref="M:System.Object.GetHashCode"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Relative.CompareTo(Sudoku.Graphics.Relative)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Relative.ToString">
+            <inheritdoc cref="M:System.Object.ToString"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Relative.op_Implicit(System.Int32)~Sudoku.Graphics.Relative">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Relative.op_Implicit(Sudoku.Graphics.Relative)~System.Int32">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Relative.op_Explicit(Sudoku.Graphics.Absolute)~Sudoku.Graphics.Relative">
+            <summary>
+            Explicit cast from <see cref="T:Sudoku.Graphics.Absolute"/> to <see cref="T:Sudoku.Graphics.Relative"/> value.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.Relative.op_Explicit(Sudoku.Graphics.Relative)~Sudoku.Graphics.Absolute">
+            <summary>
+            Explicit cast from <see cref="T:Sudoku.Graphics.Relative"/> to <see cref="T:Sudoku.Graphics.Absolute"/> value.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
         <member name="T:Sudoku.Graphics.SKCanvasDrawings">
             <summary>
             Provides extension members on <see cref="T:SkiaSharp.SKCanvas"/>.
             </summary>
             <seealso cref="T:SkiaSharp.SKCanvas"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawTextToCell(SkiaSharp.SKCanvas,System.String,Sudoku.ComponentModel.Absolute,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,System.Single,Sudoku.ComponentModel.Directions.Direction8,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextToCell(System.String,Sudoku.ComponentModel.Absolute,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,System.Single,Sudoku.ComponentModel.Directions.Direction8,Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawTextToCell(SkiaSharp.SKCanvas,System.String,Sudoku.Graphics.Absolute,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,System.Single,Sudoku.ComponentModel.Directions.Direction8,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextToCell(System.String,Sudoku.Graphics.Absolute,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,System.Single,Sudoku.ComponentModel.Directions.Direction8,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawTextToCandidate(SkiaSharp.SKCanvas,System.String,Sudoku.ComponentModel.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextToCandidate(System.String,Sudoku.ComponentModel.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawTextToCandidate(SkiaSharp.SKCanvas,System.String,Sudoku.Graphics.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextToCandidate(System.String,Sudoku.Graphics.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawOutlinedTextToCell(SkiaSharp.SKCanvas,System.String,Sudoku.ComponentModel.Absolute,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,System.Single,Sudoku.ComponentModel.Directions.Direction8,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCell(System.String,Sudoku.ComponentModel.Absolute,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,System.Single,Sudoku.ComponentModel.Directions.Direction8,Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawOutlinedTextToCell(SkiaSharp.SKCanvas,System.String,Sudoku.Graphics.Absolute,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,System.Single,Sudoku.ComponentModel.Directions.Direction8,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCell(System.String,Sudoku.Graphics.Absolute,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,System.Single,Sudoku.ComponentModel.Directions.Direction8,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawOutlinedTextToCandidate(SkiaSharp.SKCanvas,System.String,Sudoku.ComponentModel.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCandidate(System.String,Sudoku.ComponentModel.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawOutlinedTextToCandidate(SkiaSharp.SKCanvas,System.String,Sudoku.Graphics.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCandidate(System.String,Sudoku.Graphics.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawApexTriangleToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Alignment,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawApexTriangleToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Alignment,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawApexTriangleToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Alignment,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawApexTriangleToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Alignment,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawArrowToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Directions.Direction4,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Directions.Direction4,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawArrowToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Directions.Direction4,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Directions.Direction4,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawArrowTriangleToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowTriangleToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawArrowTriangleToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowTriangleToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawBattenburgToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale[],Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBattenburgToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale[],Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawBattenburgToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale[],Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBattenburgToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale[],Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawBorderAlignedTriangleToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Directions.Direction4,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBorderAlignedTriangleToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Directions.Direction4,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawBorderAlignedTriangleToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction4,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBorderAlignedTriangleToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction4,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawCircleToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCircleToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawCircleTo``1(SkiaSharp.SKCanvas,``0,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCircleTo``1(``0,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawCrossInCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,SkiaSharp.SKStrokeCap)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCrossInCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,SkiaSharp.SKStrokeCap)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawCrossInCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,SkiaSharp.SKStrokeCap)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCrossInCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,SkiaSharp.SKStrokeCap)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawDiamondToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawDiamondToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawDiamondToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawDiamondToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawHalveLineToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Directions.Orientation4,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawHalveLineToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Directions.Orientation4,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawHalveLineToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Orientation4,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawHalveLineToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Orientation4,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawHexagonToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Directions.Orientation2,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawHexagonToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Directions.Orientation2,Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawHexagonToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Directions.Orientation2,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawHexagonToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Directions.Orientation2,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawMoonToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Moons.MoonPhase,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawMoonToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Moons.MoonPhase,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawMoonToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Moons.MoonPhase,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawMoonToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Moons.MoonPhase,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawPhantomDiceToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Relative,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,System.Collections.BitArray,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawPhantomDiceToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Relative,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,System.Collections.BitArray,Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawPhantomDiceToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.Graphics.Relative,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,System.Collections.BitArray,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawPhantomDiceToCell(Sudoku.Graphics.Absolute,Sudoku.Graphics.Relative,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,System.Collections.BitArray,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawPolygonToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,System.Single)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawPolygonToCell(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,System.Single)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawPolygonToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,System.Single)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawPolygonToCell(Sudoku.Graphics.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,System.Single)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawConcavePolygonToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,System.Single)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawConcavePolygonToCell(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,System.Single)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawConcavePolygonToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,System.Single)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawConcavePolygonToCell(Sudoku.Graphics.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,System.Single)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawSevenSegmentsDisplayToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,System.Int32,System.Boolean,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawSevenSegmentsDisplayToCell(Sudoku.ComponentModel.Absolute,System.Int32,System.Boolean,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawSevenSegmentsDisplayToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,System.Int32,System.Boolean,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawSevenSegmentsDisplayToCell(Sudoku.Graphics.Absolute,System.Int32,System.Boolean,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawSquareToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawSquareToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawSquareToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawSquareToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawSurroundingTrianglesInCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawSurroundingTrianglesInCell(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawSurroundingTrianglesInCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawSurroundingTrianglesInCell(Sudoku.Graphics.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawTetromino(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,System.Boolean[0:,0:],Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTetromino(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,System.Boolean[0:,0:],Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawTetromino(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,System.Boolean[0:,0:],Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTetromino(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,System.Boolean[0:,0:],Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawTriangleToCell(SkiaSharp.SKCanvas,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTriangleToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawTriangleToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTriangleToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
         <member name="T:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.&lt;M&gt;$21C1C87F40B24560160CB1CD20F6362E">
             <param name="this">The current instance.</param>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextToCell(System.String,Sudoku.ComponentModel.Absolute,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,System.Single,Sudoku.ComponentModel.Directions.Direction8,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextToCell(System.String,Sudoku.Graphics.Absolute,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,System.Single,Sudoku.ComponentModel.Directions.Direction8,Sudoku.Graphics.PointMapper)">
             <summary>
             Draws the specified text into the target cell.
             </summary>
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCell(System.String,Sudoku.ComponentModel.Absolute,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,System.Single,Sudoku.ComponentModel.Directions.Direction8,Sudoku.Graphics.PointMapper)"/>
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCell(System.String,Sudoku.Graphics.Absolute,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,System.Single,Sudoku.ComponentModel.Directions.Direction8,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextToCandidate(System.String,Sudoku.ComponentModel.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextToCandidate(System.String,Sudoku.Graphics.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <summary>
             Draws the specified text into the target candidate.
             </summary>
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCandidate(System.String,Sudoku.ComponentModel.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCandidate(System.String,Sudoku.Graphics.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCell(System.String,Sudoku.ComponentModel.Absolute,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,System.Single,Sudoku.ComponentModel.Directions.Direction8,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCell(System.String,Sudoku.Graphics.Absolute,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,System.Single,Sudoku.ComponentModel.Directions.Direction8,Sudoku.Graphics.PointMapper)">
             <summary>
             Draws the specified text into the target cell, with outlined.
             </summary>
@@ -4003,7 +4063,7 @@
             Throws when <paramref name="alignedDirection"/> is not defined.
             </exception>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCandidate(System.String,Sudoku.ComponentModel.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCandidate(System.String,Sudoku.Graphics.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <summary>
             Draws the specified text into the target candidate, with outlined.
             </summary>
@@ -4021,7 +4081,7 @@
             <param name="fillColor">The fill color of text.</param>
             <param name="mapper">The mapper.</param>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawApexTriangleToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Alignment,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawApexTriangleToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Alignment,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <summary>
             Draws apex triangle to specified cell.
             </summary>
@@ -4037,7 +4097,7 @@
             Throws when <paramref name="cornerAlignment"/> is not defined.
             </exception>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Directions.Direction4,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Directions.Direction4,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
             <summary>
             Draws an arrow symbol into the specified cell.
             </summary>
@@ -4062,7 +4122,7 @@
             Throws when <paramref name="alignedBorderDirection"/> is not defined.
             </exception>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowTriangleToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowTriangleToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <summary>
             Draws an arrow triangle into the specifie cell.
             </summary>
@@ -4075,7 +4135,7 @@
             <param name="fillColor">The fill color.</param>
             <param name="mapper">The mapper instance.</param>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBattenburgToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale[],Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBattenburgToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale[],Sudoku.Graphics.PointMapper)">
             <summary>
             Draws a battenburg mark into the specified cell.
             </summary>
@@ -4088,7 +4148,7 @@
             <param name="cornerRadiiScale">The scale of corner radii.</param>
             <param name="mapper">The mapper instance.</param>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBorderAlignedTriangleToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Directions.Direction4,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBorderAlignedTriangleToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction4,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <summary>
             Draws a border-aligned triangle into the specified cell.
             </summary>
@@ -4104,18 +4164,19 @@
             </exception>
             <seealso cref="F:Sudoku.ComponentModel.Directions.Direction4.None"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCircleToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCircleTo``1(``0,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <summary>
-            Draws a square into the specified cell.
+            Draws a square into the specified cell or candidate.
             </summary>
-            <param name="cell">The cell.</param>
-            <param name="sizeScale">The scale of size, related to cell.</param>
+            <typeparam name="TLocator">The type of cell or candidate.</typeparam>
+            <param name="locator">The cell or candidate.</param>
+            <param name="sizeScale">The scale of size, related to cell or candidate.</param>
             <param name="strokeColor">The stroke color.</param>
             <param name="strokeWidthScale">The scale of stroke width, related to cell.</param>
             <param name="fillColor">The fill color.</param>
             <param name="mapper">The mapper instance.</param>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCrossInCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,SkiaSharp.SKStrokeCap)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCrossInCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,SkiaSharp.SKStrokeCap)">
             <summary>
             Draws a cross symbol into the specified cell.
             </summary>
@@ -4127,7 +4188,7 @@
             <param name="cap">The stroke cap. By default it's <see cref="F:SkiaSharp.SKStrokeCap.Round"/>.</param>
             <seealso cref="F:SkiaSharp.SKStrokeCap.Round"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawDiamondToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawDiamondToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <summary>
             Draws a diamond symbol into the specified cell.
             </summary>
@@ -4138,7 +4199,7 @@
             <param name="fillColor">The fill color.</param>
             <param name="mapper">The mapper.</param>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawHalveLineToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Directions.Orientation4,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawHalveLineToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Orientation4,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
             <summary>
             Draws halve line to specified cell.
             </summary>
@@ -4150,7 +4211,7 @@
             <param name="mapper">The mapper instance.</param>
             <exception cref="T:System.ArgumentOutOfRangeException">Throws when <paramref name="orientation"/> is not defined.</exception>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawHexagonToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Directions.Orientation2,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawHexagonToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Directions.Orientation2,Sudoku.Graphics.PointMapper)">
             <summary>
             Draws a hexagon symbol into the specified cell.
             </summary>
@@ -4166,7 +4227,7 @@
             </exception>
             <seealso cref="F:Sudoku.ComponentModel.Directions.Orientation2.None"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawMoonToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Moons.MoonPhase,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawMoonToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Moons.MoonPhase,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
             <summary>
             Draws a moon to the specified cell, using the specified phase.
             </summary>
@@ -4178,7 +4239,7 @@
             <param name="radiusScale">The radius scale, related to half cell size.</param>
             <param name="mapper">The point mapper.</param>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawPhantomDiceToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Relative,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,System.Collections.BitArray,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawPhantomDiceToCell(Sudoku.Graphics.Absolute,Sudoku.Graphics.Relative,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,System.Collections.BitArray,Sudoku.Graphics.PointMapper)">
             <summary>
             Draws phantom dice to the specified cell.
             </summary>
@@ -4192,7 +4253,7 @@
             <param name="states">The on/off states table.</param>
             <param name="mapper">The mapper instance.</param>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawPolygonToCell(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,System.Single)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawPolygonToCell(Sudoku.Graphics.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,System.Single)">
             <summary>
             Draw a (convex) polygon into the specified cell.
             </summary>
@@ -4207,7 +4268,7 @@
             <exception cref="T:System.ArgumentException">Throws when the number of sides is invalid (below 3).</exception>
             <exception cref="T:System.InvalidOperationException">Throws when the number of sides is too large (above 16).</exception>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawConcavePolygonToCell(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,System.Single)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawConcavePolygonToCell(Sudoku.Graphics.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,System.Single)">
             <summary>
             Draw a concave polygon into the specified cell.
             </summary>
@@ -4223,7 +4284,7 @@
             <exception cref="T:System.ArgumentException">Throws when the number of sides is invalid (below 3).</exception>
             <exception cref="T:System.InvalidOperationException">Throws when the number of sides is too large (above 16).</exception>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawSevenSegmentsDisplayToCell(Sudoku.ComponentModel.Absolute,System.Int32,System.Boolean,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawSevenSegmentsDisplayToCell(Sudoku.Graphics.Absolute,System.Int32,System.Boolean,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
             <summary>
             Draws seven-segment display into the specified cell.
             </summary>
@@ -4239,7 +4300,7 @@
             <param name="phantomStrokeWidthScale">The scale of phantom stroke width.</param>
             <param name="mapper">The mapper instance.</param>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawSquareToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawSquareToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
             <summary>
             Draws a square into the specified cell.
             </summary>
@@ -4251,7 +4312,7 @@
             <param name="cornerRadiusScale">The scale of corner radiuse, related to drawn square size.</param>
             <param name="mapper">The mapper instance.</param>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawSurroundingTrianglesInCell(Sudoku.ComponentModel.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawSurroundingTrianglesInCell(Sudoku.Graphics.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
             <summary>
             Draws a several triangles, surrounding with cell center point.
             </summary>
@@ -4268,7 +4329,7 @@
             Throws when <paramref name="trianglesCount"/> is below than 1.
             </exception>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTetromino(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,System.Boolean[0:,0:],Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTetromino(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,System.Boolean[0:,0:],Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
             <summary>
             Try to draw a tetris piece (or not, specified as a <see cref="T:System.Boolean"/> matrix) into the specified cell.
             </summary>
@@ -4295,7 +4356,7 @@
             <param name="cornerRadius">The corner radius.</param>
             <param name="mapper">The mapper.</param>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTriangleToCell(Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTriangleToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <summary>
             Draws a hexagon symbol into the specified cell.
             </summary>
@@ -4396,17 +4457,17 @@
         </member>
         <member name="T:Sudoku.Graphics.Template.CellEnumerator">
             <summary>
-            Represents an enumerator instance that can iterate on each cell index as <see cref="T:Sudoku.ComponentModel.Absolute"/> instance.
+            Represents an enumerator instance that can iterate on each cell index as <see cref="T:Sudoku.Graphics.Absolute"/> instance.
             </summary>
             <param name="_template">The template.</param>
-            <seealso cref="T:Sudoku.ComponentModel.Absolute"/>
+            <seealso cref="T:Sudoku.Graphics.Absolute"/>
         </member>
         <member name="M:Sudoku.Graphics.Template.CellEnumerator.#ctor(Sudoku.Graphics.Template)">
             <summary>
-            Represents an enumerator instance that can iterate on each cell index as <see cref="T:Sudoku.ComponentModel.Absolute"/> instance.
+            Represents an enumerator instance that can iterate on each cell index as <see cref="T:Sudoku.Graphics.Absolute"/> instance.
             </summary>
             <param name="_template">The template.</param>
-            <seealso cref="T:Sudoku.ComponentModel.Absolute"/>
+            <seealso cref="T:Sudoku.Graphics.Absolute"/>
         </member>
         <member name="F:Sudoku.Graphics.Template.CellEnumerator._index">
             <summary>
@@ -4439,7 +4500,7 @@
         <member name="M:Sudoku.Graphics.Template.CellEnumerator.System#Collections#IEnumerable#GetEnumerator">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Template.CellEnumerator.System#Collections#Generic#IEnumerable{Sudoku#ComponentModel#Absolute}#GetEnumerator">
+        <member name="M:Sudoku.Graphics.Template.CellEnumerator.System#Collections#Generic#IEnumerable{Sudoku#Graphics#Absolute}#GetEnumerator">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Template.CellEnumerator.GetValuesFallback">
@@ -4535,7 +4596,7 @@
             </remarks>
             <seealso cref="M:Sudoku.Graphics.Template.DrawGridLines(SkiaSharp.SKCanvas)"/>.
         </member>
-        <member name="M:Sudoku.Graphics.Template.TryProjectCellIndex``1(``0,``0,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Absolute@)">
+        <member name="M:Sudoku.Graphics.Template.TryProjectCellIndex``1(``0,``0,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute@)">
             <summary>
             Project cell index from source template to target template, aligning as top-left side of the canvas.
             </summary>
@@ -4546,7 +4607,7 @@
             <param name="targetCellIndex">The target cell absolute index.</param>
             <returns>A <see cref="T:System.Boolean"/> result indicating whether the projection operation is successful.</returns>
         </member>
-        <member name="M:Sudoku.Graphics.Template.ProjectCellIndex``1(``0,``0,Sudoku.ComponentModel.Absolute)">
+        <member name="M:Sudoku.Graphics.Template.ProjectCellIndex``1(``0,``0,Sudoku.Graphics.Absolute)">
             <summary>
             Project cell index from source template to target template, aligning as top-left side of the canvas.
             </summary>
@@ -4565,10 +4626,10 @@
             <param name="template1">The template 1.</param>
             <param name="template2">The template 2.</param>
             <returns>
-            The intersection cells, representing with <see cref="T:Sudoku.ComponentModel.Absolute"/> instances.
+            The intersection cells, representing with <see cref="T:Sudoku.Graphics.Absolute"/> instances.
             Due to design of absolute cell indices, the return value will be referenced from <paramref name="template1"/>.
             </returns>
-            <seealso cref="T:Sudoku.ComponentModel.Absolute"/>
+            <seealso cref="T:Sudoku.Graphics.Absolute"/>
         </member>
         <member name="T:Sudoku.Graphics.Templates.CrossmathTemplate">
             <summary>
@@ -4693,7 +4754,7 @@
             Represents a standard (rectangular) grid template.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.Templates.StandardTemplate.#ctor(Sudoku.ComponentModel.Relative,Sudoku.ComponentModel.Relative,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.Templates.StandardTemplate.#ctor(Sudoku.Graphics.Relative,Sudoku.Graphics.Relative,Sudoku.Graphics.PointMapper)">
             <summary>
             Initializes a <see cref="T:Sudoku.Graphics.Templates.StandardTemplate"/> instance.
             </summary>
@@ -4742,7 +4803,7 @@
             Provides extra lookup dictionary.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.Templates.SujikenTemplate.#ctor(Sudoku.ComponentModel.Relative,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.Templates.SujikenTemplate.#ctor(Sudoku.Graphics.Relative,Sudoku.Graphics.PointMapper)">
             <summary>
             Initializes a <see cref="T:Sudoku.Graphics.Templates.SujikenTemplate"/> instance.
             </summary>

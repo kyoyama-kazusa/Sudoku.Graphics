@@ -14,7 +14,7 @@ public sealed record CellCircleMarkItem : CellMarkItem
 	{
 		var template = canvas.Templates[TemplateIndex];
 		var mapper = template.Mapper;
-		canvas.BackingCanvas.DrawCircleToCell(
+		canvas.BackingCanvas.DrawCircleTo(
 			Cell,
 			SizeScale,
 			StrokeColor,

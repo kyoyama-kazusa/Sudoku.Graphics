@@ -8,11 +8,14 @@
 
 using System;
 using System.IO;
+using System.Linq;
 using SkiaSharp;
 using Sudoku.ComponentModel;
 using Sudoku.Graphics;
+using Sudoku.Graphics.Items.CandidateMarks;
 using Sudoku.Graphics.Items.Fills;
 using Sudoku.Graphics.Items.Lines;
+using Sudoku.Graphics.Items.Texts;
 using Sudoku.Graphics.Templates;
 
 var desktop = Environment.DesktopPath;
@@ -34,54 +37,34 @@ using var canvas = new Canvas(
 );
 
 var rng = Random.Shared;
+var grid = ".1.3..5.6....8.......69.371..4....9.5.9.2.4.3.3....8..387.59.......7....1.5..6.2.";
 canvas.DrawItems(
 	[
 		new BackgroundFillItem { Color = options.BackgroundColor.Resolve(options) },
 		new TemplateLineItem(),
-		new VariantLineItem
+		..
+		from pair in grid.Index()
+		let cell = pair.Index
+		let digit = pair.Item is '.' or '0' ? -1 : pair.Item - '1'
+		where digit != -1
+		let a = new CandidateCircleMarkItem
 		{
-			StartCell = 0,
-			StartCellAlignment = Alignment.TopLeft,
-			AnchorCell = 1,
-			AnchorCellAlignment = Alignment.BottomRight,
-			Color = SKColors.Gray.WithAlpha(160),
-			StrokeWidthScale = options.ThickLineWidth.Resolve(options),
+			CandidatePosition = new(cell, 3, digit),
 			TemplateIndex = 0,
-			WillExtendLine = true
-		},
-		new VariantLineItem
-		{
-			StartCell = 0,
-			StartCellAlignment = Alignment.TopLeft,
-			AnchorCell = 10,
-			AnchorCellAlignment = Alignment.BottomRight,
-			Color = SKColors.Gray.WithAlpha(160),
-			StrokeWidthScale = options.ThickLineWidth.Resolve(options),
-			TemplateIndex = 0,
-			WillExtendLine = true
-		},
-		new VariantLineItem
-		{
-			StartCell = 0,
-			StartCellAlignment = Alignment.TopLeft,
-			AnchorCell = 19,
-			AnchorCellAlignment = Alignment.BottomRight,
-			Color = SKColors.Gray.WithAlpha(160),
-			StrokeWidthScale = options.ThickLineWidth.Resolve(options),
-			TemplateIndex = 0,
-			WillExtendLine = true
-		},
-		new VariantLineItem
-		{
-			StartCell = 0,
-			StartCellAlignment = Alignment.TopLeft,
-			AnchorCell = 28,
-			AnchorCellAlignment = Alignment.BottomRight,
-			Color = SKColors.Gray.WithAlpha(160),
-			StrokeWidthScale = options.ThickLineWidth.Resolve(options),
-			TemplateIndex = 0,
-			WillExtendLine = true
+			SizeScale = .25M,
+			FillColor = new(134, 242, 128)
 		}
+		let b = new CandidateTextItem
+		{
+			Text = (digit + 1).ToString(),
+			FontName = "Arial",
+			CandidatePosition = new(cell, 3, digit),
+			FontSizeScale = .75M,
+			TemplateIndex = 0,
+			Color = SKColors.Black
+		}
+		from item in (Item[])[a, b]
+		select item
 	]
 );
 canvas.Export(Path.Combine(desktop, "output.png"), new() { Quality = 100 });

@@ -23,7 +23,7 @@ public enum ItemType
 	/// <summary>
 	/// Indicates the background filling.
 	/// </summary>
-	BackgroundFill = 1,
+	BackgroundFill,
 
 	/// <summary>
 	/// Indicates cell filling.
@@ -37,33 +37,13 @@ public enum ItemType
 	#endregion
 
 	//
-	// Text
-	//
-	#region Text
-	/// <summary>
-	/// Indicates given text.
-	/// </summary>
-	GivenText = 101,
-
-	/// <summary>
-	/// Indicates modifiable text.
-	/// </summary>
-	ModifiableText,
-
-	/// <summary>
-	/// Indicates candidate text.
-	/// </summary>
-	CandidateText,
-	#endregion
-
-	//
 	// Cell marks
 	//
 	#region Cell marks
 	/// <summary>
 	/// Indicates cell tetris mark.
 	/// </summary>
-	CellMark_Tetris = 201,
+	CellMark_Tetris,
 
 	/// <summary>
 	/// Indicates cell dice mark.
@@ -162,13 +142,43 @@ public enum ItemType
 	#endregion
 
 	//
+	// Candidate marks
+	//
+	#region Candidate marks
+	/// <summary>
+	/// Indicates circle candidate mark.
+	/// </summary>
+	CandidateCircleMark,
+	#endregion
+
+	//
+	// Text
+	//
+	#region Text
+	/// <summary>
+	/// Indicates given text.
+	/// </summary>
+	GivenText,
+
+	/// <summary>
+	/// Indicates modifiable text.
+	/// </summary>
+	ModifiableText,
+
+	/// <summary>
+	/// Indicates candidate text.
+	/// </summary>
+	CandidateText,
+	#endregion
+
+	//
 	// Cell text marks
 	//
 	#region Cell text marks
 	/// <summary>
 	/// Indicates cell question mark.
 	/// </summary>
-	CellMark_QuestionText = 301,
+	CellMark_QuestionText,
 
 	/// <summary>
 	/// Indicates cell exclamation mark.
@@ -223,7 +233,7 @@ public enum ItemType
 	/// <summary>
 	/// Indicates template line strokes.
 	/// </summary>
-	TemplateLine = 1000,
+	TemplateLine,
 
 	/// <summary>
 	/// Indicates variant line strokes.

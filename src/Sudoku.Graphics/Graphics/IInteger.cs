@@ -1,4 +1,4 @@
-﻿namespace Sudoku.ComponentModel;
+﻿namespace Sudoku.Graphics;
 
 /// <summary>
 /// Represents a type that simply encapsulates an <see cref="int"/> value.

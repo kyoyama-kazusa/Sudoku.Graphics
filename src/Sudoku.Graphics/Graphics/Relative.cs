@@ -1,4 +1,4 @@
-﻿namespace Sudoku.ComponentModel;
+﻿namespace Sudoku.Graphics;
 
 /// <summary>
 /// Represents an <see cref="int"/> value that describes a relative index.
@@ -7,7 +7,7 @@
 [JsonConverter(typeof(ValueConverter<Relative>))]
 [DebuggerDisplay($$"""{{{nameof(ToString)}}(),nq}""")]
 [SuppressMessage("Usage", "CA2231:Overload operator equals on overriding value type Equals", Justification = "<Pending>")]
-public readonly struct Relative(int value) : IInteger<Relative>
+public readonly struct Relative(int value) : IInteger<Relative>, ILocator<Relative>
 {
 	/// <summary>
 	/// The backing value.

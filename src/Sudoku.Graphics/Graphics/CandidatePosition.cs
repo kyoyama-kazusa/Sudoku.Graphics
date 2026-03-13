@@ -1,4 +1,4 @@
-﻿namespace Sudoku.ComponentModel;
+﻿namespace Sudoku.Graphics;
 
 /// <summary>
 /// Represents a candidate position.
@@ -17,7 +17,8 @@
 /// </para>
 /// </remarks>
 public readonly record struct CandidatePosition(Absolute Cell, Relative SubgridSize, Absolute InnerIndex) :
-	IEqualityOperators<CandidatePosition, CandidatePosition, bool>
+	IEqualityOperators<CandidatePosition, CandidatePosition, bool>,
+	ILocator<CandidatePosition>
 {
 	private bool PrintMembers(StringBuilder builder)
 	{

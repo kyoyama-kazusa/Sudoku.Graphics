@@ -5,22 +5,24 @@ public partial class SKCanvasDrawings
 	extension(SKCanvas @this)
 	{
 		/// <summary>
-		/// Draws a square into the specified cell.
+		/// Draws a square into the specified cell or candidate.
 		/// </summary>
-		/// <param name="cell">The cell.</param>
-		/// <param name="sizeScale">The scale of size, related to cell.</param>
+		/// <typeparam name="TLocator">The type of cell or candidate.</typeparam>
+		/// <param name="locator">The cell or candidate.</param>
+		/// <param name="sizeScale">The scale of size, related to cell or candidate.</param>
 		/// <param name="strokeColor">The stroke color.</param>
 		/// <param name="strokeWidthScale">The scale of stroke width, related to cell.</param>
 		/// <param name="fillColor">The fill color.</param>
 		/// <param name="mapper">The mapper instance.</param>
-		public void DrawCircleToCell(
-			Absolute cell,
+		public void DrawCircleTo<TLocator>(
+			TLocator locator,
 			Scale sizeScale,
 			SerializableColor strokeColor,
 			Scale strokeWidthScale,
 			SerializableColor fillColor,
 			PointMapper mapper
 		)
+			where TLocator : unmanaged, ILocator<TLocator>
 		{
 			if (sizeScale.IsNegative)
 			{
@@ -32,7 +34,7 @@ public partial class SKCanvasDrawings
 			var outerSide = sizeScale.Measure(cellSize);
 			var strokeWidth = strokeWidthScale.Measure(cellSize);
 			var innerSide = Math.Max(0F, outerSide - strokeWidth);
-			var center = mapper.GetPoint(cell, Alignment.Center);
+			var center = mapper.GetPoint(locator, Alignment.Center);
 			var radius = innerSide / 2;
 
 			// Fill paint.
