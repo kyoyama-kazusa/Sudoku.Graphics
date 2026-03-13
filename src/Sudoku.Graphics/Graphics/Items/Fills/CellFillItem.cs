@@ -1,9 +1,9 @@
-﻿namespace Sudoku.Graphics.Items;
+﻿namespace Sudoku.Graphics.Items.Fills;
 
 /// <summary>
 /// Represents cell fill item.
 /// </summary>
-public sealed record CellFillItem : Item, IItem_CellProperty, IItem_ColorProperty, IItem_TemplateIndexProperty
+public sealed record CellFillItem : FillItem, IItem_CellProperty, IItem_TemplateIndexProperty
 {
 	/// <inheritdoc/>
 	public required int TemplateIndex { get; init; }
@@ -13,9 +13,6 @@ public sealed record CellFillItem : Item, IItem_CellProperty, IItem_ColorPropert
 
 	/// <inheritdoc/>
 	public required Absolute Cell { get; init; }
-
-	/// <inheritdoc/>
-	public required SerializableColor Color { get; init; }
 
 
 	/// <inheritdoc/>

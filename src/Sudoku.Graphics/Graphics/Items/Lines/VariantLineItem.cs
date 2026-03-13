@@ -1,9 +1,9 @@
-﻿namespace Sudoku.Graphics.Items;
+﻿namespace Sudoku.Graphics.Items.Lines;
 
 /// <summary>
-/// Represents variant line stroke item.
+/// Represents variant line item.
 /// </summary>
-public sealed record VariantLineStrokeItem : Item, IItem_ColorProperty
+public sealed record VariantLineItem : LineItem, IItem_ColorProperty
 {
 	/// <summary>
 	/// Indicates whether this line will be extended to grid border.
@@ -16,7 +16,7 @@ public sealed record VariantLineStrokeItem : Item, IItem_ColorProperty
 	public required int TemplateIndex { get; init; }
 
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.VariantLineStroke;
+	public override ItemType Type => ItemType.VariantLine;
 
 	/// <summary>
 	/// Indicates start cell alignment.

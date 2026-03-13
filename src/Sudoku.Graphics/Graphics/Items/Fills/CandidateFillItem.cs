@@ -1,9 +1,9 @@
-﻿namespace Sudoku.Graphics.Items;
+﻿namespace Sudoku.Graphics.Items.Fills;
 
 /// <summary>
 /// Represents a candidate fill item.
 /// </summary>
-public sealed record CandidateFillItem : Item, IItem_ColorProperty, IItem_CandidatePositionProperty, IItem_TemplateIndexProperty
+public sealed record CandidateFillItem : FillItem, IItem_CandidatePositionProperty, IItem_TemplateIndexProperty
 {
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.CandidateFill;
@@ -13,9 +13,6 @@ public sealed record CandidateFillItem : Item, IItem_ColorProperty, IItem_Candid
 
 	/// <inheritdoc/>
 	public required CandidatePosition CandidatePosition { get; init; }
-
-	/// <inheritdoc/>
-	public required SerializableColor Color { get; init; }
 
 
 	/// <inheritdoc/>

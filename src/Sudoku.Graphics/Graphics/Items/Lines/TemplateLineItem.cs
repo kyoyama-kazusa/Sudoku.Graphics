@@ -1,9 +1,9 @@
-﻿namespace Sudoku.Graphics.Items;
+﻿namespace Sudoku.Graphics.Items.Lines;
 
 /// <summary>
-/// Represents template line stroke item.
+/// Represents template line item.
 /// </summary>
-public sealed record TemplateLineStrokeItem : Item, IItem_ColorProperty
+public sealed record TemplateLineItem : LineItem
 {
 	/// <summary>
 	/// Indicates whether intersection cells should be filled with another color.
@@ -19,15 +19,7 @@ public sealed record TemplateLineStrokeItem : Item, IItem_ColorProperty
 	public SerializableColor TemplateIntersectionCellsColor { get; init; }
 
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.TemplateLineStroke;
-
-	/// <inheritdoc/>
-	SerializableColor IItem_ColorProperty.Color
-	{
-		get => TemplateIntersectionCellsColor;
-
-		init => TemplateIntersectionCellsColor = value;
-	}
+	public override ItemType Type => ItemType.TemplateLine;
 
 
 	/// <inheritdoc/>

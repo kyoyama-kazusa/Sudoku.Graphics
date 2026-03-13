@@ -223,11 +223,11 @@ public enum ItemType
 	/// <summary>
 	/// Indicates template line strokes.
 	/// </summary>
-	TemplateLineStroke = 1000,
+	TemplateLine = 1000,
 
 	/// <summary>
 	/// Indicates variant line strokes.
 	/// </summary>
-	VariantLineStroke,
+	VariantLine,
 	#endregion
 }

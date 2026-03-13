@@ -41,8 +41,8 @@
 [JsonDerivedType(typeof(CellZodiacEmojiMarkItem), nameof(CellZodiacEmojiMarkItem))]
 [JsonDerivedType(typeof(GivenTextItem), nameof(GivenTextItem))]
 [JsonDerivedType(typeof(ModifiableTextItem), nameof(ModifiableTextItem))]
-[JsonDerivedType(typeof(TemplateLineStrokeItem), nameof(TemplateLineStrokeItem))]
-[JsonDerivedType(typeof(VariantLineStrokeItem), nameof(VariantLineStrokeItem))]
+[JsonDerivedType(typeof(TemplateLineItem), nameof(TemplateLineItem))]
+[JsonDerivedType(typeof(VariantLineItem), nameof(VariantLineItem))]
 public abstract record Item : IEqualityOperators<Item, Item, bool>
 {
 	/// <summary>

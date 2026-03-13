@@ -1,4 +1,4 @@
-﻿namespace Sudoku.Graphics.Items;
+﻿namespace Sudoku.Graphics.Items.Texts;
 
 /// <summary>
 /// Represents modifiable text.

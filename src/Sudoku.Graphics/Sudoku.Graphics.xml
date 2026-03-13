@@ -193,14 +193,14 @@
         </member>
         <member name="M:Sudoku.ComponentModel.Crossmath.CrossmathFormula.CreateItems(Sudoku.ComponentModel.Crossmath.CrossmathFormula[],Sudoku.Graphics.PointMapper,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor)">
             <summary>
-            Creates a list of <see cref="T:Sudoku.Graphics.Items.GivenTextItem"/> instances via the specified formulae.
+            Creates a list of <see cref="T:Sudoku.Graphics.Items.Texts.GivenTextItem"/> instances via the specified formulae.
             </summary>
             <param name="formulae">The formulae to be loaded.</param>
             <param name="mapper">The point mapper.</param>
             <param name="fontName">The font name.</param>
             <param name="fontSizeScale">The font size scale.</param>
             <param name="color">The color.</param>
-            <returns>A list of <see cref="T:Sudoku.Graphics.Items.GivenTextItem"/> instances.</returns>
+            <returns>A list of <see cref="T:Sudoku.Graphics.Items.Texts.GivenTextItem"/> instances.</returns>
         </member>
         <member name="T:Sudoku.ComponentModel.Dices.DiceTable">
             <summary>
@@ -2905,148 +2905,6 @@
         <member name="M:Sudoku.Graphics.ItemSet.FilteredItemsEnumerator.System#Collections#Generic#IEnumerable{Sudoku#Graphics#Item}#GetEnumerator">
             <inheritdoc/>
         </member>
-        <member name="T:Sudoku.Graphics.Items.BackgroundFillItem">
-            <summary>
-            Represents canvas background fill item.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.BackgroundFillItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.BackgroundFillItem.Color">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Items.BackgroundFillItem.DrawTo(Sudoku.Graphics.Canvas)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Graphics.Items.CandidateFillItem">
-            <summary>
-            Represents a candidate fill item.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CandidateFillItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CandidateFillItem.TemplateIndex">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CandidateFillItem.CandidatePosition">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CandidateFillItem.Color">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Items.CandidateFillItem.DrawTo(Sudoku.Graphics.Canvas)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Graphics.Items.CandidateTextItem">
-            <summary>
-            Represents candidate text.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CandidateTextItem.TemplateIndex">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CandidateTextItem.Text">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CandidateTextItem.FontName">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CandidateTextItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CandidateTextItem.FontWeight">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CandidateTextItem.FontWidth">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CandidateTextItem.FontSlant">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CandidateTextItem.FontSizeScale">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CandidateTextItem.Color">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CandidateTextItem.CandidatePosition">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Items.CandidateTextItem.DrawTo(Sudoku.Graphics.Canvas)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Graphics.Items.CellFillItem">
-            <summary>
-            Represents cell fill item.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellFillItem.TemplateIndex">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellFillItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellFillItem.Cell">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellFillItem.Color">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Items.CellFillItem.DrawTo(Sudoku.Graphics.Canvas)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Graphics.Items.CellMarkItem">
-            <summary>
-            Represents a cell mark item.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarkItem.TemplateIndex">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarkItem.TextFontName">
-            <summary>
-            Indicates text font.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarkItem.Cell">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarkItem.SizeScale">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarkItem.StrokeWidthScale">
-            <summary>
-            Indicates stroke width scale.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarkItem.CornerRadiusScale">
-            <summary>
-            Indicates corner radius scale.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarkItem.StrokeColor">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarkItem.FillColor">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarkItem.Sudoku#Graphics#Items#IItem_FontRelatedProperties#FontName">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarkItem.Sudoku#Graphics#Items#IItem_FontRelatedProperties#FontWeight">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarkItem.Sudoku#Graphics#Items#IItem_FontRelatedProperties#FontWidth">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarkItem.Sudoku#Graphics#Items#IItem_FontRelatedProperties#FontSlant">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarkItem.Sudoku#Graphics#Items#IItem_FontRelatedProperties#FontSizeScale">
-            <inheritdoc/>
-        </member>
         <member name="T:Sudoku.Graphics.Items.CellMarks.CellApexCornerTriangleMarkItem">
             <summary>
             Provides cell apex corner triangle mark item.
@@ -3289,6 +3147,56 @@
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellHexagonMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.CellMarkItem">
+            <summary>
+            Represents a cell mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellMarkItem.TemplateIndex">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellMarkItem.TextFontName">
+            <summary>
+            Indicates text font.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellMarkItem.Cell">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellMarkItem.SizeScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellMarkItem.StrokeWidthScale">
+            <summary>
+            Indicates stroke width scale.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellMarkItem.CornerRadiusScale">
+            <summary>
+            Indicates corner radius scale.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellMarkItem.StrokeColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellMarkItem.FillColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellMarkItem.Sudoku#Graphics#Items#IItem_FontRelatedProperties#FontName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellMarkItem.Sudoku#Graphics#Items#IItem_FontRelatedProperties#FontWeight">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellMarkItem.Sudoku#Graphics#Items#IItem_FontRelatedProperties#FontWidth">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellMarkItem.Sudoku#Graphics#Items#IItem_FontRelatedProperties#FontSlant">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellMarkItem.Sudoku#Graphics#Items#IItem_FontRelatedProperties#FontSizeScale">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.Items.CellMarks.CellMoonPhaseMarkItem">
@@ -3623,48 +3531,58 @@
         <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellZodiacEmojiMarkItem.PrintingText">
             <inheritdoc/>
         </member>
-        <member name="T:Sudoku.Graphics.Items.GivenOrModifiableTextItem">
+        <member name="T:Sudoku.Graphics.Items.Fills.BackgroundFillItem">
             <summary>
-            Represents a text item that displays a given or a modifiable digit.
+            Represents canvas background fill item.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.GivenOrModifiableTextItem.TemplateIndex">
+        <member name="P:Sudoku.Graphics.Items.Fills.BackgroundFillItem.Type">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.GivenOrModifiableTextItem.Text">
+        <member name="M:Sudoku.Graphics.Items.Fills.BackgroundFillItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.GivenOrModifiableTextItem.FontName">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.GivenOrModifiableTextItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.GivenOrModifiableTextItem.FontWeight">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.GivenOrModifiableTextItem.FontWidth">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.GivenOrModifiableTextItem.FontSlant">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.GivenOrModifiableTextItem.Cell">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.GivenOrModifiableTextItem.Color">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.GivenOrModifiableTextItem.FontSizeScale">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Items.GivenOrModifiableTextItem.DrawTo(Sudoku.Graphics.Canvas)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Graphics.Items.GivenTextItem">
+        <member name="T:Sudoku.Graphics.Items.Fills.CandidateFillItem">
             <summary>
-            Represents given text.
+            Represents a candidate fill item.
             </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.Fills.CandidateFillItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.Fills.CandidateFillItem.TemplateIndex">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.Fills.CandidateFillItem.CandidatePosition">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.Fills.CandidateFillItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.Fills.CellFillItem">
+            <summary>
+            Represents cell fill item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.Fills.CellFillItem.TemplateIndex">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.Fills.CellFillItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.Fills.CellFillItem.Cell">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.Fills.CellFillItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.Fills.FillItem">
+            <summary>
+            Represents a fill item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.Fills.FillItem.Color">
+            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.Items.IItem_CandidatePositionProperty">
             <summary>
@@ -3773,103 +3691,100 @@
             Indicates the text to draw.
             </summary>
         </member>
-        <member name="T:Sudoku.Graphics.Items.ModifiableTextItem">
+        <member name="T:Sudoku.Graphics.Items.Lines.LineItem">
             <summary>
-            Represents modifiable text.
+            Represents a line item.
             </summary>
         </member>
-        <member name="T:Sudoku.Graphics.Items.TemplateLineStrokeItem">
+        <member name="T:Sudoku.Graphics.Items.Lines.TemplateLineItem">
             <summary>
-            Represents template line stroke item.
+            Represents template line item.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.TemplateLineStrokeItem.FillIntersectionCells">
+        <member name="P:Sudoku.Graphics.Items.Lines.TemplateLineItem.FillIntersectionCells">
             <summary>
             Indicates whether intersection cells should be filled with another color.
             By default it's <see langword="false"/>.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.TemplateLineStrokeItem.TemplateIntersectionCellsColor">
+        <member name="P:Sudoku.Graphics.Items.Lines.TemplateLineItem.TemplateIntersectionCellsColor">
             <summary>
             Indicates the color to be filled in intersection cells.
-            This property must contain a valid color if <see cref="P:Sudoku.Graphics.Items.TemplateLineStrokeItem.FillIntersectionCells"/> is <see langword="true"/>.
+            This property must contain a valid color if <see cref="P:Sudoku.Graphics.Items.Lines.TemplateLineItem.FillIntersectionCells"/> is <see langword="true"/>.
             </summary>
-            <seealso cref="P:Sudoku.Graphics.Items.TemplateLineStrokeItem.FillIntersectionCells"/>
+            <seealso cref="P:Sudoku.Graphics.Items.Lines.TemplateLineItem.FillIntersectionCells"/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.TemplateLineStrokeItem.Type">
+        <member name="P:Sudoku.Graphics.Items.Lines.TemplateLineItem.Type">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.TemplateLineStrokeItem.Sudoku#Graphics#Items#IItem_ColorProperty#Color">
+        <member name="M:Sudoku.Graphics.Items.Lines.TemplateLineItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Items.TemplateLineStrokeItem.DrawTo(Sudoku.Graphics.Canvas)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Graphics.Items.VariantLineStrokeItem">
+        <member name="T:Sudoku.Graphics.Items.Lines.VariantLineItem">
             <summary>
-            Represents variant line stroke item.
+            Represents variant line item.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.VariantLineStrokeItem.WillExtendLine">
+        <member name="P:Sudoku.Graphics.Items.Lines.VariantLineItem.WillExtendLine">
             <summary>
             Indicates whether this line will be extended to grid border.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.VariantLineStrokeItem.TemplateIndex">
+        <member name="P:Sudoku.Graphics.Items.Lines.VariantLineItem.TemplateIndex">
             <summary>
             Indicates template index.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.VariantLineStrokeItem.Type">
+        <member name="P:Sudoku.Graphics.Items.Lines.VariantLineItem.Type">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.VariantLineStrokeItem.StartCellAlignment">
+        <member name="P:Sudoku.Graphics.Items.Lines.VariantLineItem.StartCellAlignment">
             <summary>
             Indicates start cell alignment.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.VariantLineStrokeItem.AnchorCellAlignment">
+        <member name="P:Sudoku.Graphics.Items.Lines.VariantLineItem.AnchorCellAlignment">
             <summary>
             Indicates anchor (interim) cell alignment.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.VariantLineStrokeItem.StartCell">
+        <member name="P:Sudoku.Graphics.Items.Lines.VariantLineItem.StartCell">
             <summary>
             Indicates the start cell.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.VariantLineStrokeItem.AnchorCell">
+        <member name="P:Sudoku.Graphics.Items.Lines.VariantLineItem.AnchorCell">
             <summary>
             Indicates the anchor (interim) cell.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.VariantLineStrokeItem.Color">
+        <member name="P:Sudoku.Graphics.Items.Lines.VariantLineItem.Color">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.VariantLineStrokeItem.StrokeWidthScale">
+        <member name="P:Sudoku.Graphics.Items.Lines.VariantLineItem.StrokeWidthScale">
             <summary>
             Indicates stroke width scale.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.VariantLineStrokeItem.LineDashSequence">
+        <member name="P:Sudoku.Graphics.Items.Lines.VariantLineItem.LineDashSequence">
             <summary>
             Indicates line dash sequence.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.Items.VariantLineStrokeItem.DrawTo(Sudoku.Graphics.Canvas)">
+        <member name="M:Sudoku.Graphics.Items.Lines.VariantLineItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
-        <member name="T:Sudoku.Graphics.Items.GridLineExtender">
+        <member name="T:Sudoku.Graphics.Items.Lines.GridLineExtender">
             <summary>
             Represents a grid line extender.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.Items.GridLineExtender.Epsilon">
+        <member name="F:Sudoku.Graphics.Items.Lines.GridLineExtender.Epsilon">
             <summary>
             Represents epsilon.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.Items.GridLineExtender.ExtendRayToRectangleBoundary(SkiaSharp.SKPoint,SkiaSharp.SKPoint,System.Single,System.Single,System.Single,System.Single)">
+        <member name="M:Sudoku.Graphics.Items.Lines.GridLineExtender.ExtendRayToRectangleBoundary(SkiaSharp.SKPoint,SkiaSharp.SKPoint,System.Single,System.Single,System.Single,System.Single)">
             <summary>
             Gives start and anchor (interim) points, to calculate the target point intersected with grid border.
             </summary>
@@ -3881,7 +3796,7 @@
             <param name="bottom">The bottom value of grid.</param>
             <returns>The result point.</returns>
         </member>
-        <member name="M:Sudoku.Graphics.Items.GridLineExtender.ComputeExtendedLine(SkiaSharp.SKPoint,Sudoku.ComponentModel.Alignment,SkiaSharp.SKPoint,Sudoku.ComponentModel.Alignment,System.Single,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Absolute,System.Single,System.Single)">
+        <member name="M:Sudoku.Graphics.Items.Lines.GridLineExtender.ComputeExtendedLine(SkiaSharp.SKPoint,Sudoku.ComponentModel.Alignment,SkiaSharp.SKPoint,Sudoku.ComponentModel.Alignment,System.Single,Sudoku.ComponentModel.Absolute,Sudoku.ComponentModel.Absolute,System.Single,System.Single)">
             <summary>
             Calculates start and end point, with line extended.
             </summary>
@@ -3898,6 +3813,73 @@
             <exception cref="T:System.ArgumentOutOfRangeException">
             Throws when either variable <paramref name="startAlignment"/> or <paramref name="interimCorner"/> is not defined.
             </exception>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.Texts.CandidateTextItem">
+            <summary>
+            Represents candidate text.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.Texts.CandidateTextItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.Texts.CandidateTextItem.CandidatePosition">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.Texts.CandidateTextItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.Texts.GivenOrModifiableTextItem">
+            <summary>
+            Represents a text item that displays a given or a modifiable digit.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.Texts.GivenOrModifiableTextItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.Texts.GivenOrModifiableTextItem.Cell">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.Texts.GivenOrModifiableTextItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.Texts.GivenTextItem">
+            <summary>
+            Represents given text.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.Texts.ModifiableTextItem">
+            <summary>
+            Represents modifiable text.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.Texts.TextItem">
+            <summary>
+            Represents a text item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.Texts.TextItem.TemplateIndex">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.Texts.TextItem.Text">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.Texts.TextItem.FontName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.Texts.TextItem.FontWeight">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.Texts.TextItem.FontWidth">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.Texts.TextItem.FontSlant">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.Texts.TextItem.Color">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.Texts.TextItem.FontSizeScale">
+            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.ItemType">
             <summary>
@@ -4090,12 +4072,12 @@
             Indicates cell border-aligned text mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.TemplateLineStroke">
+        <member name="F:Sudoku.Graphics.ItemType.TemplateLine">
             <summary>
             Indicates template line strokes.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.VariantLineStroke">
+        <member name="F:Sudoku.Graphics.ItemType.VariantLine">
             <summary>
             Indicates variant line strokes.
             </summary>

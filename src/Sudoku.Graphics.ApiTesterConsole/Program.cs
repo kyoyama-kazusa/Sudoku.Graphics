@@ -8,14 +8,12 @@
 
 using System;
 using System.IO;
-using System.Linq;
 using SkiaSharp;
 using Sudoku.ComponentModel;
-using Sudoku.ComponentModel.Directions;
 using Sudoku.ComponentModel.Templates;
 using Sudoku.Graphics;
-using Sudoku.Graphics.Items;
-using Sudoku.Graphics.Items.CellTextMarks;
+using Sudoku.Graphics.Items.Fills;
+using Sudoku.Graphics.Items.Lines;
 
 var desktop = Environment.DesktopPath;
 var options = new CanvasDrawingOptions();
@@ -39,8 +37,8 @@ var rng = Random.Shared;
 canvas.DrawItems(
 	[
 		new BackgroundFillItem { Color = options.BackgroundColor.Resolve(options) },
-		new TemplateLineStrokeItem(),
-		new VariantLineStrokeItem
+		new TemplateLineItem(),
+		new VariantLineItem
 		{
 			StartCell = 0,
 			StartCellAlignment = Alignment.TopLeft,
@@ -51,7 +49,7 @@ canvas.DrawItems(
 			TemplateIndex = 0,
 			WillExtendLine = true
 		},
-		new VariantLineStrokeItem
+		new VariantLineItem
 		{
 			StartCell = 0,
 			StartCellAlignment = Alignment.TopLeft,
@@ -62,7 +60,7 @@ canvas.DrawItems(
 			TemplateIndex = 0,
 			WillExtendLine = true
 		},
-		new VariantLineStrokeItem
+		new VariantLineItem
 		{
 			StartCell = 0,
 			StartCellAlignment = Alignment.TopLeft,
@@ -73,7 +71,7 @@ canvas.DrawItems(
 			TemplateIndex = 0,
 			WillExtendLine = true
 		},
-		new VariantLineStrokeItem
+		new VariantLineItem
 		{
 			StartCell = 0,
 			StartCellAlignment = Alignment.TopLeft,

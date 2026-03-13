@@ -1,15 +1,12 @@
-﻿namespace Sudoku.Graphics.Items;
+﻿namespace Sudoku.Graphics.Items.Fills;
 
 /// <summary>
 /// Represents canvas background fill item.
 /// </summary>
-public sealed record BackgroundFillItem : Item, IItem_ColorProperty
+public sealed record BackgroundFillItem : FillItem
 {
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.BackgroundFill;
-
-	/// <inheritdoc/>
-	public required SerializableColor Color { get; init; }
 
 
 	/// <inheritdoc/>
