@@ -51,7 +51,7 @@ canvas.DrawItems(
 		},
 		new CellGroupThermometerMarkItem
 		{
-			Cells = [8, 17, 26],
+			Cells = [8, 17, 26, 25],
 			TemplateIndex = 0,
 			CircleScale = .8M,
 			FillColor = SKColors.LightGray,
