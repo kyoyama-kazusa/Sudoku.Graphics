@@ -26,6 +26,7 @@ global using Sudoku.ComponentModel.Tetris;
 global using Sudoku.ComponentModel.Zodiac;
 global using Sudoku.Graphics;
 global using Sudoku.Graphics.Items.CandidateMarks;
+global using Sudoku.Graphics.Items.CellGroupMarks;
 global using Sudoku.Graphics.Items.CellMarks;
 global using Sudoku.Graphics.Items.CellPairMarks;
 global using Sudoku.Graphics.Items.CellTextMarks;

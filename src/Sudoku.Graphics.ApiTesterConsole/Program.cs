@@ -1,4 +1,5 @@
-﻿// This project only tests for APIs.
+﻿
+// This project only tests for APIs.
 //
 // I don't usually use NUnit or XUnit test-related packages,
 // so I just use a console project to test for them.
@@ -8,13 +9,11 @@
 
 using System;
 using System.IO;
-using System.Linq;
 using SkiaSharp;
-using Sudoku.ComponentModel;
 using Sudoku.Graphics;
-using Sudoku.Graphics.Items.CellPairMarks;
+using Sudoku.Graphics.Items.CellGroupMarks;
 using Sudoku.Graphics.Items.Fills;
-using Sudoku.Graphics.Items.Texts;
+using Sudoku.Graphics.Items.Lines;
 using Sudoku.Graphics.Templates;
 
 var desktop = Environment.DesktopPath;
@@ -23,154 +22,113 @@ var mapper = new PointMapper
 {
 	CellSize = 120,
 	Margin = 15,
-	TemplateSize = new() { RowsCount = 7, ColumnsCount = 7 }
+	TemplateSize = new() { RowsCount = 9, ColumnsCount = 9 }
 };
 using var canvas = new Canvas(
-	new DefaultTemplate { Mapper = mapper }
+	new StandardTemplate(3, 3, mapper)
+	{
+		ThickLineWidth = options.ThickLineWidth.Resolve(options),
+		ThinLineWidth = options.ThinLineWidth.Resolve(options),
+		ThickLineColor = options.ThickLineColor.Resolve(options),
+		ThinLineColor = options.ThinLineColor.Resolve(options)
+	}
 );
 
 var rng = Random.Shared;
-var puzzleString = "3..4.3.......24....3..........2..3........4...3.3";
-const float circleSize = .9F;
-var strokeWidthScale = (Scale).06M;
+const decimal strokeWidthScale = .4M;
 canvas.DrawItems(
 	[
 		new BackgroundFillItem { Color = options.BackgroundColor.Resolve(options) },
-		//new TemplateLineItem(),
-		..
-		from pair in puzzleString.Index()
-		where pair.Item != '.'
-		let cellIndex = pair.Index
-		let digitString = pair.Item.ToString()
-		select new GivenTextItem
+		new TemplateLineItem(),
+		new CellGroupThermometerMarkItem
 		{
+			Cells = [8, 7, 6],
 			TemplateIndex = 0,
-			Cell = cellIndex,
-			Text = digitString,
-			FontName = "Cascadia Code",
-			FontSizeScale = options.BigTextFontSizeScale.Resolve(options),
-			Color = SKColors.Black
+			CircleScale = .8M,
+			FillColor = SKColors.LightGray,
+			StrokeColor = SKColors.LightGray,
+			StrokeWidthScale = strokeWidthScale,
 		},
-		new CellPairBridgeLineMarkItem
+		new CellGroupThermometerMarkItem
 		{
+			Cells = [8, 17, 26],
 			TemplateIndex = 0,
-			Cell1 = 0,
-			Cell2 = 3,
-			LinesCount = 2,
-			CircleScale = circleSize,
-			StrokeColor = SKColors.Black,
-			LinesMaxGapScale = .2M,
-			StrokeWidthScale = strokeWidthScale
+			CircleScale = .8M,
+			FillColor = SKColors.LightGray,
+			StrokeColor = SKColors.LightGray,
+			StrokeWidthScale = strokeWidthScale,
 		},
-		new CellPairBridgeLineMarkItem
+		new CellGroupThermometerMarkItem
 		{
+			Cells = [31, 22, 21, 20],
 			TemplateIndex = 0,
-			Cell1 = 3,
-			Cell2 = 5,
-			LinesCount = 2,
-			CircleScale = circleSize,
-			StrokeColor = SKColors.Black,
-			LinesMaxGapScale = .2M,
-			StrokeWidthScale = strokeWidthScale
+			CircleScale = .8M,
+			FillColor = SKColors.LightGray,
+			StrokeColor = SKColors.LightGray,
+			StrokeWidthScale = strokeWidthScale,
 		},
-		new CellPairBridgeLineMarkItem
+		new CellGroupThermometerMarkItem
 		{
+			Cells = [31, 40, 39, 38, 47, 56, 57, 58],
 			TemplateIndex = 0,
-			Cell1 = 0,
-			Cell2 = 14,
-			LinesCount = 1,
-			CircleScale = circleSize,
-			StrokeColor = SKColors.Black,
-			LinesMaxGapScale = .2M,
-			StrokeWidthScale = strokeWidthScale
+			CircleScale = .8M,
+			FillColor = SKColors.LightGray,
+			StrokeColor = SKColors.LightGray,
+			StrokeWidthScale = strokeWidthScale,
 		},
-		new CellPairBridgeLineMarkItem
+		new CellGroupThermometerMarkItem
 		{
+			Cells = [46, 37, 28, 19, 10],
 			TemplateIndex = 0,
-			Cell1 = 14,
-			Cell2 = 19,
-			LinesCount = 1,
-			CircleScale = circleSize,
-			StrokeColor = SKColors.Black,
-			LinesMaxGapScale = .2M,
-			StrokeWidthScale = strokeWidthScale
+			CircleScale = .8M,
+			FillColor = SKColors.LightGray,
+			StrokeColor = SKColors.LightGray,
+			StrokeWidthScale = strokeWidthScale,
 		},
-		new CellPairBridgeLineMarkItem
+		new CellGroupThermometerMarkItem
 		{
+			Cells = [72, 63, 54],
 			TemplateIndex = 0,
-			Cell1 = 5,
-			Cell2 = 19,
-			LinesCount = 1,
-			CircleScale = circleSize,
-			StrokeColor = SKColors.Black,
-			LinesMaxGapScale = .2M,
-			StrokeWidthScale = strokeWidthScale
+			CircleScale = .8M,
+			FillColor = SKColors.LightGray,
+			StrokeColor = SKColors.LightGray,
+			StrokeWidthScale = strokeWidthScale,
 		},
-		new CellPairBridgeLineMarkItem
+		new CellGroupThermometerMarkItem
 		{
+			Cells = [72, 73, 74, 65],
 			TemplateIndex = 0,
-			Cell1 = 19,
-			Cell2 = 33,
-			LinesCount = 1,
-			CircleScale = circleSize,
-			StrokeColor = SKColors.Black,
-			LinesMaxGapScale = .2M,
-			StrokeWidthScale = strokeWidthScale
+			CircleScale = .8M,
+			FillColor = SKColors.LightGray,
+			StrokeColor = SKColors.LightGray,
+			StrokeWidthScale = strokeWidthScale,
 		},
-		new CellPairBridgeLineMarkItem
+		new CellGroupThermometerMarkItem
 		{
+			Cells = [70, 69, 68],
 			TemplateIndex = 0,
-			Cell1 = 30,
-			Cell2 = 33,
-			LinesCount = 2,
-			CircleScale = circleSize,
-			StrokeColor = SKColors.Black,
-			LinesMaxGapScale = .2M,
-			StrokeWidthScale = strokeWidthScale
+			CircleScale = .8M,
+			FillColor = SKColors.LightGray,
+			StrokeColor = SKColors.LightGray,
+			StrokeWidthScale = strokeWidthScale,
 		},
-		new CellPairBridgeLineMarkItem
+		new CellGroupThermometerMarkItem
 		{
+			Cells = [70, 61, 52, 51, 50],
 			TemplateIndex = 0,
-			Cell1 = 14,
-			Cell2 = 42,
-			LinesCount = 2,
-			CircleScale = circleSize,
-			StrokeColor = SKColors.Black,
-			LinesMaxGapScale = .2M,
-			StrokeWidthScale = strokeWidthScale
+			CircleScale = .8M,
+			FillColor = SKColors.LightGray,
+			StrokeColor = SKColors.LightGray,
+			StrokeWidthScale = strokeWidthScale,
 		},
-		new CellPairBridgeLineMarkItem
+		new CellGroupThermometerMarkItem
 		{
+			Cells = [70, 61, 52, 43, 34, 33, 32],
 			TemplateIndex = 0,
-			Cell1 = 42,
-			Cell2 = 46,
-			LinesCount = 2,
-			CircleScale = circleSize,
-			StrokeColor = SKColors.Black,
-			LinesMaxGapScale = .2M,
-			StrokeWidthScale = strokeWidthScale
-		},
-		new CellPairBridgeLineMarkItem
-		{
-			TemplateIndex = 0,
-			Cell1 = 46,
-			Cell2 = 48,
-			LinesCount = 1,
-			CircleScale = circleSize,
-			StrokeColor = SKColors.Black,
-			LinesMaxGapScale = .2M,
-			StrokeWidthScale = strokeWidthScale
-		},
-		new CellPairBridgeLineMarkItem
-		{
-			TemplateIndex = 0,
-			Cell1 = 13,
-			Cell2 = 48,
-			LinesCount = 2,
-			CircleScale = circleSize,
-			StrokeColor = SKColors.Black,
-			LinesMaxGapScale = .2M,
-			StrokeWidthScale = strokeWidthScale
+			CircleScale = .8M,
+			FillColor = SKColors.LightGray,
+			StrokeColor = SKColors.LightGray,
+			StrokeWidthScale = strokeWidthScale,
 		},
 	]
 );

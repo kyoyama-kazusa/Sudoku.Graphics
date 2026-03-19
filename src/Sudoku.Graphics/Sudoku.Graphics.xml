@@ -2529,6 +2529,74 @@
         <member name="P:Sudoku.Graphics.Items.CandidateMarks.CandidateMarkItem.FillColor">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.Items.CellGroupMarks.CellGroupMarkItem">
+            <summary>
+            Represents cell group mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupMarkItem.TemplateIndex">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupMarkItem.TextFontName">
+            <summary>
+            Indicates text font.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupMarkItem.Cells">
+            <summary>
+            Indicates the cells.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupMarkItem.StrokeWidthScale">
+            <summary>
+            Indicates stroke width scale.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupMarkItem.CornerRadiusScale">
+            <summary>
+            Indicates corner radius scale.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupMarkItem.StrokeColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupMarkItem.FillColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupMarkItem.Sudoku#Graphics#Items#IItem_FontRelatedProperties#FontName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupMarkItem.Sudoku#Graphics#Items#IItem_FontRelatedProperties#FontWeight">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupMarkItem.Sudoku#Graphics#Items#IItem_FontRelatedProperties#FontWidth">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupMarkItem.Sudoku#Graphics#Items#IItem_FontRelatedProperties#FontSlant">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupMarkItem.Sudoku#Graphics#Items#IItem_FontRelatedProperties#FontSizeScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupMarkItem.Sudoku#Graphics#Items#IItem_MarkRelatedProperties#SizeScale">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellGroupMarks.CellGroupThermometerMarkItem">
+            <summary>
+            Represents cell group thermometer mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupThermometerMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupThermometerMarkItem.CircleScale">
+            <summary>
+            Indicates scale of circle.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellGroupMarks.CellGroupThermometerMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.Items.CellMarks.CellApexCornerTriangleMarkItem">
             <summary>
             Provides cell apex corner triangle mark item.
@@ -3823,6 +3891,11 @@
             Indicates bridge line cell pair mark.
             </summary>
         </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellGroup_Thermometer">
+            <summary>
+            Indicates thermometer cell group mark.
+            </summary>
+        </member>
         <member name="F:Sudoku.Graphics.ItemType.TemplateLine">
             <summary>
             Indicates template line strokes.
@@ -4084,6 +4157,9 @@
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawOutlinedTextToCandidate(SkiaSharp.SKCanvas,System.String,Sudoku.Graphics.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCandidate(System.String,Sudoku.Graphics.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawThermometer(SkiaSharp.SKCanvas,System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawThermometer(System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper)"/>
+        </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawApexTriangleToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Alignment,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawApexTriangleToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Alignment,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
@@ -4202,6 +4278,17 @@
             <param name="outlineColor">The outline color.</param>
             <param name="fillColor">The fill color of text.</param>
             <param name="mapper">The mapper.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawThermometer(System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Draws a thermometer into the grid.
+            </summary>
+            <param name="cells">The cells.</param>
+            <param name="strokeWidthScale">The scale of stroke width.</param>
+            <param name="strokeColor">The stroke color.</param>
+            <param name="circleScale">The scale of circle.</param>
+            <param name="circleFillColor">The circle filling color.</param>
+            <param name="mapper">The mapper instance.</param>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawApexTriangleToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Alignment,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <summary>

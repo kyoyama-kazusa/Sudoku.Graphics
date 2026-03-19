@@ -242,6 +242,16 @@ public enum ItemType
 	#endregion
 
 	//
+	// Cell group marks
+	//
+	#region Cell group marks
+	/// <summary>
+	/// Indicates thermometer cell group mark.
+	/// </summary>
+	CellGroup_Thermometer,
+	#endregion
+
+	//
 	// Lines
 	//
 	#region Lines
