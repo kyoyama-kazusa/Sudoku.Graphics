@@ -27,6 +27,7 @@ global using Sudoku.ComponentModel.Zodiac;
 global using Sudoku.Graphics;
 global using Sudoku.Graphics.Items.CandidateMarks;
 global using Sudoku.Graphics.Items.CellMarks;
+global using Sudoku.Graphics.Items.CellPairMarks;
 global using Sudoku.Graphics.Items.CellTextMarks;
 global using Sudoku.Graphics.Items.Fills;
 global using Sudoku.Graphics.Items.Lines;

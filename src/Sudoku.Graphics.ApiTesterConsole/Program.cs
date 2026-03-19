@@ -10,10 +10,11 @@ using System;
 using System.IO;
 using System.Linq;
 using SkiaSharp;
+using Sudoku.ComponentModel;
 using Sudoku.Graphics;
-using Sudoku.Graphics.Items.CandidateMarks;
+using Sudoku.Graphics.Items.CellPairMarks;
 using Sudoku.Graphics.Items.Fills;
-using Sudoku.Graphics.Items.Lines;
+using Sudoku.Graphics.Items.Texts;
 using Sudoku.Graphics.Templates;
 
 var desktop = Environment.DesktopPath;
@@ -22,37 +23,155 @@ var mapper = new PointMapper
 {
 	CellSize = 120,
 	Margin = 15,
-	TemplateSize = new() { RowsCount = 9, ColumnsCount = 9 }
+	TemplateSize = new() { RowsCount = 7, ColumnsCount = 7 }
 };
 using var canvas = new Canvas(
-	new StandardTemplate(3, 3, mapper)
-	{
-		ThickLineWidth = options.ThickLineWidth.Resolve(options),
-		ThinLineWidth = options.ThinLineWidth.Resolve(options),
-		ThickLineColor = options.ThickLineColor.Resolve(options),
-		ThinLineColor = options.ThinLineColor.Resolve(options)
-	}
+	new DefaultTemplate { Mapper = mapper }
 );
 
 var rng = Random.Shared;
-var grid = ".1.3..5.6....8.......69.371..4....9.5.9.2.4.3.3....8..387.59.......7....1.5..6.2.";
+var puzzleString = "3..4.3.......24....3..........2..3........4...3.3";
+const float circleSize = .9F;
+var strokeWidthScale = (Scale).06M;
 canvas.DrawItems(
 	[
 		new BackgroundFillItem { Color = options.BackgroundColor.Resolve(options) },
-		new TemplateLineItem(),
+		//new TemplateLineItem(),
 		..
-		from pair in grid.Index()
-		let cell = pair.Index
-		let digit = pair.Item is '.' or '0' ? -1 : pair.Item - '1'
-		where digit != -1
-		select new CandidateCrossMarkItem
+		from pair in puzzleString.Index()
+		where pair.Item != '.'
+		let cellIndex = pair.Index
+		let digitString = pair.Item.ToString()
+		select new GivenTextItem
 		{
-			CandidatePosition = new(cell, 3, digit),
-			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
 			TemplateIndex = 0,
-			SizeScale = .25M,
-			StrokeColor = SKColors.Red
-		}
+			Cell = cellIndex,
+			Text = digitString,
+			FontName = "Cascadia Code",
+			FontSizeScale = options.BigTextFontSizeScale.Resolve(options),
+			Color = SKColors.Black
+		},
+		new CellPairBridgeLineMarkItem
+		{
+			TemplateIndex = 0,
+			Cell1 = 0,
+			Cell2 = 3,
+			LinesCount = 2,
+			CircleScale = circleSize,
+			StrokeColor = SKColors.Black,
+			LinesMaxGapScale = .2M,
+			StrokeWidthScale = strokeWidthScale
+		},
+		new CellPairBridgeLineMarkItem
+		{
+			TemplateIndex = 0,
+			Cell1 = 3,
+			Cell2 = 5,
+			LinesCount = 2,
+			CircleScale = circleSize,
+			StrokeColor = SKColors.Black,
+			LinesMaxGapScale = .2M,
+			StrokeWidthScale = strokeWidthScale
+		},
+		new CellPairBridgeLineMarkItem
+		{
+			TemplateIndex = 0,
+			Cell1 = 0,
+			Cell2 = 14,
+			LinesCount = 1,
+			CircleScale = circleSize,
+			StrokeColor = SKColors.Black,
+			LinesMaxGapScale = .2M,
+			StrokeWidthScale = strokeWidthScale
+		},
+		new CellPairBridgeLineMarkItem
+		{
+			TemplateIndex = 0,
+			Cell1 = 14,
+			Cell2 = 19,
+			LinesCount = 1,
+			CircleScale = circleSize,
+			StrokeColor = SKColors.Black,
+			LinesMaxGapScale = .2M,
+			StrokeWidthScale = strokeWidthScale
+		},
+		new CellPairBridgeLineMarkItem
+		{
+			TemplateIndex = 0,
+			Cell1 = 5,
+			Cell2 = 19,
+			LinesCount = 1,
+			CircleScale = circleSize,
+			StrokeColor = SKColors.Black,
+			LinesMaxGapScale = .2M,
+			StrokeWidthScale = strokeWidthScale
+		},
+		new CellPairBridgeLineMarkItem
+		{
+			TemplateIndex = 0,
+			Cell1 = 19,
+			Cell2 = 33,
+			LinesCount = 1,
+			CircleScale = circleSize,
+			StrokeColor = SKColors.Black,
+			LinesMaxGapScale = .2M,
+			StrokeWidthScale = strokeWidthScale
+		},
+		new CellPairBridgeLineMarkItem
+		{
+			TemplateIndex = 0,
+			Cell1 = 30,
+			Cell2 = 33,
+			LinesCount = 2,
+			CircleScale = circleSize,
+			StrokeColor = SKColors.Black,
+			LinesMaxGapScale = .2M,
+			StrokeWidthScale = strokeWidthScale
+		},
+		new CellPairBridgeLineMarkItem
+		{
+			TemplateIndex = 0,
+			Cell1 = 14,
+			Cell2 = 42,
+			LinesCount = 2,
+			CircleScale = circleSize,
+			StrokeColor = SKColors.Black,
+			LinesMaxGapScale = .2M,
+			StrokeWidthScale = strokeWidthScale
+		},
+		new CellPairBridgeLineMarkItem
+		{
+			TemplateIndex = 0,
+			Cell1 = 42,
+			Cell2 = 46,
+			LinesCount = 2,
+			CircleScale = circleSize,
+			StrokeColor = SKColors.Black,
+			LinesMaxGapScale = .2M,
+			StrokeWidthScale = strokeWidthScale
+		},
+		new CellPairBridgeLineMarkItem
+		{
+			TemplateIndex = 0,
+			Cell1 = 46,
+			Cell2 = 48,
+			LinesCount = 1,
+			CircleScale = circleSize,
+			StrokeColor = SKColors.Black,
+			LinesMaxGapScale = .2M,
+			StrokeWidthScale = strokeWidthScale
+		},
+		new CellPairBridgeLineMarkItem
+		{
+			TemplateIndex = 0,
+			Cell1 = 13,
+			Cell2 = 48,
+			LinesCount = 2,
+			CircleScale = circleSize,
+			StrokeColor = SKColors.Black,
+			LinesMaxGapScale = .2M,
+			StrokeWidthScale = strokeWidthScale
+		},
 	]
 );
 canvas.Export(Path.Combine(desktop, "output.png"), new() { Quality = 100 });

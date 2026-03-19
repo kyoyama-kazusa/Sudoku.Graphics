@@ -148,7 +148,7 @@ public partial class SKCanvasDrawings
 			targetPoint += new SKPoint(0, textFont.Size / 2);
 
 			// Manual adjustment
-			targetPoint += new SKPoint(0, mapper.CellSize / 12);
+			targetPoint += new SKPoint(0, mapper.CellSize / 8);
 
 			var outlineStrokeWidth = outlineThicknessScale.Measure(factSize);
 			if (outlineStrokeWidth != 0 && outlineColor.Alpha != 0)
@@ -225,7 +225,7 @@ public partial class SKCanvasDrawings
 			var targetPoint = mapper.GetPoint(candidatePosition, Alignment.Center)
 				+ new SKPoint(0, (textMetrics.Ascent + textMetrics.Descent) / 2) // Baseline adjustment
 				+ new SKPoint(0, textFont.Size / 2) // Centeralize
-				+ new SKPoint(0, candidateSize / 6); // Manual adjustment
+				+ new SKPoint(0, candidateSize / 4); // Manual adjustment
 			@this.DrawText(text, targetPoint, SKTextAlign.Center, textFont, textStrokePaint);
 			@this.DrawText(text, targetPoint, SKTextAlign.Center, textFont, textFillPaint);
 		}

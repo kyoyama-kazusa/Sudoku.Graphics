@@ -2999,6 +2999,99 @@
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellTriangleMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.Items.CellPairMarks.CellPairBridgeLineMarkItem">
+            <summary>
+            Represents a cell pair bridge line mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairBridgeLineMarkItem.DrawCircles">
+            <summary>
+            Indicates whether the circles should be drawn. By default it's <see langword="true"/>.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairBridgeLineMarkItem.DrawLines">
+            <summary>
+            Indicates whether lines should be drawn. By default it's <see langword="true"/>.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairBridgeLineMarkItem.LinesCount">
+            <summary>
+            Indicates the number of lines.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairBridgeLineMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairBridgeLineMarkItem.LinesMaxGapScale">
+            <summary>
+            Indicates the scale of maximum gap among lines, related to circle diameter.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairBridgeLineMarkItem.CircleScale">
+            <summary>
+            Indicates the scale of circle, related to cell size.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellPairMarks.CellPairBridgeLineMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellPairMarks.CellPairMarkItem">
+            <summary>
+            Represents a cell pair mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairMarkItem.TemplateIndex">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairMarkItem.TextFontName">
+            <summary>
+            Indicates text font.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairMarkItem.Cell1">
+            <summary>
+            Indicates the first cell.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairMarkItem.Cell2">
+            <summary>
+            Indicates the second cell.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairMarkItem.StrokeWidthScale">
+            <summary>
+            Indicates stroke width scale.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairMarkItem.CornerRadiusScale">
+            <summary>
+            Indicates corner radius scale.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairMarkItem.StrokeColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairMarkItem.FillColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairMarkItem.Sudoku#Graphics#Items#IItem_FontRelatedProperties#FontName">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairMarkItem.Sudoku#Graphics#Items#IItem_FontRelatedProperties#FontWeight">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairMarkItem.Sudoku#Graphics#Items#IItem_FontRelatedProperties#FontWidth">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairMarkItem.Sudoku#Graphics#Items#IItem_FontRelatedProperties#FontSlant">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairMarkItem.Sudoku#Graphics#Items#IItem_FontRelatedProperties#FontSizeScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairMarkItem.Sudoku#Graphics#Items#IItem_MarkRelatedProperties#SizeScale">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.Items.CellTextMarks.CellArithmeticOperatorTextMarkItem">
             <summary>
             Represents an arithmetic operator text mark item.
@@ -3725,6 +3818,11 @@
             Indicates cell border-aligned text mark.
             </summary>
         </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellPairMark_BridgeLine">
+            <summary>
+            Indicates bridge line cell pair mark.
+            </summary>
+        </member>
         <member name="F:Sudoku.Graphics.ItemType.TemplateLine">
             <summary>
             Indicates template line strokes.
@@ -4042,6 +4140,9 @@
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawTriangleToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTriangleToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawBridgeAndConnectedCircles(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,System.Boolean,System.Boolean,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBridgeAndConnectedCircles(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,System.Boolean,System.Boolean,Sudoku.Graphics.PointMapper)"/>
         </member>
         <member name="T:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.&lt;M&gt;$21C1C87F40B24560160CB1CD20F6362E">
             <param name="this">The current instance.</param>
@@ -4393,6 +4494,28 @@
             Throws when <paramref name="direction"/> is not defined or <see cref="F:Sudoku.ComponentModel.Directions.Direction8.None"/>.
             </exception>
             <seealso cref="F:Sudoku.ComponentModel.Directions.Direction8.None"/>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBridgeAndConnectedCircles(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,System.Boolean,System.Boolean,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Draws two circles into the canvas, with several number of lines connectin with them.
+            This method is used for drawing "Bridges" paper puzzle (Hashi).
+            </summary>
+            <param name="cell1">The cell 1.</param>
+            <param name="cell2">The cell 2.</param>
+            <param name="diameterScale">The diameter scale.</param>
+            <param name="linesCount">The number of lines.</param>
+            <param name="linesMaxGapScale">The max gap among lines.</param>
+            <param name="circleStrokeWidthScale">The scale of circle stroke width, related to cell size.</param>
+            <param name="circleStrokeColor">The color of circle storke.</param>
+            <param name="circleFillColor">The circle filling color.</param>
+            <param name="connectorStrokeWidthScale">The scale of connector lines stroke width, related to cell size.</param>
+            <param name="connectorColor">The connector lines color.</param>
+            <param name="drawCircles">Indicates whether we should draw circles.</param>
+            <param name="drawLines">Indicates whether we should draw lines.</param>
+            <param name="mapper">The point mapper instance.</param>
+            <exception cref="T:System.NotSupportedException">
+            Throws when <paramref name="linesCount"/> is not supported (too large or invalid).
+            </exception>
         </member>
         <member name="T:Sudoku.Graphics.ArrowPainterHelper">
             <summary>

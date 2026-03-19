@@ -232,6 +232,16 @@ public enum ItemType
 	#endregion
 
 	//
+	// Cell pair marks
+	//
+	#region Cell pair marks
+	/// <summary>
+	/// Indicates bridge line cell pair mark.
+	/// </summary>
+	CellPairMark_BridgeLine,
+	#endregion
+
+	//
 	// Lines
 	//
 	#region Lines
