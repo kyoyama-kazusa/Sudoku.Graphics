@@ -4657,6 +4657,49 @@
             Throws when <paramref name="linesCount"/> is not supported (too large or invalid).
             </exception>
         </member>
+        <member name="T:Sudoku.Graphics.CapsuleTrailDrawer">
+            <summary>
+            Provides a way to draw capsules and trails.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.CapsuleTrailDrawer.DrawCapsule(SkiaSharp.SKCanvas,System.ReadOnlySpan{SkiaSharp.SKPoint},System.Single,Sudoku.ComponentModel.Scale,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPath@)">
+            <summary>
+            Draws a capsule.
+            </summary>
+            <param name="canvas">The canvas instance.</param>
+            <param name="capsuleCells">
+            The cells of capsule, specified by <see cref="T:SkiaSharp.SKPoint"/> instances (top-left point of that cells).
+            </param>
+            <param name="cellSize">The size of each cell.</param>
+            <param name="capsuleSizeScale">The capsule size scale, related to cell size.</param>
+            <param name="fillPaint">The fill paint.</param>
+            <param name="strokePaint">The stroke paint.</param>
+            <param name="capsulePath">
+            Capsule path generated.
+            You should use <see langword="using"/> statements or manually call method <c>Dispose</c> to release memory.
+            </param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating whether the path is generated successfully.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.CapsuleTrailDrawer.BuildTrailPath(SkiaSharp.SKPath,System.ReadOnlySpan{SkiaSharp.SKPoint},System.Single)">
+            <summary>
+            Build a path of trail lines.
+            </summary>
+            <param name="capsulePath">The capsule path.</param>
+            <param name="trailCells">The trail cells.</param>
+            <param name="cellSize">The size of each cell.</param>
+            <returns>A path generated.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.CapsuleTrailDrawer.DrawArrowCaps(SkiaSharp.SKCanvas,SkiaSharp.SKPoint,SkiaSharp.SKPoint,System.Single,System.Single,SkiaSharp.SKPaint)">
+            <summary>
+            Draw arrow caps.
+            </summary>
+            <param name="canvas">The canvas instance.</param>
+            <param name="penultimatePoint">The penuleimate point (i.e. <c>points[^2]</c>).</param>
+            <param name="endPoint">The end point.</param>
+            <param name="arrowCapLength">The arrow length.</param>
+            <param name="arrowCapHalfAngleDegrees">The arrow half angle degrees.</param>
+            <param name="paint">The stroke paint.</param>
+        </member>
         <member name="T:Sudoku.Graphics.ArrowPainterHelper">
             <summary>
             The helper type that draws for arrows.
