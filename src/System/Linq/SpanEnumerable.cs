@@ -1,4 +1,6 @@
-﻿namespace System.Linq;
+﻿using System.Numerics;
+
+namespace System.Linq;
 
 /// <summary>
 /// Provides extension members on <see cref="ReadOnlySpan{T}"/>.
@@ -24,6 +26,50 @@ public static class SpanEnumerable
 		return result;
 	}
 
+
+	extension<TSource>(ReadOnlySpan<TSource> @this)
+	{
+		/// <inheritdoc cref="Enumerable.All{TSource}(IEnumerable{TSource}, Func{TSource, bool})"/>
+		public bool All(Predicate<TSource> predicate)
+		{
+			foreach (var element in @this)
+			{
+				if (!predicate(element))
+				{
+					return false;
+				}
+			}
+			return true;
+		}
+
+		/// <inheritdoc cref="Enumerable.Min{TSource, TResult}(IEnumerable{TSource}, Func{TSource, TResult})"/>
+		public TResult Min<TResult>(Func<TSource, TResult> keySelector) where TResult : INumber<TResult>, IMinMaxValue<TResult>
+		{
+			var result = TResult.MaxValue;
+			foreach (var element in @this)
+			{
+				if (keySelector(element) is var p && p <= result)
+				{
+					result = p;
+				}
+			}
+			return result;
+		}
+
+		/// <inheritdoc cref="Enumerable.Max{TSource, TResult}(IEnumerable{TSource}, Func{TSource, TResult})"/>
+		public TResult Max<TResult>(Func<TSource, TResult> keySelector) where TResult : INumber<TResult>, IMinMaxValue<TResult>
+		{
+			var result = TResult.MinValue;
+			foreach (var element in @this)
+			{
+				if (keySelector(element) is var p && p >= result)
+				{
+					result = p;
+				}
+			}
+			return result;
+		}
+	}
 
 	/// <typeparam name="TSource">The type of source.</typeparam>
 	/// <typeparam name="TResult">The type of result.</typeparam>

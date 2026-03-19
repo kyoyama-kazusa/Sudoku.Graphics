@@ -2597,6 +2597,37 @@
         <member name="M:Sudoku.Graphics.Items.CellGroupMarks.CellGroupThermometerMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleMarkItem">
+            <summary>
+            Represents cell group capsule with arrow line mark item (trailed capsule).
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleMarkItem.HalfArrowCapRotationDegrees">
+            <summary>
+            Indicates rotation degrees of arrow caps, in angle.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleMarkItem.CapsuleSizeScale">
+            <summary>
+            Indicates scale of capsule, related to cell size.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleMarkItem.ArrowCapLengthScale">
+            <summary>
+            Indicates scale of arrow cap length, related to cell size.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleMarkItem.TrailCells">
+            <summary>
+            Indicates arrow line cells.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.Items.CellMarks.CellApexCornerTriangleMarkItem">
             <summary>
             Provides cell apex corner triangle mark item.
@@ -3891,9 +3922,14 @@
             Indicates bridge line cell pair mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellGroup_Thermometer">
+        <member name="F:Sudoku.Graphics.ItemType.CellGroupMark_Thermometer">
             <summary>
             Indicates thermometer cell group mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellGroupMark_CapsuleWithArrowLine">
+            <summary>
+            Indicates capsule with arrow line cell group mark.
             </summary>
         </member>
         <member name="F:Sudoku.Graphics.ItemType.TemplateLine">
@@ -4157,6 +4193,9 @@
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawOutlinedTextToCandidate(SkiaSharp.SKCanvas,System.String,Sudoku.Graphics.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCandidate(System.String,Sudoku.Graphics.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawCapsuleWithArrowLine(SkiaSharp.SKCanvas,System.ReadOnlySpan{Sudoku.Graphics.Absolute},System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,System.Single,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCapsuleWithArrowLine(System.ReadOnlySpan{Sudoku.Graphics.Absolute},System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,System.Single,Sudoku.Graphics.PointMapper)"/>
+        </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawThermometer(SkiaSharp.SKCanvas,System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawThermometer(System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper)"/>
         </member>
@@ -4278,6 +4317,20 @@
             <param name="outlineColor">The outline color.</param>
             <param name="fillColor">The fill color of text.</param>
             <param name="mapper">The mapper.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCapsuleWithArrowLine(System.ReadOnlySpan{Sudoku.Graphics.Absolute},System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,System.Single,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Draws capsule in cells.
+            </summary>
+            <param name="capsuleCells">The capsule cells.</param>
+            <param name="trailCells">The arrow line cells.</param>
+            <param name="capsuleSizeScale">The scale of capsule size, related to cell size.</param>
+            <param name="strokeColor">The stroke color.</param>
+            <param name="strokeWidthScale">The scale of stroke width, related to cell size.</param>
+            <param name="capsuleFillColor">The fill color of capsule.</param>
+            <param name="arrowCapLengthScale">The scale of arrow cap length.</param>
+            <param name="arrowHalfAngleDegrees">The half of rotation degrees of arrow cap, in angle.</param>
+            <param name="mapper">The point mapper instance.</param>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawThermometer(System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper)">
             <summary>

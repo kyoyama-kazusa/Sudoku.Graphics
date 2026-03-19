@@ -40,8 +40,26 @@
             A <see cref="T:System.ReadOnlySpan`1"/> that contains a range of sequential integral numbers.
             </returns>
         </member>
+        <member name="M:System.Linq.SpanEnumerable.All``1(System.ReadOnlySpan{``0},System.Predicate{``0})">
+            <inheritdoc cref="M:System.Linq.SpanEnumerable.&lt;G&gt;$CCC6C15EC93AA06816794B41FF241F94`1.All(System.Predicate{`0})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.Min``2(System.ReadOnlySpan{``0},System.Func{``0,``1})">
+            <inheritdoc cref="M:System.Linq.SpanEnumerable.&lt;G&gt;$CCC6C15EC93AA06816794B41FF241F94`1.Min``1(System.Func{`0,``0})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.Max``2(System.ReadOnlySpan{``0},System.Func{``0,``1})">
+            <inheritdoc cref="M:System.Linq.SpanEnumerable.&lt;G&gt;$CCC6C15EC93AA06816794B41FF241F94`1.Max``1(System.Func{`0,``0})"/>
+        </member>
         <member name="M:System.Linq.SpanEnumerable.Select``2(System.ReadOnlySpan{``0},System.Func{``0,``1})">
             <inheritdoc cref="M:System.Linq.SpanEnumerable.&lt;G&gt;$38406200860C59512D7718BA1AC2471B`2.Select(System.Func{`0,`1})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.&lt;G&gt;$CCC6C15EC93AA06816794B41FF241F94`1.All(System.Predicate{`0})">
+            <inheritdoc cref="M:System.Linq.Enumerable.All``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.&lt;G&gt;$CCC6C15EC93AA06816794B41FF241F94`1.Min``1(System.Func{`0,``0})">
+            <inheritdoc cref="M:System.Linq.Enumerable.Min``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})"/>
+        </member>
+        <member name="M:System.Linq.SpanEnumerable.&lt;G&gt;$CCC6C15EC93AA06816794B41FF241F94`1.Max``1(System.Func{`0,``0})">
+            <inheritdoc cref="M:System.Linq.Enumerable.Max``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})"/>
         </member>
         <member name="T:System.Linq.SpanEnumerable.&lt;G&gt;$38406200860C59512D7718BA1AC2471B`2.&lt;M&gt;$EB5323BEB0718320C4FD76C3BD220FD3">
             <typeparam name="TSource">The type of source.</typeparam>
@@ -84,6 +102,18 @@
             </summary>
             <param name="expression">The expression.</param>
             <param name="expressionString">The expression string.</param>
+        </member>
+        <member name="T:System.MathFExtensions">
+            <summary>
+            Provides extension members on <see cref="T:System.MathF"/>.
+            </summary>
+            <seealso cref="T:System.MathF"/>
+        </member>
+        <member name="M:System.MathFExtensions.Clamp(System.Single,System.Single,System.Single)">
+            <inheritdoc cref="M:System.MathFExtensions.&lt;G&gt;$99E69BC8D2E7440BB47F5FE7B730E827.Clamp(System.Single,System.Single,System.Single)"/>
+        </member>
+        <member name="M:System.MathFExtensions.&lt;G&gt;$99E69BC8D2E7440BB47F5FE7B730E827.Clamp(System.Single,System.Single,System.Single)">
+            <inheritdoc cref="M:System.Math.Clamp(System.Single,System.Single,System.Single)"/>
         </member>
         <member name="T:System.StringExtensions">
             <summary>

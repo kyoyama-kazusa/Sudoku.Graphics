@@ -9,11 +9,13 @@
 
 using System;
 using System.IO;
+using System.Linq;
 using SkiaSharp;
 using Sudoku.Graphics;
 using Sudoku.Graphics.Items.CellGroupMarks;
 using Sudoku.Graphics.Items.Fills;
 using Sudoku.Graphics.Items.Lines;
+using Sudoku.Graphics.Items.Texts;
 using Sudoku.Graphics.Templates;
 
 var desktop = Environment.DesktopPath;
@@ -35,101 +37,117 @@ using var canvas = new Canvas(
 );
 
 var rng = Random.Shared;
-const decimal strokeWidthScale = .4M;
+const string puzzleString = "..5...8...4.....7.1.......5....5.......3.2.......1....5.......4.6.....8...1...6..";
+const float arrowCapRotationDegrees = 25;
+const decimal capsuleSizeScale = .75M;
+const decimal arrowCapLengthScale = .15M;
+const decimal strokeWidthScale = .05M;
 canvas.DrawItems(
 	[
 		new BackgroundFillItem { Color = options.BackgroundColor.Resolve(options) },
 		new TemplateLineItem(),
-		new CellGroupThermometerMarkItem
+		..
+		from pair in puzzleString.Index()
+		let digitChar = pair.Item
+		let cell = pair.Index
+		where digitChar != '.'
+		select new GivenTextItem
 		{
-			Cells = [8, 7, 6],
-			TemplateIndex = 0,
-			CircleScale = .8M,
-			FillColor = SKColors.LightGray,
-			StrokeColor = SKColors.LightGray,
-			StrokeWidthScale = strokeWidthScale,
+			Cell = cell,
+			Text = digitChar.ToString(),
+			Color = SKColors.Black,
+			FontName = "Cascadia Code",
+			FontSizeScale = .8M,
+			TemplateIndex = 0
 		},
-		new CellGroupThermometerMarkItem
+		new CellGroupTrailedCapsuleMarkItem
 		{
-			Cells = [8, 17, 26, 25],
 			TemplateIndex = 0,
-			CircleScale = .8M,
-			FillColor = SKColors.LightGray,
+			Cells = [4],
+			TrailCells = [4, 12, 20, 28],
+			HalfArrowCapRotationDegrees = arrowCapRotationDegrees,
+			CapsuleSizeScale = capsuleSizeScale,
+			ArrowCapLengthScale = arrowCapLengthScale,
 			StrokeColor = SKColors.LightGray,
-			StrokeWidthScale = strokeWidthScale,
+			StrokeWidthScale = strokeWidthScale
 		},
-		new CellGroupThermometerMarkItem
+		new CellGroupTrailedCapsuleMarkItem
 		{
-			Cells = [31, 22, 21, 20],
 			TemplateIndex = 0,
-			CircleScale = .8M,
-			FillColor = SKColors.LightGray,
+			Cells = [22],
+			TrailCells = [22, 30],
+			HalfArrowCapRotationDegrees = arrowCapRotationDegrees,
+			CapsuleSizeScale = capsuleSizeScale,
+			ArrowCapLengthScale = arrowCapLengthScale,
 			StrokeColor = SKColors.LightGray,
-			StrokeWidthScale = strokeWidthScale,
+			StrokeWidthScale = strokeWidthScale
 		},
-		new CellGroupThermometerMarkItem
+		new CellGroupTrailedCapsuleMarkItem
 		{
-			Cells = [31, 40, 39, 38, 47, 56, 57, 58],
 			TemplateIndex = 0,
-			CircleScale = .8M,
-			FillColor = SKColors.LightGray,
+			Cells = [38],
+			TrailCells = [38, 48],
+			HalfArrowCapRotationDegrees = arrowCapRotationDegrees,
+			CapsuleSizeScale = capsuleSizeScale,
+			ArrowCapLengthScale = arrowCapLengthScale,
 			StrokeColor = SKColors.LightGray,
-			StrokeWidthScale = strokeWidthScale,
+			StrokeWidthScale = strokeWidthScale
 		},
-		new CellGroupThermometerMarkItem
+		new CellGroupTrailedCapsuleMarkItem
 		{
-			Cells = [46, 37, 28, 19, 10],
 			TemplateIndex = 0,
-			CircleScale = .8M,
-			FillColor = SKColors.LightGray,
+			Cells = [42],
+			TrailCells = [42, 32],
+			HalfArrowCapRotationDegrees = arrowCapRotationDegrees,
+			CapsuleSizeScale = capsuleSizeScale,
+			ArrowCapLengthScale = arrowCapLengthScale,
 			StrokeColor = SKColors.LightGray,
-			StrokeWidthScale = strokeWidthScale,
+			StrokeWidthScale = strokeWidthScale
 		},
-		new CellGroupThermometerMarkItem
+		new CellGroupTrailedCapsuleMarkItem
 		{
-			Cells = [72, 63, 54],
 			TemplateIndex = 0,
-			CircleScale = .8M,
-			FillColor = SKColors.LightGray,
+			Cells = [36],
+			TrailCells = [36, 46, 56, 66],
+			HalfArrowCapRotationDegrees = arrowCapRotationDegrees,
+			CapsuleSizeScale = capsuleSizeScale,
+			ArrowCapLengthScale = arrowCapLengthScale,
 			StrokeColor = SKColors.LightGray,
-			StrokeWidthScale = strokeWidthScale,
+			StrokeWidthScale = strokeWidthScale
 		},
-		new CellGroupThermometerMarkItem
+		new CellGroupTrailedCapsuleMarkItem
 		{
-			Cells = [72, 73, 74, 65],
 			TemplateIndex = 0,
-			CircleScale = .8M,
-			FillColor = SKColors.LightGray,
+			Cells = [58],
+			TrailCells = [58, 50],
+			HalfArrowCapRotationDegrees = arrowCapRotationDegrees,
+			CapsuleSizeScale = capsuleSizeScale,
+			ArrowCapLengthScale = arrowCapLengthScale,
 			StrokeColor = SKColors.LightGray,
-			StrokeWidthScale = strokeWidthScale,
+			StrokeWidthScale = strokeWidthScale
 		},
-		new CellGroupThermometerMarkItem
+		new CellGroupTrailedCapsuleMarkItem
 		{
-			Cells = [70, 69, 68],
 			TemplateIndex = 0,
-			CircleScale = .8M,
-			FillColor = SKColors.LightGray,
+			Cells = [76],
+			TrailCells = [76, 68, 60, 52],
+			HalfArrowCapRotationDegrees = arrowCapRotationDegrees,
+			CapsuleSizeScale = capsuleSizeScale,
+			ArrowCapLengthScale = arrowCapLengthScale,
 			StrokeColor = SKColors.LightGray,
-			StrokeWidthScale = strokeWidthScale,
+			StrokeWidthScale = strokeWidthScale
 		},
-		new CellGroupThermometerMarkItem
+		new CellGroupTrailedCapsuleMarkItem
 		{
-			Cells = [70, 61, 52, 51, 50],
 			TemplateIndex = 0,
-			CircleScale = .8M,
-			FillColor = SKColors.LightGray,
+			Cells = [44],
+			TrailCells = [44, 34, 24, 14],
+			HalfArrowCapRotationDegrees = arrowCapRotationDegrees,
+			CapsuleSizeScale = capsuleSizeScale,
+			ArrowCapLengthScale = arrowCapLengthScale,
 			StrokeColor = SKColors.LightGray,
-			StrokeWidthScale = strokeWidthScale,
-		},
-		new CellGroupThermometerMarkItem
-		{
-			Cells = [70, 61, 52, 43, 34, 33, 32],
-			TemplateIndex = 0,
-			CircleScale = .8M,
-			FillColor = SKColors.LightGray,
-			StrokeColor = SKColors.LightGray,
-			StrokeWidthScale = strokeWidthScale,
-		},
+			StrokeWidthScale = strokeWidthScale
+		}
 	]
 );
 canvas.Export(Path.Combine(desktop, "output.png"), new() { Quality = 100 });

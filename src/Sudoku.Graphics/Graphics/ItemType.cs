@@ -248,7 +248,12 @@ public enum ItemType
 	/// <summary>
 	/// Indicates thermometer cell group mark.
 	/// </summary>
-	CellGroup_Thermometer,
+	CellGroupMark_Thermometer,
+
+	/// <summary>
+	/// Indicates capsule with arrow line cell group mark.
+	/// </summary>
+	CellGroupMark_CapsuleWithArrowLine,
 	#endregion
 
 	//
