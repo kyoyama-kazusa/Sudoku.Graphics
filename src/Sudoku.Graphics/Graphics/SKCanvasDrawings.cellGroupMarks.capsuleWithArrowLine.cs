@@ -132,26 +132,27 @@ file static class CapsuleTrailDrawer
 			var maxY = capsuleCells.Max(static c => c.Y);
 			var shortSide = capsuleSizeScale.Measure(cellSize);
 
-			SKRect rect;
-			float radius;
-			if (horizontal)
+			// Calculate for the margin of the capsule.
+			var margin = (1 - (float)capsuleSizeScale) * cellSize / 2;
+
+			// Calculate the factors of the outer circle.
+			var outerLeft = minX;
+			var outerTop = minY;
+			var outerRight = maxX + cellSize;
+			var outerBottom = maxY + cellSize;
+			var rect = new SKRect(outerLeft + margin, outerTop + margin, outerRight - margin, outerBottom - margin);
+
+			// Construct a path.
+			var path = new SKPath();
+			if (capsuleCells.Length == 1)
 			{
-				var width = maxX - minX + cellSize;
-				var height = shortSide;
-				var top = minY + (cellSize - height) / 2;
-				rect = new(minX, top, minX + width, top + height);
-				radius = height / 2;
-			}
-			else
-			{
-				var width = shortSide;
-				var height = maxY - minY + cellSize;
-				var left = minX + (cellSize - width) / 2;
-				rect = new(left, minY, left + width, minY + height);
-				radius = width / 2;
+				// Degenerate to a circle if length is equal to 1.
+				path.AddOval(rect);
+				return path;
 			}
 
-			var path = new SKPath();
+			// A normal rounded rectangle: radius = half size of the short side.
+			var radius = horizontal ? rect.Height / 2 : rect.Width / 2;
 			path.AddRoundRect(new SKRoundRect(rect, radius, radius));
 			return path;
 		}
