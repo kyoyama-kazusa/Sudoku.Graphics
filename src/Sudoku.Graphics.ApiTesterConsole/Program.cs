@@ -39,9 +39,9 @@ using var canvas = new Canvas(
 var rng = Random.Shared;
 const string puzzleString = "..5...8...4.....7.1.......5....5.......3.2.......1....5.......4.6.....8...1...6..";
 const float arrowCapRotationDegrees = 25;
-const decimal capsuleSizeScale = .75M;
+const decimal capsuleSizeScale = 1M;
 const decimal arrowCapLengthScale = .15M;
-const decimal strokeWidthScale = .05M;
+const decimal strokeWidthScale = .08M;
 canvas.DrawItems(
 	[
 		new BackgroundFillItem { Color = options.BackgroundColor.Resolve(options) },
