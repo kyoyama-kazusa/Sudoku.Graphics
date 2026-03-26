@@ -2574,6 +2574,42 @@
         <member name="P:Sudoku.Graphics.Items.CandidateMarks.CandidateMarkItem.FillColor">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem">
+            <summary>
+            Represents a cell group killer cage mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.Text">
+            <summary>
+            Indicates text to be drawn in killer cage.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.TextColor">
+            <summary>
+            Indicates the text color.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.TextBackgroundColor">
+            <summary>
+            Indicates text background color.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.SizeScale">
+            <summary>
+            Indicates the scale of size of each cells drawn, related to cell size.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.DashSequence">
+            <summary>
+            Indicates the dash sequence.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.Items.CellGroupMarks.CellGroupMarkItem">
             <summary>
             Represents cell group mark item.
@@ -2586,6 +2622,15 @@
             <summary>
             Indicates text font.
             </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupMarkItem.FontWeight">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupMarkItem.FontWidth">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupMarkItem.FontSlant">
+            <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupMarkItem.Cells">
             <summary>
@@ -2602,6 +2647,9 @@
             Indicates corner radius scale.
             </summary>
         </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupMarkItem.FontSizeScale">
+            <inheritdoc/>
+        </member>
         <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupMarkItem.StrokeColor">
             <inheritdoc/>
         </member>
@@ -2609,18 +2657,6 @@
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupMarkItem.Sudoku#Graphics#Items#IItem_FontRelatedProperties#FontName">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupMarkItem.Sudoku#Graphics#Items#IItem_FontRelatedProperties#FontWeight">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupMarkItem.Sudoku#Graphics#Items#IItem_FontRelatedProperties#FontWidth">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupMarkItem.Sudoku#Graphics#Items#IItem_FontRelatedProperties#FontSlant">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupMarkItem.Sudoku#Graphics#Items#IItem_FontRelatedProperties#FontSizeScale">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupMarkItem.Sudoku#Graphics#Items#IItem_MarkRelatedProperties#SizeScale">
@@ -4008,6 +4044,11 @@
             Indicates variant line strokes.
             </summary>
         </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellGroupMark_KillerCage">
+            <summary>
+            Indicates killer cage cell group mark.
+            </summary>
+        </member>
         <member name="T:Sudoku.Graphics.PointMapper">
             <summary>
             Represents a point mapper instance.
@@ -4265,6 +4306,9 @@
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawCellGroupTrail(SkiaSharp.SKCanvas,System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCellGroupTrail(System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawKillerCage(SkiaSharp.SKCanvas,System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.LineDashSequence,Sudoku.ComponentModel.Scale,System.String,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawKillerCage(System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.LineDashSequence,Sudoku.ComponentModel.Scale,System.String,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,Sudoku.Graphics.PointMapper)"/>
+        </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawThermometer(SkiaSharp.SKCanvas,System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawThermometer(System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper)"/>
         </member>
@@ -4409,6 +4453,33 @@
             <param name="sizeScale">The scale of size, related to cell size.</param>
             <param name="fillColor">The fill color.</param>
             <param name="mapper">The point mapper instance.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawKillerCage(System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.LineDashSequence,Sudoku.ComponentModel.Scale,System.String,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,Sudoku.Graphics.PointMapper)">
+            <summary>
+            
+            </summary>
+            <param name="cells"></param>
+            <param name="sizeScale"></param>
+            <param name="strokeColor"></param>
+            <param name="strokeWidthScale"></param>
+            <param name="fillColor"></param>
+            <param name="dashSequence"></param>
+            <param name="cornerRadiusScale"></param>
+            <param name="text"></param>
+            <param name="textFontName"></param>
+            <param name="fontSizeScale"></param>
+            <param name="fontWeight"></param>
+            <param name="fontWidth"></param>
+            <param name="fontSlant"></param>
+            <param name="fontColor"></param>
+            <param name="textBackgroundColor"></param>
+            <param name="paddingTop"></param>
+            <param name="paddingBottom"></param>
+            <param name="paddingLeft"></param>
+            <param name="paddingRight"></param>
+            <param name="offsetX"></param>
+            <param name="offsetY"></param>
+            <param name="mapper"></param>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawThermometer(System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper)">
             <summary>
@@ -4777,6 +4848,73 @@
             <param name="arrowCapLength">The arrow length.</param>
             <param name="arrowCapHalfAngleDegrees">The arrow half angle degrees.</param>
             <param name="paint">The stroke paint.</param>
+        </member>
+        <member name="T:Sudoku.Graphics.CellOutlineBuilder">
+            <summary>
+            Represents killer cage builder.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.CellOutlineBuilder.TryBuildKillerCagePath(System.ReadOnlySpan{SkiaSharp.SKPoint},System.Single,System.Single,System.Single,System.ValueTuple{SkiaSharp.SKPath,SkiaSharp.SKPoint}@)">
+            <summary>
+            Try to build a path of a killer cage.
+            </summary>
+            <param name="points">The points.</param>
+            <param name="cellSize">The size of each cell.</param>
+            <param name="cornerRadius">The corner radius.</param>
+            <param name="shortSide">The short side of cage.</param>
+            <param name="result">The result cage information (path and its top-left point).</param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating the cage can be built or not.</returns>
+        </member>
+        <member name="T:Sudoku.Graphics.GridPoint">
+            <summary>
+            Represents a grid point.
+            </summary>
+            <param name="X">Indicates X value of the point.</param>
+            <param name="Y">Indicates Y value of the point.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.GridPoint.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Represents a grid point.
+            </summary>
+            <param name="X">Indicates X value of the point.</param>
+            <param name="Y">Indicates Y value of the point.</param>
+        </member>
+        <member name="P:Sudoku.Graphics.GridPoint.X">
+            <summary>Indicates X value of the point.</summary>
+        </member>
+        <member name="P:Sudoku.Graphics.GridPoint.Y">
+            <summary>Indicates Y value of the point.</summary>
+        </member>
+        <member name="T:Sudoku.Graphics.GridEdge">
+            <summary>
+            Represents a grid edge of a killer cage.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.GridEdge.#ctor(Sudoku.Graphics.GridPoint,Sudoku.Graphics.GridPoint)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Graphics.GridEdge"/> instance via two <see cref="T:Sudoku.Graphics.GridPoint"/> instances.
+            </summary>
+            <param name="p1">Indicates the first point instance.</param>
+            <param name="p2">Indicates the second point instance.</param>
+        </member>
+        <member name="P:Sudoku.Graphics.GridEdge.A">
+            <summary>
+            Indicates the first point instance.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.GridEdge.B">
+            <summary>
+            Indicates the second point instance.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.GridEdge.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.GridEdge.Equals(Sudoku.Graphics.GridEdge)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.GridEdge.GetHashCode">
+            <inheritdoc cref="M:System.Object.GetHashCode"/>
         </member>
         <member name="T:Sudoku.Graphics.ArrowPainterHelper">
             <summary>

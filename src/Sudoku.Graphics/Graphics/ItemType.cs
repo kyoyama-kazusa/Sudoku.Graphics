@@ -275,4 +275,9 @@ public enum ItemType
 	/// </summary>
 	VariantLine,
 	#endregion
+
+	/// <summary>
+	/// Indicates killer cage cell group mark.
+	/// </summary>
+	CellGroupMark_KillerCage,
 }

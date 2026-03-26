@@ -10,11 +10,11 @@
 using System;
 using System.IO;
 using SkiaSharp;
+using Sudoku.ComponentModel;
 using Sudoku.Graphics;
 using Sudoku.Graphics.Items.CellGroupMarks;
 using Sudoku.Graphics.Items.Fills;
 using Sudoku.Graphics.Items.Lines;
-using Sudoku.Graphics.Items.Texts;
 using Sudoku.Graphics.Templates;
 
 var desktop = Environment.DesktopPath;
@@ -36,82 +36,367 @@ using var canvas = new Canvas(
 );
 
 var rng = Random.Shared;
+LineDashSequence dashSequence = [10, 10];
+Scale cornerRadiusScale = 0M, sizeScale = .8M, fontSizeScale = .3M;
+const float offsetX = 4, offsetY = 18, paddingLeft = 0, paddingTop = 0, paddingRight = 0, paddingBottom = 0;
+const string fontName = "Arial";
+const SKFontStyleWeight fontWeight = SKFontStyleWeight.Medium;
+var textColor = SKColors.Black;
 canvas.DrawItems(
 	[
 		new BackgroundFillItem { Color = options.BackgroundColor.Resolve(options) },
 		new TemplateLineItem(),
-		new GivenTextItem
+		new CellGroupKillerCageMarkItem
 		{
 			TemplateIndex = 0,
-			Cell = 18,
+			Cells = [0],
 			Text = "1",
-			Color = SKColors.Black,
-			FontName = "Arial",
-			FontSizeScale = .8M
+			DashSequence = dashSequence,
+			CornerRadiusScale = cornerRadiusScale,
+			SizeScale = sizeScale,
+			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
+			StrokeColor = SKColors.Black,
+			TextFontName = fontName,
+			FontSizeScale = fontSizeScale,
+			TextColor = textColor,
+			TextBackgroundColor = SKColors.White,
+			FontWeight = fontWeight,
+			OffsetX = offsetX,
+			OffsetY = offsetY,
+			PaddingLeft = paddingLeft,
+			PaddingTop = paddingTop,
+			PaddingRight = paddingRight,
+			PaddingBottom = paddingBottom
 		},
-		new GivenTextItem
+		new CellGroupKillerCageMarkItem
 		{
 			TemplateIndex = 0,
-			Cell = 24,
-			Text = "2",
-			Color = SKColors.Black,
-			FontName = "Arial",
-			FontSizeScale = .8M
+			Cells = [1, 2, 8],
+			Text = "12",
+			DashSequence = dashSequence,
+			CornerRadiusScale = cornerRadiusScale,
+			SizeScale = sizeScale,
+			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
+			StrokeColor = SKColors.Black,
+			TextFontName = fontName,
+			FontSizeScale = fontSizeScale,
+			TextColor = textColor,
+			TextBackgroundColor = SKColors.White,
+			FontWeight = fontWeight,
+			OffsetX = offsetX,
+			OffsetY = offsetY,
+			PaddingLeft = paddingLeft,
+			PaddingTop = paddingTop,
+			PaddingRight = paddingRight,
+			PaddingBottom = paddingBottom
 		},
-		new GivenTextItem
+		new CellGroupKillerCageMarkItem
 		{
 			TemplateIndex = 0,
-			Cell = 30,
+			Cells = [6, 7],
+			Text = "8",
+			DashSequence = dashSequence,
+			CornerRadiusScale = cornerRadiusScale,
+			SizeScale = sizeScale,
+			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
+			StrokeColor = SKColors.Black,
+			TextFontName = fontName,
+			FontSizeScale = fontSizeScale,
+			TextColor = textColor,
+			TextBackgroundColor = SKColors.White,
+			FontWeight = fontWeight,
+			OffsetX = offsetX,
+			OffsetY = offsetY,
+			PaddingLeft = paddingLeft,
+			PaddingTop = paddingTop,
+			PaddingRight = paddingRight,
+			PaddingBottom = paddingBottom
+		},
+		new CellGroupKillerCageMarkItem
+		{
+			TemplateIndex = 0,
+			Cells = [12, 18],
+			Text = "9",
+			DashSequence = dashSequence,
+			CornerRadiusScale = cornerRadiusScale,
+			SizeScale = sizeScale,
+			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
+			StrokeColor = SKColors.Black,
+			TextFontName = fontName,
+			FontSizeScale = fontSizeScale,
+			TextColor = textColor,
+			TextBackgroundColor = SKColors.White,
+			FontWeight = fontWeight,
+			OffsetX = offsetX,
+			OffsetY = offsetY,
+			PaddingLeft = paddingLeft,
+			PaddingTop = paddingTop,
+			PaddingRight = paddingRight,
+			PaddingBottom = paddingBottom
+		},
+		new CellGroupKillerCageMarkItem
+		{
+			TemplateIndex = 0,
+			Cells = [13, 19],
 			Text = "3",
-			Color = SKColors.Black,
-			FontName = "Arial",
-			FontSizeScale = .8M
+			DashSequence = dashSequence,
+			CornerRadiusScale = cornerRadiusScale,
+			SizeScale = sizeScale,
+			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
+			StrokeColor = SKColors.Black,
+			TextFontName = fontName,
+			FontSizeScale = fontSizeScale,
+			TextColor = textColor,
+			TextBackgroundColor = SKColors.White,
+			FontWeight = fontWeight,
+			OffsetX = offsetX,
+			OffsetY = offsetY,
+			PaddingLeft = paddingLeft,
+			PaddingTop = paddingTop,
+			PaddingRight = paddingRight,
+			PaddingBottom = paddingBottom
 		},
-		new GivenTextItem
+		new CellGroupKillerCageMarkItem
 		{
 			TemplateIndex = 0,
-			Cell = 31,
-			Text = "4",
-			Color = SKColors.Black,
-			FontName = "Arial",
-			FontSizeScale = .8M
+			Cells = [14, 20, 21],
+			Text = "14",
+			DashSequence = dashSequence,
+			CornerRadiusScale = cornerRadiusScale,
+			SizeScale = sizeScale,
+			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
+			StrokeColor = SKColors.Black,
+			TextFontName = fontName,
+			FontSizeScale = fontSizeScale,
+			TextColor = textColor,
+			TextBackgroundColor = SKColors.White,
+			FontWeight = fontWeight,
+			OffsetX = offsetX,
+			OffsetY = offsetY,
+			PaddingLeft = paddingLeft,
+			PaddingTop = paddingTop,
+			PaddingRight = paddingRight,
+			PaddingBottom = paddingBottom
 		},
-		new GivenTextItem
+		new CellGroupKillerCageMarkItem
 		{
 			TemplateIndex = 0,
-			Cell = 32,
-			Text = "5",
-			Color = SKColors.Black,
-			FontName = "Arial",
-			FontSizeScale = .8M
+			Cells = [3, 9, 15],
+			Text = "8",
+			DashSequence = dashSequence,
+			CornerRadiusScale = cornerRadiusScale,
+			SizeScale = sizeScale,
+			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
+			StrokeColor = SKColors.Black,
+			TextFontName = fontName,
+			FontSizeScale = fontSizeScale,
+			TextColor = textColor,
+			TextBackgroundColor = SKColors.White,
+			FontWeight = fontWeight,
+			OffsetX = offsetX,
+			OffsetY = offsetY,
+			PaddingLeft = paddingLeft,
+			PaddingTop = paddingTop,
+			PaddingRight = paddingRight,
+			PaddingBottom = paddingBottom
 		},
-		new CellGroupTrailMarkItem
+		new CellGroupKillerCageMarkItem
 		{
 			TemplateIndex = 0,
-			SizeScale = .75M,
-			Cells = [0, 1, 2, 8, 7, 6, 0],
-			FillColor = SKColors.LightGray
+			Cells = [4, 10, 16],
+			Text = "13",
+			DashSequence = dashSequence,
+			CornerRadiusScale = cornerRadiusScale,
+			SizeScale = sizeScale,
+			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
+			StrokeColor = SKColors.Black,
+			TextFontName = fontName,
+			FontSizeScale = fontSizeScale,
+			TextColor = textColor,
+			TextBackgroundColor = SKColors.White,
+			FontWeight = fontWeight,
+			OffsetX = offsetX,
+			OffsetY = offsetY,
+			PaddingLeft = paddingLeft,
+			PaddingTop = paddingTop,
+			PaddingRight = paddingRight,
+			PaddingBottom = paddingBottom
 		},
-		new CellGroupTrailMarkItem
+		new CellGroupKillerCageMarkItem
 		{
 			TemplateIndex = 0,
-			SizeScale = .75M,
-			Cells = [10, 11, 17],
-			FillColor = SKColors.LightGray
+			Cells = [5, 11],
+			Text = "7",
+			DashSequence = dashSequence,
+			CornerRadiusScale = cornerRadiusScale,
+			SizeScale = sizeScale,
+			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
+			StrokeColor = SKColors.Black,
+			TextFontName = fontName,
+			FontSizeScale = fontSizeScale,
+			TextColor = textColor,
+			TextBackgroundColor = SKColors.White,
+			FontWeight = fontWeight,
+			OffsetX = offsetX,
+			OffsetY = offsetY,
+			PaddingLeft = paddingLeft,
+			PaddingTop = paddingTop,
+			PaddingRight = paddingRight,
+			PaddingBottom = paddingBottom
 		},
-		new CellGroupTrailMarkItem
+		new CellGroupKillerCageMarkItem
 		{
 			TemplateIndex = 0,
-			SizeScale = .75M,
-			Cells = [12, 13, 19],
-			FillColor = SKColors.LightGray
+			Cells = [17, 23, 22],
+			Text = "9",
+			DashSequence = dashSequence,
+			CornerRadiusScale = cornerRadiusScale,
+			SizeScale = sizeScale,
+			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
+			StrokeColor = SKColors.Black,
+			TextFontName = fontName,
+			FontSizeScale = fontSizeScale,
+			TextColor = textColor,
+			TextBackgroundColor = SKColors.White,
+			FontWeight = fontWeight,
+			OffsetX = offsetX,
+			OffsetY = offsetY,
+			PaddingLeft = paddingLeft,
+			PaddingTop = paddingTop,
+			PaddingRight = paddingRight,
+			PaddingBottom = paddingBottom
 		},
-		new CellGroupTrailMarkItem
+		new CellGroupKillerCageMarkItem
 		{
 			TemplateIndex = 0,
-			SizeScale = .75M,
-			Cells = [27, 28, 29, 35, 34, 33, 27],
-			FillColor = SKColors.LightGray
+			Cells = [24, 25, 26],
+			Text = "11",
+			DashSequence = dashSequence,
+			CornerRadiusScale = cornerRadiusScale,
+			SizeScale = sizeScale,
+			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
+			StrokeColor = SKColors.Black,
+			TextFontName = fontName,
+			FontSizeScale = fontSizeScale,
+			TextColor = textColor,
+			TextBackgroundColor = SKColors.White,
+			FontWeight = fontWeight,
+			OffsetX = offsetX,
+			OffsetY = offsetY,
+			PaddingLeft = paddingLeft,
+			PaddingTop = paddingTop,
+			PaddingRight = paddingRight,
+			PaddingBottom = paddingBottom
+		},
+		new CellGroupKillerCageMarkItem
+		{
+			TemplateIndex = 0,
+			Cells = [30],
+			Text = "3",
+			DashSequence = dashSequence,
+			CornerRadiusScale = cornerRadiusScale,
+			SizeScale = sizeScale,
+			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
+			StrokeColor = SKColors.Black,
+			TextFontName = fontName,
+			FontSizeScale = fontSizeScale,
+			TextColor = textColor,
+			TextBackgroundColor = SKColors.White,
+			FontWeight = fontWeight,
+			OffsetX = offsetX,
+			OffsetY = offsetY,
+			PaddingLeft = paddingLeft,
+			PaddingTop = paddingTop,
+			PaddingRight = paddingRight,
+			PaddingBottom = paddingBottom
+		},
+		new CellGroupKillerCageMarkItem
+		{
+			TemplateIndex = 0,
+			Cells = [31, 32],
+			Text = "7",
+			DashSequence = dashSequence,
+			CornerRadiusScale = cornerRadiusScale,
+			SizeScale = sizeScale,
+			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
+			StrokeColor = SKColors.Black,
+			TextFontName = fontName,
+			FontSizeScale = fontSizeScale,
+			TextColor = textColor,
+			TextBackgroundColor = SKColors.White,
+			FontWeight = fontWeight,
+			OffsetX = offsetX,
+			OffsetY = offsetY,
+			PaddingLeft = paddingLeft,
+			PaddingTop = paddingTop,
+			PaddingRight = paddingRight,
+			PaddingBottom = paddingBottom
+		},
+		new CellGroupKillerCageMarkItem
+		{
+			TemplateIndex = 0,
+			Cells = [27, 33],
+			Text = "8",
+			DashSequence = dashSequence,
+			CornerRadiusScale = cornerRadiusScale,
+			SizeScale = sizeScale,
+			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
+			StrokeColor = SKColors.Black,
+			TextFontName = fontName,
+			FontSizeScale = fontSizeScale,
+			TextColor = textColor,
+			TextBackgroundColor = SKColors.White,
+			FontWeight = fontWeight,
+			OffsetX = offsetX,
+			OffsetY = offsetY,
+			PaddingLeft = paddingLeft,
+			PaddingTop = paddingTop,
+			PaddingRight = paddingRight,
+			PaddingBottom = paddingBottom
+		},
+		new CellGroupKillerCageMarkItem
+		{
+			TemplateIndex = 0,
+			Cells = [28, 34],
+			Text = "6",
+			DashSequence = dashSequence,
+			CornerRadiusScale = cornerRadiusScale,
+			SizeScale = sizeScale,
+			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
+			StrokeColor = SKColors.Black,
+			TextFontName = fontName,
+			FontSizeScale = fontSizeScale,
+			TextColor = textColor,
+			TextBackgroundColor = SKColors.White,
+			FontWeight = fontWeight,
+			OffsetX = offsetX,
+			OffsetY = offsetY,
+			PaddingLeft = paddingLeft,
+			PaddingTop = paddingTop,
+			PaddingRight = paddingRight,
+			PaddingBottom = paddingBottom
+		},
+		new CellGroupKillerCageMarkItem
+		{
+			TemplateIndex = 0,
+			Cells = [29, 35],
+			Text = "7",
+			DashSequence = dashSequence,
+			CornerRadiusScale = cornerRadiusScale,
+			SizeScale = sizeScale,
+			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
+			StrokeColor = SKColors.Black,
+			TextFontName = fontName,
+			FontSizeScale = fontSizeScale,
+			TextColor = textColor,
+			TextBackgroundColor = SKColors.White,
+			FontWeight = fontWeight,
+			OffsetX = offsetX,
+			OffsetY = offsetY,
+			PaddingLeft = paddingLeft,
+			PaddingTop = paddingTop,
+			PaddingRight = paddingRight,
+			PaddingBottom = paddingBottom
 		},
 	]
 );
