@@ -5,17 +5,35 @@
 /// </summary>
 public sealed record CellGroupKillerCageMarkItem : CellGroupMarkItem
 {
+	/// <summary>
+	/// Indicates the padding top of the boundary of text drawn.
+	/// </summary>
 	public float PaddingTop { get; init; }
 
+	/// <summary>
+	/// Indicates the padding bottom of the boundary of text drawn.
+	/// </summary>
 	public float PaddingBottom { get; init; }
 
+	/// <summary>
+	/// Indicates the padding left of the boundary of text drawn.
+	/// </summary>
 	public float PaddingLeft { get; init; }
 
+	/// <summary>
+	/// Indicates the padding right of the boundary of text drawn.
+	/// </summary>
 	public float PaddingRight { get; init; }
 
-	public float OffsetY { get; init; }
-
+	/// <summary>
+	/// The X value of offset to the text to be drawn.
+	/// </summary>
 	public float OffsetX { get; init; }
+
+	/// <summary>
+	/// The Y value of offset to the text to be drawn.
+	/// </summary>
+	public float OffsetY { get; init; }
 
 	/// <summary>
 	/// Indicates text to be drawn in killer cage.

@@ -2579,6 +2579,36 @@
             Represents a cell group killer cage mark item.
             </summary>
         </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.PaddingTop">
+            <summary>
+            Indicates the padding top of the boundary of text drawn.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.PaddingBottom">
+            <summary>
+            Indicates the padding bottom of the boundary of text drawn.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.PaddingLeft">
+            <summary>
+            Indicates the padding left of the boundary of text drawn.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.PaddingRight">
+            <summary>
+            Indicates the padding right of the boundary of text drawn.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.OffsetX">
+            <summary>
+            The X value of offset to the text to be drawn.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.OffsetY">
+            <summary>
+            The Y value of offset to the text to be drawn.
+            </summary>
+        </member>
         <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.Text">
             <summary>
             Indicates text to be drawn in killer cage.
