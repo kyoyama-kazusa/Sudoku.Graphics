@@ -24,10 +24,10 @@ var mapper = new PointMapper
 {
 	CellSize = 120,
 	Margin = 15,
-	TemplateSize = new() { RowsCount = 9, ColumnsCount = 9 }
+	TemplateSize = new() { RowsCount = 6, ColumnsCount = 6 }
 };
 using var canvas = new Canvas(
-	new StandardTemplate(3, 3, mapper)
+	new StandardTemplate(2, 3, mapper)
 	{
 		ThickLineWidth = options.ThickLineWidth.Resolve(options),
 		ThinLineWidth = options.ThinLineWidth.Resolve(options),
@@ -37,117 +37,83 @@ using var canvas = new Canvas(
 );
 
 var rng = Random.Shared;
-const string puzzleString = "..5...8...4.....7.1.......5....5.......3.2.......1....5.......4.6.....8...1...6..";
-const float arrowCapRotationDegrees = 25;
-const decimal capsuleSizeScale = .75M;
-const decimal arrowCapLengthScale = .25M;
-const decimal strokeWidthScale = .08M;
 canvas.DrawItems(
 	[
 		new BackgroundFillItem { Color = options.BackgroundColor.Resolve(options) },
 		new TemplateLineItem(),
-		..
-		from pair in puzzleString.Index()
-		let digitChar = pair.Item
-		let cell = pair.Index
-		where digitChar != '.'
-		select new GivenTextItem
+		new GivenTextItem
 		{
-			Cell = cell,
-			Text = digitChar.ToString(),
+			TemplateIndex = 0,
+			Cell = 18,
+			Text = "1",
 			Color = SKColors.Black,
-			FontName = "Cascadia Code",
-			FontSizeScale = .8M,
-			TemplateIndex = 0
+			FontName = "Arial",
+			FontSizeScale = .8M
 		},
-		new CellGroupTrailedCapsuleMarkItem
+		new GivenTextItem
 		{
 			TemplateIndex = 0,
-			Cells = [4],
-			TrailCells = [4, 12, 20, 28],
-			HalfArrowCapRotationDegrees = arrowCapRotationDegrees,
-			CapsuleSizeScale = capsuleSizeScale,
-			ArrowCapLengthScale = arrowCapLengthScale,
-			StrokeColor = SKColors.LightGray,
-			StrokeWidthScale = strokeWidthScale
+			Cell = 24,
+			Text = "2",
+			Color = SKColors.Black,
+			FontName = "Arial",
+			FontSizeScale = .8M
 		},
-		new CellGroupTrailedCapsuleMarkItem
+		new GivenTextItem
 		{
 			TemplateIndex = 0,
-			Cells = [22],
-			TrailCells = [22, 30],
-			HalfArrowCapRotationDegrees = arrowCapRotationDegrees,
-			CapsuleSizeScale = capsuleSizeScale,
-			ArrowCapLengthScale = arrowCapLengthScale,
-			StrokeColor = SKColors.LightGray,
-			StrokeWidthScale = strokeWidthScale
+			Cell = 30,
+			Text = "3",
+			Color = SKColors.Black,
+			FontName = "Arial",
+			FontSizeScale = .8M
 		},
-		new CellGroupTrailedCapsuleMarkItem
+		new GivenTextItem
 		{
 			TemplateIndex = 0,
-			Cells = [38],
-			TrailCells = [38, 48],
-			HalfArrowCapRotationDegrees = arrowCapRotationDegrees,
-			CapsuleSizeScale = capsuleSizeScale,
-			ArrowCapLengthScale = arrowCapLengthScale,
-			StrokeColor = SKColors.LightGray,
-			StrokeWidthScale = strokeWidthScale
+			Cell = 31,
+			Text = "4",
+			Color = SKColors.Black,
+			FontName = "Arial",
+			FontSizeScale = .8M
 		},
-		new CellGroupTrailedCapsuleMarkItem
+		new GivenTextItem
 		{
 			TemplateIndex = 0,
-			Cells = [42],
-			TrailCells = [42, 32],
-			HalfArrowCapRotationDegrees = arrowCapRotationDegrees,
-			CapsuleSizeScale = capsuleSizeScale,
-			ArrowCapLengthScale = arrowCapLengthScale,
-			StrokeColor = SKColors.LightGray,
-			StrokeWidthScale = strokeWidthScale
+			Cell = 32,
+			Text = "5",
+			Color = SKColors.Black,
+			FontName = "Arial",
+			FontSizeScale = .8M
 		},
-		new CellGroupTrailedCapsuleMarkItem
+		new CellGroupTrailMarkItem
 		{
 			TemplateIndex = 0,
-			Cells = [36],
-			TrailCells = [36, 46, 56, 66],
-			HalfArrowCapRotationDegrees = arrowCapRotationDegrees,
-			CapsuleSizeScale = capsuleSizeScale,
-			ArrowCapLengthScale = arrowCapLengthScale,
-			StrokeColor = SKColors.LightGray,
-			StrokeWidthScale = strokeWidthScale
+			SizeScale = .75M,
+			Cells = [0, 1, 2, 8, 7, 6, 0],
+			FillColor = SKColors.LightGray
 		},
-		new CellGroupTrailedCapsuleMarkItem
+		new CellGroupTrailMarkItem
 		{
 			TemplateIndex = 0,
-			Cells = [58],
-			TrailCells = [58, 50],
-			HalfArrowCapRotationDegrees = arrowCapRotationDegrees,
-			CapsuleSizeScale = capsuleSizeScale,
-			ArrowCapLengthScale = arrowCapLengthScale,
-			StrokeColor = SKColors.LightGray,
-			StrokeWidthScale = strokeWidthScale
+			SizeScale = .75M,
+			Cells = [10, 11, 17],
+			FillColor = SKColors.LightGray
 		},
-		new CellGroupTrailedCapsuleMarkItem
+		new CellGroupTrailMarkItem
 		{
 			TemplateIndex = 0,
-			Cells = [76],
-			TrailCells = [76, 68, 60, 52],
-			HalfArrowCapRotationDegrees = arrowCapRotationDegrees,
-			CapsuleSizeScale = capsuleSizeScale,
-			ArrowCapLengthScale = arrowCapLengthScale,
-			StrokeColor = SKColors.LightGray,
-			StrokeWidthScale = strokeWidthScale
+			SizeScale = .75M,
+			Cells = [12, 13, 19],
+			FillColor = SKColors.LightGray
 		},
-		new CellGroupTrailedCapsuleMarkItem
+		new CellGroupTrailMarkItem
 		{
 			TemplateIndex = 0,
-			Cells = [44],
-			TrailCells = [44, 34, 24, 14],
-			HalfArrowCapRotationDegrees = arrowCapRotationDegrees,
-			CapsuleSizeScale = capsuleSizeScale,
-			ArrowCapLengthScale = arrowCapLengthScale,
-			StrokeColor = SKColors.LightGray,
-			StrokeWidthScale = strokeWidthScale
-		}
+			SizeScale = .75M,
+			Cells = [27, 28, 29, 35, 34, 33, 27],
+			FillColor = SKColors.LightGray
+		},
 	]
 );
 canvas.Export(Path.Combine(desktop, "output.png"), new() { Quality = 100 });

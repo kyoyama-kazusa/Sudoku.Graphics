@@ -254,6 +254,11 @@ public enum ItemType
 	/// Indicates capsule with arrow line cell group mark.
 	/// </summary>
 	CellGroupMark_CapsuleWithArrowLine,
+
+	/// <summary>
+	/// Indicates cell trail cell group mark.
+	/// </summary>
+	CellGroupMark_CellTrail,
 	#endregion
 
 	//

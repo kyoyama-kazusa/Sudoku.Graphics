@@ -39,6 +39,60 @@ public readonly struct Absolute(int value) : IInteger<Absolute>, ILocator<Absolu
 	public override string ToString() => _value.ToString();
 
 
+	/// <summary>
+	/// Determine whether two <see cref="Absolute"/> cells are in one line (row or column).
+	/// </summary>
+	/// <param name="left">The left instance.</param>
+	/// <param name="right">The right instance.</param>
+	/// <param name="mapper">The mapper instance.</param>
+	/// <param name="houseType">The house type.</param>
+	/// <returns>A <see cref="bool"/> result.</returns>
+	public static bool IsInOneLine(Absolute left, Absolute right, PointMapper mapper, out HouseType houseType)
+	{
+		var columnsCount = mapper.ColumnsCount;
+		var leftRow = left / columnsCount;
+		var leftColumn = left % columnsCount;
+		var rightRow = right / columnsCount;
+		var rightColumn = right % columnsCount;
+		if (leftRow == rightRow)
+		{
+			houseType = HouseType.Row;
+			return true;
+		}
+		if (leftColumn == rightColumn)
+		{
+			houseType = HouseType.Column;
+			return true;
+		}
+		houseType = HouseType.Unknown;
+		return false;
+	}
+
+	/// <summary>
+	/// Determine whether two <see cref="Absolute"/> cells are adjacent with each other.
+	/// </summary>
+	/// <param name="left">The left instance.</param>
+	/// <param name="right">The right instance.</param>
+	/// <param name="mapper">The mapper instance.</param>
+	/// <param name="houseType">The house type.</param>
+	/// <returns>A <see cref="bool"/> result.</returns>
+	public static bool IsAdjacent(Absolute left, Absolute right, PointMapper mapper, out HouseType houseType)
+	{
+		var columnsCount = mapper.ColumnsCount;
+		var leftRow = left / columnsCount;
+		var leftColumn = left % columnsCount;
+		var rightRow = right / columnsCount;
+		var rightColumn = right % columnsCount;
+		(houseType, var result) = (Math.Abs(leftRow - rightRow), Math.Abs(leftColumn - rightColumn)) switch
+		{
+			(0, 1) => (HouseType.Row, true),
+			(1, 0) => (HouseType.Column, true),
+			_ => (HouseType.Unknown, false)
+		};
+		return result;
+	}
+
+
 	/// <inheritdoc/>
 	public static implicit operator Absolute(int value) => new(value);
 

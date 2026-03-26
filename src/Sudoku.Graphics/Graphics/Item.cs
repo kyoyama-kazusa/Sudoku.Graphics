@@ -29,6 +29,7 @@
 [JsonDerivedType(typeof(CellExclamationMarkItem), nameof(CellExclamationMarkItem))]
 [JsonDerivedType(typeof(CellFillItem), nameof(CellFillItem))]
 [JsonDerivedType(typeof(CellGroupTrailedCapsuleMarkItem), nameof(CellGroupTrailedCapsuleMarkItem))]
+[JsonDerivedType(typeof(CellGroupTrailMarkItem), nameof(CellGroupTrailMarkItem))]
 [JsonDerivedType(typeof(CellGroupThermometerMarkItem), nameof(CellGroupThermometerMarkItem))]
 [JsonDerivedType(typeof(CellHalveLineMarkItem), nameof(CellHalveLineMarkItem))]
 [JsonDerivedType(typeof(CellHexagonMarkItem), nameof(CellHexagonMarkItem))]

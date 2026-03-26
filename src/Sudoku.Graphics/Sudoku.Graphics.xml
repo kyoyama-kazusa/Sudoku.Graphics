@@ -493,6 +493,31 @@
             <returns>A <see cref="T:Sudoku.ComponentModel.GridTemplateSize"/> instance that is the minimal size, covering all templates specified.</returns>
             <seealso cref="T:Sudoku.Graphics.Canvas"/>
         </member>
+        <member name="T:Sudoku.ComponentModel.HouseType">
+            <summary>
+            Provides a house type.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.HouseType.Unknown">
+            <summary>
+            Indicates unknown house type.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.HouseType.Row">
+            <summary>
+            Indicates row type.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.HouseType.Column">
+            <summary>
+            Indicates column type.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.HouseType.Nonet">
+            <summary>
+            Indicates nonet type.
+            </summary>
+        </member>
         <member name="T:Sudoku.ComponentModel.LineDashSequence">
             <summary>
             Represents a sequence of dash intervals.
@@ -1634,6 +1659,26 @@
         <member name="M:Sudoku.Graphics.Absolute.ToString">
             <inheritdoc cref="M:System.Object.ToString"/>
         </member>
+        <member name="M:Sudoku.Graphics.Absolute.IsInOneLine(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.Graphics.PointMapper,Sudoku.ComponentModel.HouseType@)">
+            <summary>
+            Determine whether two <see cref="T:Sudoku.Graphics.Absolute"/> cells are in one line (row or column).
+            </summary>
+            <param name="left">The left instance.</param>
+            <param name="right">The right instance.</param>
+            <param name="mapper">The mapper instance.</param>
+            <param name="houseType">The house type.</param>
+            <returns>A <see cref="T:System.Boolean"/> result.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.Absolute.IsAdjacent(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.Graphics.PointMapper,Sudoku.ComponentModel.HouseType@)">
+            <summary>
+            Determine whether two <see cref="T:Sudoku.Graphics.Absolute"/> cells are adjacent with each other.
+            </summary>
+            <param name="left">The left instance.</param>
+            <param name="right">The right instance.</param>
+            <param name="mapper">The mapper instance.</param>
+            <param name="houseType">The house type.</param>
+            <returns>A <see cref="T:System.Boolean"/> result.</returns>
+        </member>
         <member name="M:Sudoku.Graphics.Absolute.op_Implicit(System.Int32)~Sudoku.Graphics.Absolute">
             <inheritdoc/>
         </member>
@@ -2626,6 +2671,22 @@
             </summary>
         </member>
         <member name="M:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailMarkItem">
+            <summary>
+            Represents a cell group trail mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailMarkItem.SizeScale">
+            <summary>
+            Indicates scale of size, related to cell size.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.Items.CellMarks.CellApexCornerTriangleMarkItem">
@@ -3932,6 +3993,11 @@
             Indicates capsule with arrow line cell group mark.
             </summary>
         </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellGroupMark_CellTrail">
+            <summary>
+            Indicates cell trail cell group mark.
+            </summary>
+        </member>
         <member name="F:Sudoku.Graphics.ItemType.TemplateLine">
             <summary>
             Indicates template line strokes.
@@ -4196,6 +4262,9 @@
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawCapsuleWithArrowLine(SkiaSharp.SKCanvas,System.ReadOnlySpan{Sudoku.Graphics.Absolute},System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,System.Single,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCapsuleWithArrowLine(System.ReadOnlySpan{Sudoku.Graphics.Absolute},System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,System.Single,Sudoku.Graphics.PointMapper)"/>
         </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawCellGroupTrail(SkiaSharp.SKCanvas,System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCellGroupTrail(System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
+        </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawThermometer(SkiaSharp.SKCanvas,System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawThermometer(System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper)"/>
         </member>
@@ -4330,6 +4399,15 @@
             <param name="capsuleFillColor">The fill color of capsule.</param>
             <param name="arrowCapLengthScale">The scale of arrow cap length.</param>
             <param name="arrowHalfAngleDegrees">The half of rotation degrees of arrow cap, in angle.</param>
+            <param name="mapper">The point mapper instance.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCellGroupTrail(System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Draws a cell group trail.
+            </summary>
+            <param name="trailCells">The trail cells.</param>
+            <param name="sizeScale">The scale of size, related to cell size.</param>
+            <param name="fillColor">The fill color.</param>
             <param name="mapper">The point mapper instance.</param>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawThermometer(System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper)">
