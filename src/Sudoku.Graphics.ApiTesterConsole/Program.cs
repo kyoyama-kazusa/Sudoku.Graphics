@@ -37,7 +37,7 @@ using var canvas = new Canvas(
 
 var rng = Random.Shared;
 LineDashSequence dashSequence = [10, 10];
-Scale cornerRadiusScale = 0M, sizeScale = .8M, fontSizeScale = .3M;
+Scale cornerRadiusScale = .25M, sizeScale = .8M, fontSizeScale = .3M;
 const float offsetX = 4, offsetY = 18, paddingLeft = 0, paddingTop = 0, paddingRight = 0, paddingBottom = 0;
 const string fontName = "Arial";
 const SKFontStyleWeight fontWeight = SKFontStyleWeight.Medium;

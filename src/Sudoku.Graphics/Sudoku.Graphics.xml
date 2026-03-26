@@ -4064,6 +4064,11 @@
             Indicates cell trail cell group mark.
             </summary>
         </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellGroupMark_KillerCage">
+            <summary>
+            Indicates killer cage cell group mark.
+            </summary>
+        </member>
         <member name="F:Sudoku.Graphics.ItemType.TemplateLine">
             <summary>
             Indicates template line strokes.
@@ -4072,11 +4077,6 @@
         <member name="F:Sudoku.Graphics.ItemType.VariantLine">
             <summary>
             Indicates variant line strokes.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellGroupMark_KillerCage">
-            <summary>
-            Indicates killer cage cell group mark.
             </summary>
         </member>
         <member name="T:Sudoku.Graphics.PointMapper">

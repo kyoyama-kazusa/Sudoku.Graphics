@@ -259,6 +259,11 @@ public enum ItemType
 	/// Indicates cell trail cell group mark.
 	/// </summary>
 	CellGroupMark_CellTrail,
+
+	/// <summary>
+	/// Indicates killer cage cell group mark.
+	/// </summary>
+	CellGroupMark_KillerCage,
 	#endregion
 
 	//
@@ -275,9 +280,4 @@ public enum ItemType
 	/// </summary>
 	VariantLine,
 	#endregion
-
-	/// <summary>
-	/// Indicates killer cage cell group mark.
-	/// </summary>
-	CellGroupMark_KillerCage,
 }
