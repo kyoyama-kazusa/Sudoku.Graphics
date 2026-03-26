@@ -5,30 +5,30 @@ public partial class SKCanvasDrawings
 	extension(SKCanvas @this)
 	{
 		/// <summary>
-		/// 
+		/// Draws a killer cage.
 		/// </summary>
-		/// <param name="cells"></param>
-		/// <param name="sizeScale"></param>
-		/// <param name="strokeColor"></param>
-		/// <param name="strokeWidthScale"></param>
-		/// <param name="fillColor"></param>
-		/// <param name="dashSequence"></param>
-		/// <param name="cornerRadiusScale"></param>
-		/// <param name="text"></param>
-		/// <param name="textFontName"></param>
-		/// <param name="fontSizeScale"></param>
-		/// <param name="fontWeight"></param>
-		/// <param name="fontWidth"></param>
-		/// <param name="fontSlant"></param>
-		/// <param name="fontColor"></param>
-		/// <param name="textBackgroundColor"></param>
-		/// <param name="paddingTop"></param>
-		/// <param name="paddingBottom"></param>
-		/// <param name="paddingLeft"></param>
-		/// <param name="paddingRight"></param>
-		/// <param name="offsetX"></param>
-		/// <param name="offsetY"></param>
-		/// <param name="mapper"></param>
+		/// <param name="cells">The cells.</param>
+		/// <param name="sizeScale">The scale of size of short side, related to a cell size.</param>
+		/// <param name="strokeColor">The stroke color of the cage outline.</param>
+		/// <param name="strokeWidthScale">The scale of stroke width, related to cell size.</param>
+		/// <param name="fillColor">The fill color.</param>
+		/// <param name="dashSequence">The dash sequence of the cage outline.</param>
+		/// <param name="cornerRadiusScale">The scale of corner radius of the cage, related to cage short side.</param>
+		/// <param name="text">The text.</param>
+		/// <param name="textFontName">The text font name.</param>
+		/// <param name="fontSizeScale">The scale of text, related to cell size.</param>
+		/// <param name="fontWeight">The font weight.</param>
+		/// <param name="fontWidth">The font width.</param>
+		/// <param name="fontSlant">The font slant.</param>
+		/// <param name="fontColor">The font color.</param>
+		/// <param name="textBackgroundColor">The text background color.</param>
+		/// <param name="paddingTop">The padding top of the boundary of text drawn.</param>
+		/// <param name="paddingBottom">The padding bottom of the boundary of text drawn.</param>
+		/// <param name="paddingLeft">The padding left of the boundary of text drawn.</param>
+		/// <param name="paddingRight">The padding right of the boundary of text drawn.</param>
+		/// <param name="offsetX">The X value of offset to the text to be drawn.</param>
+		/// <param name="offsetY">The Y value of offset to the text to be drawn.</param>
+		/// <param name="mapper">The point mapper instance.</param>
 		public void DrawKillerCage(
 			ReadOnlySpan<Absolute> cells,
 			Scale sizeScale,
