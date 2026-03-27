@@ -12,391 +12,117 @@ using System.IO;
 using SkiaSharp;
 using Sudoku.ComponentModel;
 using Sudoku.Graphics;
-using Sudoku.Graphics.Items.CellGroupMarks;
+using Sudoku.Graphics.Items.CellPairMarks;
 using Sudoku.Graphics.Items.Fills;
 using Sudoku.Graphics.Items.Lines;
 using Sudoku.Graphics.Templates;
 
+//var options = new CanvasDrawingOptions();
 var desktop = Environment.DesktopPath;
-var options = new CanvasDrawingOptions();
 var mapper = new PointMapper
 {
-	CellSize = 240,
-	Margin = 30,
+	CellSize = 120,
+	Margin = 15,
 	TemplateSize = new() { RowsCount = 6, ColumnsCount = 6 }
 };
 using var canvas = new Canvas(
 	new StandardTemplate(2, 3, mapper)
 	{
-		ThickLineWidth = options.ThickLineWidth.Resolve(options),
-		ThinLineWidth = options.ThinLineWidth.Resolve(options),
-		ThickLineColor = options.ThickLineColor.Resolve(options),
-		ThinLineColor = options.ThinLineColor.Resolve(options)
+		ThickLineWidth = .06M,
+		ThinLineWidth = .0225M,
+		ThickLineColor = SKColors.Black,
+		ThinLineColor = SKColors.Black
 	}
 );
 
 var rng = Random.Shared;
 LineDashSequence dashSequence = [10, 10];
-Scale cornerRadiusScale = 0M, sizeScale = .8M, fontSizeScale = .3M;
-const float offsetX = 8, offsetY = 36, paddingLeft = 0, paddingTop = 0, paddingRight = 0, paddingBottom = 0;
-const string fontName = "Arial";
-const SKFontStyleWeight fontWeight = SKFontStyleWeight.Medium;
+Scale cornerRadiusScale = 1M, shortSideScale = .15M, longSideScale = .8M;
+SerializableColor fillColor = SKColors.Black;
 var textColor = SKColors.Black;
 canvas.DrawItems(
 	[
-		new BackgroundFillItem { Color = options.BackgroundColor.Resolve(options) },
+		new BackgroundFillItem { Color = SKColors.White },
 		new TemplateLineItem(),
-		new CellGroupKillerCageMarkItem
+		new CellPairBarMarkItem
 		{
-			TemplateIndex = 0,
-			Cells = [0],
-			Text = "1",
-			DashSequence = dashSequence,
+			Cell1 = 0,
+			Cell2 = 1,
 			CornerRadiusScale = cornerRadiusScale,
-			SizeScale = sizeScale,
-			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
-			StrokeColor = SKColors.Black,
-			TextFontName = fontName,
-			FontSizeScale = fontSizeScale,
-			TextColor = textColor,
-			TextBackgroundColor = SKColors.White,
-			FontWeight = fontWeight,
-			OffsetX = offsetX,
-			OffsetY = offsetY,
-			PaddingLeft = paddingLeft,
-			PaddingTop = paddingTop,
-			PaddingRight = paddingRight,
-			PaddingBottom = paddingBottom
+			ShortSideScale = shortSideScale,
+			LongSideScale = longSideScale,
+			FillColor = fillColor,
+			TemplateIndex = 0
 		},
-		new CellGroupKillerCageMarkItem
+		new CellPairBarMarkItem
 		{
-			TemplateIndex = 0,
-			Cells = [1, 2, 8],
-			Text = "12",
-			DashSequence = dashSequence,
+			Cell1 = 0,
+			Cell2 = 6,
 			CornerRadiusScale = cornerRadiusScale,
-			SizeScale = sizeScale,
-			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
-			StrokeColor = SKColors.Black,
-			TextFontName = fontName,
-			FontSizeScale = fontSizeScale,
-			TextColor = textColor,
-			TextBackgroundColor = SKColors.White,
-			FontWeight = fontWeight,
-			OffsetX = offsetX,
-			OffsetY = offsetY,
-			PaddingLeft = paddingLeft,
-			PaddingTop = paddingTop,
-			PaddingRight = paddingRight,
-			PaddingBottom = paddingBottom
+			ShortSideScale = shortSideScale,
+			LongSideScale = longSideScale,
+			FillColor = fillColor,
+			TemplateIndex = 0
 		},
-		new CellGroupKillerCageMarkItem
+		new CellPairBarMarkItem
 		{
-			TemplateIndex = 0,
-			Cells = [6, 7],
-			Text = "8",
-			DashSequence = dashSequence,
+			Cell1 = 1,
+			Cell2 = 7,
 			CornerRadiusScale = cornerRadiusScale,
-			SizeScale = sizeScale,
-			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
-			StrokeColor = SKColors.Black,
-			TextFontName = fontName,
-			FontSizeScale = fontSizeScale,
-			TextColor = textColor,
-			TextBackgroundColor = SKColors.White,
-			FontWeight = fontWeight,
-			OffsetX = offsetX,
-			OffsetY = offsetY,
-			PaddingLeft = paddingLeft,
-			PaddingTop = paddingTop,
-			PaddingRight = paddingRight,
-			PaddingBottom = paddingBottom
+			ShortSideScale = shortSideScale,
+			LongSideScale = longSideScale,
+			FillColor = fillColor,
+			TemplateIndex = 0
 		},
-		new CellGroupKillerCageMarkItem
+		new CellPairBarMarkItem
 		{
-			TemplateIndex = 0,
-			Cells = [12, 18],
-			Text = "9",
-			DashSequence = dashSequence,
+			Cell1 = 3,
+			Cell2 = 4,
 			CornerRadiusScale = cornerRadiusScale,
-			SizeScale = sizeScale,
-			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
-			StrokeColor = SKColors.Black,
-			TextFontName = fontName,
-			FontSizeScale = fontSizeScale,
-			TextColor = textColor,
-			TextBackgroundColor = SKColors.White,
-			FontWeight = fontWeight,
-			OffsetX = offsetX,
-			OffsetY = offsetY,
-			PaddingLeft = paddingLeft,
-			PaddingTop = paddingTop,
-			PaddingRight = paddingRight,
-			PaddingBottom = paddingBottom
+			ShortSideScale = shortSideScale,
+			LongSideScale = longSideScale,
+			FillColor = fillColor,
+			TemplateIndex = 0
 		},
-		new CellGroupKillerCageMarkItem
+		new CellPairBarMarkItem
 		{
-			TemplateIndex = 0,
-			Cells = [13, 19],
-			Text = "3",
-			DashSequence = dashSequence,
+			Cell1 = 14,
+			Cell2 = 15,
 			CornerRadiusScale = cornerRadiusScale,
-			SizeScale = sizeScale,
-			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
-			StrokeColor = SKColors.Black,
-			TextFontName = fontName,
-			FontSizeScale = fontSizeScale,
-			TextColor = textColor,
-			TextBackgroundColor = SKColors.White,
-			FontWeight = fontWeight,
-			OffsetX = offsetX,
-			OffsetY = offsetY,
-			PaddingLeft = paddingLeft,
-			PaddingTop = paddingTop,
-			PaddingRight = paddingRight,
-			PaddingBottom = paddingBottom
+			ShortSideScale = shortSideScale,
+			LongSideScale = longSideScale,
+			FillColor = fillColor,
+			TemplateIndex = 0
 		},
-		new CellGroupKillerCageMarkItem
+		new CellPairBarMarkItem
 		{
-			TemplateIndex = 0,
-			Cells = [14, 20, 21],
-			Text = "14",
-			DashSequence = dashSequence,
+			Cell1 = 14,
+			Cell2 = 20,
 			CornerRadiusScale = cornerRadiusScale,
-			SizeScale = sizeScale,
-			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
-			StrokeColor = SKColors.Black,
-			TextFontName = fontName,
-			FontSizeScale = fontSizeScale,
-			TextColor = textColor,
-			TextBackgroundColor = SKColors.White,
-			FontWeight = fontWeight,
-			OffsetX = offsetX,
-			OffsetY = offsetY,
-			PaddingLeft = paddingLeft,
-			PaddingTop = paddingTop,
-			PaddingRight = paddingRight,
-			PaddingBottom = paddingBottom
+			ShortSideScale = shortSideScale,
+			LongSideScale = longSideScale,
+			FillColor = fillColor,
+			TemplateIndex = 0
 		},
-		new CellGroupKillerCageMarkItem
+		new CellPairBarMarkItem
 		{
-			TemplateIndex = 0,
-			Cells = [3, 9, 15],
-			Text = "8",
-			DashSequence = dashSequence,
+			Cell1 = 15,
+			Cell2 = 21,
 			CornerRadiusScale = cornerRadiusScale,
-			SizeScale = sizeScale,
-			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
-			StrokeColor = SKColors.Black,
-			TextFontName = fontName,
-			FontSizeScale = fontSizeScale,
-			TextColor = textColor,
-			TextBackgroundColor = SKColors.White,
-			FontWeight = fontWeight,
-			OffsetX = offsetX,
-			OffsetY = offsetY,
-			PaddingLeft = paddingLeft,
-			PaddingTop = paddingTop,
-			PaddingRight = paddingRight,
-			PaddingBottom = paddingBottom
+			ShortSideScale = shortSideScale,
+			LongSideScale = longSideScale,
+			FillColor = fillColor,
+			TemplateIndex = 0
 		},
-		new CellGroupKillerCageMarkItem
+		new CellPairBarMarkItem
 		{
-			TemplateIndex = 0,
-			Cells = [4, 10, 16],
-			Text = "13",
-			DashSequence = dashSequence,
+			Cell1 = 20,
+			Cell2 = 21,
 			CornerRadiusScale = cornerRadiusScale,
-			SizeScale = sizeScale,
-			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
-			StrokeColor = SKColors.Black,
-			TextFontName = fontName,
-			FontSizeScale = fontSizeScale,
-			TextColor = textColor,
-			TextBackgroundColor = SKColors.White,
-			FontWeight = fontWeight,
-			OffsetX = offsetX,
-			OffsetY = offsetY,
-			PaddingLeft = paddingLeft,
-			PaddingTop = paddingTop,
-			PaddingRight = paddingRight,
-			PaddingBottom = paddingBottom
-		},
-		new CellGroupKillerCageMarkItem
-		{
-			TemplateIndex = 0,
-			Cells = [5, 11],
-			Text = "7",
-			DashSequence = dashSequence,
-			CornerRadiusScale = cornerRadiusScale,
-			SizeScale = sizeScale,
-			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
-			StrokeColor = SKColors.Black,
-			TextFontName = fontName,
-			FontSizeScale = fontSizeScale,
-			TextColor = textColor,
-			TextBackgroundColor = SKColors.White,
-			FontWeight = fontWeight,
-			OffsetX = offsetX,
-			OffsetY = offsetY,
-			PaddingLeft = paddingLeft,
-			PaddingTop = paddingTop,
-			PaddingRight = paddingRight,
-			PaddingBottom = paddingBottom
-		},
-		new CellGroupKillerCageMarkItem
-		{
-			TemplateIndex = 0,
-			Cells = [17, 23, 22],
-			Text = "9",
-			DashSequence = dashSequence,
-			CornerRadiusScale = cornerRadiusScale,
-			SizeScale = sizeScale,
-			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
-			StrokeColor = SKColors.Black,
-			TextFontName = fontName,
-			FontSizeScale = fontSizeScale,
-			TextColor = textColor,
-			TextBackgroundColor = SKColors.White,
-			FontWeight = fontWeight,
-			OffsetX = offsetX,
-			OffsetY = offsetY,
-			PaddingLeft = paddingLeft,
-			PaddingTop = paddingTop,
-			PaddingRight = paddingRight,
-			PaddingBottom = paddingBottom
-		},
-		new CellGroupKillerCageMarkItem
-		{
-			TemplateIndex = 0,
-			Cells = [24, 25, 26],
-			Text = "11",
-			DashSequence = dashSequence,
-			CornerRadiusScale = cornerRadiusScale,
-			SizeScale = sizeScale,
-			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
-			StrokeColor = SKColors.Black,
-			TextFontName = fontName,
-			FontSizeScale = fontSizeScale,
-			TextColor = textColor,
-			TextBackgroundColor = SKColors.White,
-			FontWeight = fontWeight,
-			OffsetX = offsetX,
-			OffsetY = offsetY,
-			PaddingLeft = paddingLeft,
-			PaddingTop = paddingTop,
-			PaddingRight = paddingRight,
-			PaddingBottom = paddingBottom
-		},
-		new CellGroupKillerCageMarkItem
-		{
-			TemplateIndex = 0,
-			Cells = [30],
-			Text = "3",
-			DashSequence = dashSequence,
-			CornerRadiusScale = cornerRadiusScale,
-			SizeScale = sizeScale,
-			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
-			StrokeColor = SKColors.Black,
-			TextFontName = fontName,
-			FontSizeScale = fontSizeScale,
-			TextColor = textColor,
-			TextBackgroundColor = SKColors.White,
-			FontWeight = fontWeight,
-			OffsetX = offsetX,
-			OffsetY = offsetY,
-			PaddingLeft = paddingLeft,
-			PaddingTop = paddingTop,
-			PaddingRight = paddingRight,
-			PaddingBottom = paddingBottom
-		},
-		new CellGroupKillerCageMarkItem
-		{
-			TemplateIndex = 0,
-			Cells = [31, 32],
-			Text = "7",
-			DashSequence = dashSequence,
-			CornerRadiusScale = cornerRadiusScale,
-			SizeScale = sizeScale,
-			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
-			StrokeColor = SKColors.Black,
-			TextFontName = fontName,
-			FontSizeScale = fontSizeScale,
-			TextColor = textColor,
-			TextBackgroundColor = SKColors.White,
-			FontWeight = fontWeight,
-			OffsetX = offsetX,
-			OffsetY = offsetY,
-			PaddingLeft = paddingLeft,
-			PaddingTop = paddingTop,
-			PaddingRight = paddingRight,
-			PaddingBottom = paddingBottom
-		},
-		new CellGroupKillerCageMarkItem
-		{
-			TemplateIndex = 0,
-			Cells = [27, 33],
-			Text = "8",
-			DashSequence = dashSequence,
-			CornerRadiusScale = cornerRadiusScale,
-			SizeScale = sizeScale,
-			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
-			StrokeColor = SKColors.Black,
-			TextFontName = fontName,
-			FontSizeScale = fontSizeScale,
-			TextColor = textColor,
-			TextBackgroundColor = SKColors.White,
-			FontWeight = fontWeight,
-			OffsetX = offsetX,
-			OffsetY = offsetY,
-			PaddingLeft = paddingLeft,
-			PaddingTop = paddingTop,
-			PaddingRight = paddingRight,
-			PaddingBottom = paddingBottom
-		},
-		new CellGroupKillerCageMarkItem
-		{
-			TemplateIndex = 0,
-			Cells = [28, 34],
-			Text = "6",
-			DashSequence = dashSequence,
-			CornerRadiusScale = cornerRadiusScale,
-			SizeScale = sizeScale,
-			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
-			StrokeColor = SKColors.Black,
-			TextFontName = fontName,
-			FontSizeScale = fontSizeScale,
-			TextColor = textColor,
-			TextBackgroundColor = SKColors.White,
-			FontWeight = fontWeight,
-			OffsetX = offsetX,
-			OffsetY = offsetY,
-			PaddingLeft = paddingLeft,
-			PaddingTop = paddingTop,
-			PaddingRight = paddingRight,
-			PaddingBottom = paddingBottom
-		},
-		new CellGroupKillerCageMarkItem
-		{
-			TemplateIndex = 0,
-			Cells = [29, 35],
-			Text = "7",
-			DashSequence = dashSequence,
-			CornerRadiusScale = cornerRadiusScale,
-			SizeScale = sizeScale,
-			StrokeWidthScale = options.ThinLineWidth.Resolve(options),
-			StrokeColor = SKColors.Black,
-			TextFontName = fontName,
-			FontSizeScale = fontSizeScale,
-			TextColor = textColor,
-			TextBackgroundColor = SKColors.White,
-			FontWeight = fontWeight,
-			OffsetX = offsetX,
-			OffsetY = offsetY,
-			PaddingLeft = paddingLeft,
-			PaddingTop = paddingTop,
-			PaddingRight = paddingRight,
-			PaddingBottom = paddingBottom
+			ShortSideScale = shortSideScale,
+			LongSideScale = longSideScale,
+			FillColor = fillColor,
+			TemplateIndex = 0
 		},
 	]
 );

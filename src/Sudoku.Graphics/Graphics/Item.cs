@@ -35,6 +35,7 @@
 [JsonDerivedType(typeof(CellHalveLineMarkItem), nameof(CellHalveLineMarkItem))]
 [JsonDerivedType(typeof(CellHexagonMarkItem), nameof(CellHexagonMarkItem))]
 [JsonDerivedType(typeof(CellMoonPhaseMarkItem), nameof(CellMoonPhaseMarkItem))]
+[JsonDerivedType(typeof(CellPairBarMarkItem), nameof(CellPairBarMarkItem))]
 [JsonDerivedType(typeof(CellPairBridgeLineMarkItem), nameof(CellPairBridgeLineMarkItem))]
 [JsonDerivedType(typeof(CellPhantomDiceMarkItem), nameof(CellPhantomDiceMarkItem))]
 [JsonDerivedType(typeof(CellPolygonMarkItem), nameof(CellPolygonMarkItem))]

@@ -3225,6 +3225,27 @@
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellTriangleMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.Items.CellPairMarks.CellPairBarMarkItem">
+            <summary>
+            Represents a cell pair bar mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairBarMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairBarMarkItem.ShortSideScale">
+            <summary>
+            Indicates the scale of short side, related to cell size.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairBarMarkItem.LongSideScale">
+            <summary>
+            Indicates the scale of long side, related to cell size.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellPairMarks.CellPairBarMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.Items.CellPairMarks.CellPairBridgeLineMarkItem">
             <summary>
             Represents a cell pair bridge line mark item.
@@ -4049,6 +4070,11 @@
             Indicates bridge line cell pair mark.
             </summary>
         </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellPairMark_Bar">
+            <summary>
+            Indicates adjacent cell pair bar mark.
+            </summary>
+        </member>
         <member name="F:Sudoku.Graphics.ItemType.CellGroupMark_Thermometer">
             <summary>
             Indicates thermometer cell group mark.
@@ -4398,6 +4424,9 @@
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawTriangleToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTriangleToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawBar(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBar(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawBridgeAndConnectedCircles(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,System.Boolean,System.Boolean,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBridgeAndConnectedCircles(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,System.Boolean,System.Boolean,Sudoku.Graphics.PointMapper)"/>
@@ -4817,6 +4846,19 @@
             Throws when <paramref name="direction"/> is not defined or <see cref="F:Sudoku.ComponentModel.Directions.Direction8.None"/>.
             </exception>
             <seealso cref="F:Sudoku.ComponentModel.Directions.Direction8.None"/>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBar(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Draws a bar between two adjacent cells.
+            </summary>
+            <param name="cell1">The cell 1.</param>
+            <param name="cell2">The cell 2.</param>
+            <param name="shortSideScale">The scale of short side, related to cell size.</param>
+            <param name="longSideScale">The scale of long side, related to cell size.</param>
+            <param name="fillColor">The fill color.</param>
+            <param name="cornerRadiusScale">The scale of corner radius of bar, related to short side length.</param>
+            <param name="mapper">The point mapper instance.</param>
+            <exception cref="T:System.ArgumentException">Throws when cells are not adjacent with each other.</exception>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBridgeAndConnectedCircles(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,System.Boolean,System.Boolean,Sudoku.Graphics.PointMapper)">
             <summary>

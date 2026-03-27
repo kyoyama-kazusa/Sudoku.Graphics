@@ -239,6 +239,11 @@ public enum ItemType
 	/// Indicates bridge line cell pair mark.
 	/// </summary>
 	CellPairMark_BridgeLine,
+
+	/// <summary>
+	/// Indicates adjacent cell pair bar mark.
+	/// </summary>
+	CellPairMark_Bar,
 	#endregion
 
 	//
