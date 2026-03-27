@@ -11,6 +11,8 @@ public partial class SKCanvasDrawings
 		/// <param name="cell2">The cell 2.</param>
 		/// <param name="shortSideScale">The scale of short side, related to cell size.</param>
 		/// <param name="longSideScale">The scale of long side, related to cell size.</param>
+		/// <param name="strokeWidthScale">The scale of stroke width, related to cell size.</param>
+		/// <param name="strokeColor">The stroke color.</param>
 		/// <param name="fillColor">The fill color.</param>
 		/// <param name="cornerRadiusScale">The scale of corner radius of bar, related to short side length.</param>
 		/// <param name="mapper">The point mapper instance.</param>
@@ -20,6 +22,8 @@ public partial class SKCanvasDrawings
 			Absolute cell2,
 			Scale shortSideScale,
 			Scale longSideScale,
+			Scale strokeWidthScale,
+			SerializableColor strokeColor,
 			SerializableColor fillColor,
 			Scale cornerRadiusScale,
 			PointMapper mapper
@@ -48,7 +52,19 @@ public partial class SKCanvasDrawings
 			var bottomRight = cellPairCenter + offsetPoint;
 			var rect = SKRect.Create(topLeft, bottomRight);
 			using var fillPaint = new SKPaint { IsAntialias = true, Style = SKPaintStyle.Fill, Color = fillColor };
-			@this.DrawRoundRect(new(rect, cornerRadiusScale.Measure(shortSide)), fillPaint);
+			var roundRect = new SKRoundRect(rect, cornerRadiusScale.Measure(shortSide));
+			@this.DrawRoundRect(roundRect, fillPaint);
+
+			using var strokePaint = new SKPaint
+			{
+				IsAntialias = true,
+				Style = SKPaintStyle.Stroke,
+				Color = strokeColor,
+				StrokeWidth = strokeWidthScale.Measure(cellSize),
+				StrokeJoin = SKStrokeJoin.Round,
+				StrokeCap = SKStrokeCap.Round
+			};
+			@this.DrawRoundRect(roundRect, strokePaint);
 		}
 	}
 }

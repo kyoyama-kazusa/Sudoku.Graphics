@@ -37,8 +37,8 @@ using var canvas = new Canvas(
 
 var rng = Random.Shared;
 LineDashSequence dashSequence = [10, 10];
-Scale cornerRadiusScale = 1M, shortSideScale = .15M, longSideScale = .8M;
-SerializableColor fillColor = SKColors.Black;
+Scale cornerRadiusScale = 1M, shortSideScale = .15M, longSideScale = .8M, strokeWidthScale = .0225M;
+SerializableColor fillColor = SKColors.White, strokeColor = SKColors.Black;
 var textColor = SKColors.Black;
 canvas.DrawItems(
 	[
@@ -52,7 +52,9 @@ canvas.DrawItems(
 			ShortSideScale = shortSideScale,
 			LongSideScale = longSideScale,
 			FillColor = fillColor,
-			TemplateIndex = 0
+			TemplateIndex = 0,
+			StrokeWidthScale = strokeWidthScale,
+			StrokeColor = strokeColor
 		},
 		new CellPairBarMarkItem
 		{
@@ -62,7 +64,9 @@ canvas.DrawItems(
 			ShortSideScale = shortSideScale,
 			LongSideScale = longSideScale,
 			FillColor = fillColor,
-			TemplateIndex = 0
+			TemplateIndex = 0,
+			StrokeWidthScale = strokeWidthScale,
+			StrokeColor = strokeColor
 		},
 		new CellPairBarMarkItem
 		{
@@ -72,7 +76,9 @@ canvas.DrawItems(
 			ShortSideScale = shortSideScale,
 			LongSideScale = longSideScale,
 			FillColor = fillColor,
-			TemplateIndex = 0
+			TemplateIndex = 0,
+			StrokeWidthScale = strokeWidthScale,
+			StrokeColor = strokeColor
 		},
 		new CellPairBarMarkItem
 		{
@@ -82,7 +88,9 @@ canvas.DrawItems(
 			ShortSideScale = shortSideScale,
 			LongSideScale = longSideScale,
 			FillColor = fillColor,
-			TemplateIndex = 0
+			TemplateIndex = 0,
+			StrokeWidthScale = strokeWidthScale,
+			StrokeColor = strokeColor
 		},
 		new CellPairBarMarkItem
 		{
@@ -92,7 +100,9 @@ canvas.DrawItems(
 			ShortSideScale = shortSideScale,
 			LongSideScale = longSideScale,
 			FillColor = fillColor,
-			TemplateIndex = 0
+			TemplateIndex = 0,
+			StrokeWidthScale = strokeWidthScale,
+			StrokeColor = strokeColor
 		},
 		new CellPairBarMarkItem
 		{
@@ -102,7 +112,9 @@ canvas.DrawItems(
 			ShortSideScale = shortSideScale,
 			LongSideScale = longSideScale,
 			FillColor = fillColor,
-			TemplateIndex = 0
+			TemplateIndex = 0,
+			StrokeWidthScale = strokeWidthScale,
+			StrokeColor = strokeColor
 		},
 		new CellPairBarMarkItem
 		{
@@ -112,7 +124,9 @@ canvas.DrawItems(
 			ShortSideScale = shortSideScale,
 			LongSideScale = longSideScale,
 			FillColor = fillColor,
-			TemplateIndex = 0
+			TemplateIndex = 0,
+			StrokeWidthScale = strokeWidthScale,
+			StrokeColor = strokeColor
 		},
 		new CellPairBarMarkItem
 		{
@@ -122,7 +136,9 @@ canvas.DrawItems(
 			ShortSideScale = shortSideScale,
 			LongSideScale = longSideScale,
 			FillColor = fillColor,
-			TemplateIndex = 0
+			TemplateIndex = 0,
+			StrokeWidthScale = strokeWidthScale,
+			StrokeColor = strokeColor
 		},
 	]
 );

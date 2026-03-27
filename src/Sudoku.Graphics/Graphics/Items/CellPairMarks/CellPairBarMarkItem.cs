@@ -26,6 +26,8 @@ public sealed record CellPairBarMarkItem : CellPairMarkItem
 			Cell2,
 			ShortSideScale,
 			LongSideScale,
+			StrokeWidthScale,
+			StrokeColor,
 			FillColor,
 			CornerRadiusScale,
 			canvas.Templates[TemplateIndex].Mapper
