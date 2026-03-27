@@ -13,6 +13,15 @@ public sealed record CellGroupThermometerMarkItem : CellGroupMarkItem
 	/// </summary>
 	public required Scale CircleScale { get; init; }
 
+	/// <inheritdoc/>
+	public override required Scale StrokeWidthScale { get; init; }
+
+	/// <inheritdoc/>
+	public override required SerializableColor StrokeColor { get; init; }
+
+	/// <inheritdoc/>
+	public override required SerializableColor FillColor { get; init; }
+
 
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)

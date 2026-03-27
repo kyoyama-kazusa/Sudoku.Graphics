@@ -33,6 +33,15 @@ public sealed record CellPairBridgeLineMarkItem : CellPairMarkItem
 	/// </summary>
 	public required Scale CircleScale { get; init; }
 
+	/// <inheritdoc/>
+	public override required Scale StrokeWidthScale { get; init; }
+
+	/// <inheritdoc/>
+	public override required SerializableColor FillColor { get; init; }
+
+	/// <inheritdoc/>
+	public override required SerializableColor StrokeColor { get; init; }
+
 
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)

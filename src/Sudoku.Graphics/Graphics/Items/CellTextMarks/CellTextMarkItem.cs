@@ -5,6 +5,9 @@
 /// </summary>
 public abstract record CellTextMarkItem : CellMarkItem
 {
+	/// <inheritdoc/>
+	public sealed override required string? TextFontName { get; init; }
+
 	/// <summary>
 	/// Indicates the aligned direction.
 	/// </summary>
@@ -14,10 +17,28 @@ public abstract record CellTextMarkItem : CellMarkItem
 	/// Indicates the rotation direction. By default it's <see cref="Direction8.Up"/> (upright, no rotation).
 	/// </summary>
 	/// <seealso cref="Direction8.Up"/>
-	public Direction8 RotationDirection { get; init; }
+	public Direction8 RotationDirection { get; init; } = Direction8.Up;
 
 	/// <inheritdoc/>
-	public sealed override required string? TextFontName { get; init; }
+	public override SKFontStyleWeight FontWeight { get; init; } = SKFontStyleWeight.Normal;
+
+	/// <inheritdoc/>
+	public override SKFontStyleWidth FontWidth { get; init; } = SKFontStyleWidth.Normal;
+
+	/// <inheritdoc/>
+	public override SKFontStyleSlant FontSlant { get; init; } = SKFontStyleSlant.Upright;
+
+	/// <inheritdoc/>
+	public sealed override required SerializableColor StrokeColor { get; init; }
+
+	/// <inheritdoc/>
+	public sealed override required SerializableColor FillColor { get; init; }
+
+	/// <inheritdoc/>
+	public sealed override required Scale SizeScale { get; init; }
+
+	/// <inheritdoc/>
+	public sealed override required Scale StrokeWidthScale { get; init; }
 
 	/// <summary>
 	/// Indicates the printing text.
@@ -33,9 +54,9 @@ public abstract record CellTextMarkItem : CellMarkItem
 			TextFontName ?? throw new InvalidOperationException("Expected a valid text font name."),
 			SizeScale,
 			StrokeWidthScale,
-			((IItem_FontRelatedProperties)this).FontWeight,
-			((IItem_FontRelatedProperties)this).FontWidth,
-			((IItem_FontRelatedProperties)this).FontSlant,
+			FontWeight,
+			FontWidth,
+			FontSlant,
 			StrokeColor,
 			FillColor,
 			RotationDirection.RotationDegrees,

@@ -19,38 +19,38 @@ public abstract record CellMarkItem :
 	public virtual string? TextFontName { get; init; }
 
 	/// <inheritdoc/>
+	public virtual SKFontStyleWeight FontWeight { get; init; }
+
+	/// <inheritdoc/>
+	public virtual SKFontStyleWidth FontWidth { get; init; }
+
+	/// <inheritdoc/>
+	public virtual SKFontStyleSlant FontSlant { get; init; }
+
+	/// <inheritdoc/>
 	public required Absolute Cell { get; init; }
 
 	/// <inheritdoc/>
-	public Scale SizeScale { get; init; }
+	public virtual Scale SizeScale { get; init; }
 
 	/// <summary>
 	/// Indicates stroke width scale.
 	/// </summary>
-	public Scale StrokeWidthScale { get; init; }
+	public virtual Scale StrokeWidthScale { get; init; }
 
 	/// <summary>
 	/// Indicates corner radius scale.
 	/// </summary>
-	public Scale CornerRadiusScale { get; init; }
+	public virtual Scale CornerRadiusScale { get; init; }
 
 	/// <inheritdoc/>
-	public SerializableColor StrokeColor { get; init; }
+	public virtual SerializableColor StrokeColor { get; init; }
 
 	/// <inheritdoc/>
-	public SerializableColor FillColor { get; init; }
+	public virtual SerializableColor FillColor { get; init; }
 
 	/// <inheritdoc/>
 	string IItem_FontRelatedProperties.FontName { get => TextFontName!; init => TextFontName = value; }
-
-	/// <inheritdoc/>
-	SKFontStyleWeight IItem_FontRelatedProperties.FontWeight { get; init; } = SKFontStyleWeight.Normal;
-
-	/// <inheritdoc/>
-	SKFontStyleWidth IItem_FontRelatedProperties.FontWidth { get; init; } = SKFontStyleWidth.Normal;
-
-	/// <inheritdoc/>
-	SKFontStyleSlant IItem_FontRelatedProperties.FontSlant { get; init; } = SKFontStyleSlant.Upright;
 
 	/// <inheritdoc/>
 	Scale IItem_FontRelatedProperties.FontSizeScale { get => SizeScale; init => SizeScale = value; }

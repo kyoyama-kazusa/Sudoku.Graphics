@@ -8,24 +8,29 @@ public sealed record CandidateCircleMarkItem : CandidateMarkItem
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.CandidateMark_Circle;
 
+	/// <inheritdoc/>
+	public override required Scale SizeScale { get; init; }
+
 	/// <summary>
 	/// Indicates stroke width scale.
 	/// </summary>
-	public Scale StrokeWidthScale { get; init; }
+	public required Scale StrokeWidthScale { get; init; }
+
+	/// <inheritdoc/>
+	public override required SerializableColor StrokeColor { get; init; }
+
+	/// <inheritdoc/>
+	public override required SerializableColor FillColor { get; init; }
 
 
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)
-	{
-		var template = canvas.Templates[TemplateIndex];
-		var mapper = template.Mapper;
-		canvas.BackingCanvas.DrawCircleTo(
+		=> canvas.BackingCanvas.DrawCircleTo(
 			CandidatePosition,
 			SizeScale,
 			StrokeColor,
 			StrokeWidthScale,
 			FillColor,
-			mapper
+			canvas.Templates[TemplateIndex].Mapper
 		);
-	}
 }

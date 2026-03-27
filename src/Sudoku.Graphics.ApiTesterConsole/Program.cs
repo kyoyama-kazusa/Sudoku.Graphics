@@ -12,7 +12,6 @@ using System.IO;
 using SkiaSharp;
 using Sudoku.ComponentModel;
 using Sudoku.Graphics;
-using Sudoku.Graphics.Items.CellPairMarks;
 using Sudoku.Graphics.Items.Fills;
 using Sudoku.Graphics.Items.Lines;
 using Sudoku.Graphics.Templates;

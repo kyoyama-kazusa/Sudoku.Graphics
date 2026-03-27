@@ -8,23 +8,25 @@ public sealed record CandidateCrossMarkItem : CandidateMarkItem
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.CandidateMark_Cross;
 
+	/// <inheritdoc/>
+	public override required Scale SizeScale { get; init; }
+
 	/// <summary>
 	/// Indicates scale of stroke width.
 	/// </summary>
 	public required Scale StrokeWidthScale { get; init; }
 
+	/// <inheritdoc/>
+	public override required SerializableColor StrokeColor { get; init; }
+
 
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)
-	{
-		var template = canvas.Templates[TemplateIndex];
-		var mapper = template.Mapper;
-		canvas.BackingCanvas.DrawCrossTo(
+		=> canvas.BackingCanvas.DrawCrossTo(
 			CandidatePosition,
 			SizeScale,
 			StrokeWidthScale,
 			StrokeColor,
-			mapper
+			canvas.Templates[TemplateIndex].Mapper
 		);
-	}
 }

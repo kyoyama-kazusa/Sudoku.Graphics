@@ -8,7 +8,7 @@ public partial class SKCanvasDrawings
 		/// Draws a killer cage.
 		/// </summary>
 		/// <param name="cells">The cells.</param>
-		/// <param name="sizeScale">The scale of size of short side, related to a cell size.</param>
+		/// <param name="shortSideScale">The scale of size of short side, related to a cell size.</param>
 		/// <param name="strokeColor">The stroke color of the cage outline.</param>
 		/// <param name="strokeWidthScale">The scale of stroke width, related to cell size.</param>
 		/// <param name="fillColor">The fill color.</param>
@@ -35,7 +35,7 @@ public partial class SKCanvasDrawings
 		/// </exception>
 		public void DrawKillerCage(
 			ReadOnlySpan<Absolute> cells,
-			Scale sizeScale,
+			Scale shortSideScale,
 			SerializableColor strokeColor,
 			Scale strokeWidthScale,
 			SerializableColor fillColor,
@@ -60,7 +60,7 @@ public partial class SKCanvasDrawings
 		{
 			var cellSize = mapper.CellSize;
 			var points = from cell in cells select mapper.GetPoint(cell, Alignment.TopLeft);
-			var shortSide = sizeScale.Measure(cellSize);
+			var shortSide = shortSideScale.Measure(cellSize);
 			var cornerRadius = cornerRadiusScale.Measure(shortSide);
 			if (!CellOutlineBuilder.TryBuildKillerCagePath(points, cellSize, cornerRadius, shortSide, out var pathInfo))
 			{

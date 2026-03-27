@@ -23,6 +23,15 @@ public sealed record CellGroupTrailedCapsuleMarkItem : CellGroupMarkItem
 	/// </summary>
 	public required Scale ArrowCapLengthScale { get; init; }
 
+	/// <inheritdoc/>
+	public override required Scale StrokeWidthScale { get; init; }
+
+	/// <inheritdoc/>
+	public override required SerializableColor StrokeColor { get; init; }
+
+	/// <inheritdoc/>
+	public override required SerializableColor FillColor { get; init; }
+
 	/// <summary>
 	/// Indicates arrow line cells.
 	/// </summary>

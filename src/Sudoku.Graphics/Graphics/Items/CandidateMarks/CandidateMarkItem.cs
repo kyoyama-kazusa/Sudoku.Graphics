@@ -16,11 +16,11 @@ public abstract record CandidateMarkItem :
 	public required CandidatePosition CandidatePosition { get; init; }
 
 	/// <inheritdoc/>
-	public required Scale SizeScale { get; init; }
+	public virtual Scale SizeScale { get; init; }
 
 	/// <inheritdoc/>
-	public SerializableColor StrokeColor { get; init; }
+	public virtual SerializableColor StrokeColor { get; init; }
 
 	/// <inheritdoc/>
-	public SerializableColor FillColor { get; init; }
+	public virtual SerializableColor FillColor { get; init; }
 }

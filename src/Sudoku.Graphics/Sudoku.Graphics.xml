@@ -2530,10 +2530,19 @@
         <member name="P:Sudoku.Graphics.Items.CandidateMarks.CandidateCircleMarkItem.Type">
             <inheritdoc/>
         </member>
+        <member name="P:Sudoku.Graphics.Items.CandidateMarks.CandidateCircleMarkItem.SizeScale">
+            <inheritdoc/>
+        </member>
         <member name="P:Sudoku.Graphics.Items.CandidateMarks.CandidateCircleMarkItem.StrokeWidthScale">
             <summary>
             Indicates stroke width scale.
             </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidateMarks.CandidateCircleMarkItem.StrokeColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidateMarks.CandidateCircleMarkItem.FillColor">
+            <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Items.CandidateMarks.CandidateCircleMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
@@ -2546,10 +2555,16 @@
         <member name="P:Sudoku.Graphics.Items.CandidateMarks.CandidateCrossMarkItem.Type">
             <inheritdoc/>
         </member>
+        <member name="P:Sudoku.Graphics.Items.CandidateMarks.CandidateCrossMarkItem.SizeScale">
+            <inheritdoc/>
+        </member>
         <member name="P:Sudoku.Graphics.Items.CandidateMarks.CandidateCrossMarkItem.StrokeWidthScale">
             <summary>
             Indicates scale of stroke width.
             </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidateMarks.CandidateCrossMarkItem.StrokeColor">
+            <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Items.CandidateMarks.CandidateCrossMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
@@ -2612,9 +2627,22 @@
         <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.Text">
             <summary>
             Indicates text to be drawn in killer cage.
+            If a cage this instance represents doesn't provide a text, this property can be left <see langword="null"/>.
             </summary>
         </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.TextFontName">
+            <inheritdoc/>
+        </member>
         <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.FontWeight">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.FontWidth">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.FontSlant">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.TextColor">
@@ -2627,10 +2655,25 @@
             Indicates text background color.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.SizeScale">
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.StrokeColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.FillColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.ShortSideScale">
             <summary>
             Indicates the scale of size of each cells drawn, related to cell size.
             </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.FontSizeScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.CornerRadiusScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.StrokeWidthScale">
+            <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.DashSequence">
             <summary>
@@ -2705,6 +2748,15 @@
             Indicates scale of circle.
             </summary>
         </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupThermometerMarkItem.StrokeWidthScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupThermometerMarkItem.StrokeColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupThermometerMarkItem.FillColor">
+            <inheritdoc/>
+        </member>
         <member name="M:Sudoku.Graphics.Items.CellGroupMarks.CellGroupThermometerMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
@@ -2731,6 +2783,15 @@
             Indicates scale of arrow cap length, related to cell size.
             </summary>
         </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleMarkItem.StrokeWidthScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleMarkItem.StrokeColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleMarkItem.FillColor">
+            <inheritdoc/>
+        </member>
         <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleMarkItem.TrailCells">
             <summary>
             Indicates arrow line cells.
@@ -2751,6 +2812,9 @@
             <summary>
             Indicates scale of size, related to cell size.
             </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailMarkItem.FillColor">
+            <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
@@ -3003,6 +3067,15 @@
             Indicates text font.
             </summary>
         </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellMarkItem.FontWeight">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellMarkItem.FontWidth">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellMarkItem.FontSlant">
+            <inheritdoc/>
+        </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellMarkItem.Cell">
             <inheritdoc/>
         </member>
@@ -3026,15 +3099,6 @@
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellMarkItem.Sudoku#Graphics#Items#IItem_FontRelatedProperties#FontName">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellMarkItem.Sudoku#Graphics#Items#IItem_FontRelatedProperties#FontWeight">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellMarkItem.Sudoku#Graphics#Items#IItem_FontRelatedProperties#FontWidth">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellMarkItem.Sudoku#Graphics#Items#IItem_FontRelatedProperties#FontSlant">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellMarkItem.Sudoku#Graphics#Items#IItem_FontRelatedProperties#FontSizeScale">
@@ -3243,6 +3307,18 @@
             Indicates the scale of long side, related to cell size.
             </summary>
         </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairBarMarkItem.StrokeWidthScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairBarMarkItem.CornerRadiusScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairBarMarkItem.StrokeColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairBarMarkItem.FillColor">
+            <inheritdoc/>
+        </member>
         <member name="M:Sudoku.Graphics.Items.CellPairMarks.CellPairBarMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
@@ -3278,6 +3354,15 @@
             <summary>
             Indicates the scale of circle, related to cell size.
             </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairBridgeLineMarkItem.StrokeWidthScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairBridgeLineMarkItem.FillColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairBridgeLineMarkItem.StrokeColor">
+            <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Items.CellPairMarks.CellPairBridgeLineMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
@@ -3444,6 +3529,9 @@
             Represents cell text mark item.
             </summary>
         </member>
+        <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellTextMarkItem.TextFontName">
+            <inheritdoc/>
+        </member>
         <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellTextMarkItem.AlignedDirection">
             <summary>
             Indicates the aligned direction.
@@ -3455,7 +3543,25 @@
             </summary>
             <seealso cref="F:Sudoku.ComponentModel.Directions.Direction8.Up"/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellTextMarkItem.TextFontName">
+        <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellTextMarkItem.FontWeight">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellTextMarkItem.FontWidth">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellTextMarkItem.FontSlant">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellTextMarkItem.StrokeColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellTextMarkItem.FillColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellTextMarkItem.SizeScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellTextMarkItem.StrokeWidthScale">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellTextMarkItem.PrintingText">
@@ -4518,7 +4624,7 @@
             Draws a killer cage.
             </summary>
             <param name="cells">The cells.</param>
-            <param name="sizeScale">The scale of size of short side, related to a cell size.</param>
+            <param name="shortSideScale">The scale of size of short side, related to a cell size.</param>
             <param name="strokeColor">The stroke color of the cage outline.</param>
             <param name="strokeWidthScale">The scale of stroke width, related to cell size.</param>
             <param name="fillColor">The fill color.</param>
