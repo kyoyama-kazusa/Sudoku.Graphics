@@ -9,7 +9,7 @@ public sealed record CellFillItem : FillItem, IItem_CellProperty, IItem_Template
 	public required int TemplateIndex { get; init; }
 
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellFill;
+	public override ItemType Type => ItemType.Fill_Cell;
 
 	/// <inheritdoc/>
 	public required Absolute Cell { get; init; }

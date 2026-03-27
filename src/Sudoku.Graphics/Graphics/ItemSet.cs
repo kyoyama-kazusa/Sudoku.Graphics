@@ -24,6 +24,11 @@ public sealed partial class ItemSet :
 	/// </summary>
 	public int Count => _itemsLookup.Values.Sum(Enumerable.Count);
 
+	/// <summary>
+	/// Indicates the item types used in this collection.
+	/// </summary>
+	public ReadOnlySpan<ItemType> Types => _itemsLookup.Keys.ToArray();
+
 	/// <inheritdoc/>
 	bool ICollection<Item>.IsReadOnly => false;
 

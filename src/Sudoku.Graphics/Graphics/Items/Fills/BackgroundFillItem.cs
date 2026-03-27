@@ -6,7 +6,7 @@
 public sealed record BackgroundFillItem : FillItem
 {
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.BackgroundFill;
+	public override ItemType Type => ItemType.Fill_Background;
 
 
 	/// <inheritdoc/>

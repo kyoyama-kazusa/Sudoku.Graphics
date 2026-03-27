@@ -6,7 +6,7 @@
 public sealed record CandidateFillItem : FillItem, IItem_CandidatePositionProperty, IItem_TemplateIndexProperty
 {
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CandidateFill;
+	public override ItemType Type => ItemType.Fill_Candidate;
 
 	/// <inheritdoc/>
 	public required int TemplateIndex { get; init; }

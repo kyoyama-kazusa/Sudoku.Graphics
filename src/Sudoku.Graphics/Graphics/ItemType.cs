@@ -23,17 +23,17 @@ public enum ItemType
 	/// <summary>
 	/// Indicates the background filling.
 	/// </summary>
-	BackgroundFill,
+	Fill_Background,
 
 	/// <summary>
 	/// Indicates cell filling.
 	/// </summary>
-	CellFill,
+	Fill_Cell,
 
 	/// <summary>
 	/// Indicates candidate filling.
 	/// </summary>
-	CandidateFill,
+	Fill_Candidate,
 	#endregion
 
 	//
@@ -239,6 +239,11 @@ public enum ItemType
 	/// Indicates bridge line cell pair mark.
 	/// </summary>
 	CellPairMark_BridgeLine,
+
+	/// <summary>
+	/// Indicates adjacent cell pair bar mark.
+	/// </summary>
+	CellPairMark_Bar,
 	#endregion
 
 	//
@@ -280,9 +285,4 @@ public enum ItemType
 	/// </summary>
 	VariantLine,
 	#endregion
-
-	/// <summary>
-	/// Indicates adjacent cell pair bar mark.
-	/// </summary>
-	CellPairMark_Bar,
 }

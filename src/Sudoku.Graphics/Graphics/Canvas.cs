@@ -39,6 +39,11 @@ public sealed class Canvas : IDisposable
 	public GridTemplateSize GlobalTemplateSize { get; }
 
 	/// <summary>
+	/// Indicates The ordering on rendering items.
+	/// </summary>
+	public ItemTypeOrdering Ordering { get; init; } = ItemTypeOrdering.Default;
+
+	/// <summary>
 	/// Indicates all templates.
 	/// </summary>
 	public Template[] Templates { get; }
@@ -59,7 +64,21 @@ public sealed class Canvas : IDisposable
 	/// Try to draw the specified list of items onto the current canvas.
 	/// </summary>
 	/// <param name="items">The items to draw.</param>
-	public void DrawItems(params ItemSet items) => items.ForEach(item => item.DrawTo(this));
+	public void DrawItems(params ItemSet items)
+	{
+		var typesSorted = new SortedSet<ItemType>(Comparer<ItemType>.Create((left, right) => Ordering[left] - Ordering[right]));
+		foreach (var itemType in items.Types)
+		{
+			typesSorted.Add(itemType);
+		}
+		foreach (var type in typesSorted)
+		{
+			foreach (var item in items[type])
+			{
+				item.DrawTo(this);
+			}
+		}
+	}
 
 	/// <inheritdoc/>
 	public void Dispose()
