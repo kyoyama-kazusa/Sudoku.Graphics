@@ -1679,6 +1679,17 @@
             <param name="houseType">The house type.</param>
             <returns>A <see cref="T:System.Boolean"/> result.</returns>
         </member>
+        <member name="M:Sudoku.Graphics.Absolute.GetAdjacentRelation(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Gets the detailed adjacent relations between two cells specified,
+            and return the relative direction of <paramref name="left"/>.
+            If there's no adjacent relation between two cells, <see cref="F:Sudoku.ComponentModel.Directions.Direction8.None"/> will be returned.
+            </summary>
+            <param name="left">The left instance.</param>
+            <param name="right">The right instance.</param>
+            <param name="mapper">The point mapper instance.</param>
+            <returns>The direction instance.</returns>
+        </member>
         <member name="M:Sudoku.Graphics.Absolute.op_Implicit(System.Int32)~Sudoku.Graphics.Absolute">
             <inheritdoc/>
         </member>
@@ -3377,6 +3388,28 @@
         <member name="M:Sudoku.Graphics.Items.CellPairMarks.CellPairBridgeLineMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.Items.CellPairMarks.CellPairConnectionLineMarkItem">
+            <summary>
+            Represents a cell pair connection line mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairConnectionLineMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairConnectionLineMarkItem.SizeScale">
+            <summary>
+            Indicates the size scale.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairConnectionLineMarkItem.StrokeWidthScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairConnectionLineMarkItem.StrokeColor">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellPairMarks.CellPairConnectionLineMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.Items.CellPairMarks.CellPairMarkItem">
             <summary>
             Represents a cell pair mark item.
@@ -4190,6 +4223,11 @@
             Indicates adjacent cell pair bar mark.
             </summary>
         </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellPair_ConnectionLine">
+            <summary>
+            Indicates cell connection line mark.
+            </summary>
+        </member>
         <member name="F:Sudoku.Graphics.ItemType.CellGroup_Thermometer">
             <summary>
             Indicates thermometer cell group mark.
@@ -4666,6 +4704,9 @@
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawBar(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBar(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
         </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawConnectionLine(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawConnectionLine(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
+        </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawBridgeAndConnectedCircles(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,System.Boolean,System.Boolean,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBridgeAndConnectedCircles(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,System.Boolean,System.Boolean,Sudoku.Graphics.PointMapper)"/>
         </member>
@@ -5099,6 +5140,17 @@
             <param name="cornerRadiusScale">The scale of corner radius of bar, related to short side length.</param>
             <param name="mapper">The point mapper instance.</param>
             <exception cref="T:System.ArgumentException">Throws when cells are not adjacent with each other.</exception>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawConnectionLine(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Draws a connection line between two adjacent cells, including diagonally-adjacent cases.
+            </summary>
+            <param name="cell1">The cell 1.</param>
+            <param name="cell2">The cell 2.</param>
+            <param name="strokeWidthScale">The scale of stroke width, related to cell size.</param>
+            <param name="strokeColor">The color of stroke.</param>
+            <param name="strokeSizeScale">The scale of stroke size, related to cell size.</param>
+            <param name="mapper">The point mapper instance.</param>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBridgeAndConnectedCircles(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,System.Boolean,System.Boolean,Sudoku.Graphics.PointMapper)">
             <summary>

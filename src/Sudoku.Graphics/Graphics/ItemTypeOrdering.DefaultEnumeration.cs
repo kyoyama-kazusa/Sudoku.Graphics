@@ -75,6 +75,7 @@ public partial class ItemTypeOrdering
 			yield return ItemType.Line_Variant;
 
 			yield return ItemType.CellPair_Bar;
+			yield return ItemType.CellPair_ConnectionLine;
 		}
 	}
 }

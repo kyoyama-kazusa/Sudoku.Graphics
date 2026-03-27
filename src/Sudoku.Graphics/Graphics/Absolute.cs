@@ -92,6 +92,36 @@ public readonly struct Absolute(int value) : IInteger<Absolute>, ILocator<Absolu
 		return result;
 	}
 
+	/// <summary>
+	/// Gets the detailed adjacent relations between two cells specified,
+	/// and return the relative direction of <paramref name="left"/>.
+	/// If there's no adjacent relation between two cells, <see cref="Direction8.None"/> will be returned.
+	/// </summary>
+	/// <param name="left">The left instance.</param>
+	/// <param name="right">The right instance.</param>
+	/// <param name="mapper">The point mapper instance.</param>
+	/// <returns>The direction instance.</returns>
+	public static Direction8 GetAdjacentRelation(Absolute left, Absolute right, PointMapper mapper)
+	{
+		var columnsCount = mapper.ColumnsCount;
+		var leftRow = left / columnsCount;
+		var leftColumn = left % columnsCount;
+		var rightRow = right / columnsCount;
+		var rightColumn = right % columnsCount;
+		return (leftRow - rightRow, leftColumn - rightColumn) switch
+		{
+			(-1, -1) => Direction8.LeftUp,
+			(-1, 0) => Direction8.Up,
+			(-1, 1) => Direction8.RightUp,
+			(0, -1) => Direction8.Left,
+			(0, 1) => Direction8.Right,
+			(1, -1) => Direction8.LeftDown,
+			(1, 0) => Direction8.Down,
+			(1, 1) => Direction8.RightDown,
+			_ => Direction8.None
+		};
+	}
+
 
 	/// <inheritdoc/>
 	public static implicit operator Absolute(int value) => new(value);
