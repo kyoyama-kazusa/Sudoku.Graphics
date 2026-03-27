@@ -42,11 +42,11 @@ canvas.DrawItems(
 	[
 		new BackgroundFillItem { Color = SKColors.White },
 		new TemplateLineItem(),
-		new CellPairKropkiSquareMarkItem
+		new CellPairKropkiMarkItem
 		{
 			TemplateIndex = 0,
-			Cell1 = 0,
-			Cell2 = 1,
+			Cell1 = 13,
+			Cell2 = 18,
 			SizeScale = sizeScale,
 			StrokeWidthScale = strokeWidthScale,
 			StrokeColor = strokeColor,
@@ -58,7 +58,7 @@ canvas.DrawItems(
 		{
 			TemplateIndex = 0,
 			Cell1 = 0,
-			Cell2 = 6,
+			Cell2 = 7,
 			SizeScale = sizeScale,
 			StrokeWidthScale = strokeWidthScale,
 			StrokeColor = strokeColor,
