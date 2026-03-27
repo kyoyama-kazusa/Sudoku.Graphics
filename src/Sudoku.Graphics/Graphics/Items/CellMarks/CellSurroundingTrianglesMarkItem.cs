@@ -16,7 +16,7 @@ public sealed record CellSurroundingTrianglesMarkItem : CellMarkItem
 	public required Scale TipDistanceScale { get; init; }
 
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellMark_SurroundingTriangles;
+	public override ItemType Type => ItemType.Cell_SurroundingTriangles;
 
 
 	/// <inheritdoc/>

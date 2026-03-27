@@ -9,7 +9,7 @@ public sealed record CellArrowMarkItem : CellMarkItem, IItem_DirectionProperty<D
 	public required Direction8 Direction { get; init; }
 
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellMark_Arrow;
+	public override ItemType Type => ItemType.Cell_Arrow;
 
 	/// <summary>
 	/// Indicates the triangle width scale, related to cell size.

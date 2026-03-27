@@ -9,7 +9,7 @@ public sealed record CellHalveLineMarkItem : CellMarkItem, IItem_OrientationProp
 	public required Orientation4 Orientation { get; init; }
 
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellMark_HalveLine;
+	public override ItemType Type => ItemType.Cell_HalveLine;
 
 
 	/// <inheritdoc/>

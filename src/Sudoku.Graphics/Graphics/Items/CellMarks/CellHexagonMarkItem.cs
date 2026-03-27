@@ -9,7 +9,7 @@ public sealed record CellHexagonMarkItem : CellMarkItem, IItem_OrientationProper
 	public required Orientation2 Orientation { get; init; }
 
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellMark_Hexagon;
+	public override ItemType Type => ItemType.Cell_Hexagon;
 
 
 	/// <inheritdoc/>

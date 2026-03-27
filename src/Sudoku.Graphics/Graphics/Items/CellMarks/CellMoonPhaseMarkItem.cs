@@ -11,7 +11,7 @@ public sealed record CellMoonPhaseMarkItem : CellMarkItem
 	public required MoonPhase Phase { get; init; }
 
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellMark_MoonPhase;
+	public override ItemType Type => ItemType.Cell_MoonPhase;
 
 
 	/// <inheritdoc/>

@@ -14,7 +14,7 @@ public sealed record CellBorderAlignedTextMarkItem : CellTextMarkItem
 	public override required Direction8 AlignedDirection { get; init; }
 
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellMark_BorderAlignedText;
+	public override ItemType Type => ItemType.Cell_BorderAlignedText;
 
 	/// <inheritdoc/>
 	protected override string PrintingText => Text;

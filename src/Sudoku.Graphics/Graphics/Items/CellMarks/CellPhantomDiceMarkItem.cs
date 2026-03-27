@@ -16,7 +16,7 @@ public sealed record CellPhantomDiceMarkItem : CellMarkItem
 	public required Scale PhantomStrokeWidthScale { get; init; }
 
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellMark_PhantomDice;
+	public override ItemType Type => ItemType.Cell_PhantomDice;
 
 	/// <summary>
 	/// Indicates the states.

@@ -6,7 +6,7 @@
 public sealed record CellGroupTrailMarkItem : CellGroupMarkItem
 {
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellGroupMark_CellTrail;
+	public override ItemType Type => ItemType.CellGroup_CellTrail;
 
 	/// <summary>
 	/// Indicates scale of size, related to cell size.

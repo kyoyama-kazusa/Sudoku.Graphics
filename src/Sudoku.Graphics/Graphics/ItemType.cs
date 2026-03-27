@@ -42,102 +42,102 @@ public enum ItemType
 	/// <summary>
 	/// Indicates cell tetris mark.
 	/// </summary>
-	CellMark_Tetris,
+	Cell_Tetris,
 
 	/// <summary>
 	/// Indicates cell dice mark.
 	/// </summary>
-	CellMark_Dice,
+	Cell_Dice,
 
 	/// <summary>
 	/// Indicates cell phantom dice mark.
 	/// </summary>
-	CellMark_PhantomDice,
+	Cell_PhantomDice,
 
 	/// <summary>
 	/// Indicates cell surrounding triangles mark.
 	/// </summary>
-	CellMark_SurroundingTriangles,
+	Cell_SurroundingTriangles,
 
 	/// <summary>
 	/// Indicates cell square mark.
 	/// </summary>
-	CellMark_Square,
+	Cell_Square,
 
 	/// <summary>
 	/// Indicates cell circle mark.
 	/// </summary>
-	CellMark_Circle,
+	Cell_Circle,
 
 	/// <summary>
 	/// Indicates cell polygon mark.
 	/// </summary>
-	CellMark_Polygon,
+	Cell_Polygon,
 
 	/// <summary>
 	/// Indicates cell cross mark.
 	/// </summary>
-	CellMark_Cross,
+	Cell_Cross,
 
 	/// <summary>
 	/// Indicates cell moon phase mark.
 	/// </summary>
-	CellMark_MoonPhase,
+	Cell_MoonPhase,
 
 	/// <summary>
 	/// Indicates cell arrow triangle mark.
 	/// </summary>
-	CellMark_ArrowTriangle,
+	Cell_ArrowTriangle,
 
 	/// <summary>
 	/// Indicates cell arrow mark.
 	/// </summary>
-	CellMark_Arrow,
+	Cell_Arrow,
 
 	/// <summary>
 	/// Indicates cell apex corner triangle mark.
 	/// </summary>
-	CellMark_ApexCornerTriangle,
+	Cell_ApexCornerTriangle,
 
 	/// <summary>
 	/// Indicates cell halve line mark.
 	/// </summary>
-	CellMark_HalveLine,
+	Cell_HalveLine,
 
 	/// <summary>
 	/// Indicates cell diamond mark.
 	/// </summary>
-	CellMark_Diamond,
+	Cell_Diamond,
 
 	/// <summary>
 	/// Indicates cell hexagon mark.
 	/// </summary>
-	CellMark_Hexagon,
+	Cell_Hexagon,
 
 	/// <summary>
 	/// Indicates cell triangle mark.
 	/// </summary>
-	CellMark_Triangle,
+	Cell_Triangle,
 
 	/// <summary>
 	/// Indicates cell battenburg mark.
 	/// </summary>
-	CellMark_Battenburg,
+	Cell_Battenburg,
 
 	/// <summary>
 	/// Indicates cell seven segment display mark.
 	/// </summary>
-	CellMark_SevenSegmentDisplay,
+	Cell_SevenSegmentDisplay,
 
 	/// <summary>
 	/// Indicates cell border-aligned triangle mark.
 	/// </summary>
-	CellMark_BorderAlignedTriangle,
+	Cell_BorderAlignedTriangle,
 
 	/// <summary>
 	/// Indicates cell border-aligned arrow mark.
 	/// </summary>
-	CellMark_BorderAlignedArrow,
+	Cell_BorderAlignedArrow,
 	#endregion
 
 	//
@@ -147,12 +147,12 @@ public enum ItemType
 	/// <summary>
 	/// Indicates circle candidate mark.
 	/// </summary>
-	CandidateMark_Circle,
+	Candidate_Circle,
 
 	/// <summary>
 	/// Indicates candidate cross mark.
 	/// </summary>
-	CandidateMark_Cross,
+	Candidate_Cross,
 	#endregion
 
 	//
@@ -162,17 +162,17 @@ public enum ItemType
 	/// <summary>
 	/// Indicates given text.
 	/// </summary>
-	GivenText,
+	Text_Given,
 
 	/// <summary>
 	/// Indicates modifiable text.
 	/// </summary>
-	ModifiableText,
+	Text_Modifiable,
 
 	/// <summary>
 	/// Indicates candidate text.
 	/// </summary>
-	CandidateText,
+	Text_Candidate,
 	#endregion
 
 	//
@@ -182,52 +182,52 @@ public enum ItemType
 	/// <summary>
 	/// Indicates cell question mark.
 	/// </summary>
-	CellMark_QuestionText,
+	Cell_QuestionText,
 
 	/// <summary>
 	/// Indicates cell exclamation mark.
 	/// </summary>
-	CellMark_ExclamationText,
+	Cell_ExclamationText,
 
 	/// <summary>
 	/// Indicates cell suit text mark.
 	/// </summary>
-	CellMark_SuitText,
+	Cell_SuitText,
 
 	/// <summary>
 	/// Indicates cell emoji mark.
 	/// </summary>
-	CellMark_EmojiText,
+	Cell_EmojiText,
 
 	/// <summary>
 	/// Indicates cell zodiac emoji mark.
 	/// </summary>
-	CellMark_ZodiacEmojiText,
+	Cell_ZodiacEmojiText,
 
 	/// <summary>
 	/// Indicates cell arrow text mark.
 	/// </summary>
-	CellMark_ArrowText,
+	Cell_ArrowText,
 
 	/// <summary>
 	/// Indicates arithmetic operator text mark.
 	/// </summary>
-	CellMark_ArithmeticOperatorText,
+	Cell_ArithmeticOperatorText,
 
 	/// <summary>
 	/// Indicates bitwise operator text mark.
 	/// </summary>
-	CellMark_BitwiseOperatorText,
+	Cell_BitwiseOperatorText,
 
 	/// <summary>
 	/// Indicates comparison operator text mark.
 	/// </summary>
-	CellMark_ComparisonOperatorText,
+	Cell_ComparisonOperatorText,
 
 	/// <summary>
 	/// Indicates cell border-aligned text mark.
 	/// </summary>
-	CellMark_BorderAlignedText,
+	Cell_BorderAlignedText,
 	#endregion
 
 	//
@@ -237,12 +237,12 @@ public enum ItemType
 	/// <summary>
 	/// Indicates bridge line cell pair mark.
 	/// </summary>
-	CellPairMark_BridgeLine,
+	CellPair_BridgeLine,
 
 	/// <summary>
 	/// Indicates adjacent cell pair bar mark.
 	/// </summary>
-	CellPairMark_Bar,
+	CellPair_Bar,
 	#endregion
 
 	//
@@ -252,22 +252,22 @@ public enum ItemType
 	/// <summary>
 	/// Indicates thermometer cell group mark.
 	/// </summary>
-	CellGroupMark_Thermometer,
+	CellGroup_Thermometer,
 
 	/// <summary>
 	/// Indicates capsule with arrow line cell group mark.
 	/// </summary>
-	CellGroupMark_CapsuleWithArrowLine,
+	CellGroup_CapsuleWithArrowLine,
 
 	/// <summary>
 	/// Indicates cell trail cell group mark.
 	/// </summary>
-	CellGroupMark_CellTrail,
+	CellGroup_CellTrail,
 
 	/// <summary>
 	/// Indicates killer cage cell group mark.
 	/// </summary>
-	CellGroupMark_KillerCage,
+	CellGroup_KillerCage,
 	#endregion
 
 	//
@@ -277,11 +277,11 @@ public enum ItemType
 	/// <summary>
 	/// Indicates template line strokes.
 	/// </summary>
-	TemplateLine,
+	Line_Template,
 
 	/// <summary>
 	/// Indicates variant line strokes.
 	/// </summary>
-	VariantLine,
+	Line_Variant,
 	#endregion
 }

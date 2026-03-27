@@ -6,7 +6,7 @@
 public sealed record CandidateTextItem : TextItem, IItem_CandidatePositionProperty
 {
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CandidateText;
+	public override ItemType Type => ItemType.Text_Candidate;
 
 	/// <inheritdoc/>
 	public required CandidatePosition CandidatePosition { get; init; }

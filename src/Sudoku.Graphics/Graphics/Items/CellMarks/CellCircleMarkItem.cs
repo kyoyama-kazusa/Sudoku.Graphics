@@ -6,7 +6,7 @@
 public sealed record CellCircleMarkItem : CellMarkItem
 {
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellMark_Circle;
+	public override ItemType Type => ItemType.Cell_Circle;
 
 
 	/// <inheritdoc/>

@@ -19,60 +19,62 @@ public partial class ItemTypeOrdering
 			yield return ItemType.Fill_Candidate;
 
 			// Cell marks
-			yield return ItemType.CellMark_Tetris;
-			yield return ItemType.CellMark_Dice;
-			yield return ItemType.CellMark_PhantomDice;
-			yield return ItemType.CellMark_SurroundingTriangles;
-			yield return ItemType.CellMark_Square;
-			yield return ItemType.CellMark_Circle;
-			yield return ItemType.CellMark_Polygon;
-			yield return ItemType.CellMark_Cross;
-			yield return ItemType.CellMark_MoonPhase;
-			yield return ItemType.CellMark_ArrowTriangle;
-			yield return ItemType.CellMark_Arrow;
-			yield return ItemType.CellMark_ApexCornerTriangle;
-			yield return ItemType.CellMark_HalveLine;
-			yield return ItemType.CellMark_Diamond;
-			yield return ItemType.CellMark_Hexagon;
-			yield return ItemType.CellMark_Triangle;
-			yield return ItemType.CellMark_Battenburg;
-			yield return ItemType.CellMark_SevenSegmentDisplay;
-			yield return ItemType.CellMark_BorderAlignedTriangle;
-			yield return ItemType.CellMark_BorderAlignedArrow;
+			yield return ItemType.Cell_Tetris;
+			yield return ItemType.Cell_Dice;
+			yield return ItemType.Cell_PhantomDice;
+			yield return ItemType.Cell_SurroundingTriangles;
+			yield return ItemType.Cell_Square;
+			yield return ItemType.Cell_Circle;
+			yield return ItemType.Cell_Polygon;
+			yield return ItemType.Cell_Cross;
+			yield return ItemType.Cell_MoonPhase;
+			yield return ItemType.Cell_ArrowTriangle;
+			yield return ItemType.Cell_Arrow;
+			yield return ItemType.Cell_ApexCornerTriangle;
+			yield return ItemType.Cell_HalveLine;
+			yield return ItemType.Cell_Diamond;
+			yield return ItemType.Cell_Hexagon;
+			yield return ItemType.Cell_Triangle;
+			yield return ItemType.Cell_Battenburg;
+			yield return ItemType.Cell_SevenSegmentDisplay;
+			yield return ItemType.Cell_BorderAlignedTriangle;
+			yield return ItemType.Cell_BorderAlignedArrow;
 
 			// Candidate marks
-			yield return ItemType.CandidateMark_Circle;
-			yield return ItemType.CandidateMark_Cross;
+			yield return ItemType.Candidate_Circle;
+			yield return ItemType.Candidate_Cross;
 
 			// Text
-			yield return ItemType.GivenText;
-			yield return ItemType.ModifiableText;
-			yield return ItemType.CandidateText;
-			yield return ItemType.CellMark_QuestionText;
-			yield return ItemType.CellMark_ExclamationText;
-			yield return ItemType.CellMark_SuitText;
-			yield return ItemType.CellMark_EmojiText;
-			yield return ItemType.CellMark_ZodiacEmojiText;
-			yield return ItemType.CellMark_ArrowText;
-			yield return ItemType.CellMark_ArithmeticOperatorText;
-			yield return ItemType.CellMark_BitwiseOperatorText;
-			yield return ItemType.CellMark_ComparisonOperatorText;
-			yield return ItemType.CellMark_BorderAlignedText;
+			yield return ItemType.Text_Given;
+			yield return ItemType.Text_Modifiable;
+			yield return ItemType.Text_Candidate;
+
+			// Cell text marks
+			yield return ItemType.Cell_QuestionText;
+			yield return ItemType.Cell_ExclamationText;
+			yield return ItemType.Cell_SuitText;
+			yield return ItemType.Cell_EmojiText;
+			yield return ItemType.Cell_ZodiacEmojiText;
+			yield return ItemType.Cell_ArrowText;
+			yield return ItemType.Cell_ArithmeticOperatorText;
+			yield return ItemType.Cell_BitwiseOperatorText;
+			yield return ItemType.Cell_ComparisonOperatorText;
+			yield return ItemType.Cell_BorderAlignedText;
 
 			// Cell pair marks
-			yield return ItemType.CellPairMark_BridgeLine;
+			yield return ItemType.CellPair_BridgeLine;
 
 			// Cell group marks
-			yield return ItemType.CellGroupMark_Thermometer;
-			yield return ItemType.CellGroupMark_CapsuleWithArrowLine;
-			yield return ItemType.CellGroupMark_CellTrail;
-			yield return ItemType.CellGroupMark_KillerCage;
+			yield return ItemType.CellGroup_Thermometer;
+			yield return ItemType.CellGroup_CapsuleWithArrowLine;
+			yield return ItemType.CellGroup_CellTrail;
+			yield return ItemType.CellGroup_KillerCage;
 
 			// Lines
-			yield return ItemType.TemplateLine;
-			yield return ItemType.VariantLine;
+			yield return ItemType.Line_Template;
+			yield return ItemType.Line_Variant;
 
-			yield return ItemType.CellPairMark_Bar;
+			yield return ItemType.CellPair_Bar;
 		}
 	}
 }

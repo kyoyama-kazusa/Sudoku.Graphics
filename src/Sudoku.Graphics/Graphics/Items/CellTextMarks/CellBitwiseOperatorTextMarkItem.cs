@@ -6,5 +6,5 @@
 public sealed record CellBitwiseOperatorTextMarkItem : CellMathSymbolTextMarkItem<BitwiseOperator>
 {
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellMark_BitwiseOperatorText;
+	public override ItemType Type => ItemType.Cell_BitwiseOperatorText;
 }

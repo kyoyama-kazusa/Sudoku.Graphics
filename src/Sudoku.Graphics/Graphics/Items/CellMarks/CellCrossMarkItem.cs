@@ -6,7 +6,7 @@
 public sealed record CellCrossMarkItem : CellMarkItem
 {
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellMark_Cross;
+	public override ItemType Type => ItemType.Cell_Cross;
 
 
 	/// <inheritdoc/>

@@ -6,5 +6,5 @@
 public sealed record CellComparisonOperatorTextMarkItem : CellMathSymbolTextMarkItem<ComparisonOperator>
 {
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellMark_ComparisonOperatorText;
+	public override ItemType Type => ItemType.Cell_ComparisonOperatorText;
 }

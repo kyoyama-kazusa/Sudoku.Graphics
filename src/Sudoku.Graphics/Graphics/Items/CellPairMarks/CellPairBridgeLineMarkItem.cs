@@ -21,7 +21,7 @@ public sealed record CellPairBridgeLineMarkItem : CellPairMarkItem
 	public required int LinesCount { get; init; }
 
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellPairMark_BridgeLine;
+	public override ItemType Type => ItemType.CellPair_BridgeLine;
 
 	/// <summary>
 	/// Indicates the scale of maximum gap among lines, related to circle diameter.

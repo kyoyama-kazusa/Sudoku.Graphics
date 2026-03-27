@@ -9,7 +9,7 @@ public sealed record CellDiceMarkItem : CellMarkItem, IItem_ValueProperty<int>
 	public required int Value { get; init; }
 
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellMark_Dice;
+	public override ItemType Type => ItemType.Cell_Dice;
 
 
 	/// <inheritdoc/>

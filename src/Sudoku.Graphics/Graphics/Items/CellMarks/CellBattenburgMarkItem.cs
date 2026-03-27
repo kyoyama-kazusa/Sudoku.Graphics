@@ -21,7 +21,7 @@ public sealed record CellBattenburgMarkItem : CellMarkItem
 	public required Scale UniformCornerRadius { get; init; }
 
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellMark_Battenburg;
+	public override ItemType Type => ItemType.Cell_Battenburg;
 
 
 	/// <inheritdoc/>

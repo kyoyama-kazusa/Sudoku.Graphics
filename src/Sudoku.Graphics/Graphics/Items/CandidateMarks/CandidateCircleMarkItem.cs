@@ -6,7 +6,7 @@
 public sealed record CandidateCircleMarkItem : CandidateMarkItem
 {
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CandidateMark_Circle;
+	public override ItemType Type => ItemType.Candidate_Circle;
 
 	/// <inheritdoc/>
 	public override required Scale SizeScale { get; init; }

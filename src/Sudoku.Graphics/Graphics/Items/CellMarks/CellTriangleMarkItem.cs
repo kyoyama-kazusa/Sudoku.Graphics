@@ -9,7 +9,7 @@ public sealed record CellTriangleMarkItem : CellMarkItem, IItem_DirectionPropert
 	public required Direction8 Direction { get; init; }
 
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellMark_Triangle;
+	public override ItemType Type => ItemType.Cell_Triangle;
 
 
 	/// <inheritdoc/>

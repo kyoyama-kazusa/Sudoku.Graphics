@@ -11,7 +11,7 @@ public sealed record CellZodiacEmojiMarkItem : CellTextMarkItem
 	public required ZodiacAnimal Zodiac { get; init; }
 
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellMark_ZodiacEmojiText;
+	public override ItemType Type => ItemType.Cell_ZodiacEmojiText;
 
 	/// <inheritdoc/>
 	protected override string PrintingText

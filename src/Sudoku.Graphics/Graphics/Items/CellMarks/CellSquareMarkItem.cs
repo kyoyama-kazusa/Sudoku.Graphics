@@ -6,7 +6,7 @@
 public sealed record CellSquareMarkItem : CellMarkItem
 {
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellMark_Square;
+	public override ItemType Type => ItemType.Cell_Square;
 
 
 	/// <inheritdoc/>

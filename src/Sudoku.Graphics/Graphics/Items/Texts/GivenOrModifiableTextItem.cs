@@ -6,7 +6,7 @@
 public abstract record GivenOrModifiableTextItem : TextItem, IItem_CellProperty
 {
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.GivenText;
+	public override ItemType Type => ItemType.Text_Given;
 
 	/// <inheritdoc/>
 	public required Absolute Cell { get; init; }

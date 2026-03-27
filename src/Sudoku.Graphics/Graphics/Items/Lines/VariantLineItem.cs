@@ -14,7 +14,7 @@ public sealed record VariantLineItem : LineItem, IItem_ColorProperty, IItem_Temp
 	public required int TemplateIndex { get; init; }
 
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.VariantLine;
+	public override ItemType Type => ItemType.Line_Variant;
 
 	/// <summary>
 	/// Indicates start cell alignment.

@@ -12,7 +12,7 @@ public sealed record CellApexCornerTriangleMarkItem : CellMarkItem
 	public required Alignment CornerAlignment { get; init; }
 
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellMark_ApexCornerTriangle;
+	public override ItemType Type => ItemType.Cell_ApexCornerTriangle;
 
 	/// <summary>
 	/// Indicates padding scale (distance to border of cells).

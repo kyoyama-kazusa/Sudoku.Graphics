@@ -16,7 +16,7 @@ public sealed record CellTetrisMarkItem : CellMarkItem
 	public RotationType RotationType { get; init; } = RotationType.None;
 
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellMark_Tetris;
+	public override ItemType Type => ItemType.Cell_Tetris;
 
 
 	/// <inheritdoc/>

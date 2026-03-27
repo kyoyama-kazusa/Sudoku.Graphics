@@ -29,7 +29,7 @@ public sealed record CellSevenSegmentDisplayMarkItem : CellMarkItem, IItem_Value
 	public required Scale PhantomStrokeWidthScale { get; init; }
 
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellMark_SevenSegmentDisplay;
+	public override ItemType Type => ItemType.Cell_SevenSegmentDisplay;
 
 
 	/// <inheritdoc/>

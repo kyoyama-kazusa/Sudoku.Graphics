@@ -14,7 +14,7 @@ public sealed record CellArrowTriangleMarkItem : CellMarkItem, IItem_DirectionPr
 	public required Scale BaseScale { get; init; }
 
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellMark_ArrowTriangle;
+	public override ItemType Type => ItemType.Cell_ArrowTriangle;
 
 
 	/// <inheritdoc/>

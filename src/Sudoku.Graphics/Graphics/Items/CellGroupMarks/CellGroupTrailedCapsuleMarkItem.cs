@@ -11,7 +11,7 @@ public sealed record CellGroupTrailedCapsuleMarkItem : CellGroupMarkItem
 	public required float HalfArrowCapRotationDegrees { get; init; }
 
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellGroupMark_CapsuleWithArrowLine;
+	public override ItemType Type => ItemType.CellGroup_CapsuleWithArrowLine;
 
 	/// <summary>
 	/// Indicates scale of capsule, related to cell size.

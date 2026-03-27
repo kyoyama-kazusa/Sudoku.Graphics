@@ -11,7 +11,7 @@ public sealed record CellArrowTextMarkItem : CellTextMarkItem
 	public required Direction8 Direction { get; init; }
 
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellMark_ArrowText;
+	public override ItemType Type => ItemType.Cell_ArrowText;
 
 	/// <inheritdoc/>
 	protected override string PrintingText => Direction.ArrowString;

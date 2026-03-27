@@ -6,7 +6,7 @@
 public sealed record CellPairBarMarkItem : CellPairMarkItem
 {
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellPairMark_Bar;
+	public override ItemType Type => ItemType.CellPair_Bar;
 
 	/// <summary>
 	/// Indicates the scale of short side, related to cell size.

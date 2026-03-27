@@ -45,7 +45,7 @@ public sealed record CellGroupKillerCageMarkItem : CellGroupMarkItem
 	public override string? TextFontName { get; init; }
 
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellGroupMark_KillerCage;
+	public override ItemType Type => ItemType.CellGroup_KillerCage;
 
 	/// <inheritdoc/>
 	public override SKFontStyleWeight FontWeight { get; init; } = SKFontStyleWeight.Normal;

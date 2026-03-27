@@ -6,5 +6,5 @@
 public sealed record CellArithmeticOperatorTextMarkItem : CellMathSymbolTextMarkItem<ArithmeticOperator>
 {
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellMark_ArithmeticOperatorText;
+	public override ItemType Type => ItemType.Cell_ArithmeticOperatorText;
 }

@@ -19,7 +19,7 @@ public sealed record TemplateLineItem : LineItem, IItem_ColorProperty
 	public SerializableColor TemplateIntersectionCellsColor { get; init; }
 
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.TemplateLine;
+	public override ItemType Type => ItemType.Line_Template;
 
 	/// <inheritdoc/>
 	SerializableColor IItem_ColorProperty.Color

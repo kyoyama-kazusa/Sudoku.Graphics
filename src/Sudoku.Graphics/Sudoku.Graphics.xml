@@ -4005,217 +4005,217 @@
             Indicates candidate filling.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellMark_Tetris">
+        <member name="F:Sudoku.Graphics.ItemType.Cell_Tetris">
             <summary>
             Indicates cell tetris mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellMark_Dice">
+        <member name="F:Sudoku.Graphics.ItemType.Cell_Dice">
             <summary>
             Indicates cell dice mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellMark_PhantomDice">
+        <member name="F:Sudoku.Graphics.ItemType.Cell_PhantomDice">
             <summary>
             Indicates cell phantom dice mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellMark_SurroundingTriangles">
+        <member name="F:Sudoku.Graphics.ItemType.Cell_SurroundingTriangles">
             <summary>
             Indicates cell surrounding triangles mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellMark_Square">
+        <member name="F:Sudoku.Graphics.ItemType.Cell_Square">
             <summary>
             Indicates cell square mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellMark_Circle">
+        <member name="F:Sudoku.Graphics.ItemType.Cell_Circle">
             <summary>
             Indicates cell circle mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellMark_Polygon">
+        <member name="F:Sudoku.Graphics.ItemType.Cell_Polygon">
             <summary>
             Indicates cell polygon mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellMark_Cross">
+        <member name="F:Sudoku.Graphics.ItemType.Cell_Cross">
             <summary>
             Indicates cell cross mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellMark_MoonPhase">
+        <member name="F:Sudoku.Graphics.ItemType.Cell_MoonPhase">
             <summary>
             Indicates cell moon phase mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellMark_ArrowTriangle">
+        <member name="F:Sudoku.Graphics.ItemType.Cell_ArrowTriangle">
             <summary>
             Indicates cell arrow triangle mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellMark_Arrow">
+        <member name="F:Sudoku.Graphics.ItemType.Cell_Arrow">
             <summary>
             Indicates cell arrow mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellMark_ApexCornerTriangle">
+        <member name="F:Sudoku.Graphics.ItemType.Cell_ApexCornerTriangle">
             <summary>
             Indicates cell apex corner triangle mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellMark_HalveLine">
+        <member name="F:Sudoku.Graphics.ItemType.Cell_HalveLine">
             <summary>
             Indicates cell halve line mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellMark_Diamond">
+        <member name="F:Sudoku.Graphics.ItemType.Cell_Diamond">
             <summary>
             Indicates cell diamond mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellMark_Hexagon">
+        <member name="F:Sudoku.Graphics.ItemType.Cell_Hexagon">
             <summary>
             Indicates cell hexagon mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellMark_Triangle">
+        <member name="F:Sudoku.Graphics.ItemType.Cell_Triangle">
             <summary>
             Indicates cell triangle mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellMark_Battenburg">
+        <member name="F:Sudoku.Graphics.ItemType.Cell_Battenburg">
             <summary>
             Indicates cell battenburg mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellMark_SevenSegmentDisplay">
+        <member name="F:Sudoku.Graphics.ItemType.Cell_SevenSegmentDisplay">
             <summary>
             Indicates cell seven segment display mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellMark_BorderAlignedTriangle">
+        <member name="F:Sudoku.Graphics.ItemType.Cell_BorderAlignedTriangle">
             <summary>
             Indicates cell border-aligned triangle mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellMark_BorderAlignedArrow">
+        <member name="F:Sudoku.Graphics.ItemType.Cell_BorderAlignedArrow">
             <summary>
             Indicates cell border-aligned arrow mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CandidateMark_Circle">
+        <member name="F:Sudoku.Graphics.ItemType.Candidate_Circle">
             <summary>
             Indicates circle candidate mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CandidateMark_Cross">
+        <member name="F:Sudoku.Graphics.ItemType.Candidate_Cross">
             <summary>
             Indicates candidate cross mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.GivenText">
+        <member name="F:Sudoku.Graphics.ItemType.Text_Given">
             <summary>
             Indicates given text.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.ModifiableText">
+        <member name="F:Sudoku.Graphics.ItemType.Text_Modifiable">
             <summary>
             Indicates modifiable text.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CandidateText">
+        <member name="F:Sudoku.Graphics.ItemType.Text_Candidate">
             <summary>
             Indicates candidate text.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellMark_QuestionText">
+        <member name="F:Sudoku.Graphics.ItemType.Cell_QuestionText">
             <summary>
             Indicates cell question mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellMark_ExclamationText">
+        <member name="F:Sudoku.Graphics.ItemType.Cell_ExclamationText">
             <summary>
             Indicates cell exclamation mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellMark_SuitText">
+        <member name="F:Sudoku.Graphics.ItemType.Cell_SuitText">
             <summary>
             Indicates cell suit text mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellMark_EmojiText">
+        <member name="F:Sudoku.Graphics.ItemType.Cell_EmojiText">
             <summary>
             Indicates cell emoji mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellMark_ZodiacEmojiText">
+        <member name="F:Sudoku.Graphics.ItemType.Cell_ZodiacEmojiText">
             <summary>
             Indicates cell zodiac emoji mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellMark_ArrowText">
+        <member name="F:Sudoku.Graphics.ItemType.Cell_ArrowText">
             <summary>
             Indicates cell arrow text mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellMark_ArithmeticOperatorText">
+        <member name="F:Sudoku.Graphics.ItemType.Cell_ArithmeticOperatorText">
             <summary>
             Indicates arithmetic operator text mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellMark_BitwiseOperatorText">
+        <member name="F:Sudoku.Graphics.ItemType.Cell_BitwiseOperatorText">
             <summary>
             Indicates bitwise operator text mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellMark_ComparisonOperatorText">
+        <member name="F:Sudoku.Graphics.ItemType.Cell_ComparisonOperatorText">
             <summary>
             Indicates comparison operator text mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellMark_BorderAlignedText">
+        <member name="F:Sudoku.Graphics.ItemType.Cell_BorderAlignedText">
             <summary>
             Indicates cell border-aligned text mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellPairMark_BridgeLine">
+        <member name="F:Sudoku.Graphics.ItemType.CellPair_BridgeLine">
             <summary>
             Indicates bridge line cell pair mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellPairMark_Bar">
+        <member name="F:Sudoku.Graphics.ItemType.CellPair_Bar">
             <summary>
             Indicates adjacent cell pair bar mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellGroupMark_Thermometer">
+        <member name="F:Sudoku.Graphics.ItemType.CellGroup_Thermometer">
             <summary>
             Indicates thermometer cell group mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellGroupMark_CapsuleWithArrowLine">
+        <member name="F:Sudoku.Graphics.ItemType.CellGroup_CapsuleWithArrowLine">
             <summary>
             Indicates capsule with arrow line cell group mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellGroupMark_CellTrail">
+        <member name="F:Sudoku.Graphics.ItemType.CellGroup_CellTrail">
             <summary>
             Indicates cell trail cell group mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.CellGroupMark_KillerCage">
+        <member name="F:Sudoku.Graphics.ItemType.CellGroup_KillerCage">
             <summary>
             Indicates killer cage cell group mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.TemplateLine">
+        <member name="F:Sudoku.Graphics.ItemType.Line_Template">
             <summary>
             Indicates template line strokes.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.VariantLine">
+        <member name="F:Sudoku.Graphics.ItemType.Line_Variant">
             <summary>
             Indicates variant line strokes.
             </summary>

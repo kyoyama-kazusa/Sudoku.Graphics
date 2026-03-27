@@ -6,7 +6,7 @@
 public sealed record CandidateCrossMarkItem : CandidateMarkItem
 {
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CandidateMark_Cross;
+	public override ItemType Type => ItemType.Candidate_Cross;
 
 	/// <inheritdoc/>
 	public override required Scale SizeScale { get; init; }

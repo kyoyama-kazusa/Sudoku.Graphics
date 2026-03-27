@@ -6,7 +6,7 @@
 public sealed record CellGroupThermometerMarkItem : CellGroupMarkItem
 {
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellGroupMark_Thermometer;
+	public override ItemType Type => ItemType.CellGroup_Thermometer;
 
 	/// <summary>
 	/// Indicates scale of circle.

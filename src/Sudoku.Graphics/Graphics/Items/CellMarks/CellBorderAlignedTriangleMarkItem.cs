@@ -11,7 +11,7 @@ public sealed record CellBorderAlignedTriangleMarkItem : CellMarkItem, IItem_Dir
 	public required Direction4 AlignedDirection { get; init; }
 
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellMark_BorderAlignedTriangle;
+	public override ItemType Type => ItemType.Cell_BorderAlignedTriangle;
 
 	/// <inheritdoc/>
 	Direction4 IItem_DirectionProperty<Direction4>.Direction

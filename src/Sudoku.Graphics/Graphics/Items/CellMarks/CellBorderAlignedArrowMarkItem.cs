@@ -19,7 +19,7 @@ public sealed record CellBorderAlignedArrowMarkItem : CellMarkItem, IItem_Direct
 	public required RotationDirection RotationDirection { get; init; }
 
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellMark_BorderAlignedArrow;
+	public override ItemType Type => ItemType.Cell_BorderAlignedArrow;
 
 
 	/// <inheritdoc/>

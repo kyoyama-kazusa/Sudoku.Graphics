@@ -6,7 +6,7 @@
 public sealed record CellDiamondMarkItem : CellMarkItem
 {
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellMark_Diamond;
+	public override ItemType Type => ItemType.Cell_Diamond;
 
 
 	/// <inheritdoc/>

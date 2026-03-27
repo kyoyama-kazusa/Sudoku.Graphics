@@ -21,7 +21,7 @@ public sealed record CellPolygonMarkItem : CellMarkItem
 	public required int SidesCount { get; init; }
 
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CellMark_Polygon;
+	public override ItemType Type => ItemType.Cell_Polygon;
 
 	/// <summary>
 	/// Indicates concave inner scale. By default it's 0.
