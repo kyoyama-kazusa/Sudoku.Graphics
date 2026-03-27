@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Sudoku.Graphics;
+﻿namespace Sudoku.Graphics;
 
 public partial class SKCanvasDrawings
 {

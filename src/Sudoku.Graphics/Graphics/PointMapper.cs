@@ -226,6 +226,60 @@ public sealed record PointMapper : IEqualityOperators<PointMapper, PointMapper, 
 		};
 	}
 
+	/// <inheritdoc cref="GetPointBetween(Absolute, Absolute)"/>
+	public SKPoint GetPointBetween(Relative cell1, Relative cell2)
+		=> GetPointBetween(GetAbsoluteIndex(cell1), GetAbsoluteIndex(cell2));
+
+	/// <inheritdoc cref="GetPointBetweenWithAdjacentRelation(Absolute, Absolute, out Direction8)"/>
+	public SKPoint GetPointBetween(Relative cell1, Relative cell2, out Direction8 adjacentRelation)
+		=> GetPointBetweenWithAdjacentRelation(GetAbsoluteIndex(cell1), GetAbsoluteIndex(cell2), out adjacentRelation);
+
+	/// <summary>
+	/// Gets a point that is the center point of two cells; this method doesn't require two cells are adjacent with each other.
+	/// </summary>
+	/// <param name="cell1">The cell 1.</param>
+	/// <param name="cell2">The cell 2.</param>
+	/// <returns>The center point of two adjacent cells.</returns>
+	public SKPoint GetPointBetween(Absolute cell1, Absolute cell2)
+	{
+		var p1 = GetPoint(cell1, Alignment.Center);
+		var p2 = GetPoint(cell2, Alignment.Center);
+		return p1 == p2 ? p1 : new((p1.X + p2.X) / 2, (p1.Y + p2.Y) / 2);
+	}
+
+	/// <summary>
+	/// Gets a point that is the center point of two <b>adjacent</b> cells.
+	/// </summary>
+	/// <param name="cell1">The cell 1.</param>
+	/// <param name="cell2">The cell 2.</param>
+	/// <param name="adjacentRelation">The adjacent direction between two cells.</param>
+	/// <returns>The center point of two adjacent cells.</returns>
+	/// <exception cref="ArgumentException">Throws when the specified pair of cells are not adjacent with each other.</exception>
+	public SKPoint GetPointBetweenWithAdjacentRelation(Absolute cell1, Absolute cell2, out Direction8 adjacentRelation)
+	{
+		if (Absolute.GetAdjacentRelation(cell1, cell2, this) is not (var direction and not Direction8.None))
+		{
+			const string errorInfo = $"The specified pair of cells '{nameof(cell1)}' and '{nameof(cell2)}' are not adjacent with each other.";
+			throw new ArgumentException(errorInfo);
+		}
+
+#pragma warning disable IDE0055
+		adjacentRelation = direction;
+		return GetPoint(cell1, Alignment.Center) + adjacentRelation switch
+		{
+			Direction8.Up			=> new SKPoint(             0,   CellSize / 2),
+			Direction8.Down			=> new SKPoint(             0, - CellSize / 2),
+			Direction8.Left			=> new SKPoint(  CellSize / 2,              0),
+			Direction8.Right		=> new SKPoint(- CellSize / 2,              0),
+			Direction8.LeftUp		=> new SKPoint(  CellSize / 2,   CellSize / 2),
+			Direction8.RightUp		=> new SKPoint(- CellSize / 2,   CellSize / 2),
+			Direction8.LeftDown		=> new SKPoint(  CellSize / 2, - CellSize / 2),
+			Direction8.RightDown	=> new SKPoint(- CellSize / 2, - CellSize / 2),
+			_ => throw new UnreachableException()
+		};
+#pragma warning restore IDE0055
+	}
+
 	/// <summary>
 	/// Creates a new <see cref="PointMapper"/> instance via the specified offset, replacing with new value.
 	/// </summary>

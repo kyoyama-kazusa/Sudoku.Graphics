@@ -248,6 +248,16 @@ public enum ItemType
 	/// Indicates cell connection line mark.
 	/// </summary>
 	CellPair_ConnectionLine,
+
+	/// <summary>
+	/// Indicates cell pair kropki mark.
+	/// </summary>
+	CellPair_Kropki,
+
+	/// <summary>
+	/// Indicates cell pair kropki square mark.
+	/// </summary>
+	CellPair_KropkiSquare,
 	#endregion
 
 	//

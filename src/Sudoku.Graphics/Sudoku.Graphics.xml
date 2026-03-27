@@ -3410,6 +3410,69 @@
         <member name="M:Sudoku.Graphics.Items.CellPairMarks.CellPairConnectionLineMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.Items.CellPairMarks.CellPairKropkiMarkItem">
+            <summary>
+            Represents a cell pair kropki (circle) mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairKropkiMarkItem.IsSolid">
+            <summary>
+            Indicates whether the mark should be drawn solid.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairKropkiMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairKropkiMarkItem.SizeScale">
+            <summary>
+            Indicates the scale of size of circle drawn, related to cell size.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairKropkiMarkItem.StrokeWidthScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairKropkiMarkItem.StrokeColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairKropkiMarkItem.FillColor">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellPairMarks.CellPairKropkiMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellPairMarks.CellPairKropkiSquareMarkItem">
+            <summary>
+            Represents a cell pair kropki (square) mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairKropkiSquareMarkItem.IsSolid">
+            <summary>
+            Indicates whether the mark should be drawn solid.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairKropkiSquareMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairKropkiSquareMarkItem.SizeScale">
+            <summary>
+            Indicates the scale of size of square drawn, related to cell size.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairKropkiSquareMarkItem.StrokeWidthScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairKropkiSquareMarkItem.CornerRadiusScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairKropkiSquareMarkItem.StrokeColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairKropkiSquareMarkItem.FillColor">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellPairMarks.CellPairKropkiSquareMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.Items.CellPairMarks.CellPairMarkItem">
             <summary>
             Represents a cell pair mark item.
@@ -4228,6 +4291,16 @@
             Indicates cell connection line mark.
             </summary>
         </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellPair_Kropki">
+            <summary>
+            Indicates cell pair kropki mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellPair_KropkiSquare">
+            <summary>
+            Indicates cell pair kropki square mark.
+            </summary>
+        </member>
         <member name="F:Sudoku.Graphics.ItemType.CellGroup_Thermometer">
             <summary>
             Indicates thermometer cell group mark.
@@ -4511,6 +4584,30 @@
             </exception>
             <seealso cref="F:Sudoku.ComponentModel.Alignment.None"/>
         </member>
+        <member name="M:Sudoku.Graphics.PointMapper.GetPointBetween(Sudoku.Graphics.Relative,Sudoku.Graphics.Relative)">
+            <inheritdoc cref="M:Sudoku.Graphics.PointMapper.GetPointBetween(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.PointMapper.GetPointBetween(Sudoku.Graphics.Relative,Sudoku.Graphics.Relative,Sudoku.ComponentModel.Directions.Direction8@)">
+            <inheritdoc cref="M:Sudoku.Graphics.PointMapper.GetPointBetweenWithAdjacentRelation(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8@)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.PointMapper.GetPointBetween(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute)">
+            <summary>
+            Gets a point that is the center point of two cells; this method doesn't require two cells are adjacent with each other.
+            </summary>
+            <param name="cell1">The cell 1.</param>
+            <param name="cell2">The cell 2.</param>
+            <returns>The center point of two adjacent cells.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.PointMapper.GetPointBetweenWithAdjacentRelation(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8@)">
+            <summary>
+            Gets a point that is the center point of two <b>adjacent</b> cells.
+            </summary>
+            <param name="cell1">The cell 1.</param>
+            <param name="cell2">The cell 2.</param>
+            <param name="adjacentRelation">The adjacent direction between two cells.</param>
+            <returns>The center point of two adjacent cells.</returns>
+            <exception cref="T:System.ArgumentException">Throws when the specified pair of cells are not adjacent with each other.</exception>
+        </member>
         <member name="M:Sudoku.Graphics.PointMapper.WithOffset(Sudoku.ComponentModel.Directions.DirectionVector)">
             <summary>
             Creates a new <see cref="T:Sudoku.Graphics.PointMapper"/> instance via the specified offset, replacing with new value.
@@ -4710,8 +4807,19 @@
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawBridgeAndConnectedCircles(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,System.Boolean,System.Boolean,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBridgeAndConnectedCircles(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,System.Boolean,System.Boolean,Sudoku.Graphics.PointMapper)"/>
         </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawKropki(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,System.Boolean,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawKropki(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,System.Boolean,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawKropkiSquare(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,System.Boolean,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawKropkiSquare(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,System.Boolean,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
+        </member>
         <member name="T:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.&lt;M&gt;$21C1C87F40B24560160CB1CD20F6362E">
+            <summary>
+            Represents a list of extension methods that will be used by types derived from <see cref="T:Sudoku.Graphics.Item"/>,
+            to draw certain items.
+            </summary>
             <param name="this">The current instance.</param>
+            <seealso cref="T:Sudoku.Graphics.Item"/>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextToCell(System.String,Sudoku.Graphics.Absolute,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,System.Single,Sudoku.ComponentModel.Directions.Direction8,Sudoku.Graphics.PointMapper)">
             <summary>
@@ -5173,6 +5281,33 @@
             <exception cref="T:System.NotSupportedException">
             Throws when <paramref name="linesCount"/> is not supported (too large or invalid).
             </exception>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawKropki(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,System.Boolean,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Draws a kropki circle (solid or hollow) into the grid line between two adjacent cells.
+            </summary>
+            <param name="cell1">The cell 1.</param>
+            <param name="cell2">The cell 2.</param>
+            <param name="isSolid">Indicates whether the mark is solid or not.</param>
+            <param name="sizeScale">The scale of size, related to cell size.</param>
+            <param name="strokeWidthScale">The scale of stroke width, related to cell size.</param>
+            <param name="strokeColor">The stroke color.</param>
+            <param name="fillColor">The fill color. The value works only if <paramref name="isSolid"/> is <see langword="false"/>.</param>
+            <param name="mapper">The point mapper instance.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawKropkiSquare(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,System.Boolean,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Draws a kropki square (solid or hollow) into the grid line between two adjacent cells.
+            </summary>
+            <param name="cell1">The cell 1.</param>
+            <param name="cell2">The cell 2.</param>
+            <param name="isSolid">Indicates whether the mark is solid or not.</param>
+            <param name="sizeScale">The scale of size, related to cell size.</param>
+            <param name="strokeWidthScale">The scale of stroke width, related to cell size.</param>
+            <param name="strokeColor">The stroke color.</param>
+            <param name="fillColor">The fill color. The value works only if <paramref name="isSolid"/> is <see langword="false"/>.</param>
+            <param name="cornerRadiusScale">The scale of corner radius, related to half size of the mark drawn.</param>
+            <param name="mapper">The point mapper instance.</param>
         </member>
         <member name="T:Sudoku.Graphics.CapsuleTrailDrawer">
             <summary>

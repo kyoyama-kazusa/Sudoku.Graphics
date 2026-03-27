@@ -221,6 +221,27 @@
         <member name="M:SkiaSharp.SKPointExtensions.Deconstruct(SkiaSharp.SKPoint,System.Single@,System.Single@)">
             <inheritdoc cref="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.Deconstruct(System.Single@,System.Single@)"/>
         </member>
+        <member name="M:SkiaSharp.SKPointExtensions.CompareTo(SkiaSharp.SKPoint,SkiaSharp.SKPoint)">
+            <inheritdoc cref="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.CompareTo(SkiaSharp.SKPoint)"/>
+        </member>
+        <member name="M:SkiaSharp.SKPointExtensions.op_GreaterThan(SkiaSharp.SKPoint,SkiaSharp.SKPoint)">
+            <inheritdoc cref="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_GreaterThan(SkiaSharp.SKPoint,SkiaSharp.SKPoint)"/>
+        </member>
+        <member name="M:SkiaSharp.SKPointExtensions.op_LessThan(SkiaSharp.SKPoint,SkiaSharp.SKPoint)">
+            <inheritdoc cref="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_LessThan(SkiaSharp.SKPoint,SkiaSharp.SKPoint)"/>
+        </member>
+        <member name="M:SkiaSharp.SKPointExtensions.op_GreaterThanOrEqual(SkiaSharp.SKPoint,SkiaSharp.SKPoint)">
+            <inheritdoc cref="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_GreaterThanOrEqual(SkiaSharp.SKPoint,SkiaSharp.SKPoint)"/>
+        </member>
+        <member name="M:SkiaSharp.SKPointExtensions.op_LessThanOrEqual(SkiaSharp.SKPoint,SkiaSharp.SKPoint)">
+            <inheritdoc cref="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_LessThanOrEqual(SkiaSharp.SKPoint,SkiaSharp.SKPoint)"/>
+        </member>
+        <member name="M:SkiaSharp.SKPointExtensions.op_UnaryPlus(SkiaSharp.SKPoint)">
+            <inheritdoc cref="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_UnaryPlus(SkiaSharp.SKPoint)"/>
+        </member>
+        <member name="M:SkiaSharp.SKPointExtensions.op_UnaryNegation(SkiaSharp.SKPoint)">
+            <inheritdoc cref="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_UnaryNegation(SkiaSharp.SKPoint)"/>
+        </member>
         <member name="T:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.&lt;M&gt;$2023CE56BCC22CD6134ABED1557DF74B">
             <param name="this">The current instance.</param>
         </member>
@@ -228,6 +249,37 @@
             <summary>
             Deconstruct instance into multiple values.
             </summary>
+        </member>
+        <member name="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.CompareTo(SkiaSharp.SKPoint)">
+            <inheritdoc cref="M:System.IComparable`1.CompareTo(`0)"/>
+        </member>
+        <member name="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_GreaterThan(SkiaSharp.SKPoint,SkiaSharp.SKPoint)">
+            <inheritdoc cref="M:System.Numerics.IComparisonOperators`3.op_GreaterThan(`0,`1)"/>
+        </member>
+        <member name="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_LessThan(SkiaSharp.SKPoint,SkiaSharp.SKPoint)">
+            <inheritdoc cref="M:System.Numerics.IComparisonOperators`3.op_LessThan(`0,`1)"/>
+        </member>
+        <member name="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_GreaterThanOrEqual(SkiaSharp.SKPoint,SkiaSharp.SKPoint)">
+            <inheritdoc cref="M:System.Numerics.IComparisonOperators`3.op_GreaterThanOrEqual(`0,`1)"/>
+        </member>
+        <member name="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_LessThanOrEqual(SkiaSharp.SKPoint,SkiaSharp.SKPoint)">
+            <inheritdoc cref="M:System.Numerics.IComparisonOperators`3.op_LessThanOrEqual(`0,`1)"/>
+        </member>
+        <member name="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_UnaryPlus(SkiaSharp.SKPoint)">
+            <summary>
+            Returns the current instance directly; just a symmetry definition
+            with operator <see cref="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_UnaryNegation(SkiaSharp.SKPoint)"/>.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>The result.</returns>
+            <seealso cref="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_UnaryNegation(SkiaSharp.SKPoint)"/>
+        </member>
+        <member name="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_UnaryNegation(SkiaSharp.SKPoint)">
+            <summary>
+            Negates all factors of the current instance.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>The result negated.</returns>
         </member>
         <member name="T:SkiaSharp.SKRectExtensions">
             <summary>
