@@ -189,6 +189,7 @@ public sealed record PointMapper : IEqualityOperators<PointMapper, PointMapper, 
 	/// <see cref="Relative"/> or <see cref="CandidatePosition"/>.
 	/// </exception>
 	public SKPoint GetPoint<TLocator>(TLocator locator, Alignment alignment)
+		where TLocator : unmanaged, ILocator<TLocator>
 		=> locator switch
 		{
 			Absolute cell => GetPoint(cell, alignment),
