@@ -3982,8 +3982,7 @@
         </member>
         <member name="T:Sudoku.Graphics.ItemType">
             <summary>
-            Represents a type of item. The value of field represents ordering of the items of this type to draw.
-            The greater the value is, the lower priority the item will be drawn.
+            Represents a type of item.
             </summary>
         </member>
         <member name="F:Sudoku.Graphics.ItemType.None">

@@ -1,8 +1,7 @@
 ﻿namespace Sudoku.Graphics;
 
 /// <summary>
-/// Represents a type of item. The value of field represents ordering of the items of this type to draw.
-/// The greater the value is, the lower priority the item will be drawn.
+/// Represents a type of item.
 /// </summary>
 public enum ItemType
 {
