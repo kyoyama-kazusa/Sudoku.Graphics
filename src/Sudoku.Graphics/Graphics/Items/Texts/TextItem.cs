@@ -29,7 +29,7 @@ public abstract record TextItem :
 	public SKFontStyleSlant FontSlant { get; init; } = SKFontStyleSlant.Upright;
 
 	/// <inheritdoc/>
-	public SerializableColor Color { get; init; }
+	public required SerializableColor Color { get; init; }
 
 	/// <inheritdoc/>
 	public required Scale FontSizeScale { get; init; }
