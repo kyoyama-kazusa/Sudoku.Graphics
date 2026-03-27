@@ -4497,19 +4497,23 @@
             <param name="cornerRadiusScale">The scale of corner radius of the cage, related to cage short side.</param>
             <param name="text">The text.</param>
             <param name="textFontName">The text font name.</param>
-            <param name="fontSizeScale">The scale of text, related to cell size.</param>
-            <param name="fontWeight">The font weight.</param>
-            <param name="fontWidth">The font width.</param>
-            <param name="fontSlant">The font slant.</param>
-            <param name="fontColor">The font color.</param>
+            <param name="textSizeScale">The scale of text, related to cell size.</param>
+            <param name="textWeight">The font weight.</param>
+            <param name="textWidth">The font width.</param>
+            <param name="textSlant">The font slant.</param>
+            <param name="textColor">The font color.</param>
             <param name="textBackgroundColor">The text background color.</param>
-            <param name="paddingTop">The padding top of the boundary of text drawn.</param>
-            <param name="paddingBottom">The padding bottom of the boundary of text drawn.</param>
-            <param name="paddingLeft">The padding left of the boundary of text drawn.</param>
-            <param name="paddingRight">The padding right of the boundary of text drawn.</param>
-            <param name="offsetX">The X value of offset to the text to be drawn.</param>
-            <param name="offsetY">The Y value of offset to the text to be drawn.</param>
+            <param name="textPaddingTop">The padding top of the boundary of text drawn.</param>
+            <param name="textPaddingBottom">The padding bottom of the boundary of text drawn.</param>
+            <param name="textPaddingLeft">The padding left of the boundary of text drawn.</param>
+            <param name="textPaddingRight">The padding right of the boundary of text drawn.</param>
+            <param name="textOffsetX">The X value of offset to the text to be drawn.</param>
+            <param name="textOffsetY">The Y value of offset to the text to be drawn.</param>
             <param name="mapper">The point mapper instance.</param>
+            <exception cref="T:System.ArgumentNullException">
+            Throws when <paramref name="textFontName"/> is <see langword="null"/>,
+            but <paramref name="text"/> is not <see langword="null"/>.
+            </exception>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawThermometer(System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper)">
             <summary>

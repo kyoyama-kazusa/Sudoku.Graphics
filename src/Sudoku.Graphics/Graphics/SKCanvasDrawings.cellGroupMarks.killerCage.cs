@@ -16,19 +16,23 @@ public partial class SKCanvasDrawings
 		/// <param name="cornerRadiusScale">The scale of corner radius of the cage, related to cage short side.</param>
 		/// <param name="text">The text.</param>
 		/// <param name="textFontName">The text font name.</param>
-		/// <param name="fontSizeScale">The scale of text, related to cell size.</param>
-		/// <param name="fontWeight">The font weight.</param>
-		/// <param name="fontWidth">The font width.</param>
-		/// <param name="fontSlant">The font slant.</param>
-		/// <param name="fontColor">The font color.</param>
+		/// <param name="textSizeScale">The scale of text, related to cell size.</param>
+		/// <param name="textWeight">The font weight.</param>
+		/// <param name="textWidth">The font width.</param>
+		/// <param name="textSlant">The font slant.</param>
+		/// <param name="textColor">The font color.</param>
 		/// <param name="textBackgroundColor">The text background color.</param>
-		/// <param name="paddingTop">The padding top of the boundary of text drawn.</param>
-		/// <param name="paddingBottom">The padding bottom of the boundary of text drawn.</param>
-		/// <param name="paddingLeft">The padding left of the boundary of text drawn.</param>
-		/// <param name="paddingRight">The padding right of the boundary of text drawn.</param>
-		/// <param name="offsetX">The X value of offset to the text to be drawn.</param>
-		/// <param name="offsetY">The Y value of offset to the text to be drawn.</param>
+		/// <param name="textPaddingTop">The padding top of the boundary of text drawn.</param>
+		/// <param name="textPaddingBottom">The padding bottom of the boundary of text drawn.</param>
+		/// <param name="textPaddingLeft">The padding left of the boundary of text drawn.</param>
+		/// <param name="textPaddingRight">The padding right of the boundary of text drawn.</param>
+		/// <param name="textOffsetX">The X value of offset to the text to be drawn.</param>
+		/// <param name="textOffsetY">The Y value of offset to the text to be drawn.</param>
 		/// <param name="mapper">The point mapper instance.</param>
+		/// <exception cref="ArgumentNullException">
+		/// Throws when <paramref name="textFontName"/> is <see langword="null"/>,
+		/// but <paramref name="text"/> is not <see langword="null"/>.
+		/// </exception>
 		public void DrawKillerCage(
 			ReadOnlySpan<Absolute> cells,
 			Scale sizeScale,
@@ -39,18 +43,18 @@ public partial class SKCanvasDrawings
 			Scale cornerRadiusScale,
 			string? text,
 			string? textFontName,
-			Scale fontSizeScale,
-			SKFontStyleWeight fontWeight,
-			SKFontStyleWidth fontWidth,
-			SKFontStyleSlant fontSlant,
-			SerializableColor fontColor,
+			Scale textSizeScale,
+			SKFontStyleWeight textWeight,
+			SKFontStyleWidth textWidth,
+			SKFontStyleSlant textSlant,
+			SerializableColor textColor,
 			SerializableColor textBackgroundColor,
-			float paddingTop,
-			float paddingBottom,
-			float paddingLeft,
-			float paddingRight,
-			float offsetX,
-			float offsetY,
+			float textPaddingTop,
+			float textPaddingBottom,
+			float textPaddingLeft,
+			float textPaddingRight,
+			float textOffsetX,
+			float textOffsetY,
 			PointMapper mapper
 		)
 		{
@@ -81,48 +85,53 @@ public partial class SKCanvasDrawings
 			@this.DrawPath(path, fillPaint);
 
 			// Draw text.
-			using var typeface = SKTypeface.FromFamilyName(textFontName, fontWeight, fontWidth, fontSlant);
-			var factSize = fontSizeScale.Measure(mapper.CellSize);
-			using var textFont = new SKFont(typeface, factSize) { Subpixel = true };
-			using var textPaint = new SKPaint
+			if (text is not null)
 			{
-				Style = SKPaintStyle.Fill,
-				Color = fontColor,
-				IsAntialias = true,
-				StrokeWidth = factSize,
-				StrokeJoin = SKStrokeJoin.Round
-			};
+				ArgumentNullException.ThrowIfNull(textFontName);
 
-			textFont.GetFontMetrics(out var metrics);
-			var killerTopLeft = pathInfo.TopLeftTurnPoint;
-			killerTopLeft += new SKPoint(0, (metrics.Ascent + metrics.Descent) / 2); // Baseline adjustment.
-			killerTopLeft += new SKPoint(0, textFont.Size / 2); // Centralize.
-			killerTopLeft += new SKPoint(0, cellSize / 24); // Manual adjustment.
+				using var typeface = SKTypeface.FromFamilyName(textFontName, textWeight, textWidth, textSlant);
+				var factSize = textSizeScale.Measure(mapper.CellSize);
+				using var textFont = new SKFont(typeface, factSize) { Subpixel = true };
+				using var textPaint = new SKPaint
+				{
+					Style = SKPaintStyle.Fill,
+					Color = textColor,
+					IsAntialias = true,
+					StrokeWidth = factSize,
+					StrokeJoin = SKStrokeJoin.Round
+				};
 
-			textFont.MeasureText(text, out var bounds, textPaint);
-			bounds.Offset(killerTopLeft);
-			bounds = new(bounds.Left + offsetX, bounds.Top + offsetY, bounds.Right + offsetX, bounds.Bottom + offsetY);
+				textFont.GetFontMetrics(out var metrics);
+				var killerTopLeft = pathInfo.TopLeftTurnPoint;
+				killerTopLeft += new SKPoint(0, (metrics.Ascent + metrics.Descent) / 2); // Baseline adjustment.
+				killerTopLeft += new SKPoint(0, textFont.Size / 2); // Centralize.
+				killerTopLeft += new SKPoint(0, cellSize / 24); // Manual adjustment.
 
-			// Fill text boundary.
-			using var textBackgroundPaint = new SKPaint { Style = SKPaintStyle.Fill, Color = textBackgroundColor, IsAntialias = true };
-			if (cornerRadius > 0)
-			{
-				var tempBounds = new SKRect(
-					bounds.Left - paddingLeft,
-					bounds.Top - paddingTop,
-					bounds.Right + paddingRight,
-					bounds.Bottom + paddingBottom
-				);
-				@this.DrawRoundRect(tempBounds, cornerRadius, cornerRadius, textBackgroundPaint);
+				textFont.MeasureText(text, out var bounds, textPaint);
+				bounds.Offset(killerTopLeft);
+				bounds = new(bounds.Left + textOffsetX, bounds.Top + textOffsetY, bounds.Right + textOffsetX, bounds.Bottom + textOffsetY);
+
+				// Fill text boundary.
+				using var textBackgroundPaint = new SKPaint { Style = SKPaintStyle.Fill, Color = textBackgroundColor, IsAntialias = true };
+				if (cornerRadius > 0)
+				{
+					var tempBounds = new SKRect(
+						bounds.Left - textPaddingLeft,
+						bounds.Top - textPaddingTop,
+						bounds.Right + textPaddingRight,
+						bounds.Bottom + textPaddingBottom
+					);
+					@this.DrawRoundRect(tempBounds, cornerRadius, cornerRadius, textBackgroundPaint);
+				}
+				else
+				{
+					@this.DrawRect(bounds, textBackgroundPaint);
+				}
+
+				killerTopLeft.X += textOffsetX;
+				killerTopLeft.Y += textOffsetY;
+				@this.DrawText(text, killerTopLeft, SKTextAlign.Left, textFont, textPaint);
 			}
-			else
-			{
-				@this.DrawRect(bounds, textBackgroundPaint);
-			}
-
-			killerTopLeft.X += offsetX;
-			killerTopLeft.Y += offsetY;
-			@this.DrawText(text, killerTopLeft, SKTextAlign.Left, textFont, textPaint);
 		}
 	}
 }

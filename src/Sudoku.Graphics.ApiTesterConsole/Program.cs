@@ -21,8 +21,8 @@ var desktop = Environment.DesktopPath;
 var options = new CanvasDrawingOptions();
 var mapper = new PointMapper
 {
-	CellSize = 120,
-	Margin = 15,
+	CellSize = 240,
+	Margin = 30,
 	TemplateSize = new() { RowsCount = 6, ColumnsCount = 6 }
 };
 using var canvas = new Canvas(
@@ -37,8 +37,8 @@ using var canvas = new Canvas(
 
 var rng = Random.Shared;
 LineDashSequence dashSequence = [10, 10];
-Scale cornerRadiusScale = .25M, sizeScale = .8M, fontSizeScale = .3M;
-const float offsetX = 4, offsetY = 18, paddingLeft = 0, paddingTop = 0, paddingRight = 0, paddingBottom = 0;
+Scale cornerRadiusScale = 0M, sizeScale = .8M, fontSizeScale = .3M;
+const float offsetX = 8, offsetY = 36, paddingLeft = 0, paddingTop = 0, paddingRight = 0, paddingBottom = 0;
 const string fontName = "Arial";
 const SKFontStyleWeight fontWeight = SKFontStyleWeight.Medium;
 var textColor = SKColors.Black;
