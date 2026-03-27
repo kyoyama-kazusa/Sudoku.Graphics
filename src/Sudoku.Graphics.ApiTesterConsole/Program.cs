@@ -65,7 +65,29 @@ canvas.DrawItems(
 			FillColor = fillColor,
 			IsSolid = true,
 			CornerRadiusScale = cornerRadiusScale
-		}
+		},
+		new CellPairKropkiTriangleMarkItem
+		{
+			TemplateIndex = 0,
+			Cell1 = 10,
+			Cell2 = 11,
+			SizeScale = sizeScale,
+			StrokeWidthScale = strokeWidthScale,
+			StrokeColor = strokeColor,
+			FillColor = fillColor,
+			IsSolid = false
+		},
+		new CellPairKropkiTriangleMarkItem
+		{
+			TemplateIndex = 0,
+			Cell1 = 10,
+			Cell2 = 16,
+			SizeScale = sizeScale,
+			StrokeWidthScale = strokeWidthScale,
+			StrokeColor = strokeColor,
+			FillColor = fillColor,
+			IsSolid = true
+		},
 	]
 );
 canvas.Export(Path.Combine(desktop, "output.png"), new() { Quality = 100 });

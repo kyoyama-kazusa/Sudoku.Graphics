@@ -96,6 +96,7 @@ public partial class ItemTypeOrdering
 				yield return ItemType.CellPair_ConnectionLine;
 				yield return ItemType.CellPair_Kropki;
 				yield return ItemType.CellPair_KropkiSquare;
+				yield return ItemType.CellPair_KropkiTriangle;
 			}
 		}
 	}

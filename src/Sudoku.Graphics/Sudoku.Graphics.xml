@@ -3473,6 +3473,36 @@
         <member name="M:Sudoku.Graphics.Items.CellPairMarks.CellPairKropkiSquareMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.Items.CellPairMarks.CellPairKropkiTriangleMarkItem">
+            <summary>
+            Represents a cell pair kropki (triangle) mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairKropkiTriangleMarkItem.IsSolid">
+            <summary>
+            Indicates whether the mark should be drawn solid.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairKropkiTriangleMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairKropkiTriangleMarkItem.SizeScale">
+            <summary>
+            Indicates the scale of size of circle drawn, related to cell size.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairKropkiTriangleMarkItem.StrokeWidthScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairKropkiTriangleMarkItem.StrokeColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairKropkiTriangleMarkItem.FillColor">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellPairMarks.CellPairKropkiTriangleMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.Items.CellPairMarks.CellPairMarkItem">
             <summary>
             Represents a cell pair mark item.
@@ -4293,12 +4323,17 @@
         </member>
         <member name="F:Sudoku.Graphics.ItemType.CellPair_Kropki">
             <summary>
-            Indicates cell pair kropki mark.
+            Indicates cell pair kropki (circle) mark.
             </summary>
         </member>
         <member name="F:Sudoku.Graphics.ItemType.CellPair_KropkiSquare">
             <summary>
             Indicates cell pair kropki square mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellPair_KropkiTriangle">
+            <summary>
+            Indicates cell pair kropki triangle mark.
             </summary>
         </member>
         <member name="F:Sudoku.Graphics.ItemType.CellGroup_Thermometer">
@@ -4813,6 +4848,9 @@
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawKropkiSquare(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,System.Boolean,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawKropkiSquare(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,System.Boolean,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
         </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawKropkiTriangle(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,System.Boolean,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawKropkiTriangle(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,System.Boolean,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
+        </member>
         <member name="T:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.&lt;M&gt;$21C1C87F40B24560160CB1CD20F6362E">
             <summary>
             Represents a list of extension methods that will be used by types derived from <see cref="T:Sudoku.Graphics.Item"/>,
@@ -5307,6 +5345,19 @@
             <param name="strokeColor">The stroke color.</param>
             <param name="fillColor">The fill color. The value works only if <paramref name="isSolid"/> is <see langword="false"/>.</param>
             <param name="cornerRadiusScale">The scale of corner radius, related to half size of the mark drawn.</param>
+            <param name="mapper">The point mapper instance.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawKropkiTriangle(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,System.Boolean,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Draws a kropki triangle (solid or hollow) into the grid line between two adjacent cells.
+            </summary>
+            <param name="cell1">The cell 1.</param>
+            <param name="cell2">The cell 2.</param>
+            <param name="isSolid">Indicates whether the mark is solid or not.</param>
+            <param name="sizeScale">The scale of size, related to cell size.</param>
+            <param name="strokeWidthScale">The scale of stroke width, related to cell size.</param>
+            <param name="strokeColor">The stroke color.</param>
+            <param name="fillColor">The fill color. The value works only if <paramref name="isSolid"/> is <see langword="false"/>.</param>
             <param name="mapper">The point mapper instance.</param>
         </member>
         <member name="T:Sudoku.Graphics.CapsuleTrailDrawer">
