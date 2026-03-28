@@ -1,5 +1,4 @@
-﻿
-// This project only tests for APIs.
+﻿// This project only tests for APIs.
 //
 // I don't usually use NUnit or XUnit test-related packages,
 // so I just use a console project to test for them.
@@ -12,7 +11,7 @@ using System.IO;
 using SkiaSharp;
 using Sudoku.ComponentModel;
 using Sudoku.Graphics;
-using Sudoku.Graphics.Items.CellPairMarks;
+using Sudoku.Graphics.Items.CellGroupMarks;
 using Sudoku.Graphics.Items.Fills;
 using Sudoku.Graphics.Items.Lines;
 using Sudoku.Graphics.Templates;
@@ -35,58 +34,35 @@ using var canvas = new Canvas(
 	}
 );
 
-var rng = Random.Shared;
-Scale sizeScale = .2M, strokeWidthScale = .04M, cornerRadiusScale = 0M;
-SerializableColor strokeColor = SKColors.Black, fillColor = SKColors.White;
+LineDashSequence dashSequence = [10, 10];
+Scale cornerRadiusScale = 0M, sizeScale = .8M, fontSizeScale = .25M;
+const float offsetX = 0, offsetY = 6, paddingLeft = 4, paddingTop = 0, paddingRight = 4, paddingBottom = 0;
 canvas.DrawItems(
 	[
 		new BackgroundFillItem { Color = SKColors.White },
 		new TemplateLineItem(),
-		new CellPairKropkiMarkItem
+		new CellGroupKillerCageMarkItem
 		{
 			TemplateIndex = 0,
-			Cell1 = 13,
-			Cell2 = 18,
-			SizeScale = sizeScale,
-			StrokeWidthScale = strokeWidthScale,
-			StrokeColor = strokeColor,
-			FillColor = fillColor,
-			IsSolid = false,
-			CornerRadiusScale = cornerRadiusScale
-		},
-		new CellPairKropkiSquareMarkItem
-		{
-			TemplateIndex = 0,
-			Cell1 = 0,
-			Cell2 = 7,
-			SizeScale = sizeScale,
-			StrokeWidthScale = strokeWidthScale,
-			StrokeColor = strokeColor,
-			FillColor = fillColor,
-			IsSolid = true,
-			CornerRadiusScale = cornerRadiusScale
-		},
-		new CellPairKropkiTriangleMarkItem
-		{
-			TemplateIndex = 0,
-			Cell1 = 10,
-			Cell2 = 11,
-			SizeScale = sizeScale,
-			StrokeWidthScale = strokeWidthScale,
-			StrokeColor = strokeColor,
-			FillColor = fillColor,
-			IsSolid = false
-		},
-		new CellPairKropkiTriangleMarkItem
-		{
-			TemplateIndex = 0,
-			Cell1 = 10,
-			Cell2 = 16,
-			SizeScale = sizeScale,
-			StrokeWidthScale = strokeWidthScale,
-			StrokeColor = strokeColor,
-			FillColor = fillColor,
-			IsSolid = true
+			Cells = [0, 1, 7, 8, 14, 13],
+			Text = "21",
+			DashSequence = dashSequence,
+			CornerRadiusScale = cornerRadiusScale,
+			ShortSideScale = sizeScale,
+			StrokeWidthScale = 0.025M,
+			StrokeColor = SKColors.Black,
+			TextFontName = "Arial",
+			FontSizeScale = fontSizeScale,
+			TextColor = SKColors.Red,
+			TextBackgroundColor = SKColors.White,
+			FillColor = SKColors.White,
+			FontWeight = SKFontStyleWeight.Medium,
+			OffsetX = offsetX,
+			OffsetY = offsetY,
+			PaddingLeft = paddingLeft,
+			PaddingTop = paddingTop,
+			PaddingRight = paddingRight,
+			PaddingBottom = paddingBottom
 		},
 	]
 );

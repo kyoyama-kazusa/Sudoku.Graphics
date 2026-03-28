@@ -90,7 +90,7 @@ public partial class SKCanvasDrawings
 				ArgumentNullException.ThrowIfNull(textFontName);
 
 				using var typeface = SKTypeface.FromFamilyName(textFontName, textWeight, textWidth, textSlant);
-				var factSize = textSizeScale.Measure(mapper.CellSize);
+				var factSize = textSizeScale.Measure(cellSize);
 				using var textFont = new SKFont(typeface, factSize) { Subpixel = true };
 				using var textPaint = new SKPaint
 				{
@@ -100,37 +100,25 @@ public partial class SKCanvasDrawings
 					StrokeWidth = factSize,
 					StrokeJoin = SKStrokeJoin.Round
 				};
+				using var textCoverPaint = new SKPaint { Style = SKPaintStyle.Fill, Color = textBackgroundColor, IsAntialias = true };
 
 				textFont.GetFontMetrics(out var metrics);
-				var killerTopLeft = pathInfo.TopLeftTurnPoint;
-				killerTopLeft += new SKPoint(0, (metrics.Ascent + metrics.Descent) / 2); // Baseline adjustment.
-				killerTopLeft += new SKPoint(0, textFont.Size / 2); // Centralize.
-				killerTopLeft += new SKPoint(0, cellSize / 24); // Manual adjustment.
-
-				textFont.MeasureText(text, out var bounds, textPaint);
-				bounds.Offset(killerTopLeft);
-				bounds = new(bounds.Left + textOffsetX, bounds.Top + textOffsetY, bounds.Right + textOffsetX, bounds.Bottom + textOffsetY);
-
-				// Fill text boundary.
-				using var textBackgroundPaint = new SKPaint { Style = SKPaintStyle.Fill, Color = textBackgroundColor, IsAntialias = true };
-				if (cornerRadius > 0)
-				{
-					var tempBounds = new SKRect(
-						bounds.Left - textPaddingLeft,
-						bounds.Top - textPaddingTop,
-						bounds.Right + textPaddingRight,
-						bounds.Bottom + textPaddingBottom
-					);
-					@this.DrawRoundRect(tempBounds, cornerRadius, cornerRadius, textBackgroundPaint);
-				}
-				else
-				{
-					@this.DrawRect(bounds, textBackgroundPaint);
-				}
-
-				killerTopLeft.X += textOffsetX;
-				killerTopLeft.Y += textOffsetY;
-				@this.DrawText(text, killerTopLeft, SKTextAlign.Left, textFont, textPaint);
+				@this.DrawTextWithCover(
+					pathInfo.TopLeftTurnPoint
+						+ new SKPoint(0, (metrics.Ascent + metrics.Descent) / 2) // Baseline adjustment.
+						+ new SKPoint(0, textFont.Size / 2) // Centralize.
+						+ new SKPoint(0, cellSize / 24), // Manual adjustment.
+					text,
+					SKTextAlign.Left,
+					textFont,
+					textPaint,
+					textCoverPaint,
+					textPaddingTop,
+					textPaddingBottom,
+					textPaddingLeft,
+					textPaddingRight,
+					new(textOffsetX, textOffsetY)
+				);
 			}
 		}
 	}
