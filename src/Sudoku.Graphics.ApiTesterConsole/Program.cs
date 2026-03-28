@@ -8,12 +8,12 @@
 
 using System;
 using System.IO;
-using System.Linq;
 using SkiaSharp;
+using Sudoku.ComponentModel;
 using Sudoku.Graphics;
+using Sudoku.Graphics.Items.CellGroupMarks;
 using Sudoku.Graphics.Items.Fills;
 using Sudoku.Graphics.Items.Lines;
-using Sudoku.Graphics.Items.Texts;
 using Sudoku.Graphics.Templates;
 
 //var options = new CanvasDrawingOptions();
@@ -22,12 +22,11 @@ var mapper = new PointMapper
 {
 	CellSize = 120,
 	Margin = 15,
-	TemplateSize = new() { RowsCount = 7, ColumnsCount = 7 }
+	TemplateSize = new() { RowsCount = 6, ColumnsCount = 6 }
 };
 using var canvas = new Canvas(
-	new DefaultTemplate
+	new StandardTemplate(2, 3, mapper)
 	{
-		Mapper = mapper,
 		ThickLineWidth = .06M,
 		ThinLineWidth = .0225M,
 		ThickLineColor = SKColors.Black,
@@ -35,24 +34,36 @@ using var canvas = new Canvas(
 	}
 );
 
-const string weekdays = "日一二三四五六";
+LineDashSequence dashSequence = [10, 10];
+Scale cornerRadiusScale = 0M, sizeScale = .8M, fontSizeScale = .25M;
+const float offsetX = 0, offsetY = 6, paddingLeft = 4, paddingTop = 0, paddingRight = 4, paddingBottom = 0;
 canvas.DrawItems(
 	[
 		new BackgroundFillItem { Color = SKColors.White },
 		new TemplateLineItem(),
-		..
-		from pair in weekdays.Index()
-		let index = pair.Index
-		let dayChar = pair.Item
-		select new GivenTextItem
+		new CellGroupKillerCageMarkItem
 		{
 			TemplateIndex = 0,
-			Cell = index,
-			Color = SKColors.Black,
-			FontName = "黑体",
-			FontSizeScale = .4M,
-			Text = $"星期{dayChar}"
-		}
+			Cells = [0, 1, 7, 8, 14, 13],
+			Text = "21",
+			DashSequence = dashSequence,
+			CornerRadiusScale = cornerRadiusScale,
+			ShortSideScale = sizeScale,
+			StrokeWidthScale = 0.025M,
+			StrokeColor = SKColors.Black,
+			TextFontName = "Arial",
+			FontSizeScale = fontSizeScale,
+			TextColor = SKColors.Red,
+			TextBackgroundColor = SKColors.White,
+			FillColor = SKColors.White,
+			FontWeight = SKFontStyleWeight.Medium,
+			OffsetX = offsetX,
+			OffsetY = offsetY,
+			PaddingLeft = paddingLeft,
+			PaddingTop = paddingTop,
+			PaddingRight = paddingRight,
+			PaddingBottom = paddingBottom
+		},
 	]
 );
 canvas.Export(Path.Combine(desktop, "output.png"), new() { Quality = 100 });
