@@ -1,4 +1,4 @@
-﻿namespace Sudoku.Graphics;
+﻿namespace SkiaSharp;
 
 /// <summary>
 /// Provides basic encapsulation on drawing items.

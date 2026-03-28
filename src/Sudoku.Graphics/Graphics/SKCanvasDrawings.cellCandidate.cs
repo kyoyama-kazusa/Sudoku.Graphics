@@ -109,8 +109,9 @@ public partial class SKCanvasDrawings
 				throw new ArgumentOutOfRangeException(nameof(alignedDirection));
 			}
 
+			var cellSize = mapper.CellSize;
 			using var typeface = SKTypeface.FromFamilyName(fontName, fontWeight, fontWidth, fontSlant);
-			var factSize = fontScale.Measure(mapper.CellSize);
+			var factSize = fontScale.Measure(cellSize);
 			using var textFont = new SKFont(typeface, factSize) { Subpixel = true };
 
 			var center = mapper.GetPoint(cell, Alignment.Center);
@@ -122,7 +123,7 @@ public partial class SKCanvasDrawings
 					throw new InvalidOperationException($"The specified direction '{alignedDirection}' is not supported.");
 				}
 
-				var quarterCellSize = mapper.CellSize / 4;
+				var quarterCellSize = cellSize / 4;
 				targetPoint = alignedDirection switch
 				{
 					Direction8.LeftUp => targetPoint + new SKPoint(-quarterCellSize, -quarterCellSize),
@@ -139,28 +140,26 @@ public partial class SKCanvasDrawings
 				@this.RotateDegrees(rotationDegree, targetPoint.X, targetPoint.Y);
 			}
 
-			// Baseline adjustment
 			var textMetrics = textFont.Metrics;
-			targetPoint += new SKPoint(0, (textMetrics.Ascent + textMetrics.Descent) / 2);
-
-			// Centeralize
-			targetPoint += new SKPoint(0, textFont.Size / 2);
-
-			// Manual adjustment
-			targetPoint += new SKPoint(0, mapper.CellSize / 8);
+			targetPoint += new SKPoint(0, (textMetrics.Ascent + textMetrics.Descent) / 2); // Baseline adjustment.
+			targetPoint += new SKPoint(0, textFont.Size / 2); // Centeralize.
+			targetPoint += new SKPoint(0, cellSize / 8); // Manual adjustment
 
 			var outlineStrokeWidth = outlineThicknessScale.Measure(factSize);
+			using var textStrokePaint = new SKPaint
+			{
+				Style = SKPaintStyle.Stroke,
+				Color = outlineColor,
+				IsAntialias = true,
+				StrokeWidth = outlineStrokeWidth,
+				StrokeJoin = SKStrokeJoin.Round
+			};
+
+			// Set scale X of font.
+			textFont.SetScaleX(textFont.MeasureText(text, textStrokePaint), cellSize);
+
 			if (outlineStrokeWidth != 0 && outlineColor.Alpha != 0)
 			{
-				using var textStrokePaint = new SKPaint
-				{
-					Style = SKPaintStyle.Stroke,
-					Color = outlineColor,
-					IsAntialias = true,
-					StrokeWidth = outlineStrokeWidth,
-					StrokeJoin = SKStrokeJoin.Round
-				};
-
 				@this.DrawText(text, targetPoint, SKTextAlign.Center, textFont, textStrokePaint);
 			}
 
@@ -222,9 +221,13 @@ public partial class SKCanvasDrawings
 			using var textFillPaint = new SKPaint { Style = SKPaintStyle.Fill, Color = fillColor, IsAntialias = true };
 			var textMetrics = textFont.Metrics;
 			var targetPoint = mapper.GetPoint(candidatePosition, Alignment.Center)
-				+ new SKPoint(0, (textMetrics.Ascent + textMetrics.Descent) / 2) // Baseline adjustment
-				+ new SKPoint(0, textFont.Size / 2) // Centeralize
-				+ new SKPoint(0, candidateSize / 4); // Manual adjustment
+				+ new SKPoint(0, (textMetrics.Ascent + textMetrics.Descent) / 2) // Baseline adjustment.
+				+ new SKPoint(0, textFont.Size / 2) // Centeralize.
+				+ new SKPoint(0, candidateSize / 4); // Manual adjustment.
+
+			// Set scale X of font.
+			textFont.SetScaleX(textFont.MeasureText(text, textStrokePaint), candidateSize);
+
 			@this.DrawText(text, targetPoint, SKTextAlign.Center, textFont, textStrokePaint);
 			@this.DrawText(text, targetPoint, SKTextAlign.Center, textFont, textFillPaint);
 		}

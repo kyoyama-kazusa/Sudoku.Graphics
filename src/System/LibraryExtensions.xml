@@ -212,6 +212,59 @@
             <param name="count">The number of characters to remove.</param>
             <returns>The reference same as the current instance.</returns>
         </member>
+        <member name="T:SkiaSharp.SKCanvasExtensions">
+            <summary>
+            Provides basic encapsulation on drawing items.
+            </summary>
+        </member>
+        <member name="M:SkiaSharp.SKCanvasExtensions.DrawTextWithCover(SkiaSharp.SKCanvas,SkiaSharp.SKPoint,System.String,SkiaSharp.SKTextAlign,SkiaSharp.SKFont,SkiaSharp.SKPaint,SkiaSharp.SKPaint,System.Single,System.Single,System.Single,System.Single,SkiaSharp.SKPoint)">
+            <inheritdoc cref="M:SkiaSharp.SKCanvasExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextWithCover(SkiaSharp.SKPoint,System.String,SkiaSharp.SKTextAlign,SkiaSharp.SKFont,SkiaSharp.SKPaint,SkiaSharp.SKPaint,System.Single,System.Single,System.Single,System.Single,SkiaSharp.SKPoint)"/>
+        </member>
+        <member name="T:SkiaSharp.SKCanvasExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.&lt;M&gt;$21C1C87F40B24560160CB1CD20F6362E">
+            <summary>
+            Provides extension members on <see cref="T:SkiaSharp.SKCanvas"/> instances.
+            </summary>
+            <param name="this">The current instance.</param>
+        </member>
+        <member name="M:SkiaSharp.SKCanvasExtensions.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextWithCover(SkiaSharp.SKPoint,System.String,SkiaSharp.SKTextAlign,SkiaSharp.SKFont,SkiaSharp.SKPaint,SkiaSharp.SKPaint,System.Single,System.Single,System.Single,System.Single,SkiaSharp.SKPoint)">
+            <summary>
+            Draws the specified text with background cover.
+            </summary>
+            <param name="point">The point.</param>
+            <param name="text">The text.</param>
+            <param name="textAlign">The text align.</param>
+            <param name="font">The font.</param>
+            <param name="paint">The paint.</param>
+            <param name="coverPaint">The paint of cover background.</param>
+            <param name="paddingTop">The padding top of the boundary of text drawn.</param>
+            <param name="paddingBottom">The padding bottom of the boundary of text drawn.</param>
+            <param name="paddingLeft">The padding left of the boundary of text drawn.</param>
+            <param name="paddingRight">The padding right of the boundary of text drawn.</param>
+            <param name="offset">The offset to the text to be drawn.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">Throws when <paramref name="textAlign"/> is not defined.</exception>
+        </member>
+        <member name="T:SkiaSharp.SKFontExtensions">
+            <summary>
+            Provides extension members on <see cref="T:SkiaSharp.SKFont"/>.
+            </summary>
+            <seealso cref="T:SkiaSharp.SKFont"/>
+        </member>
+        <member name="M:SkiaSharp.SKFontExtensions.SetScaleX(SkiaSharp.SKFont,System.Single,System.Single)">
+            <inheritdoc cref="M:SkiaSharp.SKFontExtensions.&lt;G&gt;$4548BB58493442F50272E12077D4F652.SetScaleX(System.Single,System.Single)"/>
+        </member>
+        <member name="T:SkiaSharp.SKFontExtensions.&lt;G&gt;$4548BB58493442F50272E12077D4F652.&lt;M&gt;$46A981A394B7DCBF9825BBF5CF266D4E">
+            <summary>
+            Provides extension members on <see cref="T:SkiaSharp.SKFont"/> instances.
+            </summary>
+            <param name="this">The current instance.</param>
+        </member>
+        <member name="M:SkiaSharp.SKFontExtensions.&lt;G&gt;$4548BB58493442F50272E12077D4F652.SetScaleX(System.Single,System.Single)">
+            <summary>
+            Sets the scaling X of text.
+            </summary>
+            <param name="textWidth">The width of text.</param>
+            <param name="maxWidth">The maximum width that a text can be drawn.</param>
+        </member>
         <member name="T:SkiaSharp.SKPointExtensions">
             <summary>
             Provdies extension members on <see cref="T:SkiaSharp.SKPoint"/>.
