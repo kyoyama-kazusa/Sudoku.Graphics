@@ -27,6 +27,11 @@ public static class SpanEnumerable
 	}
 
 
+	/// <summary>
+	/// Provides all, any, min and max methods.
+	/// </summary>
+	/// <typeparam name="TSource">The type of source.</typeparam>
+	/// <param name="this">The source collection.</param>
 	extension<TSource>(ReadOnlySpan<TSource> @this)
 	{
 		/// <inheritdoc cref="Enumerable.All{TSource}(IEnumerable{TSource}, Func{TSource, bool})"/>
@@ -71,6 +76,9 @@ public static class SpanEnumerable
 		}
 	}
 
+	/// <summary>
+	/// Provides select methods.
+	/// </summary>
 	/// <typeparam name="TSource">The type of source.</typeparam>
 	/// <typeparam name="TResult">The type of result.</typeparam>
 	/// <param name="this">The source collection.</param>

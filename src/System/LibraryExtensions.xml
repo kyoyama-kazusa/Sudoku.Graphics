@@ -52,6 +52,13 @@
         <member name="M:System.Linq.SpanEnumerable.Select``2(System.ReadOnlySpan{``0},System.Func{``0,``1})">
             <inheritdoc cref="M:System.Linq.SpanEnumerable.&lt;G&gt;$38406200860C59512D7718BA1AC2471B`2.Select(System.Func{`0,`1})"/>
         </member>
+        <member name="T:System.Linq.SpanEnumerable.&lt;G&gt;$CCC6C15EC93AA06816794B41FF241F94`1.&lt;M&gt;$851849E0D9D7124F61F4998782E47BE2">
+            <summary>
+            Provides all, any, min and max methods.
+            </summary>
+            <typeparam name="TSource">The type of source.</typeparam>
+            <param name="this">The source collection.</param>
+        </member>
         <member name="M:System.Linq.SpanEnumerable.&lt;G&gt;$CCC6C15EC93AA06816794B41FF241F94`1.All(System.Predicate{`0})">
             <inheritdoc cref="M:System.Linq.Enumerable.All``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})"/>
         </member>
@@ -62,6 +69,9 @@
             <inheritdoc cref="M:System.Linq.Enumerable.Max``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})"/>
         </member>
         <member name="T:System.Linq.SpanEnumerable.&lt;G&gt;$38406200860C59512D7718BA1AC2471B`2.&lt;M&gt;$EB5323BEB0718320C4FD76C3BD220FD3">
+            <summary>
+            Provides select methods.
+            </summary>
             <typeparam name="TSource">The type of source.</typeparam>
             <typeparam name="TResult">The type of result.</typeparam>
             <param name="this">The source collection.</param>
