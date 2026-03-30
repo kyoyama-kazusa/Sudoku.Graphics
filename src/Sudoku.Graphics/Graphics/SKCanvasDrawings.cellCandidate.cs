@@ -140,9 +140,7 @@ public partial class SKCanvasDrawings
 				@this.RotateDegrees(rotationDegree, targetPoint.X, targetPoint.Y);
 			}
 
-			var textMetrics = textFont.Metrics;
-			targetPoint = targetPoint.CentralizeAsFont(textFont);
-			targetPoint.Y += cellSize / 8; // Manual adjustment.
+			targetPoint = targetPoint.AlignYAsBaseline(textFont);
 
 			var outlineStrokeWidth = outlineThicknessScale.Measure(factSize);
 			using var textStrokePaint = new SKPaint
@@ -219,8 +217,7 @@ public partial class SKCanvasDrawings
 			};
 			using var textFillPaint = new SKPaint { Style = SKPaintStyle.Fill, Color = fillColor, IsAntialias = true };
 			var textMetrics = textFont.Metrics;
-			var targetPoint = mapper.GetPoint(candidatePosition, Alignment.Center).CentralizeAsFont(textFont);
-			targetPoint.Y += candidateSize / 4; // Manual adjustment.
+			var targetPoint = mapper.GetPoint(candidatePosition, Alignment.Center).AlignYAsBaseline(textFont);
 
 			// Set scale X of font.
 			textFont.SetScaleX(textFont.MeasureText(text, textStrokePaint), candidateSize);

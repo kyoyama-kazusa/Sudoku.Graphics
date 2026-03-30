@@ -22,12 +22,11 @@ public static class SKPointExtensions
 		/// </summary>
 		/// <param name="font">The font.</param>
 		/// <returns>The changed result.</returns>
-		public SKPoint CentralizeAsFont(SKFont font)
+		public SKPoint AlignYAsBaseline(SKFont font)
 		{
 			var result = @this;
 			var textMetrics = font.Metrics;
-			result.Y += (textMetrics.Ascent + textMetrics.Descent) / 2; // Baseline adjustment.
-			result.Y += font.Size / 2; // Move to center of Y.
+			result.Y -= (textMetrics.Ascent + textMetrics.Descent) / 2;
 			return result;
 		}
 

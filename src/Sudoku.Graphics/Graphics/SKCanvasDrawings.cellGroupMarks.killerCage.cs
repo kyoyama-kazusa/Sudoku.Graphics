@@ -102,10 +102,8 @@ public partial class SKCanvasDrawings
 				};
 				using var textCoverFillPaint = new SKPaint { Style = SKPaintStyle.Fill, Color = textBackgroundColor, IsAntialias = true };
 
-				var targetPoint = pathInfo.TopLeftTurnPoint.CentralizeAsFont(textFont);
-				targetPoint.Y += cellSize / 24; // Manual adjustment.
 				@this.DrawTextWithCover(
-					targetPoint,
+					pathInfo.TopLeftTurnPoint.AlignYAsBaseline(textFont),
 					text,
 					SKTextAlign.Left,
 					CoverStyle.Rectangle,
@@ -157,13 +155,15 @@ public partial class SKCanvasDrawings
 			SKPoint offset
 		)
 		{
-			if (string.IsNullOrWhiteSpace(text) || coverStyle == CoverStyle.None || !Enum.IsDefined(coverStyle) || textPaint is null)
+			if (string.IsNullOrWhiteSpace(text) || coverStyle == CoverStyle.None || !Enum.IsDefined(coverStyle)
+				|| !Enum.IsDefined(textAlign)
+				|| textPaint is null)
 			{
 				// Nothing to draw.
 				return;
 			}
 
-			var drawPoint = new SKPoint(point.X + offset.X, point.Y + offset.Y);
+			var drawPoint = point + offset;
 			var textWidth = font.MeasureText(text, textPaint);
 			font.MeasureText(text, out var bounds, textPaint);
 			var alignedX = textAlign switch
@@ -237,11 +237,7 @@ public partial class SKCanvasDrawings
 					var coverBoundDelta and < 0 => textAlign switch
 					{
 						SKTextAlign.Left => coverBounds with { Right = right + -coverBoundDelta },
-						SKTextAlign.Center => coverBounds with
-						{
-							Left = left - -coverBoundDelta / 2,
-							Right = right + -coverBoundDelta / 2
-						},
+						SKTextAlign.Center => coverBounds with { Left = left - -coverBoundDelta / 2, Right = right + -coverBoundDelta / 2 },
 						_ => coverBounds with { Left = left - -coverBoundDelta }
 					},
 					_ => coverBounds

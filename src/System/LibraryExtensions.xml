@@ -256,8 +256,8 @@
         <member name="M:SkiaSharp.SKPointExtensions.CompareTo(SkiaSharp.SKPoint@,SkiaSharp.SKPoint@)">
             <inheritdoc cref="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.CompareTo(SkiaSharp.SKPoint@)"/>
         </member>
-        <member name="M:SkiaSharp.SKPointExtensions.CentralizeAsFont(SkiaSharp.SKPoint@,SkiaSharp.SKFont)">
-            <inheritdoc cref="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.CentralizeAsFont(SkiaSharp.SKFont)"/>
+        <member name="M:SkiaSharp.SKPointExtensions.AlignYAsBaseline(SkiaSharp.SKPoint@,SkiaSharp.SKFont)">
+            <inheritdoc cref="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.AlignYAsBaseline(SkiaSharp.SKFont)"/>
         </member>
         <member name="M:SkiaSharp.SKPointExtensions.op_GreaterThan(SkiaSharp.SKPoint@,SkiaSharp.SKPoint@)">
             <inheritdoc cref="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_GreaterThan(SkiaSharp.SKPoint@,SkiaSharp.SKPoint@)"/>
@@ -288,7 +288,7 @@
         <member name="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.CompareTo(SkiaSharp.SKPoint@)">
             <inheritdoc cref="M:System.IComparable`1.CompareTo(`0)"/>
         </member>
-        <member name="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.CentralizeAsFont(SkiaSharp.SKFont)">
+        <member name="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.AlignYAsBaseline(SkiaSharp.SKFont)">
             <summary>
             Centralize the point using the specified font, in order to draw text aligning with center in vertical orientation.
             </summary>

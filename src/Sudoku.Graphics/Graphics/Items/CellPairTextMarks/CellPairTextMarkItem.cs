@@ -124,7 +124,7 @@ public abstract record CellPairTextMarkItem : Item, IItem_FontRelatedProperties,
 		};
 
 		canvas.BackingCanvas.DrawTextWithCover(
-			center.CentralizeAsFont(font),
+			center.AlignYAsBaseline(font),
 			PrintingText,
 			SKTextAlign.Center,
 			CoverStyle.Rectangle,
