@@ -141,9 +141,8 @@ public partial class SKCanvasDrawings
 			}
 
 			var textMetrics = textFont.Metrics;
-			targetPoint += new SKPoint(0, (textMetrics.Ascent + textMetrics.Descent) / 2); // Baseline adjustment.
-			targetPoint += new SKPoint(0, textFont.Size / 2); // Centeralize.
-			targetPoint += new SKPoint(0, cellSize / 8); // Manual adjustment
+			targetPoint = targetPoint.CentralizeAsFont(textFont);
+			targetPoint.Y += cellSize / 8; // Manual adjustment.
 
 			var outlineStrokeWidth = outlineThicknessScale.Measure(factSize);
 			using var textStrokePaint = new SKPaint
@@ -220,10 +219,8 @@ public partial class SKCanvasDrawings
 			};
 			using var textFillPaint = new SKPaint { Style = SKPaintStyle.Fill, Color = fillColor, IsAntialias = true };
 			var textMetrics = textFont.Metrics;
-			var targetPoint = mapper.GetPoint(candidatePosition, Alignment.Center)
-				+ new SKPoint(0, (textMetrics.Ascent + textMetrics.Descent) / 2) // Baseline adjustment.
-				+ new SKPoint(0, textFont.Size / 2) // Centeralize.
-				+ new SKPoint(0, candidateSize / 4); // Manual adjustment.
+			var targetPoint = mapper.GetPoint(candidatePosition, Alignment.Center).CentralizeAsFont(textFont);
+			targetPoint.Y += candidateSize / 4; // Manual adjustment.
 
 			// Set scale X of font.
 			textFont.SetScaleX(textFont.MeasureText(text, textStrokePaint), candidateSize);

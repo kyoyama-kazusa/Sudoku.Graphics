@@ -123,11 +123,8 @@ public abstract record CellPairTextMarkItem : Item, IItem_FontRelatedProperties,
 			Color = FillColor
 		};
 
-		var textMetrics = font.Metrics;
 		canvas.BackingCanvas.DrawTextWithCover(
-			center
-				+ new SKPoint(0, (textMetrics.Ascent + textMetrics.Descent) / 2) // Baseline adjustment.
-				+ new SKPoint(0, font.Size / 2), // Centeralize.
+			center.CentralizeAsFont(font),
 			PrintingText,
 			SKTextAlign.Center,
 			CoverStyle.Rectangle,

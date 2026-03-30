@@ -102,12 +102,10 @@ public partial class SKCanvasDrawings
 				};
 				using var textCoverFillPaint = new SKPaint { Style = SKPaintStyle.Fill, Color = textBackgroundColor, IsAntialias = true };
 
-				textFont.GetFontMetrics(out var metrics);
+				var targetPoint = pathInfo.TopLeftTurnPoint.CentralizeAsFont(textFont);
+				targetPoint.Y += cellSize / 24; // Manual adjustment.
 				@this.DrawTextWithCover(
-					pathInfo.TopLeftTurnPoint
-						+ new SKPoint(0, (metrics.Ascent + metrics.Descent) / 2) // Baseline adjustment.
-						+ new SKPoint(0, textFont.Size / 2) // Centralize.
-						+ new SKPoint(0, cellSize / 24), // Manual adjustment.
+					targetPoint,
 					text,
 					SKTextAlign.Left,
 					CoverStyle.Rectangle,
