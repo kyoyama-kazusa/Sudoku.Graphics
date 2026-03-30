@@ -100,7 +100,7 @@ public partial class SKCanvasDrawings
 					StrokeWidth = factSize,
 					StrokeJoin = SKStrokeJoin.Round
 				};
-				using var textCoverPaint = new SKPaint { Style = SKPaintStyle.Fill, Color = textBackgroundColor, IsAntialias = true };
+				using var textCoverFillPaint = new SKPaint { Style = SKPaintStyle.Fill, Color = textBackgroundColor, IsAntialias = true };
 
 				textFont.GetFontMetrics(out var metrics);
 				@this.DrawTextWithCover(
@@ -110,9 +110,11 @@ public partial class SKCanvasDrawings
 						+ new SKPoint(0, cellSize / 24), // Manual adjustment.
 					text,
 					SKTextAlign.Left,
+					CoverStyle.Rectangle,
 					textFont,
 					textPaint,
-					textCoverPaint,
+					null,
+					textCoverFillPaint,
 					textPaddingTop,
 					textPaddingBottom,
 					textPaddingLeft,
@@ -120,6 +122,74 @@ public partial class SKCanvasDrawings
 					new(textOffsetX, textOffsetY)
 				);
 			}
+		}
+
+		/// <summary>
+		/// Draws the specified text with background cover.
+		/// </summary>
+		/// <param name="point">The point.</param>
+		/// <param name="text">The text.</param>
+		/// <param name="textAlign">The text align.</param>
+		/// <param name="coverStyle">The cover style.</param>
+		/// <param name="font">The font.</param>
+		/// <param name="paint">The paint.</param>
+		/// <param name="coverStrokePaint">
+		/// The stroke paint of cover background. The value can be <see langword="null"/> if you don't want to draw stroke.
+		/// </param>
+		/// <param name="coverFillPaint">The fill paint of cover background.</param>
+		/// <param name="paddingTop">The padding top of the boundary of text drawn.</param>
+		/// <param name="paddingBottom">The padding bottom of the boundary of text drawn.</param>
+		/// <param name="paddingLeft">The padding left of the boundary of text drawn.</param>
+		/// <param name="paddingRight">The padding right of the boundary of text drawn.</param>
+		/// <param name="offset">The offset to the text to be drawn.</param>
+		/// <exception cref="ArgumentOutOfRangeException">Throws when <paramref name="textAlign"/> is not defined.</exception>
+		public void DrawTextWithCover(
+			SKPoint point,
+			string text,
+			SKTextAlign textAlign,
+			CoverStyle coverStyle,
+			SKFont font,
+			SKPaint paint,
+			SKPaint? coverStrokePaint,
+			SKPaint coverFillPaint,
+			float paddingTop,
+			float paddingBottom,
+			float paddingLeft,
+			float paddingRight,
+			SKPoint offset
+		)
+		{
+			if (string.IsNullOrWhiteSpace(text) || coverStyle == CoverStyle.None || !Enum.IsDefined(coverStyle))
+			{
+				// Nothing to draw.
+				return;
+			}
+
+			var drawPoint = new SKPoint(point.X + offset.X, point.Y + offset.Y);
+			var textWidth = font.MeasureText(text, paint);
+			font.MeasureText(text, out var bounds, paint);
+			var alignedX = textAlign switch
+			{
+				SKTextAlign.Left => drawPoint.X,
+				SKTextAlign.Center => drawPoint.X - textWidth / 2,
+				SKTextAlign.Right => drawPoint.X - textWidth,
+				_ => throw new ArgumentOutOfRangeException(nameof(textAlign))
+			};
+			bounds.Offset(alignedX, drawPoint.Y);
+			var coverBounds = new SKRect(
+				bounds.Left - paddingLeft,
+				bounds.Top - paddingTop,
+				bounds.Right + paddingRight,
+				bounds.Bottom + paddingBottom
+			);
+
+			Action<SKRect, SKPaint> coverStyleDrawer = coverStyle == CoverStyle.Rectangle ? @this.DrawRect : @this.DrawOval;
+			if (coverStrokePaint is not null)
+			{
+				coverStyleDrawer(coverBounds, coverStrokePaint);
+			}
+			coverStyleDrawer(coverBounds, coverFillPaint);
+			@this.DrawText(text, drawPoint, textAlign, font, paint);
 		}
 	}
 }

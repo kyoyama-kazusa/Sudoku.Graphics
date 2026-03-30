@@ -39,6 +39,26 @@
             Indicates bottom-right point of container.
             </summary>
         </member>
+        <member name="T:Sudoku.ComponentModel.CoverStyle">
+            <summary>
+            Represents a style of cover (text background).
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.CoverStyle.None">
+            <summary>
+            The placeholder of this type.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.CoverStyle.Rectangle">
+            <summary>
+            Indicates cover is a rectangle.
+            </summary>
+        </member>
+        <member name="F:Sudoku.ComponentModel.CoverStyle.Oval">
+            <summary>
+            Indicates cover is an oval.
+            </summary>
+        </member>
         <member name="T:Sudoku.ComponentModel.Crossmath.CrossmathFormula">
             <summary>
             Represents a crossmath formula.
@@ -4821,6 +4841,9 @@
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawKillerCage(SkiaSharp.SKCanvas,System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.LineDashSequence,Sudoku.ComponentModel.Scale,System.String,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawKillerCage(System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.LineDashSequence,Sudoku.ComponentModel.Scale,System.String,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,Sudoku.Graphics.PointMapper)"/>
         </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawTextWithCover(SkiaSharp.SKCanvas,SkiaSharp.SKPoint,System.String,SkiaSharp.SKTextAlign,Sudoku.ComponentModel.CoverStyle,SkiaSharp.SKFont,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPaint,System.Single,System.Single,System.Single,System.Single,SkiaSharp.SKPoint)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextWithCover(SkiaSharp.SKPoint,System.String,SkiaSharp.SKTextAlign,Sudoku.ComponentModel.CoverStyle,SkiaSharp.SKFont,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPaint,System.Single,System.Single,System.Single,System.Single,SkiaSharp.SKPoint)"/>
+        </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawThermometer(SkiaSharp.SKCanvas,System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawThermometer(System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper)"/>
         </member>
@@ -5022,6 +5045,27 @@
             Throws when <paramref name="textFontName"/> is <see langword="null"/>,
             but <paramref name="text"/> is not <see langword="null"/>.
             </exception>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextWithCover(SkiaSharp.SKPoint,System.String,SkiaSharp.SKTextAlign,Sudoku.ComponentModel.CoverStyle,SkiaSharp.SKFont,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPaint,System.Single,System.Single,System.Single,System.Single,SkiaSharp.SKPoint)">
+            <summary>
+            Draws the specified text with background cover.
+            </summary>
+            <param name="point">The point.</param>
+            <param name="text">The text.</param>
+            <param name="textAlign">The text align.</param>
+            <param name="coverStyle">The cover style.</param>
+            <param name="font">The font.</param>
+            <param name="paint">The paint.</param>
+            <param name="coverStrokePaint">
+            The stroke paint of cover background. The value can be <see langword="null"/> if you don't want to draw stroke.
+            </param>
+            <param name="coverFillPaint">The fill paint of cover background.</param>
+            <param name="paddingTop">The padding top of the boundary of text drawn.</param>
+            <param name="paddingBottom">The padding bottom of the boundary of text drawn.</param>
+            <param name="paddingLeft">The padding left of the boundary of text drawn.</param>
+            <param name="paddingRight">The padding right of the boundary of text drawn.</param>
+            <param name="offset">The offset to the text to be drawn.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">Throws when <paramref name="textAlign"/> is not defined.</exception>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawThermometer(System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.Graphics.PointMapper)">
             <summary>
