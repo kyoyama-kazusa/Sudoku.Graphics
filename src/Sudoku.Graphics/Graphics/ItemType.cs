@@ -182,52 +182,52 @@ public enum ItemType
 	/// <summary>
 	/// Indicates cell question mark.
 	/// </summary>
-	Cell_QuestionText,
+	CellText_Question,
 
 	/// <summary>
 	/// Indicates cell exclamation mark.
 	/// </summary>
-	Cell_ExclamationText,
+	CellText_Exclamation,
 
 	/// <summary>
 	/// Indicates cell suit text mark.
 	/// </summary>
-	Cell_SuitText,
+	CellText_Suit,
 
 	/// <summary>
 	/// Indicates cell emoji mark.
 	/// </summary>
-	Cell_EmojiText,
+	CellText_Emoji,
 
 	/// <summary>
 	/// Indicates cell zodiac emoji mark.
 	/// </summary>
-	Cell_ZodiacEmojiText,
+	CellText_ZodiacEmoji,
 
 	/// <summary>
 	/// Indicates cell arrow text mark.
 	/// </summary>
-	Cell_ArrowText,
+	CellText_Arrow,
 
 	/// <summary>
 	/// Indicates arithmetic operator text mark.
 	/// </summary>
-	Cell_ArithmeticOperatorText,
+	CellText_ArithmeticOperator,
 
 	/// <summary>
 	/// Indicates bitwise operator text mark.
 	/// </summary>
-	Cell_BitwiseOperatorText,
+	CellText_BitwiseOperator,
 
 	/// <summary>
 	/// Indicates comparison operator text mark.
 	/// </summary>
-	Cell_ComparisonOperatorText,
+	CellText_ComparisonOperator,
 
 	/// <summary>
 	/// Indicates cell border-aligned text mark.
 	/// </summary>
-	Cell_BorderAlignedText,
+	CellText_BorderAligned,
 	#endregion
 
 	//

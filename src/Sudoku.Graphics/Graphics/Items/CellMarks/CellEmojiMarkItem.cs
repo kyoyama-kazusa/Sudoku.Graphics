@@ -11,7 +11,7 @@ public sealed record CellEmojiMarkItem : CellTextMarkItem
 	public required string Emoji { get; init; }
 
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.Cell_EmojiText;
+	public override ItemType Type => ItemType.CellText_Emoji;
 
 	/// <inheritdoc/>
 	protected override string PrintingText => Emoji;

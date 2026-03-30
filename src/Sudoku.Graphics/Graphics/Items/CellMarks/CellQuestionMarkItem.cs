@@ -6,7 +6,7 @@
 public sealed record CellQuestionMarkItem : CellTextMarkItem
 {
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.Cell_QuestionText;
+	public override ItemType Type => ItemType.CellText_Question;
 
 	/// <inheritdoc/>
 	protected override string PrintingText => "?";

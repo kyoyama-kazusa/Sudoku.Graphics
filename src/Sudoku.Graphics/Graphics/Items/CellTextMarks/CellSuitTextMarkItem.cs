@@ -11,7 +11,7 @@ public sealed record CellSuitTextMarkItem : CellTextMarkItem
 	public required Suit Suit { get; init; }
 
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.Cell_SuitText;
+	public override ItemType Type => ItemType.CellText_Suit;
 
 	/// <inheritdoc/>
 	protected override string PrintingText

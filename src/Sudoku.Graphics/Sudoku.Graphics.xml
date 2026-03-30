@@ -4486,52 +4486,52 @@
             Indicates candidate text.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.Cell_QuestionText">
+        <member name="F:Sudoku.Graphics.ItemType.CellText_Question">
             <summary>
             Indicates cell question mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.Cell_ExclamationText">
+        <member name="F:Sudoku.Graphics.ItemType.CellText_Exclamation">
             <summary>
             Indicates cell exclamation mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.Cell_SuitText">
+        <member name="F:Sudoku.Graphics.ItemType.CellText_Suit">
             <summary>
             Indicates cell suit text mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.Cell_EmojiText">
+        <member name="F:Sudoku.Graphics.ItemType.CellText_Emoji">
             <summary>
             Indicates cell emoji mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.Cell_ZodiacEmojiText">
+        <member name="F:Sudoku.Graphics.ItemType.CellText_ZodiacEmoji">
             <summary>
             Indicates cell zodiac emoji mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.Cell_ArrowText">
+        <member name="F:Sudoku.Graphics.ItemType.CellText_Arrow">
             <summary>
             Indicates cell arrow text mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.Cell_ArithmeticOperatorText">
+        <member name="F:Sudoku.Graphics.ItemType.CellText_ArithmeticOperator">
             <summary>
             Indicates arithmetic operator text mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.Cell_BitwiseOperatorText">
+        <member name="F:Sudoku.Graphics.ItemType.CellText_BitwiseOperator">
             <summary>
             Indicates bitwise operator text mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.Cell_ComparisonOperatorText">
+        <member name="F:Sudoku.Graphics.ItemType.CellText_ComparisonOperator">
             <summary>
             Indicates comparison operator text mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.Cell_BorderAlignedText">
+        <member name="F:Sudoku.Graphics.ItemType.CellText_BorderAligned">
             <summary>
             Indicates cell border-aligned text mark.
             </summary>

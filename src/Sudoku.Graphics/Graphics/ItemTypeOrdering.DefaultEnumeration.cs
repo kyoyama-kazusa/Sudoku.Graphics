@@ -59,21 +59,16 @@ public partial class ItemTypeOrdering
 
 			// Cell text marks
 			{
-				yield return ItemType.Cell_QuestionText;
-				yield return ItemType.Cell_ExclamationText;
-				yield return ItemType.Cell_SuitText;
-				yield return ItemType.Cell_EmojiText;
-				yield return ItemType.Cell_ZodiacEmojiText;
-				yield return ItemType.Cell_ArrowText;
-				yield return ItemType.Cell_ArithmeticOperatorText;
-				yield return ItemType.Cell_BitwiseOperatorText;
-				yield return ItemType.Cell_ComparisonOperatorText;
-				yield return ItemType.Cell_BorderAlignedText;
-			}
-
-			// Cell pair marks (1)
-			{
-				yield return ItemType.CellPair_BridgeLine;
+				yield return ItemType.CellText_Question;
+				yield return ItemType.CellText_Exclamation;
+				yield return ItemType.CellText_Suit;
+				yield return ItemType.CellText_Emoji;
+				yield return ItemType.CellText_ZodiacEmoji;
+				yield return ItemType.CellText_Arrow;
+				yield return ItemType.CellText_ArithmeticOperator;
+				yield return ItemType.CellText_BitwiseOperator;
+				yield return ItemType.CellText_ComparisonOperator;
+				yield return ItemType.CellText_BorderAligned;
 			}
 
 			// Cell group marks
@@ -90,8 +85,9 @@ public partial class ItemTypeOrdering
 				yield return ItemType.Line_Variant;
 			}
 
-			// Cell pair marks (2)
+			// Cell pair marks
 			{
+				yield return ItemType.CellPair_BridgeLine;
 				yield return ItemType.CellPair_Bar;
 				yield return ItemType.CellPair_ConnectionLine;
 				yield return ItemType.CellPair_Kropki;
