@@ -238,6 +238,16 @@ public enum ItemType
 	/// Indicates cell pair roman numeral text mark.
 	/// </summary>
 	CellPairText_RomanNumeral,
+
+	/// <summary>
+	/// Indicates cell pair number text mark.
+	/// </summary>
+	CellPairText_Number,
+
+	/// <summary>
+	/// Indicates cell pair arrow text mark.
+	/// </summary>
+	CellPairText_Arrow,
 	#endregion
 
 	//

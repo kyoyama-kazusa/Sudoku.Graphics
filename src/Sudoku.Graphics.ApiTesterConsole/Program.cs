@@ -10,6 +10,7 @@ using System;
 using System.IO;
 using SkiaSharp;
 using Sudoku.ComponentModel;
+using Sudoku.ComponentModel.Directions;
 using Sudoku.Graphics;
 using Sudoku.Graphics.Items.CellPairTextMarks;
 using Sudoku.Graphics.Items.Fills;
@@ -34,23 +35,22 @@ using var canvas = new Canvas(
 	}
 );
 
-LineDashSequence dashSequence = [10, 10];
-Scale cornerRadiusScale = 0M, sizeScale = .8M, fontSizeScale = .25M;
+Scale fontSizeScale = .25M;
 const float offsetX = 0, offsetY = 8, paddingLeft = 8, paddingTop = 8, paddingRight = 8, paddingBottom = 8;
 canvas.DrawItems(
 	[
 		new BackgroundFillItem { Color = SKColors.White },
 		new TemplateLineItem(),
-		new CellPairRomanNumeralTextMarkItem
+		new CellPairArrowTextMarkItem
 		{
 			TemplateIndex = 0,
-			Cell1 = 0,
-			Cell2 = 1,
-			Value = 5,
-			FontName = "Arial",
+			Cell1 = 10,
+			Cell2 = 15,
+			Direction = Direction8.RightUp,
+			FontName = "Segoe UI",
 			FontSizeScale = fontSizeScale,
 			FontColor = SKColors.Black,
-			FillColor =	SKColors.White,
+			FillColor = SKColors.White,
 			StrokeColor = SKColors.Black,
 			StrokeWidthScale = .025M,
 			OffsetX = offsetX,
@@ -60,13 +60,13 @@ canvas.DrawItems(
 			PaddingRight = paddingRight,
 			PaddingBottom = paddingBottom
 		},
-		new CellPairRomanNumeralTextMarkItem
+		new CellPairArrowTextMarkItem
 		{
 			TemplateIndex = 0,
-			Cell1 = 1,
+			Cell1 = 0,
 			Cell2 = 7,
-			Value = 10,
-			FontName = "Arial",
+			Direction = Direction8.LeftDown,
+			FontName = "Segoe UI",
 			FontSizeScale = fontSizeScale,
 			FontColor = SKColors.Black,
 			FillColor = SKColors.White,

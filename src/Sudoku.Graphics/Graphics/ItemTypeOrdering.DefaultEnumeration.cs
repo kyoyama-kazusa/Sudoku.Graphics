@@ -103,6 +103,8 @@ public partial class ItemTypeOrdering
 			// Cell pair text marks
 			{
 				yield return ItemType.CellPairText_RomanNumeral;
+				yield return ItemType.CellPairText_Number;
+				yield return ItemType.CellPairText_Arrow;
 			}
 		}
 	}

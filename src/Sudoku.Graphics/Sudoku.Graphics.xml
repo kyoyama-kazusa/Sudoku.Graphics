@@ -3633,6 +3633,38 @@
         <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairMarkItem.Sudoku#Graphics#Items#IItem_MarkRelatedProperties#SizeScale">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.Items.CellPairTextMarks.CellPairArrowTextMarkItem">
+            <summary>
+            Represents a cell pair arrow text mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairTextMarks.CellPairArrowTextMarkItem.Direction">
+            <summary>
+            Indicates the direction.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairTextMarks.CellPairArrowTextMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairTextMarks.CellPairArrowTextMarkItem.PrintingText">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellPairTextMarks.CellPairNumberTextMarkItem">
+            <summary>
+            Represents cell pair number text mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairTextMarks.CellPairNumberTextMarkItem.Value">
+            <summary>
+            Indicates the value.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairTextMarks.CellPairNumberTextMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairTextMarks.CellPairNumberTextMarkItem.PrintingText">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.Items.CellPairTextMarks.CellPairRomanNumeralTextMarkItem">
             <summary>
             Represents a cell pair roman numeral text (1 - 1000) mark item.
@@ -4491,6 +4523,16 @@
         <member name="F:Sudoku.Graphics.ItemType.CellPairText_RomanNumeral">
             <summary>
             Indicates cell pair roman numeral text mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellPairText_Number">
+            <summary>
+            Indicates cell pair number text mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellPairText_Arrow">
+            <summary>
+            Indicates cell pair arrow text mark.
             </summary>
         </member>
         <member name="F:Sudoku.Graphics.ItemType.CellPair_BridgeLine">
