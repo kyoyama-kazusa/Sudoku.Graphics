@@ -3,6 +3,7 @@
 /// <summary>
 /// Represents ordering of item type to be rendered.
 /// </summary>
+[JsonConverter(typeof(Converter))]
 public sealed partial class ItemTypeOrdering : ICloneable, IReadOnlyDictionary<ItemType, int>
 {
 	/// <summary>

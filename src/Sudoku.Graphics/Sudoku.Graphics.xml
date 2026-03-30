@@ -4637,6 +4637,17 @@
             Represents ordering of item type to be rendered.
             </summary>
         </member>
+        <member name="T:Sudoku.Graphics.ItemTypeOrdering.Converter">
+            <summary>
+            Represents a JSON converter for this type.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemTypeOrdering.Converter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemTypeOrdering.Converter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.Graphics.ItemTypeOrdering,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
         <member name="F:Sudoku.Graphics.ItemTypeOrdering.Default">
             <summary>
             Indicates the default ordering.
