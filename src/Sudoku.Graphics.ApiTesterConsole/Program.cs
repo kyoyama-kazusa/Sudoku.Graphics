@@ -41,18 +41,16 @@ canvas.DrawItems(
 	[
 		new BackgroundFillItem { Color = SKColors.White },
 		new TemplateLineItem(),
-		new CellPairArrowTextMarkItem
+		new CellPairRawTextMarkItem
 		{
 			TemplateIndex = 0,
 			Cell1 = 10,
 			Cell2 = 15,
-			Direction = Direction8.RightUp,
-			FontName = "Segoe UI",
+			Text = "1234",
+			FontName = "Arial",
 			FontSizeScale = fontSizeScale,
 			FontColor = SKColors.Black,
 			FillColor = SKColors.White,
-			StrokeColor = SKColors.Black,
-			StrokeWidthScale = .025M,
 			OffsetX = offsetX,
 			OffsetY = offsetY,
 			PaddingLeft = paddingLeft,
@@ -60,18 +58,16 @@ canvas.DrawItems(
 			PaddingRight = paddingRight,
 			PaddingBottom = paddingBottom
 		},
-		new CellPairArrowTextMarkItem
+		new CellPairRawTextMarkItem
 		{
 			TemplateIndex = 0,
 			Cell1 = 0,
 			Cell2 = 7,
-			Direction = Direction8.LeftDown,
-			FontName = "Segoe UI",
+			Text = "3456",
+			FontName = "Arial",
 			FontSizeScale = fontSizeScale,
 			FontColor = SKColors.Black,
 			FillColor = SKColors.White,
-			StrokeColor = SKColors.Black,
-			StrokeWidthScale = .025M,
 			OffsetX = offsetX,
 			OffsetY = offsetY,
 			PaddingLeft = paddingLeft,

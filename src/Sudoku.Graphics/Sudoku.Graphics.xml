@@ -3665,6 +3665,22 @@
         <member name="P:Sudoku.Graphics.Items.CellPairTextMarks.CellPairNumberTextMarkItem.PrintingText">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.Items.CellPairTextMarks.CellPairRawTextMarkItem">
+            <summary>
+            Represents a cell pair raw text mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairTextMarks.CellPairRawTextMarkItem.Text">
+            <summary>
+            Indicates the text.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairTextMarks.CellPairRawTextMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairTextMarks.CellPairRawTextMarkItem.PrintingText">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.Items.CellPairTextMarks.CellPairRomanNumeralTextMarkItem">
             <summary>
             Represents a cell pair roman numeral text (1 - 1000) mark item.
@@ -4533,6 +4549,11 @@
         <member name="F:Sudoku.Graphics.ItemType.CellPairText_Arrow">
             <summary>
             Indicates cell pair arrow text mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellPairText_Raw">
+            <summary>
+            Indicates cell pair raw text mark.
             </summary>
         </member>
         <member name="F:Sudoku.Graphics.ItemType.CellPair_BridgeLine">

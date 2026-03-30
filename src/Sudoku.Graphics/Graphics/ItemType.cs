@@ -248,6 +248,11 @@ public enum ItemType
 	/// Indicates cell pair arrow text mark.
 	/// </summary>
 	CellPairText_Arrow,
+
+	/// <summary>
+	/// Indicates cell pair raw text mark.
+	/// </summary>
+	CellPairText_Raw,
 	#endregion
 
 	//

@@ -44,6 +44,7 @@
 [JsonDerivedType(typeof(CellPairKropkiMarkItem), nameof(CellPairKropkiMarkItem))]
 [JsonDerivedType(typeof(CellPairKropkiSquareMarkItem), nameof(CellPairKropkiSquareMarkItem))]
 [JsonDerivedType(typeof(CellPairKropkiTriangleMarkItem), nameof(CellPairKropkiTriangleMarkItem))]
+[JsonDerivedType(typeof(CellPairRawTextMarkItem), nameof(CellPairRawTextMarkItem))]
 [JsonDerivedType(typeof(CellPairRomanNumeralTextMarkItem), nameof(CellPairRomanNumeralTextMarkItem))]
 [JsonDerivedType(typeof(CellPhantomDiceMarkItem), nameof(CellPhantomDiceMarkItem))]
 [JsonDerivedType(typeof(CellPolygonMarkItem), nameof(CellPolygonMarkItem))]
