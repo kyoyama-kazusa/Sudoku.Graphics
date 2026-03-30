@@ -5,66 +5,6 @@ public partial class SKCanvasDrawings
 	extension(SKCanvas @this)
 	{
 		/// <summary>
-		/// Draws the specified text into the target cell.
-		/// </summary>
-		/// <inheritdoc cref="extension(SKCanvas).DrawOutlinedTextToCell"/>
-		public void DrawTextToCell(
-			string text,
-			Absolute cell,
-			string fontName,
-			Scale fontScale,
-			SKFontStyleWeight fontWeight,
-			SKFontStyleWidth fontWidth,
-			SKFontStyleSlant fontSlant,
-			SerializableColor fillColor,
-			float rotationDegree,
-			Direction8 alignedDirection,
-			PointMapper mapper
-		) => @this.DrawOutlinedTextToCell(
-			text,
-			cell,
-			fontName,
-			fontScale,
-			0M,
-			fontWeight,
-			fontWidth,
-			fontSlant,
-			SKColors.Transparent,
-			fillColor,
-			rotationDegree,
-			alignedDirection,
-			mapper
-		);
-
-		/// <summary>
-		/// Draws the specified text into the target candidate.
-		/// </summary>
-		/// <inheritdoc cref="extension(SKCanvas).DrawOutlinedTextToCandidate"/>
-		public void DrawTextToCandidate(
-			string text,
-			CandidatePosition candidatePosition,
-			string fontName,
-			Scale fontScale,
-			SKFontStyleWeight fontWeight,
-			SKFontStyleWidth fontWidth,
-			SKFontStyleSlant fontSlant,
-			SerializableColor fillColor,
-			PointMapper mapper
-		) => @this.DrawOutlinedTextToCandidate(
-			text,
-			candidatePosition,
-			fontName,
-			fontScale,
-			0M,
-			fontWeight,
-			fontWidth,
-			fontSlant,
-			SKColors.Transparent,
-			fillColor,
-			mapper
-		);
-
-		/// <summary>
 		/// Draws the specified text into the target cell, with outlined.
 		/// </summary>
 		/// <param name="text">The text.</param>

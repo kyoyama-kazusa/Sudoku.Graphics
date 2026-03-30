@@ -14,15 +14,17 @@ public sealed record CandidateTextItem : TextItem, IItem_CandidatePositionProper
 
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)
-		=> canvas.BackingCanvas.DrawTextToCandidate(
+		=> canvas.BackingCanvas.DrawOutlinedTextToCandidate(
 			Text,
 			CandidatePosition,
 			FontName,
 			FontSizeScale,
+			0M,
 			FontWeight,
 			FontWidth,
 			FontSlant,
 			Color,
+			SKColors.Transparent,
 			canvas.Templates[TemplateIndex].Mapper
 		);
 }

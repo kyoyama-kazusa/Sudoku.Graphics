@@ -14,14 +14,16 @@ public abstract record GivenOrModifiableTextItem : TextItem, IItem_CellProperty
 
 	/// <inheritdoc/>
 	protected internal sealed override void DrawTo(Canvas canvas)
-		=> canvas.BackingCanvas.DrawTextToCell(
+		=> canvas.BackingCanvas.DrawOutlinedTextToCell(
 			Text,
 			Cell,
 			FontName,
 			FontSizeScale,
+			0M,
 			FontWeight,
 			FontWidth,
 			FontSlant,
+			SKColors.Transparent,
 			Color,
 			0,
 			Direction8.None,

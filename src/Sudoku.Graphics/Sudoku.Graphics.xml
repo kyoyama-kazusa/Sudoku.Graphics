@@ -5018,12 +5018,6 @@
             </summary>
             <seealso cref="T:SkiaSharp.SKCanvas"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawTextToCell(SkiaSharp.SKCanvas,System.String,Sudoku.Graphics.Absolute,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,System.Single,Sudoku.ComponentModel.Directions.Direction8,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextToCell(System.String,Sudoku.Graphics.Absolute,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,System.Single,Sudoku.ComponentModel.Directions.Direction8,Sudoku.Graphics.PointMapper)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawTextToCandidate(SkiaSharp.SKCanvas,System.String,Sudoku.Graphics.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextToCandidate(System.String,Sudoku.Graphics.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
-        </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawOutlinedTextToCell(SkiaSharp.SKCanvas,System.String,Sudoku.Graphics.Absolute,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,System.Single,Sudoku.ComponentModel.Directions.Direction8,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCell(System.String,Sudoku.Graphics.Absolute,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,System.Single,Sudoku.ComponentModel.Directions.Direction8,Sudoku.Graphics.PointMapper)"/>
         </member>
@@ -5111,11 +5105,11 @@
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawBattenburg_Generic(SkiaSharp.SKCanvas,SkiaSharp.SKPoint,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale[],Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBattenburg_Generic(SkiaSharp.SKPoint,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale[],Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawConnectionLine(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawConnectionLine(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
-        </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawBridgeAndConnectedCircles(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,System.Boolean,System.Boolean,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBridgeAndConnectedCircles(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,System.Boolean,System.Boolean,Sudoku.Graphics.PointMapper)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawConnectionLine(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawConnectionLine(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawKropki(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,System.Boolean,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawKropki(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,System.Boolean,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
@@ -5133,18 +5127,6 @@
             </summary>
             <param name="this">The current instance.</param>
             <seealso cref="T:Sudoku.Graphics.Item"/>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextToCell(System.String,Sudoku.Graphics.Absolute,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,System.Single,Sudoku.ComponentModel.Directions.Direction8,Sudoku.Graphics.PointMapper)">
-            <summary>
-            Draws the specified text into the target cell.
-            </summary>
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCell(System.String,Sudoku.Graphics.Absolute,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,System.Single,Sudoku.ComponentModel.Directions.Direction8,Sudoku.Graphics.PointMapper)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextToCandidate(System.String,Sudoku.Graphics.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
-            <summary>
-            Draws the specified text into the target candidate.
-            </summary>
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCandidate(System.String,Sudoku.Graphics.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCell(System.String,Sudoku.Graphics.Absolute,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,System.Single,Sudoku.ComponentModel.Directions.Direction8,Sudoku.Graphics.PointMapper)">
             <summary>
@@ -5610,17 +5592,6 @@
             <param name="cornerRadiiScale">The scale of corner radii.</param>
             <param name="mapper">The mapper instance.</param>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawConnectionLine(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
-            <summary>
-            Draws a connection line between two adjacent cells, including diagonally-adjacent cases.
-            </summary>
-            <param name="cell1">The cell 1.</param>
-            <param name="cell2">The cell 2.</param>
-            <param name="strokeWidthScale">The scale of stroke width, related to cell size.</param>
-            <param name="strokeColor">The color of stroke.</param>
-            <param name="strokeSizeScale">The scale of stroke size, related to cell size.</param>
-            <param name="mapper">The point mapper instance.</param>
-        </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBridgeAndConnectedCircles(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,System.Boolean,System.Boolean,Sudoku.Graphics.PointMapper)">
             <summary>
             Draws two circles into the canvas, with several number of lines connectin with them.
@@ -5642,6 +5613,17 @@
             <exception cref="T:System.NotSupportedException">
             Throws when <paramref name="linesCount"/> is not supported (too large or invalid).
             </exception>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawConnectionLine(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Draws a connection line between two adjacent cells, including diagonally-adjacent cases.
+            </summary>
+            <param name="cell1">The cell 1.</param>
+            <param name="cell2">The cell 2.</param>
+            <param name="strokeWidthScale">The scale of stroke width, related to cell size.</param>
+            <param name="strokeColor">The color of stroke.</param>
+            <param name="strokeSizeScale">The scale of stroke size, related to cell size.</param>
+            <param name="mapper">The point mapper instance.</param>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawKropki(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,System.Boolean,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <summary>
