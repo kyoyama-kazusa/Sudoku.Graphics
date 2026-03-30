@@ -263,6 +263,11 @@ public enum ItemType
 	/// Indicates cell pair kropki triangle mark.
 	/// </summary>
 	CellPair_KropkiTriangle,
+
+	/// <summary>
+	/// Indicates cell pair batternburg mark.
+	/// </summary>
+	CellPair_Battenburg,
 	#endregion
 
 	//

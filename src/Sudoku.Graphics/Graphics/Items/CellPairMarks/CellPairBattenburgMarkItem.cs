@@ -1,12 +1,12 @@
-﻿namespace Sudoku.Graphics.Items.CellMarks;
+﻿namespace Sudoku.Graphics.Items.CellPairMarks;
 
 /// <summary>
-/// Represents a cell battenburg (battenberg) mark item.
+/// Represents a cell pair battenburg mark item.
 /// </summary>
-public sealed record CellBattenburgMarkItem : CellMarkItem
+public sealed record CellPairBattenburgMarkItem : CellPairMarkItem
 {
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.Cell_Battenburg;
+	public override ItemType Type => ItemType.CellPair_Battenburg;
 
 	/// <summary>
 	/// Indicates the color 1.
@@ -25,6 +25,11 @@ public sealed record CellBattenburgMarkItem : CellMarkItem
 	public override Scale StrokeWidthScale { get; init; }
 
 	/// <summary>
+	/// Indicates the scale of size of mark, related to cell size.
+	/// </summary>
+	public required Scale SizeScale { get; init; }
+
+	/// <summary>
 	/// Indicates uniform corner radius.
 	/// </summary>
 	public required Scale UniformCornerRadius { get; init; }
@@ -32,8 +37,9 @@ public sealed record CellBattenburgMarkItem : CellMarkItem
 
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)
-		=> canvas.BackingCanvas.DrawBattenburgToCell(
-			Cell,
+		=> canvas.BackingCanvas.DrawBattenburg(
+			Cell1,
+			Cell2,
 			SizeScale,
 			Color1,
 			Color2,

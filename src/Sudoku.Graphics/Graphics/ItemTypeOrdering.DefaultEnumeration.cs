@@ -97,6 +97,7 @@ public partial class ItemTypeOrdering
 				yield return ItemType.CellPair_Kropki;
 				yield return ItemType.CellPair_KropkiSquare;
 				yield return ItemType.CellPair_KropkiTriangle;
+				yield return ItemType.CellPair_Battenburg;
 			}
 		}
 	}
