@@ -67,10 +67,10 @@ public sealed record CellGroupKillerCageMarkItem : CellGroupMarkItem
 	public SerializableColor TextBackgroundColor { get; init; }
 
 	/// <inheritdoc/>
-	public override required SerializableColor StrokeColor { get; init; }
+	public required override SerializableColor StrokeColor { get; init; }
 
 	/// <inheritdoc/>
-	public override required SerializableColor FillColor { get; init; }
+	public required override SerializableColor FillColor { get; init; }
 
 	/// <summary>
 	/// Indicates the scale of size of each cells drawn, related to cell size.
@@ -78,13 +78,13 @@ public sealed record CellGroupKillerCageMarkItem : CellGroupMarkItem
 	public required Scale ShortSideScale { get; init; }
 
 	/// <inheritdoc/>
-	public override required Scale FontSizeScale { get; init; }
+	public required override Scale FontSizeScale { get; init; }
 
 	/// <inheritdoc/>
-	public override required Scale CornerRadiusScale { get; init; }
+	public required override Scale CornerRadiusScale { get; init; }
 
 	/// <inheritdoc/>
-	public override required Scale StrokeWidthScale { get; init; }
+	public required override Scale StrokeWidthScale { get; init; }
 
 	/// <summary>
 	/// Indicates the dash sequence.

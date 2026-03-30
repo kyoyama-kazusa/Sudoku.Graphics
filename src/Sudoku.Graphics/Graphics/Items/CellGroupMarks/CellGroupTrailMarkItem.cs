@@ -14,7 +14,7 @@ public sealed record CellGroupTrailMarkItem : CellGroupMarkItem
 	public required Scale SizeScale { get; init; }
 
 	/// <inheritdoc/>
-	public override required SerializableColor FillColor { get; init; }
+	public required override SerializableColor FillColor { get; init; }
 
 
 	/// <inheritdoc/>

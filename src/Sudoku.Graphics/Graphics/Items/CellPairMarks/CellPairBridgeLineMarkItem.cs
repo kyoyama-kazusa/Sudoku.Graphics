@@ -34,13 +34,13 @@ public sealed record CellPairBridgeLineMarkItem : CellPairMarkItem
 	public required Scale CircleScale { get; init; }
 
 	/// <inheritdoc/>
-	public override required Scale StrokeWidthScale { get; init; }
+	public required override Scale StrokeWidthScale { get; init; }
 
 	/// <inheritdoc/>
-	public override required SerializableColor FillColor { get; init; }
+	public required override SerializableColor FillColor { get; init; }
 
 	/// <inheritdoc/>
-	public override required SerializableColor StrokeColor { get; init; }
+	public required override SerializableColor StrokeColor { get; init; }
 
 
 	/// <inheritdoc/>

@@ -9,7 +9,7 @@ public sealed record CandidateCrossMarkItem : CandidateMarkItem
 	public override ItemType Type => ItemType.Candidate_Cross;
 
 	/// <inheritdoc/>
-	public override required Scale SizeScale { get; init; }
+	public required override Scale SizeScale { get; init; }
 
 	/// <summary>
 	/// Indicates scale of stroke width.
@@ -17,7 +17,7 @@ public sealed record CandidateCrossMarkItem : CandidateMarkItem
 	public required Scale StrokeWidthScale { get; init; }
 
 	/// <inheritdoc/>
-	public override required SerializableColor StrokeColor { get; init; }
+	public required override SerializableColor StrokeColor { get; init; }
 
 
 	/// <inheritdoc/>

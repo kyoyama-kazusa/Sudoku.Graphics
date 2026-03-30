@@ -9,7 +9,7 @@ public sealed record CandidateCircleMarkItem : CandidateMarkItem
 	public override ItemType Type => ItemType.Candidate_Circle;
 
 	/// <inheritdoc/>
-	public override required Scale SizeScale { get; init; }
+	public required override Scale SizeScale { get; init; }
 
 	/// <summary>
 	/// Indicates stroke width scale.
@@ -17,10 +17,10 @@ public sealed record CandidateCircleMarkItem : CandidateMarkItem
 	public required Scale StrokeWidthScale { get; init; }
 
 	/// <inheritdoc/>
-	public override required SerializableColor StrokeColor { get; init; }
+	public required override SerializableColor StrokeColor { get; init; }
 
 	/// <inheritdoc/>
-	public override required SerializableColor FillColor { get; init; }
+	public required override SerializableColor FillColor { get; init; }
 
 
 	/// <inheritdoc/>

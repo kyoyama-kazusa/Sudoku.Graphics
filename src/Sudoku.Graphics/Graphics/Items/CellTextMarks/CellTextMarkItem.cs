@@ -6,7 +6,7 @@
 public abstract record CellTextMarkItem : CellMarkItem
 {
 	/// <inheritdoc/>
-	public sealed override required string? TextFontName { get; init; }
+	public required sealed override string? TextFontName { get; init; }
 
 	/// <summary>
 	/// Indicates the aligned direction.
@@ -29,16 +29,16 @@ public abstract record CellTextMarkItem : CellMarkItem
 	public override SKFontStyleSlant FontSlant { get; init; } = SKFontStyleSlant.Upright;
 
 	/// <inheritdoc/>
-	public sealed override required SerializableColor StrokeColor { get; init; }
+	public required sealed override SerializableColor StrokeColor { get; init; }
 
 	/// <inheritdoc/>
-	public sealed override required SerializableColor FillColor { get; init; }
+	public required sealed override SerializableColor FillColor { get; init; }
 
 	/// <inheritdoc/>
-	public sealed override required Scale SizeScale { get; init; }
+	public required sealed override Scale SizeScale { get; init; }
 
 	/// <inheritdoc/>
-	public sealed override required Scale StrokeWidthScale { get; init; }
+	public required sealed override Scale StrokeWidthScale { get; init; }
 
 	/// <summary>
 	/// Indicates the printing text.

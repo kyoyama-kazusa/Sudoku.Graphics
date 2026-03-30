@@ -19,16 +19,16 @@ public sealed record CellPairKropkiSquareMarkItem : CellPairMarkItem
 	public required Scale SizeScale { get; init; }
 
 	/// <inheritdoc/>
-	public override required Scale StrokeWidthScale { get; init; }
+	public required override Scale StrokeWidthScale { get; init; }
 
 	/// <inheritdoc/>
-	public override required Scale CornerRadiusScale { get; init; }
+	public required override Scale CornerRadiusScale { get; init; }
 
 	/// <inheritdoc/>
-	public override required SerializableColor StrokeColor { get; init; }
+	public required override SerializableColor StrokeColor { get; init; }
 
 	/// <inheritdoc/>
-	public override required SerializableColor FillColor { get; init; }
+	public required override SerializableColor FillColor { get; init; }
 
 
 	/// <inheritdoc/>
