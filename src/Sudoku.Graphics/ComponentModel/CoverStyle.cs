@@ -16,7 +16,17 @@ public enum CoverStyle
 	Rectangle,
 
 	/// <summary>
+	/// Indicates cover is square.
+	/// </summary>
+	Square,
+
+	/// <summary>
 	/// Indicates cover is an oval.
 	/// </summary>
-	Oval
+	Oval,
+	
+	/// <summary>
+	/// Indicates cover is a circle.
+	/// </summary>
+	Circle
 }

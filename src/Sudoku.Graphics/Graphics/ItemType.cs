@@ -231,6 +231,16 @@ public enum ItemType
 	#endregion
 
 	//
+	// Cell pair text marks
+	//
+	#region Cell pair text marks
+	/// <summary>
+	/// Indicates cell pair roman numeral text mark.
+	/// </summary>
+	CellPairText_RomanNumeral,
+	#endregion
+
+	//
 	// Cell pair marks
 	//
 	#region Cell pair marks

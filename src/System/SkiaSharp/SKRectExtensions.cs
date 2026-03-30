@@ -10,6 +10,16 @@ public static class SKRectExtensions
 	extension(SKRect @this)
 	{
 		/// <summary>
+		/// Deconstructs the current instance into multiple values, allowing use deconstruct syntax to get multiple values.
+		/// </summary>
+		public void Deconstruct(out float left, out float top, out float right, out float bottom)
+			=> (left, top, right, bottom) = (@this.Left, @this.Top, @this.Right, @this.Bottom);
+
+		/// <inheritdoc cref="extension(SKRect).Deconstruct(out float, out float, out float, out float)"/>
+		public void Deconstruct(out float left, out float top, out float right, out float bottom, out float width, out float height)
+			=> ((left, top, right, bottom), width, height) = (@this, @this.Width, @this.Height);
+
+		/// <summary>
 		/// Creates an <see cref="SKRect"/> instance with specified value as padding.
 		/// </summary>
 		/// <param name="uniform">The uniform value as padding.</param>

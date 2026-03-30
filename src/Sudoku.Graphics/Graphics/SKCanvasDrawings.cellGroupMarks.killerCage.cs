@@ -132,7 +132,7 @@ public partial class SKCanvasDrawings
 		/// <param name="textAlign">The text align.</param>
 		/// <param name="coverStyle">The cover style.</param>
 		/// <param name="font">The font.</param>
-		/// <param name="paint">The paint.</param>
+		/// <param name="textPaint">The paint.</param>
 		/// <param name="coverStrokePaint">
 		/// The stroke paint of cover background. The value can be <see langword="null"/> if you don't want to draw stroke.
 		/// </param>
@@ -149,9 +149,9 @@ public partial class SKCanvasDrawings
 			SKTextAlign textAlign,
 			CoverStyle coverStyle,
 			SKFont font,
-			SKPaint paint,
+			SKPaint? textPaint,
 			SKPaint? coverStrokePaint,
-			SKPaint coverFillPaint,
+			SKPaint? coverFillPaint,
 			float paddingTop,
 			float paddingBottom,
 			float paddingLeft,
@@ -159,15 +159,15 @@ public partial class SKCanvasDrawings
 			SKPoint offset
 		)
 		{
-			if (string.IsNullOrWhiteSpace(text) || coverStyle == CoverStyle.None || !Enum.IsDefined(coverStyle))
+			if (string.IsNullOrWhiteSpace(text) || coverStyle == CoverStyle.None || !Enum.IsDefined(coverStyle) || textPaint is null)
 			{
 				// Nothing to draw.
 				return;
 			}
 
 			var drawPoint = new SKPoint(point.X + offset.X, point.Y + offset.Y);
-			var textWidth = font.MeasureText(text, paint);
-			font.MeasureText(text, out var bounds, paint);
+			var textWidth = font.MeasureText(text, textPaint);
+			font.MeasureText(text, out var bounds, textPaint);
 			var alignedX = textAlign switch
 			{
 				SKTextAlign.Left => drawPoint.X,
@@ -183,13 +183,72 @@ public partial class SKCanvasDrawings
 				bounds.Bottom + paddingBottom
 			);
 
-			Action<SKRect, SKPaint> coverStyleDrawer = coverStyle == CoverStyle.Rectangle ? @this.DrawRect : @this.DrawOval;
-			if (coverStrokePaint is not null)
+			switch (coverStyle)
 			{
-				coverStyleDrawer(coverBounds, coverStrokePaint);
+				case CoverStyle.Rectangle or CoverStyle.Square:
+				{
+					if (coverStyle == CoverStyle.Square)
+					{
+						makeBoundsSquareOrCircle(ref coverBounds, textAlign);
+					}
+					if (coverStrokePaint is not null)
+					{
+						@this.DrawRect(coverBounds, coverStrokePaint);
+					}
+					if (coverFillPaint is not null)
+					{
+						@this.DrawRect(coverBounds, coverFillPaint);
+					}
+					break;
+				}
+				case CoverStyle.Oval or CoverStyle.Circle:
+				{
+					if (coverStyle == CoverStyle.Circle)
+					{
+						makeBoundsSquareOrCircle(ref coverBounds, textAlign);
+					}
+					if (coverStrokePaint is not null)
+					{
+						@this.DrawOval(coverBounds, coverStrokePaint);
+					}
+					if (coverFillPaint is not null)
+					{
+						@this.DrawOval(coverBounds, coverFillPaint);
+					}
+					break;
+				}
+				default:
+				{
+					throw new UnreachableException();
+				}
 			}
-			coverStyleDrawer(coverBounds, coverFillPaint);
-			@this.DrawText(text, drawPoint, textAlign, font, paint);
+
+			@this.DrawText(text, drawPoint, textAlign, font, textPaint);
+
+
+			static void makeBoundsSquareOrCircle(ref SKRect coverBounds, SKTextAlign textAlign)
+			{
+				var (left, top, right, bottom, width, height) = coverBounds;
+				coverBounds = (width - height) switch
+				{
+					var coverBoundDelta and > 0 => coverBounds with
+					{
+						Top = top - coverBoundDelta / 2,
+						Bottom = bottom + coverBoundDelta / 2
+					},
+					var coverBoundDelta and < 0 => textAlign switch
+					{
+						SKTextAlign.Left => coverBounds with { Right = right + -coverBoundDelta },
+						SKTextAlign.Center => coverBounds with
+						{
+							Left = left - -coverBoundDelta / 2,
+							Right = right + -coverBoundDelta / 2
+						},
+						_ => coverBounds with { Left = left - -coverBoundDelta }
+					},
+					_ => coverBounds
+				};
+			}
 		}
 	}
 }

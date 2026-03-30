@@ -319,6 +319,12 @@
             </summary>
             <seealso cref="T:SkiaSharp.SKRect"/>
         </member>
+        <member name="M:SkiaSharp.SKRectExtensions.Deconstruct(SkiaSharp.SKRect,System.Single@,System.Single@,System.Single@,System.Single@)">
+            <inheritdoc cref="M:SkiaSharp.SKRectExtensions.&lt;G&gt;$64649DAE2081E3899DE0903492939343.Deconstruct(System.Single@,System.Single@,System.Single@,System.Single@)"/>
+        </member>
+        <member name="M:SkiaSharp.SKRectExtensions.Deconstruct(SkiaSharp.SKRect,System.Single@,System.Single@,System.Single@,System.Single@,System.Single@,System.Single@)">
+            <inheritdoc cref="M:SkiaSharp.SKRectExtensions.&lt;G&gt;$64649DAE2081E3899DE0903492939343.Deconstruct(System.Single@,System.Single@,System.Single@,System.Single@,System.Single@,System.Single@)"/>
+        </member>
         <member name="M:SkiaSharp.SKRectExtensions.Padding(SkiaSharp.SKRect,System.Single)">
             <inheritdoc cref="M:SkiaSharp.SKRectExtensions.&lt;G&gt;$64649DAE2081E3899DE0903492939343.Padding(System.Single)"/>
         </member>
@@ -327,6 +333,14 @@
         </member>
         <member name="T:SkiaSharp.SKRectExtensions.&lt;G&gt;$64649DAE2081E3899DE0903492939343.&lt;M&gt;$B79D02BF74EE1345225C54D28C038D51">
             <param name="this">The instance.</param>
+        </member>
+        <member name="M:SkiaSharp.SKRectExtensions.&lt;G&gt;$64649DAE2081E3899DE0903492939343.Deconstruct(System.Single@,System.Single@,System.Single@,System.Single@)">
+            <summary>
+            Deconstructs the current instance into multiple values, allowing use deconstruct syntax to get multiple values.
+            </summary>
+        </member>
+        <member name="M:SkiaSharp.SKRectExtensions.&lt;G&gt;$64649DAE2081E3899DE0903492939343.Deconstruct(System.Single@,System.Single@,System.Single@,System.Single@,System.Single@,System.Single@)">
+            <inheritdoc cref="M:SkiaSharp.SKRectExtensions.&lt;G&gt;$64649DAE2081E3899DE0903492939343.Deconstruct(System.Single@,System.Single@,System.Single@,System.Single@)"/>
         </member>
         <member name="M:SkiaSharp.SKRectExtensions.&lt;G&gt;$64649DAE2081E3899DE0903492939343.Padding(System.Single)">
             <summary>

@@ -12,6 +12,7 @@ using SkiaSharp;
 using Sudoku.ComponentModel;
 using Sudoku.Graphics;
 using Sudoku.Graphics.Items.CellGroupMarks;
+using Sudoku.Graphics.Items.CellPairTextMarks;
 using Sudoku.Graphics.Items.Fills;
 using Sudoku.Graphics.Items.Lines;
 using Sudoku.Graphics.Templates;
@@ -36,27 +37,42 @@ using var canvas = new Canvas(
 
 LineDashSequence dashSequence = [10, 10];
 Scale cornerRadiusScale = 0M, sizeScale = .8M, fontSizeScale = .25M;
-const float offsetX = 0, offsetY = 6, paddingLeft = 4, paddingTop = 0, paddingRight = 4, paddingBottom = 0;
+const float offsetX = 0, offsetY = 8, paddingLeft = 8, paddingTop = 8, paddingRight = 8, paddingBottom = 8;
 canvas.DrawItems(
 	[
 		new BackgroundFillItem { Color = SKColors.White },
 		new TemplateLineItem(),
-		new CellGroupKillerCageMarkItem
+		new CellPairRomanNumeralTextMarkItem
 		{
 			TemplateIndex = 0,
-			Cells = [0, 2, 6, 7, 8, 12, 14],
-			Text = "21",
-			DashSequence = dashSequence,
-			CornerRadiusScale = cornerRadiusScale,
-			ShortSideScale = sizeScale,
-			StrokeWidthScale = 0.025M,
-			StrokeColor = SKColors.Black,
-			TextFontName = "Arial",
+			Cell1 = 0,
+			Cell2 = 1,
+			Value = 5,
+			FontName = "Arial",
 			FontSizeScale = fontSizeScale,
-			TextColor = SKColors.Red,
-			TextBackgroundColor = SKColors.White,
+			FontColor = SKColors.Black,
+			FillColor =	SKColors.White,
+			StrokeColor = SKColors.Black,
+			StrokeWidthScale = .025M,
+			OffsetX = offsetX,
+			OffsetY = offsetY,
+			PaddingLeft = paddingLeft,
+			PaddingTop = paddingTop,
+			PaddingRight = paddingRight,
+			PaddingBottom = paddingBottom
+		},
+		new CellPairRomanNumeralTextMarkItem
+		{
+			TemplateIndex = 0,
+			Cell1 = 1,
+			Cell2 = 7,
+			Value = 10,
+			FontName = "Arial",
+			FontSizeScale = fontSizeScale,
+			FontColor = SKColors.Black,
 			FillColor = SKColors.White,
-			FontWeight = SKFontStyleWeight.Medium,
+			StrokeColor = SKColors.Black,
+			StrokeWidthScale = .025M,
 			OffsetX = offsetX,
 			OffsetY = offsetY,
 			PaddingLeft = paddingLeft,
