@@ -4,7 +4,7 @@
 /// Represents an <see cref="int"/> value that describes a relative index.
 /// </summary>
 /// <param name="value">The value.</param>
-[JsonConverter(typeof(ValueConverter<Relative>))]
+[JsonConverter(typeof(IInteger<Relative>.Converter))]
 [DebuggerDisplay($$"""{{{nameof(ToString)}}(),nq}""")]
 [SuppressMessage("Usage", "CA2231:Overload operator equals on overriding value type Equals", Justification = "<Pending>")]
 public readonly struct Relative(int value) : IInteger<Relative>, ILocator<Relative>

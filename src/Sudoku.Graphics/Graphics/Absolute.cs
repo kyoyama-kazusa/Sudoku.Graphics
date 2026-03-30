@@ -4,7 +4,7 @@
 /// Represents an <see cref="int"/> value that describes an absolute index.
 /// </summary>
 /// <param name="value">The value.</param>
-[JsonConverter(typeof(ValueConverter<Absolute>))]
+[JsonConverter(typeof(IInteger<Absolute>.Converter))]
 [DebuggerDisplay($$"""{{{nameof(ToString)}}(),nq}""")]
 [SuppressMessage("Usage", "CA2231:Overload operator equals on overriding value type Equals", Justification = "<Pending>")]
 public readonly struct Absolute(int value) : IInteger<Absolute>, ILocator<Absolute>

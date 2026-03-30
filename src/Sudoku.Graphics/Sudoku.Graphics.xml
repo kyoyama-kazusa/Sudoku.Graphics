@@ -2099,6 +2099,17 @@
             </summary>
             <typeparam name="TSelf">The type itself.</typeparam>
         </member>
+        <member name="T:Sudoku.Graphics.IInteger`1.Converter">
+            <summary>
+            Represents a value converter object.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.IInteger`1.Converter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.IInteger`1.Converter.Write(System.Text.Json.Utf8JsonWriter,`0,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
         <member name="P:Sudoku.Graphics.IInteger`1.Value">
             <summary>
             Indicates the value.
@@ -6611,18 +6622,6 @@
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Serialization.StringConverter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.Serialization.Inherited{System.String},System.Text.Json.JsonSerializerOptions)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Serialization.Specialized.ValueConverter`1">
-            <summary>
-            Represents a value converter object.
-            </summary>
-            <typeparam name="TValue">The type of value.</typeparam>
-        </member>
-        <member name="M:Sudoku.Serialization.Specialized.ValueConverter`1.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Serialization.Specialized.ValueConverter`1.Write(System.Text.Json.Utf8JsonWriter,`0,System.Text.Json.JsonSerializerOptions)">
             <inheritdoc/>
         </member>
     </members>

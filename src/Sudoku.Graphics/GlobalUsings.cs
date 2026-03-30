@@ -37,4 +37,3 @@ global using Sudoku.Graphics.Items.Texts;
 global using Sudoku.Graphics.Templates;
 global using Sudoku.Resources;
 global using Sudoku.Serialization;
-global using Sudoku.Serialization.Specialized;
