@@ -37,8 +37,6 @@ using var canvas = new Canvas(
 	}
 );
 
-Scale sizeScale = .8M, fontSizeScale = .25M;
-const float offsetX = 0, offsetY = 0, paddingLeft = 8, paddingTop = 8, paddingRight = 8, paddingBottom = 8;
 canvas.DrawItems(
 	[
 		new BackgroundFillItem { Color = SKColors.White },
@@ -52,69 +50,17 @@ canvas.DrawItems(
 			Color = SKColors.Black,
 			FontName = "Arial"
 		},
-		..
-		from pos in Enumerable.Range(0, 9)
-		select new CandidateTextItem
+		new CellGroupTrailedCapsuleMarkItem
 		{
 			TemplateIndex = 0,
-			CandidatePosition = new(1, 3, pos),
-			Color = SKColors.DimGray,
-			FontSizeScale = .8M,
-			FontName = "Arial",
-			Text = (pos + 1).ToString()
-		},
-		new CellGroupKillerCageMarkItem
-		{
-			TemplateIndex = 0,
-			Cells = [12, 13, 14, 18, 19],
-			DashSequence = [10, 10],
-			StrokeColor = SKColors.Black,
-			StrokeWidthScale = 0.025M,
-			TextFontName = "Arial",
-			ShortSideScale = .8M,
-			FontSizeScale = .25M,
-			Text = "15",
-			TextColor = SKColors.Black,
-			TextBackgroundColor = SKColors.White
-		},
-		new CellPairRomanNumeralTextMarkItem
-		{
-			TemplateIndex = 0,
-			Cell1 = 2,
-			Cell2 = 3,
-			Value = 5,
-			FontName = "Arial",
-			FontSizeScale = fontSizeScale,
-			FontColor = SKColors.Black,
-			FillColor = SKColors.White,
-			StrokeColor = SKColors.Black,
-			StrokeWidthScale = .025M,
-			OffsetX = offsetX,
-			OffsetY = offsetY,
-			PaddingLeft = paddingLeft,
-			PaddingTop = paddingTop,
-			PaddingRight = paddingRight,
-			PaddingBottom = paddingBottom
-		},
-		new CellPairRomanNumeralTextMarkItem
-		{
-			TemplateIndex = 0,
-			Cell1 = 3,
-			Cell2 = 9,
-			Value = 10,
-			FontName = "Arial",
-			FontSizeScale = fontSizeScale,
-			FontColor = SKColors.Black,
-			FillColor = SKColors.White,
-			StrokeColor = SKColors.Black,
-			StrokeWidthScale = .025M,
-			OffsetX = offsetX,
-			OffsetY = offsetY,
-			PaddingLeft = paddingLeft,
-			PaddingTop = paddingTop,
-			PaddingRight = paddingRight,
-			PaddingBottom = paddingBottom
-		},
+			Cells = [3, 4, 5],
+			TrailCells = [3, 9, 14, 15],
+			StrokeColor = SKColors.DimGray,
+			StrokeWidthScale = .05M,
+			HalfArrowCapRotationDegrees = 25,
+			ArrowCapLengthScale = .2M,
+			CapsuleSizeScale = .75M,
+		}
 	]
 );
 canvas.Export(Path.Combine(desktop, "output.png"), new() { Quality = 100 });

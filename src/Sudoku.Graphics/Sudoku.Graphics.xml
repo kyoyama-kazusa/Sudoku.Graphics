@@ -2862,6 +2862,49 @@
         <member name="M:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.Items.CellGroupMarks.CapsuleTrailDrawer">
+            <summary>
+            Provides a way to draw capsules and trails.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellGroupMarks.CapsuleTrailDrawer.DrawCapsule(SkiaSharp.SKCanvas,System.ReadOnlySpan{SkiaSharp.SKPoint},System.Single,Sudoku.ComponentModel.Scale,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPath@)">
+            <summary>
+            Draws a capsule.
+            </summary>
+            <param name="canvas">The canvas instance.</param>
+            <param name="capsuleCells">
+            The cells of capsule, specified by <see cref="T:SkiaSharp.SKPoint"/> instances (top-left point of that cells).
+            </param>
+            <param name="cellSize">The size of each cell.</param>
+            <param name="capsuleSizeScale">The capsule size scale, related to cell size.</param>
+            <param name="fillPaint">The fill paint.</param>
+            <param name="strokePaint">The stroke paint.</param>
+            <param name="capsulePath">
+            Capsule path generated.
+            You should use <see langword="using"/> statements or manually call method <c>Dispose</c> to release memory.
+            </param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating whether the path is generated successfully.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellGroupMarks.CapsuleTrailDrawer.BuildTrailPath(SkiaSharp.SKPath,System.ReadOnlySpan{SkiaSharp.SKPoint},System.Single)">
+            <summary>
+            Build a path of trail lines.
+            </summary>
+            <param name="capsulePath">The capsule path.</param>
+            <param name="trailCells">The trail cells.</param>
+            <param name="cellSize">The size of each cell.</param>
+            <returns>A path generated.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellGroupMarks.CapsuleTrailDrawer.DrawArrowCaps(SkiaSharp.SKCanvas,SkiaSharp.SKPoint,SkiaSharp.SKPoint,System.Single,System.Single,SkiaSharp.SKPaint)">
+            <summary>
+            Draw arrow caps.
+            </summary>
+            <param name="canvas">The canvas instance.</param>
+            <param name="penultimatePoint">The penuleimate point (i.e. <c>points[^2]</c>).</param>
+            <param name="endPoint">The end point.</param>
+            <param name="arrowCapLength">The arrow length.</param>
+            <param name="arrowCapHalfAngleDegrees">The arrow half angle degrees.</param>
+            <param name="paint">The stroke paint.</param>
+        </member>
         <member name="T:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailMarkItem">
             <summary>
             Represents a cell group trail mark item.
@@ -5035,9 +5078,6 @@
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawOutlinedTextToCandidate(SkiaSharp.SKCanvas,System.String,Sudoku.Graphics.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCandidate(System.String,Sudoku.Graphics.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawCapsuleWithArrowLine(SkiaSharp.SKCanvas,System.ReadOnlySpan{Sudoku.Graphics.Absolute},System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,System.Single,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCapsuleWithArrowLine(System.ReadOnlySpan{Sudoku.Graphics.Absolute},System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,System.Single,Sudoku.Graphics.PointMapper)"/>
-        </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawCellGroupTrail(SkiaSharp.SKCanvas,System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCellGroupTrail(System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
@@ -5182,20 +5222,6 @@
             <param name="outlineColor">The outline color.</param>
             <param name="fillColor">The fill color of text.</param>
             <param name="mapper">The mapper.</param>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCapsuleWithArrowLine(System.ReadOnlySpan{Sudoku.Graphics.Absolute},System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,System.Single,Sudoku.Graphics.PointMapper)">
-            <summary>
-            Draws capsule in cells.
-            </summary>
-            <param name="capsuleCells">The capsule cells.</param>
-            <param name="trailCells">The arrow line cells.</param>
-            <param name="capsuleSizeScale">The scale of capsule size, related to cell size.</param>
-            <param name="strokeColor">The stroke color.</param>
-            <param name="strokeWidthScale">The scale of stroke width, related to cell size.</param>
-            <param name="capsuleFillColor">The fill color of capsule.</param>
-            <param name="arrowCapLengthScale">The scale of arrow cap length.</param>
-            <param name="arrowHalfAngleDegrees">The half of rotation degrees of arrow cap, in angle.</param>
-            <param name="mapper">The point mapper instance.</param>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCellGroupTrail(System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <summary>
@@ -5675,49 +5701,6 @@
             <param name="strokeColor">The stroke color.</param>
             <param name="fillColor">The fill color. The value works only if <paramref name="isSolid"/> is <see langword="false"/>.</param>
             <param name="mapper">The point mapper instance.</param>
-        </member>
-        <member name="T:Sudoku.Graphics.CapsuleTrailDrawer">
-            <summary>
-            Provides a way to draw capsules and trails.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Graphics.CapsuleTrailDrawer.DrawCapsule(SkiaSharp.SKCanvas,System.ReadOnlySpan{SkiaSharp.SKPoint},System.Single,Sudoku.ComponentModel.Scale,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPath@)">
-            <summary>
-            Draws a capsule.
-            </summary>
-            <param name="canvas">The canvas instance.</param>
-            <param name="capsuleCells">
-            The cells of capsule, specified by <see cref="T:SkiaSharp.SKPoint"/> instances (top-left point of that cells).
-            </param>
-            <param name="cellSize">The size of each cell.</param>
-            <param name="capsuleSizeScale">The capsule size scale, related to cell size.</param>
-            <param name="fillPaint">The fill paint.</param>
-            <param name="strokePaint">The stroke paint.</param>
-            <param name="capsulePath">
-            Capsule path generated.
-            You should use <see langword="using"/> statements or manually call method <c>Dispose</c> to release memory.
-            </param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating whether the path is generated successfully.</returns>
-        </member>
-        <member name="M:Sudoku.Graphics.CapsuleTrailDrawer.BuildTrailPath(SkiaSharp.SKPath,System.ReadOnlySpan{SkiaSharp.SKPoint},System.Single)">
-            <summary>
-            Build a path of trail lines.
-            </summary>
-            <param name="capsulePath">The capsule path.</param>
-            <param name="trailCells">The trail cells.</param>
-            <param name="cellSize">The size of each cell.</param>
-            <returns>A path generated.</returns>
-        </member>
-        <member name="M:Sudoku.Graphics.CapsuleTrailDrawer.DrawArrowCaps(SkiaSharp.SKCanvas,SkiaSharp.SKPoint,SkiaSharp.SKPoint,System.Single,System.Single,SkiaSharp.SKPaint)">
-            <summary>
-            Draw arrow caps.
-            </summary>
-            <param name="canvas">The canvas instance.</param>
-            <param name="penultimatePoint">The penuleimate point (i.e. <c>points[^2]</c>).</param>
-            <param name="endPoint">The end point.</param>
-            <param name="arrowCapLength">The arrow length.</param>
-            <param name="arrowCapHalfAngleDegrees">The arrow half angle degrees.</param>
-            <param name="paint">The stroke paint.</param>
         </member>
         <member name="T:Sudoku.Graphics.CellOutlineBuilder">
             <summary>
