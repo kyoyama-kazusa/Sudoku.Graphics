@@ -12,8 +12,6 @@ using SkiaSharp;
 using Sudoku.ComponentModel;
 using Sudoku.Graphics;
 using Sudoku.Graphics.Items.CellGroupMarks;
-using Sudoku.Graphics.Items.CellMarks;
-using Sudoku.Graphics.Items.CellPairMarks;
 using Sudoku.Graphics.Items.Fills;
 using Sudoku.Graphics.Items.Lines;
 using Sudoku.Graphics.Templates;
@@ -38,29 +36,34 @@ using var canvas = new Canvas(
 
 LineDashSequence dashSequence = [10, 10];
 Scale cornerRadiusScale = 0M, sizeScale = .8M, fontSizeScale = .25M;
+const float offsetX = 0, offsetY = 6, paddingLeft = 4, paddingTop = 0, paddingRight = 4, paddingBottom = 0;
 canvas.DrawItems(
 	[
 		new BackgroundFillItem { Color = SKColors.White },
 		new TemplateLineItem(),
-		new CellPairBattenburgMarkItem
+		new CellGroupKillerCageMarkItem
 		{
 			TemplateIndex = 0,
-			Cell1 = 0,
-			Cell2 = 7,
-			Color1 = new(255, 208, 216),
-			Color2 = new(255, 255, 63),
-			SizeScale = .4M,
-			UniformCornerRadius = .2M
+			Cells = [0, 2, 6, 7, 8, 12, 14],
+			Text = "21",
+			DashSequence = dashSequence,
+			CornerRadiusScale = cornerRadiusScale,
+			ShortSideScale = sizeScale,
+			StrokeWidthScale = 0.025M,
+			StrokeColor = SKColors.Black,
+			TextFontName = "Arial",
+			FontSizeScale = fontSizeScale,
+			TextColor = SKColors.Red,
+			TextBackgroundColor = SKColors.White,
+			FillColor = SKColors.White,
+			FontWeight = SKFontStyleWeight.Medium,
+			OffsetX = offsetX,
+			OffsetY = offsetY,
+			PaddingLeft = paddingLeft,
+			PaddingTop = paddingTop,
+			PaddingRight = paddingRight,
+			PaddingBottom = paddingBottom
 		},
-		new CellBattenburgMarkItem
-		{
-			TemplateIndex = 0,
-			Cell = 13,
-			Color1 = new(255, 208, 216),
-			Color2 = new(255, 255, 63),
-			SizeScale = .4M,
-			UniformCornerRadius = .2M
-		}
 	]
 );
 canvas.Export(Path.Combine(desktop, "output.png"), new() { Quality = 100 });
