@@ -1,9 +1,9 @@
-﻿namespace Sudoku.ComponentModel.Tetris;
+﻿namespace Sudoku.Graphics.Items.CellMarks;
 
 /// <summary>
 /// Represents a type of rotation.
 /// </summary>
-public enum RotationType
+public enum TetrominoRotationType
 {
 	/// <summary>
 	/// Represents no rotation.

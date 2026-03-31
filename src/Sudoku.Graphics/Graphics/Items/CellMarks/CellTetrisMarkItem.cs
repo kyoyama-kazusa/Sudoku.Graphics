@@ -8,12 +8,12 @@ public sealed record CellTetrisMarkItem : CellMarkItem
 	/// <summary>
 	/// Indicates the piece used.
 	/// </summary>
-	public required Piece Piece { get; init; }
+	public required Tetromino Piece { get; init; }
 
 	/// <summary>
 	/// Indicates rotation type of piece.
 	/// </summary>
-	public RotationType RotationType { get; init; } = RotationType.None;
+	public TetrominoRotationType RotationType { get; init; } = TetrominoRotationType.None;
 
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.Cell_Tetris;
@@ -28,7 +28,7 @@ public sealed record CellTetrisMarkItem : CellMarkItem
 			Cell,
 			StrokeWidthScale,
 			SizeScale,
-			TetrisLineSegmentFactory.GetTetrisPieceBooleanSequence(Piece, RotationType),
+			TetrominoLineSegmentsFactory.GetTetrisPieceBooleanSequence(Piece, RotationType),
 			StrokeColor,
 			FillColor,
 			.1M,

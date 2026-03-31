@@ -1,4 +1,4 @@
-﻿namespace Sudoku.ComponentModel.Crossmath;
+﻿namespace Sudoku.Graphics.Templating.Templates;
 
 /// <summary>
 /// Represents a crossmath formula.

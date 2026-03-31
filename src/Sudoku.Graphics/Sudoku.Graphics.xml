@@ -69,57 +69,6 @@
             Indicates cover is a circle.
             </summary>
         </member>
-        <member name="T:Sudoku.ComponentModel.Crossmath.CrossmathFormula">
-            <summary>
-            Represents a crossmath formula.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Crossmath.CrossmathFormula.ValueSequence">
-            <summary>
-            Indicates the value sequence that will be filled into the cells.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Crossmath.CrossmathFormula.Cell">
-            <summary>
-            Indicates the cell as start.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Crossmath.CrossmathFormula.CellsCount">
-            <summary>
-            Indicates the number of cells occupied.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Crossmath.CrossmathFormula.ExpandingDirection">
-            <summary>
-            Indicates expanding direction of formula.
-            </summary>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Crossmath.CrossmathFormula.ToString">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Crossmath.CrossmathFormula.CreateTemplate(Sudoku.ComponentModel.Crossmath.CrossmathFormula[],Sudoku.Graphics.PointMapper,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor)">
-            <summary>
-            Creates a <see cref="T:Sudoku.Graphics.Templating.Templates.CrossmathTemplate"/> instance via the specified formulae.
-            </summary>
-            <param name="formulae">The formulae to be loaded.</param>
-            <param name="mapper">The point mapper.</param>
-            <param name="thickLineWidth">Thick line width.</param>
-            <param name="thinLineWidth">Thin line width.</param>
-            <param name="thickLineColor">Thick line color.</param>
-            <param name="thinLineColor">Thin line color.</param>
-            <returns>The grid template.</returns>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Crossmath.CrossmathFormula.CreateItems(Sudoku.ComponentModel.Crossmath.CrossmathFormula[],Sudoku.Graphics.PointMapper,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor)">
-            <summary>
-            Creates a list of <see cref="T:Sudoku.Graphics.Items.Texts.GivenTextItem"/> instances via the specified formulae.
-            </summary>
-            <param name="formulae">The formulae to be loaded.</param>
-            <param name="mapper">The point mapper.</param>
-            <param name="fontName">The font name.</param>
-            <param name="fontSizeScale">The font size scale.</param>
-            <param name="color">The color.</param>
-            <returns>A list of <see cref="T:Sudoku.Graphics.Items.Texts.GivenTextItem"/> instances.</returns>
-        </member>
         <member name="T:Sudoku.ComponentModel.Directions.Direction4">
             <summary>
             Represents a direction with 4 values.
@@ -656,183 +605,6 @@
         <member name="M:Sudoku.ComponentModel.Converter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.ComponentModel.LineDashSequence,System.Text.Json.JsonSerializerOptions)">
             <inheritdoc/>
         </member>
-        <member name="T:Sudoku.ComponentModel.Maths.ArithmeticOperator">
-            <summary>
-            Represents an arithmetic operator.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Maths.ArithmeticOperator.None">
-            <summary>
-            Represents placeholder of this type.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Maths.ArithmeticOperator.Add">
-            <summary>
-            Indicates add operator (+).
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Maths.ArithmeticOperator.Subtract">
-            <summary>
-            Indicates subtract operator (-).
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Maths.ArithmeticOperator.Multiply_Cross">
-            <summary>
-            Indicates multiply operator (&#215;).
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Maths.ArithmeticOperator.Multiply_Dot">
-            <summary>
-            Indicates multiply operator (&#183;).
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Maths.ArithmeticOperator.Multiply_Asterisk">
-            <summary>
-            Indicates multiply operator (*).
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Maths.ArithmeticOperator.Division_DivisionSign">
-            <summary>
-            Indicates division operator (&#247;).
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Maths.ArithmeticOperator.Division_Slash">
-            <summary>
-            Indicates division operator (/).
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Maths.ArithmeticOperator.Division_Ratio">
-            <summary>
-            Indicates division operator (:).
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Maths.ArithmeticOperator.Modulo">
-            <summary>
-            Indicates modulo operator (%).
-            </summary>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Maths.BitwiseOperator">
-            <summary>
-            Represents bitwise operator.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Maths.BitwiseOperator.None">
-            <summary>
-            Indicates placeholder.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Maths.BitwiseOperator.And">
-            <summary>
-            Indicates and operator (&amp;).
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Maths.BitwiseOperator.Or">
-            <summary>
-            Indicates or operator (|).
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Maths.BitwiseOperator.Not">
-            <summary>
-            Indicates not operator (~).
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Maths.BitwiseOperator.ExclusiveOr">
-            <summary>
-            Indicates exclusive or operator (^).
-            </summary>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Maths.ComparisonOperator">
-            <summary>
-            Represents an operator that will be used in comparison.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Maths.ComparisonOperator.None">
-            <summary>
-            Represents placeholder of this type.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Maths.ComparisonOperator.Equals">
-            <summary>
-            Indicates equals operator (==).
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Maths.ComparisonOperator.Inequals">
-            <summary>
-            Indicates inequals operator (!=, &lt;&gt;).
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Maths.ComparisonOperator.GreaterThan">
-            <summary>
-            Indicates greater than operator (>).
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Maths.ComparisonOperator.GreaterThanOrEqual">
-            <summary>
-            Indicates greater than or equals operator (&gt;=).
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Maths.ComparisonOperator.LessThan">
-            <summary>
-            Indicates less than operator (&lt;).
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Maths.ComparisonOperator.LessThanOrEqual">
-            <summary>
-            Indicates less than or equals operator (&lt;=).
-            </summary>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Maths.OperatorExtensions">
-            <summary>
-            Provides extension members on <see cref="T:Sudoku.ComponentModel.Maths.ArithmeticOperator"/>, <see cref="T:Sudoku.ComponentModel.Maths.BitwiseOperator"/>
-            and <see cref="T:Sudoku.ComponentModel.Maths.ComparisonOperator"/>.
-            </summary>
-            <seealso cref="T:Sudoku.ComponentModel.Maths.ArithmeticOperator"/>
-            <seealso cref="T:Sudoku.ComponentModel.Maths.BitwiseOperator"/>
-            <seealso cref="T:Sudoku.ComponentModel.Maths.ComparisonOperator"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Maths.OperatorExtensions.get_Text``1(``0)">
-            <inheritdoc cref="P:Sudoku.ComponentModel.Maths.OperatorExtensions.&lt;G&gt;$F7BAB7F8979284A7204DC29891C39285`1.Text"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Maths.OperatorExtensions.get_Text(Sudoku.ComponentModel.Maths.ArithmeticOperator)">
-            <inheritdoc cref="P:Sudoku.ComponentModel.Maths.OperatorExtensions.&lt;G&gt;$F634E77E6E510E35420061FF31771CEC.Text"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Maths.OperatorExtensions.get_Text(Sudoku.ComponentModel.Maths.BitwiseOperator)">
-            <inheritdoc cref="P:Sudoku.ComponentModel.Maths.OperatorExtensions.&lt;G&gt;$8B58915707D260BCD65209C199A7C639.Text"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Maths.OperatorExtensions.get_Text(Sudoku.ComponentModel.Maths.ComparisonOperator)">
-            <inheritdoc cref="P:Sudoku.ComponentModel.Maths.OperatorExtensions.&lt;G&gt;$9697A4287BCBFA7FF775579354F937A3.Text"/>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Maths.OperatorExtensions.&lt;G&gt;$F7BAB7F8979284A7204DC29891C39285`1.&lt;M&gt;$818489F2DA80AA790B968867D0FDCD54">
-            <typeparam name="TOperatorEnum">The type of this enumeration field.</typeparam>
-            <param name="this">The current instance.</param>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Maths.OperatorExtensions.&lt;G&gt;$F7BAB7F8979284A7204DC29891C39285`1.Text">
-            <inheritdoc cref="P:Sudoku.ComponentModel.Maths.OperatorExtensions.&lt;G&gt;$F634E77E6E510E35420061FF31771CEC.Text"/>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Maths.OperatorExtensions.&lt;G&gt;$F634E77E6E510E35420061FF31771CEC.&lt;M&gt;$3B3AE328430594741AE2AC298BC21BD8">
-            <param name="this">The current instance.</param>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Maths.OperatorExtensions.&lt;G&gt;$F634E77E6E510E35420061FF31771CEC.Text">
-            <summary>
-            Indicates text of this operator.
-            </summary>
-            <exception cref="T:System.ArgumentOutOfRangeException">
-            Throws when <paramref name="this"/> is not defined, or equals <see langword="default"/> value
-            of this type (placeholder).
-            </exception>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Maths.OperatorExtensions.&lt;G&gt;$8B58915707D260BCD65209C199A7C639.&lt;M&gt;$F6D7988931123CA85D8D90CE307D748E">
-            <param name="this">The current instance.</param>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Maths.OperatorExtensions.&lt;G&gt;$8B58915707D260BCD65209C199A7C639.Text">
-            <inheritdoc cref="P:Sudoku.ComponentModel.Maths.OperatorExtensions.&lt;G&gt;$F634E77E6E510E35420061FF31771CEC.Text"/>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Maths.OperatorExtensions.&lt;G&gt;$9697A4287BCBFA7FF775579354F937A3.&lt;M&gt;$583FFD56CB6230175D13908A415E261B">
-            <param name="this">The current instance.</param>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Maths.OperatorExtensions.&lt;G&gt;$9697A4287BCBFA7FF775579354F937A3.Text">
-            <inheritdoc cref="P:Sudoku.ComponentModel.Maths.OperatorExtensions.&lt;G&gt;$F634E77E6E510E35420061FF31771CEC.Text"/>
-        </member>
         <member name="T:Sudoku.ComponentModel.Scale">
             <summary>
             Represents a relative-size value (scaling)
@@ -1167,143 +939,6 @@
         </member>
         <member name="M:Sudoku.ComponentModel.SerializableColorSet.Slice(System.Int32,System.Int32)">
             <inheritdoc cref="M:System.Collections.Generic.List`1.Slice(System.Int32,System.Int32)"/>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Tetris.Piece">
-            <summary>
-            Represents a tetris piece.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Tetris.Piece.I">
-            <summary>
-            Represents I-piece.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Tetris.Piece.O">
-            <summary>
-            Represents O-piece.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Tetris.Piece.T">
-            <summary>
-            Represents T-piece.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Tetris.Piece.J">
-            <summary>
-            Represents J-piece.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Tetris.Piece.L">
-            <summary>
-            Represents L-piece.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Tetris.Piece.S">
-            <summary>
-            Represents S-piece.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Tetris.Piece.Z">
-            <summary>
-            Represents Z-piece.
-            </summary>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Tetris.PieceInfo">
-            <summary>
-            Provides an easy way to get pieces.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Tetris.PieceInfo.PiecesCoordinateTable">
-            <summary>
-            Represents a table of coordinates of all pieces (tetriminoes).
-            </summary>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Tetris.PieceInfo.GetPiecesSize(Sudoku.ComponentModel.Tetris.Piece)">
-            <summary>
-            Get size of the specified piece.
-            </summary>
-            <param name="piece">The piece.</param>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Tetris.RotationType">
-            <summary>
-            Represents a type of rotation.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Tetris.RotationType.None">
-            <summary>
-            Represents no rotation.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Tetris.RotationType.Single">
-            <summary>
-            Represents single rotation.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Tetris.RotationType.Double">
-            <summary>
-            Represents double rotation.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Tetris.RotationType.Triple">
-            <summary>
-            Represents triple rotation.
-            </summary>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory">
-            <summary>
-            Provides extension members on <see cref="T:Sudoku.ComponentModel.Tetris.Piece"/>.
-            </summary>
-            <seealso cref="T:Sudoku.ComponentModel.Tetris.Piece"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.GetTetrisPieceBooleanSequence(Sudoku.ComponentModel.Tetris.Piece,Sudoku.ComponentModel.Tetris.RotationType)">
-            <inheritdoc cref="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.&lt;G&gt;$C66C61D5C78EA6C835A71BF5AF9528DF.GetTetrisPieceBooleanSequence(Sudoku.ComponentModel.Tetris.RotationType)"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.GetOutline(Sudoku.ComponentModel.Tetris.Piece,Sudoku.ComponentModel.Tetris.RotationType,Sudoku.Graphics.PointMapper,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute)">
-            <inheritdoc cref="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.&lt;G&gt;$C66C61D5C78EA6C835A71BF5AF9528DF.GetOutline(Sudoku.ComponentModel.Tetris.RotationType,Sudoku.Graphics.PointMapper,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute)"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.GetTetrisPiece(Sudoku.ComponentModel.Tetris.Piece,Sudoku.Graphics.PointMapper,Sudoku.ComponentModel.Tetris.RotationType)">
-            <inheritdoc cref="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.&lt;G&gt;$C66C61D5C78EA6C835A71BF5AF9528DF.GetTetrisPiece(Sudoku.Graphics.PointMapper,Sudoku.ComponentModel.Tetris.RotationType)"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.RotateViaCoordinateTable(System.Int32,System.ValueTuple{Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute}[])">
-            <summary>
-            Rotates tetris piece via coordinate table.
-            </summary>
-            <param name="times">The times to rotate.</param>
-            <param name="coordinates">The coordinate table.</param>
-            <returns>The target coordinate table.</returns>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.&lt;G&gt;$C66C61D5C78EA6C835A71BF5AF9528DF.&lt;M&gt;$59043A45185263A8DDF656B780FAD796">
-            <param name="this">The specified tetris piece.</param>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.&lt;G&gt;$C66C61D5C78EA6C835A71BF5AF9528DF.GetTetrisPieceBooleanSequence(Sudoku.ComponentModel.Tetris.RotationType)">
-            <summary>
-            Try to get sequence of tetris piece, after rotated.
-            </summary>
-            <param name="rotationType">The rotation type.</param>
-            <returns>The boolean sequence.</returns>
-            <exception cref="T:System.ArgumentOutOfRangeException">Throws when <paramref name="rotationType"/> is not defined.</exception>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.&lt;G&gt;$C66C61D5C78EA6C835A71BF5AF9528DF.GetOutline(Sudoku.ComponentModel.Tetris.RotationType,Sudoku.Graphics.PointMapper,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute)">
-            <summary>
-            Creates a <see cref="T:Sudoku.Graphics.Templating.LineSegment"/> array that describes outlines of a tetris piece.
-            </summary>
-            <param name="rotationType">The rotation type.</param>
-            <param name="mapper">The mapper.</param>
-            <param name="offsetRowsCount">The offset rows count.</param>
-            <param name="offsetColumnsCount">The offset columns count.</param>
-            <returns>An array of <see cref="T:Sudoku.Graphics.Templating.LineSegment"/> instances.</returns>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.&lt;G&gt;$C66C61D5C78EA6C835A71BF5AF9528DF.GetTetrisPiece(Sudoku.Graphics.PointMapper,Sudoku.ComponentModel.Tetris.RotationType)">
-            <summary>
-            Creates a list of absolute cell indices of the specified piece, defined in tetris.
-            </summary>
-            <param name="mapper">The mapper instance that represents basic information of the number of rows and columns.</param>
-            <param name="rotationType">The rotation type. By default it's <see cref="F:Sudoku.ComponentModel.Tetris.RotationType.None"/>.</param>
-            <returns>Absolute cell indices of that piece, aligned as global top-left position <c>(0, 0)</c> in canvas.</returns>
-            <exception cref="T:System.ArgumentOutOfRangeException">
-            Throws when <paramref name="this"/> or <paramref name="rotationType"/> is not defined.
-            </exception>
-            <seealso cref="F:Sudoku.ComponentModel.Tetris.RotationType.None"/>
         </member>
         <member name="T:Sudoku.ComponentModel.Thickness">
             <summary>
@@ -3231,6 +2866,143 @@
             Indicates lower curve, curve.
             </summary>
         </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.Tetromino">
+            <summary>
+            Represents a tetris piece.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellMarks.Tetromino.I">
+            <summary>
+            Represents I-piece.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellMarks.Tetromino.O">
+            <summary>
+            Represents O-piece.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellMarks.Tetromino.T">
+            <summary>
+            Represents T-piece.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellMarks.Tetromino.J">
+            <summary>
+            Represents J-piece.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellMarks.Tetromino.L">
+            <summary>
+            Represents L-piece.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellMarks.Tetromino.S">
+            <summary>
+            Represents S-piece.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellMarks.Tetromino.Z">
+            <summary>
+            Represents Z-piece.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.TetrominoInfo">
+            <summary>
+            Provides an easy way to get pieces.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellMarks.TetrominoInfo.PiecesCoordinateTable">
+            <summary>
+            Represents a table of coordinates of all pieces (tetriminoes).
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellMarks.TetrominoInfo.GetPiecesSize(Sudoku.Graphics.Items.CellMarks.Tetromino)">
+            <summary>
+            Get size of the specified piece.
+            </summary>
+            <param name="piece">The piece.</param>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.TetrominoLineSegmentsFactory">
+            <summary>
+            Provides extension members on <see cref="T:Sudoku.Graphics.Items.CellMarks.Tetromino"/>.
+            </summary>
+            <seealso cref="T:Sudoku.Graphics.Items.CellMarks.Tetromino"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellMarks.TetrominoLineSegmentsFactory.GetTetrisPieceBooleanSequence(Sudoku.Graphics.Items.CellMarks.Tetromino,Sudoku.Graphics.Items.CellMarks.TetrominoRotationType)">
+            <inheritdoc cref="M:Sudoku.Graphics.Items.CellMarks.TetrominoLineSegmentsFactory.&lt;G&gt;$D8545EE6247122574DF577F2102FF53A.GetTetrisPieceBooleanSequence(Sudoku.Graphics.Items.CellMarks.TetrominoRotationType)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellMarks.TetrominoLineSegmentsFactory.GetOutline(Sudoku.Graphics.Items.CellMarks.Tetromino,Sudoku.Graphics.Items.CellMarks.TetrominoRotationType,Sudoku.Graphics.PointMapper,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute)">
+            <inheritdoc cref="M:Sudoku.Graphics.Items.CellMarks.TetrominoLineSegmentsFactory.&lt;G&gt;$D8545EE6247122574DF577F2102FF53A.GetOutline(Sudoku.Graphics.Items.CellMarks.TetrominoRotationType,Sudoku.Graphics.PointMapper,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellMarks.TetrominoLineSegmentsFactory.GetTetrisPiece(Sudoku.Graphics.Items.CellMarks.Tetromino,Sudoku.Graphics.PointMapper,Sudoku.Graphics.Items.CellMarks.TetrominoRotationType)">
+            <inheritdoc cref="M:Sudoku.Graphics.Items.CellMarks.TetrominoLineSegmentsFactory.&lt;G&gt;$D8545EE6247122574DF577F2102FF53A.GetTetrisPiece(Sudoku.Graphics.PointMapper,Sudoku.Graphics.Items.CellMarks.TetrominoRotationType)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellMarks.TetrominoLineSegmentsFactory.RotateViaCoordinateTable(System.Int32,System.ValueTuple{Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute}[])">
+            <summary>
+            Rotates tetris piece via coordinate table.
+            </summary>
+            <param name="times">The times to rotate.</param>
+            <param name="coordinates">The coordinate table.</param>
+            <returns>The target coordinate table.</returns>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.TetrominoLineSegmentsFactory.&lt;G&gt;$D8545EE6247122574DF577F2102FF53A.&lt;M&gt;$C1F8063F389AB92DF682A3DEB427CF87">
+            <param name="this">The specified tetris piece.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellMarks.TetrominoLineSegmentsFactory.&lt;G&gt;$D8545EE6247122574DF577F2102FF53A.GetTetrisPieceBooleanSequence(Sudoku.Graphics.Items.CellMarks.TetrominoRotationType)">
+            <summary>
+            Try to get sequence of tetris piece, after rotated.
+            </summary>
+            <param name="rotationType">The rotation type.</param>
+            <returns>The boolean sequence.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Throws when <paramref name="rotationType"/> is not defined.</exception>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellMarks.TetrominoLineSegmentsFactory.&lt;G&gt;$D8545EE6247122574DF577F2102FF53A.GetOutline(Sudoku.Graphics.Items.CellMarks.TetrominoRotationType,Sudoku.Graphics.PointMapper,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute)">
+            <summary>
+            Creates a <see cref="T:Sudoku.Graphics.Templating.LineSegment"/> array that describes outlines of a tetris piece.
+            </summary>
+            <param name="rotationType">The rotation type.</param>
+            <param name="mapper">The mapper.</param>
+            <param name="offsetRowsCount">The offset rows count.</param>
+            <param name="offsetColumnsCount">The offset columns count.</param>
+            <returns>An array of <see cref="T:Sudoku.Graphics.Templating.LineSegment"/> instances.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellMarks.TetrominoLineSegmentsFactory.&lt;G&gt;$D8545EE6247122574DF577F2102FF53A.GetTetrisPiece(Sudoku.Graphics.PointMapper,Sudoku.Graphics.Items.CellMarks.TetrominoRotationType)">
+            <summary>
+            Creates a list of absolute cell indices of the specified piece, defined in tetris.
+            </summary>
+            <param name="mapper">The mapper instance that represents basic information of the number of rows and columns.</param>
+            <param name="rotationType">The rotation type. By default it's <see cref="F:Sudoku.Graphics.Items.CellMarks.TetrominoRotationType.None"/>.</param>
+            <returns>Absolute cell indices of that piece, aligned as global top-left position <c>(0, 0)</c> in canvas.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Throws when <paramref name="this"/> or <paramref name="rotationType"/> is not defined.
+            </exception>
+            <seealso cref="F:Sudoku.Graphics.Items.CellMarks.TetrominoRotationType.None"/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.TetrominoRotationType">
+            <summary>
+            Represents a type of rotation.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellMarks.TetrominoRotationType.None">
+            <summary>
+            Represents no rotation.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellMarks.TetrominoRotationType.Single">
+            <summary>
+            Represents single rotation.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellMarks.TetrominoRotationType.Double">
+            <summary>
+            Represents double rotation.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellMarks.TetrominoRotationType.Triple">
+            <summary>
+            Represents triple rotation.
+            </summary>
+        </member>
         <member name="T:Sudoku.Graphics.Items.CellPairMarks.CellPairBarMarkItem">
             <summary>
             Represents a cell pair bar mark item.
@@ -3655,6 +3427,91 @@
         <member name="M:Sudoku.Graphics.Items.CellPairTextMarks.CellPairTextMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.Items.CellTextMarks.ArithmeticOperator">
+            <summary>
+            Represents an arithmetic operator.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ArithmeticOperator.None">
+            <summary>
+            Represents placeholder of this type.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ArithmeticOperator.Add">
+            <summary>
+            Indicates add operator (+).
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ArithmeticOperator.Subtract">
+            <summary>
+            Indicates subtract operator (-).
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ArithmeticOperator.Multiply_Cross">
+            <summary>
+            Indicates multiply operator (&#215;).
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ArithmeticOperator.Multiply_Dot">
+            <summary>
+            Indicates multiply operator (&#183;).
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ArithmeticOperator.Multiply_Asterisk">
+            <summary>
+            Indicates multiply operator (*).
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ArithmeticOperator.Division_DivisionSign">
+            <summary>
+            Indicates division operator (&#247;).
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ArithmeticOperator.Division_Slash">
+            <summary>
+            Indicates division operator (/).
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ArithmeticOperator.Division_Ratio">
+            <summary>
+            Indicates division operator (:).
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ArithmeticOperator.Modulo">
+            <summary>
+            Indicates modulo operator (%).
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellTextMarks.BitwiseOperator">
+            <summary>
+            Represents bitwise operator.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.BitwiseOperator.None">
+            <summary>
+            Indicates placeholder.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.BitwiseOperator.And">
+            <summary>
+            Indicates and operator (&amp;).
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.BitwiseOperator.Or">
+            <summary>
+            Indicates or operator (|).
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.BitwiseOperator.Not">
+            <summary>
+            Indicates not operator (~).
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.BitwiseOperator.ExclusiveOr">
+            <summary>
+            Indicates exclusive or operator (^).
+            </summary>
+        </member>
         <member name="T:Sudoku.Graphics.Items.CellTextMarks.CellArithmeticOperatorTextMarkItem">
             <summary>
             Represents an arithmetic operator text mark item.
@@ -3818,6 +3675,98 @@
         </member>
         <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellZodiacEmojiMarkItem.PrintingText">
             <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellTextMarks.ComparisonOperator">
+            <summary>
+            Represents an operator that will be used in comparison.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ComparisonOperator.None">
+            <summary>
+            Represents placeholder of this type.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ComparisonOperator.Equals">
+            <summary>
+            Indicates equals operator (==).
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ComparisonOperator.Inequals">
+            <summary>
+            Indicates inequals operator (!=, &lt;&gt;).
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ComparisonOperator.GreaterThan">
+            <summary>
+            Indicates greater than operator (>).
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ComparisonOperator.GreaterThanOrEqual">
+            <summary>
+            Indicates greater than or equals operator (&gt;=).
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ComparisonOperator.LessThan">
+            <summary>
+            Indicates less than operator (&lt;).
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ComparisonOperator.LessThanOrEqual">
+            <summary>
+            Indicates less than or equals operator (&lt;=).
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellTextMarks.OperatorExtensions">
+            <summary>
+            Provides extension members on <see cref="T:Sudoku.Graphics.Items.CellTextMarks.ArithmeticOperator"/>, <see cref="T:Sudoku.Graphics.Items.CellTextMarks.BitwiseOperator"/>
+            and <see cref="T:Sudoku.Graphics.Items.CellTextMarks.ComparisonOperator"/>.
+            </summary>
+            <seealso cref="T:Sudoku.Graphics.Items.CellTextMarks.ArithmeticOperator"/>
+            <seealso cref="T:Sudoku.Graphics.Items.CellTextMarks.BitwiseOperator"/>
+            <seealso cref="T:Sudoku.Graphics.Items.CellTextMarks.ComparisonOperator"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellTextMarks.OperatorExtensions.get_Text``1(``0)">
+            <inheritdoc cref="P:Sudoku.Graphics.Items.CellTextMarks.OperatorExtensions.&lt;G&gt;$F7BAB7F8979284A7204DC29891C39285`1.Text"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellTextMarks.OperatorExtensions.get_Text(Sudoku.Graphics.Items.CellTextMarks.ArithmeticOperator)">
+            <inheritdoc cref="P:Sudoku.Graphics.Items.CellTextMarks.OperatorExtensions.&lt;G&gt;$CC229C32D8C3F5A2C567181B3EA7180D.Text"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellTextMarks.OperatorExtensions.get_Text(Sudoku.Graphics.Items.CellTextMarks.BitwiseOperator)">
+            <inheritdoc cref="P:Sudoku.Graphics.Items.CellTextMarks.OperatorExtensions.&lt;G&gt;$B244D4F8943C4CFFE31B580AADDE74FD.Text"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellTextMarks.OperatorExtensions.get_Text(Sudoku.Graphics.Items.CellTextMarks.ComparisonOperator)">
+            <inheritdoc cref="P:Sudoku.Graphics.Items.CellTextMarks.OperatorExtensions.&lt;G&gt;$E4D307DB7F392E33925857B119C59D9B.Text"/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellTextMarks.OperatorExtensions.&lt;G&gt;$F7BAB7F8979284A7204DC29891C39285`1.&lt;M&gt;$818489F2DA80AA790B968867D0FDCD54">
+            <typeparam name="TOperatorEnum">The type of this enumeration field.</typeparam>
+            <param name="this">The current instance.</param>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellTextMarks.OperatorExtensions.&lt;G&gt;$F7BAB7F8979284A7204DC29891C39285`1.Text">
+            <inheritdoc cref="P:Sudoku.Graphics.Items.CellTextMarks.OperatorExtensions.&lt;G&gt;$CC229C32D8C3F5A2C567181B3EA7180D.Text"/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellTextMarks.OperatorExtensions.&lt;G&gt;$CC229C32D8C3F5A2C567181B3EA7180D.&lt;M&gt;$CC31EC25B4472F0566709A95019C71E1">
+            <param name="this">The current instance.</param>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellTextMarks.OperatorExtensions.&lt;G&gt;$CC229C32D8C3F5A2C567181B3EA7180D.Text">
+            <summary>
+            Indicates text of this operator.
+            </summary>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Throws when <paramref name="this"/> is not defined, or equals <see langword="default"/> value
+            of this type (placeholder).
+            </exception>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellTextMarks.OperatorExtensions.&lt;G&gt;$B244D4F8943C4CFFE31B580AADDE74FD.&lt;M&gt;$019FCE9119CF5C890C1782793964F292">
+            <param name="this">The current instance.</param>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellTextMarks.OperatorExtensions.&lt;G&gt;$B244D4F8943C4CFFE31B580AADDE74FD.Text">
+            <inheritdoc cref="P:Sudoku.Graphics.Items.CellTextMarks.OperatorExtensions.&lt;G&gt;$CC229C32D8C3F5A2C567181B3EA7180D.Text"/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellTextMarks.OperatorExtensions.&lt;G&gt;$E4D307DB7F392E33925857B119C59D9B.&lt;M&gt;$7645C36A8EDD35C22EE047364E35F426">
+            <param name="this">The current instance.</param>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellTextMarks.OperatorExtensions.&lt;G&gt;$E4D307DB7F392E33925857B119C59D9B.Text">
+            <inheritdoc cref="P:Sudoku.Graphics.Items.CellTextMarks.OperatorExtensions.&lt;G&gt;$CC229C32D8C3F5A2C567181B3EA7180D.Text"/>
         </member>
         <member name="T:Sudoku.Graphics.Items.CellTextMarks.Suit">
             <summary>
@@ -5654,12 +5603,63 @@
             </returns>
             <seealso cref="T:Sudoku.Graphics.Absolute"/>
         </member>
+        <member name="T:Sudoku.Graphics.Templating.Templates.CrossmathFormula">
+            <summary>
+            Represents a crossmath formula.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Templating.Templates.CrossmathFormula.ValueSequence">
+            <summary>
+            Indicates the value sequence that will be filled into the cells.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Templating.Templates.CrossmathFormula.Cell">
+            <summary>
+            Indicates the cell as start.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Templating.Templates.CrossmathFormula.CellsCount">
+            <summary>
+            Indicates the number of cells occupied.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Templating.Templates.CrossmathFormula.ExpandingDirection">
+            <summary>
+            Indicates expanding direction of formula.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Templating.Templates.CrossmathFormula.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Templating.Templates.CrossmathFormula.CreateTemplate(Sudoku.Graphics.Templating.Templates.CrossmathFormula[],Sudoku.Graphics.PointMapper,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor)">
+            <summary>
+            Creates a <see cref="T:Sudoku.Graphics.Templating.Templates.CrossmathTemplate"/> instance via the specified formulae.
+            </summary>
+            <param name="formulae">The formulae to be loaded.</param>
+            <param name="mapper">The point mapper.</param>
+            <param name="thickLineWidth">Thick line width.</param>
+            <param name="thinLineWidth">Thin line width.</param>
+            <param name="thickLineColor">Thick line color.</param>
+            <param name="thinLineColor">Thin line color.</param>
+            <returns>The grid template.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.Templating.Templates.CrossmathFormula.CreateItems(Sudoku.Graphics.Templating.Templates.CrossmathFormula[],Sudoku.Graphics.PointMapper,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor)">
+            <summary>
+            Creates a list of <see cref="T:Sudoku.Graphics.Items.Texts.GivenTextItem"/> instances via the specified formulae.
+            </summary>
+            <param name="formulae">The formulae to be loaded.</param>
+            <param name="mapper">The point mapper.</param>
+            <param name="fontName">The font name.</param>
+            <param name="fontSizeScale">The font size scale.</param>
+            <param name="color">The color.</param>
+            <returns>A list of <see cref="T:Sudoku.Graphics.Items.Texts.GivenTextItem"/> instances.</returns>
+        </member>
         <member name="T:Sudoku.Graphics.Templating.Templates.CrossmathTemplate">
             <summary>
             Represents crossmath grid template.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.Templating.Templates.CrossmathTemplate.#ctor(Sudoku.ComponentModel.Crossmath.CrossmathFormula[],Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.Templating.Templates.CrossmathTemplate.#ctor(Sudoku.Graphics.Templating.Templates.CrossmathFormula[],Sudoku.Graphics.PointMapper)">
             <summary>
             Initializes a <see cref="T:Sudoku.Graphics.Templating.Templates.CrossmathTemplate"/> instance, via the formulae.
             </summary>

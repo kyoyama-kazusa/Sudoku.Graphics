@@ -1,9 +1,9 @@
-﻿namespace Sudoku.ComponentModel.Tetris;
+﻿namespace Sudoku.Graphics.Items.CellMarks;
 
 /// <summary>
 /// Represents a tetris piece.
 /// </summary>
-public enum Piece
+public enum Tetromino
 {
 	/// <summary>
 	/// Represents I-piece.

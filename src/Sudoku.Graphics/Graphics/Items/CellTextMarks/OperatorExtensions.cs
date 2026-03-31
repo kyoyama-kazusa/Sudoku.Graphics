@@ -1,4 +1,4 @@
-﻿namespace Sudoku.ComponentModel.Maths;
+﻿namespace Sudoku.Graphics.Items.CellTextMarks;
 
 /// <summary>
 /// Provides extension members on <see cref="ArithmeticOperator"/>, <see cref="BitwiseOperator"/>

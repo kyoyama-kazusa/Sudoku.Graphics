@@ -1,13 +1,13 @@
-﻿namespace Sudoku.ComponentModel.Tetris;
+﻿namespace Sudoku.Graphics.Items.CellMarks;
 
 /// <summary>
-/// Provides extension members on <see cref="Piece"/>.
+/// Provides extension members on <see cref="Tetromino"/>.
 /// </summary>
-/// <seealso cref="Piece"/>
-public static class TetrisLineSegmentFactory
+/// <seealso cref="Tetromino"/>
+public static class TetrominoLineSegmentsFactory
 {
 	/// <param name="this">The specified tetris piece.</param>
-	extension(Piece @this)
+	extension(Tetromino @this)
 	{
 		/// <summary>
 		/// Try to get sequence of tetris piece, after rotated.
@@ -15,20 +15,20 @@ public static class TetrisLineSegmentFactory
 		/// <param name="rotationType">The rotation type.</param>
 		/// <returns>The boolean sequence.</returns>
 		/// <exception cref="ArgumentOutOfRangeException">Throws when <paramref name="rotationType"/> is not defined.</exception>
-		public bool[,] GetTetrisPieceBooleanSequence(RotationType rotationType)
+		public bool[,] GetTetrisPieceBooleanSequence(TetrominoRotationType rotationType)
 		{
 			// Get table.
 			var resultCoordinates = RotateViaCoordinateTable(
 				(int)rotationType % 4,
 				@this switch
 				{
-					Piece.I => PieceInfo.PiecesCoordinateTable[0],
-					Piece.O => PieceInfo.PiecesCoordinateTable[1],
-					Piece.T => PieceInfo.PiecesCoordinateTable[2],
-					Piece.J => PieceInfo.PiecesCoordinateTable[3],
-					Piece.L => PieceInfo.PiecesCoordinateTable[4],
-					Piece.S => PieceInfo.PiecesCoordinateTable[5],
-					Piece.Z => PieceInfo.PiecesCoordinateTable[6],
+					Tetromino.I => TetrominoInfo.PiecesCoordinateTable[0],
+					Tetromino.O => TetrominoInfo.PiecesCoordinateTable[1],
+					Tetromino.T => TetrominoInfo.PiecesCoordinateTable[2],
+					Tetromino.J => TetrominoInfo.PiecesCoordinateTable[3],
+					Tetromino.L => TetrominoInfo.PiecesCoordinateTable[4],
+					Tetromino.S => TetrominoInfo.PiecesCoordinateTable[5],
+					Tetromino.Z => TetrominoInfo.PiecesCoordinateTable[6],
 					_ => throw new ArgumentOutOfRangeException(nameof(@this))
 				}
 			);
@@ -54,7 +54,7 @@ public static class TetrisLineSegmentFactory
 		/// <param name="offsetColumnsCount">The offset columns count.</param>
 		/// <returns>An array of <see cref="LineSegment"/> instances.</returns>
 		public LineSegment[] GetOutline(
-			RotationType rotationType,
+			TetrominoRotationType rotationType,
 			PointMapper mapper,
 			Absolute offsetRowsCount,
 			Absolute offsetColumnsCount
@@ -67,25 +67,25 @@ public static class TetrisLineSegmentFactory
 		/// Creates a list of absolute cell indices of the specified piece, defined in tetris.
 		/// </summary>
 		/// <param name="mapper">The mapper instance that represents basic information of the number of rows and columns.</param>
-		/// <param name="rotationType">The rotation type. By default it's <see cref="RotationType.None"/>.</param>
+		/// <param name="rotationType">The rotation type. By default it's <see cref="TetrominoRotationType.None"/>.</param>
 		/// <returns>Absolute cell indices of that piece, aligned as global top-left position <c>(0, 0)</c> in canvas.</returns>
 		/// <exception cref="ArgumentOutOfRangeException">
 		/// Throws when <paramref name="this"/> or <paramref name="rotationType"/> is not defined.
 		/// </exception>
-		/// <seealso cref="RotationType.None"/>
-		public Absolute[] GetTetrisPiece(PointMapper mapper, RotationType rotationType = RotationType.None)
+		/// <seealso cref="TetrominoRotationType.None"/>
+		public Absolute[] GetTetrisPiece(PointMapper mapper, TetrominoRotationType rotationType = TetrominoRotationType.None)
 		{
 			var resultCoordinates = RotateViaCoordinateTable(
 				(int)rotationType % 4,
 				@this switch
 				{
-					Piece.I => PieceInfo.PiecesCoordinateTable[0],
-					Piece.O => PieceInfo.PiecesCoordinateTable[1],
-					Piece.T => PieceInfo.PiecesCoordinateTable[2],
-					Piece.J => PieceInfo.PiecesCoordinateTable[3],
-					Piece.L => PieceInfo.PiecesCoordinateTable[4],
-					Piece.S => PieceInfo.PiecesCoordinateTable[5],
-					Piece.Z => PieceInfo.PiecesCoordinateTable[6],
+					Tetromino.I => TetrominoInfo.PiecesCoordinateTable[0],
+					Tetromino.O => TetrominoInfo.PiecesCoordinateTable[1],
+					Tetromino.T => TetrominoInfo.PiecesCoordinateTable[2],
+					Tetromino.J => TetrominoInfo.PiecesCoordinateTable[3],
+					Tetromino.L => TetrominoInfo.PiecesCoordinateTable[4],
+					Tetromino.S => TetrominoInfo.PiecesCoordinateTable[5],
+					Tetromino.Z => TetrominoInfo.PiecesCoordinateTable[6],
 					_ => throw new ArgumentOutOfRangeException(nameof(@this))
 				}
 			);

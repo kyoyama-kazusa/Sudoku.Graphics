@@ -1,4 +1,4 @@
-﻿namespace Sudoku.ComponentModel.Maths;
+﻿namespace Sudoku.Graphics.Items.CellTextMarks;
 
 /// <summary>
 /// Represents an operator that will be used in comparison.

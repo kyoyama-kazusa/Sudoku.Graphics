@@ -1,9 +1,9 @@
-﻿namespace Sudoku.ComponentModel.Tetris;
+﻿namespace Sudoku.Graphics.Items.CellMarks;
 
 /// <summary>
 /// Provides an easy way to get pieces.
 /// </summary>
-public static class PieceInfo
+public static class TetrominoInfo
 {
 	/// <summary>
 	/// Represents a table of coordinates of all pieces (tetriminoes).
@@ -23,7 +23,7 @@ public static class PieceInfo
 	/// Get size of the specified piece.
 	/// </summary>
 	/// <param name="piece">The piece.</param>
-	public static (Absolute RowsCount, Absolute ColumnsCount) GetPiecesSize(Piece piece)
+	public static (Absolute RowsCount, Absolute ColumnsCount) GetPiecesSize(Tetromino piece)
 	{
 		var coordinates = PiecesCoordinateTable[(int)piece];
 		var maxRowIndex = coordinates.Max(static coordinate => coordinate.RowIndex);
