@@ -23,8 +23,8 @@ public sealed record CandidateTextItem : TextItem, IItem_CandidatePositionProper
 			FontWeight,
 			FontWidth,
 			FontSlant,
-			Color,
 			SKColors.Transparent,
+			Color,
 			canvas.Templates[TemplateIndex].Mapper
 		);
 }

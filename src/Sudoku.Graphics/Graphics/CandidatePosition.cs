@@ -25,4 +25,8 @@ public readonly record struct CandidatePosition(Absolute Cell, Relative SubgridS
 		builder.Append($"Position = {Cell}@({SubgridSize}x{SubgridSize}, {InnerIndex})");
 		return true;
 	}
+
+
+	/// <inheritdoc/>
+	public static float GetLocatorMeasurer(CandidatePosition locator, float cellSize) => cellSize / locator.SubgridSize;
 }

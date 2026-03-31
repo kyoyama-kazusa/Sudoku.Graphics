@@ -14,10 +14,10 @@ public sealed record CandidateCircleMarkItem : CandidateMarkItem
 	/// <summary>
 	/// Indicates stroke width scale.
 	/// </summary>
-	public required Scale StrokeWidthScale { get; init; }
+	public Scale StrokeWidthScale { get; init; }
 
 	/// <inheritdoc/>
-	public required override SerializableColor StrokeColor { get; init; }
+	public override SerializableColor StrokeColor { get; init; }
 
 	/// <inheritdoc/>
 	public required override SerializableColor FillColor { get; init; }

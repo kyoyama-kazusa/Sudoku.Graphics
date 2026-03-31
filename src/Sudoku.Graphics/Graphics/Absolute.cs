@@ -88,6 +88,9 @@ public readonly struct Absolute(int value) : IInteger<Absolute>, ILocator<Absolu
 		return result;
 	}
 
+	/// <inheritdoc/>
+	public static float GetLocatorMeasurer(Absolute locator, float cellSize) => cellSize;
+
 	/// <summary>
 	/// Gets the detailed adjacent relations between two cells specified,
 	/// and return the relative direction of <paramref name="left"/>.

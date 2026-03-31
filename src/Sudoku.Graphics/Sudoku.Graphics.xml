@@ -59,6 +59,9 @@
             <param name="houseType">The house type.</param>
             <returns>A <see cref="T:System.Boolean"/> result.</returns>
         </member>
+        <member name="M:Sudoku.Graphics.Absolute.GetLocatorMeasurer(Sudoku.Graphics.Absolute,System.Single)">
+            <inheritdoc/>
+        </member>
         <member name="M:Sudoku.Graphics.Absolute.GetAdjacentRelation(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.Graphics.PointMapper)">
             <summary>
             Gets the detailed adjacent relations between two cells specified,
@@ -178,6 +181,9 @@
         </member>
         <member name="P:Sudoku.Graphics.CandidatePosition.InnerIndex">
             <summary>The internal absolute position index of the candidate.</summary>
+        </member>
+        <member name="M:Sudoku.Graphics.CandidatePosition.GetLocatorMeasurer(Sudoku.Graphics.CandidatePosition,System.Single)">
+            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.Canvas">
             <summary>
@@ -859,6 +865,14 @@
             Represents a locator object.
             </summary>
             <typeparam name="TSelf">The type implementing this interface.</typeparam>
+        </member>
+        <member name="M:Sudoku.Graphics.ILocator`1.GetLocatorMeasurer(`0,System.Single)">
+            <summary>
+            Creates a locator measurer value that based on the current type of the locator.
+            </summary>
+            <param name="locator">The locator object.</param>
+            <param name="cellSize">The cell size.</param>
+            <returns>The result.</returns>
         </member>
         <member name="T:Sudoku.Graphics.Item">
             <summary>
@@ -4469,6 +4483,9 @@
         </member>
         <member name="M:Sudoku.Graphics.Relative.ToString">
             <inheritdoc cref="M:System.Object.ToString"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Relative.GetLocatorMeasurer(Sudoku.Graphics.Relative,System.Single)">
+            <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Relative.op_Implicit(System.Int32)~Sudoku.Graphics.Relative">
             <inheritdoc/>

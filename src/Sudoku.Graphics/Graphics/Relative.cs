@@ -36,6 +36,10 @@ public readonly struct Relative(int value) : IInteger<Relative>, ILocator<Relati
 
 
 	/// <inheritdoc/>
+	public static float GetLocatorMeasurer(Relative locator, float cellSize) => cellSize;
+
+
+	/// <inheritdoc/>
 	public static implicit operator Relative(int value) => new(value);
 
 	/// <inheritdoc/>
