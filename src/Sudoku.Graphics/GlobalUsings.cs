@@ -34,6 +34,7 @@ global using Sudoku.Graphics.Items.CellTextMarks;
 global using Sudoku.Graphics.Items.Fills;
 global using Sudoku.Graphics.Items.Lines;
 global using Sudoku.Graphics.Items.Texts;
-global using Sudoku.Graphics.Templates;
+global using Sudoku.Graphics.Templating;
+global using Sudoku.Graphics.Templating.Templates;
 global using Sudoku.Resources;
 global using Sudoku.Serialization;

@@ -1,4 +1,4 @@
-﻿namespace Sudoku.Graphics.Templates;
+﻿namespace Sudoku.Graphics.Templating.Templates;
 
 /// <summary>
 /// Represents a grid template that supports drawing border lines as a rounded rectangle.

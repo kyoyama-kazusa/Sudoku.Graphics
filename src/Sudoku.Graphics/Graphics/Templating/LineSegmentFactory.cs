@@ -1,4 +1,4 @@
-﻿namespace Sudoku.ComponentModel;
+﻿namespace Sudoku.Graphics.Templating;
 
 /// <summary>
 /// Provides an easy way to create <see cref="LineSegment"/> instances.

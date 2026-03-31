@@ -14,7 +14,7 @@ using Sudoku.Graphics;
 using Sudoku.Graphics.Items.CellGroupMarks;
 using Sudoku.Graphics.Items.Fills;
 using Sudoku.Graphics.Items.Lines;
-using Sudoku.Graphics.Templates;
+using Sudoku.Graphics.Templating.Templates;
 
 //var options = new CanvasDrawingOptions();
 var desktop = Environment.DesktopPath;

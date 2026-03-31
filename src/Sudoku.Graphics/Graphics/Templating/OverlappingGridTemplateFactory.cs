@@ -1,4 +1,4 @@
-﻿namespace Sudoku.ComponentModel;
+﻿namespace Sudoku.Graphics.Templating;
 
 #pragma warning disable CS1572
 /// <summary>

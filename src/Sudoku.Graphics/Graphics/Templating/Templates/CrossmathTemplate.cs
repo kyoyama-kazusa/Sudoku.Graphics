@@ -1,4 +1,4 @@
-﻿namespace Sudoku.Graphics.Templates;
+﻿namespace Sudoku.Graphics.Templating.Templates;
 
 /// <summary>
 /// Represents crossmath grid template.

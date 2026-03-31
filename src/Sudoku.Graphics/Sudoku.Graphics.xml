@@ -99,7 +99,7 @@
         </member>
         <member name="M:Sudoku.ComponentModel.Crossmath.CrossmathFormula.CreateTemplate(Sudoku.ComponentModel.Crossmath.CrossmathFormula[],Sudoku.Graphics.PointMapper,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor)">
             <summary>
-            Creates a <see cref="T:Sudoku.Graphics.Templates.CrossmathTemplate"/> instance via the specified formulae.
+            Creates a <see cref="T:Sudoku.Graphics.Templating.Templates.CrossmathTemplate"/> instance via the specified formulae.
             </summary>
             <param name="formulae">The formulae to be loaded.</param>
             <param name="mapper">The point mapper.</param>
@@ -470,15 +470,15 @@
         </member>
         <member name="T:Sudoku.ComponentModel.GridTemplateSize">
             <summary>
-            Represents logical size of a <see cref="T:Sudoku.Graphics.Template"/> instance.
+            Represents logical size of a <see cref="T:Sudoku.Graphics.Templating.Template"/> instance.
             </summary>
-            <seealso cref="T:Sudoku.Graphics.Template"/>
+            <seealso cref="T:Sudoku.Graphics.Templating.Template"/>
         </member>
         <member name="M:Sudoku.ComponentModel.GridTemplateSize.#ctor">
             <summary>
-            Represents logical size of a <see cref="T:Sudoku.Graphics.Template"/> instance.
+            Represents logical size of a <see cref="T:Sudoku.Graphics.Templating.Template"/> instance.
             </summary>
-            <seealso cref="T:Sudoku.Graphics.Template"/>
+            <seealso cref="T:Sudoku.Graphics.Templating.Template"/>
         </member>
         <member name="P:Sudoku.ComponentModel.GridTemplateSize.RowsCount">
             <summary>
@@ -514,7 +514,7 @@
         <member name="M:Sudoku.ComponentModel.GridTemplateSize.GetHashCode">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.ComponentModel.GridTemplateSize.Create(System.ReadOnlySpan{Sudoku.Graphics.Template})">
+        <member name="M:Sudoku.ComponentModel.GridTemplateSize.Create(System.ReadOnlySpan{Sudoku.Graphics.Templating.Template})">
             <summary>
             Creates a <see cref="T:Sudoku.ComponentModel.GridTemplateSize"/> instance via the specified list of templates.
             Such templates will be drawn into one <see cref="T:Sudoku.Graphics.Canvas"/> instance, aligning as top-left cell <c>(0, 0)</c>.
@@ -665,105 +665,6 @@
         </member>
         <member name="M:Sudoku.ComponentModel.Converter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.ComponentModel.LineDashSequence,System.Text.Json.JsonSerializerOptions)">
             <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.ComponentModel.LineSegment">
-            <summary>
-            Represents an instance that describes possible shown line segments under the specified directions specified of the specified cell.
-            </summary>
-            <param name="cellIndex">The cell index.</param>
-            <param name="directions">The shown directions.</param>
-        </member>
-        <member name="M:Sudoku.ComponentModel.LineSegment.#ctor(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction4)">
-            <summary>
-            Represents an instance that describes possible shown line segments under the specified directions specified of the specified cell.
-            </summary>
-            <param name="cellIndex">The cell index.</param>
-            <param name="directions">The shown directions.</param>
-        </member>
-        <member name="P:Sudoku.ComponentModel.LineSegment.Directions">
-            <summary>
-            Indicates the directions to be shown.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.LineSegment.CellIndex">
-            <summary>
-            Indicates absolute cell index.
-            </summary>
-        </member>
-        <member name="M:Sudoku.ComponentModel.LineSegment.Deconstruct(Sudoku.Graphics.Absolute@,Sudoku.ComponentModel.Directions.Direction4@)">
-            <summary>
-            Deconstruct instance into multiple values.
-            </summary>
-        </member>
-        <member name="M:Sudoku.ComponentModel.LineSegment.Equals(System.Object)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.LineSegment.Equals(Sudoku.ComponentModel.LineSegment)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.LineSegment.GetHashCode">
-            <inheritdoc cref="M:System.Object.GetHashCode"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.LineSegment.ToString">
-            <inheritdoc cref="M:System.Object.ToString"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.LineSegment.op_Equality(Sudoku.ComponentModel.LineSegment,Sudoku.ComponentModel.LineSegment)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.LineSegment.op_Inequality(Sudoku.ComponentModel.LineSegment,Sudoku.ComponentModel.LineSegment)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.ComponentModel.LineSegmentFactory">
-            <summary>
-            Provides an easy way to create <see cref="T:Sudoku.ComponentModel.LineSegment"/> instances.
-            </summary>
-            <seealso cref="T:Sudoku.ComponentModel.LineSegment"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.LineSegmentFactory.GetOutline(Sudoku.Graphics.Absolute[],Sudoku.Graphics.PointMapper)">
-            <summary>
-            Returns a list of <see cref="T:Sudoku.ComponentModel.LineSegment"/> instances indicating light-up segments to be shown,
-            forming a outline cage that includes all the specified cells.
-            </summary>
-            <param name="cellIndices">The cell indices.</param>
-            <param name="mapper">The mapper.</param>
-            <returns>A list of <see cref="T:Sudoku.ComponentModel.LineSegment"/> instances.</returns>
-        </member>
-        <member name="M:Sudoku.ComponentModel.LineSegmentFactory.GetExceptRange(Sudoku.ComponentModel.LineSegment[],Sudoku.Graphics.PointMapper)">
-            <summary>
-            Gets except range of the specified segments.
-            </summary>
-            <param name="originalSegments">The original segments.</param>
-            <param name="mapper">The mapper.</param>
-            <returns>Except range of line segments.</returns>
-        </member>
-        <member name="M:Sudoku.ComponentModel.LineSegmentFactory.GetLightupDirections(Sudoku.Graphics.Relative[],System.Boolean,Sudoku.Graphics.PointMapper,System.Collections.Generic.HashSet{Sudoku.Graphics.Absolute}@)">
-            <summary>
-            Creates a <see cref="T:System.Collections.Generic.Dictionary`2"/> of <see cref="T:Sudoku.Graphics.Absolute"/> and <see cref="T:Sudoku.ComponentModel.Directions.Direction4"/> key-value pairs,
-            indicating lightup segments of cells to be shown.
-            </summary>
-            <param name="cellIndices">The cell indices.</param>
-            <param name="isCyclicRuleChecked">
-            A <see cref="T:System.Boolean"/> value indicating cycling row and column gaps will be considered as connected.
-            </param>
-            <param name="mapper">The mapper.</param>
-            <param name="absoluteCellIndices">Absolute cell indices.</param>
-            <returns>The result dictionary of light-up segments.</returns>
-        </member>
-        <member name="M:Sudoku.ComponentModel.LineSegmentFactory.GetLightupDirections(Sudoku.Graphics.Absolute[],System.Boolean,Sudoku.Graphics.PointMapper,System.Collections.Generic.HashSet{Sudoku.Graphics.Absolute}@)">
-            <inheritdoc cref="M:Sudoku.ComponentModel.LineSegmentFactory.GetLightupDirections(Sudoku.Graphics.Relative[],System.Boolean,Sudoku.Graphics.PointMapper,System.Collections.Generic.HashSet{Sudoku.Graphics.Absolute}@)"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.LineSegmentFactory.GetLightupDirectionsCore(System.Collections.Generic.Dictionary{Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction4},System.Boolean,Sudoku.Graphics.PointMapper,System.Collections.Generic.HashSet{Sudoku.Graphics.Absolute}@)">
-            <summary>
-            Creates a <see cref="T:System.Collections.Generic.Dictionary`2"/> of <see cref="T:Sudoku.Graphics.Absolute"/> and <see cref="T:Sudoku.ComponentModel.Directions.Direction4"/> key-value pairs,
-            indicating lightup segments of cells to be shown.
-            </summary>
-            <param name="lineSegmentsDictionary">The original entry dictionary.</param>
-            <param name="isCyclicRuleChecked">
-            A <see cref="T:System.Boolean"/> value indicating cycling row and column gaps will be considered as connected.
-            </param>
-            <param name="mapper">The mapper.</param>
-            <param name="absoluteCellIndices">Absolute cell indices.</param>
-            <returns>The result dictionary of light-up segments.</returns>
         </member>
         <member name="T:Sudoku.ComponentModel.Maths.ArithmeticOperator">
             <summary>
@@ -976,65 +877,6 @@
             <summary>
             Indicates lower curve, curve.
             </summary>
-        </member>
-        <member name="T:Sudoku.ComponentModel.OverlappingGridTemplateFactory">
-            <summary>
-            Provides a way to create overlapping grid templates.
-            </summary>
-            <shared-doc-comments>
-            <param name="blockRowsCount">The number of rows in a block.</param>
-            <param name="blockColumnsCount">The number of columns in a block.</param>
-            <param name="baseMapper">
-            The base mapper instance that contains basic information of point mapping rules, like margin (in pixels).
-            </param>
-            <returns>An array of <see cref="T:Sudoku.Graphics.Template"/> instances.</returns>
-            <exception cref="T:System.ArgumentException">
-            Throws when the target template is not enough to create offsets, in order to form a valid such grid type.
-            </exception>
-            </shared-doc-comments>
-        </member>
-        <member name="M:Sudoku.ComponentModel.OverlappingGridTemplateFactory.ThrowsArgumentException">
-            <summary>
-            Throws an exception <see cref="T:System.ArgumentException"/>.
-            </summary>
-            <returns>This method always throws and don't return anything.</returns>
-            <exception cref="T:System.ArgumentException">Always throws.</exception>
-        </member>
-        <member name="M:Sudoku.ComponentModel.OverlappingGridTemplateFactory.Overlapped(Sudoku.Graphics.PointMapper,Sudoku.ComponentModel.LineDashSequence)">
-            <summary>
-            Creates a <see cref="T:Sudoku.Graphics.Template"/> array of Overlapped sudoku, with the specified grid size.
-            </summary>
-            <inheritdoc cref="T:Sudoku.ComponentModel.OverlappingGridTemplateFactory" path="/shared-doc-comments"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.OverlappingGridTemplateFactory.DoubleDoku(System.Int32,System.Int32,Sudoku.Graphics.PointMapper)">
-            <summary>
-            Creates a <see cref="T:Sudoku.Graphics.Template"/> array of Double-doku, with the specified rows and columns size of a block.
-            </summary>
-            <inheritdoc cref="T:Sudoku.ComponentModel.OverlappingGridTemplateFactory" path="/shared-doc-comments"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.OverlappingGridTemplateFactory.Sensei(System.Int32,System.Int32,Sudoku.Graphics.PointMapper)">
-            <summary>
-            Creates a <see cref="T:Sudoku.Graphics.Template"/> array of Sensei, with the specified rows and columns size of a block.
-            </summary>
-            <inheritdoc cref="T:Sudoku.ComponentModel.OverlappingGridTemplateFactory" path="/shared-doc-comments"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.OverlappingGridTemplateFactory.Gattai2(System.Int32,System.Int32,Sudoku.Graphics.PointMapper)">
-            <summary>
-            Creates a <see cref="T:Sudoku.Graphics.Template"/> array of Gattai-2, with the specified rows and columns size of a block.
-            </summary>
-            <inheritdoc cref="T:Sudoku.ComponentModel.OverlappingGridTemplateFactory" path="/shared-doc-comments"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.OverlappingGridTemplateFactory.Gattai3(System.Int32,System.Int32,Sudoku.Graphics.PointMapper)">
-            <summary>
-            Creates a <see cref="T:Sudoku.Graphics.Template"/> array of Gattai-3, with the specified rows and columns size of a block.
-            </summary>
-            <inheritdoc cref="T:Sudoku.ComponentModel.OverlappingGridTemplateFactory" path="/shared-doc-comments"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.OverlappingGridTemplateFactory.Wing(System.Int32,System.Int32,Sudoku.Graphics.PointMapper)">
-            <summary>
-            Creates a <see cref="T:Sudoku.Graphics.Template"/> array of Wing, with the specified rows and columns size of a block.
-            </summary>
-            <inheritdoc cref="T:Sudoku.ComponentModel.OverlappingGridTemplateFactory" path="/shared-doc-comments"/>
         </member>
         <member name="T:Sudoku.ComponentModel.Scale">
             <summary>
@@ -1561,13 +1403,13 @@
         </member>
         <member name="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.&lt;G&gt;$C66C61D5C78EA6C835A71BF5AF9528DF.GetOutline(Sudoku.ComponentModel.Tetris.RotationType,Sudoku.Graphics.PointMapper,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute)">
             <summary>
-            Creates a <see cref="T:Sudoku.ComponentModel.LineSegment"/> array that describes outlines of a tetris piece.
+            Creates a <see cref="T:Sudoku.Graphics.Templating.LineSegment"/> array that describes outlines of a tetris piece.
             </summary>
             <param name="rotationType">The rotation type.</param>
             <param name="mapper">The mapper.</param>
             <param name="offsetRowsCount">The offset rows count.</param>
             <param name="offsetColumnsCount">The offset columns count.</param>
-            <returns>An array of <see cref="T:Sudoku.ComponentModel.LineSegment"/> instances.</returns>
+            <returns>An array of <see cref="T:Sudoku.Graphics.Templating.LineSegment"/> instances.</returns>
         </member>
         <member name="M:Sudoku.ComponentModel.Tetris.TetrisLineSegmentFactory.&lt;G&gt;$C66C61D5C78EA6C835A71BF5AF9528DF.GetTetrisPiece(Sudoku.Graphics.PointMapper,Sudoku.ComponentModel.Tetris.RotationType)">
             <summary>
@@ -1765,10 +1607,10 @@
         <member name="T:Sudoku.Graphics.AbsoluteFactory">
             <summary>
             Provides an easy way to create <see cref="T:Sudoku.Graphics.Absolute"/> instances.
-            Generally it will be used by creating <see cref="T:Sudoku.ComponentModel.LineSegment"/> instances.
+            Generally it will be used by creating <see cref="T:Sudoku.Graphics.Templating.LineSegment"/> instances.
             </summary>
             <seealso cref="T:Sudoku.Graphics.Absolute"/>
-            <seealso cref="T:Sudoku.ComponentModel.LineSegment"/>
+            <seealso cref="T:Sudoku.Graphics.Templating.LineSegment"/>
         </member>
         <member name="M:Sudoku.Graphics.AbsoluteFactory.WithOffset(Sudoku.Graphics.Absolute[],Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.AbsoluteFactory.&lt;G&gt;$2B3A0EEDA995D6B24C8DA9591ABEAD47.WithOffset(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.Graphics.PointMapper)"/>
@@ -1845,7 +1687,7 @@
             Indicates whether the object has already been disposed.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.Canvas.#ctor(Sudoku.Graphics.Template[])">
+        <member name="M:Sudoku.Graphics.Canvas.#ctor(Sudoku.Graphics.Templating.Template[])">
             <summary>
             Initializes a <see cref="T:Sudoku.Graphics.Canvas"/> instance via the specified values.
             </summary>
@@ -5443,7 +5285,165 @@
             <returns><inheritdoc cref="M:Sudoku.Graphics.ArrowPainterHelper.CreateArrowTrianglePath(SkiaSharp.SKRect,Sudoku.ComponentModel.Scale,System.Single,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale)" path="/returns"/></returns>
             <exception cref="T:System.InvalidOperationException">Throws when shaft width is greater than triangle width.</exception>
         </member>
-        <member name="T:Sudoku.Graphics.Template">
+        <member name="T:Sudoku.Graphics.Templating.LineSegment">
+            <summary>
+            Represents an instance that describes possible shown line segments under the specified directions specified of the specified cell.
+            </summary>
+            <param name="cellIndex">The cell index.</param>
+            <param name="directions">The shown directions.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.Templating.LineSegment.#ctor(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction4)">
+            <summary>
+            Represents an instance that describes possible shown line segments under the specified directions specified of the specified cell.
+            </summary>
+            <param name="cellIndex">The cell index.</param>
+            <param name="directions">The shown directions.</param>
+        </member>
+        <member name="P:Sudoku.Graphics.Templating.LineSegment.Directions">
+            <summary>
+            Indicates the directions to be shown.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Templating.LineSegment.CellIndex">
+            <summary>
+            Indicates absolute cell index.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Templating.LineSegment.Deconstruct(Sudoku.Graphics.Absolute@,Sudoku.ComponentModel.Directions.Direction4@)">
+            <summary>
+            Deconstruct instance into multiple values.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Templating.LineSegment.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Templating.LineSegment.Equals(Sudoku.Graphics.Templating.LineSegment)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Templating.LineSegment.GetHashCode">
+            <inheritdoc cref="M:System.Object.GetHashCode"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Templating.LineSegment.ToString">
+            <inheritdoc cref="M:System.Object.ToString"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Templating.LineSegment.op_Equality(Sudoku.Graphics.Templating.LineSegment,Sudoku.Graphics.Templating.LineSegment)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Templating.LineSegment.op_Inequality(Sudoku.Graphics.Templating.LineSegment,Sudoku.Graphics.Templating.LineSegment)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Templating.LineSegmentFactory">
+            <summary>
+            Provides an easy way to create <see cref="T:Sudoku.Graphics.Templating.LineSegment"/> instances.
+            </summary>
+            <seealso cref="T:Sudoku.Graphics.Templating.LineSegment"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Templating.LineSegmentFactory.GetOutline(Sudoku.Graphics.Absolute[],Sudoku.Graphics.PointMapper)">
+            <summary>
+            Returns a list of <see cref="T:Sudoku.Graphics.Templating.LineSegment"/> instances indicating light-up segments to be shown,
+            forming a outline cage that includes all the specified cells.
+            </summary>
+            <param name="cellIndices">The cell indices.</param>
+            <param name="mapper">The mapper.</param>
+            <returns>A list of <see cref="T:Sudoku.Graphics.Templating.LineSegment"/> instances.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.Templating.LineSegmentFactory.GetExceptRange(Sudoku.Graphics.Templating.LineSegment[],Sudoku.Graphics.PointMapper)">
+            <summary>
+            Gets except range of the specified segments.
+            </summary>
+            <param name="originalSegments">The original segments.</param>
+            <param name="mapper">The mapper.</param>
+            <returns>Except range of line segments.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.Templating.LineSegmentFactory.GetLightupDirections(Sudoku.Graphics.Relative[],System.Boolean,Sudoku.Graphics.PointMapper,System.Collections.Generic.HashSet{Sudoku.Graphics.Absolute}@)">
+            <summary>
+            Creates a <see cref="T:System.Collections.Generic.Dictionary`2"/> of <see cref="T:Sudoku.Graphics.Absolute"/> and <see cref="T:Sudoku.ComponentModel.Directions.Direction4"/> key-value pairs,
+            indicating lightup segments of cells to be shown.
+            </summary>
+            <param name="cellIndices">The cell indices.</param>
+            <param name="isCyclicRuleChecked">
+            A <see cref="T:System.Boolean"/> value indicating cycling row and column gaps will be considered as connected.
+            </param>
+            <param name="mapper">The mapper.</param>
+            <param name="absoluteCellIndices">Absolute cell indices.</param>
+            <returns>The result dictionary of light-up segments.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.Templating.LineSegmentFactory.GetLightupDirections(Sudoku.Graphics.Absolute[],System.Boolean,Sudoku.Graphics.PointMapper,System.Collections.Generic.HashSet{Sudoku.Graphics.Absolute}@)">
+            <inheritdoc cref="M:Sudoku.Graphics.Templating.LineSegmentFactory.GetLightupDirections(Sudoku.Graphics.Relative[],System.Boolean,Sudoku.Graphics.PointMapper,System.Collections.Generic.HashSet{Sudoku.Graphics.Absolute}@)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Templating.LineSegmentFactory.GetLightupDirectionsCore(System.Collections.Generic.Dictionary{Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction4},System.Boolean,Sudoku.Graphics.PointMapper,System.Collections.Generic.HashSet{Sudoku.Graphics.Absolute}@)">
+            <summary>
+            Creates a <see cref="T:System.Collections.Generic.Dictionary`2"/> of <see cref="T:Sudoku.Graphics.Absolute"/> and <see cref="T:Sudoku.ComponentModel.Directions.Direction4"/> key-value pairs,
+            indicating lightup segments of cells to be shown.
+            </summary>
+            <param name="lineSegmentsDictionary">The original entry dictionary.</param>
+            <param name="isCyclicRuleChecked">
+            A <see cref="T:System.Boolean"/> value indicating cycling row and column gaps will be considered as connected.
+            </param>
+            <param name="mapper">The mapper.</param>
+            <param name="absoluteCellIndices">Absolute cell indices.</param>
+            <returns>The result dictionary of light-up segments.</returns>
+        </member>
+        <member name="T:Sudoku.Graphics.Templating.OverlappingGridTemplateFactory">
+            <summary>
+            Provides a way to create overlapping grid templates.
+            </summary>
+            <shared-doc-comments>
+            <param name="blockRowsCount">The number of rows in a block.</param>
+            <param name="blockColumnsCount">The number of columns in a block.</param>
+            <param name="baseMapper">
+            The base mapper instance that contains basic information of point mapping rules, like margin (in pixels).
+            </param>
+            <returns>An array of <see cref="T:Sudoku.Graphics.Templating.Template"/> instances.</returns>
+            <exception cref="T:System.ArgumentException">
+            Throws when the target template is not enough to create offsets, in order to form a valid such grid type.
+            </exception>
+            </shared-doc-comments>
+        </member>
+        <member name="M:Sudoku.Graphics.Templating.OverlappingGridTemplateFactory.ThrowsArgumentException">
+            <summary>
+            Throws an exception <see cref="T:System.ArgumentException"/>.
+            </summary>
+            <returns>This method always throws and don't return anything.</returns>
+            <exception cref="T:System.ArgumentException">Always throws.</exception>
+        </member>
+        <member name="M:Sudoku.Graphics.Templating.OverlappingGridTemplateFactory.Overlapped(Sudoku.Graphics.PointMapper,Sudoku.ComponentModel.LineDashSequence)">
+            <summary>
+            Creates a <see cref="T:Sudoku.Graphics.Templating.Template"/> array of Overlapped sudoku, with the specified grid size.
+            </summary>
+            <inheritdoc cref="T:Sudoku.Graphics.Templating.OverlappingGridTemplateFactory" path="/shared-doc-comments"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Templating.OverlappingGridTemplateFactory.DoubleDoku(System.Int32,System.Int32,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Creates a <see cref="T:Sudoku.Graphics.Templating.Template"/> array of Double-doku, with the specified rows and columns size of a block.
+            </summary>
+            <inheritdoc cref="T:Sudoku.Graphics.Templating.OverlappingGridTemplateFactory" path="/shared-doc-comments"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Templating.OverlappingGridTemplateFactory.Sensei(System.Int32,System.Int32,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Creates a <see cref="T:Sudoku.Graphics.Templating.Template"/> array of Sensei, with the specified rows and columns size of a block.
+            </summary>
+            <inheritdoc cref="T:Sudoku.Graphics.Templating.OverlappingGridTemplateFactory" path="/shared-doc-comments"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Templating.OverlappingGridTemplateFactory.Gattai2(System.Int32,System.Int32,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Creates a <see cref="T:Sudoku.Graphics.Templating.Template"/> array of Gattai-2, with the specified rows and columns size of a block.
+            </summary>
+            <inheritdoc cref="T:Sudoku.Graphics.Templating.OverlappingGridTemplateFactory" path="/shared-doc-comments"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Templating.OverlappingGridTemplateFactory.Gattai3(System.Int32,System.Int32,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Creates a <see cref="T:Sudoku.Graphics.Templating.Template"/> array of Gattai-3, with the specified rows and columns size of a block.
+            </summary>
+            <inheritdoc cref="T:Sudoku.Graphics.Templating.OverlappingGridTemplateFactory" path="/shared-doc-comments"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Templating.OverlappingGridTemplateFactory.Wing(System.Int32,System.Int32,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Creates a <see cref="T:Sudoku.Graphics.Templating.Template"/> array of Wing, with the specified rows and columns size of a block.
+            </summary>
+            <inheritdoc cref="T:Sudoku.Graphics.Templating.OverlappingGridTemplateFactory" path="/shared-doc-comments"/>
+        </member>
+        <member name="T:Sudoku.Graphics.Templating.Template">
             <summary>
             <para>
             Represents a grid template type that draws block (thick) and normal (thin) lines
@@ -5455,105 +5455,105 @@
             </para>
             </summary>
         </member>
-        <member name="T:Sudoku.Graphics.Template.CellEnumerator">
+        <member name="T:Sudoku.Graphics.Templating.Template.CellEnumerator">
             <summary>
             Represents an enumerator instance that can iterate on each cell index as <see cref="T:Sudoku.Graphics.Absolute"/> instance.
             </summary>
             <param name="_template">The template.</param>
             <seealso cref="T:Sudoku.Graphics.Absolute"/>
         </member>
-        <member name="M:Sudoku.Graphics.Template.CellEnumerator.#ctor(Sudoku.Graphics.Template)">
+        <member name="M:Sudoku.Graphics.Templating.Template.CellEnumerator.#ctor(Sudoku.Graphics.Templating.Template)">
             <summary>
             Represents an enumerator instance that can iterate on each cell index as <see cref="T:Sudoku.Graphics.Absolute"/> instance.
             </summary>
             <param name="_template">The template.</param>
             <seealso cref="T:Sudoku.Graphics.Absolute"/>
         </member>
-        <member name="F:Sudoku.Graphics.Template.CellEnumerator._index">
+        <member name="F:Sudoku.Graphics.Templating.Template.CellEnumerator._index">
             <summary>
             Indicates the relative index.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Template.CellEnumerator.Current">
+        <member name="P:Sudoku.Graphics.Templating.Template.CellEnumerator.Current">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Template.CellEnumerator.System#Collections#IEnumerator#Current">
+        <member name="P:Sudoku.Graphics.Templating.Template.CellEnumerator.System#Collections#IEnumerator#Current">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Template.CellEnumerator.CellsCount">
+        <member name="P:Sudoku.Graphics.Templating.Template.CellEnumerator.CellsCount">
             <summary>
             Indicates the number of cells.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.Template.CellEnumerator.MoveNext">
+        <member name="M:Sudoku.Graphics.Templating.Template.CellEnumerator.MoveNext">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Template.CellEnumerator.GetEnumerator">
+        <member name="M:Sudoku.Graphics.Templating.Template.CellEnumerator.GetEnumerator">
             <inheritdoc cref="M:System.Collections.Generic.IEnumerable`1.GetEnumerator"/>
         </member>
-        <member name="M:Sudoku.Graphics.Template.CellEnumerator.System#IDisposable#Dispose">
+        <member name="M:Sudoku.Graphics.Templating.Template.CellEnumerator.System#IDisposable#Dispose">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Template.CellEnumerator.System#Collections#IEnumerator#Reset">
+        <member name="M:Sudoku.Graphics.Templating.Template.CellEnumerator.System#Collections#IEnumerator#Reset">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Template.CellEnumerator.System#Collections#IEnumerable#GetEnumerator">
+        <member name="M:Sudoku.Graphics.Templating.Template.CellEnumerator.System#Collections#IEnumerable#GetEnumerator">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Template.CellEnumerator.System#Collections#Generic#IEnumerable{Sudoku#Graphics#Absolute}#GetEnumerator">
+        <member name="M:Sudoku.Graphics.Templating.Template.CellEnumerator.System#Collections#Generic#IEnumerable{Sudoku#Graphics#Absolute}#GetEnumerator">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Template.CellEnumerator.GetValuesFallback">
+        <member name="M:Sudoku.Graphics.Templating.Template.CellEnumerator.GetValuesFallback">
             <summary>
             The fallback implementation of calculating all values.
             </summary>
             <returns>A list of result values.</returns>
         </member>
-        <member name="P:Sudoku.Graphics.Template.Mapper">
+        <member name="P:Sudoku.Graphics.Templating.Template.Mapper">
             <summary>
             Indicates point mapper instance that can project points into cells.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Template.ThickLineWidth">
+        <member name="P:Sudoku.Graphics.Templating.Template.ThickLineWidth">
             <summary>
             Indicates thick line width.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Template.ThinLineWidth">
+        <member name="P:Sudoku.Graphics.Templating.Template.ThinLineWidth">
             <summary>
             Indicates thin line width.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Template.ThickLineColor">
+        <member name="P:Sudoku.Graphics.Templating.Template.ThickLineColor">
             <summary>
             Indicates thick line color.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Template.ThinLineColor">
+        <member name="P:Sudoku.Graphics.Templating.Template.ThinLineColor">
             <summary>
             Indicates thin line color.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Template.ThickLineDashSequence">
+        <member name="P:Sudoku.Graphics.Templating.Template.ThickLineDashSequence">
             <summary>
             Indicates thick line dash sequence. By default it's an empty sequence, meaning no dash enabled.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Template.ThinLineDashSequence">
+        <member name="P:Sudoku.Graphics.Templating.Template.ThinLineDashSequence">
             <summary>
             Indicates thin line dash sequence. By default it's an empty sequence, meaning no dash enabled.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.Template.DrawLines(SkiaSharp.SKCanvas)">
+        <member name="M:Sudoku.Graphics.Templating.Template.DrawLines(SkiaSharp.SKCanvas)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Template.EnumerateGridCellIndices">
+        <member name="M:Sudoku.Graphics.Templating.Template.EnumerateGridCellIndices">
             <summary>
             Enumerates all cell indices in template, only containing in-grid cells.
             </summary>
-            <returns>An <see cref="T:Sudoku.Graphics.Template.CellEnumerator"/> instance.</returns>
+            <returns>An <see cref="T:Sudoku.Graphics.Templating.Template.CellEnumerator"/> instance.</returns>
         </member>
-        <member name="M:Sudoku.Graphics.Template.GuardStatements(SkiaSharp.SKCanvas)">
+        <member name="M:Sudoku.Graphics.Templating.Template.GuardStatements(SkiaSharp.SKCanvas)">
             <summary>
             Provides guard statements. If failed, an exception instance of type <see cref="T:System.ArgumentException"/> will be thrown.
             By default, this method doesn't do anything. You can override this method, with values preparing to be checked here.
@@ -5561,42 +5561,42 @@
             <param name="canvas">The target canvas to draw.</param>
             <exception cref="T:System.ArgumentException">Throws when any assertion defined in this method is failed.</exception>
         </member>
-        <member name="M:Sudoku.Graphics.Template.DrawBorderRectangle(SkiaSharp.SKCanvas)">
+        <member name="M:Sudoku.Graphics.Templating.Template.DrawBorderRectangle(SkiaSharp.SKCanvas)">
             <summary>
             Try to draw border rectangle.
             </summary>
             <param name="canvas">The target canvas to draw.</param>
-            <inheritdoc cref="M:Sudoku.Graphics.Template.DrawLines(SkiaSharp.SKCanvas)"/>
+            <inheritdoc cref="M:Sudoku.Graphics.Templating.Template.DrawLines(SkiaSharp.SKCanvas)"/>
         </member>
-        <member name="M:Sudoku.Graphics.Template.DrawGridLines(SkiaSharp.SKCanvas)">
+        <member name="M:Sudoku.Graphics.Templating.Template.DrawGridLines(SkiaSharp.SKCanvas)">
             <summary>
             Try to draw grid lines.
             </summary>
             <param name="canvas">The target canvas to draw.</param>
-            <inheritdoc cref="M:Sudoku.Graphics.Template.DrawLines(SkiaSharp.SKCanvas)"/>
+            <inheritdoc cref="M:Sudoku.Graphics.Templating.Template.DrawLines(SkiaSharp.SKCanvas)"/>
         </member>
-        <member name="M:Sudoku.Graphics.Template.CreateThickLinesPaint">
+        <member name="M:Sudoku.Graphics.Templating.Template.CreateThickLinesPaint">
             <summary>
             Creates an <see cref="T:SkiaSharp.SKPaint"/> instance that will be used
-            in method <see cref="M:Sudoku.Graphics.Template.DrawGridLines(SkiaSharp.SKCanvas)"/>.
+            in method <see cref="M:Sudoku.Graphics.Templating.Template.DrawGridLines(SkiaSharp.SKCanvas)"/>.
             </summary>
             <remarks>
             The return value of this method should be modified with keyword <see langword="using"/>,
             in order to keep disposal of this instance.
             </remarks>
-            <seealso cref="M:Sudoku.Graphics.Template.DrawGridLines(SkiaSharp.SKCanvas)"/>.
+            <seealso cref="M:Sudoku.Graphics.Templating.Template.DrawGridLines(SkiaSharp.SKCanvas)"/>.
         </member>
-        <member name="M:Sudoku.Graphics.Template.CreateThinLinesPaint">
+        <member name="M:Sudoku.Graphics.Templating.Template.CreateThinLinesPaint">
             <summary>
             Creates an <see cref="T:SkiaSharp.SKPaint"/> instance that will be used
-            in method <see cref="M:Sudoku.Graphics.Template.DrawGridLines(SkiaSharp.SKCanvas)"/>.
+            in method <see cref="M:Sudoku.Graphics.Templating.Template.DrawGridLines(SkiaSharp.SKCanvas)"/>.
             </summary>
             <remarks>
-            <inheritdoc cref="M:Sudoku.Graphics.Template.CreateThickLinesPaint" path="/remarks"/>
+            <inheritdoc cref="M:Sudoku.Graphics.Templating.Template.CreateThickLinesPaint" path="/remarks"/>
             </remarks>
-            <seealso cref="M:Sudoku.Graphics.Template.DrawGridLines(SkiaSharp.SKCanvas)"/>.
+            <seealso cref="M:Sudoku.Graphics.Templating.Template.DrawGridLines(SkiaSharp.SKCanvas)"/>.
         </member>
-        <member name="M:Sudoku.Graphics.Template.TryProjectCellIndex``1(``0,``0,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute@)">
+        <member name="M:Sudoku.Graphics.Templating.Template.TryProjectCellIndex``1(``0,``0,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute@)">
             <summary>
             Project cell index from source template to target template, aligning as top-left side of the canvas.
             </summary>
@@ -5607,7 +5607,7 @@
             <param name="targetCellIndex">The target cell absolute index.</param>
             <returns>A <see cref="T:System.Boolean"/> result indicating whether the projection operation is successful.</returns>
         </member>
-        <member name="M:Sudoku.Graphics.Template.ProjectCellIndex``1(``0,``0,Sudoku.Graphics.Absolute)">
+        <member name="M:Sudoku.Graphics.Templating.Template.ProjectCellIndex``1(``0,``0,Sudoku.Graphics.Absolute)">
             <summary>
             Project cell index from source template to target template, aligning as top-left side of the canvas.
             </summary>
@@ -5618,7 +5618,7 @@
             <returns>The target cell absolute index.</returns>
             <exception cref="T:System.ArgumentException">Throws when failed to project.</exception>
         </member>
-        <member name="M:Sudoku.Graphics.Template.GetIntersectionCellIndices``1(``0,``0)">
+        <member name="M:Sudoku.Graphics.Templating.Template.GetIntersectionCellIndices``1(``0,``0)">
             <summary>
             Gets intersection of 2 templates.
             </summary>
@@ -5631,194 +5631,194 @@
             </returns>
             <seealso cref="T:Sudoku.Graphics.Absolute"/>
         </member>
-        <member name="T:Sudoku.Graphics.Templates.CrossmathTemplate">
+        <member name="T:Sudoku.Graphics.Templating.Templates.CrossmathTemplate">
             <summary>
             Represents crossmath grid template.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.Templates.CrossmathTemplate.#ctor(Sudoku.ComponentModel.Crossmath.CrossmathFormula[],Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.Templating.Templates.CrossmathTemplate.#ctor(Sudoku.ComponentModel.Crossmath.CrossmathFormula[],Sudoku.Graphics.PointMapper)">
             <summary>
-            Initializes a <see cref="T:Sudoku.Graphics.Templates.CrossmathTemplate"/> instance, via the formulae.
+            Initializes a <see cref="T:Sudoku.Graphics.Templating.Templates.CrossmathTemplate"/> instance, via the formulae.
             </summary>
             <param name="formulae">Indicates the formulae.</param>
             <param name="mapper">The mapper.</param>
         </member>
-        <member name="P:Sudoku.Graphics.Templates.CrossmathTemplate.Formulae">
+        <member name="P:Sudoku.Graphics.Templating.Templates.CrossmathTemplate.Formulae">
             <summary>
             Represents a list of formulae.
             </summary>
         </member>
-        <member name="T:Sudoku.Graphics.Templates.DefaultTemplate">
+        <member name="T:Sudoku.Graphics.Templating.Templates.DefaultTemplate">
             <summary>
             Represents a default grid template that doesn't contain any block (thick) lines, except borders.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Templates.DefaultTemplate.IsBorderRoundedRectangle">
+        <member name="P:Sudoku.Graphics.Templating.Templates.DefaultTemplate.IsBorderRoundedRectangle">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Templates.DefaultTemplate.DrawBordersAsThickLines">
+        <member name="P:Sudoku.Graphics.Templating.Templates.DefaultTemplate.DrawBordersAsThickLines">
             <summary>
             Indicates whether border lines should be drawn as thick lines or not.
             By default it's <see langword="true"/>.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Templates.DefaultTemplate.BorderCornerRadius">
+        <member name="P:Sudoku.Graphics.Templating.Templates.DefaultTemplate.BorderCornerRadius">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Templates.DefaultTemplate.DrawBorderRectangle(SkiaSharp.SKCanvas)">
+        <member name="M:Sudoku.Graphics.Templating.Templates.DefaultTemplate.DrawBorderRectangle(SkiaSharp.SKCanvas)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Templates.DefaultTemplate.DrawGridLines(SkiaSharp.SKCanvas)">
+        <member name="M:Sudoku.Graphics.Templating.Templates.DefaultTemplate.DrawGridLines(SkiaSharp.SKCanvas)">
             <inheritdoc/>
         </member>
-        <member name="T:Sudoku.Graphics.Templates.ITemplate_RoundedRectangleRelatedProperties">
+        <member name="T:Sudoku.Graphics.Templating.Templates.ITemplate_RoundedRectangleRelatedProperties">
             <summary>
             Represents a grid template that supports drawing border lines as a rounded rectangle.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Templates.ITemplate_RoundedRectangleRelatedProperties.IsBorderRoundedRectangle">
+        <member name="P:Sudoku.Graphics.Templating.Templates.ITemplate_RoundedRectangleRelatedProperties.IsBorderRoundedRectangle">
             <summary>
             Indicates whether the border should be drawn as a rounded rectangle. By default it's <see langword="true"/>.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Templates.ITemplate_RoundedRectangleRelatedProperties.BorderCornerRadius">
+        <member name="P:Sudoku.Graphics.Templating.Templates.ITemplate_RoundedRectangleRelatedProperties.BorderCornerRadius">
             <summary>
             Indicates corner radius ratio of rounded rectangle of border lines, relative to cell size.
             </summary>
         </member>
-        <member name="T:Sudoku.Graphics.Templates.JigsawTemplate">
+        <member name="T:Sudoku.Graphics.Templating.Templates.JigsawTemplate">
             <summary>
             Represents irregular (jigsaw) grid template, containing irregular-shaped blocks.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Templates.JigsawTemplate.CellIndexGroups">
+        <member name="P:Sudoku.Graphics.Templating.Templates.JigsawTemplate.CellIndexGroups">
             <summary>
             Indicates the relative cell index groups. By default it's an empty array.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Templates.JigsawTemplate.IsCyclicRuleChecked">
+        <member name="P:Sudoku.Graphics.Templating.Templates.JigsawTemplate.IsCyclicRuleChecked">
             <summary>
             Indicates whether cyclic rule will be checked.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Templates.JigsawTemplate.AlsoFillGroups">
+        <member name="P:Sudoku.Graphics.Templating.Templates.JigsawTemplate.AlsoFillGroups">
             <summary>
             Indicates whether this template will also fill cell groups with colors
             by using <see cref="P:Sudoku.Graphics.CanvasDrawingOptions.JSudokuColorSet"/>.
             </summary>
             <seealso cref="P:Sudoku.Graphics.CanvasDrawingOptions.JSudokuColorSet"/>
         </member>
-        <member name="P:Sudoku.Graphics.Templates.JigsawTemplate.GroupColorSet">
+        <member name="P:Sudoku.Graphics.Templating.Templates.JigsawTemplate.GroupColorSet">
             <summary>
             Indicates the color set that will be used for colorization of cells.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.Templates.JigsawTemplate.DrawBorderRectangle(SkiaSharp.SKCanvas)">
+        <member name="M:Sudoku.Graphics.Templating.Templates.JigsawTemplate.DrawBorderRectangle(SkiaSharp.SKCanvas)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Templates.JigsawTemplate.DrawGridLines(SkiaSharp.SKCanvas)">
+        <member name="M:Sudoku.Graphics.Templating.Templates.JigsawTemplate.DrawGridLines(SkiaSharp.SKCanvas)">
             <inheritdoc/>
         </member>
-        <member name="T:Sudoku.Graphics.Templates.SpecifiedTemplate">
+        <member name="T:Sudoku.Graphics.Templating.Templates.SpecifiedTemplate">
             <summary>
             Represents a grid template that specifies a list of thick and thin lines.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.Templates.SpecifiedTemplate.#ctor(Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.Templating.Templates.SpecifiedTemplate.#ctor(Sudoku.Graphics.PointMapper)">
             <summary>
-            Initializes a <see cref="T:Sudoku.Graphics.Templates.SpecifiedTemplate"/> instance, via the mapper.
+            Initializes a <see cref="T:Sudoku.Graphics.Templating.Templates.SpecifiedTemplate"/> instance, via the mapper.
             </summary>
             <param name="mapper">The mapper instance.</param>
         </member>
-        <member name="P:Sudoku.Graphics.Templates.SpecifiedTemplate.ThickLineSegments">
+        <member name="P:Sudoku.Graphics.Templating.Templates.SpecifiedTemplate.ThickLineSegments">
             <summary>
             Indicates thick line segments. By default it's an empty array.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Templates.SpecifiedTemplate.ThinLineSegments">
+        <member name="P:Sudoku.Graphics.Templating.Templates.SpecifiedTemplate.ThinLineSegments">
             <summary>
             Indicates thin line segments. By default it's an empty array.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.Templates.SpecifiedTemplate.GuardStatements(SkiaSharp.SKCanvas)">
+        <member name="M:Sudoku.Graphics.Templating.Templates.SpecifiedTemplate.GuardStatements(SkiaSharp.SKCanvas)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Templates.SpecifiedTemplate.DrawBorderRectangle(SkiaSharp.SKCanvas)">
+        <member name="M:Sudoku.Graphics.Templating.Templates.SpecifiedTemplate.DrawBorderRectangle(SkiaSharp.SKCanvas)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Templates.SpecifiedTemplate.DrawGridLines(SkiaSharp.SKCanvas)">
+        <member name="M:Sudoku.Graphics.Templating.Templates.SpecifiedTemplate.DrawGridLines(SkiaSharp.SKCanvas)">
             <inheritdoc/>
         </member>
-        <member name="T:Sudoku.Graphics.Templates.StandardTemplate">
+        <member name="T:Sudoku.Graphics.Templating.Templates.StandardTemplate">
             <summary>
             Represents a standard (rectangular) grid template.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.Templates.StandardTemplate.#ctor(Sudoku.Graphics.Relative,Sudoku.Graphics.Relative,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.Templating.Templates.StandardTemplate.#ctor(Sudoku.Graphics.Relative,Sudoku.Graphics.Relative,Sudoku.Graphics.PointMapper)">
             <summary>
-            Initializes a <see cref="T:Sudoku.Graphics.Templates.StandardTemplate"/> instance.
+            Initializes a <see cref="T:Sudoku.Graphics.Templating.Templates.StandardTemplate"/> instance.
             </summary>
             <param name="rowBlockSize">The block size of rows.</param>
             <param name="columnBlockSize">The block size of columns.</param>
             <param name="mapper">The mapper instance.</param>
         </member>
-        <member name="P:Sudoku.Graphics.Templates.StandardTemplate.IsBorderRoundedRectangle">
+        <member name="P:Sudoku.Graphics.Templating.Templates.StandardTemplate.IsBorderRoundedRectangle">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Templates.StandardTemplate.BorderCornerRadius">
+        <member name="P:Sudoku.Graphics.Templating.Templates.StandardTemplate.BorderCornerRadius">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Templates.StandardTemplate.RowBlockSize">
+        <member name="P:Sudoku.Graphics.Templating.Templates.StandardTemplate.RowBlockSize">
             <summary>
             Indicates the number of rows in a rectangular block.
-            If you want to assign this field, please assign it ahead of assigning <see cref="P:Sudoku.Graphics.Template.Mapper"/>.
+            If you want to assign this field, please assign it ahead of assigning <see cref="P:Sudoku.Graphics.Templating.Template.Mapper"/>.
             </summary>
-            <seealso cref="P:Sudoku.Graphics.Template.Mapper"/>
+            <seealso cref="P:Sudoku.Graphics.Templating.Template.Mapper"/>
         </member>
-        <member name="P:Sudoku.Graphics.Templates.StandardTemplate.ColumnBlockSize">
+        <member name="P:Sudoku.Graphics.Templating.Templates.StandardTemplate.ColumnBlockSize">
             <summary>
             Indicates the number of columns in a rectangular block.
-            If you want to assign this field, please assign it ahead of assigning <see cref="P:Sudoku.Graphics.Template.Mapper"/>.
+            If you want to assign this field, please assign it ahead of assigning <see cref="P:Sudoku.Graphics.Templating.Template.Mapper"/>.
             </summary>
-            <seealso cref="P:Sudoku.Graphics.Template.Mapper"/>
+            <seealso cref="P:Sudoku.Graphics.Templating.Template.Mapper"/>
         </member>
-        <member name="M:Sudoku.Graphics.Templates.StandardTemplate.DrawBorderRectangle(SkiaSharp.SKCanvas)">
+        <member name="M:Sudoku.Graphics.Templating.Templates.StandardTemplate.DrawBorderRectangle(SkiaSharp.SKCanvas)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Templates.StandardTemplate.DrawGridLines(SkiaSharp.SKCanvas)">
+        <member name="M:Sudoku.Graphics.Templating.Templates.StandardTemplate.DrawGridLines(SkiaSharp.SKCanvas)">
             <inheritdoc/>
         </member>
-        <member name="T:Sudoku.Graphics.Templates.SujikenTemplate">
+        <member name="T:Sudoku.Graphics.Templating.Templates.SujikenTemplate">
             <summary>
             Represents Sujiken (halfdoku) grid template.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.Templates.SujikenTemplate._rowCellIndicesLookup">
+        <member name="F:Sudoku.Graphics.Templating.Templates.SujikenTemplate._rowCellIndicesLookup">
             <summary>
             Provides extra lookup dictionary.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.Templates.SujikenTemplate._columnCellIndicesLookup">
+        <member name="F:Sudoku.Graphics.Templating.Templates.SujikenTemplate._columnCellIndicesLookup">
             <summary>
             Provides extra lookup dictionary.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.Templates.SujikenTemplate.#ctor(Sudoku.Graphics.Relative,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.Templating.Templates.SujikenTemplate.#ctor(Sudoku.Graphics.Relative,Sudoku.Graphics.PointMapper)">
             <summary>
-            Initializes a <see cref="T:Sudoku.Graphics.Templates.SujikenTemplate"/> instance.
+            Initializes a <see cref="T:Sudoku.Graphics.Templating.Templates.SujikenTemplate"/> instance.
             </summary>
             <param name="uniformBlockSize">The uniform size.</param>
             <param name="mapper">The mapper instance.</param>
         </member>
-        <member name="P:Sudoku.Graphics.Templates.SujikenTemplate.UniformBlockSize">
+        <member name="P:Sudoku.Graphics.Templating.Templates.SujikenTemplate.UniformBlockSize">
             <summary>
             Indicates the number of rows and columns in a block.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.Templates.SujikenTemplate.DrawBorderRectangle(SkiaSharp.SKCanvas)">
+        <member name="M:Sudoku.Graphics.Templating.Templates.SujikenTemplate.DrawBorderRectangle(SkiaSharp.SKCanvas)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Templates.SujikenTemplate.DrawGridLines(SkiaSharp.SKCanvas)">
+        <member name="M:Sudoku.Graphics.Templating.Templates.SujikenTemplate.DrawGridLines(SkiaSharp.SKCanvas)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Resources.Resource">

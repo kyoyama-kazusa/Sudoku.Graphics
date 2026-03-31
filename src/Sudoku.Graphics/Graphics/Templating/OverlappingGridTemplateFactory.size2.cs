@@ -1,4 +1,4 @@
-﻿namespace Sudoku.ComponentModel;
+﻿namespace Sudoku.Graphics.Templating;
 
 public partial class OverlappingGridTemplateFactory
 {
