@@ -8,7 +8,7 @@
 /// <param name="Top">Indicates the top offset size.</param>
 /// <param name="Right">Indicates the right offset size.</param>
 /// <param name="Bottom">Indicates the bottom size.</param>
-[JsonConverter(typeof(Converter<>))]
+[JsonConverter(typeof(ConverterFactory))]
 public readonly record struct Thickness<T>(T? Left, T? Top, T? Right, T? Bottom) where T : notnull
 {
 	/// <summary>
@@ -33,6 +33,24 @@ public readonly record struct Thickness<T>(T? Left, T? Top, T? Right, T? Bottom)
 	/// Indicates the value whose factors are initialized <see langword="default"/>(<typeparamref name="T"/>).
 	/// </summary>
 	public static Thickness<T> Zero => new(default);
+}
+
+/// <summary>
+/// Represents converter factory of this type.
+/// </summary>
+file sealed class ConverterFactory : JsonConverterFactory
+{
+	/// <inheritdoc/>
+	public override bool CanConvert(Type typeToConvert)
+		=> typeToConvert.IsGenericType && typeToConvert.GetGenericTypeDefinition() == typeof(Thickness<>);
+
+	/// <inheritdoc/>
+	public override JsonConverter CreateConverter(Type typeToConvert, JsonSerializerOptions options)
+	{
+		var innerType = typeToConvert.GetGenericArguments()[0];
+		var converterType = typeof(Converter<>).MakeGenericType(innerType);
+		return (JsonConverter)Activator.CreateInstance(converterType)!;
+	}
 }
 
 /// <summary>

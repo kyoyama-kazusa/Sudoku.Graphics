@@ -5741,6 +5741,17 @@
             Indicates the value whose factors are initialized <see langword="default"/>(<typeparamref name="T"/>).
             </summary>
         </member>
+        <member name="T:Sudoku.Graphics.ConverterFactory">
+            <summary>
+            Represents converter factory of this type.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.ConverterFactory.CanConvert(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.ConverterFactory.CreateConverter(System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.Converter`1">
             <summary>
             Represents a JSON converter object that converts <see cref="T:Sudoku.Graphics.Thickness`1"/> instances.
