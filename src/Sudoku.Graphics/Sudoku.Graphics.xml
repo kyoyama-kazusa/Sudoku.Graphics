@@ -2745,6 +2745,73 @@
         <member name="M:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.Items.CellGroupMarks.CellOutlineBuilder">
+            <summary>
+            Represents killer cage builder.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellGroupMarks.CellOutlineBuilder.TryBuildKillerCagePath(System.ReadOnlySpan{SkiaSharp.SKPoint},System.Single,System.Single,System.Single,System.ValueTuple{SkiaSharp.SKPath,SkiaSharp.SKPoint}@)">
+            <summary>
+            Try to build a path of a killer cage.
+            </summary>
+            <param name="points">The points.</param>
+            <param name="cellSize">The size of each cell.</param>
+            <param name="cornerRadius">The corner radius.</param>
+            <param name="shortSide">The short side of cage.</param>
+            <param name="result">The result cage information (path and its top-left point).</param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating the cage can be built or not.</returns>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellGroupMarks.GridPoint">
+            <summary>
+            Represents a grid point.
+            </summary>
+            <param name="X">Indicates X value of the point.</param>
+            <param name="Y">Indicates Y value of the point.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellGroupMarks.GridPoint.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Represents a grid point.
+            </summary>
+            <param name="X">Indicates X value of the point.</param>
+            <param name="Y">Indicates Y value of the point.</param>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.GridPoint.X">
+            <summary>Indicates X value of the point.</summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.GridPoint.Y">
+            <summary>Indicates Y value of the point.</summary>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellGroupMarks.GridEdge">
+            <summary>
+            Represents a grid edge of a killer cage.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellGroupMarks.GridEdge.#ctor(Sudoku.Graphics.Items.CellGroupMarks.GridPoint,Sudoku.Graphics.Items.CellGroupMarks.GridPoint)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Graphics.Items.CellGroupMarks.GridEdge"/> instance via two <see cref="T:Sudoku.Graphics.Items.CellGroupMarks.GridPoint"/> instances.
+            </summary>
+            <param name="p1">Indicates the first point instance.</param>
+            <param name="p2">Indicates the second point instance.</param>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.GridEdge.A">
+            <summary>
+            Indicates the first point instance.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.GridEdge.B">
+            <summary>
+            Indicates the second point instance.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellGroupMarks.GridEdge.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellGroupMarks.GridEdge.Equals(Sudoku.Graphics.Items.CellGroupMarks.GridEdge)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellGroupMarks.GridEdge.GetHashCode">
+            <inheritdoc cref="M:System.Object.GetHashCode"/>
+        </member>
         <member name="T:Sudoku.Graphics.Items.CellGroupMarks.CellGroupMarkItem">
             <summary>
             Represents cell group mark item.
@@ -5078,12 +5145,6 @@
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawOutlinedTextToCandidate(SkiaSharp.SKCanvas,System.String,Sudoku.Graphics.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCandidate(System.String,Sudoku.Graphics.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawCellGroupTrail(SkiaSharp.SKCanvas,System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCellGroupTrail(System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawKillerCage(SkiaSharp.SKCanvas,System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.LineDashSequence,Sudoku.ComponentModel.Scale,System.String,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawKillerCage(System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.LineDashSequence,Sudoku.ComponentModel.Scale,System.String,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,Sudoku.Graphics.PointMapper)"/>
-        </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawTextWithCover(SkiaSharp.SKCanvas,SkiaSharp.SKPoint,System.String,SkiaSharp.SKTextAlign,Sudoku.ComponentModel.CoverStyle,SkiaSharp.SKFont,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPaint,System.Single,System.Single,System.Single,System.Single,SkiaSharp.SKPoint)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextWithCover(SkiaSharp.SKPoint,System.String,SkiaSharp.SKTextAlign,Sudoku.ComponentModel.CoverStyle,SkiaSharp.SKFont,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPaint,System.Single,System.Single,System.Single,System.Single,SkiaSharp.SKPoint)"/>
         </member>
@@ -5222,46 +5283,6 @@
             <param name="outlineColor">The outline color.</param>
             <param name="fillColor">The fill color of text.</param>
             <param name="mapper">The mapper.</param>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCellGroupTrail(System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
-            <summary>
-            Draws a cell group trail.
-            </summary>
-            <param name="trailCells">The trail cells.</param>
-            <param name="sizeScale">The scale of size, related to cell size.</param>
-            <param name="fillColor">The fill color.</param>
-            <param name="mapper">The point mapper instance.</param>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawKillerCage(System.ReadOnlySpan{Sudoku.Graphics.Absolute},Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.LineDashSequence,Sudoku.ComponentModel.Scale,System.String,System.String,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,Sudoku.Graphics.PointMapper)">
-            <summary>
-            Draws a killer cage.
-            </summary>
-            <param name="cells">The cells.</param>
-            <param name="shortSideScale">The scale of size of short side, related to a cell size.</param>
-            <param name="strokeColor">The stroke color of the cage outline.</param>
-            <param name="strokeWidthScale">The scale of stroke width, related to cell size.</param>
-            <param name="fillColor">The fill color.</param>
-            <param name="dashSequence">The dash sequence of the cage outline.</param>
-            <param name="cornerRadiusScale">The scale of corner radius of the cage, related to cage short side.</param>
-            <param name="text">The text.</param>
-            <param name="textFontName">The text font name.</param>
-            <param name="textSizeScale">The scale of text, related to cell size.</param>
-            <param name="textWeight">The font weight.</param>
-            <param name="textWidth">The font width.</param>
-            <param name="textSlant">The font slant.</param>
-            <param name="textColor">The font color.</param>
-            <param name="textBackgroundColor">The text background color.</param>
-            <param name="textPaddingTop">The padding top of the boundary of text drawn.</param>
-            <param name="textPaddingBottom">The padding bottom of the boundary of text drawn.</param>
-            <param name="textPaddingLeft">The padding left of the boundary of text drawn.</param>
-            <param name="textPaddingRight">The padding right of the boundary of text drawn.</param>
-            <param name="textOffsetX">The X value of offset to the text to be drawn.</param>
-            <param name="textOffsetY">The Y value of offset to the text to be drawn.</param>
-            <param name="mapper">The point mapper instance.</param>
-            <exception cref="T:System.ArgumentNullException">
-            Throws when <paramref name="textFontName"/> is <see langword="null"/>,
-            but <paramref name="text"/> is not <see langword="null"/>.
-            </exception>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextWithCover(SkiaSharp.SKPoint,System.String,SkiaSharp.SKTextAlign,Sudoku.ComponentModel.CoverStyle,SkiaSharp.SKFont,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPaint,System.Single,System.Single,System.Single,System.Single,SkiaSharp.SKPoint)">
             <summary>
@@ -5701,73 +5722,6 @@
             <param name="strokeColor">The stroke color.</param>
             <param name="fillColor">The fill color. The value works only if <paramref name="isSolid"/> is <see langword="false"/>.</param>
             <param name="mapper">The point mapper instance.</param>
-        </member>
-        <member name="T:Sudoku.Graphics.CellOutlineBuilder">
-            <summary>
-            Represents killer cage builder.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Graphics.CellOutlineBuilder.TryBuildKillerCagePath(System.ReadOnlySpan{SkiaSharp.SKPoint},System.Single,System.Single,System.Single,System.ValueTuple{SkiaSharp.SKPath,SkiaSharp.SKPoint}@)">
-            <summary>
-            Try to build a path of a killer cage.
-            </summary>
-            <param name="points">The points.</param>
-            <param name="cellSize">The size of each cell.</param>
-            <param name="cornerRadius">The corner radius.</param>
-            <param name="shortSide">The short side of cage.</param>
-            <param name="result">The result cage information (path and its top-left point).</param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating the cage can be built or not.</returns>
-        </member>
-        <member name="T:Sudoku.Graphics.GridPoint">
-            <summary>
-            Represents a grid point.
-            </summary>
-            <param name="X">Indicates X value of the point.</param>
-            <param name="Y">Indicates Y value of the point.</param>
-        </member>
-        <member name="M:Sudoku.Graphics.GridPoint.#ctor(System.Int32,System.Int32)">
-            <summary>
-            Represents a grid point.
-            </summary>
-            <param name="X">Indicates X value of the point.</param>
-            <param name="Y">Indicates Y value of the point.</param>
-        </member>
-        <member name="P:Sudoku.Graphics.GridPoint.X">
-            <summary>Indicates X value of the point.</summary>
-        </member>
-        <member name="P:Sudoku.Graphics.GridPoint.Y">
-            <summary>Indicates Y value of the point.</summary>
-        </member>
-        <member name="T:Sudoku.Graphics.GridEdge">
-            <summary>
-            Represents a grid edge of a killer cage.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Graphics.GridEdge.#ctor(Sudoku.Graphics.GridPoint,Sudoku.Graphics.GridPoint)">
-            <summary>
-            Initializes a <see cref="T:Sudoku.Graphics.GridEdge"/> instance via two <see cref="T:Sudoku.Graphics.GridPoint"/> instances.
-            </summary>
-            <param name="p1">Indicates the first point instance.</param>
-            <param name="p2">Indicates the second point instance.</param>
-        </member>
-        <member name="P:Sudoku.Graphics.GridEdge.A">
-            <summary>
-            Indicates the first point instance.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.GridEdge.B">
-            <summary>
-            Indicates the second point instance.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Graphics.GridEdge.Equals(System.Object)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.GridEdge.Equals(Sudoku.Graphics.GridEdge)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.GridEdge.GetHashCode">
-            <inheritdoc cref="M:System.Object.GetHashCode"/>
         </member>
         <member name="T:Sudoku.Graphics.ArrowPainterHelper">
             <summary>

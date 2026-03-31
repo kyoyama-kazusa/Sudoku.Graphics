@@ -165,5 +165,130 @@ public partial class SKCanvasDrawings
 			@this.DrawText(text, targetPoint, SKTextAlign.Center, textFont, textStrokePaint);
 			@this.DrawText(text, targetPoint, SKTextAlign.Center, textFont, textFillPaint);
 		}
+
+		/// <summary>
+		/// Draws the specified text with background cover.
+		/// </summary>
+		/// <param name="point">The point.</param>
+		/// <param name="text">The text.</param>
+		/// <param name="textAlign">The text align.</param>
+		/// <param name="coverStyle">The cover style.</param>
+		/// <param name="font">The font.</param>
+		/// <param name="textPaint">The paint.</param>
+		/// <param name="coverStrokePaint">
+		/// The stroke paint of cover background. The value can be <see langword="null"/> if you don't want to draw stroke.
+		/// </param>
+		/// <param name="coverFillPaint">The fill paint of cover background.</param>
+		/// <param name="paddingTop">The padding top of the boundary of text drawn.</param>
+		/// <param name="paddingBottom">The padding bottom of the boundary of text drawn.</param>
+		/// <param name="paddingLeft">The padding left of the boundary of text drawn.</param>
+		/// <param name="paddingRight">The padding right of the boundary of text drawn.</param>
+		/// <param name="offset">The offset to the text to be drawn.</param>
+		/// <exception cref="ArgumentOutOfRangeException">Throws when <paramref name="textAlign"/> is not defined.</exception>
+		public void DrawTextWithCover(
+			SKPoint point,
+			string text,
+			SKTextAlign textAlign,
+			CoverStyle coverStyle,
+			SKFont font,
+			SKPaint? textPaint,
+			SKPaint? coverStrokePaint,
+			SKPaint? coverFillPaint,
+			float paddingTop,
+			float paddingBottom,
+			float paddingLeft,
+			float paddingRight,
+			SKPoint offset
+		)
+		{
+			if (string.IsNullOrWhiteSpace(text) || coverStyle == CoverStyle.None || !Enum.IsDefined(coverStyle)
+				|| !Enum.IsDefined(textAlign)
+				|| textPaint is null)
+			{
+				// Nothing to draw.
+				return;
+			}
+
+			var drawPoint = point + offset;
+			var textWidth = font.MeasureText(text, textPaint);
+			font.MeasureText(text, out var bounds, textPaint);
+			var alignedX = textAlign switch
+			{
+				SKTextAlign.Left => drawPoint.X,
+				SKTextAlign.Center => drawPoint.X - textWidth / 2,
+				SKTextAlign.Right => drawPoint.X - textWidth,
+				_ => throw new ArgumentOutOfRangeException(nameof(textAlign))
+			};
+			bounds.Offset(alignedX, drawPoint.Y);
+			var coverBounds = new SKRect(
+				bounds.Left - paddingLeft,
+				bounds.Top - paddingTop,
+				bounds.Right + paddingRight,
+				bounds.Bottom + paddingBottom
+			);
+
+			switch (coverStyle)
+			{
+				case CoverStyle.Rectangle or CoverStyle.Square:
+				{
+					if (coverStyle == CoverStyle.Square)
+					{
+						makeBoundsSquareOrCircle(ref coverBounds, textAlign);
+					}
+					if (coverStrokePaint is not null)
+					{
+						@this.DrawRect(coverBounds, coverStrokePaint);
+					}
+					if (coverFillPaint is not null)
+					{
+						@this.DrawRect(coverBounds, coverFillPaint);
+					}
+					break;
+				}
+				case CoverStyle.Oval or CoverStyle.Circle:
+				{
+					if (coverStyle == CoverStyle.Circle)
+					{
+						makeBoundsSquareOrCircle(ref coverBounds, textAlign);
+					}
+					if (coverStrokePaint is not null)
+					{
+						@this.DrawOval(coverBounds, coverStrokePaint);
+					}
+					if (coverFillPaint is not null)
+					{
+						@this.DrawOval(coverBounds, coverFillPaint);
+					}
+					break;
+				}
+				default:
+				{
+					throw new UnreachableException();
+				}
+			}
+
+			@this.DrawText(text, drawPoint, textAlign, font, textPaint);
+
+
+			static void makeBoundsSquareOrCircle(ref SKRect coverBounds, SKTextAlign textAlign)
+			{
+				var (left, top, right, bottom, width, height) = coverBounds;
+				coverBounds = (width - height) switch
+				{
+					var coverBoundDelta and > 0 => coverBounds with
+					{
+						Top = top - coverBoundDelta / 2,
+						Bottom = bottom + coverBoundDelta / 2
+					},
+					var coverBoundDelta and < 0 => textAlign switch
+					{
+						SKTextAlign.Left => coverBounds with { Right = right + -coverBoundDelta },
+						SKTextAlign.Center => coverBounds with { Left = left - -coverBoundDelta / 2, Right = right + -coverBoundDelta / 2 },
+						_ => coverBounds with { Left = left - -coverBoundDelta }
+					},
+					_ => coverBounds
+				};
+			}
+		}
 	}
 }
