@@ -30,7 +30,7 @@ public abstract record CellPairTextMarkItem : Item, IItem_FontRelatedProperties,
 	/// <summary>
 	/// Indicates padding of the boundary of text drawn.
 	/// </summary>
-	public Thickness Padding { get; init; } = new(0);
+	public Thickness<float> Padding { get; init; } = new(0);
 
 	/// <summary>
 	/// Indiactes the offset to the text to be drawn.

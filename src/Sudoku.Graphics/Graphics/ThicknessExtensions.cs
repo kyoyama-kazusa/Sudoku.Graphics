@@ -1,9 +1,8 @@
 ﻿namespace Sudoku.Graphics;
 
 /// <summary>
-/// Provides extension members on both <see cref="Thickness"/> and <see cref="Thickness{T}"/>.
+/// Provides extension members on type <see cref="Thickness{T}"/>.
 /// </summary>
-/// <seealso cref="Thickness"/>
 /// <seealso cref="Thickness{T}"/>
 public static class ThicknessExtensions
 {

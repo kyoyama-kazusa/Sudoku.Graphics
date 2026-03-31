@@ -45,7 +45,7 @@ public sealed record CellGroupKillerCageMarkItem : CellGroupMarkItem
 	/// <summary>
 	/// Indicates the padding of the boundary of text drawn.
 	/// </summary>
-	public Thickness Padding { get; init; } = new(0);
+	public Thickness<float> Padding { get; init; } = new(0);
 
 	/// <summary>
 	/// Indicates the offset to the text to be drawn.
@@ -92,7 +92,6 @@ public sealed record CellGroupKillerCageMarkItem : CellGroupMarkItem
 			Style = SKPaintStyle.Stroke,
 			StrokeWidth = StrokeWidthScale.Measure(cellSize),
 			Color = StrokeColor,
-			StrokeCap = SKStrokeCap.Round,
 			StrokeJoin = SKStrokeJoin.Round,
 			PathEffect = DashSequence
 		};
@@ -371,19 +370,7 @@ file readonly struct GridEdge : IEquatable<GridEdge>
 	/// </summary>
 	/// <param name="p1">Indicates the first point instance.</param>
 	/// <param name="p2">Indicates the second point instance.</param>
-	public GridEdge(GridPoint p1, GridPoint p2)
-	{
-		if (p1.X < p2.X || p1.X == p2.X && p1.Y <= p2.Y)
-		{
-			A = p1;
-			B = p2;
-		}
-		else
-		{
-			A = p2;
-			B = p1;
-		}
-	}
+	public GridEdge(GridPoint p1, GridPoint p2) => (A, B) = p1.X < p2.X || p1.X == p2.X && p1.Y <= p2.Y ? (p1, p2) : (p2, p1);
 
 
 	/// <summary>

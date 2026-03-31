@@ -4855,8 +4855,8 @@
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawOutlinedTextToCandidate(SkiaSharp.SKCanvas,System.String,Sudoku.Graphics.CandidatePosition,System.String,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCandidate(System.String,Sudoku.Graphics.CandidatePosition,System.String,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawTextWithCover(SkiaSharp.SKCanvas,SkiaSharp.SKPoint,System.String,SkiaSharp.SKTextAlign,Sudoku.Graphics.CoverStyle,SkiaSharp.SKFont,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPaint,Sudoku.Graphics.Thickness,SkiaSharp.SKPoint)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextWithCover(SkiaSharp.SKPoint,System.String,SkiaSharp.SKTextAlign,Sudoku.Graphics.CoverStyle,SkiaSharp.SKFont,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPaint,Sudoku.Graphics.Thickness,SkiaSharp.SKPoint)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawTextWithCover(SkiaSharp.SKCanvas,SkiaSharp.SKPoint,System.String,SkiaSharp.SKTextAlign,Sudoku.Graphics.CoverStyle,SkiaSharp.SKFont,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPaint,Sudoku.Graphics.Thickness{System.Single},SkiaSharp.SKPoint)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextWithCover(SkiaSharp.SKPoint,System.String,SkiaSharp.SKTextAlign,Sudoku.Graphics.CoverStyle,SkiaSharp.SKFont,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPaint,Sudoku.Graphics.Thickness{System.Single},SkiaSharp.SKPoint)"/>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawCircleTo``1(SkiaSharp.SKCanvas,``0,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCircleTo``1(``0,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper)"/>
@@ -4976,7 +4976,7 @@
             <param name="fillColor">The fill color of text.</param>
             <param name="mapper">The mapper.</param>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextWithCover(SkiaSharp.SKPoint,System.String,SkiaSharp.SKTextAlign,Sudoku.Graphics.CoverStyle,SkiaSharp.SKFont,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPaint,Sudoku.Graphics.Thickness,SkiaSharp.SKPoint)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextWithCover(SkiaSharp.SKPoint,System.String,SkiaSharp.SKTextAlign,Sudoku.Graphics.CoverStyle,SkiaSharp.SKFont,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPaint,Sudoku.Graphics.Thickness{System.Single},SkiaSharp.SKPoint)">
             <summary>
             Draws the specified text with background cover.
             </summary>
@@ -5702,47 +5702,72 @@
         <member name="M:Sudoku.Graphics.Templating.Templates.SujikenTemplate.DrawGridLines(SkiaSharp.SKCanvas)">
             <inheritdoc/>
         </member>
-        <member name="T:Sudoku.Graphics.Thickness">
+        <member name="T:Sudoku.Graphics.Thickness`1">
             <summary>
-            Represents thickness.
+            Represents a thickness of <typeparamref name="T"/> values.
             </summary>
+            <typeparam name="T">The type of values.</typeparam>
             <param name="Left">Indicates the left offset size.</param>
             <param name="Top">Indicates the top offset size.</param>
             <param name="Right">Indicates the right offset size.</param>
             <param name="Bottom">Indicates the bottom size.</param>
         </member>
-        <member name="M:Sudoku.Graphics.Thickness.#ctor(System.Single,System.Single,System.Single,System.Single)">
+        <member name="M:Sudoku.Graphics.Thickness`1.#ctor(`0,`0,`0,`0)">
             <summary>
-            Represents thickness.
+            Represents a thickness of <typeparamref name="T"/> values.
             </summary>
+            <typeparam name="T">The type of values.</typeparam>
             <param name="Left">Indicates the left offset size.</param>
             <param name="Top">Indicates the top offset size.</param>
             <param name="Right">Indicates the right offset size.</param>
             <param name="Bottom">Indicates the bottom size.</param>
         </member>
-        <member name="P:Sudoku.Graphics.Thickness.Left">
+        <member name="P:Sudoku.Graphics.Thickness`1.Left">
             <summary>Indicates the left offset size.</summary>
         </member>
-        <member name="P:Sudoku.Graphics.Thickness.Top">
+        <member name="P:Sudoku.Graphics.Thickness`1.Top">
             <summary>Indicates the top offset size.</summary>
         </member>
-        <member name="P:Sudoku.Graphics.Thickness.Right">
+        <member name="P:Sudoku.Graphics.Thickness`1.Right">
             <summary>Indicates the right offset size.</summary>
         </member>
-        <member name="P:Sudoku.Graphics.Thickness.Bottom">
+        <member name="P:Sudoku.Graphics.Thickness`1.Bottom">
             <summary>Indicates the bottom size.</summary>
         </member>
-        <member name="M:Sudoku.Graphics.Thickness.#ctor(System.Single)">
+        <member name="M:Sudoku.Graphics.Thickness`1.#ctor(`0)">
             <summary>
-            Initializes a <see cref="T:Sudoku.Graphics.Thickness"/> instance.
+            Initializes a <see cref="T:Sudoku.Graphics.Thickness`1"/> instance.
             </summary>
             <param name="uniform">The uniform value.</param>
         </member>
+        <member name="M:Sudoku.Graphics.Thickness`1.#ctor(`0,`0)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Graphics.Thickness`1"/> instance.
+            </summary>
+            <param name="topLeft">The top and left values.</param>
+            <param name="bottomRight">The bottom and right values.</param>
+        </member>
+        <member name="P:Sudoku.Graphics.Thickness`1.Zero">
+            <summary>
+            Indicates the value whose factors are initialized <see langword="default"/>(<typeparamref name="T"/>).
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.Converter`1">
+            <summary>
+            Represents a JSON converter object that converts <see cref="T:Sudoku.Graphics.Thickness`1"/> instances.
+            </summary>
+            <seealso cref="T:Sudoku.Graphics.Thickness`1"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Converter`1.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Converter`1.Write(System.Text.Json.Utf8JsonWriter,Sudoku.Graphics.Thickness{`0},System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.ThicknessExtensions">
             <summary>
-            Provides extension members on both <see cref="T:Sudoku.Graphics.Thickness"/> and <see cref="T:Sudoku.Graphics.Thickness`1"/>.
+            Provides extension members on type <see cref="T:Sudoku.Graphics.Thickness`1"/>.
             </summary>
-            <seealso cref="T:Sudoku.Graphics.Thickness"/>
             <seealso cref="T:Sudoku.Graphics.Thickness`1"/>
         </member>
         <member name="M:Sudoku.Graphics.ThicknessExtensions.op_Addition``1(Sudoku.Graphics.Thickness{``0},Sudoku.Graphics.Thickness{``0})">
@@ -5775,68 +5800,6 @@
         </member>
         <member name="M:Sudoku.Graphics.ThicknessExtensions.&lt;G&gt;$2F63DBA80350D211AAABE8DD05DD259B`1.op_CheckedSubtraction(Sudoku.Graphics.Thickness{`0},Sudoku.Graphics.Thickness{`0})">
             <inheritdoc cref="M:System.Numerics.ISubtractionOperators`3.op_CheckedSubtraction(`0,`1)"/>
-        </member>
-        <member name="T:Sudoku.Graphics.Thickness`1">
-            <summary>
-            Represents a thickness of generic type of values.
-            </summary>
-            <typeparam name="T">The type of values.</typeparam>
-            <param name="Left">Indicates the left offset size.</param>
-            <param name="Top">Indicates the top offset size.</param>
-            <param name="Right">Indicates the right offset size.</param>
-            <param name="Bottom">Indicates the bottom size.</param>
-        </member>
-        <member name="M:Sudoku.Graphics.Thickness`1.#ctor(`0,`0,`0,`0)">
-            <summary>
-            Represents a thickness of generic type of values.
-            </summary>
-            <typeparam name="T">The type of values.</typeparam>
-            <param name="Left">Indicates the left offset size.</param>
-            <param name="Top">Indicates the top offset size.</param>
-            <param name="Right">Indicates the right offset size.</param>
-            <param name="Bottom">Indicates the bottom size.</param>
-        </member>
-        <member name="P:Sudoku.Graphics.Thickness`1.Left">
-            <summary>Indicates the left offset size.</summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Thickness`1.Top">
-            <summary>Indicates the top offset size.</summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Thickness`1.Right">
-            <summary>Indicates the right offset size.</summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Thickness`1.Bottom">
-            <summary>Indicates the bottom size.</summary>
-        </member>
-        <member name="M:Sudoku.Graphics.Thickness`1.#ctor(`0)">
-            <summary>
-            Initializes a <see cref="T:Sudoku.Graphics.Thickness"/> instance.
-            </summary>
-            <param name="uniform">The uniform value.</param>
-        </member>
-        <member name="M:Sudoku.Graphics.Thickness`1.#ctor(`0,`0)">
-            <summary>
-            Initializes a <see cref="T:Sudoku.Graphics.Thickness"/> instance.
-            </summary>
-            <param name="topLeft">The top and left values.</param>
-            <param name="bottomRight">The bottom and right values.</param>
-        </member>
-        <member name="P:Sudoku.Graphics.Thickness`1.Zero">
-            <summary>
-            Indicates the value whose factors are initialized <see langword="default"/>(<typeparamref name="T"/>).
-            </summary>
-        </member>
-        <member name="T:Sudoku.Graphics.Converter`1">
-            <summary>
-            Represents a JSON converter object that converts <see cref="T:Sudoku.Graphics.Thickness`1"/> instances.
-            </summary>
-            <seealso cref="T:Sudoku.Graphics.Thickness`1"/>
-        </member>
-        <member name="M:Sudoku.Graphics.Converter`1.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Converter`1.Write(System.Text.Json.Utf8JsonWriter,Sudoku.Graphics.Thickness{`0},System.Text.Json.JsonSerializerOptions)">
-            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Resources.Resource">
             <summary>

@@ -48,7 +48,7 @@ canvas.DrawItems(
 			DashSequence = dashSequence,
 			CornerRadiusScale = cornerRadiusScale,
 			ShortSideScale = sizeScale,
-			StrokeWidthScale = 0.025M,
+			StrokeWidthScale = 0.04M,
 			StrokeColor = SKColors.Black,
 			TextFontName = "Arial",
 			FontSizeScale = fontSizeScale,

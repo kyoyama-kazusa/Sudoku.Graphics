@@ -191,7 +191,7 @@ public partial class SKCanvasDrawings
 			SKPaint? textPaint,
 			SKPaint? coverStrokePaint,
 			SKPaint? coverFillPaint,
-			Thickness padding,
+			Thickness<float> padding,
 			SKPoint offset
 		)
 		{
