@@ -1581,6 +1581,42 @@
             </exception>
             <seealso cref="F:Sudoku.ComponentModel.Tetris.RotationType.None"/>
         </member>
+        <member name="T:Sudoku.ComponentModel.Thickness">
+            <summary>
+            Represents thickness.
+            </summary>
+            <param name="Left">Indicates the left offset size.</param>
+            <param name="Top">Indicates the top offset size.</param>
+            <param name="Right">Indicates the right offset size.</param>
+            <param name="Bottom">Indicates the bottom size.</param>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Thickness.#ctor(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Represents thickness.
+            </summary>
+            <param name="Left">Indicates the left offset size.</param>
+            <param name="Top">Indicates the top offset size.</param>
+            <param name="Right">Indicates the right offset size.</param>
+            <param name="Bottom">Indicates the bottom size.</param>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Thickness.Left">
+            <summary>Indicates the left offset size.</summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Thickness.Top">
+            <summary>Indicates the top offset size.</summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Thickness.Right">
+            <summary>Indicates the right offset size.</summary>
+        </member>
+        <member name="P:Sudoku.ComponentModel.Thickness.Bottom">
+            <summary>Indicates the bottom size.</summary>
+        </member>
+        <member name="M:Sudoku.ComponentModel.Thickness.#ctor(System.Single)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.ComponentModel.Thickness"/> instance.
+            </summary>
+            <param name="uniform">The uniform value.</param>
+        </member>
         <member name="T:Sudoku.ComponentModel.Zodiac.ZodiacAnimal">
             <summary>
             Represents a zodiac animal.
@@ -2656,36 +2692,6 @@
             Represents a cell group killer cage mark item.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.PaddingTop">
-            <summary>
-            Indicates the padding top of the boundary of text drawn.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.PaddingBottom">
-            <summary>
-            Indicates the padding bottom of the boundary of text drawn.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.PaddingLeft">
-            <summary>
-            Indicates the padding left of the boundary of text drawn.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.PaddingRight">
-            <summary>
-            Indicates the padding right of the boundary of text drawn.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.OffsetX">
-            <summary>
-            The X value of offset to the text to be drawn.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.OffsetY">
-            <summary>
-            The Y value of offset to the text to be drawn.
-            </summary>
-        </member>
         <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.Text">
             <summary>
             Indicates text to be drawn in killer cage.
@@ -2722,6 +2728,16 @@
         </member>
         <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.FillColor">
             <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.Padding">
+            <summary>
+            Indicates the padding of the boundary of text drawn.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.Offset">
+            <summary>
+            Indicates the offset to the text to be drawn.
+            </summary>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem.ShortSideScale">
             <summary>
@@ -3859,36 +3875,6 @@
             Represents a cell pair text mark item.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellPairTextMarks.CellPairTextMarkItem.PaddingTop">
-            <summary>
-            Indicates the padding top of the boundary of text drawn.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellPairTextMarks.CellPairTextMarkItem.PaddingBottom">
-            <summary>
-            Indicates the padding bottom of the boundary of text drawn.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellPairTextMarks.CellPairTextMarkItem.PaddingLeft">
-            <summary>
-            Indicates the padding left of the boundary of text drawn.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellPairTextMarks.CellPairTextMarkItem.PaddingRight">
-            <summary>
-            Indicates the padding right of the boundary of text drawn.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellPairTextMarks.CellPairTextMarkItem.OffsetX">
-            <summary>
-            The X value of offset to the text to be drawn.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellPairTextMarks.CellPairTextMarkItem.OffsetY">
-            <summary>
-            The Y value of offset to the text to be drawn.
-            </summary>
-        </member>
         <member name="P:Sudoku.Graphics.Items.CellPairTextMarks.CellPairTextMarkItem.TemplateIndex">
             <inheritdoc/>
         </member>
@@ -3909,6 +3895,16 @@
         <member name="P:Sudoku.Graphics.Items.CellPairTextMarks.CellPairTextMarkItem.Cell2">
             <summary>
             Indicates the cell 2.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairTextMarks.CellPairTextMarkItem.Padding">
+            <summary>
+            Indicates padding of the boundary of text drawn.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairTextMarks.CellPairTextMarkItem.Offset">
+            <summary>
+            Indiactes the offset to the text to be drawn.
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellPairTextMarks.CellPairTextMarkItem.FontSizeScale">
@@ -5187,8 +5183,8 @@
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawOutlinedTextToCandidate(SkiaSharp.SKCanvas,System.String,Sudoku.Graphics.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCandidate(System.String,Sudoku.Graphics.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawTextWithCover(SkiaSharp.SKCanvas,SkiaSharp.SKPoint,System.String,SkiaSharp.SKTextAlign,Sudoku.ComponentModel.CoverStyle,SkiaSharp.SKFont,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPaint,System.Single,System.Single,System.Single,System.Single,SkiaSharp.SKPoint)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextWithCover(SkiaSharp.SKPoint,System.String,SkiaSharp.SKTextAlign,Sudoku.ComponentModel.CoverStyle,SkiaSharp.SKFont,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPaint,System.Single,System.Single,System.Single,System.Single,SkiaSharp.SKPoint)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawTextWithCover(SkiaSharp.SKCanvas,SkiaSharp.SKPoint,System.String,SkiaSharp.SKTextAlign,Sudoku.ComponentModel.CoverStyle,SkiaSharp.SKFont,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPaint,Sudoku.ComponentModel.Thickness,SkiaSharp.SKPoint)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextWithCover(SkiaSharp.SKPoint,System.String,SkiaSharp.SKTextAlign,Sudoku.ComponentModel.CoverStyle,SkiaSharp.SKFont,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPaint,Sudoku.ComponentModel.Thickness,SkiaSharp.SKPoint)"/>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawCircleTo``1(SkiaSharp.SKCanvas,``0,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCircleTo``1(``0,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
@@ -5308,7 +5304,7 @@
             <param name="fillColor">The fill color of text.</param>
             <param name="mapper">The mapper.</param>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextWithCover(SkiaSharp.SKPoint,System.String,SkiaSharp.SKTextAlign,Sudoku.ComponentModel.CoverStyle,SkiaSharp.SKFont,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPaint,System.Single,System.Single,System.Single,System.Single,SkiaSharp.SKPoint)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextWithCover(SkiaSharp.SKPoint,System.String,SkiaSharp.SKTextAlign,Sudoku.ComponentModel.CoverStyle,SkiaSharp.SKFont,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPaint,Sudoku.ComponentModel.Thickness,SkiaSharp.SKPoint)">
             <summary>
             Draws the specified text with background cover.
             </summary>
@@ -5322,10 +5318,7 @@
             The stroke paint of cover background. The value can be <see langword="null"/> if you don't want to draw stroke.
             </param>
             <param name="coverFillPaint">The fill paint of cover background.</param>
-            <param name="paddingTop">The padding top of the boundary of text drawn.</param>
-            <param name="paddingBottom">The padding bottom of the boundary of text drawn.</param>
-            <param name="paddingLeft">The padding left of the boundary of text drawn.</param>
-            <param name="paddingRight">The padding right of the boundary of text drawn.</param>
+            <param name="padding">The padding of the boundary of text drawn.</param>
             <param name="offset">The offset to the text to be drawn.</param>
             <exception cref="T:System.ArgumentOutOfRangeException">Throws when <paramref name="textAlign"/> is not defined.</exception>
         </member>

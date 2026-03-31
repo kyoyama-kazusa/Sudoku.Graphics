@@ -5,36 +5,6 @@
 /// </summary>
 public abstract record CellPairTextMarkItem : Item, IItem_FontRelatedProperties, IItem_MarkRelatedProperties, IItem_TemplateIndexProperty
 {
-	/// <summary>
-	/// Indicates the padding top of the boundary of text drawn.
-	/// </summary>
-	public float PaddingTop { get; init; } = 0;
-
-	/// <summary>
-	/// Indicates the padding bottom of the boundary of text drawn.
-	/// </summary>
-	public float PaddingBottom { get; init; } = 0;
-
-	/// <summary>
-	/// Indicates the padding left of the boundary of text drawn.
-	/// </summary>
-	public float PaddingLeft { get; init; } = 0;
-
-	/// <summary>
-	/// Indicates the padding right of the boundary of text drawn.
-	/// </summary>
-	public float PaddingRight { get; init; } = 0;
-
-	/// <summary>
-	/// The X value of offset to the text to be drawn.
-	/// </summary>
-	public float OffsetX { get; init; } = 0;
-
-	/// <summary>
-	/// The Y value of offset to the text to be drawn.
-	/// </summary>
-	public float OffsetY { get; init; } = 0;
-
 	/// <inheritdoc/>
 	public required int TemplateIndex { get; init; }
 
@@ -56,6 +26,16 @@ public abstract record CellPairTextMarkItem : Item, IItem_FontRelatedProperties,
 	/// Indicates the cell 2.
 	/// </summary>
 	public required Absolute Cell2 { get; init; }
+
+	/// <summary>
+	/// Indicates padding of the boundary of text drawn.
+	/// </summary>
+	public Thickness Padding { get; init; } = new(0);
+
+	/// <summary>
+	/// Indiactes the offset to the text to be drawn.
+	/// </summary>
+	public SKPoint Offset { get; init; } = new(0, 0);
 
 	/// <inheritdoc/>
 	public required Scale FontSizeScale { get; init; }
@@ -132,11 +112,8 @@ public abstract record CellPairTextMarkItem : Item, IItem_FontRelatedProperties,
 			textStrokePaint,
 			coverStrokePaint,
 			coverFillPaint,
-			PaddingTop,
-			PaddingBottom,
-			PaddingLeft,
-			PaddingRight,
-			new(OffsetX, OffsetY)
+			Padding,
+			Offset
 		);
 	}
 }

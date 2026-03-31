@@ -6,36 +6,6 @@
 public sealed record CellGroupKillerCageMarkItem : CellGroupMarkItem
 {
 	/// <summary>
-	/// Indicates the padding top of the boundary of text drawn.
-	/// </summary>
-	public float PaddingTop { get; init; } = 0;
-
-	/// <summary>
-	/// Indicates the padding bottom of the boundary of text drawn.
-	/// </summary>
-	public float PaddingBottom { get; init; } = 0;
-
-	/// <summary>
-	/// Indicates the padding left of the boundary of text drawn.
-	/// </summary>
-	public float PaddingLeft { get; init; } = 0;
-
-	/// <summary>
-	/// Indicates the padding right of the boundary of text drawn.
-	/// </summary>
-	public float PaddingRight { get; init; } = 0;
-
-	/// <summary>
-	/// The X value of offset to the text to be drawn.
-	/// </summary>
-	public float OffsetX { get; init; } = 0;
-
-	/// <summary>
-	/// The Y value of offset to the text to be drawn.
-	/// </summary>
-	public float OffsetY { get; init; } = 0;
-
-	/// <summary>
 	/// Indicates text to be drawn in killer cage.
 	/// If a cage this instance represents doesn't provide a text, this property can be left <see langword="null"/>.
 	/// </summary>
@@ -71,6 +41,16 @@ public sealed record CellGroupKillerCageMarkItem : CellGroupMarkItem
 
 	/// <inheritdoc/>
 	public override SerializableColor FillColor { get; init; }
+
+	/// <summary>
+	/// Indicates the padding of the boundary of text drawn.
+	/// </summary>
+	public Thickness Padding { get; init; } = new(0);
+
+	/// <summary>
+	/// Indicates the offset to the text to be drawn.
+	/// </summary>
+	public SKPoint Offset { get; init; } = new(0, 0);
 
 	/// <summary>
 	/// Indicates the scale of size of each cells drawn, related to cell size.
@@ -150,11 +130,8 @@ public sealed record CellGroupKillerCageMarkItem : CellGroupMarkItem
 				textPaint,
 				null,
 				textCoverFillPaint,
-				PaddingTop,
-				PaddingBottom,
-				PaddingLeft,
-				PaddingRight,
-				new(OffsetX, OffsetY)
+				Padding,
+				Offset
 			);
 		}
 	}

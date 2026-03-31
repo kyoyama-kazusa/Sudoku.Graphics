@@ -179,10 +179,7 @@ public partial class SKCanvasDrawings
 		/// The stroke paint of cover background. The value can be <see langword="null"/> if you don't want to draw stroke.
 		/// </param>
 		/// <param name="coverFillPaint">The fill paint of cover background.</param>
-		/// <param name="paddingTop">The padding top of the boundary of text drawn.</param>
-		/// <param name="paddingBottom">The padding bottom of the boundary of text drawn.</param>
-		/// <param name="paddingLeft">The padding left of the boundary of text drawn.</param>
-		/// <param name="paddingRight">The padding right of the boundary of text drawn.</param>
+		/// <param name="padding">The padding of the boundary of text drawn.</param>
 		/// <param name="offset">The offset to the text to be drawn.</param>
 		/// <exception cref="ArgumentOutOfRangeException">Throws when <paramref name="textAlign"/> is not defined.</exception>
 		public void DrawTextWithCover(
@@ -194,10 +191,7 @@ public partial class SKCanvasDrawings
 			SKPaint? textPaint,
 			SKPaint? coverStrokePaint,
 			SKPaint? coverFillPaint,
-			float paddingTop,
-			float paddingBottom,
-			float paddingLeft,
-			float paddingRight,
+			Thickness padding,
 			SKPoint offset
 		)
 		{
@@ -221,10 +215,10 @@ public partial class SKCanvasDrawings
 			};
 			bounds.Offset(alignedX, drawPoint.Y);
 			var coverBounds = new SKRect(
-				bounds.Left - paddingLeft,
-				bounds.Top - paddingTop,
-				bounds.Right + paddingRight,
-				bounds.Bottom + paddingBottom
+				bounds.Left - padding.Left,
+				bounds.Top - padding.Top,
+				bounds.Right + padding.Right,
+				bounds.Bottom + padding.Bottom
 			);
 
 			switch (coverStyle)
