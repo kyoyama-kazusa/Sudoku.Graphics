@@ -36,7 +36,7 @@ public sealed class DefaultTemplate : Template, ITemplate_RoundedRectangleRelate
 		// Horizontal lines.
 		for (var i = 1; i < Mapper.RowsCount; i++)
 		{
-			var a = Mapper.GetPoint(Mapper.Vector.Up + i, (Absolute)Mapper.Vector.Left, Alignment.TopLeft);
+			var a = Mapper.GetPoint(Mapper.Vector.Top + i, (Absolute)Mapper.Vector.Left, Alignment.TopLeft);
 			var b = a + (Mapper.ColumnsCount * Mapper.CellSize, 0);
 			canvas.DrawLine(a, b, thinLinePaint);
 		}
@@ -44,7 +44,7 @@ public sealed class DefaultTemplate : Template, ITemplate_RoundedRectangleRelate
 		// Vertical lines.
 		for (var i = 1; i < Mapper.ColumnsCount; i++)
 		{
-			var a = Mapper.GetPoint((Absolute)Mapper.Vector.Up, Mapper.Vector.Left + i, Alignment.TopLeft);
+			var a = Mapper.GetPoint((Absolute)Mapper.Vector.Top, Mapper.Vector.Left + i, Alignment.TopLeft);
 			var b = a + (0, Mapper.RowsCount * Mapper.CellSize);
 			canvas.DrawLine(a, b, thinLinePaint);
 		}

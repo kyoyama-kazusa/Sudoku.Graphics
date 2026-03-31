@@ -1,6 +1,6 @@
 ﻿namespace Sudoku.Graphics;
 
-public partial interface IInteger<TSelf> where TSelf : struct, IInteger<TSelf>
+public partial interface IInteger<TSelf>
 {
 	/// <summary>
 	/// Represents a value converter object.

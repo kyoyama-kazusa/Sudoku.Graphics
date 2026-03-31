@@ -42,7 +42,7 @@ public partial class OverlappingGridTemplateFactory
 		&& (rowSplitPartsCount < 3 || columnSplitPartsCount < 3)
 			? ThrowsArgumentException()
 			: [
-				new StandardTemplate(blockRowsCount, blockColumnsCount, baseMapper.AddOffset(DirectionVector.Zero))
+				new StandardTemplate(blockRowsCount, blockColumnsCount, baseMapper.AddOffset(Thickness<Relative>.Zero))
 				{
 					IsBorderRoundedRectangle = false
 				},

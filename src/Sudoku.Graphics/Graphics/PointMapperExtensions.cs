@@ -25,7 +25,7 @@ public static class PointMapperExtensions
 		public SKRect GridSize
 			=> SKRect.Create(
 				@this.Margin + @this.CellSize * @this.Vector.Left,
-				@this.Margin + @this.CellSize * @this.Vector.Up,
+				@this.Margin + @this.CellSize * @this.Vector.Top,
 				@this.CellSize * @this.ColumnsCount,
 				@this.CellSize * @this.RowsCount
 			);

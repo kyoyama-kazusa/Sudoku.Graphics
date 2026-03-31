@@ -31,7 +31,7 @@ public sealed record PointMapper : IEqualityOperators<PointMapper, PointMapper, 
 	public Absolute AbsoluteColumnsCount => TemplateSize.AbsoluteColumnsCount;
 
 	/// <inheritdoc cref="GridTemplateSize.Vector"/>
-	public DirectionVector Vector => TemplateSize.Vector;
+	public Thickness<Relative> Vector => TemplateSize.Vector;
 
 	/// <summary>
 	/// Indicates size information of the target grid to be drawn.
@@ -55,7 +55,7 @@ public sealed record PointMapper : IEqualityOperators<PointMapper, PointMapper, 
 	{
 		var row = relativeCellIndex / ColumnsCount;
 		var column = relativeCellIndex % ColumnsCount;
-		var resultRow = row + Vector.Up;
+		var resultRow = row + Vector.Top;
 		var resultColumn = column + Vector.Left;
 		return resultRow * AbsoluteColumnsCount + resultColumn;
 	}
@@ -104,7 +104,7 @@ public sealed record PointMapper : IEqualityOperators<PointMapper, PointMapper, 
 		var absoluteColumnsCount = AbsoluteColumnsCount;
 		var row = absoluteCellIndex / absoluteColumnsCount;
 		var column = absoluteCellIndex % absoluteColumnsCount;
-		var resultRow = row - Vector.Up;
+		var resultRow = row - Vector.Top;
 		var resultColumn = column - Vector.Left;
 		return resultRow * ColumnsCount + resultColumn;
 	}
@@ -286,14 +286,14 @@ public sealed record PointMapper : IEqualityOperators<PointMapper, PointMapper, 
 	/// </summary>
 	/// <param name="vector">The direction vector as offset.</param>
 	/// <returns>The result <see cref="PointMapper"/> instance.</returns>
-	public PointMapper WithOffset(DirectionVector vector) => this with { TemplateSize = TemplateSize with { Vector = vector } };
+	public PointMapper WithOffset(Thickness<Relative> vector) => this with { TemplateSize = TemplateSize with { Vector = vector } };
 
 	/// <summary>
 	/// Creates a new <see cref="PointMapper"/> instance via the specified offset, adding to original template size direction vector.
 	/// </summary>
 	/// <param name="vector">The direction vector as offset.</param>
 	/// <returns>The result <see cref="PointMapper"/> instance.</returns>
-	public PointMapper AddOffset(DirectionVector vector)
+	public PointMapper AddOffset(Thickness<Relative> vector)
 		=> this with { TemplateSize = TemplateSize with { Vector = TemplateSize.Vector + vector } };
 
 	private bool PrintMembers(StringBuilder builder)

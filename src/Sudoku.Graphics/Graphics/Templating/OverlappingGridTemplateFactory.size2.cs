@@ -8,7 +8,7 @@ public partial class OverlappingGridTemplateFactory
 	/// <inheritdoc cref="OverlappingGridTemplateFactory" path="/shared-doc-comments"/>
 	public static Template[] Overlapped(PointMapper baseMapper, LineDashSequence secondGridTemplateDashSequence)
 		=> [
-			new StandardTemplate(-1, -1, baseMapper.AddOffset(DirectionVector.Zero)) { IsBorderRoundedRectangle = false },
+			new StandardTemplate(-1, -1, baseMapper.AddOffset(Thickness<Relative>.Zero)) { IsBorderRoundedRectangle = false },
 			new StandardTemplate(-1, -1, baseMapper.AddOffset(new(1, 0)))
 			{
 				IsBorderRoundedRectangle = false,
@@ -22,7 +22,7 @@ public partial class OverlappingGridTemplateFactory
 	/// <inheritdoc cref="OverlappingGridTemplateFactory" path="/shared-doc-comments"/>
 	public static Template[] DoubleDoku(int blockRowsCount, int blockColumnsCount, PointMapper baseMapper)
 		=> [
-			new StandardTemplate(blockRowsCount, blockColumnsCount, baseMapper.AddOffset(DirectionVector.Zero))
+			new StandardTemplate(blockRowsCount, blockColumnsCount, baseMapper.AddOffset(Thickness<Relative>.Zero))
 			{
 				IsBorderRoundedRectangle = false
 			},
@@ -40,7 +40,7 @@ public partial class OverlappingGridTemplateFactory
 		=> baseMapper.RowsCount / blockRowsCount is var rowSplitPartsCount && rowSplitPartsCount < 3
 			? ThrowsArgumentException()
 			: [
-				new StandardTemplate(blockRowsCount, blockColumnsCount, baseMapper.AddOffset(DirectionVector.Zero))
+				new StandardTemplate(blockRowsCount, blockColumnsCount, baseMapper.AddOffset(Thickness<Relative>.Zero))
 				{
 					IsBorderRoundedRectangle = false
 				},
@@ -59,7 +59,7 @@ public partial class OverlappingGridTemplateFactory
 		&& (rowSplitPartsCount < 3 || columnSplitPartsCount < 3)
 			? ThrowsArgumentException()
 			: [
-				new StandardTemplate(blockRowsCount, blockColumnsCount, baseMapper.AddOffset(DirectionVector.Zero))
+				new StandardTemplate(blockRowsCount, blockColumnsCount, baseMapper.AddOffset(Thickness<Relative>.Zero))
 				{
 					IsBorderRoundedRectangle = false
 				},

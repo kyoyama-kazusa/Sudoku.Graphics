@@ -20,7 +20,7 @@ public readonly record struct GridTemplateSize() : IEqualityOperators<GridTempla
 	/// Indicates the number of rows. The number of rows should be an absolute value,
 	/// including reserved regions (used by drawing outside-like puzzles).
 	/// </summary>
-	public Absolute AbsoluteRowsCount => RowsCount + Vector.Up + Vector.Down;
+	public Absolute AbsoluteRowsCount => RowsCount + Vector.Top + Vector.Bottom;
 
 	/// <summary>
 	/// Indiactes the number of columns. The number of columns should be an absolute value,
@@ -29,10 +29,10 @@ public readonly record struct GridTemplateSize() : IEqualityOperators<GridTempla
 	public Absolute AbsoluteColumnsCount => ColumnsCount + Vector.Left + Vector.Right;
 
 	/// <summary>
-	/// Indicates empty cells count reserved to be empty. By default it's <see cref="DirectionVector.Zero"/>.
+	/// Indicates empty cells count reserved to be empty. By default it's <see cref="Thickness{T}.Zero"/>.
 	/// </summary>
-	/// <seealso cref="DirectionVector.Zero"/>
-	public DirectionVector Vector { get; init; } = DirectionVector.Zero;
+	/// <seealso cref="Thickness{T}.Zero"/>
+	public Thickness<Relative> Vector { get; init; } = Thickness<Relative>.Zero;
 
 
 	/// <inheritdoc/>

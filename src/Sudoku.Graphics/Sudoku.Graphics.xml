@@ -673,112 +673,6 @@
             <exception cref="T:System.ArgumentOutOfRangeException">Throws when the current instance is not defined.</exception>
             <seealso cref="F:Sudoku.Graphics.Directions.Direction8.None"/>
         </member>
-        <member name="T:Sudoku.Graphics.Directions.DirectionVector">
-            <summary>
-            Represents an encapsulated type of a quadruple of <see cref="T:Sudoku.Graphics.Relative"/> values,
-            indicating direction offsets.
-            </summary>
-            <param name="Up">Indicates upside offsets.</param>
-            <param name="Down">Indicates downside offsets.</param>
-            <param name="Left">Indicates leftside offsets.</param>
-            <param name="Right">Indicates rightside offsets.</param>
-            <completionlist cref="T:Sudoku.Graphics.Directions.DirectionVector"/>
-        </member>
-        <member name="M:Sudoku.Graphics.Directions.DirectionVector.#ctor(Sudoku.Graphics.Relative,Sudoku.Graphics.Relative,Sudoku.Graphics.Relative,Sudoku.Graphics.Relative)">
-            <summary>
-            Represents an encapsulated type of a quadruple of <see cref="T:Sudoku.Graphics.Relative"/> values,
-            indicating direction offsets.
-            </summary>
-            <param name="Up">Indicates upside offsets.</param>
-            <param name="Down">Indicates downside offsets.</param>
-            <param name="Left">Indicates leftside offsets.</param>
-            <param name="Right">Indicates rightside offsets.</param>
-            <completionlist cref="T:Sudoku.Graphics.Directions.DirectionVector"/>
-        </member>
-        <member name="P:Sudoku.Graphics.Directions.DirectionVector.Up">
-            <summary>Indicates upside offsets.</summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Directions.DirectionVector.Down">
-            <summary>Indicates downside offsets.</summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Directions.DirectionVector.Left">
-            <summary>Indicates leftside offsets.</summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Directions.DirectionVector.Right">
-            <summary>Indicates rightside offsets.</summary>
-        </member>
-        <member name="F:Sudoku.Graphics.Directions.DirectionVector.Zero">
-            <summary>
-            Indicates the instance whose members are initialized zero.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Graphics.Directions.DirectionVector.#ctor(Sudoku.Graphics.Relative)">
-            <summary>
-            Initializes a <see cref="T:Sudoku.Graphics.Directions.DirectionVector"/> instance via the uniform value.
-            </summary>
-            <param name="uniform">The uniform value.</param>
-        </member>
-        <member name="M:Sudoku.Graphics.Directions.DirectionVector.#ctor(Sudoku.Graphics.Relative,Sudoku.Graphics.Relative)">
-            <summary>
-            Initializes a <see cref="T:Sudoku.Graphics.Directions.DirectionVector"/> instance via two values indicating up (&amp; left) and down (&amp; right).
-            For example, <c><see langword="new"/>(0, 1, 0, 1)</c> can be simplified to <c><see langword="new"/>(0, 1)</c>.
-            </summary>
-            <param name="upAndLeft">The uniform value for both up and left directions.</param>
-            <param name="downAndRight">The uniform value for both down and right directions.</param>
-        </member>
-        <member name="M:Sudoku.Graphics.Directions.DirectionVector.GetValue(Sudoku.Graphics.Directions.Direction4)">
-            <summary>
-            Returns the value at the specified direction.
-            </summary>
-            <param name="direction">The direction.</param>
-            <returns>Result value.</returns>
-            <exception cref="T:System.ArgumentOutOfRangeException">
-            Throws when <paramref name="direction"/> is not defined or <see cref="F:Sudoku.Graphics.Directions.Direction4.None"/>.
-            </exception>
-            <seealso cref="F:Sudoku.Graphics.Directions.Direction4.None"/>
-        </member>
-        <member name="M:Sudoku.Graphics.Directions.DirectionVector.Equals(Sudoku.Graphics.Directions.DirectionVector@)">
-            <inheritdoc cref="M:System.IEquatable`1.Equals(`0)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.Directions.DirectionVector.GetHashCode">
-            <inheritdoc cref="M:System.Object.GetHashCode"/>
-        </member>
-        <member name="M:Sudoku.Graphics.Directions.DirectionVector.op_Addition(Sudoku.Graphics.Directions.DirectionVector@,Sudoku.Graphics.Directions.DirectionVector@)">
-            <inheritdoc cref="M:System.Numerics.IAdditionOperators`3.op_Addition(`0,`1)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.Directions.DirectionVector.op_CheckedAddition(Sudoku.Graphics.Directions.DirectionVector@,Sudoku.Graphics.Directions.DirectionVector@)">
-            <inheritdoc cref="M:System.Numerics.IAdditionOperators`3.op_CheckedAddition(`0,`1)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.Directions.DirectionVector.op_Subtraction(Sudoku.Graphics.Directions.DirectionVector@,Sudoku.Graphics.Directions.DirectionVector@)">
-            <inheritdoc cref="M:System.Numerics.ISubtractionOperators`3.op_Subtraction(`0,`1)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.Directions.DirectionVector.op_CheckedSubtraction(Sudoku.Graphics.Directions.DirectionVector@,Sudoku.Graphics.Directions.DirectionVector@)">
-            <inheritdoc cref="M:System.Numerics.ISubtractionOperators`3.op_CheckedSubtraction(`0,`1)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.Directions.DirectionVector.System#Numerics#IAdditionOperators{Sudoku#Graphics#Directions#DirectionVector,Sudoku#Graphics#Directions#DirectionVector,Sudoku#Graphics#Directions#DirectionVector}#op_Addition(Sudoku.Graphics.Directions.DirectionVector,Sudoku.Graphics.Directions.DirectionVector)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Directions.DirectionVector.System#Numerics#IAdditionOperators{Sudoku#Graphics#Directions#DirectionVector,Sudoku#Graphics#Directions#DirectionVector,Sudoku#Graphics#Directions#DirectionVector}#op_CheckedAddition(Sudoku.Graphics.Directions.DirectionVector,Sudoku.Graphics.Directions.DirectionVector)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Directions.DirectionVector.System#Numerics#ISubtractionOperators{Sudoku#Graphics#Directions#DirectionVector,Sudoku#Graphics#Directions#DirectionVector,Sudoku#Graphics#Directions#DirectionVector}#op_Subtraction(Sudoku.Graphics.Directions.DirectionVector,Sudoku.Graphics.Directions.DirectionVector)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Directions.DirectionVector.System#Numerics#ISubtractionOperators{Sudoku#Graphics#Directions#DirectionVector,Sudoku#Graphics#Directions#DirectionVector,Sudoku#Graphics#Directions#DirectionVector}#op_CheckedSubtraction(Sudoku.Graphics.Directions.DirectionVector,Sudoku.Graphics.Directions.DirectionVector)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Graphics.Directions.Converter">
-            <summary>
-            Represents a JSON converter object that converts <see cref="T:Sudoku.Graphics.Directions.DirectionVector"/> instances.
-            </summary>
-            <seealso cref="T:Sudoku.Graphics.Directions.DirectionVector"/>
-        </member>
-        <member name="M:Sudoku.Graphics.Directions.Converter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Directions.Converter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.Graphics.Directions.DirectionVector,System.Text.Json.JsonSerializerOptions)">
-            <inheritdoc/>
-        </member>
         <member name="T:Sudoku.Graphics.Directions.Orientation2">
             <summary>
             Represents an orientation, with 2 values.
@@ -885,9 +779,9 @@
         </member>
         <member name="P:Sudoku.Graphics.GridTemplateSize.Vector">
             <summary>
-            Indicates empty cells count reserved to be empty. By default it's <see cref="F:Sudoku.Graphics.Directions.DirectionVector.Zero"/>.
+            Indicates empty cells count reserved to be empty. By default it's <see cref="P:Sudoku.Graphics.Thickness`1.Zero"/>.
             </summary>
-            <seealso cref="F:Sudoku.Graphics.Directions.DirectionVector.Zero"/>
+            <seealso cref="P:Sudoku.Graphics.Thickness`1.Zero"/>
         </member>
         <member name="M:Sudoku.Graphics.GridTemplateSize.Equals(Sudoku.Graphics.GridTemplateSize)">
             <inheritdoc/>
@@ -4502,14 +4396,14 @@
             <returns>The center point of two adjacent cells.</returns>
             <exception cref="T:System.ArgumentException">Throws when the specified pair of cells are not adjacent with each other.</exception>
         </member>
-        <member name="M:Sudoku.Graphics.PointMapper.WithOffset(Sudoku.Graphics.Directions.DirectionVector)">
+        <member name="M:Sudoku.Graphics.PointMapper.WithOffset(Sudoku.Graphics.Thickness{Sudoku.Graphics.Relative})">
             <summary>
             Creates a new <see cref="T:Sudoku.Graphics.PointMapper"/> instance via the specified offset, replacing with new value.
             </summary>
             <param name="vector">The direction vector as offset.</param>
             <returns>The result <see cref="T:Sudoku.Graphics.PointMapper"/> instance.</returns>
         </member>
-        <member name="M:Sudoku.Graphics.PointMapper.AddOffset(Sudoku.Graphics.Directions.DirectionVector)">
+        <member name="M:Sudoku.Graphics.PointMapper.AddOffset(Sudoku.Graphics.Thickness{Sudoku.Graphics.Relative})">
             <summary>
             Creates a new <see cref="T:Sudoku.Graphics.PointMapper"/> instance via the specified offset, adding to original template size direction vector.
             </summary>
@@ -5843,6 +5737,106 @@
             Initializes a <see cref="T:Sudoku.Graphics.Thickness"/> instance.
             </summary>
             <param name="uniform">The uniform value.</param>
+        </member>
+        <member name="T:Sudoku.Graphics.ThicknessExtensions">
+            <summary>
+            Provides extension members on both <see cref="T:Sudoku.Graphics.Thickness"/> and <see cref="T:Sudoku.Graphics.Thickness`1"/>.
+            </summary>
+            <seealso cref="T:Sudoku.Graphics.Thickness"/>
+            <seealso cref="T:Sudoku.Graphics.Thickness`1"/>
+        </member>
+        <member name="M:Sudoku.Graphics.ThicknessExtensions.op_Addition``1(Sudoku.Graphics.Thickness{``0},Sudoku.Graphics.Thickness{``0})">
+            <inheritdoc cref="M:Sudoku.Graphics.ThicknessExtensions.&lt;G&gt;$2F63DBA80350D211AAABE8DD05DD259B`1.op_Addition(Sudoku.Graphics.Thickness{`0},Sudoku.Graphics.Thickness{`0})"/>
+        </member>
+        <member name="M:Sudoku.Graphics.ThicknessExtensions.op_CheckedAddition``1(Sudoku.Graphics.Thickness{``0},Sudoku.Graphics.Thickness{``0})">
+            <inheritdoc cref="M:Sudoku.Graphics.ThicknessExtensions.&lt;G&gt;$2F63DBA80350D211AAABE8DD05DD259B`1.op_CheckedAddition(Sudoku.Graphics.Thickness{`0},Sudoku.Graphics.Thickness{`0})"/>
+        </member>
+        <member name="M:Sudoku.Graphics.ThicknessExtensions.op_Subtraction``1(Sudoku.Graphics.Thickness{``0},Sudoku.Graphics.Thickness{``0})">
+            <inheritdoc cref="M:Sudoku.Graphics.ThicknessExtensions.&lt;G&gt;$2F63DBA80350D211AAABE8DD05DD259B`1.op_Subtraction(Sudoku.Graphics.Thickness{`0},Sudoku.Graphics.Thickness{`0})"/>
+        </member>
+        <member name="M:Sudoku.Graphics.ThicknessExtensions.op_CheckedSubtraction``1(Sudoku.Graphics.Thickness{``0},Sudoku.Graphics.Thickness{``0})">
+            <inheritdoc cref="M:Sudoku.Graphics.ThicknessExtensions.&lt;G&gt;$2F63DBA80350D211AAABE8DD05DD259B`1.op_CheckedSubtraction(Sudoku.Graphics.Thickness{`0},Sudoku.Graphics.Thickness{`0})"/>
+        </member>
+        <member name="T:Sudoku.Graphics.ThicknessExtensions.&lt;G&gt;$2F63DBA80350D211AAABE8DD05DD259B`1.&lt;M&gt;$04A6F73F6A87B17C5DBB16336746A327">
+            <summary>
+            Provides extension operators on <see cref="T:Sudoku.Graphics.Thickness`1"/>,
+            where <typeparamref name="T"/> implements <see cref="T:Sudoku.Graphics.IInteger`1"/>.
+            </summary>
+            <typeparam name="T">The type of each factor defined in type <see cref="T:Sudoku.Graphics.Thickness`1"/>.</typeparam>
+        </member>
+        <member name="M:Sudoku.Graphics.ThicknessExtensions.&lt;G&gt;$2F63DBA80350D211AAABE8DD05DD259B`1.op_Addition(Sudoku.Graphics.Thickness{`0},Sudoku.Graphics.Thickness{`0})">
+            <inheritdoc cref="M:System.Numerics.IAdditionOperators`3.op_Addition(`0,`1)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.ThicknessExtensions.&lt;G&gt;$2F63DBA80350D211AAABE8DD05DD259B`1.op_CheckedAddition(Sudoku.Graphics.Thickness{`0},Sudoku.Graphics.Thickness{`0})">
+            <inheritdoc cref="M:System.Numerics.IAdditionOperators`3.op_CheckedAddition(`0,`1)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.ThicknessExtensions.&lt;G&gt;$2F63DBA80350D211AAABE8DD05DD259B`1.op_Subtraction(Sudoku.Graphics.Thickness{`0},Sudoku.Graphics.Thickness{`0})">
+            <inheritdoc cref="M:System.Numerics.ISubtractionOperators`3.op_Subtraction(`0,`1)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.ThicknessExtensions.&lt;G&gt;$2F63DBA80350D211AAABE8DD05DD259B`1.op_CheckedSubtraction(Sudoku.Graphics.Thickness{`0},Sudoku.Graphics.Thickness{`0})">
+            <inheritdoc cref="M:System.Numerics.ISubtractionOperators`3.op_CheckedSubtraction(`0,`1)"/>
+        </member>
+        <member name="T:Sudoku.Graphics.Thickness`1">
+            <summary>
+            Represents a thickness of generic type of values.
+            </summary>
+            <typeparam name="T">The type of values.</typeparam>
+            <param name="Left">Indicates the left offset size.</param>
+            <param name="Top">Indicates the top offset size.</param>
+            <param name="Right">Indicates the right offset size.</param>
+            <param name="Bottom">Indicates the bottom size.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.Thickness`1.#ctor(`0,`0,`0,`0)">
+            <summary>
+            Represents a thickness of generic type of values.
+            </summary>
+            <typeparam name="T">The type of values.</typeparam>
+            <param name="Left">Indicates the left offset size.</param>
+            <param name="Top">Indicates the top offset size.</param>
+            <param name="Right">Indicates the right offset size.</param>
+            <param name="Bottom">Indicates the bottom size.</param>
+        </member>
+        <member name="P:Sudoku.Graphics.Thickness`1.Left">
+            <summary>Indicates the left offset size.</summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Thickness`1.Top">
+            <summary>Indicates the top offset size.</summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Thickness`1.Right">
+            <summary>Indicates the right offset size.</summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Thickness`1.Bottom">
+            <summary>Indicates the bottom size.</summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Thickness`1.#ctor(`0)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Graphics.Thickness"/> instance.
+            </summary>
+            <param name="uniform">The uniform value.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.Thickness`1.#ctor(`0,`0)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Graphics.Thickness"/> instance.
+            </summary>
+            <param name="topLeft">The top and left values.</param>
+            <param name="bottomRight">The bottom and right values.</param>
+        </member>
+        <member name="P:Sudoku.Graphics.Thickness`1.Zero">
+            <summary>
+            Indicates the value whose factors are initialized <see langword="default"/>(<typeparamref name="T"/>).
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.Converter`1">
+            <summary>
+            Represents a JSON converter object that converts <see cref="T:Sudoku.Graphics.Thickness`1"/> instances.
+            </summary>
+            <seealso cref="T:Sudoku.Graphics.Thickness`1"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Converter`1.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Converter`1.Write(System.Text.Json.Utf8JsonWriter,Sudoku.Graphics.Thickness{`0},System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Resources.Resource">
             <summary>

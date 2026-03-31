@@ -161,8 +161,8 @@ public abstract partial class Template
 		var rowIndex = sourceCellIndex / columnsCount;
 		var columnIndex = sourceCellIndex % columnsCount;
 
-		if (rowIndex < target.Mapper.Vector.Up
-			|| rowIndex >= target.Mapper.Vector.Up + target.Mapper.RowsCount
+		if (rowIndex < target.Mapper.Vector.Top
+			|| rowIndex >= target.Mapper.Vector.Top + target.Mapper.RowsCount
 			|| columnIndex < target.Mapper.Vector.Left
 			|| columnIndex >= target.Mapper.Vector.Left + target.Mapper.ColumnsCount)
 		{
