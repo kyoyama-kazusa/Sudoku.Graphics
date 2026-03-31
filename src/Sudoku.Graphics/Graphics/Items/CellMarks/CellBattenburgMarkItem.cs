@@ -32,14 +32,17 @@ public sealed record CellBattenburgMarkItem : CellMarkItem
 
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)
-		=> canvas.BackingCanvas.DrawBattenburgToCell(
-			Cell,
+	{
+		var mapper = canvas.Templates[TemplateIndex].Mapper;
+		canvas.BackingCanvas.DrawBattenburg(
+			mapper.GetPoint(Cell, Alignment.Center),
 			SizeScale,
 			Color1,
 			Color2,
 			StrokeColor,
 			StrokeWidthScale,
 			[UniformCornerRadius, UniformCornerRadius, UniformCornerRadius, UniformCornerRadius],
-			canvas.Templates[TemplateIndex].Mapper
+			mapper
 		);
+	}
 }

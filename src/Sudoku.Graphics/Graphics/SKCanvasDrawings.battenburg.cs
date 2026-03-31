@@ -5,47 +5,6 @@ public partial class SKCanvasDrawings
 	extension(SKCanvas @this)
 	{
 		/// <summary>
-		/// Draws a battenburg mark.
-		/// </summary>
-		/// <param name="cell1">The cell 1.</param>
-		/// <param name="cell2">The cell 2.</param>
-		/// <param name="sizeScale">The scale of size, related to cell size.</param>
-		/// <param name="colorA">Indicates color 1 (top-left and bottom-right).</param>
-		/// <param name="colorB">Indicates color 2 (top-right and bottom-left).</param>
-		/// <param name="strokeColor">The stroke line color.</param>
-		/// <param name="strokeWidthScale">The scale of stroke width, related to cell size.</param>
-		/// <param name="cornerRadiiScale">The scale of corner radii.</param>
-		/// <param name="mapper">The mapper instance.</param>
-		public void DrawBattenburg(
-			Absolute cell1,
-			Absolute cell2,
-			Scale sizeScale,
-			SerializableColor colorA,
-			SerializableColor colorB,
-			SerializableColor strokeColor,
-			Scale strokeWidthScale,
-			Scale[]? cornerRadiiScale,
-			PointMapper mapper
-		)
-		{
-			if (cell1 > cell2)
-			{
-				(cell1, _) = (cell2, cell1);
-			}
-
-			@this.DrawBattenburg_Generic(
-				mapper.GetPointBetweenWithAdjacentRelation(cell1, cell2, out _),
-				sizeScale,
-				colorA,
-				colorB,
-				strokeColor,
-				strokeWidthScale,
-				cornerRadiiScale,
-				mapper
-			);
-		}
-
-		/// <summary>
 		/// Draws a battenburg mark to the specified point.
 		/// </summary>
 		/// <param name="centerPoint">The center point to draw.</param>
@@ -56,7 +15,7 @@ public partial class SKCanvasDrawings
 		/// <param name="strokeWidthScale">The scale of stroke width, related to cell size.</param>
 		/// <param name="cornerRadiiScale">The scale of corner radii.</param>
 		/// <param name="mapper">The mapper instance.</param>
-		public void DrawBattenburg_Generic(
+		public void DrawBattenburg(
 			SKPoint centerPoint,
 			Scale sizeScale,
 			SerializableColor colorA,

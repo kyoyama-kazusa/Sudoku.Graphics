@@ -14,13 +14,17 @@ public sealed record CellTriangleMarkItem : CellMarkItem, IItem_DirectionPropert
 
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)
-		=> canvas.BackingCanvas.DrawTriangleToCell(
+	{
+		var mapper = canvas.Templates[TemplateIndex].Mapper;
+		canvas.BackingCanvas.DrawPolygonToCell(
 			Cell,
-			Direction,
+			3,
 			SizeScale,
-			StrokeColor,
 			StrokeWidthScale,
+			StrokeColor,
 			FillColor,
-			canvas.Templates[TemplateIndex].Mapper
+			mapper,
+			Direction.RotationDegrees
 		);
+	}
 }

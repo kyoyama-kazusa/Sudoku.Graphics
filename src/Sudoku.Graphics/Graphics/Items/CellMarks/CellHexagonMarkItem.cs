@@ -17,14 +17,20 @@ public sealed record CellHexagonMarkItem : CellMarkItem, IItem_OrientationProper
 	{
 		var template = canvas.Templates[TemplateIndex];
 		var mapper = template.Mapper;
-		canvas.BackingCanvas.DrawHexagonToCell(
+		canvas.BackingCanvas.DrawPolygonToCell(
 			Cell,
+			6,
 			SizeScale,
-			StrokeColor,
 			StrokeWidthScale,
+			StrokeColor,
 			FillColor,
-			Orientation,
-			mapper
+			mapper,
+			Orientation switch
+			{
+				Orientation2.Horizontal => 30,
+				Orientation2.Vertical => 0,
+				_ => throw new InvalidOperationException($"{nameof(Orientation)} is not defined or invalid.")
+			}
 		);
 	}
 }

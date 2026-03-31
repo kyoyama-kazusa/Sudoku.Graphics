@@ -3298,6 +3298,39 @@
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellMoonPhaseMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.MoonPainterHelper">
+            <summary>
+            The helper type that draws for moon.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellMarks.MoonPainterHelper.CircleCircleIntersection(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,SkiaSharp.SKPoint@,SkiaSharp.SKPoint@)">
+            <summary>
+            Calculates intersection of two circles, finding out two points intersected. If found, return <see langword="true"/>.
+            </summary>
+            <param name="x0">X value of point, in circle 1.</param>
+            <param name="y0">Y value of point, in circle 1.</param>
+            <param name="r0">Radius of circle 1.</param>
+            <param name="x1">X value of point, in circle 2.</param>
+            <param name="y1">Y value of point, in circle 2.</param>
+            <param name="r1">Radius of circle 2.</param>
+            <param name="p1">Intersection point 1.</param>
+            <param name="p2">Intersection point 2.</param>
+            <returns>A <see cref="T:System.Boolean"/> result.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellMarks.MoonPainterHelper.BuildCrescentPath(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Build crescent path if can, from main circle <c>(<paramref name="cx"/>, <paramref name="cy"/>, <paramref name="r"/>)</c>
+            and side circle <c>(<paramref name="c2x"/>, <paramref name="c2y"/>, <paramref name="r2"/>)</c>.
+            If failed to build, <see langword="null"/> will be returned.
+            </summary>
+            <param name="cx">X value of center point of main circle.</param>
+            <param name="cy">Y value of center point of main circle.</param>
+            <param name="r">Radius of main circle.</param>
+            <param name="c2x">X value of center point of side circle.</param>
+            <param name="c2y">Y value of center point of side circle.</param>
+            <param name="r2">Radius of side circle.</param>
+            <returns>The path built. If failed to be built, <see langword="null"/>.</returns>
+        </member>
         <member name="T:Sudoku.Graphics.Items.CellMarks.CellPhantomDiceMarkItem">
             <summary>
             Provides with a cell phantom dice mark item.
@@ -3565,7 +3598,7 @@
             Indicates the scale of maximum gap among lines, related to circle diameter.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairBridgeLineMarkItem.CircleScale">
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairBridgeLineMarkItem.CircleDiameterScale">
             <summary>
             Indicates the scale of circle, related to cell size.
             </summary>
@@ -5139,6 +5172,15 @@
             </summary>
             <seealso cref="T:SkiaSharp.SKCanvas"/>
         </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawArrowToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Directions.Direction4,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Directions.Direction4,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawArrowTriangleToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowTriangleToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawBattenburg(SkiaSharp.SKCanvas,SkiaSharp.SKPoint,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale[],Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBattenburg(SkiaSharp.SKPoint,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale[],Sudoku.Graphics.PointMapper)"/>
+        </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawOutlinedTextToCell(SkiaSharp.SKCanvas,System.String,Sudoku.Graphics.Absolute,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,System.Single,Sudoku.ComponentModel.Directions.Direction8,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCell(System.String,Sudoku.Graphics.Absolute,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,System.Single,Sudoku.ComponentModel.Directions.Direction8,Sudoku.Graphics.PointMapper)"/>
         </member>
@@ -5148,41 +5190,11 @@
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawTextWithCover(SkiaSharp.SKCanvas,SkiaSharp.SKPoint,System.String,SkiaSharp.SKTextAlign,Sudoku.ComponentModel.CoverStyle,SkiaSharp.SKFont,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPaint,System.Single,System.Single,System.Single,System.Single,SkiaSharp.SKPoint)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextWithCover(SkiaSharp.SKPoint,System.String,SkiaSharp.SKTextAlign,Sudoku.ComponentModel.CoverStyle,SkiaSharp.SKFont,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPaint,System.Single,System.Single,System.Single,System.Single,SkiaSharp.SKPoint)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawApexTriangleToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Alignment,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawApexTriangleToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Alignment,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawArrowToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Directions.Direction4,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Directions.Direction4,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawArrowTriangleToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowTriangleToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawBattenburgToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale[],Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBattenburgToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale[],Sudoku.Graphics.PointMapper)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawBorderAlignedTriangleToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction4,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBorderAlignedTriangleToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction4,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
-        </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawCircleTo``1(SkiaSharp.SKCanvas,``0,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCircleTo``1(``0,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawCrossTo``1(SkiaSharp.SKCanvas,``0,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,SkiaSharp.SKStrokeCap)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCrossTo``1(``0,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,SkiaSharp.SKStrokeCap)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawDiamondToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawDiamondToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawHalveLineToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Orientation4,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawHalveLineToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Orientation4,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawHexagonToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Directions.Orientation2,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawHexagonToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Directions.Orientation2,Sudoku.Graphics.PointMapper)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawMoonToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Moons.MoonPhase,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawMoonToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Moons.MoonPhase,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawPhantomDiceToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.Graphics.Relative,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,System.Collections.BitArray,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawPhantomDiceToCell(Sudoku.Graphics.Absolute,Sudoku.Graphics.Relative,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,System.Collections.BitArray,Sudoku.Graphics.PointMapper)"/>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawPolygonToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,System.Single)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawPolygonToCell(Sudoku.Graphics.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,System.Single)"/>
@@ -5190,32 +5202,8 @@
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawConcavePolygonToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,System.Single)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawConcavePolygonToCell(Sudoku.Graphics.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,System.Single)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawSevenSegmentsDisplayToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,System.Int32,System.Boolean,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawSevenSegmentsDisplayToCell(Sudoku.Graphics.Absolute,System.Int32,System.Boolean,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawSquareToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawSquareToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawSurroundingTrianglesInCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawSurroundingTrianglesInCell(Sudoku.Graphics.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
-        </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawTetromino(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,System.Boolean[0:,0:],Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTetromino(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,System.Boolean[0:,0:],Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawTriangleToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTriangleToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawBar(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBar(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawBattenburg(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale[],Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBattenburg(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale[],Sudoku.Graphics.PointMapper)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawBattenburg_Generic(SkiaSharp.SKCanvas,SkiaSharp.SKPoint,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale[],Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBattenburg_Generic(SkiaSharp.SKPoint,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale[],Sudoku.Graphics.PointMapper)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawBridgeAndConnectedCircles(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,System.Boolean,System.Boolean,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBridgeAndConnectedCircles(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,System.Boolean,System.Boolean,Sudoku.Graphics.PointMapper)"/>
         </member>
         <member name="T:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.&lt;M&gt;$21C1C87F40B24560160CB1CD20F6362E">
             <summary>
@@ -5224,6 +5212,57 @@
             </summary>
             <param name="this">The current instance.</param>
             <seealso cref="T:Sudoku.Graphics.Item"/>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Directions.Direction4,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Draws an arrow symbol into the specified cell.
+            </summary>
+            <param name="cell">The cell.</param>
+            <param name="direction">The direction.</param>
+            <param name="triangleWidthScale">The triangle width scale, related to cell size.</param>
+            <param name="triangleHeightScale">The triangle height scale, related to cell size.</param>
+            <param name="shaftWidthScale">The shaft width scale, related to cell size.</param>
+            <param name="shaftHeightScale">The shaft height scale, related to cell size.</param>
+            <param name="strokeWidthScale">The stroke width scale, related to cell size.</param>
+            <param name="strokeColor">The stroke coloor.</param>
+            <param name="fillColor">The fill color.</param>
+            <param name="alignedBorderDirection">
+            The aligned border direction. The value can be <see cref="F:Sudoku.ComponentModel.Directions.Direction4.None"/> if you don't want to align with borders.
+            </param>
+            <param name="alignedBorderPaddingScale">
+            The scale of padding aligning to border lines, related to cell size.
+            The value becomes unncessary if <paramref name="alignedBorderDirection"/> is <see cref="F:Sudoku.ComponentModel.Directions.Direction4.None"/>.
+            </param>
+            <param name="mapper">The mapper instance.</param>
+            <exception cref="T:System.NotSupportedException">
+            Throws when <paramref name="alignedBorderDirection"/> is not defined.
+            </exception>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowTriangleToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Draws an arrow triangle into the specifie cell.
+            </summary>
+            <param name="cell">The cell.</param>
+            <param name="direction">The direction.</param>
+            <param name="sizeScale">The scale of size, related to cell size.</param>
+            <param name="baseScale">The scale of base line, related to cell size.</param>
+            <param name="strokeWidthScale">The stroke width scale, related to cell size.</param>
+            <param name="strokeColor">The stroke color.</param>
+            <param name="fillColor">The fill color.</param>
+            <param name="mapper">The mapper instance.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBattenburg(SkiaSharp.SKPoint,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale[],Sudoku.Graphics.PointMapper)">
+            <summary>
+            Draws a battenburg mark to the specified point.
+            </summary>
+            <param name="centerPoint">The center point to draw.</param>
+            <param name="sizeScale">The scale of size, related to cell size.</param>
+            <param name="colorA">Indicates color 1 (top-left and bottom-right).</param>
+            <param name="colorB">Indicates color 2 (top-right and bottom-left).</param>
+            <param name="strokeColor">The stroke line color.</param>
+            <param name="strokeWidthScale">The scale of stroke width, related to cell size.</param>
+            <param name="cornerRadiiScale">The scale of corner radii.</param>
+            <param name="mapper">The mapper instance.</param>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCell(System.String,Sudoku.Graphics.Absolute,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,System.Single,Sudoku.ComponentModel.Directions.Direction8,Sudoku.Graphics.PointMapper)">
             <summary>
@@ -5290,89 +5329,6 @@
             <param name="offset">The offset to the text to be drawn.</param>
             <exception cref="T:System.ArgumentOutOfRangeException">Throws when <paramref name="textAlign"/> is not defined.</exception>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawApexTriangleToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Alignment,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
-            <summary>
-            Draws apex triangle to specified cell.
-            </summary>
-            <param name="cell">The cell.</param>
-            <param name="cornerAlignment">The corner alignment.</param>
-            <param name="paddingScale">The scale of padding, related to cell size.</param>
-            <param name="lengthScale">The scale of length of triangle, related to cell size.</param>
-            <param name="strokeColor">The stroke color.</param>
-            <param name="strokeWidthScale">The stroke width scale, related to cell size.</param>
-            <param name="fillColor">The fill color.</param>
-            <param name="mapper">The mapper instance.</param>
-            <exception cref="T:System.ArgumentOutOfRangeException">
-            Throws when <paramref name="cornerAlignment"/> is not defined.
-            </exception>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Directions.Direction4,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
-            <summary>
-            Draws an arrow symbol into the specified cell.
-            </summary>
-            <param name="cell">The cell.</param>
-            <param name="direction">The direction.</param>
-            <param name="triangleWidthScale">The triangle width scale, related to cell size.</param>
-            <param name="triangleHeightScale">The triangle height scale, related to cell size.</param>
-            <param name="shaftWidthScale">The shaft width scale, related to cell size.</param>
-            <param name="shaftHeightScale">The shaft height scale, related to cell size.</param>
-            <param name="strokeWidthScale">The stroke width scale, related to cell size.</param>
-            <param name="strokeColor">The stroke coloor.</param>
-            <param name="fillColor">The fill color.</param>
-            <param name="alignedBorderDirection">
-            The aligned border direction. The value can be <see cref="F:Sudoku.ComponentModel.Directions.Direction4.None"/> if you don't want to align with borders.
-            </param>
-            <param name="alignedBorderPaddingScale">
-            The scale of padding aligning to border lines, related to cell size.
-            The value becomes unncessary if <paramref name="alignedBorderDirection"/> is <see cref="F:Sudoku.ComponentModel.Directions.Direction4.None"/>.
-            </param>
-            <param name="mapper">The mapper instance.</param>
-            <exception cref="T:System.NotSupportedException">
-            Throws when <paramref name="alignedBorderDirection"/> is not defined.
-            </exception>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowTriangleToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
-            <summary>
-            Draws an arrow triangle into the specifie cell.
-            </summary>
-            <param name="cell">The cell.</param>
-            <param name="direction">The direction.</param>
-            <param name="sizeScale">The scale of size, related to cell size.</param>
-            <param name="baseScale">The scale of base line, related to cell size.</param>
-            <param name="strokeWidthScale">The stroke width scale, related to cell size.</param>
-            <param name="strokeColor">The stroke color.</param>
-            <param name="fillColor">The fill color.</param>
-            <param name="mapper">The mapper instance.</param>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBattenburgToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale[],Sudoku.Graphics.PointMapper)">
-            <summary>
-            Draws a battenburg mark into the specified cell.
-            </summary>
-            <param name="cell">The cell.</param>
-            <param name="sizeScale">The scale of size, related to cell size.</param>
-            <param name="colorA">Indicates color 1 (top-left and bottom-right).</param>
-            <param name="colorB">Indicates color 2 (top-right and bottom-left).</param>
-            <param name="strokeColor">The stroke line color.</param>
-            <param name="strokeWidthScale">The scale of stroke width, related to cell size.</param>
-            <param name="cornerRadiiScale">The scale of corner radii.</param>
-            <param name="mapper">The mapper instance.</param>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBorderAlignedTriangleToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction4,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
-            <summary>
-            Draws a border-aligned triangle into the specified cell.
-            </summary>
-            <param name="cell">The cell.</param>
-            <param name="direction">The direction.</param>
-            <param name="triangleBaseSizeScale">The scale of triangle base size, related to cell size.</param>
-            <param name="strokeColor">The stroke color.</param>
-            <param name="strokeWidthScale">The scale of stroke width, related to cell size.</param>
-            <param name="fillColor">The fill color.</param>
-            <param name="mapper">The point mapper instance.</param>
-            <exception cref="T:System.ArgumentOutOfRangeException">
-            Throws when <paramref name="direction"/> is not defined or <see cref="F:Sudoku.ComponentModel.Directions.Direction4.None"/>.
-            </exception>
-            <seealso cref="F:Sudoku.ComponentModel.Directions.Direction4.None"/>
-        </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCircleTo``1(``0,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
             <summary>
             Draws a square into the specified cell or candidate.
@@ -5397,71 +5353,6 @@
             <param name="mapper">The mapper instance.</param>
             <param name="cap">The stroke cap. By default it's <see cref="F:SkiaSharp.SKStrokeCap.Round"/>.</param>
             <seealso cref="F:SkiaSharp.SKStrokeCap.Round"/>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawDiamondToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
-            <summary>
-            Draws a diamond symbol into the specified cell.
-            </summary>
-            <param name="cell">The cell.</param>
-            <param name="sizeScale">The scale of size.</param>
-            <param name="strokeColor">The stroke color.</param>
-            <param name="strokeWidthScale">The stroke width scale.</param>
-            <param name="fillColor">The fill color.</param>
-            <param name="mapper">The mapper.</param>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawHalveLineToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Orientation4,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
-            <summary>
-            Draws halve line to specified cell.
-            </summary>
-            <param name="cell">The cell.</param>
-            <param name="orientation">The orientation.</param>
-            <param name="sizeScale">The scale of padding, related to cell size.</param>
-            <param name="strokeColor">The stroke color.</param>
-            <param name="strokeWidthScale">The stroke width scale, related to cell size.</param>
-            <param name="mapper">The mapper instance.</param>
-            <exception cref="T:System.ArgumentOutOfRangeException">Throws when <paramref name="orientation"/> is not defined.</exception>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawHexagonToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Directions.Orientation2,Sudoku.Graphics.PointMapper)">
-            <summary>
-            Draws a hexagon symbol into the specified cell.
-            </summary>
-            <param name="cell">The cell.</param>
-            <param name="sizeScale">The scale of size.</param>
-            <param name="strokeColor">The stroke color.</param>
-            <param name="strokeWidthScale">The stroke width scale.</param>
-            <param name="fillColor">The fill color.</param>
-            <param name="orientation">The orientation.</param>
-            <param name="mapper">The mapper.</param>
-            <exception cref="T:System.ArgumentOutOfRangeException">
-            Throws when <paramref name="orientation"/> is not defined or <see cref="F:Sudoku.ComponentModel.Directions.Orientation2.None"/>.
-            </exception>
-            <seealso cref="F:Sudoku.ComponentModel.Directions.Orientation2.None"/>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawMoonToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Moons.MoonPhase,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
-            <summary>
-            Draws a moon to the specified cell, using the specified phase.
-            </summary>
-            <param name="cell">The cell.</param>
-            <param name="phase">The moon phase.</param>
-            <param name="strokeWidthScale">The scale of stroke width, related to cell size.</param>
-            <param name="strokeColor">The stroke color.</param>
-            <param name="fillColor">The fill color.</param>
-            <param name="radiusScale">The radius scale, related to half cell size.</param>
-            <param name="mapper">The point mapper.</param>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawPhantomDiceToCell(Sudoku.Graphics.Absolute,Sudoku.Graphics.Relative,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,System.Collections.BitArray,Sudoku.Graphics.PointMapper)">
-            <summary>
-            Draws phantom dice to the specified cell.
-            </summary>
-            <param name="cell">The cell.</param>
-            <param name="subgridSize">The subgrid szie.</param>
-            <param name="sizeScale">The scale of size, related to cell.</param>
-            <param name="strokeColor">The stroke color.</param>
-            <param name="strokeWidthScale">The scale of stroke width, related to cell size.</param>
-            <param name="phantomStrokeWidthScale">The scale of phantom stroke width, related to cell size.</param>
-            <param name="fillColor">The fill color.</param>
-            <param name="states">The on/off states table.</param>
-            <param name="mapper">The mapper instance.</param>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawPolygonToCell(Sudoku.Graphics.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,System.Single)">
             <summary>
@@ -5494,51 +5385,6 @@
             <exception cref="T:System.ArgumentException">Throws when the number of sides is invalid (below 3).</exception>
             <exception cref="T:System.InvalidOperationException">Throws when the number of sides is too large (above 16).</exception>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawSevenSegmentsDisplayToCell(Sudoku.Graphics.Absolute,System.Int32,System.Boolean,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
-            <summary>
-            Draws seven-segment display into the specified cell.
-            </summary>
-            <param name="cell">The cell.</param>
-            <param name="value">The value.</param>
-            <param name="showPhantomSegments">Indicates whether phantom segments will also be shown.</param>
-            <param name="sizeScale">The scale of size, related to cell size.</param>
-            <param name="strokeWidthScale">The scale of stroke width, related to cell size.</param>
-            <param name="strokeColor">The stroke color.</param>
-            <param name="fillColor">The fill color.</param>
-            <param name="segmentRectWidthScale">The scale of width of every segment.</param>
-            <param name="segmentRectHeightScale">The scale of height of every segment.</param>
-            <param name="phantomStrokeWidthScale">The scale of phantom stroke width.</param>
-            <param name="mapper">The mapper instance.</param>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawSquareToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
-            <summary>
-            Draws a square into the specified cell.
-            </summary>
-            <param name="cell">The cell.</param>
-            <param name="sizeScale">The scale of size, related to cell.</param>
-            <param name="strokeColor">The stroke color.</param>
-            <param name="strokeWidthScale">The scale of stroke width, related to cell.</param>
-            <param name="fillColor">The fill color.</param>
-            <param name="cornerRadiusScale">The scale of corner radiuse, related to drawn square size.</param>
-            <param name="mapper">The mapper instance.</param>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawSurroundingTrianglesInCell(Sudoku.Graphics.Absolute,System.Int32,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
-            <summary>
-            Draws a several triangles, surrounding with cell center point.
-            </summary>
-            <param name="cell">The cell.</param>
-            <param name="trianglesCount">The number of triangles to generate. Recommend range [0, 6].</param>
-            <param name="triangleSizeScale">The triangle size scale.</param>
-            <param name="strokeColor">The stroke color.</param>
-            <param name="triangleStrokeWidthScale">The triangle stroke width scale, relative to cell size.</param>
-            <param name="fillColor">The fill color.</param>
-            <param name="tipDistanceScale">The tip distance scale.</param>
-            <param name="trianglesCornerRadiusScale">The triangles corner radius scale.</param>
-            <param name="mapper">The mapper instance.</param>
-            <exception cref="T:System.ArgumentException">
-            Throws when <paramref name="trianglesCount"/> is below than 1.
-            </exception>
-        </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTetromino(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,System.Boolean[0:,0:],Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
             <summary>
             Try to draw a tetris piece (or not, specified as a <see cref="T:System.Boolean"/> matrix) into the specified cell.
@@ -5565,86 +5411,6 @@
             <param name="blockPadding">The block padding.</param>
             <param name="cornerRadius">The corner radius.</param>
             <param name="mapper">The mapper.</param>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTriangleToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
-            <summary>
-            Draws a hexagon symbol into the specified cell.
-            </summary>
-            <param name="cell">The cell.</param>
-            <param name="direction">The direction.</param>
-            <param name="sizeScale">The scale of size.</param>
-            <param name="strokeColor">The stroke color.</param>
-            <param name="strokeWidthScale">The stroke width scale.</param>
-            <param name="fillColor">The fill color.</param>
-            <param name="mapper">The mapper.</param>
-            <exception cref="T:System.ArgumentOutOfRangeException">
-            Throws when <paramref name="direction"/> is not defined or <see cref="F:Sudoku.ComponentModel.Directions.Direction8.None"/>.
-            </exception>
-            <seealso cref="F:Sudoku.ComponentModel.Directions.Direction8.None"/>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBar(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
-            <summary>
-            Draws a bar between two adjacent cells.
-            </summary>
-            <param name="cell1">The cell 1.</param>
-            <param name="cell2">The cell 2.</param>
-            <param name="shortSideScale">The scale of short side, related to cell size.</param>
-            <param name="longSideScale">The scale of long side, related to cell size.</param>
-            <param name="strokeWidthScale">The scale of stroke width, related to cell size.</param>
-            <param name="strokeColor">The stroke color.</param>
-            <param name="fillColor">The fill color.</param>
-            <param name="cornerRadiusScale">The scale of corner radius of bar, related to short side length.</param>
-            <param name="mapper">The point mapper instance.</param>
-            <exception cref="T:System.ArgumentException">Throws when cells are not adjacent with each other.</exception>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBattenburg(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale[],Sudoku.Graphics.PointMapper)">
-            <summary>
-            Draws a battenburg mark.
-            </summary>
-            <param name="cell1">The cell 1.</param>
-            <param name="cell2">The cell 2.</param>
-            <param name="sizeScale">The scale of size, related to cell size.</param>
-            <param name="colorA">Indicates color 1 (top-left and bottom-right).</param>
-            <param name="colorB">Indicates color 2 (top-right and bottom-left).</param>
-            <param name="strokeColor">The stroke line color.</param>
-            <param name="strokeWidthScale">The scale of stroke width, related to cell size.</param>
-            <param name="cornerRadiiScale">The scale of corner radii.</param>
-            <param name="mapper">The mapper instance.</param>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBattenburg_Generic(SkiaSharp.SKPoint,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale[],Sudoku.Graphics.PointMapper)">
-            <summary>
-            Draws a battenburg mark to the specified point.
-            </summary>
-            <param name="centerPoint">The center point to draw.</param>
-            <param name="sizeScale">The scale of size, related to cell size.</param>
-            <param name="colorA">Indicates color 1 (top-left and bottom-right).</param>
-            <param name="colorB">Indicates color 2 (top-right and bottom-left).</param>
-            <param name="strokeColor">The stroke line color.</param>
-            <param name="strokeWidthScale">The scale of stroke width, related to cell size.</param>
-            <param name="cornerRadiiScale">The scale of corner radii.</param>
-            <param name="mapper">The mapper instance.</param>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBridgeAndConnectedCircles(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,System.Boolean,System.Boolean,Sudoku.Graphics.PointMapper)">
-            <summary>
-            Draws two circles into the canvas, with several number of lines connectin with them.
-            This method is used for drawing "Bridges" paper puzzle (Hashi).
-            </summary>
-            <param name="cell1">The cell 1.</param>
-            <param name="cell2">The cell 2.</param>
-            <param name="diameterScale">The diameter scale.</param>
-            <param name="linesCount">The number of lines.</param>
-            <param name="linesMaxGapScale">The max gap among lines.</param>
-            <param name="circleStrokeWidthScale">The scale of circle stroke width, related to cell size.</param>
-            <param name="circleStrokeColor">The color of circle storke.</param>
-            <param name="circleFillColor">The circle filling color.</param>
-            <param name="connectorStrokeWidthScale">The scale of connector lines stroke width, related to cell size.</param>
-            <param name="connectorColor">The connector lines color.</param>
-            <param name="drawCircles">Indicates whether we should draw circles.</param>
-            <param name="drawLines">Indicates whether we should draw lines.</param>
-            <param name="mapper">The point mapper instance.</param>
-            <exception cref="T:System.NotSupportedException">
-            Throws when <paramref name="linesCount"/> is not supported (too large or invalid).
-            </exception>
         </member>
         <member name="T:Sudoku.Graphics.ArrowPainterHelper">
             <summary>
@@ -5683,39 +5449,6 @@
             <param name="alignedBorderPaddingScale">The scale of aligned border padding, related to cell size.</param>
             <returns><inheritdoc cref="M:Sudoku.Graphics.ArrowPainterHelper.CreateArrowTrianglePath(SkiaSharp.SKRect,Sudoku.ComponentModel.Scale,System.Single,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale)" path="/returns"/></returns>
             <exception cref="T:System.InvalidOperationException">Throws when shaft width is greater than triangle width.</exception>
-        </member>
-        <member name="T:Sudoku.Graphics.MoonPainterHelper">
-            <summary>
-            The helper type that draws for moon.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Graphics.MoonPainterHelper.CircleCircleIntersection(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,SkiaSharp.SKPoint@,SkiaSharp.SKPoint@)">
-            <summary>
-            Calculates intersection of two circles, finding out two points intersected. If found, return <see langword="true"/>.
-            </summary>
-            <param name="x0">X value of point, in circle 1.</param>
-            <param name="y0">Y value of point, in circle 1.</param>
-            <param name="r0">Radius of circle 1.</param>
-            <param name="x1">X value of point, in circle 2.</param>
-            <param name="y1">Y value of point, in circle 2.</param>
-            <param name="r1">Radius of circle 2.</param>
-            <param name="p1">Intersection point 1.</param>
-            <param name="p2">Intersection point 2.</param>
-            <returns>A <see cref="T:System.Boolean"/> result.</returns>
-        </member>
-        <member name="M:Sudoku.Graphics.MoonPainterHelper.BuildCrescentPath(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
-            <summary>
-            Build crescent path if can, from main circle <c>(<paramref name="cx"/>, <paramref name="cy"/>, <paramref name="r"/>)</c>
-            and side circle <c>(<paramref name="c2x"/>, <paramref name="c2y"/>, <paramref name="r2"/>)</c>.
-            If failed to build, <see langword="null"/> will be returned.
-            </summary>
-            <param name="cx">X value of center point of main circle.</param>
-            <param name="cy">Y value of center point of main circle.</param>
-            <param name="r">Radius of main circle.</param>
-            <param name="c2x">X value of center point of side circle.</param>
-            <param name="c2y">Y value of center point of side circle.</param>
-            <param name="r2">Radius of side circle.</param>
-            <returns>The path built. If failed to be built, <see langword="null"/>.</returns>
         </member>
         <member name="T:Sudoku.Graphics.Template">
             <summary>

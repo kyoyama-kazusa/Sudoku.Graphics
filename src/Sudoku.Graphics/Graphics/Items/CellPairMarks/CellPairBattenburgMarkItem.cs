@@ -37,15 +37,24 @@ public sealed record CellPairBattenburgMarkItem : CellPairMarkItem
 
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)
-		=> canvas.BackingCanvas.DrawBattenburg(
-			Cell1,
-			Cell2,
+	{
+		var mapper = canvas.Templates[TemplateIndex].Mapper;
+
+		var (cell1, cell2) = (Cell1, Cell2);
+		if (cell1 > cell2)
+		{
+			(cell1, _) = (cell2, cell1);
+		}
+
+		canvas.BackingCanvas.DrawBattenburg(
+			mapper.GetPointBetweenWithAdjacentRelation(cell1, cell2, out _),
 			SizeScale,
 			Color1,
 			Color2,
 			StrokeColor,
 			StrokeWidthScale,
 			[UniformCornerRadius, UniformCornerRadius, UniformCornerRadius, UniformCornerRadius],
-			canvas.Templates[TemplateIndex].Mapper
+			mapper
 		);
+	}
 }

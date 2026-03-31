@@ -26,15 +26,51 @@ public sealed record CellPhantomDiceMarkItem : CellMarkItem
 
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)
-		=> canvas.BackingCanvas.DrawPhantomDiceToCell(
-			Cell,
-			SubgridSize,
-			SizeScale,
-			StrokeColor,
-			StrokeWidthScale,
-			PhantomStrokeWidthScale,
-			FillColor,
-			States,
-			canvas.Templates[TemplateIndex].Mapper
-		);
+	{
+		var backingCanvas = canvas.BackingCanvas;
+		var mapper = canvas.Templates[TemplateIndex].Mapper;
+		var cellSize = mapper.CellSize;
+		for (var i = 0; i < SubgridSize * SubgridSize; i++)
+		{
+			var center = mapper.GetPoint(new CandidatePosition(Cell, SubgridSize, i), Alignment.Center);
+			var radius = SizeScale.Measure(cellSize) / 2;
+			if (States[i])
+			{
+				// Fill paint.
+				if (FillColor.Alpha != 0)
+				{
+					using var fillPaint = new SKPaint { Style = SKPaintStyle.Fill, IsAntialias = true, Color = FillColor };
+					backingCanvas.DrawCircle(center, radius, fillPaint);
+				}
+
+				// Stroke paint.
+				var strokeWidth = StrokeWidthScale.Measure(cellSize);
+				if (strokeWidth != 0 && StrokeColor.Alpha != 0)
+				{
+					using var strokePaint = new SKPaint
+					{
+						Style = SKPaintStyle.Stroke,
+						IsAntialias = true,
+						Color = StrokeColor,
+						StrokeWidth = strokeWidth
+					};
+					backingCanvas.DrawCircle(center, radius, strokePaint);
+				}
+				continue;
+			}
+
+			var phantomStrokeWidth = PhantomStrokeWidthScale.Measure(cellSize);
+			if (phantomStrokeWidth != 0 && StrokeColor.Alpha != 0)
+			{
+				using var phantomStrokePaint = new SKPaint
+				{
+					Style = SKPaintStyle.Stroke,
+					IsAntialias = true,
+					Color = StrokeColor,
+					StrokeWidth = phantomStrokeWidth
+				};
+				backingCanvas.DrawCircle(center, radius, phantomStrokePaint);
+			}
+		}
+	}
 }
