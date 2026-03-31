@@ -1,9 +1,9 @@
-﻿namespace Sudoku.ComponentModel.Zodiac;
+﻿namespace Sudoku.Graphics.Items.CellTextMarks;
 
 /// <summary>
-/// Represents a zodiac animal.
+/// Represents a zodiac symbol.
 /// </summary>
-public enum ZodiacAnimal
+public enum ZodiacSymbol
 {
 	/// <summary>
 	/// The placeholder of this type.

@@ -120,16 +120,6 @@
             <param name="color">The color.</param>
             <returns>A list of <see cref="T:Sudoku.Graphics.Items.Texts.GivenTextItem"/> instances.</returns>
         </member>
-        <member name="T:Sudoku.ComponentModel.Dices.DiceTable">
-            <summary>
-            Provides dice table.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Dices.DiceTable.Values">
-            <summary>
-            Represents values.
-            </summary>
-        </member>
         <member name="T:Sudoku.ComponentModel.Directions.Direction4">
             <summary>
             Represents a direction with 4 values.
@@ -843,41 +833,6 @@
         <member name="P:Sudoku.ComponentModel.Maths.OperatorExtensions.&lt;G&gt;$9697A4287BCBFA7FF775579354F937A3.Text">
             <inheritdoc cref="P:Sudoku.ComponentModel.Maths.OperatorExtensions.&lt;G&gt;$F634E77E6E510E35420061FF31771CEC.Text"/>
         </member>
-        <member name="T:Sudoku.ComponentModel.Moons.MoonPhase">
-            <summary>
-            Represents a moon phase.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Moons.MoonPhase.Unknown">
-            <summary>
-            Indicates the phase is unknown.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Moons.MoonPhase.Full">
-            <summary>
-            Indicates the phase is full.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Moons.MoonPhase.UpperHalf_Line">
-            <summary>
-            Indicates upper half, line.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Moons.MoonPhase.UpperHalf_Curve">
-            <summary>
-            Indicates upper half, curve.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Moons.MoonPhase.LowerHalf_Line">
-            <summary>
-            Indicates lower half, line.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Moons.MoonPhase.LowerHalf_Curve">
-            <summary>
-            Indicates lower curve, curve.
-            </summary>
-        </member>
         <member name="T:Sudoku.ComponentModel.Scale">
             <summary>
             Represents a relative-size value (scaling)
@@ -1213,79 +1168,6 @@
         <member name="M:Sudoku.ComponentModel.SerializableColorSet.Slice(System.Int32,System.Int32)">
             <inheritdoc cref="M:System.Collections.Generic.List`1.Slice(System.Int32,System.Int32)"/>
         </member>
-        <member name="T:Sudoku.ComponentModel.SevenSegmentsDisplay.LedStatesTable">
-            <summary>
-            Represents LED seven-segment display table.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.SevenSegmentsDisplay.LedStatesTable.Value">
-            <summary>
-            Provides a table of light-up segments in LED display.
-            </summary>
-            <remarks>
-            Order:
-            <code><![CDATA[
-                   [0]
-                 -------
-                |       |
-            [1] |       | [2]
-                |  [3]  |
-                 -------
-                |       |
-            [4] |       | [5]
-                |       |
-                 -------
-                   [6]
-            ]]></code>
-            </remarks>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Suits.Suit">
-            <summary>
-            Represents a suit.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Suits.Suit.None">
-            <summary>
-            The placeholder of this type.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Suits.Suit.Spade">
-            <summary>
-            Indicates spade.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Suits.Suit.Heart">
-            <summary>
-            Indicates heart.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Suits.Suit.Club">
-            <summary>
-            Indicates club.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Suits.Suit.Diamond">
-            <summary>
-            Indicates diamond.
-            </summary>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Suits.SuitExtensions">
-            <summary>
-            Provides extension members on <see cref="T:Sudoku.ComponentModel.Suits.Suit"/>.
-            </summary>
-            <seealso cref="T:Sudoku.ComponentModel.Suits.Suit"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Suits.SuitExtensions.get_FillColor(Sudoku.ComponentModel.Suits.Suit)">
-            <inheritdoc cref="P:Sudoku.ComponentModel.Suits.SuitExtensions.&lt;G&gt;$9E2E3DFD6F02A80A12B197A0563F0CEC.FillColor"/>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Suits.SuitExtensions.&lt;G&gt;$9E2E3DFD6F02A80A12B197A0563F0CEC.&lt;M&gt;$F10E279FE6C3868DA10DEE419760D19D">
-            <param name="this">The current instance.</param>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Suits.SuitExtensions.&lt;G&gt;$9E2E3DFD6F02A80A12B197A0563F0CEC.FillColor">
-            <summary>
-            Indicates fill color.
-            </summary>
-        </member>
         <member name="T:Sudoku.ComponentModel.Tetris.Piece">
             <summary>
             Represents a tetris piece.
@@ -1458,76 +1340,6 @@
             Initializes a <see cref="T:Sudoku.ComponentModel.Thickness"/> instance.
             </summary>
             <param name="uniform">The uniform value.</param>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Zodiac.ZodiacAnimal">
-            <summary>
-            Represents a zodiac animal.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Zodiac.ZodiacAnimal.None">
-            <summary>
-            The placeholder of this type.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Zodiac.ZodiacAnimal.Rat">
-            <summary>
-            Indicates rat.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Zodiac.ZodiacAnimal.Ox">
-            <summary>
-            Indicates ox.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Zodiac.ZodiacAnimal.Tiger">
-            <summary>
-            Indicates tiger.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Zodiac.ZodiacAnimal.Rabbit">
-            <summary>
-            Indicates rabbit.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Zodiac.ZodiacAnimal.Dragon">
-            <summary>
-            Indicates dragon.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Zodiac.ZodiacAnimal.Snake">
-            <summary>
-            Indicates snake.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Zodiac.ZodiacAnimal.Horse">
-            <summary>
-            Indicates horse.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Zodiac.ZodiacAnimal.Sheep">
-            <summary>
-            Indicates sheep.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Zodiac.ZodiacAnimal.Monkey">
-            <summary>
-            Indicates monkey.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Zodiac.ZodiacAnimal.Rooster">
-            <summary>
-            Indicates rooster.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Zodiac.ZodiacAnimal.Dog">
-            <summary>
-            Indicates dog.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Zodiac.ZodiacAnimal.Pig">
-            <summary>
-            Indicates pig.
-            </summary>
         </member>
         <member name="T:Sudoku.Graphics.Absolute">
             <summary>
@@ -3037,6 +2849,11 @@
             Represents cell dice mark item.
             </summary>
         </member>
+        <member name="F:Sudoku.Graphics.Items.CellMarks.CellDiceMarkItem.DiceLightupMatrix">
+            <summary>
+            Represents an array of lightup positions of all possible dice marks.
+            </summary>
+        </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellDiceMarkItem.Value">
             <inheritdoc/>
         </member>
@@ -3262,6 +3079,27 @@
             Represents a cell seven-segment display mark item.
             </summary>
         </member>
+        <member name="F:Sudoku.Graphics.Items.CellMarks.CellSevenSegmentDisplayMarkItem.LedStatesTable">
+            <summary>
+            Provides a table of light-up segments in LED display.
+            </summary>
+            <remarks>
+            Order:
+            <code><![CDATA[
+                   [0]
+                 -------
+                |       |
+            [1] |       | [2]
+                |  [3]  |
+                 -------
+                |       |
+            [4] |       | [5]
+                |       |
+                 -------
+                   [6]
+            ]]></code>
+            </remarks>
+        </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellSevenSegmentDisplayMarkItem.ShowPhantomSegments">
             <summary>
             Indicates whether phantom segments (segments not shown in specified value) are also shown, but not filled.
@@ -3357,6 +3195,41 @@
         </member>
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellTriangleMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.MoonPhase">
+            <summary>
+            Represents a moon phase.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellMarks.MoonPhase.Unknown">
+            <summary>
+            Indicates the phase is unknown.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellMarks.MoonPhase.Full">
+            <summary>
+            Indicates the phase is full.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellMarks.MoonPhase.UpperHalf_Line">
+            <summary>
+            Indicates upper half, line.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellMarks.MoonPhase.UpperHalf_Curve">
+            <summary>
+            Indicates upper half, curve.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellMarks.MoonPhase.LowerHalf_Line">
+            <summary>
+            Indicates lower half, line.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellMarks.MoonPhase.LowerHalf_Curve">
+            <summary>
+            Indicates lower curve, curve.
+            </summary>
         </member>
         <member name="T:Sudoku.Graphics.Items.CellPairMarks.CellPairBarMarkItem">
             <summary>
@@ -3935,9 +3808,9 @@
             Represents a cell zodiac emoji mark item.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellZodiacEmojiMarkItem.Zodiac">
+        <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellZodiacEmojiMarkItem.Symbol">
             <summary>
-            Indicates the zodiac animal.
+            Indicates the zodiac symbol.
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellZodiacEmojiMarkItem.Type">
@@ -3945,6 +3818,156 @@
         </member>
         <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellZodiacEmojiMarkItem.PrintingText">
             <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellTextMarks.Suit">
+            <summary>
+            Represents a suit.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.Suit.None">
+            <summary>
+            The placeholder of this type.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.Suit.Spade">
+            <summary>
+            Indicates spade.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.Suit.Heart">
+            <summary>
+            Indicates heart.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.Suit.Club">
+            <summary>
+            Indicates club.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.Suit.Diamond">
+            <summary>
+            Indicates diamond.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellTextMarks.SuitExtensions">
+            <summary>
+            Provides extension members on <see cref="T:Sudoku.Graphics.Items.CellTextMarks.Suit"/>.
+            </summary>
+            <seealso cref="T:Sudoku.Graphics.Items.CellTextMarks.Suit"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellTextMarks.SuitExtensions.get_EquivalentChar(Sudoku.Graphics.Items.CellTextMarks.Suit)">
+            <inheritdoc cref="P:Sudoku.Graphics.Items.CellTextMarks.SuitExtensions.&lt;G&gt;$AEFAEFB110DEC7734492467B630D209C.EquivalentChar"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellTextMarks.SuitExtensions.get_FillColor(Sudoku.Graphics.Items.CellTextMarks.Suit)">
+            <inheritdoc cref="P:Sudoku.Graphics.Items.CellTextMarks.SuitExtensions.&lt;G&gt;$AEFAEFB110DEC7734492467B630D209C.FillColor"/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellTextMarks.SuitExtensions.&lt;G&gt;$AEFAEFB110DEC7734492467B630D209C.&lt;M&gt;$19455A3FFD023252A9E07D4D1F9311D1">
+            <summary>
+            Provides extension members on <see cref="T:Sudoku.Graphics.Items.CellTextMarks.Suit"/> instances.
+            </summary>
+            <param name="this">The current instance.</param>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellTextMarks.SuitExtensions.&lt;G&gt;$AEFAEFB110DEC7734492467B630D209C.EquivalentChar">
+            <summary>
+            Indicates the equivalent character of the suit.
+            </summary>
+            <exception cref="T:System.ArgumentOutOfRangeException">Throws when <paramref name="this"/> is not defined.</exception>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellTextMarks.SuitExtensions.&lt;G&gt;$AEFAEFB110DEC7734492467B630D209C.FillColor">
+            <summary>
+            Indicates fill color.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbol">
+            <summary>
+            Represents a zodiac symbol.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbol.None">
+            <summary>
+            The placeholder of this type.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbol.Rat">
+            <summary>
+            Indicates rat.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbol.Ox">
+            <summary>
+            Indicates ox.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbol.Tiger">
+            <summary>
+            Indicates tiger.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbol.Rabbit">
+            <summary>
+            Indicates rabbit.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbol.Dragon">
+            <summary>
+            Indicates dragon.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbol.Snake">
+            <summary>
+            Indicates snake.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbol.Horse">
+            <summary>
+            Indicates horse.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbol.Sheep">
+            <summary>
+            Indicates sheep.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbol.Monkey">
+            <summary>
+            Indicates monkey.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbol.Rooster">
+            <summary>
+            Indicates rooster.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbol.Dog">
+            <summary>
+            Indicates dog.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbol.Pig">
+            <summary>
+            Indicates pig.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbolExtensions">
+            <summary>
+            Provides extensions for type <see cref="T:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbol"/>.
+            </summary>
+            <seealso cref="T:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbol"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbolExtensions.get_EmojiString(Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbol)">
+            <inheritdoc cref="P:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbolExtensions.&lt;G&gt;$7ABCED690DEDCAB678D37DA1950A8329.EmojiString"/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbolExtensions.&lt;G&gt;$7ABCED690DEDCAB678D37DA1950A8329.&lt;M&gt;$ED80FC85ABD694BC18C76D4D2E4365D9">
+            <summary>
+            Provides extension members on <see cref="T:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbol"/> instances.
+            </summary>
+            <param name="this">The current instance.</param>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbolExtensions.&lt;G&gt;$7ABCED690DEDCAB678D37DA1950A8329.EmojiString">
+            <summary>
+            Indicates the emoji string representation of this symbol.
+            </summary>
+            <exception cref="T:System.ArgumentOutOfRangeException">Throws when <paramref name="this"/> is not defined.</exception>
         </member>
         <member name="T:Sudoku.Graphics.Items.Fills.BackgroundFillItem">
             <summary>

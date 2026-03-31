@@ -1,4 +1,4 @@
-﻿namespace Sudoku.ComponentModel.Moons;
+﻿namespace Sudoku.Graphics.Items.CellMarks;
 
 /// <summary>
 /// Represents a moon phase.

@@ -14,13 +14,5 @@ public sealed record CellSuitTextMarkItem : CellTextMarkItem
 	public override ItemType Type => ItemType.CellText_Suit;
 
 	/// <inheritdoc/>
-	protected override string PrintingText
-		=> Suit switch
-		{
-			Suit.Spade => "\u2660",
-			Suit.Heart => "\u2665",
-			Suit.Club => "\u2663",
-			Suit.Diamond => "\u2666",
-			_ => string.Empty
-		};
+	protected override string PrintingText => Enum.IsDefined(Suit) ? Suit.EquivalentChar.ToString() : string.Empty;
 }

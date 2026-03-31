@@ -6,6 +6,39 @@
 public sealed record CellSevenSegmentDisplayMarkItem : CellMarkItem, IItem_ValueProperty<int>
 {
 	/// <summary>
+	/// Provides a table of light-up segments in LED display.
+	/// </summary>
+	/// <remarks>
+	/// Order:
+	/// <code><![CDATA[
+	///        [0]
+	///      -------
+	///     |       |
+	/// [1] |       | [2]
+	///     |  [3]  |
+	///      -------
+	///     |       |
+	/// [4] |       | [5]
+	///     |       |
+	///      -------
+	///        [6]
+	/// ]]></code>
+	/// </remarks>
+	public static readonly bool[][][] LedStatesTable = [
+		/*[0]*/ [[true, true, true, false, true, true, true]],
+		/*[1]*/ [[false, false, true, false, false, true, false]],
+		/*[2]*/ [[true, false, true, true, true, false, true]],
+		/*[3]*/ [[true, false, true, true, false, true, true]],
+		/*[4]*/ [[false, true, true, true, false, true, false]],
+		/*[5]*/ [[true, true, false, true, false, true, true]],
+		/*[6]*/ [[true, true, false, true, true, true, true], [false, true, false, true, true, true, true]],
+		/*[7]*/ [[true, false, true, false, false, true, false], [true, true, true, false, false, true, false]],
+		/*[8]*/ [[true, true, true, true, true, true, true]],
+		/*[9]*/ [[true, true, true, true, false, true, true], [true, true, true, true, false, true, false]]
+	];
+
+
+	/// <summary>
 	/// Indicates whether phantom segments (segments not shown in specified value) are also shown, but not filled.
 	/// </summary>
 	public required bool ShowPhantomSegments { get; init; }
@@ -129,7 +162,7 @@ public sealed record CellSevenSegmentDisplayMarkItem : CellMarkItem, IItem_Value
 		};
 		using var fillPaint = new SKPaint { Style = SKPaintStyle.Fill, IsAntialias = true, Color = FillColor };
 
-		var segmentsLightup = LedStatesTable.Value[/*digit*/Value][/*style*/0];
+		var segmentsLightup = LedStatesTable[Value][0];
 		for (var i = 0; i < segmentsLightup.Length; i++)
 		{
 			using var path = new SKPath();

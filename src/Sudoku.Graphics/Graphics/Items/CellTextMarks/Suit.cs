@@ -1,4 +1,4 @@
-﻿namespace Sudoku.ComponentModel.Suits;
+﻿namespace Sudoku.Graphics.Items.CellTextMarks;
 
 /// <summary>
 /// Represents a suit.

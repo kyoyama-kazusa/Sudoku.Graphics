@@ -5,6 +5,22 @@
 /// </summary>
 public sealed record CellDiceMarkItem : CellMarkItem, IItem_ValueProperty<int>
 {
+	/// <summary>
+	/// Represents an array of lightup positions of all possible dice marks.
+	/// </summary>
+	public static readonly bool[][,] DiceLightupMatrix = [
+		new[,] { { true } },
+		new[,] { { true, false }, { false, true } },
+		new[,] { { true, false, false }, { false, true, false }, { false, false, true } },
+		new[,] { { true, true }, { true, true } },
+		new[,] { { true, false, true }, { false, true, false }, { true, false, true } },
+		new[,] { { true, true }, { true, true }, { true, true } },
+		new[,] { { true, true, true }, { false, true, false }, { true, true, true } },
+		new[,] { { true, true, true }, { true, false, true }, { true, true, true } },
+		new[,] { { true, true, true }, { true, true, true }, { true, true, true } }
+	];
+
+
 	/// <inheritdoc/>
 	public required int Value { get; init; }
 
@@ -14,19 +30,15 @@ public sealed record CellDiceMarkItem : CellMarkItem, IItem_ValueProperty<int>
 
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)
-	{
-		var template = canvas.Templates[TemplateIndex];
-		var mapper = template.Mapper;
-		canvas.BackingCanvas.DrawTetromino(
+		=> canvas.BackingCanvas.DrawTetromino(
 			Cell,
 			StrokeWidthScale,
 			SizeScale,
-			DiceTable.Values[Value],
+			DiceLightupMatrix[Value],
 			StrokeColor,
 			FillColor,
 			.2M,
 			1M,
-			mapper
+			canvas.Templates[TemplateIndex].Mapper
 		);
-	}
 }
