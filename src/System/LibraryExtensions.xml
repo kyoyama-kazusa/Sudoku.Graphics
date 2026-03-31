@@ -134,6 +134,23 @@
             </summary>
             <returns>The equivalent <see cref="T:System.ReadOnlySpan`1"/> instance.</returns>
         </member>
+        <member name="T:System.EnvironmentExtensions">
+            <summary>
+            Provides extension members on <see cref="T:System.Environment"/>.
+            </summary>
+            <seealso cref="T:System.Environment"/>
+        </member>
+        <member name="M:System.EnvironmentExtensions.get_DesktopPath">
+            <inheritdoc cref="P:System.EnvironmentExtensions.&lt;G&gt;$57DD63EC381B40E0D8049D1E01FA2D1C.DesktopPath"/>
+        </member>
+        <member name="T:System.EnvironmentExtensions.&lt;G&gt;$57DD63EC381B40E0D8049D1E01FA2D1C.&lt;M&gt;$F6325BE232BD572B64A18ADD3350A572">
+            <inheritdoc cref="T:System.EnvironmentExtensions"/>
+        </member>
+        <member name="P:System.EnvironmentExtensions.&lt;G&gt;$57DD63EC381B40E0D8049D1E01FA2D1C.DesktopPath">
+            <summary>
+            Represents desktop path.
+            </summary>
+        </member>
         <member name="T:System.ExceptionExtensions">
             <summary>
             Provides extension members on <see cref="T:System.Exception"/>.

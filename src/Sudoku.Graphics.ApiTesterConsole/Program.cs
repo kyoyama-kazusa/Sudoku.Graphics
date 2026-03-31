@@ -63,18 +63,3 @@ canvas.DrawItems(
 );
 canvas.Export(Path.Combine(desktop, "output.png"), new() { Quality = 100 });
 Console.WriteLine("Okay.");
-
-
-/// <summary>
-/// Provides main method as entry point of this program.
-/// </summary>
-file static partial class Program
-{
-	extension(Environment)
-	{
-		/// <summary>
-		/// Represents desktop path.
-		/// </summary>
-		public static string DesktopPath => Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-	}
-}
