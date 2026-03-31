@@ -1,4 +1,4 @@
-﻿namespace Sudoku.ComponentModel.Directions;
+﻿namespace Sudoku.Graphics.Directions;
 
 /// <summary>
 /// Represents an orientation, with 2 values.

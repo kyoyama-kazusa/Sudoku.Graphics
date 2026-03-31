@@ -1,4 +1,4 @@
-﻿namespace Sudoku.ComponentModel.Arrows;
+﻿namespace Sudoku.Graphics.Directions;
 
 /// <summary>
 /// Provides extension methods on <see cref="Direction8"/>.

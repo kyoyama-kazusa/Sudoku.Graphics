@@ -9,7 +9,6 @@
 using System;
 using System.IO;
 using SkiaSharp;
-using Sudoku.ComponentModel;
 using Sudoku.Graphics;
 using Sudoku.Graphics.Items.CellGroupMarks;
 using Sudoku.Graphics.Items.Fills;

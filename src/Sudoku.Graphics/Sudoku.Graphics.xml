@@ -4,978 +4,6 @@
         <name>Sudoku.Graphics</name>
     </assembly>
     <members>
-        <member name="T:Sudoku.ComponentModel.Alignment">
-            <summary>
-            Represents an alignment type.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Alignment.None">
-            <summary>
-            Indicates the placeholder of this type.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Alignment.Center">
-            <summary>
-            Indicates center point of container.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Alignment.TopLeft">
-            <summary>
-            Indicates top-left point of container.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Alignment.TopRight">
-            <summary>
-            Indicates top-right point of container.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Alignment.BottomLeft">
-            <summary>
-            Indicates bottom-left point of container.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Alignment.BottomRight">
-            <summary>
-            Indicates bottom-right point of container.
-            </summary>
-        </member>
-        <member name="T:Sudoku.ComponentModel.CoverStyle">
-            <summary>
-            Represents a style of cover (text background).
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.CoverStyle.None">
-            <summary>
-            The placeholder of this type.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.CoverStyle.Rectangle">
-            <summary>
-            Indicates cover is a rectangle.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.CoverStyle.Square">
-            <summary>
-            Indicates cover is square.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.CoverStyle.Oval">
-            <summary>
-            Indicates cover is an oval.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.CoverStyle.Circle">
-            <summary>
-            Indicates cover is a circle.
-            </summary>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Directions.Direction4">
-            <summary>
-            Represents a direction with 4 values.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Directions.Direction4.None">
-            <summary>
-            Indicates the placeholder of this type.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Directions.Direction4.Up">
-            <summary>
-            Indicates up direction.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Directions.Direction4.Down">
-            <summary>
-            Indicates down direction.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Directions.Direction4.Left">
-            <summary>
-            Indicates left direction.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Directions.Direction4.Right">
-            <summary>
-            Indicates right direction.
-            </summary>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Directions.Direction4Extensions">
-            <summary>
-            Provides extension members on <see cref="T:Sudoku.ComponentModel.Directions.Direction4"/>.
-            </summary>
-            <seealso cref="T:Sudoku.ComponentModel.Directions.Direction4"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Directions.Direction4Extensions.get_Reversed(Sudoku.ComponentModel.Directions.Direction4)">
-            <inheritdoc cref="P:Sudoku.ComponentModel.Directions.Direction4Extensions.&lt;G&gt;$46499EBB6DA2398900472858BB7B575A.Reversed"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Directions.Direction4Extensions.get_Negated(Sudoku.ComponentModel.Directions.Direction4)">
-            <inheritdoc cref="P:Sudoku.ComponentModel.Directions.Direction4Extensions.&lt;G&gt;$46499EBB6DA2398900472858BB7B575A.Negated"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Directions.Direction4Extensions.AsDirection8(Sudoku.ComponentModel.Directions.Direction4)">
-            <inheritdoc cref="M:Sudoku.ComponentModel.Directions.Direction4Extensions.&lt;G&gt;$46499EBB6DA2398900472858BB7B575A.AsDirection8"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Directions.Direction4Extensions.get_AllDirections">
-            <inheritdoc cref="P:Sudoku.ComponentModel.Directions.Direction4Extensions.&lt;G&gt;$46499EBB6DA2398900472858BB7B575A.AllDirections"/>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Directions.Direction4Extensions.&lt;G&gt;$46499EBB6DA2398900472858BB7B575A.&lt;M&gt;$5D31F7507F04C33E2EC3EE48FD455D82">
-            <param name="this">The current direction.</param>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Directions.Direction4Extensions.&lt;G&gt;$46499EBB6DA2398900472858BB7B575A.Reversed">
-            <summary>
-            Indicates the reversed direction of the current direction.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Directions.Direction4Extensions.&lt;G&gt;$46499EBB6DA2398900472858BB7B575A.Negated">
-            <summary>
-            Indicates the negated direction of the current direction.
-            If the current instance contains multiple directions as flags, it'll negate all directions contained.
-            </summary>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Directions.Direction4Extensions.&lt;G&gt;$46499EBB6DA2398900472858BB7B575A.AsDirection8">
-            <summary>
-            Returns an equivalent <see cref="T:Sudoku.ComponentModel.Directions.Direction8"/> instance (8-direction enumeration type).
-            </summary>
-            <returns>An equivalent <see cref="T:Sudoku.ComponentModel.Directions.Direction8"/> instance.</returns>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Directions.Direction4Extensions.&lt;G&gt;$46499EBB6DA2398900472858BB7B575A.AllDirections">
-            <summary>
-            Indicates all directions.
-            </summary>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Directions.Direction8">
-            <summary>
-            Represents a direction with 8 values.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Directions.Direction8.None">
-            <summary>
-            Indicates the placeholder of this type.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Directions.Direction8.Up">
-            <summary>
-            Indicates up direction.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Directions.Direction8.Down">
-            <summary>
-            Indicates down direction.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Directions.Direction8.Left">
-            <summary>
-            Indicates left direction.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Directions.Direction8.Right">
-            <summary>
-            Indicates right direction.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Directions.Direction8.LeftUp">
-            <summary>
-            Indicates left up direction.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Directions.Direction8.RightUp">
-            <summary>
-            Indicates right up direction.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Directions.Direction8.LeftDown">
-            <summary>
-            Indicates left down direction.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Directions.Direction8.RightDown">
-            <summary>
-            Indicates right down direction.
-            </summary>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Directions.DirectionVector">
-            <summary>
-            Represents an encapsulated type of a quadruple of <see cref="T:Sudoku.Graphics.Relative"/> values,
-            indicating direction offsets.
-            </summary>
-            <param name="Up">Indicates upside offsets.</param>
-            <param name="Down">Indicates downside offsets.</param>
-            <param name="Left">Indicates leftside offsets.</param>
-            <param name="Right">Indicates rightside offsets.</param>
-            <completionlist cref="T:Sudoku.ComponentModel.Directions.DirectionVector"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Directions.DirectionVector.#ctor(Sudoku.Graphics.Relative,Sudoku.Graphics.Relative,Sudoku.Graphics.Relative,Sudoku.Graphics.Relative)">
-            <summary>
-            Represents an encapsulated type of a quadruple of <see cref="T:Sudoku.Graphics.Relative"/> values,
-            indicating direction offsets.
-            </summary>
-            <param name="Up">Indicates upside offsets.</param>
-            <param name="Down">Indicates downside offsets.</param>
-            <param name="Left">Indicates leftside offsets.</param>
-            <param name="Right">Indicates rightside offsets.</param>
-            <completionlist cref="T:Sudoku.ComponentModel.Directions.DirectionVector"/>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Directions.DirectionVector.Up">
-            <summary>Indicates upside offsets.</summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Directions.DirectionVector.Down">
-            <summary>Indicates downside offsets.</summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Directions.DirectionVector.Left">
-            <summary>Indicates leftside offsets.</summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Directions.DirectionVector.Right">
-            <summary>Indicates rightside offsets.</summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Directions.DirectionVector.Zero">
-            <summary>
-            Indicates the instance whose members are initialized zero.
-            </summary>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Directions.DirectionVector.#ctor(Sudoku.Graphics.Relative)">
-            <summary>
-            Initializes a <see cref="T:Sudoku.ComponentModel.Directions.DirectionVector"/> instance via the uniform value.
-            </summary>
-            <param name="uniform">The uniform value.</param>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Directions.DirectionVector.#ctor(Sudoku.Graphics.Relative,Sudoku.Graphics.Relative)">
-            <summary>
-            Initializes a <see cref="T:Sudoku.ComponentModel.Directions.DirectionVector"/> instance via two values indicating up (&amp; left) and down (&amp; right).
-            For example, <c><see langword="new"/>(0, 1, 0, 1)</c> can be simplified to <c><see langword="new"/>(0, 1)</c>.
-            </summary>
-            <param name="upAndLeft">The uniform value for both up and left directions.</param>
-            <param name="downAndRight">The uniform value for both down and right directions.</param>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Directions.DirectionVector.GetValue(Sudoku.ComponentModel.Directions.Direction4)">
-            <summary>
-            Returns the value at the specified direction.
-            </summary>
-            <param name="direction">The direction.</param>
-            <returns>Result value.</returns>
-            <exception cref="T:System.ArgumentOutOfRangeException">
-            Throws when <paramref name="direction"/> is not defined or <see cref="F:Sudoku.ComponentModel.Directions.Direction4.None"/>.
-            </exception>
-            <seealso cref="F:Sudoku.ComponentModel.Directions.Direction4.None"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Directions.DirectionVector.Equals(Sudoku.ComponentModel.Directions.DirectionVector@)">
-            <inheritdoc cref="M:System.IEquatable`1.Equals(`0)"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Directions.DirectionVector.GetHashCode">
-            <inheritdoc cref="M:System.Object.GetHashCode"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Directions.DirectionVector.op_Addition(Sudoku.ComponentModel.Directions.DirectionVector@,Sudoku.ComponentModel.Directions.DirectionVector@)">
-            <inheritdoc cref="M:System.Numerics.IAdditionOperators`3.op_Addition(`0,`1)"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Directions.DirectionVector.op_CheckedAddition(Sudoku.ComponentModel.Directions.DirectionVector@,Sudoku.ComponentModel.Directions.DirectionVector@)">
-            <inheritdoc cref="M:System.Numerics.IAdditionOperators`3.op_CheckedAddition(`0,`1)"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Directions.DirectionVector.op_Subtraction(Sudoku.ComponentModel.Directions.DirectionVector@,Sudoku.ComponentModel.Directions.DirectionVector@)">
-            <inheritdoc cref="M:System.Numerics.ISubtractionOperators`3.op_Subtraction(`0,`1)"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Directions.DirectionVector.op_CheckedSubtraction(Sudoku.ComponentModel.Directions.DirectionVector@,Sudoku.ComponentModel.Directions.DirectionVector@)">
-            <inheritdoc cref="M:System.Numerics.ISubtractionOperators`3.op_CheckedSubtraction(`0,`1)"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Directions.DirectionVector.System#Numerics#IAdditionOperators{Sudoku#ComponentModel#Directions#DirectionVector,Sudoku#ComponentModel#Directions#DirectionVector,Sudoku#ComponentModel#Directions#DirectionVector}#op_Addition(Sudoku.ComponentModel.Directions.DirectionVector,Sudoku.ComponentModel.Directions.DirectionVector)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Directions.DirectionVector.System#Numerics#IAdditionOperators{Sudoku#ComponentModel#Directions#DirectionVector,Sudoku#ComponentModel#Directions#DirectionVector,Sudoku#ComponentModel#Directions#DirectionVector}#op_CheckedAddition(Sudoku.ComponentModel.Directions.DirectionVector,Sudoku.ComponentModel.Directions.DirectionVector)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Directions.DirectionVector.System#Numerics#ISubtractionOperators{Sudoku#ComponentModel#Directions#DirectionVector,Sudoku#ComponentModel#Directions#DirectionVector,Sudoku#ComponentModel#Directions#DirectionVector}#op_Subtraction(Sudoku.ComponentModel.Directions.DirectionVector,Sudoku.ComponentModel.Directions.DirectionVector)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Directions.DirectionVector.System#Numerics#ISubtractionOperators{Sudoku#ComponentModel#Directions#DirectionVector,Sudoku#ComponentModel#Directions#DirectionVector,Sudoku#ComponentModel#Directions#DirectionVector}#op_CheckedSubtraction(Sudoku.ComponentModel.Directions.DirectionVector,Sudoku.ComponentModel.Directions.DirectionVector)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Directions.Converter">
-            <summary>
-            Represents a JSON converter object that converts <see cref="T:Sudoku.ComponentModel.Directions.DirectionVector"/> instances.
-            </summary>
-            <seealso cref="T:Sudoku.ComponentModel.Directions.DirectionVector"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Directions.Converter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Directions.Converter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.ComponentModel.Directions.DirectionVector,System.Text.Json.JsonSerializerOptions)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Directions.Orientation2">
-            <summary>
-            Represents an orientation, with 2 values.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Directions.Orientation2.None">
-            <summary>
-            Represents placeholder of this type.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Directions.Orientation2.Horizontal">
-            <summary>
-            Indicates horizontal.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Directions.Orientation2.Vertical">
-            <summary>
-            Indicates vertical.
-            </summary>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Directions.Orientation4">
-            <summary>
-            Represents an orientation, with 4 values.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Directions.Orientation4.None">
-            <summary>
-            Represents placeholder of this type.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Directions.Orientation4.Horizontal">
-            <summary>
-            Indicates horizontal (-).
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Directions.Orientation4.Vertical">
-            <summary>
-            Indicates vertical (|).
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Directions.Orientation4.Slash">
-            <summary>
-            Indicates slash (/).
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Directions.Orientation4.Backslash">
-            <summary>
-            Indicates backslash (\).
-            </summary>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Directions.RotationDirection">
-            <summary>
-            Represents a rotation direction.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Directions.RotationDirection.None">
-            <summary>
-            Indicates placeholder of this type.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Directions.RotationDirection.Clockwise">
-            <summary>
-            Indicates rotation direction is clockwise.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.Directions.RotationDirection.Counterclockwise">
-            <summary>
-            Indicates rotation direction is counterclockwise.
-            </summary>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Arrows.Direction8Extensions">
-            <summary>
-            Provides extension methods on <see cref="T:Sudoku.ComponentModel.Directions.Direction8"/>.
-            </summary>
-            <seealso cref="T:Sudoku.ComponentModel.Directions.Direction8"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Arrows.Direction8Extensions.get_IsDiagonal(Sudoku.ComponentModel.Directions.Direction8)">
-            <inheritdoc cref="P:Sudoku.ComponentModel.Arrows.Direction8Extensions.&lt;G&gt;$86875FD76E049402F61EE37C6818224B.IsDiagonal"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Arrows.Direction8Extensions.get_ArrowString(Sudoku.ComponentModel.Directions.Direction8)">
-            <inheritdoc cref="P:Sudoku.ComponentModel.Arrows.Direction8Extensions.&lt;G&gt;$86875FD76E049402F61EE37C6818224B.ArrowString"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Arrows.Direction8Extensions.get_RotationDegrees(Sudoku.ComponentModel.Directions.Direction8)">
-            <inheritdoc cref="P:Sudoku.ComponentModel.Arrows.Direction8Extensions.&lt;G&gt;$86875FD76E049402F61EE37C6818224B.RotationDegrees"/>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Arrows.Direction8Extensions.&lt;G&gt;$86875FD76E049402F61EE37C6818224B.&lt;M&gt;$9691BE04B4AA63155CF318614E86F5A4">
-            <param name="this">The current instance.</param>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Arrows.Direction8Extensions.&lt;G&gt;$86875FD76E049402F61EE37C6818224B.IsDiagonal">
-            <summary>
-            Indicates whether the direction points to diagonal direction.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Arrows.Direction8Extensions.&lt;G&gt;$86875FD76E049402F61EE37C6818224B.ArrowString">
-            <summary>
-            Indicates arrow string of this direction pointing to.
-            </summary>
-            <exception cref="T:System.ArgumentOutOfRangeException">
-            Throws when <paramref name="this"/> is not defined or <see cref="F:Sudoku.ComponentModel.Directions.Direction8.None"/>.
-            </exception>
-            <seealso cref="F:Sudoku.ComponentModel.Directions.Direction8.None"/>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Arrows.Direction8Extensions.&lt;G&gt;$86875FD76E049402F61EE37C6818224B.RotationDegrees">
-            <summary>
-            Indicates the degrees of the specified direction, in angle.
-            </summary>
-            <exception cref="T:System.ArgumentOutOfRangeException">Throws when the current instance is not defined.</exception>
-            <seealso cref="F:Sudoku.ComponentModel.Directions.Direction8.None"/>
-        </member>
-        <member name="T:Sudoku.ComponentModel.GridTemplateSize">
-            <summary>
-            Represents logical size of a <see cref="T:Sudoku.Graphics.Templating.Template"/> instance.
-            </summary>
-            <seealso cref="T:Sudoku.Graphics.Templating.Template"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.GridTemplateSize.#ctor">
-            <summary>
-            Represents logical size of a <see cref="T:Sudoku.Graphics.Templating.Template"/> instance.
-            </summary>
-            <seealso cref="T:Sudoku.Graphics.Templating.Template"/>
-        </member>
-        <member name="P:Sudoku.ComponentModel.GridTemplateSize.RowsCount">
-            <summary>
-            Indicates the number of rows in main sudoku grid.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.GridTemplateSize.ColumnsCount">
-            <summary>
-            Indicates the number of columns in main sudoku grid.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.GridTemplateSize.AbsoluteRowsCount">
-            <summary>
-            Indicates the number of rows. The number of rows should be an absolute value,
-            including reserved regions (used by drawing outside-like puzzles).
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.GridTemplateSize.AbsoluteColumnsCount">
-            <summary>
-            Indiactes the number of columns. The number of columns should be an absolute value,
-            including reserved regions (used by drawing outside-like puzzles).
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.GridTemplateSize.Vector">
-            <summary>
-            Indicates empty cells count reserved to be empty. By default it's <see cref="F:Sudoku.ComponentModel.Directions.DirectionVector.Zero"/>.
-            </summary>
-            <seealso cref="F:Sudoku.ComponentModel.Directions.DirectionVector.Zero"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.GridTemplateSize.Equals(Sudoku.ComponentModel.GridTemplateSize)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.GridTemplateSize.GetHashCode">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.GridTemplateSize.Create(System.ReadOnlySpan{Sudoku.Graphics.Templating.Template})">
-            <summary>
-            Creates a <see cref="T:Sudoku.ComponentModel.GridTemplateSize"/> instance via the specified list of templates.
-            Such templates will be drawn into one <see cref="T:Sudoku.Graphics.Canvas"/> instance, aligning as top-left cell <c>(0, 0)</c>.
-            </summary>
-            <param name="templates">The templates.</param>
-            <returns>A <see cref="T:Sudoku.ComponentModel.GridTemplateSize"/> instance that is the minimal size, covering all templates specified.</returns>
-            <seealso cref="T:Sudoku.Graphics.Canvas"/>
-        </member>
-        <member name="T:Sudoku.ComponentModel.HouseType">
-            <summary>
-            Provides a house type.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.HouseType.Unknown">
-            <summary>
-            Indicates unknown house type.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.HouseType.Row">
-            <summary>
-            Indicates row type.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.HouseType.Column">
-            <summary>
-            Indicates column type.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.HouseType.Nonet">
-            <summary>
-            Indicates nonet type.
-            </summary>
-        </member>
-        <member name="T:Sudoku.ComponentModel.LineDashSequence">
-            <summary>
-            Represents a sequence of dash intervals.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.LineDashSequence._intervals">
-            <summary>
-            The backing intervals.
-            </summary>
-        </member>
-        <member name="M:Sudoku.ComponentModel.LineDashSequence.#ctor">
-            <summary>
-            Initializes a <see cref="T:Sudoku.ComponentModel.LineDashSequence"/>.
-            </summary>
-        </member>
-        <member name="M:Sudoku.ComponentModel.LineDashSequence.#ctor(System.ReadOnlySpan{System.Single})">
-            <summary>
-            Initializes a <see cref="T:Sudoku.ComponentModel.LineDashSequence"/> via the specified intervals.
-            </summary>
-            <param name="intervals">The intervals.</param>
-        </member>
-        <member name="P:Sudoku.ComponentModel.LineDashSequence.IsEmpty">
-            <summary>
-            Indicates whether the sequence is empty.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.LineDashSequence.Intervals">
-            <summary>
-            Indicates interval values.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.LineDashSequence.Item(System.Int32)">
-            <summary>
-            Returns the element at the specified index.
-            </summary>
-            <param name="index">The desired index.</param>
-            <returns>The value.</returns>
-        </member>
-        <member name="M:Sudoku.ComponentModel.LineDashSequence.Add(System.Single)">
-            <summary>
-            Adds a new element into the collection.
-            </summary>
-            <param name="value">The value.</param>
-        </member>
-        <member name="M:Sudoku.ComponentModel.LineDashSequence.ToString">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.LineDashSequence.GetEnumerator">
-            <inheritdoc cref="M:System.Collections.Generic.IEnumerable`1.GetEnumerator"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.LineDashSequence.Create(System.ReadOnlySpan{System.Single})">
-            <summary>
-            Creates a <see cref="T:Sudoku.ComponentModel.LineDashSequence"/> instance via intervals.
-            </summary>
-            <param name="values">The intervals.</param>
-            <returns>The instance.</returns>
-        </member>
-        <member name="M:Sudoku.ComponentModel.LineDashSequence.System#Collections#IEnumerable#GetEnumerator">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.LineDashSequence.System#Collections#Generic#IEnumerable{System#Single}#GetEnumerator">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.LineDashSequence.op_Implicit(Sudoku.ComponentModel.LineDashSequence)~SkiaSharp.SKPathEffect">
-            <summary>
-            Implicit cast from <see cref="T:Sudoku.ComponentModel.LineDashSequence"/> into <see cref="T:SkiaSharp.SKPathEffect"/>.
-            </summary>
-            <param name="sequence">The sequence.</param>
-        </member>
-        <member name="T:Sudoku.ComponentModel.LineDashSequence.Enumerator">
-            <summary>
-            Represents an enumerator object that iterates on each <see cref="T:System.Single"/> values.
-            </summary>
-            <param name="values">The <see cref="T:System.Single"/> values.</param>
-        </member>
-        <member name="M:Sudoku.ComponentModel.LineDashSequence.Enumerator.#ctor(System.ReadOnlySpan{System.Single})">
-            <summary>
-            Represents an enumerator object that iterates on each <see cref="T:System.Single"/> values.
-            </summary>
-            <param name="values">The <see cref="T:System.Single"/> values.</param>
-        </member>
-        <member name="F:Sudoku.ComponentModel.LineDashSequence.Enumerator._values">
-            <summary>
-            Indicates the backing values.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.LineDashSequence.Enumerator._index">
-            <summary>
-            Indicates the current index.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.LineDashSequence.Enumerator.Current">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.ComponentModel.LineDashSequence.Enumerator.System#Collections#IEnumerator#Current">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.LineDashSequence.Enumerator.MoveNext">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.LineDashSequence.Enumerator.System#IDisposable#Dispose">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.LineDashSequence.Enumerator.System#Collections#IEnumerator#Reset">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Converter">
-            <summary>
-            Represents <see cref="T:Sudoku.ComponentModel.LineDashSequence"/> JSON converter.
-            </summary>
-            <seealso cref="T:Sudoku.ComponentModel.LineDashSequence"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Converter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Converter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.ComponentModel.LineDashSequence,System.Text.Json.JsonSerializerOptions)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Scale">
-            <summary>
-            Represents a relative-size value (scaling)
-            that supports both <see cref="T:System.Single"/> and <see cref="T:System.Decimal"/> literal initialization.
-            </summary>
-            <param name="value">The fact value of a <see cref="T:System.Single"/>.</param>
-            <exception cref="T:System.ArgumentOutOfRangeException">
-            Throws when the argument <paramref name="value"/> is greater than 1 or less than 0.
-            </exception>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Scale.#ctor(System.Decimal)">
-            <summary>
-            Represents a relative-size value (scaling)
-            that supports both <see cref="T:System.Single"/> and <see cref="T:System.Decimal"/> literal initialization.
-            </summary>
-            <param name="value">The fact value of a <see cref="T:System.Single"/>.</param>
-            <exception cref="T:System.ArgumentOutOfRangeException">
-            Throws when the argument <paramref name="value"/> is greater than 1 or less than 0.
-            </exception>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Scale.IsNegative">
-            <summary>
-            Indicates whether the current scale value is negative (&lt; 0).
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Scale.IsPositive">
-            <summary>
-            Indicates whether the current scale value is positive (&gt; 0).
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Scale.Value">
-            <summary>
-            Indicates the value.
-            </summary>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Scale.Equals(System.Object)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Scale.Equals(Sudoku.ComponentModel.Scale)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Scale.Measure(System.Single)">
-            <summary>
-            Measure the fact value
-            (i.e. performs the formula <c><paramref name="value"/> * <see langword="this"/>.RatioValue</c>).
-            </summary>
-            <param name="value">The original value.</param>
-            <returns>The target value measured.</returns>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Scale.CompareTo(Sudoku.ComponentModel.Scale)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Scale.GetHashCode">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Scale.ToString">
-            <inheritdoc cref="M:System.Object.ToString"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Scale.ToString(System.String)">
-            <inheritdoc cref="M:System.Double.ToString(System.String)"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Scale.op_Equality(Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Scale.op_Inequality(Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Scale.op_GreaterThan(Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Scale.op_GreaterThanOrEqual(Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Scale.op_LessThan(Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Scale.op_LessThanOrEqual(Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Scale.op_Implicit(System.Single)~Sudoku.ComponentModel.Scale">
-            <summary>
-            Implicit cast from <see cref="T:System.Single"/> into <see cref="T:Sudoku.ComponentModel.Scale"/> value.
-            </summary>
-            <param name="value">The value.</param>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Scale.op_Implicit(System.Decimal)~Sudoku.ComponentModel.Scale">
-            <summary>
-            Implicit cast from <see cref="T:System.Decimal"/> into <see cref="T:Sudoku.ComponentModel.Scale"/> value.
-            </summary>
-            <param name="value">The value.</param>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Scale.op_Explicit(Sudoku.ComponentModel.Scale)~System.Single">
-            <summary>
-            Explicit cast from <see cref="T:Sudoku.ComponentModel.Scale"/> into <see cref="T:System.Single"/> value.
-            </summary>
-            <param name="value">The value.</param>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Scale.op_Explicit(Sudoku.ComponentModel.Scale)~System.Decimal">
-            <summary>
-            Explicit cast from <see cref="T:Sudoku.ComponentModel.Scale"/> into <see cref="T:System.Decimal"/> value.
-            </summary>
-            <param name="value">The value.</param>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Converter">
-            <summary>
-            Represents a JSON converter for <see cref="T:Sudoku.ComponentModel.Scale"/> instances.
-            </summary>
-            <seealso cref="T:Sudoku.ComponentModel.Scale"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Converter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Converter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.ComponentModel.Scale,System.Text.Json.JsonSerializerOptions)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.ComponentModel.SerializableColor">
-            <summary>
-            Represents a repository-wide color instance that can be serialized and deserialized.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.SerializableColor.WellknownColors">
-            <summary>
-            Indicates well-known colors.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.SerializableColor.WellKnownColorsReversed">
-            <summary>
-            Indicates well-known colors, in reversed lookup.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.SerializableColor._mask">
-            <summary>
-            Indicates the mask.
-            </summary>
-        </member>
-        <member name="M:Sudoku.ComponentModel.SerializableColor.#ctor(System.Byte,System.Byte,System.Byte,System.Byte)">
-            <summary>
-            Initializes a <see cref="T:Sudoku.ComponentModel.SerializableColor"/> instance via the specified values of RGBA.
-            </summary>
-            <param name="red">The red value.</param>
-            <param name="green">The green value.</param>
-            <param name="blue">The blue value.</param>
-            <param name="alpha">The alpha value. By default it's 255.</param>
-        </member>
-        <member name="M:Sudoku.ComponentModel.SerializableColor.#ctor(SkiaSharp.SKColor)">
-            <summary>
-            Initializes a <see cref="T:Sudoku.ComponentModel.SerializableColor"/> instance via the equivalent <see cref="T:SkiaSharp.SKColor"/> instance.
-            </summary>
-            <param name="color">The color.</param>
-        </member>
-        <member name="M:Sudoku.ComponentModel.SerializableColor.#ctor(System.UInt32)">
-            <summary>
-            Initializes a <see cref="T:Sudoku.ComponentModel.SerializableColor"/> instance via the specified mask.
-            </summary>
-            <param name="mask">The mask.</param>
-        </member>
-        <member name="P:Sudoku.ComponentModel.SerializableColor.Red">
-            <summary>
-            Indicates red value.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.SerializableColor.Green">
-            <summary>
-            Indicates green value.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.SerializableColor.Blue">
-            <summary>
-            Indicates blue value.
-            </summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.SerializableColor.Alpha">
-            <summary>
-            Indicates alpha value.
-            </summary>
-        </member>
-        <member name="M:Sudoku.ComponentModel.SerializableColor.Deconstruct(System.Byte@,System.Byte@,System.Byte@)">
-            <summary>
-            Deconstruct instance into multiple values.
-            </summary>
-        </member>
-        <member name="M:Sudoku.ComponentModel.SerializableColor.Deconstruct(System.Byte@,System.Byte@,System.Byte@,System.Byte@)">
-            <inheritdoc cref="M:Sudoku.ComponentModel.SerializableColor.Deconstruct(System.Byte@,System.Byte@,System.Byte@)"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.SerializableColor.Equals(System.Object)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.SerializableColor.Equals(Sudoku.ComponentModel.SerializableColor)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.SerializableColor.GetHashCode">
-            <inheritdoc cref="M:System.Object.GetHashCode"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.SerializableColor.ToString">
-            <inheritdoc cref="M:System.Object.ToString"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.SerializableColor.ToString(Sudoku.ComponentModel.SerializableColorFormat)">
-            <summary>
-            Converts the current instance into <see cref="T:System.String"/> representation.
-            </summary>
-            <param name="format">The format.</param>
-            <returns>The string representation.</returns>
-        </member>
-        <member name="M:Sudoku.ComponentModel.SerializableColor.TryParse(System.String,Sudoku.ComponentModel.SerializableColor@)">
-            <inheritdoc cref="M:System.IParsable`1.TryParse(System.String,System.IFormatProvider,`0@)"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.SerializableColor.TryParse(System.String,Sudoku.ComponentModel.SerializableColorFormat,Sudoku.ComponentModel.SerializableColor@)">
-            <inheritdoc cref="M:System.IParsable`1.TryParse(System.String,System.IFormatProvider,`0@)"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.SerializableColor.Parse(System.String)">
-            <inheritdoc cref="M:System.IParsable`1.Parse(System.String,System.IFormatProvider)"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.SerializableColor.Parse(System.String,Sudoku.ComponentModel.SerializableColorFormat)">
-            <inheritdoc cref="M:System.IParsable`1.Parse(System.String,System.IFormatProvider)"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.SerializableColor.op_Equality(Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.SerializableColor.op_Inequality(Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.SerializableColor.op_Implicit(SkiaSharp.SKColor)~Sudoku.ComponentModel.SerializableColor">
-            <summary>
-            Implicit cast from <see cref="T:SkiaSharp.SKColor"/> to <see cref="T:Sudoku.ComponentModel.SerializableColor"/>.
-            </summary>
-            <param name="color">The original value.</param>
-        </member>
-        <member name="M:Sudoku.ComponentModel.SerializableColor.op_Implicit(Sudoku.ComponentModel.SerializableColor)~SkiaSharp.SKColor">
-            <summary>
-            Implicit cast from <see cref="T:Sudoku.ComponentModel.SerializableColor"/> to <see cref="T:SkiaSharp.SKColor"/>.
-            </summary>
-            <param name="color">The original value.</param>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Converter">
-            <summary>
-            Represents JSON converter of <see cref="T:Sudoku.ComponentModel.SerializableColor"/>.
-            </summary>
-            <seealso cref="T:Sudoku.ComponentModel.SerializableColor"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Converter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Converter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.ComponentModel.SerializableColor,System.Text.Json.JsonSerializerOptions)">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.ComponentModel.SerializableColorFormat">
-            <summary>
-            Represents an enumeration field that describes a kind of format of <see cref="T:Sudoku.ComponentModel.SerializableColor"/>.
-            </summary>
-            <seealso cref="T:Sudoku.ComponentModel.SerializableColor"/>
-        </member>
-        <member name="F:Sudoku.ComponentModel.SerializableColorFormat.TupleRgb">
-            <summary>
-            Format <c>(Red, Green, Blue)</c>.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.SerializableColorFormat.TupleArgb">
-            <summary>
-            Format <c>(Alpha, Red, Green, Blue)</c>.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.SerializableColorFormat.TupleRgba">
-            <summary>
-            Format <c>(Red, Green, Blue, Alpha)</c>.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.SerializableColorFormat.HexRgb">
-            <summary>
-            Format <c>#RRGGBB</c>.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.SerializableColorFormat.HexRgbShort">
-            <summary>
-            Format <c>#RGB</c>.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.SerializableColorFormat.HexArgb">
-            <summary>
-            Format <c>#AARRGGBB</c> (.NET style).
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.SerializableColorFormat.HexArgbShort">
-            <summary>
-            Format <c>#ARGB</c>.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.SerializableColorFormat.HexRgba">
-            <summary>
-            Format <c>#RRGGBBAA</c> (CSS Level 4).
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.SerializableColorFormat.HexRgbaShort">
-            <summary>
-            Format <c>#RGBA</c>.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.SerializableColorFormat.RgbFunction">
-            <summary>
-            Format <c>rgb(Red, Green, Blue)</c>.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.SerializableColorFormat.RgbaFunction">
-            <summary>
-            Format <c>rgba(Red, Green, Blue, Alpha (float))</c>.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.SerializableColorFormat.NamedColor">
-            <summary>
-            Named color format.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.SerializableColorFormat.HexInteger">
-            <summary>
-            Format <c>0xAARRGGBB</c>.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.SerializableColorFormat.DecimalInteger">
-            <summary>
-            Decimal 32-bit ARGB.
-            </summary>
-        </member>
-        <member name="F:Sudoku.ComponentModel.SerializableColorFormat.AnsiTrueColor">
-            <summary>
-            Format <c>\e[38;2;255;0;0m</c>.
-            </summary>
-        </member>
-        <member name="T:Sudoku.ComponentModel.SerializableColorSet">
-            <summary>
-            Represents a collection of <see cref="T:Sudoku.ComponentModel.SerializableColor"/> instances.
-            </summary>
-            <seealso cref="T:Sudoku.ComponentModel.SerializableColor"/>
-        </member>
-        <member name="M:Sudoku.ComponentModel.SerializableColorSet.Slice(System.Int32,System.Int32)">
-            <inheritdoc cref="M:System.Collections.Generic.List`1.Slice(System.Int32,System.Int32)"/>
-        </member>
-        <member name="T:Sudoku.ComponentModel.Thickness">
-            <summary>
-            Represents thickness.
-            </summary>
-            <param name="Left">Indicates the left offset size.</param>
-            <param name="Top">Indicates the top offset size.</param>
-            <param name="Right">Indicates the right offset size.</param>
-            <param name="Bottom">Indicates the bottom size.</param>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Thickness.#ctor(System.Single,System.Single,System.Single,System.Single)">
-            <summary>
-            Represents thickness.
-            </summary>
-            <param name="Left">Indicates the left offset size.</param>
-            <param name="Top">Indicates the top offset size.</param>
-            <param name="Right">Indicates the right offset size.</param>
-            <param name="Bottom">Indicates the bottom size.</param>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Thickness.Left">
-            <summary>Indicates the left offset size.</summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Thickness.Top">
-            <summary>Indicates the top offset size.</summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Thickness.Right">
-            <summary>Indicates the right offset size.</summary>
-        </member>
-        <member name="P:Sudoku.ComponentModel.Thickness.Bottom">
-            <summary>Indicates the bottom size.</summary>
-        </member>
-        <member name="M:Sudoku.ComponentModel.Thickness.#ctor(System.Single)">
-            <summary>
-            Initializes a <see cref="T:Sudoku.ComponentModel.Thickness"/> instance.
-            </summary>
-            <param name="uniform">The uniform value.</param>
-        </member>
         <member name="T:Sudoku.Graphics.Absolute">
             <summary>
             Represents an <see cref="T:System.Int32"/> value that describes an absolute index.
@@ -1014,7 +42,7 @@
         <member name="M:Sudoku.Graphics.Absolute.ToString">
             <inheritdoc cref="M:System.Object.ToString"/>
         </member>
-        <member name="M:Sudoku.Graphics.Absolute.IsInOneLine(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.Graphics.PointMapper,Sudoku.ComponentModel.HouseType@)">
+        <member name="M:Sudoku.Graphics.Absolute.IsInOneLine(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.Graphics.PointMapper,Sudoku.Graphics.HouseType@)">
             <summary>
             Determine whether two <see cref="T:Sudoku.Graphics.Absolute"/> cells are in one line (row or column).
             </summary>
@@ -1024,7 +52,7 @@
             <param name="houseType">The house type.</param>
             <returns>A <see cref="T:System.Boolean"/> result.</returns>
         </member>
-        <member name="M:Sudoku.Graphics.Absolute.IsAdjacent(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.Graphics.PointMapper,Sudoku.ComponentModel.HouseType@)">
+        <member name="M:Sudoku.Graphics.Absolute.IsAdjacent(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.Graphics.PointMapper,Sudoku.Graphics.HouseType@)">
             <summary>
             Determine whether two <see cref="T:Sudoku.Graphics.Absolute"/> cells are adjacent with each other.
             </summary>
@@ -1038,7 +66,7 @@
             <summary>
             Gets the detailed adjacent relations between two cells specified,
             and return the relative direction of <paramref name="left"/>.
-            If there's no adjacent relation between two cells, <see cref="F:Sudoku.ComponentModel.Directions.Direction8.None"/> will be returned.
+            If there's no adjacent relation between two cells, <see cref="F:Sudoku.Graphics.Directions.Direction8.None"/> will be returned.
             </summary>
             <param name="left">The left instance.</param>
             <param name="right">The right instance.</param>
@@ -1073,6 +101,41 @@
             <param name="columnsCount">The number of columns as offset.</param>
             <param name="mapper">The mapper instance.</param>
             <returns>The result.</returns>
+        </member>
+        <member name="T:Sudoku.Graphics.Alignment">
+            <summary>
+            Represents an alignment type.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Alignment.None">
+            <summary>
+            Indicates the placeholder of this type.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Alignment.Center">
+            <summary>
+            Indicates center point of container.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Alignment.TopLeft">
+            <summary>
+            Indicates top-left point of container.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Alignment.TopRight">
+            <summary>
+            Indicates top-right point of container.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Alignment.BottomLeft">
+            <summary>
+            Indicates bottom-left point of container.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Alignment.BottomRight">
+            <summary>
+            Indicates bottom-right point of container.
+            </summary>
         </member>
         <member name="T:Sudoku.Graphics.CandidatePosition">
             <summary>
@@ -1416,6 +479,454 @@
         <member name="P:Sudoku.Graphics.CanvasExportingOptions.Quality">
             <summary>
             Indicates the quality. Range 0..100. Default 80.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.CoverStyle">
+            <summary>
+            Represents a style of cover (text background).
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.CoverStyle.None">
+            <summary>
+            The placeholder of this type.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.CoverStyle.Rectangle">
+            <summary>
+            Indicates cover is a rectangle.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.CoverStyle.Square">
+            <summary>
+            Indicates cover is square.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.CoverStyle.Oval">
+            <summary>
+            Indicates cover is an oval.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.CoverStyle.Circle">
+            <summary>
+            Indicates cover is a circle.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.Directions.Direction4">
+            <summary>
+            Represents a direction with 4 values.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Directions.Direction4.None">
+            <summary>
+            Indicates the placeholder of this type.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Directions.Direction4.Up">
+            <summary>
+            Indicates up direction.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Directions.Direction4.Down">
+            <summary>
+            Indicates down direction.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Directions.Direction4.Left">
+            <summary>
+            Indicates left direction.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Directions.Direction4.Right">
+            <summary>
+            Indicates right direction.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.Directions.Direction4Extensions">
+            <summary>
+            Provides extension members on <see cref="T:Sudoku.Graphics.Directions.Direction4"/>.
+            </summary>
+            <seealso cref="T:Sudoku.Graphics.Directions.Direction4"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Directions.Direction4Extensions.get_Reversed(Sudoku.Graphics.Directions.Direction4)">
+            <inheritdoc cref="P:Sudoku.Graphics.Directions.Direction4Extensions.&lt;G&gt;$07BC35D0957F84D7FEAA2F9D865D6674.Reversed"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Directions.Direction4Extensions.get_Negated(Sudoku.Graphics.Directions.Direction4)">
+            <inheritdoc cref="P:Sudoku.Graphics.Directions.Direction4Extensions.&lt;G&gt;$07BC35D0957F84D7FEAA2F9D865D6674.Negated"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Directions.Direction4Extensions.AsDirection8(Sudoku.Graphics.Directions.Direction4)">
+            <inheritdoc cref="M:Sudoku.Graphics.Directions.Direction4Extensions.&lt;G&gt;$07BC35D0957F84D7FEAA2F9D865D6674.AsDirection8"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Directions.Direction4Extensions.get_AllDirections">
+            <inheritdoc cref="P:Sudoku.Graphics.Directions.Direction4Extensions.&lt;G&gt;$07BC35D0957F84D7FEAA2F9D865D6674.AllDirections"/>
+        </member>
+        <member name="T:Sudoku.Graphics.Directions.Direction4Extensions.&lt;G&gt;$07BC35D0957F84D7FEAA2F9D865D6674.&lt;M&gt;$4DB8EE753D660AFD9E2725B74F5BD3A2">
+            <param name="this">The current direction.</param>
+        </member>
+        <member name="P:Sudoku.Graphics.Directions.Direction4Extensions.&lt;G&gt;$07BC35D0957F84D7FEAA2F9D865D6674.Reversed">
+            <summary>
+            Indicates the reversed direction of the current direction.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Directions.Direction4Extensions.&lt;G&gt;$07BC35D0957F84D7FEAA2F9D865D6674.Negated">
+            <summary>
+            Indicates the negated direction of the current direction.
+            If the current instance contains multiple directions as flags, it'll negate all directions contained.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Directions.Direction4Extensions.&lt;G&gt;$07BC35D0957F84D7FEAA2F9D865D6674.AsDirection8">
+            <summary>
+            Returns an equivalent <see cref="T:Sudoku.Graphics.Directions.Direction8"/> instance (8-direction enumeration type).
+            </summary>
+            <returns>An equivalent <see cref="T:Sudoku.Graphics.Directions.Direction8"/> instance.</returns>
+        </member>
+        <member name="P:Sudoku.Graphics.Directions.Direction4Extensions.&lt;G&gt;$07BC35D0957F84D7FEAA2F9D865D6674.AllDirections">
+            <summary>
+            Indicates all directions.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.Directions.Direction8">
+            <summary>
+            Represents a direction with 8 values.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Directions.Direction8.None">
+            <summary>
+            Indicates the placeholder of this type.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Directions.Direction8.Up">
+            <summary>
+            Indicates up direction.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Directions.Direction8.Down">
+            <summary>
+            Indicates down direction.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Directions.Direction8.Left">
+            <summary>
+            Indicates left direction.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Directions.Direction8.Right">
+            <summary>
+            Indicates right direction.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Directions.Direction8.LeftUp">
+            <summary>
+            Indicates left up direction.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Directions.Direction8.RightUp">
+            <summary>
+            Indicates right up direction.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Directions.Direction8.LeftDown">
+            <summary>
+            Indicates left down direction.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Directions.Direction8.RightDown">
+            <summary>
+            Indicates right down direction.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.Directions.Direction8Extensions">
+            <summary>
+            Provides extension methods on <see cref="T:Sudoku.Graphics.Directions.Direction8"/>.
+            </summary>
+            <seealso cref="T:Sudoku.Graphics.Directions.Direction8"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Directions.Direction8Extensions.get_IsDiagonal(Sudoku.Graphics.Directions.Direction8)">
+            <inheritdoc cref="P:Sudoku.Graphics.Directions.Direction8Extensions.&lt;G&gt;$1C31DA024E5B9271B9DAD708D064BAF2.IsDiagonal"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Directions.Direction8Extensions.get_ArrowString(Sudoku.Graphics.Directions.Direction8)">
+            <inheritdoc cref="P:Sudoku.Graphics.Directions.Direction8Extensions.&lt;G&gt;$1C31DA024E5B9271B9DAD708D064BAF2.ArrowString"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Directions.Direction8Extensions.get_RotationDegrees(Sudoku.Graphics.Directions.Direction8)">
+            <inheritdoc cref="P:Sudoku.Graphics.Directions.Direction8Extensions.&lt;G&gt;$1C31DA024E5B9271B9DAD708D064BAF2.RotationDegrees"/>
+        </member>
+        <member name="T:Sudoku.Graphics.Directions.Direction8Extensions.&lt;G&gt;$1C31DA024E5B9271B9DAD708D064BAF2.&lt;M&gt;$86966439171B911499FB08F171AECF45">
+            <param name="this">The current instance.</param>
+        </member>
+        <member name="P:Sudoku.Graphics.Directions.Direction8Extensions.&lt;G&gt;$1C31DA024E5B9271B9DAD708D064BAF2.IsDiagonal">
+            <summary>
+            Indicates whether the direction points to diagonal direction.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Directions.Direction8Extensions.&lt;G&gt;$1C31DA024E5B9271B9DAD708D064BAF2.ArrowString">
+            <summary>
+            Indicates arrow string of this direction pointing to.
+            </summary>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Throws when <paramref name="this"/> is not defined or <see cref="F:Sudoku.Graphics.Directions.Direction8.None"/>.
+            </exception>
+            <seealso cref="F:Sudoku.Graphics.Directions.Direction8.None"/>
+        </member>
+        <member name="P:Sudoku.Graphics.Directions.Direction8Extensions.&lt;G&gt;$1C31DA024E5B9271B9DAD708D064BAF2.RotationDegrees">
+            <summary>
+            Indicates the degrees of the specified direction, in angle.
+            </summary>
+            <exception cref="T:System.ArgumentOutOfRangeException">Throws when the current instance is not defined.</exception>
+            <seealso cref="F:Sudoku.Graphics.Directions.Direction8.None"/>
+        </member>
+        <member name="T:Sudoku.Graphics.Directions.DirectionVector">
+            <summary>
+            Represents an encapsulated type of a quadruple of <see cref="T:Sudoku.Graphics.Relative"/> values,
+            indicating direction offsets.
+            </summary>
+            <param name="Up">Indicates upside offsets.</param>
+            <param name="Down">Indicates downside offsets.</param>
+            <param name="Left">Indicates leftside offsets.</param>
+            <param name="Right">Indicates rightside offsets.</param>
+            <completionlist cref="T:Sudoku.Graphics.Directions.DirectionVector"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Directions.DirectionVector.#ctor(Sudoku.Graphics.Relative,Sudoku.Graphics.Relative,Sudoku.Graphics.Relative,Sudoku.Graphics.Relative)">
+            <summary>
+            Represents an encapsulated type of a quadruple of <see cref="T:Sudoku.Graphics.Relative"/> values,
+            indicating direction offsets.
+            </summary>
+            <param name="Up">Indicates upside offsets.</param>
+            <param name="Down">Indicates downside offsets.</param>
+            <param name="Left">Indicates leftside offsets.</param>
+            <param name="Right">Indicates rightside offsets.</param>
+            <completionlist cref="T:Sudoku.Graphics.Directions.DirectionVector"/>
+        </member>
+        <member name="P:Sudoku.Graphics.Directions.DirectionVector.Up">
+            <summary>Indicates upside offsets.</summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Directions.DirectionVector.Down">
+            <summary>Indicates downside offsets.</summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Directions.DirectionVector.Left">
+            <summary>Indicates leftside offsets.</summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Directions.DirectionVector.Right">
+            <summary>Indicates rightside offsets.</summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Directions.DirectionVector.Zero">
+            <summary>
+            Indicates the instance whose members are initialized zero.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Directions.DirectionVector.#ctor(Sudoku.Graphics.Relative)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Graphics.Directions.DirectionVector"/> instance via the uniform value.
+            </summary>
+            <param name="uniform">The uniform value.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.Directions.DirectionVector.#ctor(Sudoku.Graphics.Relative,Sudoku.Graphics.Relative)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Graphics.Directions.DirectionVector"/> instance via two values indicating up (&amp; left) and down (&amp; right).
+            For example, <c><see langword="new"/>(0, 1, 0, 1)</c> can be simplified to <c><see langword="new"/>(0, 1)</c>.
+            </summary>
+            <param name="upAndLeft">The uniform value for both up and left directions.</param>
+            <param name="downAndRight">The uniform value for both down and right directions.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.Directions.DirectionVector.GetValue(Sudoku.Graphics.Directions.Direction4)">
+            <summary>
+            Returns the value at the specified direction.
+            </summary>
+            <param name="direction">The direction.</param>
+            <returns>Result value.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Throws when <paramref name="direction"/> is not defined or <see cref="F:Sudoku.Graphics.Directions.Direction4.None"/>.
+            </exception>
+            <seealso cref="F:Sudoku.Graphics.Directions.Direction4.None"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Directions.DirectionVector.Equals(Sudoku.Graphics.Directions.DirectionVector@)">
+            <inheritdoc cref="M:System.IEquatable`1.Equals(`0)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Directions.DirectionVector.GetHashCode">
+            <inheritdoc cref="M:System.Object.GetHashCode"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Directions.DirectionVector.op_Addition(Sudoku.Graphics.Directions.DirectionVector@,Sudoku.Graphics.Directions.DirectionVector@)">
+            <inheritdoc cref="M:System.Numerics.IAdditionOperators`3.op_Addition(`0,`1)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Directions.DirectionVector.op_CheckedAddition(Sudoku.Graphics.Directions.DirectionVector@,Sudoku.Graphics.Directions.DirectionVector@)">
+            <inheritdoc cref="M:System.Numerics.IAdditionOperators`3.op_CheckedAddition(`0,`1)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Directions.DirectionVector.op_Subtraction(Sudoku.Graphics.Directions.DirectionVector@,Sudoku.Graphics.Directions.DirectionVector@)">
+            <inheritdoc cref="M:System.Numerics.ISubtractionOperators`3.op_Subtraction(`0,`1)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Directions.DirectionVector.op_CheckedSubtraction(Sudoku.Graphics.Directions.DirectionVector@,Sudoku.Graphics.Directions.DirectionVector@)">
+            <inheritdoc cref="M:System.Numerics.ISubtractionOperators`3.op_CheckedSubtraction(`0,`1)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Directions.DirectionVector.System#Numerics#IAdditionOperators{Sudoku#Graphics#Directions#DirectionVector,Sudoku#Graphics#Directions#DirectionVector,Sudoku#Graphics#Directions#DirectionVector}#op_Addition(Sudoku.Graphics.Directions.DirectionVector,Sudoku.Graphics.Directions.DirectionVector)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Directions.DirectionVector.System#Numerics#IAdditionOperators{Sudoku#Graphics#Directions#DirectionVector,Sudoku#Graphics#Directions#DirectionVector,Sudoku#Graphics#Directions#DirectionVector}#op_CheckedAddition(Sudoku.Graphics.Directions.DirectionVector,Sudoku.Graphics.Directions.DirectionVector)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Directions.DirectionVector.System#Numerics#ISubtractionOperators{Sudoku#Graphics#Directions#DirectionVector,Sudoku#Graphics#Directions#DirectionVector,Sudoku#Graphics#Directions#DirectionVector}#op_Subtraction(Sudoku.Graphics.Directions.DirectionVector,Sudoku.Graphics.Directions.DirectionVector)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Directions.DirectionVector.System#Numerics#ISubtractionOperators{Sudoku#Graphics#Directions#DirectionVector,Sudoku#Graphics#Directions#DirectionVector,Sudoku#Graphics#Directions#DirectionVector}#op_CheckedSubtraction(Sudoku.Graphics.Directions.DirectionVector,Sudoku.Graphics.Directions.DirectionVector)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Directions.Converter">
+            <summary>
+            Represents a JSON converter object that converts <see cref="T:Sudoku.Graphics.Directions.DirectionVector"/> instances.
+            </summary>
+            <seealso cref="T:Sudoku.Graphics.Directions.DirectionVector"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Directions.Converter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Directions.Converter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.Graphics.Directions.DirectionVector,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Directions.Orientation2">
+            <summary>
+            Represents an orientation, with 2 values.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Directions.Orientation2.None">
+            <summary>
+            Represents placeholder of this type.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Directions.Orientation2.Horizontal">
+            <summary>
+            Indicates horizontal.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Directions.Orientation2.Vertical">
+            <summary>
+            Indicates vertical.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.Directions.Orientation4">
+            <summary>
+            Represents an orientation, with 4 values.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Directions.Orientation4.None">
+            <summary>
+            Represents placeholder of this type.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Directions.Orientation4.Horizontal">
+            <summary>
+            Indicates horizontal (-).
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Directions.Orientation4.Vertical">
+            <summary>
+            Indicates vertical (|).
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Directions.Orientation4.Slash">
+            <summary>
+            Indicates slash (/).
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Directions.Orientation4.Backslash">
+            <summary>
+            Indicates backslash (\).
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.Directions.RotationDirection">
+            <summary>
+            Represents a rotation direction.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Directions.RotationDirection.None">
+            <summary>
+            Indicates placeholder of this type.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Directions.RotationDirection.Clockwise">
+            <summary>
+            Indicates rotation direction is clockwise.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Directions.RotationDirection.Counterclockwise">
+            <summary>
+            Indicates rotation direction is counterclockwise.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.GridTemplateSize">
+            <summary>
+            Represents logical size of a <see cref="T:Sudoku.Graphics.Templating.Template"/> instance.
+            </summary>
+            <seealso cref="T:Sudoku.Graphics.Templating.Template"/>
+        </member>
+        <member name="M:Sudoku.Graphics.GridTemplateSize.#ctor">
+            <summary>
+            Represents logical size of a <see cref="T:Sudoku.Graphics.Templating.Template"/> instance.
+            </summary>
+            <seealso cref="T:Sudoku.Graphics.Templating.Template"/>
+        </member>
+        <member name="P:Sudoku.Graphics.GridTemplateSize.RowsCount">
+            <summary>
+            Indicates the number of rows in main sudoku grid.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.GridTemplateSize.ColumnsCount">
+            <summary>
+            Indicates the number of columns in main sudoku grid.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.GridTemplateSize.AbsoluteRowsCount">
+            <summary>
+            Indicates the number of rows. The number of rows should be an absolute value,
+            including reserved regions (used by drawing outside-like puzzles).
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.GridTemplateSize.AbsoluteColumnsCount">
+            <summary>
+            Indiactes the number of columns. The number of columns should be an absolute value,
+            including reserved regions (used by drawing outside-like puzzles).
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.GridTemplateSize.Vector">
+            <summary>
+            Indicates empty cells count reserved to be empty. By default it's <see cref="F:Sudoku.Graphics.Directions.DirectionVector.Zero"/>.
+            </summary>
+            <seealso cref="F:Sudoku.Graphics.Directions.DirectionVector.Zero"/>
+        </member>
+        <member name="M:Sudoku.Graphics.GridTemplateSize.Equals(Sudoku.Graphics.GridTemplateSize)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.GridTemplateSize.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.GridTemplateSize.Create(System.ReadOnlySpan{Sudoku.Graphics.Templating.Template})">
+            <summary>
+            Creates a <see cref="T:Sudoku.Graphics.GridTemplateSize"/> instance via the specified list of templates.
+            Such templates will be drawn into one <see cref="T:Sudoku.Graphics.Canvas"/> instance, aligning as top-left cell <c>(0, 0)</c>.
+            </summary>
+            <param name="templates">The templates.</param>
+            <returns>A <see cref="T:Sudoku.Graphics.GridTemplateSize"/> instance that is the minimal size, covering all templates specified.</returns>
+            <seealso cref="T:Sudoku.Graphics.Canvas"/>
+        </member>
+        <member name="T:Sudoku.Graphics.HouseType">
+            <summary>
+            Provides a house type.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.HouseType.Unknown">
+            <summary>
+            Indicates unknown house type.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.HouseType.Row">
+            <summary>
+            Indicates row type.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.HouseType.Column">
+            <summary>
+            Indicates column type.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.HouseType.Nonet">
+            <summary>
+            Indicates nonet type.
             </summary>
         </member>
         <member name="T:Sudoku.Graphics.IInteger`1">
@@ -2239,7 +1750,7 @@
             Provides a way to draw capsules and trails.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.Items.CellGroupMarks.CapsuleTrailDrawer.DrawCapsule(SkiaSharp.SKCanvas,System.ReadOnlySpan{SkiaSharp.SKPoint},System.Single,Sudoku.ComponentModel.Scale,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPath@)">
+        <member name="M:Sudoku.Graphics.Items.CellGroupMarks.CapsuleTrailDrawer.DrawCapsule(SkiaSharp.SKCanvas,System.ReadOnlySpan{SkiaSharp.SKPoint},System.Single,Sudoku.Graphics.Scale,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPath@)">
             <summary>
             Draws a capsule.
             </summary>
@@ -2303,9 +1814,9 @@
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellApexCornerTriangleMarkItem.CornerAlignment">
             <summary>
-            Indicates corner alignment. The value cannot be <see cref="F:Sudoku.ComponentModel.Alignment.Center"/> due to design.
+            Indicates corner alignment. The value cannot be <see cref="F:Sudoku.Graphics.Alignment.Center"/> due to design.
             </summary>
-            <seealso cref="F:Sudoku.ComponentModel.Alignment.Center"/>
+            <seealso cref="F:Sudoku.Graphics.Alignment.Center"/>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellApexCornerTriangleMarkItem.Type">
             <inheritdoc/>
@@ -2440,7 +1951,7 @@
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedTriangleMarkItem.Type">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedTriangleMarkItem.Sudoku#Graphics#Items#IItem_DirectionProperty{Sudoku#ComponentModel#Directions#Direction4}#Direction">
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedTriangleMarkItem.Sudoku#Graphics#Items#IItem_DirectionProperty{Sudoku#Graphics#Directions#Direction4}#Direction">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedTriangleMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
@@ -3627,9 +3138,9 @@
         </member>
         <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellTextMarkItem.RotationDirection">
             <summary>
-            Indicates the rotation direction. By default it's <see cref="F:Sudoku.ComponentModel.Directions.Direction8.Up"/> (upright, no rotation).
+            Indicates the rotation direction. By default it's <see cref="F:Sudoku.Graphics.Directions.Direction8.Up"/> (upright, no rotation).
             </summary>
-            <seealso cref="F:Sudoku.ComponentModel.Directions.Direction8.Up"/>
+            <seealso cref="F:Sudoku.Graphics.Directions.Direction8.Up"/>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellTextMarkItem.FontWeight">
             <inheritdoc/>
@@ -4215,7 +3726,7 @@
             <param name="bottom">The bottom value of grid.</param>
             <returns>The result point.</returns>
         </member>
-        <member name="M:Sudoku.Graphics.Items.Lines.GridLineExtender.ComputeExtendedLine(SkiaSharp.SKPoint,Sudoku.ComponentModel.Alignment,SkiaSharp.SKPoint,Sudoku.ComponentModel.Alignment,System.Single,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,System.Single,System.Single)">
+        <member name="M:Sudoku.Graphics.Items.Lines.GridLineExtender.ComputeExtendedLine(SkiaSharp.SKPoint,Sudoku.Graphics.Alignment,SkiaSharp.SKPoint,Sudoku.Graphics.Alignment,System.Single,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,System.Single,System.Single)">
             <summary>
             Calculates start and end point, with line extended.
             </summary>
@@ -4719,6 +4230,124 @@
         <member name="M:Sudoku.Graphics.ItemTypeOrdering.Enumerator.System#IDisposable#Dispose">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.LineDashSequence">
+            <summary>
+            Represents a sequence of dash intervals.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.LineDashSequence._intervals">
+            <summary>
+            The backing intervals.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.LineDashSequence.#ctor">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Graphics.LineDashSequence"/>.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.LineDashSequence.#ctor(System.ReadOnlySpan{System.Single})">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Graphics.LineDashSequence"/> via the specified intervals.
+            </summary>
+            <param name="intervals">The intervals.</param>
+        </member>
+        <member name="P:Sudoku.Graphics.LineDashSequence.IsEmpty">
+            <summary>
+            Indicates whether the sequence is empty.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.LineDashSequence.Intervals">
+            <summary>
+            Indicates interval values.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.LineDashSequence.Item(System.Int32)">
+            <summary>
+            Returns the element at the specified index.
+            </summary>
+            <param name="index">The desired index.</param>
+            <returns>The value.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.LineDashSequence.Add(System.Single)">
+            <summary>
+            Adds a new element into the collection.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.LineDashSequence.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.LineDashSequence.GetEnumerator">
+            <inheritdoc cref="M:System.Collections.Generic.IEnumerable`1.GetEnumerator"/>
+        </member>
+        <member name="M:Sudoku.Graphics.LineDashSequence.Create(System.ReadOnlySpan{System.Single})">
+            <summary>
+            Creates a <see cref="T:Sudoku.Graphics.LineDashSequence"/> instance via intervals.
+            </summary>
+            <param name="values">The intervals.</param>
+            <returns>The instance.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.LineDashSequence.System#Collections#IEnumerable#GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.LineDashSequence.System#Collections#Generic#IEnumerable{System#Single}#GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.LineDashSequence.op_Implicit(Sudoku.Graphics.LineDashSequence)~SkiaSharp.SKPathEffect">
+            <summary>
+            Implicit cast from <see cref="T:Sudoku.Graphics.LineDashSequence"/> into <see cref="T:SkiaSharp.SKPathEffect"/>.
+            </summary>
+            <param name="sequence">The sequence.</param>
+        </member>
+        <member name="T:Sudoku.Graphics.LineDashSequence.Enumerator">
+            <summary>
+            Represents an enumerator object that iterates on each <see cref="T:System.Single"/> values.
+            </summary>
+            <param name="values">The <see cref="T:System.Single"/> values.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.LineDashSequence.Enumerator.#ctor(System.ReadOnlySpan{System.Single})">
+            <summary>
+            Represents an enumerator object that iterates on each <see cref="T:System.Single"/> values.
+            </summary>
+            <param name="values">The <see cref="T:System.Single"/> values.</param>
+        </member>
+        <member name="F:Sudoku.Graphics.LineDashSequence.Enumerator._values">
+            <summary>
+            Indicates the backing values.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.LineDashSequence.Enumerator._index">
+            <summary>
+            Indicates the current index.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.LineDashSequence.Enumerator.Current">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.LineDashSequence.Enumerator.System#Collections#IEnumerator#Current">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.LineDashSequence.Enumerator.MoveNext">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.LineDashSequence.Enumerator.System#IDisposable#Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.LineDashSequence.Enumerator.System#Collections#IEnumerator#Reset">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Converter">
+            <summary>
+            Represents <see cref="T:Sudoku.Graphics.LineDashSequence"/> JSON converter.
+            </summary>
+            <seealso cref="T:Sudoku.Graphics.LineDashSequence"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Converter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Converter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.Graphics.LineDashSequence,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.PointMapper">
             <summary>
             Represents a point mapper instance.
@@ -4738,19 +4367,19 @@
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.PointMapper.RowsCount">
-            <inheritdoc cref="P:Sudoku.ComponentModel.GridTemplateSize.RowsCount"/>
+            <inheritdoc cref="P:Sudoku.Graphics.GridTemplateSize.RowsCount"/>
         </member>
         <member name="P:Sudoku.Graphics.PointMapper.ColumnsCount">
-            <inheritdoc cref="P:Sudoku.ComponentModel.GridTemplateSize.ColumnsCount"/>
+            <inheritdoc cref="P:Sudoku.Graphics.GridTemplateSize.ColumnsCount"/>
         </member>
         <member name="P:Sudoku.Graphics.PointMapper.AbsoluteRowsCount">
-            <inheritdoc cref="P:Sudoku.ComponentModel.GridTemplateSize.AbsoluteRowsCount"/>
+            <inheritdoc cref="P:Sudoku.Graphics.GridTemplateSize.AbsoluteRowsCount"/>
         </member>
         <member name="P:Sudoku.Graphics.PointMapper.AbsoluteColumnsCount">
-            <inheritdoc cref="P:Sudoku.ComponentModel.GridTemplateSize.AbsoluteColumnsCount"/>
+            <inheritdoc cref="P:Sudoku.Graphics.GridTemplateSize.AbsoluteColumnsCount"/>
         </member>
         <member name="P:Sudoku.Graphics.PointMapper.Vector">
-            <inheritdoc cref="P:Sudoku.ComponentModel.GridTemplateSize.Vector"/>
+            <inheritdoc cref="P:Sudoku.Graphics.GridTemplateSize.Vector"/>
         </member>
         <member name="P:Sudoku.Graphics.PointMapper.TemplateSize">
             <summary>
@@ -4770,7 +4399,7 @@
             <param name="relativeCellIndex">Relative cell index.</param>
             <returns>The result absolute index.</returns>
         </member>
-        <member name="M:Sudoku.Graphics.PointMapper.GetAbsoluteIndex(Sudoku.Graphics.Relative,Sudoku.ComponentModel.Directions.Direction4,Sudoku.Graphics.Absolute)">
+        <member name="M:Sudoku.Graphics.PointMapper.GetAbsoluteIndex(Sudoku.Graphics.Relative,Sudoku.Graphics.Directions.Direction4,Sudoku.Graphics.Absolute)">
             <summary>
             Projects the specified relative cell index into absolute one;
             with the specified direction as outside offset one, and an offset value <paramref name="offset"/>
@@ -4790,7 +4419,7 @@
             <param name="absoluteCellIndex">Absolute cell index.</param>
             <returns>The result relative index.</returns>
         </member>
-        <member name="M:Sudoku.Graphics.PointMapper.GetAdjacentAbsoluteCellWith(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction4,System.Boolean)">
+        <member name="M:Sudoku.Graphics.PointMapper.GetAdjacentAbsoluteCellWith(Sudoku.Graphics.Absolute,Sudoku.Graphics.Directions.Direction4,System.Boolean)">
             <summary>
             Gets the adjacent cell at the specified direction of the specified absolute cell index.
             </summary>
@@ -4799,7 +4428,7 @@
             <param name="isCyclicChecking">Indicates whether the cell overflown in the relative grid will be included to be checked or not.</param>
             <returns>Target cell absolute index.</returns>
         </member>
-        <member name="M:Sudoku.Graphics.PointMapper.GetPoint(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Alignment)">
+        <member name="M:Sudoku.Graphics.PointMapper.GetPoint(Sudoku.Graphics.Absolute,Sudoku.Graphics.Alignment)">
             <summary>
             Returns the position (point) of the specified alignment type of the specified cell.
             </summary>
@@ -4807,11 +4436,11 @@
             <param name="alignment">The alignment.</param>
             <returns>The point instance that represents the target position.</returns>
             <exception cref="T:System.ArgumentOutOfRangeException">
-            Throws when <paramref name="alignment"/> is not defined or <see cref="F:Sudoku.ComponentModel.Alignment.None"/>.
+            Throws when <paramref name="alignment"/> is not defined or <see cref="F:Sudoku.Graphics.Alignment.None"/>.
             </exception>
-            <seealso cref="F:Sudoku.ComponentModel.Alignment.None"/>
+            <seealso cref="F:Sudoku.Graphics.Alignment.None"/>
         </member>
-        <member name="M:Sudoku.Graphics.PointMapper.GetPoint(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Alignment)">
+        <member name="M:Sudoku.Graphics.PointMapper.GetPoint(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.Graphics.Alignment)">
             <summary>
             Returns the position (point) of the specified alignment type of the specified cell.
             </summary>
@@ -4820,11 +4449,11 @@
             <param name="alignment">The alignment type.</param>
             <returns>The point instance that represents the target position.</returns>
             <exception cref="T:System.ArgumentOutOfRangeException">
-            Throws when <paramref name="alignment"/> is not defined or <see cref="F:Sudoku.ComponentModel.Alignment.None"/>.
+            Throws when <paramref name="alignment"/> is not defined or <see cref="F:Sudoku.Graphics.Alignment.None"/>.
             </exception>
-            <seealso cref="F:Sudoku.ComponentModel.Alignment.None"/>
+            <seealso cref="F:Sudoku.Graphics.Alignment.None"/>
         </member>
-        <member name="M:Sudoku.Graphics.PointMapper.GetPoint``1(``0,Sudoku.ComponentModel.Alignment)">
+        <member name="M:Sudoku.Graphics.PointMapper.GetPoint``1(``0,Sudoku.Graphics.Alignment)">
             <summary>
             Returns the position (point) of the specified alignment type of the specified cell or candidate.
             </summary>
@@ -4837,7 +4466,7 @@
             <see cref="T:Sudoku.Graphics.Relative"/> or <see cref="T:Sudoku.Graphics.CandidatePosition"/>.
             </exception>
         </member>
-        <member name="M:Sudoku.Graphics.PointMapper.GetPoint(Sudoku.Graphics.CandidatePosition,Sudoku.ComponentModel.Alignment)">
+        <member name="M:Sudoku.Graphics.PointMapper.GetPoint(Sudoku.Graphics.CandidatePosition,Sudoku.Graphics.Alignment)">
             <summary>
             Returns the position (point) of the specified alignment type of the specified candidate (absolute).
             </summary>
@@ -4845,15 +4474,15 @@
             <param name="alignment">The alignment.</param>
             <returns>The point instance that represents the target position.</returns>
             <exception cref="T:System.ArgumentOutOfRangeException">
-            Throws when <paramref name="alignment"/> is not defined or <see cref="F:Sudoku.ComponentModel.Alignment.None"/>.
+            Throws when <paramref name="alignment"/> is not defined or <see cref="F:Sudoku.Graphics.Alignment.None"/>.
             </exception>
-            <seealso cref="F:Sudoku.ComponentModel.Alignment.None"/>
+            <seealso cref="F:Sudoku.Graphics.Alignment.None"/>
         </member>
         <member name="M:Sudoku.Graphics.PointMapper.GetPointBetween(Sudoku.Graphics.Relative,Sudoku.Graphics.Relative)">
             <inheritdoc cref="M:Sudoku.Graphics.PointMapper.GetPointBetween(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute)"/>
         </member>
-        <member name="M:Sudoku.Graphics.PointMapper.GetPointBetween(Sudoku.Graphics.Relative,Sudoku.Graphics.Relative,Sudoku.ComponentModel.Directions.Direction8@)">
-            <inheritdoc cref="M:Sudoku.Graphics.PointMapper.GetPointBetweenWithAdjacentRelation(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8@)"/>
+        <member name="M:Sudoku.Graphics.PointMapper.GetPointBetween(Sudoku.Graphics.Relative,Sudoku.Graphics.Relative,Sudoku.Graphics.Directions.Direction8@)">
+            <inheritdoc cref="M:Sudoku.Graphics.PointMapper.GetPointBetweenWithAdjacentRelation(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.Graphics.Directions.Direction8@)"/>
         </member>
         <member name="M:Sudoku.Graphics.PointMapper.GetPointBetween(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute)">
             <summary>
@@ -4863,7 +4492,7 @@
             <param name="cell2">The cell 2.</param>
             <returns>The center point of two adjacent cells.</returns>
         </member>
-        <member name="M:Sudoku.Graphics.PointMapper.GetPointBetweenWithAdjacentRelation(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8@)">
+        <member name="M:Sudoku.Graphics.PointMapper.GetPointBetweenWithAdjacentRelation(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.Graphics.Directions.Direction8@)">
             <summary>
             Gets a point that is the center point of two <b>adjacent</b> cells.
             </summary>
@@ -4873,14 +4502,14 @@
             <returns>The center point of two adjacent cells.</returns>
             <exception cref="T:System.ArgumentException">Throws when the specified pair of cells are not adjacent with each other.</exception>
         </member>
-        <member name="M:Sudoku.Graphics.PointMapper.WithOffset(Sudoku.ComponentModel.Directions.DirectionVector)">
+        <member name="M:Sudoku.Graphics.PointMapper.WithOffset(Sudoku.Graphics.Directions.DirectionVector)">
             <summary>
             Creates a new <see cref="T:Sudoku.Graphics.PointMapper"/> instance via the specified offset, replacing with new value.
             </summary>
             <param name="vector">The direction vector as offset.</param>
             <returns>The result <see cref="T:Sudoku.Graphics.PointMapper"/> instance.</returns>
         </member>
-        <member name="M:Sudoku.Graphics.PointMapper.AddOffset(Sudoku.ComponentModel.Directions.DirectionVector)">
+        <member name="M:Sudoku.Graphics.PointMapper.AddOffset(Sudoku.Graphics.Directions.DirectionVector)">
             <summary>
             Creates a new <see cref="T:Sudoku.Graphics.PointMapper"/> instance via the specified offset, adding to original template size direction vector.
             </summary>
@@ -4976,44 +4605,379 @@
             </summary>
             <param name="value">The value.</param>
         </member>
+        <member name="T:Sudoku.Graphics.Scale">
+            <summary>
+            Represents a relative-size value (scaling)
+            that supports both <see cref="T:System.Single"/> and <see cref="T:System.Decimal"/> literal initialization.
+            </summary>
+            <param name="value">The fact value of a <see cref="T:System.Single"/>.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Throws when the argument <paramref name="value"/> is greater than 1 or less than 0.
+            </exception>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.#ctor(System.Decimal)">
+            <summary>
+            Represents a relative-size value (scaling)
+            that supports both <see cref="T:System.Single"/> and <see cref="T:System.Decimal"/> literal initialization.
+            </summary>
+            <param name="value">The fact value of a <see cref="T:System.Single"/>.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Throws when the argument <paramref name="value"/> is greater than 1 or less than 0.
+            </exception>
+        </member>
+        <member name="P:Sudoku.Graphics.Scale.IsNegative">
+            <summary>
+            Indicates whether the current scale value is negative (&lt; 0).
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Scale.IsPositive">
+            <summary>
+            Indicates whether the current scale value is positive (&gt; 0).
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Scale.Value">
+            <summary>
+            Indicates the value.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.Equals(Sudoku.Graphics.Scale)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.Measure(System.Single)">
+            <summary>
+            Measure the fact value
+            (i.e. performs the formula <c><paramref name="value"/> * <see langword="this"/>.RatioValue</c>).
+            </summary>
+            <param name="value">The original value.</param>
+            <returns>The target value measured.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.CompareTo(Sudoku.Graphics.Scale)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.ToString">
+            <inheritdoc cref="M:System.Object.ToString"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.ToString(System.String)">
+            <inheritdoc cref="M:System.Double.ToString(System.String)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.op_Equality(Sudoku.Graphics.Scale,Sudoku.Graphics.Scale)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.op_Inequality(Sudoku.Graphics.Scale,Sudoku.Graphics.Scale)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.op_GreaterThan(Sudoku.Graphics.Scale,Sudoku.Graphics.Scale)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.op_GreaterThanOrEqual(Sudoku.Graphics.Scale,Sudoku.Graphics.Scale)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.op_LessThan(Sudoku.Graphics.Scale,Sudoku.Graphics.Scale)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.op_LessThanOrEqual(Sudoku.Graphics.Scale,Sudoku.Graphics.Scale)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.op_Implicit(System.Single)~Sudoku.Graphics.Scale">
+            <summary>
+            Implicit cast from <see cref="T:System.Single"/> into <see cref="T:Sudoku.Graphics.Scale"/> value.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.op_Implicit(System.Decimal)~Sudoku.Graphics.Scale">
+            <summary>
+            Implicit cast from <see cref="T:System.Decimal"/> into <see cref="T:Sudoku.Graphics.Scale"/> value.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.op_Explicit(Sudoku.Graphics.Scale)~System.Single">
+            <summary>
+            Explicit cast from <see cref="T:Sudoku.Graphics.Scale"/> into <see cref="T:System.Single"/> value.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.op_Explicit(Sudoku.Graphics.Scale)~System.Decimal">
+            <summary>
+            Explicit cast from <see cref="T:Sudoku.Graphics.Scale"/> into <see cref="T:System.Decimal"/> value.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="T:Sudoku.Graphics.Converter">
+            <summary>
+            Represents a JSON converter for <see cref="T:Sudoku.Graphics.Scale"/> instances.
+            </summary>
+            <seealso cref="T:Sudoku.Graphics.Scale"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Converter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Converter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.Graphics.Scale,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.SerializableColor">
+            <summary>
+            Represents a repository-wide color instance that can be serialized and deserialized.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.SerializableColor.WellknownColors">
+            <summary>
+            Indicates well-known colors.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.SerializableColor.WellKnownColorsReversed">
+            <summary>
+            Indicates well-known colors, in reversed lookup.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.SerializableColor._mask">
+            <summary>
+            Indicates the mask.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.#ctor(System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Graphics.SerializableColor"/> instance via the specified values of RGBA.
+            </summary>
+            <param name="red">The red value.</param>
+            <param name="green">The green value.</param>
+            <param name="blue">The blue value.</param>
+            <param name="alpha">The alpha value. By default it's 255.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.#ctor(SkiaSharp.SKColor)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Graphics.SerializableColor"/> instance via the equivalent <see cref="T:SkiaSharp.SKColor"/> instance.
+            </summary>
+            <param name="color">The color.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.#ctor(System.UInt32)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Graphics.SerializableColor"/> instance via the specified mask.
+            </summary>
+            <param name="mask">The mask.</param>
+        </member>
+        <member name="P:Sudoku.Graphics.SerializableColor.Red">
+            <summary>
+            Indicates red value.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.SerializableColor.Green">
+            <summary>
+            Indicates green value.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.SerializableColor.Blue">
+            <summary>
+            Indicates blue value.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.SerializableColor.Alpha">
+            <summary>
+            Indicates alpha value.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.Deconstruct(System.Byte@,System.Byte@,System.Byte@)">
+            <summary>
+            Deconstruct instance into multiple values.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.Deconstruct(System.Byte@,System.Byte@,System.Byte@,System.Byte@)">
+            <inheritdoc cref="M:Sudoku.Graphics.SerializableColor.Deconstruct(System.Byte@,System.Byte@,System.Byte@)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.Equals(Sudoku.Graphics.SerializableColor)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.GetHashCode">
+            <inheritdoc cref="M:System.Object.GetHashCode"/>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.ToString">
+            <inheritdoc cref="M:System.Object.ToString"/>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.ToString(Sudoku.Graphics.SerializableColorFormat)">
+            <summary>
+            Converts the current instance into <see cref="T:System.String"/> representation.
+            </summary>
+            <param name="format">The format.</param>
+            <returns>The string representation.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.TryParse(System.String,Sudoku.Graphics.SerializableColor@)">
+            <inheritdoc cref="M:System.IParsable`1.TryParse(System.String,System.IFormatProvider,`0@)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.TryParse(System.String,Sudoku.Graphics.SerializableColorFormat,Sudoku.Graphics.SerializableColor@)">
+            <inheritdoc cref="M:System.IParsable`1.TryParse(System.String,System.IFormatProvider,`0@)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.Parse(System.String)">
+            <inheritdoc cref="M:System.IParsable`1.Parse(System.String,System.IFormatProvider)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.Parse(System.String,Sudoku.Graphics.SerializableColorFormat)">
+            <inheritdoc cref="M:System.IParsable`1.Parse(System.String,System.IFormatProvider)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.op_Equality(Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.op_Inequality(Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.op_Implicit(SkiaSharp.SKColor)~Sudoku.Graphics.SerializableColor">
+            <summary>
+            Implicit cast from <see cref="T:SkiaSharp.SKColor"/> to <see cref="T:Sudoku.Graphics.SerializableColor"/>.
+            </summary>
+            <param name="color">The original value.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColor.op_Implicit(Sudoku.Graphics.SerializableColor)~SkiaSharp.SKColor">
+            <summary>
+            Implicit cast from <see cref="T:Sudoku.Graphics.SerializableColor"/> to <see cref="T:SkiaSharp.SKColor"/>.
+            </summary>
+            <param name="color">The original value.</param>
+        </member>
+        <member name="T:Sudoku.Graphics.Converter">
+            <summary>
+            Represents JSON converter of <see cref="T:Sudoku.Graphics.SerializableColor"/>.
+            </summary>
+            <seealso cref="T:Sudoku.Graphics.SerializableColor"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Converter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Converter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.Graphics.SerializableColor,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.SerializableColorFormat">
+            <summary>
+            Represents an enumeration field that describes a kind of format of <see cref="T:Sudoku.Graphics.SerializableColor"/>.
+            </summary>
+            <seealso cref="T:Sudoku.Graphics.SerializableColor"/>
+        </member>
+        <member name="F:Sudoku.Graphics.SerializableColorFormat.TupleRgb">
+            <summary>
+            Format <c>(Red, Green, Blue)</c>.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.SerializableColorFormat.TupleArgb">
+            <summary>
+            Format <c>(Alpha, Red, Green, Blue)</c>.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.SerializableColorFormat.TupleRgba">
+            <summary>
+            Format <c>(Red, Green, Blue, Alpha)</c>.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.SerializableColorFormat.HexRgb">
+            <summary>
+            Format <c>#RRGGBB</c>.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.SerializableColorFormat.HexRgbShort">
+            <summary>
+            Format <c>#RGB</c>.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.SerializableColorFormat.HexArgb">
+            <summary>
+            Format <c>#AARRGGBB</c> (.NET style).
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.SerializableColorFormat.HexArgbShort">
+            <summary>
+            Format <c>#ARGB</c>.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.SerializableColorFormat.HexRgba">
+            <summary>
+            Format <c>#RRGGBBAA</c> (CSS Level 4).
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.SerializableColorFormat.HexRgbaShort">
+            <summary>
+            Format <c>#RGBA</c>.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.SerializableColorFormat.RgbFunction">
+            <summary>
+            Format <c>rgb(Red, Green, Blue)</c>.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.SerializableColorFormat.RgbaFunction">
+            <summary>
+            Format <c>rgba(Red, Green, Blue, Alpha (float))</c>.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.SerializableColorFormat.NamedColor">
+            <summary>
+            Named color format.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.SerializableColorFormat.HexInteger">
+            <summary>
+            Format <c>0xAARRGGBB</c>.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.SerializableColorFormat.DecimalInteger">
+            <summary>
+            Decimal 32-bit ARGB.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.SerializableColorFormat.AnsiTrueColor">
+            <summary>
+            Format <c>\e[38;2;255;0;0m</c>.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.SerializableColorSet">
+            <summary>
+            Represents a collection of <see cref="T:Sudoku.Graphics.SerializableColor"/> instances.
+            </summary>
+            <seealso cref="T:Sudoku.Graphics.SerializableColor"/>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableColorSet.Slice(System.Int32,System.Int32)">
+            <inheritdoc cref="M:System.Collections.Generic.List`1.Slice(System.Int32,System.Int32)"/>
+        </member>
         <member name="T:Sudoku.Graphics.SKCanvasDrawings">
             <summary>
             Provides extension members on <see cref="T:SkiaSharp.SKCanvas"/>.
             </summary>
             <seealso cref="T:SkiaSharp.SKCanvas"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawArrowToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Directions.Direction4,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Directions.Direction4,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawArrowToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.Graphics.Directions.Direction8,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.Directions.Direction4,Sudoku.Graphics.Scale,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowToCell(Sudoku.Graphics.Absolute,Sudoku.Graphics.Directions.Direction8,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.Directions.Direction4,Sudoku.Graphics.Scale,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawArrowTriangleToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowTriangleToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawArrowTriangleToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.Graphics.Directions.Direction8,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowTriangleToCell(Sudoku.Graphics.Absolute,Sudoku.Graphics.Directions.Direction8,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawBattenburg(SkiaSharp.SKCanvas,SkiaSharp.SKPoint,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale[],Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBattenburg(SkiaSharp.SKPoint,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale[],Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawBattenburg(SkiaSharp.SKCanvas,SkiaSharp.SKPoint,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale[],Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBattenburg(SkiaSharp.SKPoint,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale[],Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawOutlinedTextToCell(SkiaSharp.SKCanvas,System.String,Sudoku.Graphics.Absolute,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,System.Single,Sudoku.ComponentModel.Directions.Direction8,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCell(System.String,Sudoku.Graphics.Absolute,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,System.Single,Sudoku.ComponentModel.Directions.Direction8,Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawOutlinedTextToCell(SkiaSharp.SKCanvas,System.String,Sudoku.Graphics.Absolute,System.String,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,System.Single,Sudoku.Graphics.Directions.Direction8,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCell(System.String,Sudoku.Graphics.Absolute,System.String,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,System.Single,Sudoku.Graphics.Directions.Direction8,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawOutlinedTextToCandidate(SkiaSharp.SKCanvas,System.String,Sudoku.Graphics.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCandidate(System.String,Sudoku.Graphics.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawOutlinedTextToCandidate(SkiaSharp.SKCanvas,System.String,Sudoku.Graphics.CandidatePosition,System.String,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCandidate(System.String,Sudoku.Graphics.CandidatePosition,System.String,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawTextWithCover(SkiaSharp.SKCanvas,SkiaSharp.SKPoint,System.String,SkiaSharp.SKTextAlign,Sudoku.ComponentModel.CoverStyle,SkiaSharp.SKFont,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPaint,Sudoku.ComponentModel.Thickness,SkiaSharp.SKPoint)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextWithCover(SkiaSharp.SKPoint,System.String,SkiaSharp.SKTextAlign,Sudoku.ComponentModel.CoverStyle,SkiaSharp.SKFont,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPaint,Sudoku.ComponentModel.Thickness,SkiaSharp.SKPoint)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawTextWithCover(SkiaSharp.SKCanvas,SkiaSharp.SKPoint,System.String,SkiaSharp.SKTextAlign,Sudoku.Graphics.CoverStyle,SkiaSharp.SKFont,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPaint,Sudoku.Graphics.Thickness,SkiaSharp.SKPoint)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextWithCover(SkiaSharp.SKPoint,System.String,SkiaSharp.SKTextAlign,Sudoku.Graphics.CoverStyle,SkiaSharp.SKFont,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPaint,Sudoku.Graphics.Thickness,SkiaSharp.SKPoint)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawCircleTo``1(SkiaSharp.SKCanvas,``0,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCircleTo``1(``0,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawCircleTo``1(SkiaSharp.SKCanvas,``0,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCircleTo``1(``0,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawCrossTo``1(SkiaSharp.SKCanvas,``0,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,SkiaSharp.SKStrokeCap)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCrossTo``1(``0,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,SkiaSharp.SKStrokeCap)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawCrossTo``1(SkiaSharp.SKCanvas,``0,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper,SkiaSharp.SKStrokeCap)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCrossTo``1(``0,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper,SkiaSharp.SKStrokeCap)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawPolygonToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,System.Single)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawPolygonToCell(Sudoku.Graphics.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,System.Single)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawPolygonToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,System.Int32,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper,System.Single)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawPolygonToCell(Sudoku.Graphics.Absolute,System.Int32,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper,System.Single)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawConcavePolygonToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,System.Single)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawConcavePolygonToCell(Sudoku.Graphics.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,System.Single)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawConcavePolygonToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,System.Int32,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper,System.Single)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawConcavePolygonToCell(Sudoku.Graphics.Absolute,System.Int32,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper,System.Single)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawTetromino(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,System.Boolean[0:,0:],Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTetromino(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,System.Boolean[0:,0:],Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawTetromino(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,System.Boolean[0:,0:],Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTetromino(Sudoku.Graphics.Absolute,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,System.Boolean[0:,0:],Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.PointMapper)"/>
         </member>
         <member name="T:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.&lt;M&gt;$21C1C87F40B24560160CB1CD20F6362E">
             <summary>
@@ -5023,7 +4987,7 @@
             <param name="this">The current instance.</param>
             <seealso cref="T:Sudoku.Graphics.Item"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Directions.Direction4,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowToCell(Sudoku.Graphics.Absolute,Sudoku.Graphics.Directions.Direction8,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.Directions.Direction4,Sudoku.Graphics.Scale,Sudoku.Graphics.PointMapper)">
             <summary>
             Draws an arrow symbol into the specified cell.
             </summary>
@@ -5037,18 +5001,18 @@
             <param name="strokeColor">The stroke coloor.</param>
             <param name="fillColor">The fill color.</param>
             <param name="alignedBorderDirection">
-            The aligned border direction. The value can be <see cref="F:Sudoku.ComponentModel.Directions.Direction4.None"/> if you don't want to align with borders.
+            The aligned border direction. The value can be <see cref="F:Sudoku.Graphics.Directions.Direction4.None"/> if you don't want to align with borders.
             </param>
             <param name="alignedBorderPaddingScale">
             The scale of padding aligning to border lines, related to cell size.
-            The value becomes unncessary if <paramref name="alignedBorderDirection"/> is <see cref="F:Sudoku.ComponentModel.Directions.Direction4.None"/>.
+            The value becomes unncessary if <paramref name="alignedBorderDirection"/> is <see cref="F:Sudoku.Graphics.Directions.Direction4.None"/>.
             </param>
             <param name="mapper">The mapper instance.</param>
             <exception cref="T:System.NotSupportedException">
             Throws when <paramref name="alignedBorderDirection"/> is not defined.
             </exception>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowTriangleToCell(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowTriangleToCell(Sudoku.Graphics.Absolute,Sudoku.Graphics.Directions.Direction8,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper)">
             <summary>
             Draws an arrow triangle into the specifie cell.
             </summary>
@@ -5061,7 +5025,7 @@
             <param name="fillColor">The fill color.</param>
             <param name="mapper">The mapper instance.</param>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBattenburg(SkiaSharp.SKPoint,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale[],Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBattenburg(SkiaSharp.SKPoint,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale[],Sudoku.Graphics.PointMapper)">
             <summary>
             Draws a battenburg mark to the specified point.
             </summary>
@@ -5074,7 +5038,7 @@
             <param name="cornerRadiiScale">The scale of corner radii.</param>
             <param name="mapper">The mapper instance.</param>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCell(System.String,Sudoku.Graphics.Absolute,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,System.Single,Sudoku.ComponentModel.Directions.Direction8,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCell(System.String,Sudoku.Graphics.Absolute,System.String,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,System.Single,Sudoku.Graphics.Directions.Direction8,Sudoku.Graphics.PointMapper)">
             <summary>
             Draws the specified text into the target cell, with outlined.
             </summary>
@@ -5100,7 +5064,7 @@
             Throws when <paramref name="alignedDirection"/> is not defined.
             </exception>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCandidate(System.String,Sudoku.Graphics.CandidatePosition,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCandidate(System.String,Sudoku.Graphics.CandidatePosition,System.String,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper)">
             <summary>
             Draws the specified text into the target candidate, with outlined.
             </summary>
@@ -5118,7 +5082,7 @@
             <param name="fillColor">The fill color of text.</param>
             <param name="mapper">The mapper.</param>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextWithCover(SkiaSharp.SKPoint,System.String,SkiaSharp.SKTextAlign,Sudoku.ComponentModel.CoverStyle,SkiaSharp.SKFont,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPaint,Sudoku.ComponentModel.Thickness,SkiaSharp.SKPoint)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextWithCover(SkiaSharp.SKPoint,System.String,SkiaSharp.SKTextAlign,Sudoku.Graphics.CoverStyle,SkiaSharp.SKFont,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPaint,Sudoku.Graphics.Thickness,SkiaSharp.SKPoint)">
             <summary>
             Draws the specified text with background cover.
             </summary>
@@ -5136,7 +5100,7 @@
             <param name="offset">The offset to the text to be drawn.</param>
             <exception cref="T:System.ArgumentOutOfRangeException">Throws when <paramref name="textAlign"/> is not defined.</exception>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCircleTo``1(``0,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCircleTo``1(``0,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper)">
             <summary>
             Draws a square into the specified cell or candidate.
             </summary>
@@ -5148,7 +5112,7 @@
             <param name="fillColor">The fill color.</param>
             <param name="mapper">The mapper instance.</param>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCrossTo``1(``0,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,SkiaSharp.SKStrokeCap)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCrossTo``1(``0,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper,SkiaSharp.SKStrokeCap)">
             <summary>
             Draws a cross symbol into the specified cell or candidate.
             </summary>
@@ -5161,7 +5125,7 @@
             <param name="cap">The stroke cap. By default it's <see cref="F:SkiaSharp.SKStrokeCap.Round"/>.</param>
             <seealso cref="F:SkiaSharp.SKStrokeCap.Round"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawPolygonToCell(Sudoku.Graphics.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,System.Single)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawPolygonToCell(Sudoku.Graphics.Absolute,System.Int32,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper,System.Single)">
             <summary>
             Draw a (convex) polygon into the specified cell.
             </summary>
@@ -5176,7 +5140,7 @@
             <exception cref="T:System.ArgumentException">Throws when the number of sides is invalid (below 3).</exception>
             <exception cref="T:System.InvalidOperationException">Throws when the number of sides is too large (above 16).</exception>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawConcavePolygonToCell(Sudoku.Graphics.Absolute,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper,System.Single)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawConcavePolygonToCell(Sudoku.Graphics.Absolute,System.Int32,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper,System.Single)">
             <summary>
             Draw a concave polygon into the specified cell.
             </summary>
@@ -5192,7 +5156,7 @@
             <exception cref="T:System.ArgumentException">Throws when the number of sides is invalid (below 3).</exception>
             <exception cref="T:System.InvalidOperationException">Throws when the number of sides is too large (above 16).</exception>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTetromino(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,System.Boolean[0:,0:],Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTetromino(Sudoku.Graphics.Absolute,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,System.Boolean[0:,0:],Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.PointMapper)">
             <summary>
             Try to draw a tetris piece (or not, specified as a <see cref="T:System.Boolean"/> matrix) into the specified cell.
             </summary>
@@ -5224,7 +5188,7 @@
             The helper type that draws for arrows.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.ArrowPainterHelper.CreateArrowTrianglePath(SkiaSharp.SKRect,Sudoku.ComponentModel.Scale,System.Single,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale)">
+        <member name="M:Sudoku.Graphics.ArrowPainterHelper.CreateArrowTrianglePath(SkiaSharp.SKRect,Sudoku.Graphics.Scale,System.Single,Sudoku.Graphics.Directions.Direction8,Sudoku.Graphics.Scale)">
             <summary>
             Creates a path of arrow, pointing to the specified direction.
             </summary>
@@ -5241,7 +5205,7 @@
             <seealso cref="T:SkiaSharp.SKPath"/>
             <seealso cref="M:SkiaSharp.SKNativeObject.Dispose"/>
         </member>
-        <member name="M:Sudoku.Graphics.ArrowPainterHelper.CreateArrowPath(SkiaSharp.SKRect,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,System.Single,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Directions.Direction4,Sudoku.ComponentModel.Scale)">
+        <member name="M:Sudoku.Graphics.ArrowPainterHelper.CreateArrowPath(SkiaSharp.SKRect,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,System.Single,Sudoku.Graphics.Directions.Direction8,Sudoku.Graphics.Directions.Direction4,Sudoku.Graphics.Scale)">
             <summary>
             Draws arrow path.
             </summary>
@@ -5254,7 +5218,7 @@
             <param name="direction">The direction.</param>
             <param name="alignedBorderDirection">The aligned direction.</param>
             <param name="alignedBorderPaddingScale">The scale of aligned border padding, related to cell size.</param>
-            <returns><inheritdoc cref="M:Sudoku.Graphics.ArrowPainterHelper.CreateArrowTrianglePath(SkiaSharp.SKRect,Sudoku.ComponentModel.Scale,System.Single,Sudoku.ComponentModel.Directions.Direction8,Sudoku.ComponentModel.Scale)" path="/returns"/></returns>
+            <returns><inheritdoc cref="M:Sudoku.Graphics.ArrowPainterHelper.CreateArrowTrianglePath(SkiaSharp.SKRect,Sudoku.Graphics.Scale,System.Single,Sudoku.Graphics.Directions.Direction8,Sudoku.Graphics.Scale)" path="/returns"/></returns>
             <exception cref="T:System.InvalidOperationException">Throws when shaft width is greater than triangle width.</exception>
         </member>
         <member name="T:Sudoku.Graphics.Templating.LineSegment">
@@ -5264,7 +5228,7 @@
             <param name="cellIndex">The cell index.</param>
             <param name="directions">The shown directions.</param>
         </member>
-        <member name="M:Sudoku.Graphics.Templating.LineSegment.#ctor(Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction4)">
+        <member name="M:Sudoku.Graphics.Templating.LineSegment.#ctor(Sudoku.Graphics.Absolute,Sudoku.Graphics.Directions.Direction4)">
             <summary>
             Represents an instance that describes possible shown line segments under the specified directions specified of the specified cell.
             </summary>
@@ -5281,7 +5245,7 @@
             Indicates absolute cell index.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.Templating.LineSegment.Deconstruct(Sudoku.Graphics.Absolute@,Sudoku.ComponentModel.Directions.Direction4@)">
+        <member name="M:Sudoku.Graphics.Templating.LineSegment.Deconstruct(Sudoku.Graphics.Absolute@,Sudoku.Graphics.Directions.Direction4@)">
             <summary>
             Deconstruct instance into multiple values.
             </summary>
@@ -5329,7 +5293,7 @@
         </member>
         <member name="M:Sudoku.Graphics.Templating.LineSegmentFactory.GetLightupDirections(Sudoku.Graphics.Relative[],System.Boolean,Sudoku.Graphics.PointMapper,System.Collections.Generic.HashSet{Sudoku.Graphics.Absolute}@)">
             <summary>
-            Creates a <see cref="T:System.Collections.Generic.Dictionary`2"/> of <see cref="T:Sudoku.Graphics.Absolute"/> and <see cref="T:Sudoku.ComponentModel.Directions.Direction4"/> key-value pairs,
+            Creates a <see cref="T:System.Collections.Generic.Dictionary`2"/> of <see cref="T:Sudoku.Graphics.Absolute"/> and <see cref="T:Sudoku.Graphics.Directions.Direction4"/> key-value pairs,
             indicating lightup segments of cells to be shown.
             </summary>
             <param name="cellIndices">The cell indices.</param>
@@ -5343,9 +5307,9 @@
         <member name="M:Sudoku.Graphics.Templating.LineSegmentFactory.GetLightupDirections(Sudoku.Graphics.Absolute[],System.Boolean,Sudoku.Graphics.PointMapper,System.Collections.Generic.HashSet{Sudoku.Graphics.Absolute}@)">
             <inheritdoc cref="M:Sudoku.Graphics.Templating.LineSegmentFactory.GetLightupDirections(Sudoku.Graphics.Relative[],System.Boolean,Sudoku.Graphics.PointMapper,System.Collections.Generic.HashSet{Sudoku.Graphics.Absolute}@)"/>
         </member>
-        <member name="M:Sudoku.Graphics.Templating.LineSegmentFactory.GetLightupDirectionsCore(System.Collections.Generic.Dictionary{Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Directions.Direction4},System.Boolean,Sudoku.Graphics.PointMapper,System.Collections.Generic.HashSet{Sudoku.Graphics.Absolute}@)">
+        <member name="M:Sudoku.Graphics.Templating.LineSegmentFactory.GetLightupDirectionsCore(System.Collections.Generic.Dictionary{Sudoku.Graphics.Absolute,Sudoku.Graphics.Directions.Direction4},System.Boolean,Sudoku.Graphics.PointMapper,System.Collections.Generic.HashSet{Sudoku.Graphics.Absolute}@)">
             <summary>
-            Creates a <see cref="T:System.Collections.Generic.Dictionary`2"/> of <see cref="T:Sudoku.Graphics.Absolute"/> and <see cref="T:Sudoku.ComponentModel.Directions.Direction4"/> key-value pairs,
+            Creates a <see cref="T:System.Collections.Generic.Dictionary`2"/> of <see cref="T:Sudoku.Graphics.Absolute"/> and <see cref="T:Sudoku.Graphics.Directions.Direction4"/> key-value pairs,
             indicating lightup segments of cells to be shown.
             </summary>
             <param name="lineSegmentsDictionary">The original entry dictionary.</param>
@@ -5379,7 +5343,7 @@
             <returns>This method always throws and don't return anything.</returns>
             <exception cref="T:System.ArgumentException">Always throws.</exception>
         </member>
-        <member name="M:Sudoku.Graphics.Templating.OverlappingGridTemplateFactory.Overlapped(Sudoku.Graphics.PointMapper,Sudoku.ComponentModel.LineDashSequence)">
+        <member name="M:Sudoku.Graphics.Templating.OverlappingGridTemplateFactory.Overlapped(Sudoku.Graphics.PointMapper,Sudoku.Graphics.LineDashSequence)">
             <summary>
             Creates a <see cref="T:Sudoku.Graphics.Templating.Template"/> array of Overlapped sudoku, with the specified grid size.
             </summary>
@@ -5631,7 +5595,7 @@
         <member name="M:Sudoku.Graphics.Templating.Templates.CrossmathFormula.ToString">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Templating.Templates.CrossmathFormula.CreateTemplate(Sudoku.Graphics.Templating.Templates.CrossmathFormula[],Sudoku.Graphics.PointMapper,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor)">
+        <member name="M:Sudoku.Graphics.Templating.Templates.CrossmathFormula.CreateTemplate(Sudoku.Graphics.Templating.Templates.CrossmathFormula[],Sudoku.Graphics.PointMapper,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor)">
             <summary>
             Creates a <see cref="T:Sudoku.Graphics.Templating.Templates.CrossmathTemplate"/> instance via the specified formulae.
             </summary>
@@ -5643,7 +5607,7 @@
             <param name="thinLineColor">Thin line color.</param>
             <returns>The grid template.</returns>
         </member>
-        <member name="M:Sudoku.Graphics.Templating.Templates.CrossmathFormula.CreateItems(Sudoku.Graphics.Templating.Templates.CrossmathFormula[],Sudoku.Graphics.PointMapper,System.String,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor)">
+        <member name="M:Sudoku.Graphics.Templating.Templates.CrossmathFormula.CreateItems(Sudoku.Graphics.Templating.Templates.CrossmathFormula[],Sudoku.Graphics.PointMapper,System.String,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor)">
             <summary>
             Creates a list of <see cref="T:Sudoku.Graphics.Items.Texts.GivenTextItem"/> instances via the specified formulae.
             </summary>
@@ -5843,6 +5807,42 @@
         </member>
         <member name="M:Sudoku.Graphics.Templating.Templates.SujikenTemplate.DrawGridLines(SkiaSharp.SKCanvas)">
             <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Thickness">
+            <summary>
+            Represents thickness.
+            </summary>
+            <param name="Left">Indicates the left offset size.</param>
+            <param name="Top">Indicates the top offset size.</param>
+            <param name="Right">Indicates the right offset size.</param>
+            <param name="Bottom">Indicates the bottom size.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.Thickness.#ctor(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Represents thickness.
+            </summary>
+            <param name="Left">Indicates the left offset size.</param>
+            <param name="Top">Indicates the top offset size.</param>
+            <param name="Right">Indicates the right offset size.</param>
+            <param name="Bottom">Indicates the bottom size.</param>
+        </member>
+        <member name="P:Sudoku.Graphics.Thickness.Left">
+            <summary>Indicates the left offset size.</summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Thickness.Top">
+            <summary>Indicates the top offset size.</summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Thickness.Right">
+            <summary>Indicates the right offset size.</summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Thickness.Bottom">
+            <summary>Indicates the bottom size.</summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Thickness.#ctor(System.Single)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Graphics.Thickness"/> instance.
+            </summary>
+            <param name="uniform">The uniform value.</param>
         </member>
         <member name="T:Sudoku.Resources.Resource">
             <summary>

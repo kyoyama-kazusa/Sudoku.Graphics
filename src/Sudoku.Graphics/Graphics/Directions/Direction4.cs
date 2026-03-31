@@ -1,4 +1,4 @@
-﻿namespace Sudoku.ComponentModel.Directions;
+﻿namespace Sudoku.Graphics.Directions;
 
 /// <summary>
 /// Represents a direction with 4 values.
