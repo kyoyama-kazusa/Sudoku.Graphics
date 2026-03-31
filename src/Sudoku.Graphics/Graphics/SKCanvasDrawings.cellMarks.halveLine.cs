@@ -26,14 +26,14 @@ public partial class SKCanvasDrawings
 			var cellSize = mapper.CellSize;
 			var lineContainingBoxSize = sizeScale.Measure(cellSize);
 			var halfPadding = (cellSize - lineContainingBoxSize) / 2;
-			var topLeft = mapper.GetPoint(cell, Alignment.TopLeft) + new SKPoint(+halfPadding, +halfPadding);
-			var topRight = mapper.GetPoint(cell, Alignment.TopRight) + new SKPoint(-halfPadding, +halfPadding);
-			var bottomLeft = mapper.GetPoint(cell, Alignment.BottomLeft) + new SKPoint(+halfPadding, -halfPadding);
-			var bottomRight = mapper.GetPoint(cell, Alignment.BottomRight) + new SKPoint(-halfPadding, -halfPadding);
-			var top = topLeft + new SKPoint(lineContainingBoxSize / 2, 0);
-			var bottom = bottomLeft + new SKPoint(lineContainingBoxSize / 2, 0);
-			var left = topLeft + new SKPoint(0, lineContainingBoxSize / 2);
-			var right = topRight + new SKPoint(0, lineContainingBoxSize / 2);
+			var topLeft = mapper.GetPoint(cell, Alignment.TopLeft) + (+halfPadding, +halfPadding);
+			var topRight = mapper.GetPoint(cell, Alignment.TopRight) + (-halfPadding, +halfPadding);
+			var bottomLeft = mapper.GetPoint(cell, Alignment.BottomLeft) + (+halfPadding, -halfPadding);
+			var bottomRight = mapper.GetPoint(cell, Alignment.BottomRight) + (-halfPadding, -halfPadding);
+			var top = topLeft + (lineContainingBoxSize / 2, 0);
+			var bottom = bottomLeft + (lineContainingBoxSize / 2, 0);
+			var left = topLeft + (0, lineContainingBoxSize / 2);
+			var right = topRight + (0, lineContainingBoxSize / 2);
 			var (start, end) = orientation switch
 			{
 				Orientation4.Horizontal => (left, right),

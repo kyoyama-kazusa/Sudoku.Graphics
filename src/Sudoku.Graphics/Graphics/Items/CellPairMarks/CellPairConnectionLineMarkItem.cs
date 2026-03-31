@@ -35,14 +35,14 @@ public sealed record CellPairConnectionLineMarkItem : CellPairMarkItem
 		var p2 = mapper.GetPoint(Cell2, Alignment.Center);
 		_ = adjacentRelation switch
 		{
-			Direction8.Up => (p1 += new SKPoint(0, cellPadding), p2 -= new SKPoint(0, cellPadding)),
-			Direction8.Down => (p1 -= new SKPoint(0, cellPadding), p2 += new SKPoint(0, cellPadding)),
-			Direction8.Left => (p1 += new SKPoint(cellPadding, 0), p2 -= new SKPoint(cellPadding, 0)),
-			Direction8.Right => (p1 -= new SKPoint(cellPadding, 0), p2 += new SKPoint(cellPadding, 0)),
-			Direction8.LeftUp => (p1 += new SKPoint(+cellPadding, +cellPadding), p2 -= new SKPoint(+cellPadding, +cellPadding)),
-			Direction8.RightUp => (p1 += new SKPoint(-cellPadding, +cellPadding), p2 -= new SKPoint(-cellPadding, +cellPadding)),
-			Direction8.LeftDown => (p1 += new SKPoint(+cellPadding, -cellPadding), p2 -= new SKPoint(+cellPadding, -cellPadding)),
-			Direction8.RightDown => (p1 += new SKPoint(-cellPadding, -cellPadding), p2 -= new SKPoint(-cellPadding, -cellPadding)),
+			Direction8.Up => (p1 += (0, cellPadding), p2 -= (0, cellPadding)),
+			Direction8.Down => (p1 -= (0, cellPadding), p2 += (0, cellPadding)),
+			Direction8.Left => (p1 += (cellPadding, 0), p2 -= (cellPadding, 0)),
+			Direction8.Right => (p1 -= (cellPadding, 0), p2 += (cellPadding, 0)),
+			Direction8.LeftUp => (p1 += (+cellPadding, +cellPadding), p2 -= (+cellPadding, +cellPadding)),
+			Direction8.RightUp => (p1 += (-cellPadding, +cellPadding), p2 -= (-cellPadding, +cellPadding)),
+			Direction8.LeftDown => (p1 += (+cellPadding, -cellPadding), p2 -= (+cellPadding, -cellPadding)),
+			Direction8.RightDown => (p1 += (-cellPadding, -cellPadding), p2 -= (-cellPadding, -cellPadding)),
 			_ => throw new UnreachableException()
 		};
 

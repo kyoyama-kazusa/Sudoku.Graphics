@@ -168,11 +168,11 @@ public sealed record PointMapper : IEqualityOperators<PointMapper, PointMapper, 
 		var topLeft = new SKPoint(CellSize * absoluteColumnIndex + Margin, CellSize * absoluteRowIndex + Margin);
 		return alignment switch
 		{
-			Alignment.Center => topLeft + new SKPoint(CellSize / 2, CellSize / 2),
+			Alignment.Center => topLeft + (CellSize / 2, CellSize / 2),
 			Alignment.TopLeft => topLeft,
-			Alignment.TopRight => topLeft + new SKPoint(CellSize, 0),
-			Alignment.BottomLeft => topLeft + new SKPoint(0, CellSize),
-			Alignment.BottomRight => topLeft + new SKPoint(CellSize, CellSize),
+			Alignment.TopRight => topLeft + (CellSize, 0),
+			Alignment.BottomLeft => topLeft + (0, CellSize),
+			Alignment.BottomRight => topLeft + (CellSize, CellSize),
 			_ => throw new ArgumentOutOfRangeException(nameof(alignment))
 		};
 	}
@@ -215,14 +215,14 @@ public sealed record PointMapper : IEqualityOperators<PointMapper, PointMapper, 
 		var candidateSize = CellSize / subgridSize;
 		var candidateRowIndex = innerIndex / subgridSize;
 		var candidateColumnIndex = innerIndex % subgridSize;
-		var topLeft = cellTopLeft + new SKPoint(candidateColumnIndex * candidateSize, candidateRowIndex * candidateSize);
+		var topLeft = cellTopLeft + (candidateColumnIndex * candidateSize, candidateRowIndex * candidateSize);
 		return alignment switch
 		{
-			Alignment.Center => topLeft + new SKPoint(candidateSize / 2, candidateSize / 2),
+			Alignment.Center => topLeft + (candidateSize / 2, candidateSize / 2),
 			Alignment.TopLeft => topLeft,
-			Alignment.TopRight => topLeft + new SKPoint(candidateSize, 0),
-			Alignment.BottomLeft => topLeft + new SKPoint(0, candidateSize),
-			Alignment.BottomRight => topLeft + new SKPoint(candidateSize, candidateSize),
+			Alignment.TopRight => topLeft + (candidateSize, 0),
+			Alignment.BottomLeft => topLeft + (0, candidateSize),
+			Alignment.BottomRight => topLeft + (candidateSize, candidateSize),
 			_ => throw new ArgumentOutOfRangeException(nameof(alignment))
 		};
 	}
@@ -268,14 +268,14 @@ public sealed record PointMapper : IEqualityOperators<PointMapper, PointMapper, 
 		adjacentRelation = direction;
 		return GetPoint(cell1, Alignment.Center) + adjacentRelation switch
 		{
-			Direction8.Up			=> new SKPoint(             0,   CellSize / 2),
-			Direction8.Down			=> new SKPoint(             0, - CellSize / 2),
-			Direction8.Left			=> new SKPoint(  CellSize / 2,              0),
-			Direction8.Right		=> new SKPoint(- CellSize / 2,              0),
-			Direction8.LeftUp		=> new SKPoint(  CellSize / 2,   CellSize / 2),
-			Direction8.RightUp		=> new SKPoint(- CellSize / 2,   CellSize / 2),
-			Direction8.LeftDown		=> new SKPoint(  CellSize / 2, - CellSize / 2),
-			Direction8.RightDown	=> new SKPoint(- CellSize / 2, - CellSize / 2),
+			Direction8.Up			=> (             0,   CellSize / 2),
+			Direction8.Down			=> (             0, - CellSize / 2),
+			Direction8.Left			=> (  CellSize / 2,              0),
+			Direction8.Right		=> (- CellSize / 2,              0),
+			Direction8.LeftUp		=> (  CellSize / 2,   CellSize / 2),
+			Direction8.RightUp		=> (- CellSize / 2,   CellSize / 2),
+			Direction8.LeftDown		=> (  CellSize / 2, - CellSize / 2),
+			Direction8.RightDown	=> (- CellSize / 2, - CellSize / 2),
 			_ => throw new UnreachableException()
 		};
 #pragma warning restore IDE0055

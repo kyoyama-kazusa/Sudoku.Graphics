@@ -259,6 +259,18 @@
         <member name="M:SkiaSharp.SKPointExtensions.AlignYAsBaseline(SkiaSharp.SKPoint@,SkiaSharp.SKFont)">
             <inheritdoc cref="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.AlignYAsBaseline(SkiaSharp.SKFont)"/>
         </member>
+        <member name="M:SkiaSharp.SKPointExtensions.op_UnaryPlus(SkiaSharp.SKPoint@)">
+            <inheritdoc cref="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_UnaryPlus(SkiaSharp.SKPoint@)"/>
+        </member>
+        <member name="M:SkiaSharp.SKPointExtensions.op_UnaryNegation(SkiaSharp.SKPoint@)">
+            <inheritdoc cref="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_UnaryNegation(SkiaSharp.SKPoint@)"/>
+        </member>
+        <member name="M:SkiaSharp.SKPointExtensions.op_Addition(SkiaSharp.SKPoint@,System.ValueTuple{System.Single,System.Single})">
+            <inheritdoc cref="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_Addition(SkiaSharp.SKPoint@,System.ValueTuple{System.Single,System.Single})"/>
+        </member>
+        <member name="M:SkiaSharp.SKPointExtensions.op_Subtraction(SkiaSharp.SKPoint@,System.ValueTuple{System.Single,System.Single})">
+            <inheritdoc cref="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_Subtraction(SkiaSharp.SKPoint@,System.ValueTuple{System.Single,System.Single})"/>
+        </member>
         <member name="M:SkiaSharp.SKPointExtensions.op_GreaterThan(SkiaSharp.SKPoint@,SkiaSharp.SKPoint@)">
             <inheritdoc cref="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_GreaterThan(SkiaSharp.SKPoint@,SkiaSharp.SKPoint@)"/>
         </member>
@@ -271,13 +283,16 @@
         <member name="M:SkiaSharp.SKPointExtensions.op_LessThanOrEqual(SkiaSharp.SKPoint@,SkiaSharp.SKPoint@)">
             <inheritdoc cref="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_LessThanOrEqual(SkiaSharp.SKPoint@,SkiaSharp.SKPoint@)"/>
         </member>
-        <member name="M:SkiaSharp.SKPointExtensions.op_UnaryPlus(SkiaSharp.SKPoint@)">
-            <inheritdoc cref="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_UnaryPlus(SkiaSharp.SKPoint@)"/>
+        <member name="M:SkiaSharp.SKPointExtensions.op_AdditionAssignment(SkiaSharp.SKPoint@,System.ValueTuple{System.Single,System.Single})">
+            <inheritdoc cref="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_AdditionAssignment(System.ValueTuple{System.Single,System.Single})"/>
         </member>
-        <member name="M:SkiaSharp.SKPointExtensions.op_UnaryNegation(SkiaSharp.SKPoint@)">
-            <inheritdoc cref="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_UnaryNegation(SkiaSharp.SKPoint@)"/>
+        <member name="M:SkiaSharp.SKPointExtensions.op_SubtractionAssignment(SkiaSharp.SKPoint@,System.ValueTuple{System.Single,System.Single})">
+            <inheritdoc cref="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_SubtractionAssignment(System.ValueTuple{System.Single,System.Single})"/>
         </member>
         <member name="T:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.&lt;M&gt;$B52E481D08CB04899C9EBECE6EF10EA3">
+            <summary>
+            Provides immutable extension members on <see cref="T:SkiaSharp.SKPoint"/> instances.
+            </summary>
             <param name="this">The current instance.</param>
         </member>
         <member name="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.Deconstruct(System.Single@,System.Single@)">
@@ -295,18 +310,6 @@
             <param name="font">The font.</param>
             <returns>The changed result.</returns>
         </member>
-        <member name="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_GreaterThan(SkiaSharp.SKPoint@,SkiaSharp.SKPoint@)">
-            <inheritdoc cref="M:System.Numerics.IComparisonOperators`3.op_GreaterThan(`0,`1)"/>
-        </member>
-        <member name="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_LessThan(SkiaSharp.SKPoint@,SkiaSharp.SKPoint@)">
-            <inheritdoc cref="M:System.Numerics.IComparisonOperators`3.op_LessThan(`0,`1)"/>
-        </member>
-        <member name="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_GreaterThanOrEqual(SkiaSharp.SKPoint@,SkiaSharp.SKPoint@)">
-            <inheritdoc cref="M:System.Numerics.IComparisonOperators`3.op_GreaterThanOrEqual(`0,`1)"/>
-        </member>
-        <member name="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_LessThanOrEqual(SkiaSharp.SKPoint@,SkiaSharp.SKPoint@)">
-            <inheritdoc cref="M:System.Numerics.IComparisonOperators`3.op_LessThanOrEqual(`0,`1)"/>
-        </member>
         <member name="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_UnaryPlus(SkiaSharp.SKPoint@)">
             <summary>
             Returns the current instance directly; just a symmetry definition
@@ -322,6 +325,42 @@
             </summary>
             <param name="value">The value.</param>
             <returns>The result negated.</returns>
+        </member>
+        <member name="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_Addition(SkiaSharp.SKPoint@,System.ValueTuple{System.Single,System.Single})">
+            <inheritdoc cref="M:System.Numerics.IAdditionOperators`3.op_Addition(`0,`1)"/>
+        </member>
+        <member name="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_Subtraction(SkiaSharp.SKPoint@,System.ValueTuple{System.Single,System.Single})">
+            <inheritdoc cref="M:System.Numerics.ISubtractionOperators`3.op_Subtraction(`0,`1)"/>
+        </member>
+        <member name="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_GreaterThan(SkiaSharp.SKPoint@,SkiaSharp.SKPoint@)">
+            <inheritdoc cref="M:System.Numerics.IComparisonOperators`3.op_GreaterThan(`0,`1)"/>
+        </member>
+        <member name="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_LessThan(SkiaSharp.SKPoint@,SkiaSharp.SKPoint@)">
+            <inheritdoc cref="M:System.Numerics.IComparisonOperators`3.op_LessThan(`0,`1)"/>
+        </member>
+        <member name="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_GreaterThanOrEqual(SkiaSharp.SKPoint@,SkiaSharp.SKPoint@)">
+            <inheritdoc cref="M:System.Numerics.IComparisonOperators`3.op_GreaterThanOrEqual(`0,`1)"/>
+        </member>
+        <member name="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_LessThanOrEqual(SkiaSharp.SKPoint@,SkiaSharp.SKPoint@)">
+            <inheritdoc cref="M:System.Numerics.IComparisonOperators`3.op_LessThanOrEqual(`0,`1)"/>
+        </member>
+        <member name="T:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.&lt;M&gt;$B9D0E77111ADF9208EB78E2564D76E04">
+            <summary>
+            Provides some extension members on <see cref="T:SkiaSharp.SKPoint"/> instances, that may change the containing states of those instances.
+            </summary>
+            <param name="this">The current instance.</param>
+        </member>
+        <member name="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_AdditionAssignment(System.ValueTuple{System.Single,System.Single})">
+            <summary>
+            Adds the specified value into the current instance.
+            </summary>
+            <param name="value">The value that is added to the current instance.</param>
+        </member>
+        <member name="M:SkiaSharp.SKPointExtensions.&lt;G&gt;$7B8186A24CDD5B428FC208B60F7A04E6.op_SubtractionAssignment(System.ValueTuple{System.Single,System.Single})">
+            <summary>
+            Adds the negated value of the specified value into the current instance.
+            </summary>
+            <param name="value">The value that is subtracted from the current instance.</param>
         </member>
         <member name="T:SkiaSharp.SKRectExtensions">
             <summary>

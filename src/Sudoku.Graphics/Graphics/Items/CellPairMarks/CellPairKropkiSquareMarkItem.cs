@@ -38,8 +38,8 @@ public sealed record CellPairKropkiSquareMarkItem : CellPairMarkItem
 		var cellSize = mapper.CellSize;
 		var halfSize = SizeScale.Measure(cellSize) / 2;
 		var center = mapper.GetPointBetween(Cell1, Cell2);
-		var topLeft = center - new SKPoint(halfSize, halfSize);
-		var bottomRight = center + new SKPoint(halfSize, halfSize);
+		var topLeft = center - (halfSize, halfSize);
+		var bottomRight = center + (halfSize, halfSize);
 		var rect = SKRect.Create(topLeft, bottomRight);
 		using var strokePaint = new SKPaint
 		{

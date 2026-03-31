@@ -66,10 +66,10 @@ public partial class SKCanvasDrawings
 				var quarterCellSize = cellSize / 4;
 				targetPoint = alignedDirection switch
 				{
-					Direction8.LeftUp => targetPoint + new SKPoint(-quarterCellSize, -quarterCellSize),
-					Direction8.RightUp => targetPoint + new SKPoint(+quarterCellSize, -quarterCellSize),
-					Direction8.LeftDown => targetPoint + new SKPoint(-quarterCellSize, +quarterCellSize),
-					Direction8.RightDown => targetPoint + new SKPoint(+quarterCellSize, +quarterCellSize),
+					Direction8.LeftUp => targetPoint + (-quarterCellSize, -quarterCellSize),
+					Direction8.RightUp => targetPoint + (+quarterCellSize, -quarterCellSize),
+					Direction8.LeftDown => targetPoint + (-quarterCellSize, +quarterCellSize),
+					Direction8.RightDown => targetPoint + (+quarterCellSize, +quarterCellSize),
 					_ => throw new ArgumentOutOfRangeException(nameof(alignedDirection))
 				};
 			}
