@@ -24,9 +24,6 @@
         <member name="P:Sudoku.Graphics.Absolute.Sudoku#Graphics#IInteger{Sudoku#Graphics#Absolute}#Value">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Absolute.Sudoku#Graphics#IInteger{Sudoku#Graphics#Absolute}#ValueRef">
-            <inheritdoc/>
-        </member>
         <member name="M:Sudoku.Graphics.Absolute.Equals(System.Object)">
             <inheritdoc/>
         </member>
@@ -843,11 +840,6 @@
         <member name="P:Sudoku.Graphics.IInteger`1.Value">
             <summary>
             Indicates the value.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.IInteger`1.ValueRef">
-            <summary>
-            Indicates the reference to field.
             </summary>
         </member>
         <member name="M:Sudoku.Graphics.IInteger`1.op_Implicit(`0)~System.Int32">
@@ -4461,9 +4453,6 @@
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.Relative.Sudoku#Graphics#IInteger{Sudoku#Graphics#Relative}#Value">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Relative.Sudoku#Graphics#IInteger{Sudoku#Graphics#Relative}#ValueRef">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Relative.Equals(System.Object)">

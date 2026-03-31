@@ -11,13 +11,6 @@ public partial interface IInteger<TSelf> : IComparable<TSelf>, IEquatable<TSelf>
 	/// </summary>
 	public int Value { get; }
 
-	/// <summary>
-	/// Indicates the reference to field.
-	/// </summary>
-	[UnscopedRef]
-	[DebuggerHidden]
-	public ref readonly int ValueRef { get; }
-
 
 	/// <summary>
 	/// Implicit cast from <see cref="int"/> to <typeparamref name="TSelf"/> value.

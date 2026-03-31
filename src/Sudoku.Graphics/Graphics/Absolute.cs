@@ -18,10 +18,6 @@ public readonly struct Absolute(int value) : IInteger<Absolute>, ILocator<Absolu
 	/// <inheritdoc/>
 	int IInteger<Absolute>.Value => _value;
 
-	/// <inheritdoc/>
-	[UnscopedRef]
-	ref readonly int IInteger<Absolute>.ValueRef => ref _value;
-
 
 	/// <inheritdoc/>
 	public override bool Equals([NotNullWhen(true)] object? obj) => obj is Absolute comparer && Equals(comparer);

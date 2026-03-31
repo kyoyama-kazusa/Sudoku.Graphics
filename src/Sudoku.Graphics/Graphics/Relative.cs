@@ -18,10 +18,6 @@ public readonly struct Relative(int value) : IInteger<Relative>, ILocator<Relati
 	/// <inheritdoc/>
 	int IInteger<Relative>.Value => _value;
 
-	/// <inheritdoc/>
-	[UnscopedRef]
-	ref readonly int IInteger<Relative>.ValueRef => ref _value;
-
 
 	/// <inheritdoc/>
 	public override bool Equals([NotNullWhen(true)] object? obj) => obj is Relative comparer && Equals(comparer);
