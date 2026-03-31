@@ -5217,18 +5217,6 @@
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawBridgeAndConnectedCircles(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,System.Boolean,System.Boolean,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBridgeAndConnectedCircles(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,System.Int32,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,SkiaSharp.SKColor,Sudoku.ComponentModel.Scale,SkiaSharp.SKColor,System.Boolean,System.Boolean,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawConnectionLine(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawConnectionLine(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawKropki(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,System.Boolean,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawKropki(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,System.Boolean,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawKropkiSquare(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,System.Boolean,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawKropkiSquare(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,System.Boolean,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawKropkiTriangle(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,System.Boolean,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawKropkiTriangle(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,System.Boolean,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)"/>
-        </member>
         <member name="T:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.&lt;M&gt;$21C1C87F40B24560160CB1CD20F6362E">
             <summary>
             Represents a list of extension methods that will be used by types derived from <see cref="T:Sudoku.Graphics.Item"/>,
@@ -5657,57 +5645,6 @@
             <exception cref="T:System.NotSupportedException">
             Throws when <paramref name="linesCount"/> is not supported (too large or invalid).
             </exception>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawConnectionLine(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
-            <summary>
-            Draws a connection line between two adjacent cells, including diagonally-adjacent cases.
-            </summary>
-            <param name="cell1">The cell 1.</param>
-            <param name="cell2">The cell 2.</param>
-            <param name="strokeWidthScale">The scale of stroke width, related to cell size.</param>
-            <param name="strokeColor">The color of stroke.</param>
-            <param name="strokeSizeScale">The scale of stroke size, related to cell size.</param>
-            <param name="mapper">The point mapper instance.</param>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawKropki(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,System.Boolean,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
-            <summary>
-            Draws a kropki circle (solid or hollow) into the grid line between two adjacent cells.
-            </summary>
-            <param name="cell1">The cell 1.</param>
-            <param name="cell2">The cell 2.</param>
-            <param name="isSolid">Indicates whether the mark is solid or not.</param>
-            <param name="sizeScale">The scale of size, related to cell size.</param>
-            <param name="strokeWidthScale">The scale of stroke width, related to cell size.</param>
-            <param name="strokeColor">The stroke color.</param>
-            <param name="fillColor">The fill color. The value works only if <paramref name="isSolid"/> is <see langword="false"/>.</param>
-            <param name="mapper">The point mapper instance.</param>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawKropkiSquare(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,System.Boolean,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.Scale,Sudoku.Graphics.PointMapper)">
-            <summary>
-            Draws a kropki square (solid or hollow) into the grid line between two adjacent cells.
-            </summary>
-            <param name="cell1">The cell 1.</param>
-            <param name="cell2">The cell 2.</param>
-            <param name="isSolid">Indicates whether the mark is solid or not.</param>
-            <param name="sizeScale">The scale of size, related to cell size.</param>
-            <param name="strokeWidthScale">The scale of stroke width, related to cell size.</param>
-            <param name="strokeColor">The stroke color.</param>
-            <param name="fillColor">The fill color. The value works only if <paramref name="isSolid"/> is <see langword="false"/>.</param>
-            <param name="cornerRadiusScale">The scale of corner radius, related to half size of the mark drawn.</param>
-            <param name="mapper">The point mapper instance.</param>
-        </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawKropkiTriangle(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,System.Boolean,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.Scale,Sudoku.ComponentModel.SerializableColor,Sudoku.ComponentModel.SerializableColor,Sudoku.Graphics.PointMapper)">
-            <summary>
-            Draws a kropki triangle (solid or hollow) into the grid line between two adjacent cells.
-            </summary>
-            <param name="cell1">The cell 1.</param>
-            <param name="cell2">The cell 2.</param>
-            <param name="isSolid">Indicates whether the mark is solid or not.</param>
-            <param name="sizeScale">The scale of size, related to cell size.</param>
-            <param name="strokeWidthScale">The scale of stroke width, related to cell size.</param>
-            <param name="strokeColor">The stroke color.</param>
-            <param name="fillColor">The fill color. The value works only if <paramref name="isSolid"/> is <see langword="false"/>.</param>
-            <param name="mapper">The point mapper instance.</param>
         </member>
         <member name="T:Sudoku.Graphics.ArrowPainterHelper">
             <summary>

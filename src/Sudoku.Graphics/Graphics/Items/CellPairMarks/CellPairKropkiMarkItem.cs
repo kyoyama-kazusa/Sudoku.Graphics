@@ -30,14 +30,28 @@ public sealed record CellPairKropkiMarkItem : CellPairMarkItem
 
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)
-		=> canvas.BackingCanvas.DrawKropki(
-			Cell1,
-			Cell2,
-			IsSolid,
-			SizeScale,
-			StrokeWidthScale,
-			StrokeColor,
-			FillColor,
-			canvas.Templates[TemplateIndex].Mapper
-		);
+	{
+		var mapper = canvas.Templates[TemplateIndex].Mapper;
+		var cellSize = mapper.CellSize;
+		var radius = SizeScale.Measure(cellSize) / 2;
+		var center = mapper.GetPointBetween(Cell1, Cell2);
+		using var strokePaint = new SKPaint
+		{
+			IsAntialias = true,
+			Style = SKPaintStyle.Stroke,
+			StrokeWidth = StrokeWidthScale.Measure(cellSize),
+			StrokeCap = SKStrokeCap.Round,
+			StrokeJoin = SKStrokeJoin.Round,
+			Color = StrokeColor
+		};
+		using var fillPaint = new SKPaint
+		{
+			IsAntialias = true,
+			Style = SKPaintStyle.Fill,
+			Color = IsSolid ? StrokeColor : FillColor
+		};
+
+		canvas.BackingCanvas.DrawCircle(center, radius, strokePaint);
+		canvas.BackingCanvas.DrawCircle(center, radius, fillPaint);
+	}
 }
