@@ -26,4 +26,3 @@ global using Sudoku.Graphics.Items.Texts;
 global using Sudoku.Graphics.Templating;
 global using Sudoku.Graphics.Templating.Templates;
 global using Sudoku.Resources;
-global using Sudoku.Serialization;

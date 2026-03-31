@@ -1,4 +1,4 @@
-﻿namespace Sudoku.Serialization;
+﻿namespace System.Text.Json;
 
 /// <summary>
 /// Represents a type that supports serialization and deserialization operation with inheritance.
