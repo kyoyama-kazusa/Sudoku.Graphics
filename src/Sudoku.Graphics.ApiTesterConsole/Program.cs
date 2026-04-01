@@ -8,11 +8,10 @@
 
 using System;
 using System.IO;
-using System.Linq;
 using SkiaSharp;
 using Sudoku.Graphics;
 using Sudoku.Graphics.Items.CandidateMarks;
-using Sudoku.Graphics.Items.CellGroupMarks;
+using Sudoku.Graphics.Items.CandidatePairMarks;
 using Sudoku.Graphics.Items.Fills;
 using Sudoku.Graphics.Items.Lines;
 using Sudoku.Graphics.Items.Texts;
@@ -40,25 +39,50 @@ canvas.DrawItems(
 	[
 		new BackgroundFillItem { Color = SKColors.White },
 		new TemplateLineItem(),
-		..
-		from digit in Enumerable.Range(0, 6)
-		select new CandidateCircleMarkItem
+		new CandidateCircleMarkItem
 		{
 			TemplateIndex = 0,
-			CandidatePosition = new(0, 3, digit),
-			SizeScale = 0.75M,
-			FillColor = SKColors.Green.WithAlpha(128)
+			CandidatePosition = new(0, 3, 2),
+			SizeScale = 0.8M,
+			FillColor = new(63, 218, 101)
 		},
-		..
-		from digit in Enumerable.Range(0, 6)
-		select new CandidateTextItem
+		new CandidateCircleMarkItem
 		{
 			TemplateIndex = 0,
-			CandidatePosition = new(0, 3, digit),
-			Text = (digit + 1).ToString(),
+			CandidatePosition = new(15, 3, 5),
+			SizeScale = 0.8M,
+			FillColor = new(63, 218, 101)
+		},
+		new CandidateTextItem
+		{
+			TemplateIndex = 0,
+			CandidatePosition = new(0, 3, 2),
+			Text = "3",
+			Color = SKColors.DimGray,
 			FontName = "Arial",
-			FontSizeScale = 0.75M,
-			Color = SKColors.Black
+			FontSizeScale = 0.8M
+		},
+		new CandidateTextItem
+		{
+			TemplateIndex = 0,
+			CandidatePosition = new(15, 3, 5),
+			Text = "6",
+			Color = SKColors.DimGray,
+			FontName = "Arial",
+			FontSizeScale = 0.8M
+		},
+		new CandidatePairLinkMarkItem
+		{
+			TemplateIndex = 0,
+			CandidatePosition1 = new(0, 3, 2),
+			CandidatePosition2 = new(15, 3, 5),
+			StrokeColor = SKColors.Red,
+			StrokeWidthScale = 0.025M,
+			ArrowCapLengthScale = 0.2M,
+			HalfArrowCapRotationDegrees = 25,
+			Candidate1SizeScale = 1.3M,
+			Candidate2SizeScale = 1.3M,
+			DashSequence = [5, 5]
 		}
 	]
 );

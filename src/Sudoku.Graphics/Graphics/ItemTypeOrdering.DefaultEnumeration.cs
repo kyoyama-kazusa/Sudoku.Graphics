@@ -85,6 +85,11 @@ public partial class ItemTypeOrdering
 				yield return ItemType.Line_Variant;
 			}
 
+			// Candidate pair marks
+			{
+				yield return ItemType.CandidatePair_Link;
+			}
+
 			// Cell pair marks
 			{
 				yield return ItemType.CellPair_BridgeLine;

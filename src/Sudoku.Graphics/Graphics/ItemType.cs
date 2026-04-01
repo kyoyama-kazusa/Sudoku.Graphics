@@ -321,6 +321,16 @@ public enum ItemType
 	#endregion
 
 	//
+	// Candidate pair marks
+	//
+	#region Candidate pair marks
+	/// <summary>
+	/// Indicates candidate pair link mark.
+	/// </summary>
+	CandidatePair_Link,
+	#endregion
+
+	//
 	// Lines
 	//
 	#region Lines

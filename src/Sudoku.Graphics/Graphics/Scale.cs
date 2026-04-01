@@ -18,17 +18,17 @@ public readonly struct Scale(decimal value) :
 	/// <summary>
 	/// Indicates whether the current scale value is negative (&lt; 0).
 	/// </summary>
-	public bool IsNegative => value < 0;
+	public bool IsNegative => Value < 0;
 
 	/// <summary>
 	/// Indicates whether the current scale value is positive (&gt; 0).
 	/// </summary>
-	public bool IsPositive => value > 0;
+	public bool IsPositive => Value > 0;
 
 	/// <summary>
 	/// Indicates the value.
 	/// </summary>
-	public decimal Value { get; } = value is >= 0 and <= 1 ? value : throw new ArgumentOutOfRangeException(nameof(value));
+	public decimal Value { get; } = value/* is >= 0 and <= 1 ? value : throw new ArgumentOutOfRangeException(nameof(value))*/;
 
 
 	/// <inheritdoc/>

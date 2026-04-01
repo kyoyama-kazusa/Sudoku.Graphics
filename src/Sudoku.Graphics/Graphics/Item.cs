@@ -9,6 +9,7 @@
 [JsonDerivedType(typeof(CandidateCircleMarkItem), nameof(CandidateCircleMarkItem))]
 [JsonDerivedType(typeof(CandidateCrossMarkItem), nameof(CandidateCrossMarkItem))]
 [JsonDerivedType(typeof(CandidateFillItem), nameof(CandidateFillItem))]
+[JsonDerivedType(typeof(CandidatePairLinkMarkItem), nameof(CandidatePairLinkMarkItem))]
 [JsonDerivedType(typeof(CandidateTextItem), nameof(CandidateTextItem))]
 [JsonDerivedType(typeof(CellApexCornerTriangleMarkItem), nameof(CellApexCornerTriangleMarkItem))]
 [JsonDerivedType(typeof(CellArithmeticOperatorTextMarkItem), nameof(CellArithmeticOperatorTextMarkItem))]

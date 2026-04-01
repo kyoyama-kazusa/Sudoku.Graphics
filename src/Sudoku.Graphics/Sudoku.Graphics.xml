@@ -1387,6 +1387,80 @@
         <member name="P:Sudoku.Graphics.Items.CandidateMarks.CandidateMarkItem.FillColor">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.Items.CandidatePairMarks.CandidatePairLinkMarkItem">
+            <summary>
+            Represents candidate pair link mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidatePairMarks.CandidatePairLinkMarkItem.HalfArrowCapRotationDegrees">
+            <summary>
+            Indicates the half arrow cap rotation degrees, in angles.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidatePairMarks.CandidatePairLinkMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidatePairMarks.CandidatePairLinkMarkItem.DashSequence">
+            <summary>
+            Indicates dash sequence.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidatePairMarks.CandidatePairLinkMarkItem.Candidate1SizeScale">
+            <summary>
+            Indicates the scale of candidate 1 size, related to candidate size.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidatePairMarks.CandidatePairLinkMarkItem.Candidate2SizeScale">
+            <summary>
+            Indicates the scale of candidate 2 size, related to candidate size.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidatePairMarks.CandidatePairLinkMarkItem.StrokeWidthScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidatePairMarks.CandidatePairLinkMarkItem.ArrowCapLengthScale">
+            <summary>
+            Indicates arrow cap length scale.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidatePairMarks.CandidatePairLinkMarkItem.StrokeColor">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CandidatePairMarks.CandidatePairLinkMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CandidatePairMarks.CandidatePairMarkItem">
+            <summary>
+            Represents a candidate pair mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidatePairMarks.CandidatePairMarkItem.TemplateIndex">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidatePairMarks.CandidatePairMarkItem.CandidatePosition1">
+            <summary>
+            Indicates the candidate position 1.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidatePairMarks.CandidatePairMarkItem.CandidatePosition2">
+            <summary>
+            Indicates the candidate position 2.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidatePairMarks.CandidatePairMarkItem.StrokeWidthScale">
+            <summary>
+            Indicates stroke width scale.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidatePairMarks.CandidatePairMarkItem.StrokeColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidatePairMarks.CandidatePairMarkItem.FillColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CandidatePairMarks.CandidatePairMarkItem.Sudoku#Graphics#Items#IItem_MarkRelatedProperties#SizeScale">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.Items.CellGroupMarks.CellGroupKillerCageMarkItem">
             <summary>
             Represents a cell group killer cage mark item.
@@ -1676,17 +1750,6 @@
             <param name="trailCells">The trail cells.</param>
             <param name="cellSize">The size of each cell.</param>
             <returns>A path generated.</returns>
-        </member>
-        <member name="M:Sudoku.Graphics.Items.CellGroupMarks.CapsuleTrailDrawer.DrawArrowCaps(SkiaSharp.SKCanvas,SkiaSharp.SKPoint,SkiaSharp.SKPoint,System.Single,System.Single,SkiaSharp.SKPaint)">
-            <summary>
-            Draw arrow caps.
-            </summary>
-            <param name="canvas">The canvas instance.</param>
-            <param name="penultimatePoint">The penuleimate point (i.e. <c>points[^2]</c>).</param>
-            <param name="endPoint">The end point.</param>
-            <param name="arrowCapLength">The arrow length.</param>
-            <param name="arrowCapHalfAngleDegrees">The arrow half angle degrees.</param>
-            <param name="paint">The stroke paint.</param>
         </member>
         <member name="T:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailMarkItem">
             <summary>
@@ -3986,6 +4049,11 @@
             Indicates killer cage cell group mark.
             </summary>
         </member>
+        <member name="F:Sudoku.Graphics.ItemType.CandidatePair_Link">
+            <summary>
+            Indicates candidate pair link mark.
+            </summary>
+        </member>
         <member name="F:Sudoku.Graphics.ItemType.Line_Template">
             <summary>
             Indicates template line strokes.
@@ -4852,6 +4920,9 @@
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawArrowTriangleToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,Sudoku.Graphics.Directions.Direction8,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowTriangleToCell(Sudoku.Graphics.Absolute,Sudoku.Graphics.Directions.Direction8,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawArrowCaps(SkiaSharp.SKCanvas,SkiaSharp.SKPoint,SkiaSharp.SKPoint,System.Single,System.Single,SkiaSharp.SKPaint)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowCaps(SkiaSharp.SKPoint,SkiaSharp.SKPoint,System.Single,System.Single,SkiaSharp.SKPaint)"/>
+        </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawBattenburg(SkiaSharp.SKCanvas,SkiaSharp.SKPoint,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale[],Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBattenburg(SkiaSharp.SKPoint,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale[],Sudoku.Graphics.PointMapper)"/>
         </member>
@@ -4924,6 +4995,16 @@
             <param name="strokeColor">The stroke color.</param>
             <param name="fillColor">The fill color.</param>
             <param name="mapper">The mapper instance.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawArrowCaps(SkiaSharp.SKPoint,SkiaSharp.SKPoint,System.Single,System.Single,SkiaSharp.SKPaint)">
+            <summary>
+            Draw arrow caps.
+            </summary>
+            <param name="penultimatePoint">The penuleimate point (i.e. <c>points[^2]</c>).</param>
+            <param name="endPoint">The end point.</param>
+            <param name="arrowCapLength">The arrow length.</param>
+            <param name="arrowCapHalfAngleDegrees">The arrow half angle degrees.</param>
+            <param name="paint">The stroke paint.</param>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBattenburg(SkiaSharp.SKPoint,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale[],Sudoku.Graphics.PointMapper)">
             <summary>
