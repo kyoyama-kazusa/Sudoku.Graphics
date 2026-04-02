@@ -898,6 +898,7 @@
             and <paramref name="direction"/> is either <see cref="F:Sudoku.Graphics.Directions.Direction4.Left"/> or <see cref="F:Sudoku.Graphics.Directions.Direction4.Right"/>
             (because such direction is not well-defined to compare indices).
             </exception>
+            <seealso cref="T:Sudoku.Graphics.Directions.Direction4"/>
         </member>
         <member name="M:Sudoku.Graphics.ILocator`1.IsAlignedAs(Sudoku.Graphics.LocatorGridAlignment,`0,`0,Sudoku.Graphics.PointMapper)">
             <summary>

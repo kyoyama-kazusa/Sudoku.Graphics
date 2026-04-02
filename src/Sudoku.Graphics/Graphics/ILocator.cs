@@ -25,6 +25,7 @@ public interface ILocator<TSelf> : IEquatable<TSelf> where TSelf : unmanaged, IL
 	/// and <paramref name="direction"/> is either <see cref="Direction4.Left"/> or <see cref="Direction4.Right"/>
 	/// (because such direction is not well-defined to compare indices).
 	/// </exception>
+	/// <seealso cref="Direction4"/>
 	bool IsSideWith(TSelf other, Direction4 direction, PointMapper mapper, bool isInStrictDirection);
 
 
