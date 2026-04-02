@@ -28,8 +28,8 @@ public readonly struct Relative(int value) : IInteger<Relative>, ILocator<Relati
 	/// <inheritdoc/>
 	public bool IsSideWith(Relative other, Direction4 direction, PointMapper mapper, bool isInStrictDirection)
 	{
-		var a = mapper.GetAbsoluteIndex(this);
-		var b = mapper.GetAbsoluteIndex(other);
+		var a = ToAbsolute(mapper);
+		var b = other.ToAbsolute(mapper);
 		return a.IsSideWith(b, direction, mapper, isInStrictDirection);
 	}
 
@@ -42,10 +42,58 @@ public readonly struct Relative(int value) : IInteger<Relative>, ILocator<Relati
 	/// <inheritdoc cref="object.ToString"/>
 	public override string ToString() => _value.ToString();
 
+	/// <summary>
+	/// Projects the current relative cell index into absolute one.
+	/// </summary>
+	/// <param name="mapper">The point mapper instance.</param>
+	/// <returns>The result absolute index.</returns>
+	public Absolute ToAbsolute(PointMapper mapper)
+	{
+		var row = this / mapper.ColumnsCount;
+		var column = this % mapper.ColumnsCount;
+		var resultRow = row + mapper.Vector.Top;
+		var resultColumn = column + mapper.Vector.Left;
+		return resultRow * mapper.AbsoluteColumnsCount + resultColumn;
+	}
+
+	/// <summary>
+	/// Projects the specified relative cell index into absolute one;
+	/// with the specified direction as outside offset one, and an offset value <paramref name="offset"/>
+	/// indicating the number of advanced steps of cells.
+	/// </summary>
+	/// <param name="outsideDirection">The outside direction.</param>
+	/// <param name="offset">The offset. For negative values, it'll negate <paramref name="outsideDirection"/> also.</param>
+	/// <param name="mapper">The point mapper instance.</param>
+	/// <returns>The result absolute index.</returns>
+	/// <exception cref="ArgumentException">Throws when <paramref name="outsideDirection"/> is not a flag.</exception>
+	/// <exception cref="ArgumentOutOfRangeException">Throws when <paramref name="outsideDirection"/> is not defined.</exception>
+	public Absolute ToAbsolute(Direction4 outsideDirection, Absolute offset, PointMapper mapper)
+	{
+		ArgumentException.Assert(BitOperations.IsPow2((int)outsideDirection));
+		ArgumentOutOfRangeException.ThrowIfUndefined(outsideDirection);
+
+		if (offset < 0)
+		{
+			// Negate directions if offset is negative.
+			offset = -offset;
+			outsideDirection = outsideDirection.Negated;
+		}
+
+		// a + b switch {} <=> a + (b switch {})
+		return ToAbsolute(mapper) + outsideDirection switch
+		{
+			Direction4.Up => -(mapper.AbsoluteColumnsCount * offset),
+			Direction4.Down => +(mapper.AbsoluteColumnsCount * offset),
+			Direction4.Left => -offset,
+			Direction4.Right => +offset,
+			_ => throw new UnreachableException()
+		};
+	}
+
 
 	/// <inheritdoc/>
 	public static bool IsAlignedAs(LocatorGridAlignment gridAlignment, Relative first, Relative second, PointMapper mapper)
-		=> Absolute.IsAlignedAs(gridAlignment, mapper.GetAbsoluteIndex(first), mapper.GetAbsoluteIndex(second), mapper);
+		=> Absolute.IsAlignedAs(gridAlignment, first.ToAbsolute(mapper), second.ToAbsolute(mapper), mapper);
 
 	/// <inheritdoc/>
 	public static float GetLocatorMeasurer(Relative locator, float cellSize) => cellSize;

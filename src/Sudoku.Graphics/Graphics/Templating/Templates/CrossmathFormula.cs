@@ -82,7 +82,7 @@ public sealed record CrossmathFormula : IEqualityOperators<CrossmathFormula, Cro
 			var startCell = formula.Cell;
 			for (var i = 0; i < formula.CellsCount; i++)
 			{
-				var nextCell = i == 0 ? formula.Cell : mapper.GetAdjacentAbsoluteCellWith(startCell, formula.ExpandingDirection, false);
+				var nextCell = i == 0 ? formula.Cell : startCell.GetAdjacentAbsoluteIn(formula.ExpandingDirection, false, mapper);
 				if (formula.ValueSequence[i] is not { } textValue)
 				{
 					goto NextElement;

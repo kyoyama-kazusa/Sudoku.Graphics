@@ -47,96 +47,6 @@ public sealed record PointMapper : IEqualityOperators<PointMapper, PointMapper, 
 	public override int GetHashCode() => HashCode.Combine(CellSize, Margin, TemplateSize);
 
 	/// <summary>
-	/// Projects the specified relative cell index into absolute one.
-	/// </summary>
-	/// <param name="relativeCellIndex">Relative cell index.</param>
-	/// <returns>The result absolute index.</returns>
-	public Absolute GetAbsoluteIndex(Relative relativeCellIndex)
-	{
-		var row = relativeCellIndex / ColumnsCount;
-		var column = relativeCellIndex % ColumnsCount;
-		var resultRow = row + Vector.Top;
-		var resultColumn = column + Vector.Left;
-		return resultRow * AbsoluteColumnsCount + resultColumn;
-	}
-
-	/// <summary>
-	/// Projects the specified relative cell index into absolute one;
-	/// with the specified direction as outside offset one, and an offset value <paramref name="offset"/>
-	/// indicating the number of advanced steps of cells.
-	/// </summary>
-	/// <param name="relativeCellIndex">Relative cell index.</param>
-	/// <param name="outsideDirection">The outside direction.</param>
-	/// <param name="offset">The offset. For negative values, it'll negate <paramref name="outsideDirection"/> also.</param>
-	/// <returns>The result absolute index.</returns>
-	/// <exception cref="ArgumentException">Throws when <paramref name="outsideDirection"/> is not a flag.</exception>
-	/// <exception cref="ArgumentOutOfRangeException">Throws when <paramref name="outsideDirection"/> is not defined.</exception>
-	public Absolute GetAbsoluteIndex(Relative relativeCellIndex, Direction4 outsideDirection, Absolute offset)
-	{
-		ArgumentException.Assert(BitOperations.IsPow2((int)outsideDirection));
-		ArgumentOutOfRangeException.ThrowIfUndefined(outsideDirection);
-
-		if (offset < 0)
-		{
-			// Negate directions if offset is negative.
-			offset = -offset;
-			outsideDirection = outsideDirection.Negated;
-		}
-
-		// a + b switch {} <=> a + (b switch {})
-		return GetAbsoluteIndex(relativeCellIndex) + outsideDirection switch
-		{
-			Direction4.Up => -(AbsoluteColumnsCount * offset),
-			Direction4.Down => +(AbsoluteColumnsCount * offset),
-			Direction4.Left => -offset,
-			Direction4.Right => +offset,
-			_ => throw new UnreachableException()
-		};
-	}
-
-	/// <summary>
-	/// Projects the specified absolute cell index into relative one.
-	/// </summary>
-	/// <param name="absoluteCellIndex">Absolute cell index.</param>
-	/// <returns>The result relative index.</returns>
-	public Relative GetRelativeIndex(Absolute absoluteCellIndex)
-	{
-		var absoluteColumnsCount = AbsoluteColumnsCount;
-		var row = absoluteCellIndex / absoluteColumnsCount;
-		var column = absoluteCellIndex % absoluteColumnsCount;
-		var resultRow = row - Vector.Top;
-		var resultColumn = column - Vector.Left;
-		return resultRow * ColumnsCount + resultColumn;
-	}
-
-	/// <summary>
-	/// Gets the adjacent cell at the specified direction of the specified absolute cell index.
-	/// </summary>
-	/// <param name="absoluteCellIndex">Absolute cell index.</param>
-	/// <param name="direction">The direction.</param>
-	/// <param name="isCyclicChecking">Indicates whether the cell overflown in the relative grid will be included to be checked or not.</param>
-	/// <returns>Target cell absolute index.</returns>
-	public Absolute GetAdjacentAbsoluteCellWith(Absolute absoluteCellIndex, Direction4 direction, bool isCyclicChecking)
-	{
-		var rowsCount = AbsoluteRowsCount;
-		var columnsCount = AbsoluteColumnsCount;
-		var row = absoluteCellIndex / columnsCount;
-		var column = absoluteCellIndex % columnsCount;
-		return direction switch
-		{
-			Direction4.Up when row >= 1 => (row - 1) * columnsCount + column,
-			Direction4.Up when row == 0 && isCyclicChecking => (rowsCount - 1) * columnsCount + column,
-			Direction4.Down when row < rowsCount => (row + 1) * columnsCount + column,
-			Direction4.Down when row == rowsCount && isCyclicChecking => 0 * columnsCount + column,
-			Direction4.Left when column >= 1 => row * columnsCount + column - 1,
-			Direction4.Left when column == 0 && isCyclicChecking => row * columnsCount + columnsCount - 1,
-			Direction4.Right when column < columnsCount => row * columnsCount + column + 1,
-			Direction4.Right when column == columnsCount && isCyclicChecking => row + columnsCount + 0,
-			_ => -1
-		};
-	}
-
-	/// <summary>
 	/// Returns the position (point) of the specified alignment type of the specified cell.
 	/// </summary>
 	/// <param name="absoluteCellIndex">Absolute cell index.</param>
@@ -193,7 +103,7 @@ public sealed record PointMapper : IEqualityOperators<PointMapper, PointMapper, 
 		=> locator switch
 		{
 			Absolute cell => GetPoint(cell, alignment),
-			Relative cell => GetPoint(GetAbsoluteIndex(cell), alignment),
+			Relative cell => GetPoint(cell.ToAbsolute(this), alignment),
 			CandidatePosition candidate => GetPoint(candidate, alignment),
 			_ => throw new NotSupportedException($"The specified type '{typeof(TLocator).Name}' is not supported - it must be of type '{nameof(Absolute)}', '{nameof(Relative)}' or '{nameof(CandidatePosition)}'.")
 		};
@@ -229,11 +139,11 @@ public sealed record PointMapper : IEqualityOperators<PointMapper, PointMapper, 
 
 	/// <inheritdoc cref="GetPointBetween(Absolute, Absolute)"/>
 	public SKPoint GetPointBetween(Relative cell1, Relative cell2)
-		=> GetPointBetween(GetAbsoluteIndex(cell1), GetAbsoluteIndex(cell2));
+		=> GetPointBetween(cell1.ToAbsolute(this), cell2.ToAbsolute(this));
 
 	/// <inheritdoc cref="GetPointBetweenWithAdjacentRelation(Absolute, Absolute, out Direction8)"/>
 	public SKPoint GetPointBetween(Relative cell1, Relative cell2, out Direction8 adjacentRelation)
-		=> GetPointBetweenWithAdjacentRelation(GetAbsoluteIndex(cell1), GetAbsoluteIndex(cell2), out adjacentRelation);
+		=> GetPointBetweenWithAdjacentRelation(cell1.ToAbsolute(this), cell2.ToAbsolute(this), out adjacentRelation);
 
 	/// <summary>
 	/// Gets a point that is the center point of two cells; this method doesn't require two cells are adjacent with each other.

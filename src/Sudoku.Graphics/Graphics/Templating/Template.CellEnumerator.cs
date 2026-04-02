@@ -15,7 +15,7 @@ public partial class Template
 		private Relative _index = -1;
 
 		/// <inheritdoc/>
-		public readonly Absolute Current => _template.Mapper.GetAbsoluteIndex(_index);
+		public readonly Absolute Current => _index.ToAbsolute(_template.Mapper);
 
 		/// <inheritdoc/>
 		readonly object IEnumerator.Current => Current;
@@ -54,9 +54,9 @@ public partial class Template
 		private readonly List<Absolute> GetValuesFallback()
 		{
 			var result = new List<Absolute>();
-			for (var i = 0; i < CellsCount; i++)
+			for (var i = (Relative)0; i < CellsCount; i++)
 			{
-				result.Add(_template.Mapper.GetAbsoluteIndex(i));
+				result.Add(i.ToAbsolute(_template.Mapper));
 			}
 			return result;
 		}

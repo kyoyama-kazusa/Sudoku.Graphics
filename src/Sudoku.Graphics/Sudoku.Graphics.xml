@@ -42,6 +42,24 @@
         <member name="M:Sudoku.Graphics.Absolute.ToString">
             <inheritdoc cref="M:System.Object.ToString"/>
         </member>
+        <member name="M:Sudoku.Graphics.Absolute.ToRelative(Sudoku.Graphics.PointMapper)">
+            <summary>
+            Projects the specified absolute cell index into relative one.
+            </summary>
+            <param name="mapper">The point mapper instance.</param>
+            <returns>The result relative index.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.Absolute.GetAdjacentAbsoluteIn(Sudoku.Graphics.Directions.Direction4,System.Boolean,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Gets the adjacent cell at the specified direction of the current absolute cell index.
+            </summary>
+            <param name="direction">The direction.</param>
+            <param name="isCyclicChecking">
+            Indicates whether the cell overflown in the relative grid will be included to be checked or not.
+            </param>
+            <param name="mapper">The point mapper instance.</param>
+            <returns>Target cell absolute index.</returns>
+        </member>
         <member name="M:Sudoku.Graphics.Absolute.IsAlignedAs(Sudoku.Graphics.LocatorGridAlignment,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.Graphics.PointMapper)">
             <inheritdoc/>
         </member>
@@ -3521,11 +3539,11 @@
         <member name="P:Sudoku.Graphics.Items.IItem_CellProperty.Cell">
             <summary>
             Indicates the cell to be drawn, of absolute cell index.
-            For <see cref="T:Sudoku.Graphics.Relative"/> cell indices, you can use <see cref="M:Sudoku.Graphics.PointMapper.GetAbsoluteIndex(Sudoku.Graphics.Relative)"/>
+            For <see cref="T:Sudoku.Graphics.Relative"/> cell indices, you can use <see cref="M:Sudoku.Graphics.Relative.ToAbsolute(Sudoku.Graphics.PointMapper)"/>
             to create absolute cells.
             </summary>
             <seealso cref="T:Sudoku.Graphics.Relative"/>
-            <seealso cref="M:Sudoku.Graphics.PointMapper.GetAbsoluteIndex(Sudoku.Graphics.Relative)"/>
+            <seealso cref="M:Sudoku.Graphics.Relative.ToAbsolute(Sudoku.Graphics.PointMapper)"/>
         </member>
         <member name="T:Sudoku.Graphics.Items.IItem_ColorProperty">
             <summary>
@@ -4457,42 +4475,6 @@
         <member name="M:Sudoku.Graphics.PointMapper.GetHashCode">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.PointMapper.GetAbsoluteIndex(Sudoku.Graphics.Relative)">
-            <summary>
-            Projects the specified relative cell index into absolute one.
-            </summary>
-            <param name="relativeCellIndex">Relative cell index.</param>
-            <returns>The result absolute index.</returns>
-        </member>
-        <member name="M:Sudoku.Graphics.PointMapper.GetAbsoluteIndex(Sudoku.Graphics.Relative,Sudoku.Graphics.Directions.Direction4,Sudoku.Graphics.Absolute)">
-            <summary>
-            Projects the specified relative cell index into absolute one;
-            with the specified direction as outside offset one, and an offset value <paramref name="offset"/>
-            indicating the number of advanced steps of cells.
-            </summary>
-            <param name="relativeCellIndex">Relative cell index.</param>
-            <param name="outsideDirection">The outside direction.</param>
-            <param name="offset">The offset. For negative values, it'll negate <paramref name="outsideDirection"/> also.</param>
-            <returns>The result absolute index.</returns>
-            <exception cref="T:System.ArgumentException">Throws when <paramref name="outsideDirection"/> is not a flag.</exception>
-            <exception cref="T:System.ArgumentOutOfRangeException">Throws when <paramref name="outsideDirection"/> is not defined.</exception>
-        </member>
-        <member name="M:Sudoku.Graphics.PointMapper.GetRelativeIndex(Sudoku.Graphics.Absolute)">
-            <summary>
-            Projects the specified absolute cell index into relative one.
-            </summary>
-            <param name="absoluteCellIndex">Absolute cell index.</param>
-            <returns>The result relative index.</returns>
-        </member>
-        <member name="M:Sudoku.Graphics.PointMapper.GetAdjacentAbsoluteCellWith(Sudoku.Graphics.Absolute,Sudoku.Graphics.Directions.Direction4,System.Boolean)">
-            <summary>
-            Gets the adjacent cell at the specified direction of the specified absolute cell index.
-            </summary>
-            <param name="absoluteCellIndex">Absolute cell index.</param>
-            <param name="direction">The direction.</param>
-            <param name="isCyclicChecking">Indicates whether the cell overflown in the relative grid will be included to be checked or not.</param>
-            <returns>Target cell absolute index.</returns>
-        </member>
         <member name="M:Sudoku.Graphics.PointMapper.GetPoint(Sudoku.Graphics.Absolute,Sudoku.Graphics.Alignment)">
             <summary>
             Returns the position (point) of the specified alignment type of the specified cell.
@@ -4651,6 +4633,26 @@
         </member>
         <member name="M:Sudoku.Graphics.Relative.ToString">
             <inheritdoc cref="M:System.Object.ToString"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Relative.ToAbsolute(Sudoku.Graphics.PointMapper)">
+            <summary>
+            Projects the current relative cell index into absolute one.
+            </summary>
+            <param name="mapper">The point mapper instance.</param>
+            <returns>The result absolute index.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.Relative.ToAbsolute(Sudoku.Graphics.Directions.Direction4,Sudoku.Graphics.Absolute,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Projects the specified relative cell index into absolute one;
+            with the specified direction as outside offset one, and an offset value <paramref name="offset"/>
+            indicating the number of advanced steps of cells.
+            </summary>
+            <param name="outsideDirection">The outside direction.</param>
+            <param name="offset">The offset. For negative values, it'll negate <paramref name="outsideDirection"/> also.</param>
+            <param name="mapper">The point mapper instance.</param>
+            <returns>The result absolute index.</returns>
+            <exception cref="T:System.ArgumentException">Throws when <paramref name="outsideDirection"/> is not a flag.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">Throws when <paramref name="outsideDirection"/> is not defined.</exception>
         </member>
         <member name="M:Sudoku.Graphics.Relative.IsAlignedAs(Sudoku.Graphics.LocatorGridAlignment,Sudoku.Graphics.Relative,Sudoku.Graphics.Relative,Sudoku.Graphics.PointMapper)">
             <inheritdoc/>

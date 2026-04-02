@@ -66,7 +66,6 @@ public static class LineSegmentFactory
 	/// <param name="mapper">The mapper.</param>
 	/// <param name="absoluteCellIndices">Absolute cell indices.</param>
 	/// <returns>The result dictionary of light-up segments.</returns>
-	[SuppressMessage("Style", "IDE0028:Simplify collection initialization", Justification = "<Pending>")]
 	internal static Dictionary<Absolute, Direction4> GetLightupDirections(
 		Relative[] cellIndices,
 		bool isCyclicRuleChecked,
@@ -76,7 +75,7 @@ public static class LineSegmentFactory
 		new([
 			..
 			from cell in cellIndices
-			let absoluteIndex = mapper.GetAbsoluteIndex(cell)
+			let absoluteIndex = cell.ToAbsolute(mapper)
 			select KeyValuePair.Create(absoluteIndex, Direction4.Up | Direction4.Down | Direction4.Left | Direction4.Right)
 		]),
 		isCyclicRuleChecked,
@@ -85,7 +84,6 @@ public static class LineSegmentFactory
 	);
 
 	/// <inheritdoc cref="GetLightupDirections(Relative[], bool, PointMapper, out HashSet{Absolute})"/>
-	[SuppressMessage("Style", "IDE0028:Simplify collection initialization", Justification = "<Pending>")]
 	internal static Dictionary<Absolute, Direction4> GetLightupDirections(
 		Absolute[] cellIndices,
 		bool isCyclicRuleChecked,
@@ -127,7 +125,7 @@ public static class LineSegmentFactory
 		{
 			foreach (var direction in Direction4.AllDirections)
 			{
-				if (absoluteCellIndices.Contains(mapper.GetAdjacentAbsoluteCellWith(cell, direction, isCyclicRuleChecked)))
+				if (absoluteCellIndices.Contains(cell.GetAdjacentAbsoluteIn(direction, isCyclicRuleChecked, mapper)))
 				{
 					// This direction contains that cell - we should remove this direction.
 					lineSegmentsDictionary[cell] &= ~direction;

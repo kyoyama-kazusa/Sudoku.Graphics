@@ -19,7 +19,7 @@ public sealed class CrossmathTemplate : SpecifiedTemplate
 			var startCell = formula.Cell;
 			for (var i = 0; i < formula.CellsCount; i++)
 			{
-				var nextCell = i == 0 ? formula.Cell : Mapper.GetAdjacentAbsoluteCellWith(startCell, formula.ExpandingDirection, false);
+				var nextCell = i == 0 ? formula.Cell : startCell.GetAdjacentAbsoluteIn(formula.ExpandingDirection, false, Mapper);
 				thinBorders.Add(new(nextCell, Direction4.Up | Direction4.Down | Direction4.Left | Direction4.Right));
 				startCell = nextCell;
 			}

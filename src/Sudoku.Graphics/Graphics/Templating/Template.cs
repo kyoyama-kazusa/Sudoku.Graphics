@@ -216,7 +216,7 @@ public abstract partial class Template
 		foreach (var index in template1.EnumerateGridCellIndices())
 		{
 			if (TryProjectCellIndex(template1, template2, index, out var targetIndex)
-				&& template2.Mapper.GetRelativeIndex(targetIndex) is var temp
+				&& targetIndex.ToRelative(template2.Mapper) is var temp
 				&& temp >= 0 && temp < template2.Mapper.CellsCount)
 			{
 				result.Add(index);

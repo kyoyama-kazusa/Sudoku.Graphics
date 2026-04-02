@@ -54,6 +54,50 @@ public readonly struct Absolute(int value) : IInteger<Absolute>, ILocator<Absolu
 	/// <inheritdoc cref="object.ToString"/>
 	public override string ToString() => _value.ToString();
 
+	/// <summary>
+	/// Projects the specified absolute cell index into relative one.
+	/// </summary>
+	/// <param name="mapper">The point mapper instance.</param>
+	/// <returns>The result relative index.</returns>
+	public Relative ToRelative(PointMapper mapper)
+	{
+		var absoluteColumnsCount = mapper.AbsoluteColumnsCount;
+		var row = this / absoluteColumnsCount;
+		var column = this % absoluteColumnsCount;
+		var resultRow = row - mapper.Vector.Top;
+		var resultColumn = column - mapper.Vector.Left;
+		return resultRow * mapper.ColumnsCount + resultColumn;
+	}
+
+	/// <summary>
+	/// Gets the adjacent cell at the specified direction of the current absolute cell index.
+	/// </summary>
+	/// <param name="direction">The direction.</param>
+	/// <param name="isCyclicChecking">
+	/// Indicates whether the cell overflown in the relative grid will be included to be checked or not.
+	/// </param>
+	/// <param name="mapper">The point mapper instance.</param>
+	/// <returns>Target cell absolute index.</returns>
+	public Absolute GetAdjacentAbsoluteIn(Direction4 direction, bool isCyclicChecking, PointMapper mapper)
+	{
+		var rowsCount = mapper.AbsoluteRowsCount;
+		var columnsCount = mapper.AbsoluteColumnsCount;
+		var row = this / columnsCount;
+		var column = this % columnsCount;
+		return direction switch
+		{
+			Direction4.Up when row >= 1 => (row - 1) * columnsCount + column,
+			Direction4.Up when row == 0 && isCyclicChecking => (rowsCount - 1) * columnsCount + column,
+			Direction4.Down when row < rowsCount => (row + 1) * columnsCount + column,
+			Direction4.Down when row == rowsCount && isCyclicChecking => 0 * columnsCount + column,
+			Direction4.Left when column >= 1 => row * columnsCount + column - 1,
+			Direction4.Left when column == 0 && isCyclicChecking => row * columnsCount + columnsCount - 1,
+			Direction4.Right when column < columnsCount => row * columnsCount + column + 1,
+			Direction4.Right when column == columnsCount && isCyclicChecking => row + columnsCount + 0,
+			_ => -1
+		};
+	}
+
 
 	/// <inheritdoc/>
 	public static bool IsAlignedAs(LocatorGridAlignment gridAlignment, Absolute first, Absolute second, PointMapper mapper)
