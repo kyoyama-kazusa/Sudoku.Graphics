@@ -37,13 +37,13 @@ public sealed record CandidatePairBezierLineMarkItem : CandidatePairLineMarkItem
 		const float minusQuarterPi = -45F * MathF.PI / 180F;
 
 		// Define rotation degrees in order not to draw Bezier curves outside the grid canvas.
-		var (startAngle, endAngle) = mapper.IsAlignedAs(LocatorGridAlignment.FirstRow, CandidatePosition1, CandidatePosition2)
+		var (startAngle, endAngle) = CandidatePosition.IsAlignedAs(LocatorGridAlignment.FirstRow, CandidatePosition1, CandidatePosition2, mapper)
 			&& CandidatePosition1.IsSideWith(CandidatePosition2, Direction4.Right, mapper, true)
-			|| mapper.IsAlignedAs(LocatorGridAlignment.LastRow, CandidatePosition1, CandidatePosition2)
+			|| CandidatePosition.IsAlignedAs(LocatorGridAlignment.LastRow, CandidatePosition1, CandidatePosition2, mapper)
 			&& CandidatePosition1.IsSideWith(CandidatePosition2, Direction4.Left, mapper, true)
-			|| mapper.IsAlignedAs(LocatorGridAlignment.FirstColumn, CandidatePosition1, CandidatePosition2)
+			|| CandidatePosition.IsAlignedAs(LocatorGridAlignment.FirstColumn, CandidatePosition1, CandidatePosition2, mapper)
 			&& CandidatePosition1.IsSideWith(CandidatePosition2, Direction4.Up, mapper, true)
-			|| mapper.IsAlignedAs(LocatorGridAlignment.LastColumn, CandidatePosition1, CandidatePosition2)
+			|| CandidatePosition.IsAlignedAs(LocatorGridAlignment.LastColumn, CandidatePosition1, CandidatePosition2, mapper)
 			&& CandidatePosition1.IsSideWith(CandidatePosition2, Direction4.Down, mapper, true)
 			? (minusQuarterPi, quarterPi)
 			: (quarterPi, minusQuarterPi);

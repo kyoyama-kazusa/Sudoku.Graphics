@@ -42,6 +42,9 @@
         <member name="M:Sudoku.Graphics.Absolute.ToString">
             <inheritdoc cref="M:System.Object.ToString"/>
         </member>
+        <member name="M:Sudoku.Graphics.Absolute.IsAlignedAs(Sudoku.Graphics.LocatorGridAlignment,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.Graphics.PointMapper)">
+            <inheritdoc/>
+        </member>
         <member name="M:Sudoku.Graphics.Absolute.IsInOneLine(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.Graphics.PointMapper,Sudoku.Graphics.HouseType@)">
             <summary>
             Determine whether two <see cref="T:Sudoku.Graphics.Absolute"/> cells are in one line (row or column).
@@ -186,6 +189,9 @@
             <summary>The internal absolute position index of the candidate.</summary>
         </member>
         <member name="M:Sudoku.Graphics.CandidatePosition.IsSideWith(Sudoku.Graphics.CandidatePosition,Sudoku.Graphics.Directions.Direction4,Sudoku.Graphics.PointMapper,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.CandidatePosition.IsAlignedAs(Sudoku.Graphics.LocatorGridAlignment,Sudoku.Graphics.CandidatePosition,Sudoku.Graphics.CandidatePosition,Sudoku.Graphics.PointMapper)">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.CandidatePosition.GetLocatorMeasurer(Sudoku.Graphics.CandidatePosition,System.Single)">
@@ -891,6 +897,19 @@
             Throws when <paramref name="isInStrictDirection"/> is <see langword="false"/>,
             and <paramref name="direction"/> is either <see cref="F:Sudoku.Graphics.Directions.Direction4.Left"/> or <see cref="F:Sudoku.Graphics.Directions.Direction4.Right"/>
             (because such direction is not well-defined to compare indices).
+            </exception>
+        </member>
+        <member name="M:Sudoku.Graphics.ILocator`1.IsAlignedAs(Sudoku.Graphics.LocatorGridAlignment,`0,`0,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Determine whether two locator instances are aligned as the specified type of alignment in grid.
+            </summary>
+            <param name="gridAlignment">The grid alignment to be checked.</param>
+            <param name="first">The first value.</param>
+            <param name="second">The second value.</param>
+            <param name="mapper">The point mapper instance.</param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Throws when <paramref name="gridAlignment"/> is not defined or <see cref="F:Sudoku.Graphics.LocatorGridAlignment.None"/>.
             </exception>
         </member>
         <member name="M:Sudoku.Graphics.ILocator`1.GetLocatorMeasurer(`0,System.Single)">
@@ -4434,47 +4453,6 @@
         <member name="M:Sudoku.Graphics.PointMapper.Equals(Sudoku.Graphics.PointMapper)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.PointMapper.IsAlignedAs(Sudoku.Graphics.LocatorGridAlignment,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute)">
-            <summary>
-            Determine whether two cell indices are aligned as the specified type of alignment in grid.
-            </summary>
-            <param name="gridAlignment">The grid alignment to be checked.</param>
-            <param name="first">The first value.</param>
-            <param name="second">The second value.</param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
-            <exception cref="T:System.ArgumentOutOfRangeException">
-            Throws when <paramref name="gridAlignment"/> is not defined or <see cref="F:Sudoku.Graphics.LocatorGridAlignment.None"/>.
-            </exception>
-        </member>
-        <member name="M:Sudoku.Graphics.PointMapper.IsAlignedAs(Sudoku.Graphics.LocatorGridAlignment,Sudoku.Graphics.Relative,Sudoku.Graphics.Relative)">
-            <inheritdoc cref="M:Sudoku.Graphics.PointMapper.IsAlignedAs(Sudoku.Graphics.LocatorGridAlignment,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute)"/>
-        </member>
-        <member name="M:Sudoku.Graphics.PointMapper.IsAlignedAs(Sudoku.Graphics.LocatorGridAlignment,Sudoku.Graphics.CandidatePosition,Sudoku.Graphics.CandidatePosition)">
-            <summary>
-            Determine whether two <see cref="T:Sudoku.Graphics.CandidatePosition"/> instances are aligned as the specified type of alignment in grid.
-            </summary>
-            <param name="gridAlignment">The grid alignment to be checked.</param>
-            <param name="first">The first value.</param>
-            <param name="second">The second value.</param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
-            <exception cref="T:System.ArgumentOutOfRangeException">
-            Throws when <paramref name="gridAlignment"/> is not defined or <see cref="F:Sudoku.Graphics.LocatorGridAlignment.None"/>.
-            </exception>
-            <seealso cref="T:Sudoku.Graphics.CandidatePosition"/>
-        </member>
-        <member name="M:Sudoku.Graphics.PointMapper.IsAlignedAs``1(Sudoku.Graphics.LocatorGridAlignment,``0,``0)">
-            <summary>
-            Determine whether two generic locator instances are aligned as the specified type of alignment in grid.
-            </summary>
-            <typeparam name="TLocator">The type of locator instance.</typeparam>
-            <param name="gridAlignment">The grid alignment to be checked.</param>
-            <param name="first">The first value.</param>
-            <param name="second">The second value.</param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
-            <exception cref="T:System.ArgumentOutOfRangeException">
-            Throws when <paramref name="gridAlignment"/> is not defined or <see cref="F:Sudoku.Graphics.LocatorGridAlignment.None"/>.
-            </exception>
-        </member>
         <member name="M:Sudoku.Graphics.PointMapper.GetHashCode">
             <inheritdoc/>
         </member>
@@ -4672,6 +4650,9 @@
         </member>
         <member name="M:Sudoku.Graphics.Relative.ToString">
             <inheritdoc cref="M:System.Object.ToString"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Relative.IsAlignedAs(Sudoku.Graphics.LocatorGridAlignment,Sudoku.Graphics.Relative,Sudoku.Graphics.Relative,Sudoku.Graphics.PointMapper)">
+            <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Relative.GetLocatorMeasurer(Sudoku.Graphics.Relative,System.Single)">
             <inheritdoc/>

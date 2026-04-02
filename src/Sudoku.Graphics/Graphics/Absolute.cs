@@ -55,6 +55,25 @@ public readonly struct Absolute(int value) : IInteger<Absolute>, ILocator<Absolu
 	public override string ToString() => _value.ToString();
 
 
+	/// <inheritdoc/>
+	public static bool IsAlignedAs(LocatorGridAlignment gridAlignment, Absolute first, Absolute second, PointMapper mapper)
+	{
+		var (rowsCount, columnsCount) = (mapper.AbsoluteRowsCount, mapper.AbsoluteColumnsCount);
+		var row1 = first / columnsCount;
+		var column1 = first % columnsCount;
+		var row2 = second / columnsCount;
+		var column2 = second % columnsCount;
+		return gridAlignment switch
+		{
+			LocatorGridAlignment.FirstRow or LocatorGridAlignment.LastRow
+				=> row1 == row2 && row1 == (gridAlignment == LocatorGridAlignment.FirstRow ? 0 : rowsCount - 1),
+			LocatorGridAlignment.FirstColumn or LocatorGridAlignment.LastColumn
+				=> column1 == column2 && column1 == (gridAlignment == LocatorGridAlignment.FirstColumn ? 0 : columnsCount - 1),
+			_
+				=> throw new ArgumentOutOfRangeException(nameof(gridAlignment))
+		};
+	}
+
 	/// <summary>
 	/// Determine whether two <see cref="Absolute"/> cells are in one line (row or column).
 	/// </summary>

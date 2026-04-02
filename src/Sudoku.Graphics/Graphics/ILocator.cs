@@ -29,6 +29,19 @@ public interface ILocator<TSelf> : IEquatable<TSelf> where TSelf : unmanaged, IL
 
 
 	/// <summary>
+	/// Determine whether two locator instances are aligned as the specified type of alignment in grid.
+	/// </summary>
+	/// <param name="gridAlignment">The grid alignment to be checked.</param>
+	/// <param name="first">The first value.</param>
+	/// <param name="second">The second value.</param>
+	/// <param name="mapper">The point mapper instance.</param>
+	/// <returns>A <see cref="bool"/> result indicating that.</returns>
+	/// <exception cref="ArgumentOutOfRangeException">
+	/// Throws when <paramref name="gridAlignment"/> is not defined or <see cref="LocatorGridAlignment.None"/>.
+	/// </exception>
+	static abstract bool IsAlignedAs(LocatorGridAlignment gridAlignment, TSelf first, TSelf second, PointMapper mapper);
+
+	/// <summary>
 	/// Creates a locator measurer value that based on the current type of the locator.
 	/// </summary>
 	/// <param name="locator">The locator object.</param>

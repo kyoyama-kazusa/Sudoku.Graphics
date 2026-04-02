@@ -32,5 +32,9 @@ public readonly record struct CandidatePosition(Absolute Cell, Relative SubgridS
 
 
 	/// <inheritdoc/>
+	public static bool IsAlignedAs(LocatorGridAlignment gridAlignment, CandidatePosition first, CandidatePosition second, PointMapper mapper)
+		=> Absolute.IsAlignedAs(gridAlignment, first.Cell, second.Cell, mapper);
+
+	/// <inheritdoc/>
 	public static float GetLocatorMeasurer(CandidatePosition locator, float cellSize) => cellSize / locator.SubgridSize;
 }

@@ -44,6 +44,10 @@ public readonly struct Relative(int value) : IInteger<Relative>, ILocator<Relati
 
 
 	/// <inheritdoc/>
+	public static bool IsAlignedAs(LocatorGridAlignment gridAlignment, Relative first, Relative second, PointMapper mapper)
+		=> Absolute.IsAlignedAs(gridAlignment, mapper.GetAbsoluteIndex(first), mapper.GetAbsoluteIndex(second), mapper);
+
+	/// <inheritdoc/>
 	public static float GetLocatorMeasurer(Relative locator, float cellSize) => cellSize;
 
 
