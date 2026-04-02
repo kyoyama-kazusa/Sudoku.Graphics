@@ -31,7 +31,7 @@ public partial class SKCanvasDrawings
 			}
 
 			var cellSize = mapper.CellSize;
-			var measurer = TLocator.GetLocatorMeasurer(locator, cellSize);
+			var measurer = locator.GetLocatorMeasurer(cellSize);
 			var strokeWidth = strokeWidthScale.Measure(measurer);
 			var outerSide = sizeScale.Measure(measurer);
 			var innerSide = Math.Max(0F, outerSide - strokeWidth);

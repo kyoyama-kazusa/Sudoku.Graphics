@@ -45,6 +45,9 @@ public readonly struct Absolute(int value) : IInteger<Absolute>, ILocator<Absolu
 		};
 	}
 
+	/// <inheritdoc/>
+	public float GetLocatorMeasurer(float cellSize) => cellSize;
+
 	/// <inheritdoc cref="object.GetHashCode"/>
 	public override int GetHashCode() => _value;
 
@@ -170,9 +173,6 @@ public readonly struct Absolute(int value) : IInteger<Absolute>, ILocator<Absolu
 		};
 		return result;
 	}
-
-	/// <inheritdoc/>
-	public static float GetLocatorMeasurer(Absolute locator, float cellSize) => cellSize;
 
 	/// <summary>
 	/// Gets the detailed adjacent relations between two cells specified,

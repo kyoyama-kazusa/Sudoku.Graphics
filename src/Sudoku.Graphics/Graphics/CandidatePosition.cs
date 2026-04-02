@@ -24,6 +24,9 @@ public readonly record struct CandidatePosition(Absolute Cell, Relative SubgridS
 	public bool IsSideWith(CandidatePosition other, Direction4 direction, PointMapper mapper, bool isInStrictDirection)
 		=> Cell.IsSideWith(other.Cell, direction, mapper, isInStrictDirection);
 
+	/// <inheritdoc/>
+	public float GetLocatorMeasurer(float cellSize) => cellSize / SubgridSize;
+
 	private bool PrintMembers(StringBuilder builder)
 	{
 		builder.Append($"Position = {Cell}@({SubgridSize}x{SubgridSize}, {InnerIndex})");
@@ -34,7 +37,4 @@ public readonly record struct CandidatePosition(Absolute Cell, Relative SubgridS
 	/// <inheritdoc/>
 	public static bool IsAlignedAs(LocatorGridAlignment gridAlignment, CandidatePosition first, CandidatePosition second, PointMapper mapper)
 		=> Absolute.IsAlignedAs(gridAlignment, first.Cell, second.Cell, mapper);
-
-	/// <inheritdoc/>
-	public static float GetLocatorMeasurer(CandidatePosition locator, float cellSize) => cellSize / locator.SubgridSize;
 }

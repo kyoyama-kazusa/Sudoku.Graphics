@@ -28,6 +28,13 @@ public interface ILocator<TSelf> : IEquatable<TSelf> where TSelf : unmanaged, IL
 	/// <seealso cref="Direction4"/>
 	bool IsSideWith(TSelf other, Direction4 direction, PointMapper mapper, bool isInStrictDirection);
 
+	/// <summary>
+	/// Creates a locator measurer value that based on the current type of the locator.
+	/// </summary>
+	/// <param name="cellSize">The cell size.</param>
+	/// <returns>The result.</returns>
+	float GetLocatorMeasurer(float cellSize);
+
 
 	/// <summary>
 	/// Determine whether two locator instances are aligned as the specified type of alignment in grid.
@@ -41,12 +48,4 @@ public interface ILocator<TSelf> : IEquatable<TSelf> where TSelf : unmanaged, IL
 	/// Throws when <paramref name="gridAlignment"/> is not defined or <see cref="LocatorGridAlignment.None"/>.
 	/// </exception>
 	static abstract bool IsAlignedAs(LocatorGridAlignment gridAlignment, TSelf first, TSelf second, PointMapper mapper);
-
-	/// <summary>
-	/// Creates a locator measurer value that based on the current type of the locator.
-	/// </summary>
-	/// <param name="locator">The locator object.</param>
-	/// <param name="cellSize">The cell size.</param>
-	/// <returns>The result.</returns>
-	static abstract float GetLocatorMeasurer(TSelf locator, float cellSize);
 }

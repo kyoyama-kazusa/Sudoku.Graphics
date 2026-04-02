@@ -33,6 +33,9 @@
         <member name="M:Sudoku.Graphics.Absolute.IsSideWith(Sudoku.Graphics.Absolute,Sudoku.Graphics.Directions.Direction4,Sudoku.Graphics.PointMapper,System.Boolean)">
             <inheritdoc/>
         </member>
+        <member name="M:Sudoku.Graphics.Absolute.GetLocatorMeasurer(System.Single)">
+            <inheritdoc/>
+        </member>
         <member name="M:Sudoku.Graphics.Absolute.GetHashCode">
             <inheritdoc cref="M:System.Object.GetHashCode"/>
         </member>
@@ -82,9 +85,6 @@
             <param name="mapper">The mapper instance.</param>
             <param name="houseType">The house type.</param>
             <returns>A <see cref="T:System.Boolean"/> result.</returns>
-        </member>
-        <member name="M:Sudoku.Graphics.Absolute.GetLocatorMeasurer(Sudoku.Graphics.Absolute,System.Single)">
-            <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Absolute.GetAdjacentRelation(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.Graphics.PointMapper)">
             <summary>
@@ -209,10 +209,10 @@
         <member name="M:Sudoku.Graphics.CandidatePosition.IsSideWith(Sudoku.Graphics.CandidatePosition,Sudoku.Graphics.Directions.Direction4,Sudoku.Graphics.PointMapper,System.Boolean)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.CandidatePosition.IsAlignedAs(Sudoku.Graphics.LocatorGridAlignment,Sudoku.Graphics.CandidatePosition,Sudoku.Graphics.CandidatePosition,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.CandidatePosition.GetLocatorMeasurer(System.Single)">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.CandidatePosition.GetLocatorMeasurer(Sudoku.Graphics.CandidatePosition,System.Single)">
+        <member name="M:Sudoku.Graphics.CandidatePosition.IsAlignedAs(Sudoku.Graphics.LocatorGridAlignment,Sudoku.Graphics.CandidatePosition,Sudoku.Graphics.CandidatePosition,Sudoku.Graphics.PointMapper)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.Canvas">
@@ -918,6 +918,13 @@
             </exception>
             <seealso cref="T:Sudoku.Graphics.Directions.Direction4"/>
         </member>
+        <member name="M:Sudoku.Graphics.ILocator`1.GetLocatorMeasurer(System.Single)">
+            <summary>
+            Creates a locator measurer value that based on the current type of the locator.
+            </summary>
+            <param name="cellSize">The cell size.</param>
+            <returns>The result.</returns>
+        </member>
         <member name="M:Sudoku.Graphics.ILocator`1.IsAlignedAs(Sudoku.Graphics.LocatorGridAlignment,`0,`0,Sudoku.Graphics.PointMapper)">
             <summary>
             Determine whether two locator instances are aligned as the specified type of alignment in grid.
@@ -930,14 +937,6 @@
             <exception cref="T:System.ArgumentOutOfRangeException">
             Throws when <paramref name="gridAlignment"/> is not defined or <see cref="F:Sudoku.Graphics.LocatorGridAlignment.None"/>.
             </exception>
-        </member>
-        <member name="M:Sudoku.Graphics.ILocator`1.GetLocatorMeasurer(`0,System.Single)">
-            <summary>
-            Creates a locator measurer value that based on the current type of the locator.
-            </summary>
-            <param name="locator">The locator object.</param>
-            <param name="cellSize">The cell size.</param>
-            <returns>The result.</returns>
         </member>
         <member name="T:Sudoku.Graphics.Item">
             <summary>
@@ -4625,6 +4624,9 @@
         <member name="M:Sudoku.Graphics.Relative.IsSideWith(Sudoku.Graphics.Relative,Sudoku.Graphics.Directions.Direction4,Sudoku.Graphics.PointMapper,System.Boolean)">
             <inheritdoc/>
         </member>
+        <member name="M:Sudoku.Graphics.Relative.GetLocatorMeasurer(System.Single)">
+            <inheritdoc/>
+        </member>
         <member name="M:Sudoku.Graphics.Relative.GetHashCode">
             <inheritdoc cref="M:System.Object.GetHashCode"/>
         </member>
@@ -4655,9 +4657,6 @@
             <exception cref="T:System.ArgumentOutOfRangeException">Throws when <paramref name="outsideDirection"/> is not defined.</exception>
         </member>
         <member name="M:Sudoku.Graphics.Relative.IsAlignedAs(Sudoku.Graphics.LocatorGridAlignment,Sudoku.Graphics.Relative,Sudoku.Graphics.Relative,Sudoku.Graphics.PointMapper)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Relative.GetLocatorMeasurer(Sudoku.Graphics.Relative,System.Single)">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Relative.op_Implicit(System.Int32)~Sudoku.Graphics.Relative">

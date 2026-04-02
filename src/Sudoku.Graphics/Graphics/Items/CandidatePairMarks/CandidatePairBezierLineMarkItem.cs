@@ -16,8 +16,8 @@ public sealed record CandidatePairBezierLineMarkItem : CandidatePairLineMarkItem
 		var backingCanvas = canvas.BackingCanvas;
 		var mapper = canvas.Templates[TemplateIndex].Mapper;
 		var cellSize = mapper.CellSize;
-		var candidateSizeMeasurer1 = CandidatePosition.GetLocatorMeasurer(CandidatePosition1, cellSize);
-		var candidateSizeMeasurer2 = CandidatePosition.GetLocatorMeasurer(CandidatePosition2, cellSize);
+		var candidateSizeMeasurer1 = CandidatePosition1.GetLocatorMeasurer(cellSize);
+		var candidateSizeMeasurer2 = CandidatePosition2.GetLocatorMeasurer(cellSize);
 		var center1 = mapper.GetPoint(CandidatePosition1, Alignment.Center);
 		var center2 = mapper.GetPoint(CandidatePosition2, Alignment.Center);
 		var radius1 = Candidate1SizeScale.Measure(candidateSizeMeasurer1) / 2;

@@ -33,6 +33,9 @@ public readonly struct Relative(int value) : IInteger<Relative>, ILocator<Relati
 		return a.IsSideWith(b, direction, mapper, isInStrictDirection);
 	}
 
+	/// <inheritdoc/>
+	public float GetLocatorMeasurer(float cellSize) => cellSize;
+
 	/// <inheritdoc cref="object.GetHashCode"/>
 	public override int GetHashCode() => _value;
 
@@ -94,9 +97,6 @@ public readonly struct Relative(int value) : IInteger<Relative>, ILocator<Relati
 	/// <inheritdoc/>
 	public static bool IsAlignedAs(LocatorGridAlignment gridAlignment, Relative first, Relative second, PointMapper mapper)
 		=> Absolute.IsAlignedAs(gridAlignment, first.ToAbsolute(mapper), second.ToAbsolute(mapper), mapper);
-
-	/// <inheritdoc/>
-	public static float GetLocatorMeasurer(Relative locator, float cellSize) => cellSize;
 
 
 	/// <inheritdoc/>
