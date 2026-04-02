@@ -87,7 +87,8 @@ public partial class ItemTypeOrdering
 
 			// Candidate pair marks
 			{
-				yield return ItemType.CandidatePair_Link;
+				yield return ItemType.CandidatePair_Line;
+				yield return ItemType.CandidatePair_BezierLine;
 			}
 
 			// Cell pair marks

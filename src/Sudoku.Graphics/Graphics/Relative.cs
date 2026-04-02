@@ -25,6 +25,14 @@ public readonly struct Relative(int value) : IInteger<Relative>, ILocator<Relati
 	/// <inheritdoc/>
 	public bool Equals(Relative other) => _value == other._value;
 
+	/// <inheritdoc/>
+	public bool IsSideWith(Relative other, Direction4 direction, PointMapper mapper, bool isInStrictDirection)
+	{
+		var a = mapper.GetAbsoluteIndex(this);
+		var b = mapper.GetAbsoluteIndex(other);
+		return a.IsSideWith(b, direction, mapper, isInStrictDirection);
+	}
+
 	/// <inheritdoc cref="object.GetHashCode"/>
 	public override int GetHashCode() => _value;
 

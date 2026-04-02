@@ -49,7 +49,7 @@ canvas.DrawItems(
 		new CandidateCircleMarkItem
 		{
 			TemplateIndex = 0,
-			CandidatePosition = new(15, 3, 5),
+			CandidatePosition = new(3, 3, 5),
 			SizeScale = 0.8M,
 			FillColor = new(63, 218, 101)
 		},
@@ -65,17 +65,29 @@ canvas.DrawItems(
 		new CandidateTextItem
 		{
 			TemplateIndex = 0,
-			CandidatePosition = new(15, 3, 5),
+			CandidatePosition = new(3, 3, 5),
 			Text = "6",
 			Color = SKColors.DimGray,
 			FontName = "Arial",
 			FontSizeScale = 0.8M
 		},
-		new CandidatePairLinkMarkItem
+		new CandidatePairLineMarkItem
 		{
 			TemplateIndex = 0,
 			CandidatePosition1 = new(0, 3, 2),
-			CandidatePosition2 = new(15, 3, 5),
+			CandidatePosition2 = new(3, 3, 5),
+			StrokeColor = SKColors.Red,
+			StrokeWidthScale = 0.025M,
+			ArrowCapLengthScale = 0.2M,
+			HalfArrowCapRotationDegrees = 25,
+			Candidate1SizeScale = 1.3M,
+			Candidate2SizeScale = 1.3M,
+		},
+		new CandidatePairBezierLineMarkItem
+		{
+			TemplateIndex = 0,
+			CandidatePosition1 = new(0, 3, 2),
+			CandidatePosition2 = new(3, 3, 5),
 			StrokeColor = SKColors.Red,
 			StrokeWidthScale = 0.025M,
 			ArrowCapLengthScale = 0.2M,

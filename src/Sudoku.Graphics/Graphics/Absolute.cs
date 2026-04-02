@@ -25,6 +25,26 @@ public readonly struct Absolute(int value) : IInteger<Absolute>, ILocator<Absolu
 	/// <inheritdoc/>
 	public bool Equals(Absolute other) => _value == other._value;
 
+	/// <inheritdoc/>
+	public bool IsSideWith(Absolute other, Direction4 direction, PointMapper mapper, bool isInStrictDirection)
+	{
+		var columnsCount = mapper.AbsoluteColumnsCount;
+		var (row1, column1) = (this / columnsCount, this % columnsCount);
+		var (row2, column2) = (other / columnsCount, other % columnsCount);
+		return (isInStrictDirection, direction) switch
+		{
+			(true, Direction4.Up) => row1 < row2 && column1 == column2,
+			(_, Direction4.Up) => this < other,
+			(true, Direction4.Down) => row1 > row2 && column1 == column2,
+			(_, Direction4.Down) => row1 > row2 && column1 == column2,
+			(true, Direction4.Left) => column1 < column2 && row1 == row2,
+			(true, Direction4.Right) => column1 > column2 && row1 == row2,
+			(_, Direction4.Left) => throw new NotSupportedException("This type of case cannot be well-defined."),
+			(_, Direction4.Right) => throw new NotSupportedException("This type of case cannot be well-defined."),
+			_ => throw new ArgumentOutOfRangeException(nameof(direction))
+		};
+	}
+
 	/// <inheritdoc cref="object.GetHashCode"/>
 	public override int GetHashCode() => _value;
 

@@ -325,9 +325,14 @@ public enum ItemType
 	//
 	#region Candidate pair marks
 	/// <summary>
-	/// Indicates candidate pair link mark.
+	/// Indicates candidate pair line mark.
 	/// </summary>
-	CandidatePair_Link,
+	CandidatePair_Line,
+
+	/// <summary>
+	/// Indicates candidate pair Bezier line mark.
+	/// </summary>
+	CandidatePair_BezierLine,
 	#endregion
 
 	//

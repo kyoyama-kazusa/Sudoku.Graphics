@@ -1,9 +1,9 @@
 ﻿namespace Sudoku.Graphics.Items.CandidatePairMarks;
 
 /// <summary>
-/// Represents candidate pair link mark item.
+/// Represents candidate pair line mark item.
 /// </summary>
-public sealed record CandidatePairLinkMarkItem : CandidatePairMarkItem
+public record CandidatePairLineMarkItem : CandidatePairMarkItem
 {
 	/// <summary>
 	/// Indicates the half arrow cap rotation degrees, in angles.
@@ -11,7 +11,7 @@ public sealed record CandidatePairLinkMarkItem : CandidatePairMarkItem
 	public required float HalfArrowCapRotationDegrees { get; init; }
 
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.CandidatePair_Link;
+	public override ItemType Type => ItemType.CandidatePair_Line;
 
 	/// <summary>
 	/// Indicates dash sequence.
