@@ -13,7 +13,9 @@ public readonly struct Scale(decimal value) :
 	IComparable<Scale>,
 	IComparisonOperators<Scale, Scale, bool>,
 	IEquatable<Scale>,
-	IEqualityOperators<Scale, Scale, bool>
+	IEqualityOperators<Scale, Scale, bool>,
+	IUnaryNegationOperators<Scale, Scale>,
+	IUnaryPlusOperators<Scale, Scale>
 {
 	/// <summary>
 	/// Indicates whether the current scale value is negative (&lt; 0).
@@ -28,7 +30,7 @@ public readonly struct Scale(decimal value) :
 	/// <summary>
 	/// Indicates the value.
 	/// </summary>
-	public decimal Value { get; } = value/* is >= 0 and <= 1 ? value : throw new ArgumentOutOfRangeException(nameof(value))*/;
+	public decimal Value { get; } = value;
 
 
 	/// <inheritdoc/>
@@ -64,6 +66,12 @@ public readonly struct Scale(decimal value) :
 
 
 	/// <inheritdoc/>
+	public static Scale operator +(Scale value) => value;
+
+	/// <inheritdoc/>
+	public static Scale operator -(Scale value) => -value.Value;
+
+	/// <inheritdoc/>
 	public static bool operator ==(Scale left, Scale right) => left.Equals(right);
 
 	/// <inheritdoc/>
@@ -93,7 +101,6 @@ public readonly struct Scale(decimal value) :
 	/// </summary>
 	/// <param name="value">The value.</param>
 	public static implicit operator Scale(decimal value) => new(value);
-
 
 	/// <summary>
 	/// Explicit cast from <see cref="Scale"/> into <see cref="float"/> value.

@@ -4738,6 +4738,12 @@
         <member name="M:Sudoku.Graphics.Scale.ToString(System.String)">
             <inheritdoc cref="M:System.Double.ToString(System.String)"/>
         </member>
+        <member name="M:Sudoku.Graphics.Scale.op_UnaryPlus(Sudoku.Graphics.Scale)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.op_UnaryNegation(Sudoku.Graphics.Scale)">
+            <inheritdoc/>
+        </member>
         <member name="M:Sudoku.Graphics.Scale.op_Equality(Sudoku.Graphics.Scale,Sudoku.Graphics.Scale)">
             <inheritdoc/>
         </member>
