@@ -13,7 +13,7 @@ public sealed record CellSquareMarkItem : CellMarkItem
 	protected internal override void DrawTo(Canvas canvas)
 	{
 		var mapper = canvas.Templates[TemplateIndex].Mapper;
-		if (SizeScale.IsNegative)
+		if (SizeScale < Scale.Zero)
 		{
 			// Nothing to draw.
 			return;

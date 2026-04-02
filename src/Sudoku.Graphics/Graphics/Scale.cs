@@ -18,14 +18,10 @@ public readonly struct Scale(decimal value) :
 	IUnaryPlusOperators<Scale, Scale>
 {
 	/// <summary>
-	/// Indicates whether the current scale value is negative (&lt; 0).
+	/// Represents zero value of this type.
 	/// </summary>
-	public bool IsNegative => Value < 0;
+	public static readonly Scale Zero = 0M;
 
-	/// <summary>
-	/// Indicates whether the current scale value is positive (&gt; 0).
-	/// </summary>
-	public bool IsPositive => Value > 0;
 
 	/// <summary>
 	/// Indicates the value.

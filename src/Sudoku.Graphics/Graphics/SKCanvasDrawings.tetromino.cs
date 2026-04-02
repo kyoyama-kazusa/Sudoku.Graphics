@@ -41,7 +41,7 @@ public partial class SKCanvasDrawings
 			PointMapper mapper
 		)
 		{
-			if (pieceMinicellSizeScale.IsNegative)
+			if (pieceMinicellSizeScale < Scale.Zero)
 			{
 				return;
 			}

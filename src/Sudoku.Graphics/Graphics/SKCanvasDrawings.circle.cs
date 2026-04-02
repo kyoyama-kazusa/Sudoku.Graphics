@@ -24,7 +24,7 @@ public partial class SKCanvasDrawings
 		)
 			where TLocator : unmanaged, ILocator<TLocator>
 		{
-			if (sizeScale.IsNegative)
+			if (sizeScale < Scale.Zero)
 			{
 				// Nothing to draw.
 				return;

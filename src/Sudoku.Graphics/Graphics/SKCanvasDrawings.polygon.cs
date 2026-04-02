@@ -28,7 +28,7 @@ public partial class SKCanvasDrawings
 			float rotationDegrees = 0
 		)
 		{
-			if (sizeScale.IsNegative)
+			if (sizeScale < Scale.Zero)
 			{
 				// Nothing to draw.
 				return;
@@ -124,7 +124,7 @@ public partial class SKCanvasDrawings
 			float rotationDegrees = 0
 		)
 		{
-			if (sizeScale.IsNegative)
+			if (sizeScale < Scale.Zero)
 			{
 				// Nothing to draw.
 				return;

@@ -4697,14 +4697,9 @@
             Throws when the argument <paramref name="value"/> is greater than 1 or less than 0.
             </exception>
         </member>
-        <member name="P:Sudoku.Graphics.Scale.IsNegative">
+        <member name="F:Sudoku.Graphics.Scale.Zero">
             <summary>
-            Indicates whether the current scale value is negative (&lt; 0).
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Scale.IsPositive">
-            <summary>
-            Indicates whether the current scale value is positive (&gt; 0).
+            Represents zero value of this type.
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.Scale.Value">
