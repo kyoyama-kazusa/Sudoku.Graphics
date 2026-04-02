@@ -125,8 +125,8 @@ public sealed record CandidatePairBezierLineMarkItem : CandidatePairLineMarkItem
 
 		static SKPoint normalize(SKPoint v)
 		{
-			var len = MathF.Sqrt(v.X * v.X + v.Y * v.Y);
-			return len < 1E-6F ? new(float.NaN, float.NaN) : new(v.X / len, v.Y / len);
+			var length = MathF.Sqrt(v.X * v.X + v.Y * v.Y);
+			return length < 1E-6F ? new(float.NaN, float.NaN) : new(v.X / length, v.Y / length);
 		}
 
 		static SKPoint rotate(SKPoint v, float radians)
