@@ -107,6 +107,7 @@ public partial class ItemTypeOrdering
 				yield return ItemType.CellPairText_RomanNumeral;
 				yield return ItemType.CellPairText_Number;
 				yield return ItemType.CellPairText_Arrow;
+				yield return ItemType.CellPairText_ComparisonOperator;
 				yield return ItemType.CellPairText_Raw;
 			}
 		}
