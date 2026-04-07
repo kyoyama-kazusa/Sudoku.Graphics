@@ -2855,6 +2855,22 @@
         <member name="P:Sudoku.Graphics.Items.CellPairTextMarks.CellPairArrowTextMarkItem.PrintingText">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.Items.CellPairTextMarks.CellPairComparisonOperatorTextMarkItem">
+            <summary>
+            Represents a cell pair comparison operator text mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairTextMarks.CellPairComparisonOperatorTextMarkItem.Operator">
+            <summary>
+            Indicates the comparison operator.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairTextMarks.CellPairComparisonOperatorTextMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairTextMarks.CellPairComparisonOperatorTextMarkItem.PrintingText">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.Items.CellPairTextMarks.CellPairNumberTextMarkItem">
             <summary>
             Represents cell pair number text mark item.
@@ -4062,6 +4078,11 @@
         <member name="F:Sudoku.Graphics.ItemType.CellPairText_Arrow">
             <summary>
             Indicates cell pair arrow text mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellPairText_ComparisonOperator">
+            <summary>
+            Indicates cell pair comparison operator mark.
             </summary>
         </member>
         <member name="F:Sudoku.Graphics.ItemType.CellPairText_Raw">

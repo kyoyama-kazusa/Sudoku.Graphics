@@ -250,6 +250,11 @@ public enum ItemType
 	CellPairText_Arrow,
 
 	/// <summary>
+	/// Indicates cell pair comparison operator mark.
+	/// </summary>
+	CellPairText_ComparisonOperator,
+
+	/// <summary>
 	/// Indicates cell pair raw text mark.
 	/// </summary>
 	CellPairText_Raw,

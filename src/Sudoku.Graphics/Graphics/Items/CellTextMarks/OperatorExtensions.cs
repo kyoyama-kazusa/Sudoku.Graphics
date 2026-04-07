@@ -39,10 +39,10 @@ public static class OperatorExtensions
 			{
 				ArithmeticOperator.Add => "+",
 				ArithmeticOperator.Subtract => "-",
-				ArithmeticOperator.Multiply_Cross => "\u00d7",
-				ArithmeticOperator.Multiply_Dot => "\u00b7",
+				ArithmeticOperator.Multiply_Cross => "\u00D7",
+				ArithmeticOperator.Multiply_Dot => "\u00B7",
 				ArithmeticOperator.Multiply_Asterisk => "*",
-				ArithmeticOperator.Division_DivisionSign => "\u00f7",
+				ArithmeticOperator.Division_DivisionSign => "\u00F7",
 				ArithmeticOperator.Division_Slash => "/",
 				ArithmeticOperator.Division_Ratio => ":",
 				ArithmeticOperator.Modulo => "%",

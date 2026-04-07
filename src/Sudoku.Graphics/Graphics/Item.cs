@@ -41,6 +41,7 @@
 [JsonDerivedType(typeof(CellPairBarMarkItem), nameof(CellPairBarMarkItem))]
 [JsonDerivedType(typeof(CellPairBattenburgMarkItem), nameof(CellPairBattenburgMarkItem))]
 [JsonDerivedType(typeof(CellPairBridgeLineMarkItem), nameof(CellPairBridgeLineMarkItem))]
+[JsonDerivedType(typeof(CellPairComparisonOperatorTextMarkItem), nameof(CellPairComparisonOperatorTextMarkItem))]
 [JsonDerivedType(typeof(CellPairConnectionLineMarkItem), nameof(CellPairConnectionLineMarkItem))]
 [JsonDerivedType(typeof(CellPairNumberTextMarkItem), nameof(CellPairNumberTextMarkItem))]
 [JsonDerivedType(typeof(CellPairKropkiMarkItem), nameof(CellPairKropkiMarkItem))]
