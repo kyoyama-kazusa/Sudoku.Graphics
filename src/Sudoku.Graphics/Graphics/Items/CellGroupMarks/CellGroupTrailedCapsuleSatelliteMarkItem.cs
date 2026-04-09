@@ -209,16 +209,17 @@ file static class CapsuleTrailDrawer
 
 		static SKPoint toCenter(SKPoint cell, float cellSize) => new(cell.X + cellSize / 2, cell.Y + cellSize / 2);
 
-		static SKPoint findBorderPointOnCell(SKPoint center, SKPoint fromCenter, float cellSize)
+		static SKPoint findBorderPointOnCell(SKPoint currentCenter, SKPoint previousCenter, float cellSize)
 		{
-			// Vector from the current cell center toward the previous point.
-			var dx = center.X - fromCenter.X;
-			var dy = center.Y - fromCenter.Y;
+			// Vector from the previous cell center toward the current point.
+			// Here we should negate the sign of 'dx' and 'dy', in order to draw the line end to the opposite border line of the cell.
+			var dx = currentCenter.X - previousCenter.X;
+			var dy = currentCenter.Y - previousCenter.Y;
 
 			// Degenerate case: same point.
 			if (dx == 0 && dy == 0)
 			{
-				return center;
+				return currentCenter;
 			}
 
 			// Since the cell is a square, the border intersection is determined by
@@ -227,7 +228,7 @@ file static class CapsuleTrailDrawer
 			var tx = dx == 0 ? float.PositiveInfinity : halfCellSize / MathF.Abs(dx);
 			var ty = dy == 0 ? float.PositiveInfinity : halfCellSize / MathF.Abs(dy);
 			var t = MathF.Min(tx, ty);
-			return new(center.X + dx * t, center.Y + dy * t);
+			return new(currentCenter.X + dx * t, currentCenter.Y + dy * t);
 		}
 
 		static SKPoint findBorderPointByBinarySearch(SKPath capsulePath, SKPoint inside, SKPoint outside)
