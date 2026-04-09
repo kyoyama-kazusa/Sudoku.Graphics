@@ -60,6 +60,12 @@ public readonly struct Scale(decimal value) :
 	/// <inheritdoc cref="double.ToString(string?)"/>
 	public string ToString(string? format) => Value.ToString(format);
 
+	/// <summary>
+	/// Clamps the current instance, keeping the value between 0 and 1.
+	/// </summary>
+	/// <returns>The clamped result.</returns>
+	public Scale Clamp01() => Math.Clamp(Value, 0M, 1M);
+
 
 	/// <inheritdoc/>
 	public static Scale operator +(Scale value) => value;

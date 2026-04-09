@@ -46,7 +46,8 @@ canvas.DrawItems(
 			Cell = 16,
 			OccupiedDirections = Direction4.Right | Direction4.Down,
 			StrokeColor = SKColors.DimGray,
-			StrokeWidthScale = 0.05M
+			StrokeWidthScale = 0.05M,
+			CornerRadiusScale = 1M
 		},
 		new CellLoopSegmentLineMarkItem
 		{
@@ -54,7 +55,8 @@ canvas.DrawItems(
 			Cell = 19,
 			OccupiedDirections = Direction4.Left | Direction4.Right,
 			StrokeColor = SKColors.DimGray,
-			StrokeWidthScale = 0.05M
+			StrokeWidthScale = 0.05M,
+			CornerRadiusScale = 1M
 		},
 		new CellLoopSegmentLineMarkItem
 		{
@@ -62,7 +64,8 @@ canvas.DrawItems(
 			Cell = 39,
 			OccupiedDirections = Direction4.Up | Direction4.Down,
 			StrokeColor = SKColors.DimGray,
-			StrokeWidthScale = 0.05M
+			StrokeWidthScale = 0.05M,
+			CornerRadiusScale = 1M
 		},
 		new CellLoopSegmentLineMarkItem
 		{
@@ -70,7 +73,8 @@ canvas.DrawItems(
 			Cell = 44,
 			OccupiedDirections = Direction4.Up | Direction4.Right,
 			StrokeColor = SKColors.DimGray,
-			StrokeWidthScale = 0.05M
+			StrokeWidthScale = 0.05M,
+			CornerRadiusScale = 1M
 		},
 		new CellLoopSegmentLineMarkItem
 		{
@@ -78,7 +82,8 @@ canvas.DrawItems(
 			Cell = 46,
 			OccupiedDirections = Direction4.Up | Direction4.Right,
 			StrokeColor = SKColors.DimGray,
-			StrokeWidthScale = 0.05M
+			StrokeWidthScale = 0.05M,
+			CornerRadiusScale = 1M
 		},
 	]
 );

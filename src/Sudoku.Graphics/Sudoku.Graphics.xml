@@ -2194,11 +2194,30 @@
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellLoopSegmentLineMarkItem.StrokeWidthScale">
             <inheritdoc/>
         </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellLoopSegmentLineMarkItem.CornerRadiusScale">
+            <inheritdoc/>
+        </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellLoopSegmentLineMarkItem.StrokeColor">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellLoopSegmentLineMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.SegmentRoundCornerBuilder">
+            <summary>
+            Provides a cell path builder.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellMarks.SegmentRoundCornerBuilder.BuildPath(SkiaSharp.SKPoint,System.Single,Sudoku.Graphics.Directions.Direction4,Sudoku.Graphics.Directions.Direction4,Sudoku.Graphics.Scale)">
+            <summary>
+            Builds an <see cref="T:SkiaSharp.SKPath"/> instance.
+            </summary>
+            <param name="center">The center point of cell.</param>
+            <param name="cellSize">The size of cell.</param>
+            <param name="direction1">The first direction.</param>
+            <param name="direction2">The second direction.</param>
+            <param name="cornerRadiusScale">The scale of corner radius, related to half of cell size.</param>
+            <returns>The <see cref="T:SkiaSharp.SKPath"/> instance.</returns>
         </member>
         <member name="T:Sudoku.Graphics.Items.CellMarks.CellMarkItem">
             <summary>
@@ -4877,6 +4896,12 @@
         </member>
         <member name="M:Sudoku.Graphics.Scale.ToString(System.String)">
             <inheritdoc cref="M:System.Double.ToString(System.String)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Scale.Clamp01">
+            <summary>
+            Clamps the current instance, keeping the value between 0 and 1.
+            </summary>
+            <returns>The clamped result.</returns>
         </member>
         <member name="M:Sudoku.Graphics.Scale.op_UnaryPlus(Sudoku.Graphics.Scale)">
             <inheritdoc/>
