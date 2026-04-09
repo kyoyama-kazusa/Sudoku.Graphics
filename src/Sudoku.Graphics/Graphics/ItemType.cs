@@ -100,9 +100,9 @@ public enum ItemType
 	Cell_ApexCornerTriangle,
 
 	/// <summary>
-	/// Indicates cell halve line mark.
+	/// Indicates cell bisector line mark.
 	/// </summary>
-	Cell_HalveLine,
+	Cell_BisectorLine,
 
 	/// <summary>
 	/// Indicates cell diamond mark.

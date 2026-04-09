@@ -34,7 +34,7 @@ public partial class ItemTypeOrdering
 				yield return ItemType.Cell_ArrowTriangle;
 				yield return ItemType.Cell_Arrow;
 				yield return ItemType.Cell_ApexCornerTriangle;
-				yield return ItemType.Cell_HalveLine;
+				yield return ItemType.Cell_BisectorLine;
 				yield return ItemType.Cell_Diamond;
 				yield return ItemType.Cell_Hexagon;
 				yield return ItemType.Cell_Triangle;

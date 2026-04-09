@@ -1,15 +1,15 @@
 ﻿namespace Sudoku.Graphics.Items.CellMarks;
 
 /// <summary>
-/// Represents cell halve line mark item.
+/// Represents cell bisector line mark item.
 /// </summary>
-public sealed record CellHalveLineMarkItem : CellMarkItem, IItem_OrientationProperty<Orientation4>
+public sealed record CellBisectorLineMarkItem : CellMarkItem, IItem_OrientationProperty<Orientation4>
 {
 	/// <inheritdoc/>
 	public required Orientation4 Orientation { get; init; }
 
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.Cell_HalveLine;
+	public override ItemType Type => ItemType.Cell_BisectorLine;
 
 
 	/// <inheritdoc/>

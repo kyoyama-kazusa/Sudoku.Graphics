@@ -2019,6 +2019,20 @@
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellBattenburgMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.CellBisectorLineMarkItem">
+            <summary>
+            Represents cell bisector line mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellBisectorLineMarkItem.Orientation">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellBisectorLineMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellMarks.CellBisectorLineMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedArrowMarkItem">
             <summary>
             Represents cell border-aligned arrow mark item.
@@ -2128,20 +2142,6 @@
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellEmojiMarkItem.PrintingText">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Graphics.Items.CellMarks.CellHalveLineMarkItem">
-            <summary>
-            Represents cell halve line mark item.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellHalveLineMarkItem.Orientation">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellHalveLineMarkItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Items.CellMarks.CellHalveLineMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.Items.CellMarks.CellHexagonMarkItem">
@@ -4037,9 +4037,9 @@
             Indicates cell apex corner triangle mark.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.Cell_HalveLine">
+        <member name="F:Sudoku.Graphics.ItemType.Cell_BisectorLine">
             <summary>
-            Indicates cell halve line mark.
+            Indicates cell bisector line mark.
             </summary>
         </member>
         <member name="F:Sudoku.Graphics.ItemType.Cell_Diamond">
