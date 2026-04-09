@@ -416,6 +416,30 @@
         <member name="M:System.Text.Json.StringConverter.Write(System.Text.Json.Utf8JsonWriter,System.Text.Json.Inherited{System.String},System.Text.Json.JsonSerializerOptions)">
             <inheritdoc/>
         </member>
+        <member name="T:System.Text.Json.Serialization.Metadata.ResolverDerivedTypeFactory">
+            <summary>
+            Provides a way to create an <see cref="T:System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver"/> instance.
+            </summary>
+            <seealso cref="T:System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver"/>
+        </member>
+        <member name="M:System.Text.Json.Serialization.Metadata.ResolverDerivedTypeFactory.Create``1">
+            <inheritdoc cref="M:System.Text.Json.Serialization.Metadata.ResolverDerivedTypeFactory.&lt;G&gt;$7BF486D0842E7BEC5F239621C5ED3EC5.Create``1"/>
+        </member>
+        <member name="T:System.Text.Json.Serialization.Metadata.ResolverDerivedTypeFactory.&lt;G&gt;$7BF486D0842E7BEC5F239621C5ED3EC5.&lt;M&gt;$CAA762FBF445B6C9ECC7B1C37A3ECE99">
+            <summary>
+            Provides <see langword="static"/> members for <see cref="T:System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver"/>.
+            </summary>
+        </member>
+        <member name="M:System.Text.Json.Serialization.Metadata.ResolverDerivedTypeFactory.&lt;G&gt;$7BF486D0842E7BEC5F239621C5ED3EC5.Create``1">
+            <summary>
+            Creates an <see cref="T:System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver"/> instance to be serialized / deserialized,
+            that can replace traditional <see cref="T:System.Text.Json.Serialization.JsonPolymorphicAttribute"/> and <see cref="T:System.Text.Json.Serialization.JsonDerivedTypeAttribute"/> usages.
+            </summary>
+            <typeparam name="T">The type of instances that may be used in serialization.</typeparam>
+            <returns>An <see cref="T:System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver"/> instance.</returns>
+            <seealso cref="T:System.Text.Json.Serialization.JsonPolymorphicAttribute"/>
+            <seealso cref="T:System.Text.Json.Serialization.JsonDerivedTypeAttribute"/>
+        </member>
         <member name="T:System.Text.StringBuilderExtensions">
             <summary>
             Provides extension members on <see cref="T:System.Text.StringBuilder"/>.

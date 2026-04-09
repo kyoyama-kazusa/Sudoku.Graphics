@@ -6,3 +6,4 @@ global using System.Numerics;
 global using System.Reflection;
 global using System.Runtime.CompilerServices;
 global using System.Text.Json.Serialization;
+global using System.Text.Json.Serialization.Metadata;

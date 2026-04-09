@@ -10,13 +10,6 @@
 /// the template will also be used as identifiers of puzzles, as basic grid panel.
 /// </para>
 /// </summary>
-[JsonPolymorphic(UnknownDerivedTypeHandling = JsonUnknownDerivedTypeHandling.FallBackToBaseType)]
-[JsonDerivedType(typeof(CrossmathTemplate), nameof(CrossmathTemplate))]
-[JsonDerivedType(typeof(DefaultTemplate), nameof(DefaultTemplate))]
-[JsonDerivedType(typeof(JigsawTemplate), nameof(JigsawTemplate))]
-[JsonDerivedType(typeof(SpecifiedTemplate), nameof(SpecifiedTemplate))]
-[JsonDerivedType(typeof(StandardTemplate), nameof(StandardTemplate))]
-[JsonDerivedType(typeof(SujikenTemplate), nameof(SujikenTemplate))]
 public abstract partial class Template
 {
 	/// <summary>
