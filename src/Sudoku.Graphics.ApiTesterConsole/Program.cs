@@ -10,11 +10,9 @@ using System;
 using System.IO;
 using SkiaSharp;
 using Sudoku.Graphics;
-using Sudoku.Graphics.Items.CandidateMarks;
-using Sudoku.Graphics.Items.CandidatePairMarks;
+using Sudoku.Graphics.Items.CellGroupMarks;
 using Sudoku.Graphics.Items.Fills;
 using Sudoku.Graphics.Items.Lines;
-using Sudoku.Graphics.Items.Texts;
 using Sudoku.Graphics.Templating.Templates;
 
 //var options = new CanvasDrawingOptions();
@@ -23,13 +21,13 @@ var mapper = new PointMapper
 {
 	CellSize = 120,
 	Margin = 15,
-	TemplateSize = new() { RowsCount = 6, ColumnsCount = 6 }
+	TemplateSize = new() { RowsCount = 9, ColumnsCount = 9 }
 };
 using var canvas = new Canvas(
-	new StandardTemplate(2, 3, mapper)
+	new StandardTemplate(3, 3, mapper)
 	{
-		ThickLineWidth = .06M,
-		ThinLineWidth = .0225M,
+		ThickLineWidth = 0.06M,
+		ThinLineWidth = 0.0225M,
 		ThickLineColor = SKColors.Black,
 		ThinLineColor = SKColors.Black
 	}
@@ -39,62 +37,32 @@ canvas.DrawItems(
 	[
 		new BackgroundFillItem { Color = SKColors.White },
 		new TemplateLineItem(),
-		new CandidateCircleMarkItem
+		new CellGroupTrailedCapsuleSatelliteMarkItem
 		{
 			TemplateIndex = 0,
-			CandidatePosition = new(0, 3, 2),
-			SizeScale = 0.8M,
-			FillColor = new(63, 218, 101)
+			Cells = [0],
+			CapsuleSizeScale = 0.8M,
+			StrokeColor = SKColors.DimGray,
+			StrokeWidthScale = 0.03M,
+			TrailCells = [0, 9],
 		},
-		new CandidateCircleMarkItem
+		new CellGroupTrailedCapsuleSatelliteMarkItem
 		{
 			TemplateIndex = 0,
-			CandidatePosition = new(3, 3, 5),
-			SizeScale = 0.8M,
-			FillColor = new(63, 218, 101)
+			Cells = [10],
+			CapsuleSizeScale = 0.8M,
+			StrokeColor = SKColors.DimGray,
+			StrokeWidthScale = 0.03M,
+			TrailCells = [10, 9],
 		},
-		new CandidateTextItem
+		new CellGroupTrailedCapsuleSatelliteMarkItem
 		{
 			TemplateIndex = 0,
-			CandidatePosition = new(0, 3, 2),
-			Text = "3",
-			Color = SKColors.DimGray,
-			FontName = "Arial",
-			FontSizeScale = 0.8M
-		},
-		new CandidateTextItem
-		{
-			TemplateIndex = 0,
-			CandidatePosition = new(3, 3, 5),
-			Text = "6",
-			Color = SKColors.DimGray,
-			FontName = "Arial",
-			FontSizeScale = 0.8M
-		},
-		new CandidatePairLineMarkItem
-		{
-			TemplateIndex = 0,
-			CandidatePosition1 = new(0, 3, 2),
-			CandidatePosition2 = new(3, 3, 5),
-			StrokeColor = SKColors.Red,
-			StrokeWidthScale = 0.025M,
-			ArrowCapLengthScale = 0.2M,
-			HalfArrowCapRotationDegrees = 25,
-			Candidate1SizeScale = 1.3M,
-			Candidate2SizeScale = 1.3M,
-		},
-		new CandidatePairBezierLineMarkItem
-		{
-			TemplateIndex = 0,
-			CandidatePosition1 = new(0, 3, 2),
-			CandidatePosition2 = new(3, 3, 5),
-			StrokeColor = SKColors.Red,
-			StrokeWidthScale = 0.025M,
-			ArrowCapLengthScale = 0.2M,
-			HalfArrowCapRotationDegrees = 25,
-			Candidate1SizeScale = 1.3M,
-			Candidate2SizeScale = 1.3M,
-			DashSequence = [5, 5]
+			Cells = [20],
+			CapsuleSizeScale = 0.8M,
+			StrokeColor = SKColors.DimGray,
+			StrokeWidthScale = 0.03M,
+			TrailCells = [20, 11, 2],
 		}
 	]
 );

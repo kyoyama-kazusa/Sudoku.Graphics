@@ -1754,50 +1754,117 @@
         <member name="M:Sudoku.Graphics.Items.CellGroupMarks.CellGroupThermometerMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
-        <member name="T:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleMarkItem">
+        <member name="T:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleArrowMarkItem">
             <summary>
             Represents cell group capsule with arrow line mark item (trailed capsule).
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleMarkItem.HalfArrowCapRotationDegrees">
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleArrowMarkItem.HalfArrowCapRotationDegrees">
             <summary>
             Indicates rotation degrees of arrow caps, in angle.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleMarkItem.Type">
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleArrowMarkItem.Type">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleMarkItem.CapsuleSizeScale">
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleArrowMarkItem.CapsuleSizeScale">
             <summary>
             Indicates scale of capsule, related to cell size.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleMarkItem.ArrowCapLengthScale">
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleArrowMarkItem.ArrowCapLengthScale">
             <summary>
             Indicates scale of arrow cap length, related to cell size.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleMarkItem.StrokeWidthScale">
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleArrowMarkItem.StrokeWidthScale">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleMarkItem.StrokeColor">
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleArrowMarkItem.StrokeColor">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleMarkItem.FillColor">
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleArrowMarkItem.FillColor">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleMarkItem.TrailCells">
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleArrowMarkItem.TrailCells">
             <summary>
             Indicates arrow line cells.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+        <member name="M:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleArrowMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.Items.CellGroupMarks.CapsuleTrailDrawer">
             <summary>
             Provides a way to draw capsules and trails.
             </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellGroupMarks.CapsuleTrailDrawer.DrawCapsule(SkiaSharp.SKCanvas,System.ReadOnlySpan{SkiaSharp.SKPoint},System.Single,Sudoku.Graphics.Scale,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPath@)">
+            <summary>
+            Draws a capsule.
+            </summary>
+            <param name="canvas">The canvas instance.</param>
+            <param name="capsuleCells">
+            The cells of capsule, specified by <see cref="T:SkiaSharp.SKPoint"/> instances (top-left point of that cells).
+            </param>
+            <param name="cellSize">The size of each cell.</param>
+            <param name="capsuleSizeScale">The capsule size scale, related to cell size.</param>
+            <param name="fillPaint">The fill paint.</param>
+            <param name="strokePaint">The stroke paint.</param>
+            <param name="capsulePath">
+            Capsule path generated.
+            You should use <see langword="using"/> statements or manually call method <c>Dispose</c> to release memory.
+            </param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating whether the path is generated successfully.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellGroupMarks.CapsuleTrailDrawer.BuildTrailPath(SkiaSharp.SKPath,System.ReadOnlySpan{SkiaSharp.SKPoint},System.Single)">
+            <summary>
+            Build a path of trail lines.
+            </summary>
+            <param name="capsulePath">The capsule path.</param>
+            <param name="trailCells">The trail cells.</param>
+            <param name="cellSize">The size of each cell.</param>
+            <returns>A path generated.</returns>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleSatelliteMarkItem">
+            <summary>
+            Represents a cell group trailed capsule satellite mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleSatelliteMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleSatelliteMarkItem.CapsuleSizeScale">
+            <summary>
+            Indicates scale of capsule, related to cell size.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleSatelliteMarkItem.StrokeWidthScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleSatelliteMarkItem.StrokeColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleSatelliteMarkItem.FillColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleSatelliteMarkItem.TrailCells">
+            <summary>
+            Indicates arrow line cells.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleSatelliteMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellGroupMarks.CapsuleTrailDrawer">
+            <summary>
+            <para>Provides a way to draw capsules and trails.</para>
+            <para>
+            Although this type is named same as another file-local type defined in <see cref="T:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleArrowMarkItem"/>,
+            they are actually different on drawing trails.
+            </para>
+            </summary>
+            <seealso cref="T:Sudoku.Graphics.Items.CellGroupMarks.CellGroupTrailedCapsuleArrowMarkItem"/>
         </member>
         <member name="M:Sudoku.Graphics.Items.CellGroupMarks.CapsuleTrailDrawer.DrawCapsule(SkiaSharp.SKCanvas,System.ReadOnlySpan{SkiaSharp.SKPoint},System.Single,Sudoku.Graphics.Scale,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPath@)">
             <summary>
@@ -4133,6 +4200,11 @@
         <member name="F:Sudoku.Graphics.ItemType.CellGroup_CapsuleWithArrowLine">
             <summary>
             Indicates capsule with arrow line cell group mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellGroup_CapsuleWithSatellite">
+            <summary>
+            Indicates satellite cell group mark.
             </summary>
         </member>
         <member name="F:Sudoku.Graphics.ItemType.CellGroup_CellTrail">

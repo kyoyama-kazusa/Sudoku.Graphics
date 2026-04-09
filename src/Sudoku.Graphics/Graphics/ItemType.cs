@@ -315,6 +315,11 @@ public enum ItemType
 	CellGroup_CapsuleWithArrowLine,
 
 	/// <summary>
+	/// Indicates satellite cell group mark.
+	/// </summary>
+	CellGroup_CapsuleWithSatellite,
+
+	/// <summary>
 	/// Indicates cell trail cell group mark.
 	/// </summary>
 	CellGroup_CellTrail,

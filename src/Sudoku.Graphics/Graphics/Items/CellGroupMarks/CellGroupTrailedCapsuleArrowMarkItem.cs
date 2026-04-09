@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents cell group capsule with arrow line mark item (trailed capsule).
 /// </summary>
-public sealed record CellGroupTrailedCapsuleMarkItem : CellGroupMarkItem
+public sealed record CellGroupTrailedCapsuleArrowMarkItem : CellGroupMarkItem
 {
 	/// <summary>
 	/// Indicates rotation degrees of arrow caps, in angle.

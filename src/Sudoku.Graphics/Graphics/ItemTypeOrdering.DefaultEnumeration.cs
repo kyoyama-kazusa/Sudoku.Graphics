@@ -75,6 +75,7 @@ public partial class ItemTypeOrdering
 			{
 				yield return ItemType.CellGroup_Thermometer;
 				yield return ItemType.CellGroup_CapsuleWithArrowLine;
+				yield return ItemType.CellGroup_CapsuleWithSatellite;
 				yield return ItemType.CellGroup_CellTrail;
 				yield return ItemType.CellGroup_KillerCage;
 			}
