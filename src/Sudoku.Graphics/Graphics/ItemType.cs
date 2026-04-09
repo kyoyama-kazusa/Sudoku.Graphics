@@ -138,6 +138,11 @@ public enum ItemType
 	/// Indicates cell border-aligned arrow mark.
 	/// </summary>
 	Cell_BorderAlignedArrow,
+
+	/// <summary>
+	/// Indicates cell large diamond mark.
+	/// </summary>
+	Cell_LargeDiamond,
 	#endregion
 
 	//

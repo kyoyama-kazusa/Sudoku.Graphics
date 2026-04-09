@@ -37,6 +37,7 @@
 [JsonDerivedType(typeof(CellGroupThermometerMarkItem), nameof(CellGroupThermometerMarkItem))]
 [JsonDerivedType(typeof(CellHalveLineMarkItem), nameof(CellHalveLineMarkItem))]
 [JsonDerivedType(typeof(CellHexagonMarkItem), nameof(CellHexagonMarkItem))]
+[JsonDerivedType(typeof(CellLargeDiamondMarkItem), nameof(CellLargeDiamondMarkItem))]
 [JsonDerivedType(typeof(CellMoonPhaseMarkItem), nameof(CellMoonPhaseMarkItem))]
 [JsonDerivedType(typeof(CellPairArrowTextMarkItem), nameof(CellPairArrowTextMarkItem))]
 [JsonDerivedType(typeof(CellPairBarMarkItem), nameof(CellPairBarMarkItem))]

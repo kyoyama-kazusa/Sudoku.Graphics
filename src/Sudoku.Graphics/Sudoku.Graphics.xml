@@ -2158,6 +2158,26 @@
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellHexagonMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.CellLargeDiamondMarkItem">
+            <summary>
+            Represents cell large diamond mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellLargeDiamondMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellLargeDiamondMarkItem.StrokeWidthScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellLargeDiamondMarkItem.StrokeColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellLargeDiamondMarkItem.FillColor">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellMarks.CellLargeDiamondMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.Items.CellMarks.CellMarkItem">
             <summary>
             Represents a cell mark item.
@@ -4055,6 +4075,11 @@
         <member name="F:Sudoku.Graphics.ItemType.Cell_BorderAlignedArrow">
             <summary>
             Indicates cell border-aligned arrow mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.Cell_LargeDiamond">
+            <summary>
+            Indicates cell large diamond mark.
             </summary>
         </member>
         <member name="F:Sudoku.Graphics.ItemType.Candidate_Circle">
