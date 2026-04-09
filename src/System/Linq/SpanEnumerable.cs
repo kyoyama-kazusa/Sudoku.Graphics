@@ -1,6 +1,4 @@
-﻿using System.Numerics;
-
-namespace System.Linq;
+﻿namespace System.Linq;
 
 /// <summary>
 /// Provides extension members on <see cref="ReadOnlySpan{T}"/>.
