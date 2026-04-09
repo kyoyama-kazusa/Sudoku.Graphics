@@ -43,6 +43,7 @@ public partial class ItemTypeOrdering
 				yield return ItemType.Cell_BorderAlignedTriangle;
 				yield return ItemType.Cell_BorderAlignedArrow;
 				yield return ItemType.Cell_LargeDiamond;
+				yield return ItemType.Cell_LoopSegmentLine;
 			}
 
 			// Candidate marks

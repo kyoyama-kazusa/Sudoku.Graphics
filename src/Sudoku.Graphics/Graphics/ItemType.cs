@@ -143,6 +143,11 @@ public enum ItemType
 	/// Indicates cell large diamond mark.
 	/// </summary>
 	Cell_LargeDiamond,
+
+	/// <summary>
+	/// Indicates loop segment lines.
+	/// </summary>
+	Cell_LoopSegmentLine,
 	#endregion
 
 	//

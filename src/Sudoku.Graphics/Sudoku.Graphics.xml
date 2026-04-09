@@ -2178,6 +2178,28 @@
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellLargeDiamondMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.Items.CellMarks.CellLoopSegmentLineMarkItem">
+            <summary>
+            Represents a cell loop segment line mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellLoopSegmentLineMarkItem.OccupiedDirections">
+            <summary>
+            Indicates all directions that the segment line will occupy.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellLoopSegmentLineMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellLoopSegmentLineMarkItem.StrokeWidthScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellLoopSegmentLineMarkItem.StrokeColor">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellMarks.CellLoopSegmentLineMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.Items.CellMarks.CellMarkItem">
             <summary>
             Represents a cell mark item.
@@ -4080,6 +4102,11 @@
         <member name="F:Sudoku.Graphics.ItemType.Cell_LargeDiamond">
             <summary>
             Indicates cell large diamond mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.Cell_LoopSegmentLine">
+            <summary>
+            Indicates loop segment lines.
             </summary>
         </member>
         <member name="F:Sudoku.Graphics.ItemType.Candidate_Circle">

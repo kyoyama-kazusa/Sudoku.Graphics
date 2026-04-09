@@ -10,10 +10,10 @@ using System;
 using System.IO;
 using SkiaSharp;
 using Sudoku.Graphics;
+using Sudoku.Graphics.Directions;
 using Sudoku.Graphics.Items.CellMarks;
 using Sudoku.Graphics.Items.Fills;
 using Sudoku.Graphics.Items.Lines;
-using Sudoku.Graphics.Items.Texts;
 using Sudoku.Graphics.Templating.Templates;
 
 //var options = new CanvasDrawingOptions();
@@ -22,11 +22,12 @@ var mapper = new PointMapper
 {
 	CellSize = 120,
 	Margin = 15,
-	TemplateSize = new() { RowsCount = 6, ColumnsCount = 6 }
+	TemplateSize = new() { RowsCount = 7, ColumnsCount = 7 }
 };
 using var canvas = new Canvas(
-	new StandardTemplate(2, 3, mapper)
+	new DefaultTemplate
 	{
+		Mapper = mapper,
 		ThickLineWidth = 0.06M,
 		ThinLineWidth = 0.0225M,
 		ThickLineColor = SKColors.Black,
@@ -38,101 +39,46 @@ canvas.DrawItems(
 	[
 		new BackgroundFillItem { Color = SKColors.White },
 		new TemplateLineItem(),
-		new GivenTextItem
-		{
-			TemplateIndex = 0,
-			Cell = 1,
-			Color = SKColors.Black,
-			Text = "2",
-			FontName = "Arial",
-			FontSizeScale = 0.8M
-		},
-		new GivenTextItem
-		{
-			TemplateIndex = 0,
-			Cell = 2,
-			Color = SKColors.Black,
-			Text = "3",
-			FontName = "Arial",
-			FontSizeScale = 0.8M
-		},
-		new GivenTextItem
-		{
-			TemplateIndex = 0,
-			Cell = 7,
-			Color = SKColors.Black,
-			Text = "4",
-			FontName = "Arial",
-			FontSizeScale = 0.8M
-		},
-		new GivenTextItem
+		new CellFillItem { TemplateIndex = 0, Cell = 22, Color = SKColors.Black },
+		new CellLoopSegmentLineMarkItem
 		{
 			TemplateIndex = 0,
 			Cell = 16,
-			Color = SKColors.Black,
-			Text = "5",
-			FontName = "Arial",
-			FontSizeScale = 0.8M
+			OccupiedDirections = Direction4.Right | Direction4.Down,
+			StrokeColor = SKColors.DimGray,
+			StrokeWidthScale = 0.05M
 		},
-		new GivenTextItem
+		new CellLoopSegmentLineMarkItem
 		{
 			TemplateIndex = 0,
 			Cell = 19,
-			Color = SKColors.Black,
-			Text = "6",
-			FontName = "Arial",
-			FontSizeScale = 0.8M
+			OccupiedDirections = Direction4.Left | Direction4.Right,
+			StrokeColor = SKColors.DimGray,
+			StrokeWidthScale = 0.05M
 		},
-		new GivenTextItem
+		new CellLoopSegmentLineMarkItem
 		{
 			TemplateIndex = 0,
-			Cell = 28,
-			Color = SKColors.Black,
-			Text = "6",
-			FontName = "Arial",
-			FontSizeScale = 0.8M
+			Cell = 39,
+			OccupiedDirections = Direction4.Up | Direction4.Down,
+			StrokeColor = SKColors.DimGray,
+			StrokeWidthScale = 0.05M
 		},
-		new GivenTextItem
+		new CellLoopSegmentLineMarkItem
 		{
 			TemplateIndex = 0,
-			Cell = 33,
-			Color = SKColors.Black,
-			Text = "1",
-			FontName = "Arial",
-			FontSizeScale = 0.8M
+			Cell = 44,
+			OccupiedDirections = Direction4.Up | Direction4.Right,
+			StrokeColor = SKColors.DimGray,
+			StrokeWidthScale = 0.05M
 		},
-		new GivenTextItem
+		new CellLoopSegmentLineMarkItem
 		{
 			TemplateIndex = 0,
-			Cell = 34,
-			Color = SKColors.Black,
-			Text = "3",
-			FontName = "Arial",
-			FontSizeScale = 0.8M
-		},
-		new CellLargeDiamondMarkItem
-		{
-			TemplateIndex = 0,
-			Cell = 8,
-			FillColor = SKColors.LightGray
-		},
-		new CellLargeDiamondMarkItem
-		{
-			TemplateIndex = 0,
-			Cell = 16,
-			FillColor = SKColors.LightGray
-		},
-		new CellLargeDiamondMarkItem
-		{
-			TemplateIndex = 0,
-			Cell = 19,
-			FillColor = SKColors.LightGray
-		},
-		new CellLargeDiamondMarkItem
-		{
-			TemplateIndex = 0,
-			Cell = 27,
-			FillColor = SKColors.LightGray
+			Cell = 46,
+			OccupiedDirections = Direction4.Up | Direction4.Right,
+			StrokeColor = SKColors.DimGray,
+			StrokeWidthScale = 0.05M
 		},
 	]
 );
