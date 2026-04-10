@@ -308,6 +308,11 @@ public enum ItemType
 	/// Indicates cell pair batternburg mark.
 	/// </summary>
 	CellPair_Battenburg,
+
+	/// <summary>
+	/// Indicates cell pair island connector mark.
+	/// </summary>
+	CellPair_IslandConnector,
 	#endregion
 
 	//

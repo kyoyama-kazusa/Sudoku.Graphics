@@ -3,21 +3,15 @@
 /// <summary>
 /// Represents an island connector.
 /// </summary>
+[JsonPolymorphic(UnknownDerivedTypeHandling = JsonUnknownDerivedTypeHandling.FallBackToBaseType)]
+[JsonDerivedType(typeof(DirectIslandConnector), nameof(DirectIslandConnector))]
+[JsonDerivedType(typeof(SingleCornerIslandConnector), nameof(SingleCornerIslandConnector))]
+[JsonDerivedType(typeof(DoubleCornerIslandConnector), nameof(DoubleCornerIslandConnector))]
 public abstract class IslandConnector :
 	ICloneable,
 	IEquatable<IslandConnector>,
 	IEqualityOperators<IslandConnector, IslandConnector, bool>
 {
-	/// <summary>
-	/// Indicates the start cell.
-	/// </summary>
-	public required Absolute StartCell { get; init; }
-
-	/// <summary>
-	/// Indicates the end cell.
-	/// </summary>
-	public required Absolute EndCell { get; init; }
-
 	/// <summary>
 	/// Represents equality contract.
 	/// </summary>

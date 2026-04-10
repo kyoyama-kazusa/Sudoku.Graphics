@@ -1,7 +1,7 @@
 ﻿namespace Sudoku.Graphics.IslandConnectors;
 
 /// <summary>
-/// Represents an island connector that will make double corner.
+/// Represents an island connector that will make double corners.
 /// </summary>
 public sealed class DoubleCornerIslandConnector : IslandConnector
 {
@@ -27,19 +27,17 @@ public sealed class DoubleCornerIslandConnector : IslandConnector
 	/// <inheritdoc/>
 	public override bool Equals([NotNullWhen(true)] IslandConnector? other)
 		=> other is DoubleCornerIslandConnector comparer
-		&& StartCell == comparer.StartCell && EndCell == comparer.EndCell && Offset == comparer.Offset
+		&& Offset == comparer.Offset
 		&& StartConnectedDirection == comparer.StartConnectedDirection && EndConnectedDirection == comparer.StartConnectedDirection;
 
 	/// <inheritdoc/>
 	public override int GetHashCode()
-		=> HashCode.Combine(EqualityContract, StartCell, EndCell, Offset, StartConnectedDirection, EndConnectedDirection);
+		=> HashCode.Combine(EqualityContract, Offset, StartConnectedDirection, EndConnectedDirection);
 
 	/// <inheritdoc/>
 	public override DoubleCornerIslandConnector Clone()
 		=> new()
 		{
-			StartCell = StartCell,
-			EndCell = EndCell,
 			Offset = Offset,
 			StartConnectedDirection = StartConnectedDirection,
 			EndConnectedDirection = EndConnectedDirection
@@ -48,8 +46,6 @@ public sealed class DoubleCornerIslandConnector : IslandConnector
 	/// <inheritdoc/>
 	protected override void PrintMembers(StringBuilder builder)
 	{
-		AppendMemberString(builder, StartCell);
-		AppendMemberString(builder, EndCell);
 		AppendMemberString(builder, Offset);
 		AppendMemberString(builder, StartConnectedDirection);
 		AppendMemberString(builder, EndConnectedDirection);

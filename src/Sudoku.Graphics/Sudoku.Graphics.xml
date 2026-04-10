@@ -943,16 +943,6 @@
             Represents an island connector.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.IslandConnector.StartCell">
-            <summary>
-            Indicates the start cell.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.IslandConnector.EndCell">
-            <summary>
-            Indicates the end cell.
-            </summary>
-        </member>
         <member name="P:Sudoku.Graphics.IslandConnector.EqualityContract">
             <summary>
             Represents equality contract.
@@ -1019,7 +1009,7 @@
         </member>
         <member name="T:Sudoku.Graphics.IslandConnectors.DoubleCornerIslandConnector">
             <summary>
-            Represents an island connector that will make double corner.
+            Represents an island connector that will make double corners.
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.IslandConnectors.DoubleCornerIslandConnector.Offset">
@@ -2956,6 +2946,174 @@
         <member name="M:Sudoku.Graphics.Items.CellPairMarks.CellPairConnectionLineMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.Items.CellPairMarks.CellPairIslandConnectorMarkItem">
+            <summary>
+            Represents cell pair island connector mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairIslandConnectorMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairIslandConnectorMarkItem.CornerRadiusScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairIslandConnectorMarkItem.StrokeWidthScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairIslandConnectorMarkItem.StrokeColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairIslandConnectorMarkItem.IslandConnector">
+            <summary>
+            Indicates island connector.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellPairMarks.CellPairIslandConnectorMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellPairMarks.Connector">
+            <summary>
+            Represents a file-local connector type that can interact with drawing.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.Connector.StartPoint">
+            <summary>
+            Indicates the start point.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.Connector.EndPoint">
+            <summary>
+            Indicates the end point.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.Connector.StartDirection">
+            <summary>
+            Indicates the start direction.
+            This property is not <see langword="null"/> when <see cref="P:Sudoku.Graphics.Items.CellPairMarks.CellPairIslandConnectorMarkItem.IslandConnector"/>
+            is either of type <see cref="T:Sudoku.Graphics.IslandConnectors.SingleCornerIslandConnector"/> and <see cref="T:Sudoku.Graphics.IslandConnectors.DoubleCornerIslandConnector"/>.
+            </summary>
+            <seealso cref="P:Sudoku.Graphics.Items.CellPairMarks.CellPairIslandConnectorMarkItem.IslandConnector"/>
+            <seealso cref="T:Sudoku.Graphics.IslandConnectors.SingleCornerIslandConnector"/>
+            <seealso cref="T:Sudoku.Graphics.IslandConnectors.DoubleCornerIslandConnector"/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.Connector.EndDirection">
+            <summary>
+            Indicates the end direction.
+            This property is not <see langword="null"/> when <see cref="P:Sudoku.Graphics.Items.CellPairMarks.CellPairIslandConnectorMarkItem.IslandConnector"/>
+            is either of type <see cref="T:Sudoku.Graphics.IslandConnectors.SingleCornerIslandConnector"/> and <see cref="T:Sudoku.Graphics.IslandConnectors.DoubleCornerIslandConnector"/>.
+            </summary>
+            <seealso cref="P:Sudoku.Graphics.Items.CellPairMarks.CellPairIslandConnectorMarkItem.IslandConnector"/>
+            <seealso cref="T:Sudoku.Graphics.IslandConnectors.SingleCornerIslandConnector"/>
+            <seealso cref="T:Sudoku.Graphics.IslandConnectors.DoubleCornerIslandConnector"/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.Connector.Offset">
+            <summary>
+            Indicates the offset to draw. 1 is for drawing with 0.5x cell width as offset, 2 is for 1.5x cell width.
+            This property becomes valid if <see cref="P:Sudoku.Graphics.Items.CellPairMarks.CellPairIslandConnectorMarkItem.IslandConnector"/>
+            is <see cref="T:Sudoku.Graphics.IslandConnectors.DoubleCornerIslandConnector"/>, and so on.
+            </summary>
+            <seealso cref="P:Sudoku.Graphics.Items.CellPairMarks.CellPairIslandConnectorMarkItem.IslandConnector"/>
+            <seealso cref="T:Sudoku.Graphics.IslandConnectors.DoubleCornerIslandConnector"/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.CellPairMarks.ConnectorRenderer">
+            <summary>
+            Represents a connector renderer.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.CellPairMarks.ConnectorRenderer.Epsilon">
+            <summary>
+            Represents epsilon.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellPairMarks.ConnectorRenderer.BuildPath(Sudoku.Graphics.Items.CellPairMarks.Connector,System.Single,Sudoku.Graphics.Scale)">
+            <summary>
+            Try to build a path to draw.
+            </summary>
+            <param name="connector">The connector.</param>
+            <param name="cellSize">The size of cell.</param>
+            <param name="cornerRadiusScale">The scale of corner radius, related to half size of cell.</param>
+            <returns>A valid path instance.</returns>
+            <exception cref="T:System.ArgumentException">Throws when parameter <paramref name="connector"/> is invalid.</exception>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellPairMarks.ConnectorRenderer.BuildStraightPath(Sudoku.Graphics.Items.CellPairMarks.Connector,System.Single,Sudoku.Graphics.Scale)">
+            <summary>
+            Try to build a straight path.
+            </summary>
+            <param name="c">The connector.</param>
+            <param name="cellSize">The size of cell.</param>
+            <param name="cornerRadiusScale">The scale of corner radius, related to half size of cell.</param>
+            <returns>A valid path instance.</returns>
+            <exception cref="T:System.InvalidOperationException">Throws when two cells are not in a same row or column.</exception>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellPairMarks.ConnectorRenderer.BuildOneTurnPath(Sudoku.Graphics.Items.CellPairMarks.Connector,System.Single,Sudoku.Graphics.Scale)">
+            <summary>
+            Creates a one-turn path.
+            </summary>
+            <param name="c">The connector.</param>
+            <param name="cellSize">The size of cell.</param>
+            <param name="cornerRadiusScale">The scale of corner radius, related to half size of cell.</param>
+            <returns>A valid path.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellPairMarks.ConnectorRenderer.BuildTwoTurnPath(Sudoku.Graphics.Items.CellPairMarks.Connector,System.Single,Sudoku.Graphics.Scale)">
+            <summary>
+            Creates a two-turn path.
+            </summary>
+            <param name="c">The connector.</param>
+            <param name="cellSize">The size of cell.</param>
+            <param name="cornerRadiusScale">The scale of corner radius, related to half size of cell.</param>
+            <returns>A valid path instance.</returns>
+            <exception cref="T:System.InvalidOperationException">Throws start and end direction are not in a same orientation.</exception>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellPairMarks.ConnectorRenderer.BuildRoundedPath(System.Collections.Generic.List{SkiaSharp.SKPoint},System.Single)">
+            <summary>
+            Try to build a rounded path.
+            </summary>
+            <param name="points">The points.</param>
+            <param name="radius">The corner radius.</param>
+            <returns>A valid path.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellPairMarks.ConnectorRenderer.GetSideCenter(SkiaSharp.SKPoint,Sudoku.Graphics.Directions.Direction4,System.Single)">
+            <summary>
+            Get center point of the specified side of border.
+            </summary>
+            <param name="topLeft">The top-left point.</param>
+            <param name="side">The side direction.</param>
+            <param name="cellSize">The cell size.</param>
+            <returns>The point.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Throws when <paramref name="side"/> is not defined.</exception>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellPairMarks.ConnectorRenderer.IsHorizontal(Sudoku.Graphics.Directions.Direction4)">
+            <summary>
+            Indicates whether the specififed direction is horizontal or not.
+            </summary>
+            <param name="side">The direction to check.</param>
+            <returns>A <see cref="T:System.Boolean"/> result.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellPairMarks.ConnectorRenderer.UnitVector(SkiaSharp.SKPoint,SkiaSharp.SKPoint)">
+            <summary>
+            Unit vector.
+            </summary>
+            <param name="from">The from point.</param>
+            <param name="to">The to point.</param>
+            <returns>The unit vector.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellPairMarks.ConnectorRenderer.Distance(SkiaSharp.SKPoint,SkiaSharp.SKPoint)">
+            <summary>
+            Get distance of two points.
+            </summary>
+            <param name="a">The first point.</param>
+            <param name="b">The second point.</param>
+            <returns>The distance between them.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellPairMarks.ConnectorRenderer.NearlyEqual(System.Single,System.Single,System.Single)">
+            <summary>
+            Determine whether two <see cref="T:System.Single"/> instances are nearly equals to each other.
+            </summary>
+            <param name="a">The first value to check.</param>
+            <param name="b">The second value to check.</param>
+            <param name="epsilon">The epsilon value.</param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
+        </member>
         <member name="T:Sudoku.Graphics.Items.CellPairMarks.CellPairKropkiMarkItem">
             <summary>
             Represents a cell pair kropki (circle) mark item.
@@ -4400,6 +4558,11 @@
         <member name="F:Sudoku.Graphics.ItemType.CellPair_Battenburg">
             <summary>
             Indicates cell pair batternburg mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellPair_IslandConnector">
+            <summary>
+            Indicates cell pair island connector mark.
             </summary>
         </member>
         <member name="F:Sudoku.Graphics.ItemType.CellGroup_Thermometer">

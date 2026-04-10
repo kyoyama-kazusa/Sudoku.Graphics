@@ -17,20 +17,14 @@ public sealed class SingleCornerIslandConnector : IslandConnector
 	/// <inheritdoc/>
 	public override bool Equals([NotNullWhen(true)] IslandConnector? other)
 		=> other is SingleCornerIslandConnector comparer
-		&& StartCell == comparer.StartCell && EndCell == comparer.EndCell && ConnectedDirection == comparer.ConnectedDirection;
+		&& ConnectedDirection == comparer.ConnectedDirection;
 
 	/// <inheritdoc/>
-	public override int GetHashCode() => HashCode.Combine(EqualityContract, StartCell, EndCell, ConnectedDirection);
+	public override int GetHashCode() => HashCode.Combine(EqualityContract, ConnectedDirection);
 
 	/// <inheritdoc/>
-	public override SingleCornerIslandConnector Clone()
-		=> new() { StartCell = StartCell, EndCell = EndCell, ConnectedDirection = ConnectedDirection };
+	public override SingleCornerIslandConnector Clone() => new() { ConnectedDirection = ConnectedDirection };
 
 	/// <inheritdoc/>
-	protected override void PrintMembers(StringBuilder builder)
-	{
-		AppendMemberString(builder, StartCell);
-		AppendMemberString(builder, EndCell);
-		AppendMemberString(builder, ConnectedDirection);
-	}
+	protected override void PrintMembers(StringBuilder builder) => AppendMemberString(builder, ConnectedDirection);
 }

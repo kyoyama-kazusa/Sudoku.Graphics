@@ -10,19 +10,16 @@ public sealed class DirectIslandConnector : IslandConnector
 
 
 	/// <inheritdoc/>
-	public override bool Equals([NotNullWhen(true)] IslandConnector? other)
-		=> other is DirectIslandConnector comparer && StartCell == comparer.StartCell && EndCell == comparer.EndCell;
+	public override bool Equals([NotNullWhen(true)] IslandConnector? other) => other is DirectIslandConnector;
 
 	/// <inheritdoc/>
-	public override int GetHashCode() => HashCode.Combine(EqualityContract, StartCell, EndCell);
+	public override int GetHashCode() => HashCode.Combine(EqualityContract);
 
 	/// <inheritdoc/>
-	public override DirectIslandConnector Clone() => new() { StartCell = StartCell, EndCell = EndCell };
+	public override DirectIslandConnector Clone() => new();
 
 	/// <inheritdoc/>
 	protected override void PrintMembers(StringBuilder builder)
 	{
-		AppendMemberString(builder, StartCell);
-		AppendMemberString(builder, EndCell);
 	}
 }
