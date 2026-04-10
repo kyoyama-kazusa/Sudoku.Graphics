@@ -11,7 +11,7 @@ using System.IO;
 using SkiaSharp;
 using Sudoku.Graphics;
 using Sudoku.Graphics.Directions;
-using Sudoku.Graphics.Items.CellMarks;
+using Sudoku.Graphics.Items.CellGroupMarks;
 using Sudoku.Graphics.Items.Fills;
 using Sudoku.Graphics.Items.Lines;
 using Sudoku.Graphics.Templating.Templates;
@@ -22,12 +22,11 @@ var mapper = new PointMapper
 {
 	CellSize = 120,
 	Margin = 15,
-	TemplateSize = new() { RowsCount = 7, ColumnsCount = 7 }
+	TemplateSize = new() { RowsCount = 9, ColumnsCount = 9 }
 };
 using var canvas = new Canvas(
-	new DefaultTemplate
+	new StandardTemplate(3, 3, mapper)
 	{
-		Mapper = mapper,
 		ThickLineWidth = 0.06M,
 		ThinLineWidth = 0.0225M,
 		ThickLineColor = SKColors.Black,
@@ -39,52 +38,16 @@ canvas.DrawItems(
 	[
 		new BackgroundFillItem { Color = SKColors.White },
 		new TemplateLineItem(),
-		new CellFillItem { TemplateIndex = 0, Cell = 22, Color = SKColors.Black },
-		new CellLoopSegmentLineMarkItem
+		new CellGroupKillerCageMarkItem
 		{
 			TemplateIndex = 0,
-			Cell = 16,
-			OccupiedDirections = Direction4.Right | Direction4.Down,
-			StrokeColor = SKColors.DimGray,
-			StrokeWidthScale = 0.05M,
-			CornerRadiusScale = 1M
-		},
-		new CellLoopSegmentLineMarkItem
-		{
-			TemplateIndex = 0,
-			Cell = 19,
-			OccupiedDirections = Direction4.Left | Direction4.Right,
-			StrokeColor = SKColors.DimGray,
-			StrokeWidthScale = 0.05M,
-			CornerRadiusScale = 1M
-		},
-		new CellLoopSegmentLineMarkItem
-		{
-			TemplateIndex = 0,
-			Cell = 39,
-			OccupiedDirections = Direction4.Up | Direction4.Down,
-			StrokeColor = SKColors.DimGray,
-			StrokeWidthScale = 0.05M,
-			CornerRadiusScale = 1M
-		},
-		new CellLoopSegmentLineMarkItem
-		{
-			TemplateIndex = 0,
-			Cell = 44,
-			OccupiedDirections = Direction4.Up | Direction4.Right,
-			StrokeColor = SKColors.DimGray,
-			StrokeWidthScale = 0.05M,
-			CornerRadiusScale = 1M
-		},
-		new CellLoopSegmentLineMarkItem
-		{
-			TemplateIndex = 0,
-			Cell = 46,
-			OccupiedDirections = Direction4.Up | Direction4.Right,
-			StrokeColor = SKColors.DimGray,
-			StrokeWidthScale = 0.05M,
-			CornerRadiusScale = 1M
-		},
+			Cells = [0, 1, 2, 9, 11, 18, 19, 20],
+			StrokeColor = SKColors.Black,
+			StrokeWidthScale = 0.0225M,
+			DashSequence = [10, 10],
+			ShortSideScale = 0.8M,
+			CornerRadiusScale = 0.25M
+		}
 	]
 );
 canvas.Export(Path.Combine(desktop, "output.png"), new() { Quality = 100 });

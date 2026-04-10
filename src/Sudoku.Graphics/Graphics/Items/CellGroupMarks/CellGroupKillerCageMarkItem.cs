@@ -58,7 +58,7 @@ public sealed record CellGroupKillerCageMarkItem : CellGroupMarkItem
 	public required Scale ShortSideScale { get; init; }
 
 	/// <inheritdoc/>
-	public required override Scale FontSizeScale { get; init; }
+	public override Scale FontSizeScale { get; init; }
 
 	/// <inheritdoc/>
 	public override Scale CornerRadiusScale { get; init; }
@@ -170,41 +170,70 @@ file static class CellOutlineBuilder
 		}
 
 		var boundaryEdges = BuildBoundaryEdges(cells);
-		var cycle = TraceClockwiseBoundaryCycle(boundaryEdges);
-		if (cycle.Count < 4)
+		var cycles = TraceBoundaryCycles(boundaryEdges);
+		if (cycles.Count == 0)
 		{
 			result = default;
 			return false;
 		}
 
-		var insetCorners = new List<SKPoint>();
+		var path = new SKPath { FillType = SKPathFillType.EvenOdd };
 		var topLeftTurnPoint = default(SKPoint?);
-		var n = cycle.Count;
-		for (var i = 0; i < n; i++)
+		var addedAnyCycle = false;
+		foreach (var cycle in cycles)
 		{
-			var previous = cycle[(i - 1 + n) % n];
-			var current = cycle[i];
-			var next = cycle[(i + 1) % n];
-
-			var d1 = GetDirection(previous, current);
-			var d2 = GetDirection(current, next);
-			if (d1.X == d2.X && d1.Y == d2.Y)
+			if (cycle.Count < 4)
 			{
 				continue;
 			}
 
-			var r1 = RightNormal(d1);
-			var r2 = RightNormal(d2);
-			var inset = new SKPoint(originX + current.X * cellSize + (r1.X + r2.X) * margin, originY + current.Y * cellSize + (r1.Y + r2.Y) * margin);
-			insetCorners.Add(inset);
-			if (topLeftTurnPoint is not var (x, y) || inset.Y < y || Math.Abs(inset.Y - y) < 1E-3F && inset.X < x)
+			var insetCorners = new List<SKPoint>(cycle.Count);
+			for (var i = 0; i < cycle.Count; i++)
 			{
-				topLeftTurnPoint = inset;
+				var previous = cycle[(i - 1 + cycle.Count) % cycle.Count];
+				var current = cycle[i];
+				var next = cycle[(i + 1) % cycle.Count];
+
+				var d1 = getDirection(previous, current);
+				var d2 = getDirection(current, next);
+				if (d1.X == d2.X && d1.Y == d2.Y)
+				{
+					continue;
+				}
+
+				var r1 = rightNormal(d1);
+				var r2 = rightNormal(d2);
+				var inset = new SKPoint(
+					originX + current.X * cellSize + (r1.X + r2.X) * margin,
+					originY + current.Y * cellSize + (r1.Y + r2.Y) * margin
+				);
+
+				insetCorners.Add(inset);
+				if (topLeftTurnPoint is not var (x, y) || inset.Y < y || Math.Abs(inset.Y - y) < 1E-3F && inset.X < x)
+				{
+					topLeftTurnPoint = inset;
+				}
 			}
+
+			if (insetCorners.Count < 4)
+			{
+				continue;
+			}
+
+			addedAnyCycle = true;
+
+			// Build one closed sub-path for this cycle, then merge it into the final path.
+			using var subPath = buildRoundedPolygonPath(insetCorners.AsSpan(), cornerRadius);
+			path.AddPath(subPath);
 		}
 
-		// Build a path. Here we don't use 'using' keyword because it will be used by its caller.
-		var path = buildRoundedPolygonPath(insetCorners.AsSpan(), cornerRadius);
+		if (!addedAnyCycle)
+		{
+			path.Dispose();
+			result = default;
+			return false;
+		}
+
 		result = (path, topLeftTurnPoint ?? default);
 		return true;
 
@@ -231,63 +260,73 @@ file static class CellOutlineBuilder
 			}
 		}
 
-		static List<GridPoint> TraceClockwiseBoundaryCycle(HashSet<GridEdge> edges)
+		static List<List<GridPoint>> TraceBoundaryCycles(HashSet<GridEdge> edges)
 		{
-			var adj = new Dictionary<GridPoint, List<GridPoint>>();
+			var adjacencyMatrix = new Dictionary<GridPoint, List<GridPoint>>();
 			foreach (var e in edges)
 			{
-				addAdj(e.A, e.B);
-				addAdj(e.B, e.A);
+				addAdjacency(e.A, e.B);
+				addAdjacency(e.B, e.A);
 			}
 
-			// Starts with the top-left point, and draw the path, in clockwise order.
-			var start = (from p in adj.Keys orderby p.Y, p.X select p).First();
-			var startNeighbors = adj[start];
-			var next = default(GridPoint);
-			var foundRight = false;
-			foreach (var n in startNeighbors)
+			var visitedEdges = new HashSet<GridEdge>();
+			var cycles = new List<List<GridPoint>>();
+			foreach (var seed in edges)
 			{
-				if (n.Y == start.Y && n.X > start.X)
+				if (!visitedEdges.Add(seed))
 				{
-					next = n;
-					foundRight = true;
-					break;
+					continue;
+				}
+
+				var cycle = traceOneCycle(seed.A, seed.B, adjacencyMatrix, visitedEdges);
+				if (cycle.Count > 0)
+				{
+					cycles.Add(cycle);
 				}
 			}
-			if (!foundRight)
+			return cycles;
+
+
+			void addAdjacency(GridPoint from, GridPoint to)
 			{
-				next = startNeighbors[0];
-			}
-
-			var cycle = new List<GridPoint> { start };
-			var prev = start;
-			var cur = next;
-			while (!cur.Equals(start))
-			{
-				cycle.Add(cur);
-				var neighbors = adj[cur];
-				var candidate = neighbors[0].Equals(prev) ? neighbors[1] : neighbors[0];
-				prev = cur;
-				cur = candidate;
-			}
-
-			return cycle;
-
-
-			void addAdj(GridPoint from, GridPoint to)
-			{
-				if (!adj.TryGetValue(from, out var list))
+				if (!adjacencyMatrix.TryGetValue(from, out var list))
 				{
 					list = new(2);
-					adj[from] = list;
+					adjacencyMatrix[from] = list;
 				}
 				list.Add(to);
 			}
 		}
 
-		static GridPoint GetDirection(GridPoint from, GridPoint to) => new(Math.Sign(to.X - from.X), Math.Sign(to.Y - from.Y));
+		static List<GridPoint> traceOneCycle(
+			GridPoint start,
+			GridPoint next,
+			Dictionary<GridPoint, List<GridPoint>> adjacencyMatrix,
+			HashSet<GridEdge> visitedEdges
+		)
+		{
+			var cycle = new List<GridPoint> { start };
+			var previous = start;
+			var current = next;
 
-		static GridPoint RightNormal(GridPoint direction) => new(-direction.Y, direction.X);
+			while (!current.Equals(start))
+			{
+				cycle.Add(current);
+
+				var neighbors = adjacencyMatrix[current];
+				var candidate = neighbors[0].Equals(previous) ? neighbors[1] : neighbors[0];
+
+				visitedEdges.Add(new GridEdge(current, candidate));
+				previous = current;
+				current = candidate;
+			}
+
+			return cycle;
+		}
+
+		static GridPoint getDirection(GridPoint from, GridPoint to) => new(Math.Sign(to.X - from.X), Math.Sign(to.Y - from.Y));
+
+		static GridPoint rightNormal(GridPoint direction) => new(-direction.Y, direction.X);
 
 		static SKPath buildRoundedPolygonPath(ReadOnlySpan<SKPoint> points, float radius)
 		{
@@ -329,7 +368,6 @@ file static class CellOutlineBuilder
 					path.LineTo(p1);
 				}
 
-				// Create a corner radius - From 'p1' to 'p2', via center of circle 'cur'.
 				path.ArcTo(radius, radius, 0, SKPathArcSize.Small, getSweepDirection(previous, current, next), p2.X, p2.Y);
 			}
 
