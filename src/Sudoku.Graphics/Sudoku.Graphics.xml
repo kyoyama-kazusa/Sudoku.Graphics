@@ -776,61 +776,6 @@
             Indicates rotation direction is counterclockwise.
             </summary>
         </member>
-        <member name="T:Sudoku.Graphics.DirectIslandConnector">
-            <summary>
-            Represents an island connector that won't bend the connection.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.DirectIslandConnector.EqualityContract">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.DirectIslandConnector.Equals(Sudoku.Graphics.IslandConnector)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.DirectIslandConnector.GetHashCode">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.DirectIslandConnector.ToString">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.DirectIslandConnector.Clone">
-            <inheritdoc/>
-        </member>
-        <member name="T:Sudoku.Graphics.DoubleCornerIslandConnector">
-            <summary>
-            Represents an island connector that will make double corner.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.DoubleCornerIslandConnector.Offset">
-            <summary>
-            Indicates the offset.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.DoubleCornerIslandConnector.StartConnectedDirection">
-            <summary>
-            Indicates the start connected direction.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.DoubleCornerIslandConnector.EndConnectedDirection">
-            <summary>
-            Indicates the end connection direction.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.DoubleCornerIslandConnector.EqualityContract">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.DoubleCornerIslandConnector.Equals(Sudoku.Graphics.IslandConnector)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.DoubleCornerIslandConnector.GetHashCode">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.DoubleCornerIslandConnector.ToString">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.DoubleCornerIslandConnector.Clone">
-            <inheritdoc/>
-        </member>
         <member name="T:Sudoku.Graphics.GridTemplateSize">
             <summary>
             Represents logical size of a <see cref="T:Sudoku.Graphics.Templating.Template"/> instance.
@@ -1028,13 +973,108 @@
         <member name="M:Sudoku.Graphics.IslandConnector.Clone">
             <inheritdoc cref="M:System.ICloneable.Clone"/>
         </member>
+        <member name="M:Sudoku.Graphics.IslandConnector.PrintMembers(System.Text.StringBuilder)">
+            <summary>
+            Print members.
+            </summary>
+            <param name="builder">The string builder instance.</param>
+        </member>
         <member name="M:Sudoku.Graphics.IslandConnector.System#ICloneable#Clone">
             <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.IslandConnector.AppendMemberString``1(System.Text.StringBuilder,``0,System.String)">
+            <summary>
+            Appends the string for the current member.
+            </summary>
+            <typeparam name="T">The type of value.</typeparam>
+            <param name="builder">The string builder.</param>
+            <param name="value">The value.</param>
+            <param name="parameterName">The parameter name to <paramref name="value"/>.</param>
         </member>
         <member name="M:Sudoku.Graphics.IslandConnector.op_Equality(Sudoku.Graphics.IslandConnector,Sudoku.Graphics.IslandConnector)">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.IslandConnector.op_Inequality(Sudoku.Graphics.IslandConnector,Sudoku.Graphics.IslandConnector)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.IslandConnectors.DirectIslandConnector">
+            <summary>
+            Represents an island connector that won't bend the connection.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.IslandConnectors.DirectIslandConnector.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.IslandConnectors.DirectIslandConnector.Equals(Sudoku.Graphics.IslandConnector)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.IslandConnectors.DirectIslandConnector.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.IslandConnectors.DirectIslandConnector.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.IslandConnectors.DirectIslandConnector.PrintMembers(System.Text.StringBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.IslandConnectors.DoubleCornerIslandConnector">
+            <summary>
+            Represents an island connector that will make double corner.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.IslandConnectors.DoubleCornerIslandConnector.Offset">
+            <summary>
+            Indicates the offset.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.IslandConnectors.DoubleCornerIslandConnector.StartConnectedDirection">
+            <summary>
+            Indicates the start connected direction.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.IslandConnectors.DoubleCornerIslandConnector.EndConnectedDirection">
+            <summary>
+            Indicates the end connection direction.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.IslandConnectors.DoubleCornerIslandConnector.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.IslandConnectors.DoubleCornerIslandConnector.Equals(Sudoku.Graphics.IslandConnector)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.IslandConnectors.DoubleCornerIslandConnector.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.IslandConnectors.DoubleCornerIslandConnector.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.IslandConnectors.DoubleCornerIslandConnector.PrintMembers(System.Text.StringBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.IslandConnectors.SingleCornerIslandConnector">
+            <summary>
+            Represents an island connector that will make one corner.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.IslandConnectors.SingleCornerIslandConnector.ConnectedDirection">
+            <summary>
+            Indicates the connected direction.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.IslandConnectors.SingleCornerIslandConnector.EqualityContract">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.IslandConnectors.SingleCornerIslandConnector.Equals(Sudoku.Graphics.IslandConnector)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.IslandConnectors.SingleCornerIslandConnector.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.IslandConnectors.SingleCornerIslandConnector.Clone">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.IslandConnectors.SingleCornerIslandConnector.PrintMembers(System.Text.StringBuilder)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.Item">
@@ -5281,31 +5321,6 @@
         </member>
         <member name="M:Sudoku.Graphics.SerializableColorSet.Slice(System.Int32,System.Int32)">
             <inheritdoc cref="M:System.Collections.Generic.List`1.Slice(System.Int32,System.Int32)"/>
-        </member>
-        <member name="T:Sudoku.Graphics.SingleCornerIslandConnector">
-            <summary>
-            Represents an island connector that will make one corner.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.SingleCornerIslandConnector.ConnectedDirection">
-            <summary>
-            Indicates the connected direction.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.SingleCornerIslandConnector.EqualityContract">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.SingleCornerIslandConnector.Equals(Sudoku.Graphics.IslandConnector)">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.SingleCornerIslandConnector.GetHashCode">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.SingleCornerIslandConnector.ToString">
-            <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.SingleCornerIslandConnector.Clone">
-            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.SKCanvasDrawings">
             <summary>

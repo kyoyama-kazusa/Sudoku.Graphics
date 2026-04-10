@@ -1,4 +1,4 @@
-﻿namespace Sudoku.Graphics;
+﻿namespace Sudoku.Graphics.IslandConnectors;
 
 /// <summary>
 /// Represents an island connector that won't bend the connection.
@@ -17,9 +17,12 @@ public sealed class DirectIslandConnector : IslandConnector
 	public override int GetHashCode() => HashCode.Combine(EqualityContract, StartCell, EndCell);
 
 	/// <inheritdoc/>
-	public override string ToString()
-		=> $$"""{{nameof(DirectIslandConnector)}} { {{nameof(StartCell)}} = {{StartCell}}, {{nameof(EndCell)}} = {{EndCell}} }""";
+	public override DirectIslandConnector Clone() => new() { StartCell = StartCell, EndCell = EndCell };
 
 	/// <inheritdoc/>
-	public override DirectIslandConnector Clone() => new() { StartCell = StartCell, EndCell = EndCell };
+	protected override void PrintMembers(StringBuilder builder)
+	{
+		AppendMemberString(builder, StartCell);
+		AppendMemberString(builder, EndCell);
+	}
 }

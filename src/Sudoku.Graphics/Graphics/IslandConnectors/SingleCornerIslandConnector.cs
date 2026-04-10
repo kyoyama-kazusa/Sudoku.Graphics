@@ -1,4 +1,4 @@
-﻿namespace Sudoku.Graphics;
+﻿namespace Sudoku.Graphics.IslandConnectors;
 
 /// <summary>
 /// Represents an island connector that will make one corner.
@@ -23,10 +23,14 @@ public sealed class SingleCornerIslandConnector : IslandConnector
 	public override int GetHashCode() => HashCode.Combine(EqualityContract, StartCell, EndCell, ConnectedDirection);
 
 	/// <inheritdoc/>
-	public override string ToString()
-		=> $$"""{{nameof(SingleCornerIslandConnector)}} { {{nameof(StartCell)}} = {{StartCell}}, {{nameof(EndCell)}} = {{EndCell}}, {{nameof(ConnectedDirection)}} = {{ConnectedDirection}} }""";
-
-	/// <inheritdoc/>
 	public override SingleCornerIslandConnector Clone()
 		=> new() { StartCell = StartCell, EndCell = EndCell, ConnectedDirection = ConnectedDirection };
+
+	/// <inheritdoc/>
+	protected override void PrintMembers(StringBuilder builder)
+	{
+		AppendMemberString(builder, StartCell);
+		AppendMemberString(builder, EndCell);
+		AppendMemberString(builder, ConnectedDirection);
+	}
 }

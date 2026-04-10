@@ -34,13 +34,41 @@ public abstract class IslandConnector :
 	public abstract override int GetHashCode();
 
 	/// <inheritdoc/>
-	public abstract override string ToString();
+	public sealed override string ToString()
+	{
+		var sb = new StringBuilder();
+		sb.Append(EqualityContract.Name);
+		sb.Append(" { ");
+
+		PrintMembers(sb);
+
+		sb.RemoveFromEnd(", ".Length);
+		sb.Append(" }");
+		return sb.ToString();
+	}
 
 	/// <inheritdoc cref="ICloneable.Clone"/>
 	public abstract IslandConnector Clone();
 
+	/// <summary>
+	/// Print members.
+	/// </summary>
+	/// <param name="builder">The string builder instance.</param>
+	protected abstract void PrintMembers(StringBuilder builder);
+
 	/// <inheritdoc/>
 	object ICloneable.Clone() => Clone();
+
+
+	/// <summary>
+	/// Appends the string for the current member.
+	/// </summary>
+	/// <typeparam name="T">The type of value.</typeparam>
+	/// <param name="builder">The string builder.</param>
+	/// <param name="value">The value.</param>
+	/// <param name="parameterName">The parameter name to <paramref name="value"/>.</param>
+	protected static void AppendMemberString<T>(StringBuilder builder, T value, [CallerArgumentExpression(nameof(value))] string parameterName = null!)
+		=> builder.Append($"{parameterName} = {value}, ");
 
 
 	/// <inheritdoc/>
