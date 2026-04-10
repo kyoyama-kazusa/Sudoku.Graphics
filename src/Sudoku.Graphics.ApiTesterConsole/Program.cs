@@ -10,7 +10,6 @@ using System;
 using System.IO;
 using SkiaSharp;
 using Sudoku.Graphics;
-using Sudoku.Graphics.Directions;
 using Sudoku.Graphics.Items.CellGroupMarks;
 using Sudoku.Graphics.Items.Fills;
 using Sudoku.Graphics.Items.Lines;
