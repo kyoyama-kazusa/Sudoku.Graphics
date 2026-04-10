@@ -31,7 +31,8 @@ public sealed class DoubleCornerIslandConnector : IslandConnector
 		&& StartConnectedDirection == comparer.StartConnectedDirection && EndConnectedDirection == comparer.StartConnectedDirection;
 
 	/// <inheritdoc/>
-	public override int GetHashCode() => HashCode.Combine(EqualityContract, StartCell, EndCell, Offset, StartConnectedDirection, EndConnectedDirection);
+	public override int GetHashCode()
+		=> HashCode.Combine(EqualityContract, StartCell, EndCell, Offset, StartConnectedDirection, EndConnectedDirection);
 
 	/// <inheritdoc/>
 	public override DoubleCornerIslandConnector Clone()
