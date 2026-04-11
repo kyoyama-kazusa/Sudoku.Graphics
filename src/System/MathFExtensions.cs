@@ -6,6 +6,9 @@
 /// <seealso cref="MathF"/>
 public static class MathFExtensions
 {
+	/// <summary>
+	/// Provides extension members on <see cref="MathF"/> type.
+	/// </summary>
 	extension(MathF)
 	{
 		/// <inheritdoc cref="Math.Clamp(float, float, float)"/>

@@ -185,6 +185,52 @@
             <param name="expression">The expression.</param>
             <param name="expressionString">The expression string.</param>
         </member>
+        <member name="T:System.FloatingPointExtensions">
+            <summary>
+            Provides extension members on <see cref="T:System.Numerics.IFloatingPoint`1"/>.
+            </summary>
+            <seealso cref="T:System.Numerics.IFloatingPoint`1"/>
+        </member>
+        <member name="M:System.FloatingPointExtensions.NearlyEquals``1(``0,``0,``0)">
+            <inheritdoc cref="M:System.FloatingPointExtensions.&lt;G&gt;$208B917E7504B64FB1FC92DA4DA77763`1.NearlyEquals(`0,`0,`0)"/>
+        </member>
+        <member name="T:System.FloatingPointExtensions.&lt;G&gt;$208B917E7504B64FB1FC92DA4DA77763`1.&lt;M&gt;$314C03D1719B70BFE30F3C2287B4AD80">
+            <summary>
+            Provides methods on <see cref="T:System.Numerics.IFloatingPoint`1"/> instances.
+            </summary>
+            <typeparam name="T">The type that implements <see cref="T:System.Numerics.IFloatingPoint`1"/>.</typeparam>
+        </member>
+        <member name="M:System.FloatingPointExtensions.&lt;G&gt;$208B917E7504B64FB1FC92DA4DA77763`1.NearlyEquals(`0,`0,`0)">
+            <summary>
+            Determine whether two <typeparamref name="T"/> instances are nearly equal.
+            </summary>
+            <param name="left">The left instance.</param>
+            <param name="right">The right instance.</param>
+            <param name="epsilon">Epsilon.</param>
+            <returns>A <see cref="T:System.Boolean"/> result.</returns>
+        </member>
+        <member name="T:System.MathExtensions">
+            <summary>
+            Provides extension members on <see cref="T:System.Math"/>.
+            </summary>
+            <seealso cref="T:System.Math"/>
+        </member>
+        <member name="M:System.MathExtensions.Abs``1(``0)">
+            <inheritdoc cref="M:System.MathExtensions.&lt;G&gt;$853505F4C6E4266CC0CF997A13BEC9E3.Abs``1(``0)"/>
+        </member>
+        <member name="T:System.MathExtensions.&lt;G&gt;$853505F4C6E4266CC0CF997A13BEC9E3.&lt;M&gt;$5A54F24DCC9DB8FE1721C7D9EA2B3002">
+            <summary>
+            Provides extension members on <see cref="T:System.Math"/> type.
+            </summary>
+        </member>
+        <member name="M:System.MathExtensions.&lt;G&gt;$853505F4C6E4266CC0CF997A13BEC9E3.Abs``1(``0)">
+            <summary>
+            Returns the absolute value of the current number.
+            </summary>
+            <typeparam name="T">The type of number.</typeparam>
+            <param name="value">The value.</param>
+            <returns>The result value.</returns>
+        </member>
         <member name="T:System.MathFExtensions">
             <summary>
             Provides extension members on <see cref="T:System.MathF"/>.
@@ -193,6 +239,11 @@
         </member>
         <member name="M:System.MathFExtensions.Clamp(System.Single,System.Single,System.Single)">
             <inheritdoc cref="M:System.MathFExtensions.&lt;G&gt;$99E69BC8D2E7440BB47F5FE7B730E827.Clamp(System.Single,System.Single,System.Single)"/>
+        </member>
+        <member name="T:System.MathFExtensions.&lt;G&gt;$99E69BC8D2E7440BB47F5FE7B730E827.&lt;M&gt;$BD871B820B65120316E78B0BE942611C">
+            <summary>
+            Provides extension members on <see cref="T:System.MathF"/> type.
+            </summary>
         </member>
         <member name="M:System.MathFExtensions.&lt;G&gt;$99E69BC8D2E7440BB47F5FE7B730E827.Clamp(System.Single,System.Single,System.Single)">
             <inheritdoc cref="M:System.Math.Clamp(System.Single,System.Single,System.Single)"/>

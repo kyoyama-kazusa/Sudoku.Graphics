@@ -154,7 +154,7 @@ file static class ConnectorRenderer
 	private static SKPath BuildStraightPath(Connector c, float cellSize, Scale cornerRadiusScale)
 	{
 		var points = new List<SKPoint>();
-		if (NearlyEqual(c.StartPoint.Y, c.EndPoint.Y))
+		if (float.NearlyEquals(c.StartPoint.Y, c.EndPoint.Y, Epsilon))
 		{
 			// Same row - left => right or right => left.
 			var startLeft = c.StartPoint.X <= c.EndPoint.X;
@@ -163,7 +163,7 @@ file static class ConnectorRenderer
 			points.Add(GetSideCenter(startLeft ? c.StartPoint : c.EndPoint, aSide, cellSize));
 			points.Add(GetSideCenter(startLeft ? c.EndPoint : c.StartPoint, bSide, cellSize));
 		}
-		else if (NearlyEqual(c.StartPoint.X, c.EndPoint.X))
+		else if (float.NearlyEquals(c.StartPoint.X, c.EndPoint.X, Epsilon))
 		{
 			// Same column - up => down or down => up.
 			var startTop = c.StartPoint.Y <= c.EndPoint.Y;
@@ -193,11 +193,11 @@ file static class ConnectorRenderer
 		var start = GetSideCenter(c.StartPoint, startDir, cellSize);
 
 		// Smae row / column, create a straight line instead.
-		if (IsHorizontal(startDir) && NearlyEqual(c.StartPoint.Y, c.EndPoint.Y))
+		if (IsHorizontal(startDir) && float.NearlyEquals(c.StartPoint.Y, c.EndPoint.Y, Epsilon))
 		{
 			return BuildStraightPath(new() { StartPoint = c.StartPoint, EndPoint = c.EndPoint }, cellSize, cornerRadiusScale);
 		}
-		if (!IsHorizontal(startDir) && NearlyEqual(c.StartPoint.X, c.EndPoint.X))
+		if (!IsHorizontal(startDir) && float.NearlyEquals(c.StartPoint.X, c.EndPoint.X, Epsilon))
 		{
 			return BuildStraightPath(new() { StartPoint = c.StartPoint, EndPoint = c.EndPoint }, cellSize, cornerRadiusScale);
 		}
@@ -374,13 +374,4 @@ file static class ConnectorRenderer
 		var dy = b.Y - a.Y;
 		return MathF.Sqrt(dx * dx + dy * dy);
 	}
-
-	/// <summary>
-	/// Determine whether two <see cref="float"/> instances are nearly equals to each other.
-	/// </summary>
-	/// <param name="a">The first value to check.</param>
-	/// <param name="b">The second value to check.</param>
-	/// <param name="epsilon">The epsilon value.</param>
-	/// <returns>A <see cref="bool"/> result indicating that.</returns>
-	private static bool NearlyEqual(float a, float b, float epsilon = Epsilon) => MathF.Abs(a - b) <= epsilon;
 }

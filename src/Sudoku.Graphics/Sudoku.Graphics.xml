@@ -3105,15 +3105,6 @@
             <param name="b">The second point.</param>
             <returns>The distance between them.</returns>
         </member>
-        <member name="M:Sudoku.Graphics.Items.CellPairMarks.ConnectorRenderer.NearlyEqual(System.Single,System.Single,System.Single)">
-            <summary>
-            Determine whether two <see cref="T:System.Single"/> instances are nearly equals to each other.
-            </summary>
-            <param name="a">The first value to check.</param>
-            <param name="b">The second value to check.</param>
-            <param name="epsilon">The epsilon value.</param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
-        </member>
         <member name="T:Sudoku.Graphics.Items.CellPairMarks.CellPairKropkiMarkItem">
             <summary>
             Represents a cell pair kropki (circle) mark item.
