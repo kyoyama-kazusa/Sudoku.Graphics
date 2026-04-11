@@ -178,14 +178,14 @@ public sealed record PointMapper : IEqualityOperators<PointMapper, PointMapper, 
 		adjacentRelation = direction;
 		return GetPoint(cell1, Alignment.Center) + adjacentRelation switch
 		{
-			Direction8.Up			=> (             0,   CellSize / 2),
-			Direction8.Down			=> (             0, - CellSize / 2),
-			Direction8.Left			=> (  CellSize / 2,              0),
-			Direction8.Right		=> (- CellSize / 2,              0),
-			Direction8.LeftUp		=> (  CellSize / 2,   CellSize / 2),
-			Direction8.RightUp		=> (- CellSize / 2,   CellSize / 2),
-			Direction8.LeftDown		=> (  CellSize / 2, - CellSize / 2),
-			Direction8.RightDown	=> (- CellSize / 2, - CellSize / 2),
+			Direction8.Up			=> (            0,  CellSize / 2),
+			Direction8.Down			=> (            0, -CellSize / 2),
+			Direction8.Left			=> ( CellSize / 2,             0),
+			Direction8.Right		=> (-CellSize / 2,             0),
+			Direction8.LeftUp		=> ( CellSize / 2,  CellSize / 2),
+			Direction8.RightUp		=> (-CellSize / 2,  CellSize / 2),
+			Direction8.LeftDown		=> ( CellSize / 2, -CellSize / 2),
+			Direction8.RightDown	=> (-CellSize / 2, -CellSize / 2),
 			_ => throw new UnreachableException()
 		};
 #pragma warning restore IDE0055
