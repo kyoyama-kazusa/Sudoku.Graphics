@@ -1,0 +1,12 @@
+﻿global using System;
+global using System.ComponentModel;
+global using System.Diagnostics;
+global using System.Globalization;
+global using System.Threading;
+global using System.Windows;
+global using System.Windows.Data;
+global using System.Windows.Input;
+global using System.Windows.Navigation;
+global using Sudoku.Graphics.UI.Commands;
+global using Sudoku.Graphics.UI.Properties;
+global using Sudoku.Graphics.UI.Views.OtherWindows;
