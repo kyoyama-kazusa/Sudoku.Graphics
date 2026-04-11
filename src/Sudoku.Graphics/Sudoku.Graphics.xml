@@ -5832,12 +5832,21 @@
             </summary>
             <seealso cref="T:Sudoku.Graphics.Templating.LineSegment"/>
         </member>
+        <member name="M:Sudoku.Graphics.Templating.LineSegmentFactory.GetInline(Sudoku.Graphics.Absolute[],Sudoku.Graphics.PointMapper)">
+            <summary>
+            Returns a list of <see cref="T:Sudoku.Graphics.Templating.LineSegment"/> instances indicating light-up segments to be shown,
+            including all cell borders (but not outline).
+            </summary>
+            <param name="cells">The cells.</param>
+            <param name="mapper">The mapper.</param>
+            <returns>A list of <see cref="T:Sudoku.Graphics.Templating.LineSegment"/> instances.</returns>
+        </member>
         <member name="M:Sudoku.Graphics.Templating.LineSegmentFactory.GetOutline(Sudoku.Graphics.Absolute[],Sudoku.Graphics.PointMapper)">
             <summary>
             Returns a list of <see cref="T:Sudoku.Graphics.Templating.LineSegment"/> instances indicating light-up segments to be shown,
             forming a outline cage that includes all the specified cells.
             </summary>
-            <param name="cellIndices">The cell indices.</param>
+            <param name="cells">The cell indices.</param>
             <param name="mapper">The mapper.</param>
             <returns>A list of <see cref="T:Sudoku.Graphics.Templating.LineSegment"/> instances.</returns>
         </member>
@@ -5854,7 +5863,7 @@
             Creates a <see cref="T:System.Collections.Generic.Dictionary`2"/> of <see cref="T:Sudoku.Graphics.Absolute"/> and <see cref="T:Sudoku.Graphics.Directions.Direction4"/> key-value pairs,
             indicating lightup segments of cells to be shown.
             </summary>
-            <param name="cellIndices">The cell indices.</param>
+            <param name="cells">The cell indices.</param>
             <param name="isCyclicRuleChecked">
             A <see cref="T:System.Boolean"/> value indicating cycling row and column gaps will be considered as connected.
             </param>
@@ -5875,7 +5884,7 @@
             A <see cref="T:System.Boolean"/> value indicating cycling row and column gaps will be considered as connected.
             </param>
             <param name="mapper">The mapper.</param>
-            <param name="absoluteCellIndices">Absolute cell indices.</param>
+            <param name="cells">Absolute cell indices.</param>
             <returns>The result dictionary of light-up segments.</returns>
         </member>
         <member name="T:Sudoku.Graphics.Templating.OverlappingGridTemplateFactory">

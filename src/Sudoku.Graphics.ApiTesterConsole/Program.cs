@@ -73,18 +73,10 @@ using var canvas = new Canvas(
 			new(8 * 17 + 8, Direction4.Up | Direction4.Down | Direction4.Left | Direction4.Right)
 		],
 		ThinLineSegments = [
-			..
-			from cell in block1
-			select new LineSegment(cell, Direction4.Up | Direction4.Down | Direction4.Left | Direction4.Right),
-			..
-			from cell in block2
-			select new LineSegment(cell, Direction4.Up | Direction4.Down | Direction4.Left | Direction4.Right),
-			..
-			from cell in block3
-			select new LineSegment(cell, Direction4.Up | Direction4.Down | Direction4.Left | Direction4.Right),
-			..
-			from cell in block4
-			select new LineSegment(cell, Direction4.Up | Direction4.Down | Direction4.Left | Direction4.Right)
+			.. LineSegmentFactory.GetInline(block1, mapper),
+			.. LineSegmentFactory.GetInline(block2, mapper),
+			.. LineSegmentFactory.GetInline(block3, mapper),
+			.. LineSegmentFactory.GetInline(block4, mapper)
 		],
 		ThickLineWidth = 0.08M,
 		ThickLineColor = SKColors.Black,

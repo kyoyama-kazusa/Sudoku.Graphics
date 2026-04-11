@@ -8,14 +8,37 @@ public static class LineSegmentFactory
 {
 	/// <summary>
 	/// Returns a list of <see cref="LineSegment"/> instances indicating light-up segments to be shown,
-	/// forming a outline cage that includes all the specified cells.
+	/// including all cell borders (but not outline).
 	/// </summary>
-	/// <param name="cellIndices">The cell indices.</param>
+	/// <param name="cells">The cells.</param>
 	/// <param name="mapper">The mapper.</param>
 	/// <returns>A list of <see cref="LineSegment"/> instances.</returns>
-	public static LineSegment[] GetOutline(Absolute[] cellIndices, PointMapper mapper)
+	public static LineSegment[] GetInline(Absolute[] cells, PointMapper mapper)
 	{
-		var dictionary = GetLightupDirections(cellIndices, false, mapper, out _);
+		var result = new List<LineSegment>();
+		result.AddRange(
+			from cell in cells
+			select new LineSegment(cell, Direction4.Up | Direction4.Down | Direction4.Left | Direction4.Right)
+		);
+		var outlines = GetOutline(cells, mapper).ToDictionary(static kvp => kvp.CellIndex, static kvp => kvp.Directions);
+		foreach (ref var cellDirections in CollectionsMarshal.AsSpan(result))
+		{
+			var cell = cellDirections.CellIndex;
+			cellDirections = new(cell, cellDirections.Directions & ~outlines[cell]);
+		}
+		return [.. result];
+	}
+
+	/// <summary>
+	/// Returns a list of <see cref="LineSegment"/> instances indicating light-up segments to be shown,
+	/// forming a outline cage that includes all the specified cells.
+	/// </summary>
+	/// <param name="cells">The cell indices.</param>
+	/// <param name="mapper">The mapper.</param>
+	/// <returns>A list of <see cref="LineSegment"/> instances.</returns>
+	public static LineSegment[] GetOutline(Absolute[] cells, PointMapper mapper)
+	{
+		var dictionary = GetLightupDirections(cells, false, mapper, out _);
 		var result = new LineSegment[dictionary.Count];
 		var i = 0;
 		foreach (var (cellIndex, directions) in dictionary)
@@ -59,7 +82,7 @@ public static class LineSegmentFactory
 	/// Creates a <see cref="Dictionary{TKey, TValue}"/> of <see cref="Absolute"/> and <see cref="Direction4"/> key-value pairs,
 	/// indicating lightup segments of cells to be shown.
 	/// </summary>
-	/// <param name="cellIndices">The cell indices.</param>
+	/// <param name="cells">The cell indices.</param>
 	/// <param name="isCyclicRuleChecked">
 	/// A <see cref="bool"/> value indicating cycling row and column gaps will be considered as connected.
 	/// </param>
@@ -67,14 +90,14 @@ public static class LineSegmentFactory
 	/// <param name="absoluteCellIndices">Absolute cell indices.</param>
 	/// <returns>The result dictionary of light-up segments.</returns>
 	internal static Dictionary<Absolute, Direction4> GetLightupDirections(
-		Relative[] cellIndices,
+		Relative[] cells,
 		bool isCyclicRuleChecked,
 		PointMapper mapper,
 		out HashSet<Absolute> absoluteCellIndices
 	) => GetLightupDirectionsCore(
 		new([
 			..
-			from cell in cellIndices
+			from cell in cells
 			let absoluteIndex = cell.ToAbsolute(mapper)
 			select KeyValuePair.Create(absoluteIndex, Direction4.Up | Direction4.Down | Direction4.Left | Direction4.Right)
 		]),
@@ -85,14 +108,14 @@ public static class LineSegmentFactory
 
 	/// <inheritdoc cref="GetLightupDirections(Relative[], bool, PointMapper, out HashSet{Absolute})"/>
 	internal static Dictionary<Absolute, Direction4> GetLightupDirections(
-		Absolute[] cellIndices,
+		Absolute[] cells,
 		bool isCyclicRuleChecked,
 		PointMapper mapper,
 		out HashSet<Absolute> absoluteCellIndices
 	) => GetLightupDirectionsCore(
 		new([
 			..
-			from cell in cellIndices
+			from cell in cells
 			select KeyValuePair.Create(cell, Direction4.Up | Direction4.Down | Direction4.Left | Direction4.Right)
 		]),
 		isCyclicRuleChecked,
@@ -109,23 +132,23 @@ public static class LineSegmentFactory
 	/// A <see cref="bool"/> value indicating cycling row and column gaps will be considered as connected.
 	/// </param>
 	/// <param name="mapper">The mapper.</param>
-	/// <param name="absoluteCellIndices">Absolute cell indices.</param>
+	/// <param name="cells">Absolute cell indices.</param>
 	/// <returns>The result dictionary of light-up segments.</returns>
 	private static Dictionary<Absolute, Direction4> GetLightupDirectionsCore(
 		Dictionary<Absolute, Direction4> lineSegmentsDictionary,
 		bool isCyclicRuleChecked,
 		PointMapper mapper,
-		out HashSet<Absolute> absoluteCellIndices
+		out HashSet<Absolute> cells
 	)
 	{
-		absoluteCellIndices = [.. lineSegmentsDictionary.Keys];
+		cells = [.. lineSegmentsDictionary.Keys];
 
 		// Iterate on each cell (absolute), to find for adjacent cells.
 		foreach (var cell in lineSegmentsDictionary.Keys)
 		{
 			foreach (var direction in Direction4.AllDirections)
 			{
-				if (absoluteCellIndices.Contains(cell.GetAdjacentAbsoluteIn(direction, isCyclicRuleChecked, mapper)))
+				if (cells.Contains(cell.GetAdjacentAbsoluteIn(direction, isCyclicRuleChecked, mapper)))
 				{
 					// This direction contains that cell - we should remove this direction.
 					lineSegmentsDictionary[cell] &= ~direction;
