@@ -8,22 +8,29 @@
 	xmlns:vm="clr-namespace:Sudoku.Graphics.UI.ViewModels"
 	xmlns:p="clr-namespace:Sudoku.Graphics.UI.Properties"
 	mc:Ignorable="d"
-	Title="{x:Static p:Resources.MainWindow_Title}" Height="600" Width="800">
+	Title="{x:Static p:Resources.MainWindow_Title}"
+	MinHeight="860"
+	Height="960"
+	Width="1280">
 	<Window.DataContext>
 		<vm:MainWindowViewModel x:Name="ViewModel"/>
 	</Window.DataContext>
 
-	<Grid>
-		<Grid.RowDefinitions>
-			<RowDefinition Height="Auto"/>
-			<RowDefinition/>
-		</Grid.RowDefinitions>
+	<Grid RowDefinitions="Auto,*">
 		<Menu Grid.Row="0">
 			<MenuItem Header="{x:Static p:Resources.MainWindow_MenuItem_File}">
-				<MenuItem Header="{x:Static p:Resources.MainWindow_MenuItem_Create}" InputGestureText="Ctrl+N"/>
+				<MenuItem
+					Header="{x:Static p:Resources.MainWindow_MenuItem_Create}"
+					Command="{Binding OpenCreateNewCanvasCommand}"
+					InputGestureText="Ctrl+N"/>
+				<MenuItem
+					Header="{x:Static p:Resources.MainWindow_MenuItem_Close}"
+					Command="{Binding CloseCommand}"
+					InputGestureText="Ctrl+W"/>
 				<Separator/>
 				<MenuItem
-					Header="{x:Static p:Resources.MainWindow_MenuItem_Quit}" InputGestureText="Ctrl+W"
+					Header="{x:Static p:Resources.MainWindow_MenuItem_Quit}"
+					InputGestureText="Alt+F4"
 					Command="{Binding QuitCommand}"
 					CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
 			</MenuItem>
@@ -33,5 +40,23 @@
 				CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
 			</MenuItem>
 		</Menu>
+
+		<Grid Grid.Row="1" ColumnDefinitions="Auto,*">
+			<Border
+				Grid.Column="0"
+				Margin="16,16,0,0"
+				HorizontalAlignment="Left"
+				VerticalAlignment="Top"
+				BorderBrush="LightGray"
+				BorderThickness="1"
+				Width="800" Height="800">
+				<Image
+					x:Name="GridDisplayer"
+					Stretch="Uniform"
+					Source="{Binding PreviewImage,UpdateSourceTrigger=PropertyChanged}"
+					MouseLeftButtonDown="GridDisplayer_MouseLeftButtonDown"
+					MouseLeftButtonUp="GridDisplayer_MouseLeftButtonUp" />
+			</Border>
+		</Grid>
 	</Grid>
 </Window>

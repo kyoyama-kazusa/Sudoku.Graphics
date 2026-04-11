@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a quit command.
 /// </summary>
-public sealed class MainWindowQuitCommand : ICommand
+internal sealed class MainWindowQuitCommand : ICommand
 {
 	/// <inheritdoc/>
 	public event EventHandler? CanExecuteChanged;

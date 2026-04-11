@@ -6,11 +6,6 @@
 public sealed class Canvas : IDisposable
 {
 	/// <summary>
-	/// Indicates the backing surface.
-	/// </summary>
-	private readonly SKSurface _surface;
-
-	/// <summary>
 	/// Indicates whether the object has already been disposed.
 	/// </summary>
 	private bool _isDisposed;
@@ -24,7 +19,7 @@ public sealed class Canvas : IDisposable
 	{
 		Templates = templates;
 		GlobalTemplateSize = GridTemplateSize.Create(templates);
-		_surface = SKSurface.Create(
+		Surface = SKSurface.Create(
 			new SKSizeI(
 				(int)(templates[0].Mapper.CellSize * GlobalTemplateSize.AbsoluteColumnsCount + 2 * templates[0].Mapper.Margin),
 				(int)(templates[0].Mapper.CellSize * GlobalTemplateSize.AbsoluteRowsCount + 2 * templates[0].Mapper.Margin)
@@ -49,9 +44,14 @@ public sealed class Canvas : IDisposable
 	public Template[] Templates { get; }
 
 	/// <summary>
+	/// Indicates the backing surface.
+	/// </summary>
+	public SKSurface Surface { get; }
+
+	/// <summary>
 	/// Indicates backing canvas.
 	/// </summary>
-	internal SKCanvas BackingCanvas => _surface.Canvas;
+	internal SKCanvas BackingCanvas => Surface.Canvas;
 
 
 	/// <summary>
@@ -85,7 +85,7 @@ public sealed class Canvas : IDisposable
 	{
 		ObjectDisposedException.ThrowIf(_isDisposed, this);
 
-		_surface.Dispose();
+		Surface.Dispose();
 		_isDisposed = true;
 	}
 
@@ -99,7 +99,7 @@ public sealed class Canvas : IDisposable
 		options ??= CanvasExportingOptions.Default;
 
 		var extension = Path.GetExtension(path);
-		using var image = _surface.Snapshot();
+		using var image = Surface.Snapshot();
 		using var data = image.Encode(getFormatFromExtension(extension), options.Quality);
 		using var stream = new MemoryStream(data.ToArray());
 		using var fileStream = new FileStream(path, FileMode.Create, FileAccess.Write);

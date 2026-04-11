@@ -7,17 +7,18 @@
 	xmlns:local="clr-namespace:Sudoku.Graphics.UI.Views.OtherWindows"
 	xmlns:p="clr-namespace:Sudoku.Graphics.UI.Properties"
 	xmlns:vm="clr-namespace:Sudoku.Graphics.UI.ViewModels"
-	xmlns:vc="clr-namespace:Sudoku.Graphics.UI.ValueConverters"
 	mc:Ignorable="d"
-	Title="{x:Static p:Resources.AboutWindow_Title}" MaxHeight="100" Width="400" ResizeMode="NoResize">
+	Title="{x:Static p:Resources.AboutWindow_Title}" MaxHeight="200" Width="400" ResizeMode="NoResize">
 	<Window.DataContext>
 		<vm:AboutWindowViewModel/>
 	</Window.DataContext>
-    <Window.Resources>
-        <vc:UriValueConverter x:Key="UriValueConverter" />
-    </Window.Resources>
 
-	<Grid RowDefinitions="*,*,*" ColumnDefinitions="100,*" Margin="10">
+	<Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="100,*" Margin="10">
+		<Grid.Resources>
+			<Style TargetType="TextBlock">
+				<Setter Property="Margin" Value="0,4"/>
+			</Style>
+		</Grid.Resources>
         <TextBlock Grid.Row="0" Grid.Column="0">
 			<Bold>
 				<Run Text="{x:Static p:Resources.AboutWindow_Author}"/>

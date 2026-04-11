@@ -141,11 +141,50 @@
   <data name="AboutWindow_Title" xml:space="preserve">
     <value>About</value>
   </data>
+  <data name="CreateNewCanvasWindow_BlockSize" xml:space="preserve">
+    <value>Size of blocks (in rows and columns):</value>
+  </data>
+  <data name="CreateNewCanvasWindow_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CreateNewCanvasWindow_CellSize" xml:space="preserve">
+    <value>Size of cell (in pixels):</value>
+  </data>
+  <data name="CreateNewCanvasWindow_GridSize" xml:space="preserve">
+    <value>The number of rows and columns of grid:</value>
+  </data>
+  <data name="CreateNewCanvasWindow_Margin" xml:space="preserve">
+    <value>Margin (in pixels):</value>
+  </data>
+  <data name="CreateNewCanvasWindow_Okay" xml:space="preserve">
+    <value>Create!</value>
+  </data>
+  <data name="CreateNewCanvasWindow_Title" xml:space="preserve">
+    <value>Create a new canvas...</value>
+  </data>
+  <data name="CreateNewCanvasWindow_Vector" xml:space="preserve">
+    <value>External size of grid (in number of rows and columns):</value>
+  </data>
+  <data name="CreateNewCanvasWindow_VectorBottom" xml:space="preserve">
+    <value>Bottom:</value>
+  </data>
+  <data name="CreateNewCanvasWindow_VectorLeft" xml:space="preserve">
+    <value>Left:</value>
+  </data>
+  <data name="CreateNewCanvasWindow_VectorRight" xml:space="preserve">
+    <value>Right:</value>
+  </data>
+  <data name="CreateNewCanvasWindow_VectorTop" xml:space="preserve">
+    <value>External size on top:</value>
+  </data>
   <data name="MainWindow_MenuItem_About" xml:space="preserve">
     <value>About</value>
   </data>
+  <data name="MainWindow_MenuItem_Close" xml:space="preserve">
+    <value>Close the current canvas</value>
+  </data>
   <data name="MainWindow_MenuItem_Create" xml:space="preserve">
-    <value>Create...</value>
+    <value>Create a new canvas</value>
   </data>
   <data name="MainWindow_MenuItem_File" xml:space="preserve">
     <value>File</value>

@@ -2,5 +2,5 @@
 
 internal sealed class AboutWindowViewModel
 {
-	public Uri GitHubPage => new(Resources.ResourceManager.GetString("AboutWindow_AuthorGitHubPage", null)!);
+	public Uri GitHubPage => new(LocalizationResources.ResourceManager.GetString("AboutWindow_AuthorGitHubPage", null)!);
 }

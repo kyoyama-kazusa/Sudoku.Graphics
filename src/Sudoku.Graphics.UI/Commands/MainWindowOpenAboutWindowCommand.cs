@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents open about window command.
 /// </summary>
-public sealed class MainWindowOpenAboutWindowCommand : ICommand
+internal sealed class MainWindowOpenAboutWindowCommand : ICommand
 {
 	/// <inheritdoc/>
 	public event EventHandler? CanExecuteChanged;

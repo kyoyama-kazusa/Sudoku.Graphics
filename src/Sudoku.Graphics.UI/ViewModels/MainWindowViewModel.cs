@@ -1,30 +1,68 @@
 ﻿namespace Sudoku.Graphics.UI.ViewModels;
 
-internal sealed class MainWindowViewModel : INotifyPropertyChanged
+internal sealed partial class MainWindowViewModel : ObservableObject
 {
-	public MainWindowQuitCommand QuitCommand
+	public MainWindowViewModel()
 	{
-		get;
+		QuitCommand = new MainWindowQuitCommand();
+		OpenAboutWindowCommand = new MainWindowOpenAboutWindowCommand();
+		CloseCommand = new RelayCommand(CloseCanvas);
+		OpenCreateNewCanvasCommand = new RelayCommand(OpenCreateNewCanvasWindow);
+	}
 
-		set
-		{
-			field = value;
-			PropertyChanged?.Invoke(this, new(nameof(QuitCommand)));
-		}
-	} = new();
 
-	public MainWindowOpenAboutWindowCommand OpenAboutWindowCommand
+	[ObservableProperty]
+	public partial ImageSource? PreviewImage { get; set; }
+
+	public ICommand QuitCommand { get; }
+
+	public ICommand CloseCommand { get; }
+
+	public ICommand OpenAboutWindowCommand { get; }
+
+	public ICommand OpenCreateNewCanvasCommand { get; }
+
+
+	private void CloseCanvas() => PreviewImage = null;
+
+	private void OpenCreateNewCanvasWindow()
 	{
-		get;
-
-		set
+		var window = new CreateNewCanvasWindow();
+		var dialogResult = window.ShowDialog();
+		if (dialogResult is not true)
 		{
-			field = value;
-			PropertyChanged?.Invoke(this, new(nameof(OpenAboutWindowCommand)));
+			return;
 		}
-	} = new();
 
+		var dataContext = (CreateNewCanvasWindowViewModel)window.DataContext;
+		var result = dataContext.GetResult();
+		if (result is null)
+		{
+			return;
+		}
 
-	/// <inheritdoc/>
-	public event PropertyChangedEventHandler? PropertyChanged;
+		var mapper = new PointMapper { CellSize = result.CellSize, Margin = result.Margin, TemplateSize = result.TemplateSize };
+		var template = new StandardTemplate(result.BlockRowsCount, result.BlockColumnsCount, mapper)
+		{
+			ThickLineColor = SKColors.Black,//Config
+			ThickLineWidth = 0.06M,//Config
+			ThickLineDashSequence = [],//Config
+			ThinLineColor = SKColors.Black,//Config
+			ThinLineWidth = 0.0225M,//Config
+			ThinLineDashSequence = []//Config
+		};
+		GenerateImage(template);
+	}
+
+	private void GenerateImage(Template template)
+	{
+		var canvas = new Canvas(template);
+		canvas.DrawItems(
+			new BackgroundFillItem { Color = SKColors.White },//Config
+			new TemplateLineItem()
+		);
+
+		using var skImage = canvas.Surface.Snapshot();
+		PreviewImage = skImage.ToWriteableBitmap();
+	}
 }

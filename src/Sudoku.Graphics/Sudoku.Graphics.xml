@@ -220,11 +220,6 @@
             Represents a canvas object that allows you drawing items onto it.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.Canvas._surface">
-            <summary>
-            Indicates the backing surface.
-            </summary>
-        </member>
         <member name="F:Sudoku.Graphics.Canvas._isDisposed">
             <summary>
             Indicates whether the object has already been disposed.
@@ -249,6 +244,11 @@
         <member name="P:Sudoku.Graphics.Canvas.Templates">
             <summary>
             Indicates all templates.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Canvas.Surface">
+            <summary>
+            Indicates the backing surface.
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.Canvas.BackingCanvas">

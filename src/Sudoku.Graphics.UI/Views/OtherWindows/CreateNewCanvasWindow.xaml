@@ -1,0 +1,74 @@
+﻿<Window
+	x:Class="Sudoku.Graphics.UI.Views.OtherWindows.CreateNewCanvasWindow"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:local="clr-namespace:Sudoku.Graphics.UI.Views.OtherWindows"
+	xmlns:vm="clr-namespace:Sudoku.Graphics.UI.ViewModels"
+	xmlns:p="clr-namespace:Sudoku.Graphics.UI.Properties"
+	mc:Ignorable="d"
+	MaxWidth="340" MaxHeight="400"
+	Title="{x:Static p:Resources.CreateNewCanvasWindow_Title}"
+	ResizeMode="NoResize">
+	<Window.DataContext>
+		<vm:CreateNewCanvasWindowViewModel/>
+	</Window.DataContext>
+
+	<StackPanel Margin="20">
+		<StackPanel.Resources>
+			<Style TargetType="TextBox">
+				<Setter Property="Width" Value="60"/>
+			</Style>
+		</StackPanel.Resources>
+
+		<StackPanel Orientation="Horizontal" Margin="0,6">
+			<TextBlock Text="{x:Static p:Resources.CreateNewCanvasWindow_CellSize}"/>
+			<TextBox Text="{Binding CellSizeString,UpdateSourceTrigger=PropertyChanged}"/>
+		</StackPanel>
+		<StackPanel Orientation="Horizontal" Margin="0,6">
+			<TextBlock Text="{x:Static p:Resources.CreateNewCanvasWindow_Margin}"/>
+			<TextBox Text="{Binding MarginString,UpdateSourceTrigger=PropertyChanged}"/>
+		</StackPanel>
+		<StackPanel Orientation="Horizontal" Margin="0,6">
+			<TextBlock Text="{x:Static p:Resources.CreateNewCanvasWindow_GridSize}"/>
+			<TextBox Text="{Binding GridRowsCountString,UpdateSourceTrigger=PropertyChanged}"/>
+			<TextBlock Text="x" Margin="6,0"/>
+			<TextBox Text="{Binding GridColumnsCountString,UpdateSourceTrigger=PropertyChanged}"/>
+		</StackPanel>
+		<StackPanel Orientation="Horizontal" Margin="0,6">
+			<TextBlock Text="{x:Static p:Resources.CreateNewCanvasWindow_BlockSize}"/>
+			<TextBox Text="{Binding BlockRowsCountString,UpdateSourceTrigger=PropertyChanged}"/>
+			<TextBlock Text="x" Margin="6,0"/>
+			<TextBox Text="{Binding BlockColumnsCountString,UpdateSourceTrigger=PropertyChanged}"/>
+		</StackPanel>
+		<StackPanel Margin="0,6">
+			<TextBlock Text="{x:Static p:Resources.CreateNewCanvasWindow_Vector}"/>
+			<StackPanel Orientation="Horizontal" Margin="6,6,0,6">
+				<TextBlock Text="{x:Static p:Resources.CreateNewCanvasWindow_VectorTop}"/>
+				<TextBox Text="{Binding VectorTopString,UpdateSourceTrigger=PropertyChanged}"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" Margin="6,6,0,6">
+				<TextBlock Text="{x:Static p:Resources.CreateNewCanvasWindow_VectorBottom}"/>
+				<TextBox Text="{Binding VectorBottomString,UpdateSourceTrigger=PropertyChanged}"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" Margin="6,6,0,6">
+				<TextBlock Text="{x:Static p:Resources.CreateNewCanvasWindow_VectorLeft}"/>
+				<TextBox Text="{Binding VectorLeftString,UpdateSourceTrigger=PropertyChanged}"/>
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" Margin="6,6,0,6">
+				<TextBlock Text="{x:Static p:Resources.CreateNewCanvasWindow_VectorRight}"/>
+				<TextBox Text="{Binding VectorRightString,UpdateSourceTrigger=PropertyChanged}"/>
+			</StackPanel>
+		</StackPanel>
+		<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,20,0,0">
+			<Button
+				Content="{x:Static p:Resources.CreateNewCanvasWindow_Okay}"
+				Command="{Binding OkCommand}"
+				Margin="0,0,8,0"/>
+			<Button
+				Content="{x:Static p:Resources.CreateNewCanvasWindow_Cancel}"
+				Command="{Binding CancelCommand}" />
+		</StackPanel>
+	</StackPanel>
+</Window>
