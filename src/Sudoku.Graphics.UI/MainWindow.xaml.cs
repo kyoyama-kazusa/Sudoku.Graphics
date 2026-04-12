@@ -120,7 +120,7 @@ file sealed class SaveFileDialogService : ISaveFileDialogService
 		var dialog = new SaveFileDialog
 		{
 			Title = LocalizationResources.SaveFileDialog_Title,
-			Filter = "PNG Image (*.png)|*.png|JPEG Image (*.jpg;*.jpeg)|*.jpg;*.jpeg|Bitmap Image (*.bmp)|*.bmp",
+			Filter = LocalizationResources.SaveFileDialog_Filters,
 			DefaultExt = ".png",
 			AddExtension = true
 		};

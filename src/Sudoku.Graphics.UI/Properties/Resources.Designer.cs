@@ -304,6 +304,15 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to PNG Image (*.png)|*.png|JPEG Image (*.jpg;*.jpeg)|*.jpg;*.jpeg|Bitmap Image (*.bmp)|*.bmp.
+        /// </summary>
+        public static string SaveFileDialog_Filters {
+            get {
+                return ResourceManager.GetString("SaveFileDialog_Filters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save file to....
         /// </summary>
         public static string SaveFileDialog_Title {

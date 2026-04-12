@@ -195,6 +195,9 @@
   <data name="MainWindow_Title" xml:space="preserve">
     <value>数独盘面渲染器</value>
   </data>
+  <data name="SaveFileDialog_Filters" xml:space="preserve">
+    <value>PNG 图片（*.png）|*.png|JPEG 图片 （*.jpg;*.jpeg）|*.jpg;*.jpeg|Bitmap 图片（*.bmp）|*.bmp</value>
+  </data>
   <data name="SaveFileDialog_Title" xml:space="preserve">
     <value>保存文件到……</value>
   </data>
