@@ -10,7 +10,7 @@
 	d:DataContext="{d:DesignInstance Type=vm:CreateNewCanvasWindowViewModel}"
 	mc:Ignorable="d"
 	MaxWidth="340"
-	MaxHeight="400"
+	MaxHeight="450"
 	Title="{x:Static p:Resources.CreateNewCanvasWindow_Title}"
 	ResizeMode="NoResize"
 	WindowStartupLocation="CenterOwner">
@@ -60,14 +60,24 @@
 				<TextBox Text="{Binding VectorRightString,UpdateSourceTrigger=PropertyChanged}"/>
 			</StackPanel>
 		</StackPanel>
-		<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,20,0,0">
-			<Button
-				Content="{x:Static p:Resources.CreateNewCanvasWindow_Okay}"
-				Command="{Binding OkCommand}"
-				Margin="0,0,8,0"/>
-			<Button
-				Content="{x:Static p:Resources.CreateNewCanvasWindow_Cancel}"
-				Command="{Binding CancelCommand}" />
+		<StackPanel Margin="0,6" Orientation="Horizontal">
+			<TextBlock Margin="0,0,6,0">
+				<Bold>
+					<Run Text="{x:Static p:Resources.CreateNewCanvasWindow_OutputPictureSize}"/>
+				</Bold>
+			</TextBlock>
+			<TextBlock Text="{Binding TargetPictureSizeString,UpdateSourceTrigger=PropertyChanged}"/>
 		</StackPanel>
+		<Border Margin="0,20,0,0" BorderThickness="0,1,0,0" BorderBrush="Gray">
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,6,0,0">
+				<Button
+					Content="{x:Static p:Resources.CreateNewCanvasWindow_Okay}"
+					Command="{Binding OkCommand}"
+					Margin="0,0,8,0"/>
+				<Button
+					Content="{x:Static p:Resources.CreateNewCanvasWindow_Cancel}"
+					Command="{Binding CancelCommand}" />
+			</StackPanel>
+		</Border>
 	</StackPanel>
 </Window>

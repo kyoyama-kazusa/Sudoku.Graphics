@@ -159,6 +159,12 @@
   <data name="CreateNewCanvasWindow_Okay" xml:space="preserve">
     <value>Create!</value>
   </data>
+  <data name="CreateNewCanvasWindow_OutputPictureSize" xml:space="preserve">
+    <value>Output picture size:</value>
+  </data>
+  <data name="CreateNewCanvasWindow_TargetPictureSizeStringDefaultValue" xml:space="preserve">
+    <value>&lt;Unknown&gt;</value>
+  </data>
   <data name="CreateNewCanvasWindow_Title" xml:space="preserve">
     <value>Create a new canvas...</value>
   </data>

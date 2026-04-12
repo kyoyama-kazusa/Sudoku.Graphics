@@ -6,6 +6,8 @@ internal sealed partial class CreateNewCanvasWindowViewModel : ObservableObject
 	{
 		OkCommand = new RelayCommand(() => closeAction(closeService, true));
 		CancelCommand = new RelayCommand(() => closeAction(closeService, false));
+
+		CalculateSize();
 	}
 
 
@@ -39,6 +41,9 @@ internal sealed partial class CreateNewCanvasWindowViewModel : ObservableObject
 	[ObservableProperty]
 	public partial string VectorRightString { get; set; } = "0";
 
+	[ObservableProperty]
+	public partial string TargetPictureSizeString { get; set; }
+
 	public ICommand OkCommand { get; }
 
 	public ICommand CancelCommand { get; }
@@ -68,4 +73,36 @@ internal sealed partial class CreateNewCanvasWindowViewModel : ObservableObject
 		};
 		return new(cellSize, margin, vector, blockRowsCount, blockColumnsCount);
 	}
+
+	[MemberNotNull(nameof(TargetPictureSizeString))]
+	private void CalculateSize()
+	{
+		if (GetCanvasCreateResult() is not { } result)
+		{
+			TargetPictureSizeString = LocalizationResources.CreateNewCanvasWindow_TargetPictureSizeStringDefaultValue;
+			return;
+		}
+
+		var rowsCount = result.TemplateSize.AbsoluteRowsCount;
+		var columnsCount = result.TemplateSize.AbsoluteColumnsCount;
+		var sizeX = columnsCount * result.CellSize + result.Margin * 2;
+		var sizeY = rowsCount * result.CellSize + result.Margin * 2;
+		TargetPictureSizeString = $"{sizeX} x {sizeY}";
+	}
+
+	partial void OnCellSizeStringChanged(string value) => CalculateSize();
+
+	partial void OnMarginStringChanged(string value) => CalculateSize();
+
+	partial void OnGridRowsCountStringChanged(string value) => CalculateSize();
+
+	partial void OnGridColumnsCountStringChanged(string value) => CalculateSize();
+
+	partial void OnVectorTopStringChanged(string value) => CalculateSize();
+
+	partial void OnVectorBottomStringChanged(string value) => CalculateSize();
+
+	partial void OnVectorLeftStringChanged(string value) => CalculateSize();
+
+	partial void OnVectorRightStringChanged(string value) => CalculateSize();
 }

@@ -187,6 +187,24 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Output picture size:.
+        /// </summary>
+        public static string CreateNewCanvasWindow_OutputPictureSize {
+            get {
+                return ResourceManager.GetString("CreateNewCanvasWindow_OutputPictureSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;Unknown&gt;.
+        /// </summary>
+        public static string CreateNewCanvasWindow_TargetPictureSizeStringDefaultValue {
+            get {
+                return ResourceManager.GetString("CreateNewCanvasWindow_TargetPictureSizeStringDefaultValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create a new canvas....
         /// </summary>
         public static string CreateNewCanvasWindow_Title {
