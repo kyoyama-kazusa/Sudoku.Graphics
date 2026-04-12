@@ -7,15 +7,16 @@
 	xmlns:local="clr-namespace:Sudoku.Graphics.UI.Views.OtherWindows"
 	xmlns:p="clr-namespace:Sudoku.Graphics.UI.Properties"
 	xmlns:vm="clr-namespace:Sudoku.Graphics.UI.ViewModels"
+	d:DataContext="{d:DesignInstance Type=vm:AboutWindowViewModel}"
 	mc:Ignorable="d"
 	Title="{x:Static p:Resources.AboutWindow_Title}"
 	MaxHeight="200"
 	Width="400"
 	ResizeMode="NoResize"
 	WindowStartupLocation="CenterOwner">
-	<Window.DataContext>
-		<vm:AboutWindowViewModel/>
-	</Window.DataContext>
+	<Window.InputBindings>
+		<KeyBinding Gesture="Ctrl+W" Command="{Binding CloseCommand}"/>
+	</Window.InputBindings>
 
 	<Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="100,*" Margin="10">
 		<Grid.Resources>
@@ -23,29 +24,29 @@
 				<Setter Property="Margin" Value="0,4"/>
 			</Style>
 		</Grid.Resources>
-        <TextBlock Grid.Row="0" Grid.Column="0">
+		<TextBlock Grid.Row="0" Grid.Column="0">
 			<Bold>
 				<Run Text="{x:Static p:Resources.AboutWindow_Author}"/>
 			</Bold>
 		</TextBlock>
 		<TextBlock Grid.Row="0" Grid.Column="1" Text="{x:Static p:Resources.AboutWindow_AuthorName}"/>
-        <TextBlock Grid.Row="1" Grid.Column="0">
+		<TextBlock Grid.Row="1" Grid.Column="0">
 			<Bold>
 				<Run Text="{x:Static p:Resources.AboutWindow_AuthorGitHub}"/>
 			</Bold>
 		</TextBlock>
-        <TextBlock Grid.Row="1" Grid.Column="1">
+		<TextBlock Grid.Row="1" Grid.Column="1">
 			<Hyperlink NavigateUri="{Binding GitHubPage}" RequestNavigate="Hyperlink_RequestNavigate">
 				<Hyperlink.Inlines>
 					<Run Text="{x:Static p:Resources.AboutWindow_ClickMe}"/>
 				</Hyperlink.Inlines>
 			</Hyperlink>
-        </TextBlock>
-        <TextBlock Grid.Row="2" Grid.Column="0">
+		</TextBlock>
+		<TextBlock Grid.Row="2" Grid.Column="0">
 			<Bold>
 				<Run Text="{x:Static p:Resources.AboutWindow_Bilibili}"/>
 			</Bold>
 		</TextBlock>
-        <TextBlock Grid.Row="2" Grid.Column="1" Text="{x:Static p:Resources.AboutWindow_BilibiliName}"/>
-    </Grid>
+		<TextBlock Grid.Row="2" Grid.Column="1" Text="{x:Static p:Resources.AboutWindow_BilibiliName}"/>
+	</Grid>
 </Window>
