@@ -13,14 +13,14 @@ internal sealed partial class MainWindowViewModel : ObservableObject
 	{
 		QuitCommand = new RelayCommand(closeService.Close);
 		OpenAboutWindowCommand = new RelayCommand(aboutDialogService.ShowDialog);
-		CloseCommand = new RelayCommand(() => PreviewImage = null);
-		OpenCreateNewCanvasCommand = new RelayCommand(() => PreviewImage = imageGeneratorService.Generate(canvasCreateDialogService));
-		SaveImageCommand = new RelayCommand(() => imageSaveService.Save(saveFileDialogService, PreviewImage as WriteableBitmap));
+		CloseCommand = new RelayCommand(() => RenderedImage = null);
+		OpenCreateNewCanvasCommand = new RelayCommand(() => RenderedImage = imageGeneratorService.Generate(canvasCreateDialogService));
+		SaveImageCommand = new RelayCommand(() => imageSaveService.Save(saveFileDialogService, RenderedImage as WriteableBitmap));
 	}
 
 
 	[ObservableProperty]
-	public partial ImageSource? PreviewImage { get; set; }
+	public partial ImageSource? RenderedImage { get; set; }
 
 	public ICommand QuitCommand { get; }
 

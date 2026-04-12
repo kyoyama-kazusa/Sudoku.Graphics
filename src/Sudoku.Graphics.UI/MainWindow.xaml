@@ -60,7 +60,7 @@
 				<Image
 					x:Name="GridDisplayer"
 					Stretch="Uniform"
-					Source="{Binding PreviewImage,UpdateSourceTrigger=PropertyChanged}" />
+					Source="{Binding RenderedImage,UpdateSourceTrigger=PropertyChanged}" />
 			</Border>
 		</Grid>
 	</Grid>
