@@ -192,7 +192,13 @@
   <data name="MainWindow_MenuItem_Quit" xml:space="preserve">
     <value>Quit</value>
   </data>
+  <data name="MainWindow_MenuItem_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
   <data name="MainWindow_Title" xml:space="preserve">
     <value>Sudoku Graphics</value>
+  </data>
+  <data name="SaveFileDialog_Title" xml:space="preserve">
+    <value>Save file to...</value>
   </data>
 </root>

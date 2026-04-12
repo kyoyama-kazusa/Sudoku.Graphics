@@ -4,17 +4,20 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-	xmlns:cmd="clr-namespace:Sudoku.Graphics.UI.Commands"
 	xmlns:vm="clr-namespace:Sudoku.Graphics.UI.ViewModels"
 	xmlns:p="clr-namespace:Sudoku.Graphics.UI.Properties"
+	d:DataContext="{d:DesignInstance Type=vm:MainWindowViewModel}"
 	mc:Ignorable="d"
 	Title="{x:Static p:Resources.MainWindow_Title}"
 	MinHeight="860"
 	Height="960"
-	Width="1280">
-	<Window.DataContext>
-		<vm:MainWindowViewModel x:Name="ViewModel"/>
-	</Window.DataContext>
+	Width="1600">
+	<Window.InputBindings>
+		<KeyBinding Gesture="Ctrl+N" Command="{Binding OpenCreateNewCanvasCommand}"/>
+		<KeyBinding Gesture="Ctrl+W" Command="{Binding CloseCommand}"/>
+		<KeyBinding Gesture="Ctrl+S" Command="{Binding SaveImageCommand}"/>
+		<KeyBinding Gesture="Alt+F4" Command="{Binding QuitCommand}"/>
+	</Window.InputBindings>
 
 	<Grid RowDefinitions="Auto,*">
 		<Menu Grid.Row="0">
@@ -27,6 +30,10 @@
 					Header="{x:Static p:Resources.MainWindow_MenuItem_Close}"
 					Command="{Binding CloseCommand}"
 					InputGestureText="Ctrl+W"/>
+				<MenuItem
+					Header="{x:Static p:Resources.MainWindow_MenuItem_Save}"
+					Command="{Binding SaveImageCommand}"
+					InputGestureText="Ctrl+S"/>
 				<Separator/>
 				<MenuItem
 					Header="{x:Static p:Resources.MainWindow_MenuItem_Quit}"
@@ -53,9 +60,7 @@
 				<Image
 					x:Name="GridDisplayer"
 					Stretch="Uniform"
-					Source="{Binding PreviewImage,UpdateSourceTrigger=PropertyChanged}"
-					MouseLeftButtonDown="GridDisplayer_MouseLeftButtonDown"
-					MouseLeftButtonUp="GridDisplayer_MouseLeftButtonUp" />
+					Source="{Binding PreviewImage,UpdateSourceTrigger=PropertyChanged}" />
 			</Border>
 		</Grid>
 	</Grid>

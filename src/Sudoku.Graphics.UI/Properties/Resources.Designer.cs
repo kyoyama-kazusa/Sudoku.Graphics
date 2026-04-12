@@ -286,11 +286,29 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string MainWindow_MenuItem_Save {
+            get {
+                return ResourceManager.GetString("MainWindow_MenuItem_Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sudoku Graphics.
         /// </summary>
         public static string MainWindow_Title {
             get {
                 return ResourceManager.GetString("MainWindow_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save file to....
+        /// </summary>
+        public static string SaveFileDialog_Title {
+            get {
+                return ResourceManager.GetString("SaveFileDialog_Title", resourceCulture);
             }
         }
     }

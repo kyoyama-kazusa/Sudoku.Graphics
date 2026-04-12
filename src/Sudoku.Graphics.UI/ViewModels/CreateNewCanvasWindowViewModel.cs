@@ -2,10 +2,10 @@
 
 internal sealed partial class CreateNewCanvasWindowViewModel : ObservableObject
 {
-	public CreateNewCanvasWindowViewModel()
+	public CreateNewCanvasWindowViewModel(ICloseService closeService, Action<ICloseService, bool?> closeAction)
 	{
-		OkCommand = new RelayCommand(() => CloseAction?.Invoke(true));
-		CancelCommand = new RelayCommand(() => CloseAction?.Invoke(false));
+		OkCommand = new RelayCommand(() => closeAction(closeService, true));
+		CancelCommand = new RelayCommand(() => closeAction(closeService, false));
 	}
 
 
@@ -39,14 +39,12 @@ internal sealed partial class CreateNewCanvasWindowViewModel : ObservableObject
 	[ObservableProperty]
 	public partial string VectorRightString { get; set; } = "0";
 
-	public Action<bool?>? CloseAction { get; set; }
-
 	public ICommand OkCommand { get; }
 
 	public ICommand CancelCommand { get; }
 
 
-	public CanvasCreatedResult? GetResult()
+	public CanvasCreateResult? GetCanvasCreateResult()
 	{
 		if (!float.TryParse(CellSizeString, out var cellSize)
 			|| !float.TryParse(MarginString, out var margin)

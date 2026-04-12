@@ -1,6 +1,6 @@
-﻿namespace Sudoku.Graphics.UI.ViewModels;
+﻿namespace Sudoku.Graphics.UI.Models;
 
-public sealed record CanvasCreatedResult(
+public sealed record CanvasCreateResult(
 	float CellSize,
 	float Margin,
 	GridTemplateSize TemplateSize,

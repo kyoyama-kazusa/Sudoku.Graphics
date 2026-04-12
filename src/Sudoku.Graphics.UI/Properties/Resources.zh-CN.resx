@@ -189,7 +189,13 @@
   <data name="MainWindow_MenuItem_Quit" xml:space="preserve">
     <value>退出</value>
   </data>
+  <data name="MainWindow_MenuItem_Save" xml:space="preserve">
+    <value>保存</value>
+  </data>
   <data name="MainWindow_Title" xml:space="preserve">
     <value>数独盘面渲染器</value>
+  </data>
+  <data name="SaveFileDialog_Title" xml:space="preserve">
+    <value>保存文件到……</value>
   </data>
 </root>

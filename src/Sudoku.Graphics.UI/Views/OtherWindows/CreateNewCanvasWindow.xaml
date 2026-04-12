@@ -7,14 +7,13 @@
 	xmlns:local="clr-namespace:Sudoku.Graphics.UI.Views.OtherWindows"
 	xmlns:vm="clr-namespace:Sudoku.Graphics.UI.ViewModels"
 	xmlns:p="clr-namespace:Sudoku.Graphics.UI.Properties"
+	d:DataContext="{d:DesignInstance Type=vm:CreateNewCanvasWindowViewModel}"
 	mc:Ignorable="d"
-	MaxWidth="340" MaxHeight="400"
+	MaxWidth="340"
+	MaxHeight="400"
 	Title="{x:Static p:Resources.CreateNewCanvasWindow_Title}"
-	ResizeMode="NoResize">
-	<Window.DataContext>
-		<vm:CreateNewCanvasWindowViewModel/>
-	</Window.DataContext>
-
+	ResizeMode="NoResize"
+	WindowStartupLocation="CenterOwner">
 	<StackPanel Margin="20">
 		<StackPanel.Resources>
 			<Style TargetType="TextBox">

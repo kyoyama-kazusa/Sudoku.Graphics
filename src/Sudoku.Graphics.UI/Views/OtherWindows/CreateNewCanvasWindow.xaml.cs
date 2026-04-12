@@ -5,6 +5,9 @@
 /// </summary>
 public partial class CreateNewCanvasWindow : Window
 {
+	private readonly CreateNewCanvasWindowViewModel _vm;
+
+
 	/// <summary>
 	/// Initializes a <see cref="CreateNewCanvasWindow"/> instance.
 	/// </summary>
@@ -12,6 +15,26 @@ public partial class CreateNewCanvasWindow : Window
 	{
 		InitializeComponent();
 
-		((CreateNewCanvasWindowViewModel)DataContext).CloseAction = result => { DialogResult = result; Close(); };
+		_vm = new(
+			new CloseService(() => this),
+			(closeService, dialogResult) => { DialogResult = dialogResult; closeService.Close(); }
+		);
+		DataContext = _vm;
+	}
+
+
+	public CanvasCreateResult? Result => DialogResult is true ? _vm.GetCanvasCreateResult() : null;
+}
+
+file sealed class CloseService(Func<CreateNewCanvasWindow?> _windowCreator) : ICloseService
+{
+	public void Close()
+	{
+		var window = _windowCreator();
+		if (window is null)
+		{
+			return;
+		}
+		window.Close();
 	}
 }

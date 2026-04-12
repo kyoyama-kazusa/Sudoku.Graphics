@@ -8,7 +8,11 @@
 	xmlns:p="clr-namespace:Sudoku.Graphics.UI.Properties"
 	xmlns:vm="clr-namespace:Sudoku.Graphics.UI.ViewModels"
 	mc:Ignorable="d"
-	Title="{x:Static p:Resources.AboutWindow_Title}" MaxHeight="200" Width="400" ResizeMode="NoResize">
+	Title="{x:Static p:Resources.AboutWindow_Title}"
+	MaxHeight="200"
+	Width="400"
+	ResizeMode="NoResize"
+	WindowStartupLocation="CenterOwner">
 	<Window.DataContext>
 		<vm:AboutWindowViewModel/>
 	</Window.DataContext>
