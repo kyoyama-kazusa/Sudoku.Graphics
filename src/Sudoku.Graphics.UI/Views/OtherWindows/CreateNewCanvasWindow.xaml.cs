@@ -16,7 +16,7 @@ public partial class CreateNewCanvasWindow : Window
 		InitializeComponent();
 
 		_vm = new(
-			new CloseService(() => this),
+			new CloseService(this),
 			(closeService, dialogResult) => { DialogResult = dialogResult; closeService.Close(); }
 		);
 		DataContext = _vm;
@@ -26,15 +26,7 @@ public partial class CreateNewCanvasWindow : Window
 	public CanvasCreateResult? Result => DialogResult is true ? _vm.GetCanvasCreateResult() : null;
 }
 
-file sealed class CloseService(Func<CreateNewCanvasWindow?> _windowCreator) : ICloseService
+file sealed class CloseService(CreateNewCanvasWindow _window) : ICloseService
 {
-	public void Close()
-	{
-		var window = _windowCreator();
-		if (window is null)
-		{
-			return;
-		}
-		window.Close();
-	}
+	public void Close() => _window.Close();
 }
