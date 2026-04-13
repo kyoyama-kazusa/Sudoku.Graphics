@@ -159,6 +159,12 @@
   <data name="CreateNewCanvasWindow_OutputPictureSize" xml:space="preserve">
     <value>导出的图片尺寸：</value>
   </data>
+  <data name="CreateNewCanvasWindow_TabPage_LatinSquare" xml:space="preserve">
+    <value>拉丁方（没有宫）</value>
+  </data>
+  <data name="CreateNewCanvasWindow_TabPage_Standard" xml:space="preserve">
+    <value>标准（有宫）</value>
+  </data>
   <data name="CreateNewCanvasWindow_TargetPictureSizeStringDefaultValue" xml:space="preserve">
     <value>&lt;未知&gt;</value>
   </data>

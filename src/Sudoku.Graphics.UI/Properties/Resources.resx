@@ -162,6 +162,12 @@
   <data name="CreateNewCanvasWindow_OutputPictureSize" xml:space="preserve">
     <value>Output picture size:</value>
   </data>
+  <data name="CreateNewCanvasWindow_TabPage_LatinSquare" xml:space="preserve">
+    <value>Latin Square (No nonets)</value>
+  </data>
+  <data name="CreateNewCanvasWindow_TabPage_Standard" xml:space="preserve">
+    <value>Standard (Nonets included)</value>
+  </data>
   <data name="CreateNewCanvasWindow_TargetPictureSizeStringDefaultValue" xml:space="preserve">
     <value>&lt;Unknown&gt;</value>
   </data>

@@ -196,6 +196,24 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Latin Square (No nonets).
+        /// </summary>
+        public static string CreateNewCanvasWindow_TabPage_LatinSquare {
+            get {
+                return ResourceManager.GetString("CreateNewCanvasWindow_TabPage_LatinSquare", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Standard (Nonets included).
+        /// </summary>
+        public static string CreateNewCanvasWindow_TabPage_Standard {
+            get {
+                return ResourceManager.GetString("CreateNewCanvasWindow_TabPage_Standard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;Unknown&gt;.
         /// </summary>
         public static string CreateNewCanvasWindow_TargetPictureSizeStringDefaultValue {
