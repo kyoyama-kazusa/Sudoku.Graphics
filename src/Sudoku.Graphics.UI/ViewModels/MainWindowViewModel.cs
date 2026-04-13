@@ -14,7 +14,7 @@ internal sealed partial class MainWindowViewModel : ObservableObject
 		QuitCommand = new RelayCommand(closeService.Close);
 		OpenAboutWindowCommand = new RelayCommand(aboutDialogService.ShowDialog);
 		CloseCommand = new RelayCommand(() => RenderedImage = null);
-		OpenCreateNewCanvasCommand = new RelayCommand(() => RenderedImage = imageGeneratorService.Generate(canvasCreateDialogService));
+		OpenCreateNewCanvasCommand = new RelayCommand(() => OpenCreateCanvasWindowAndUpdate(canvasCreateDialogService, imageGeneratorService));
 		SaveImageCommand = new RelayCommand(() => imageSaveService.Save(saveFileDialogService, RenderedImage as WriteableBitmap));
 	}
 
@@ -31,4 +31,13 @@ internal sealed partial class MainWindowViewModel : ObservableObject
 	public ICommand OpenCreateNewCanvasCommand { get; }
 
 	public ICommand SaveImageCommand { get; }
+
+
+	private void OpenCreateCanvasWindowAndUpdate(ICreateCanvasDialogService canvasCreateDialogService, IImageGeneratorService imageGeneratorService)
+	{
+		if (imageGeneratorService.Generate(canvasCreateDialogService) is { } image)
+		{
+			RenderedImage = image;
+		}
+	}
 }

@@ -56,7 +56,7 @@
 				VerticalAlignment="Top"
 				BorderBrush="LightGray"
 				BorderThickness="1"
-				Width="800" Height="800">
+				MaxWidth="800">
 				<Image
 					x:Name="GridDisplayer"
 					Stretch="Uniform"
