@@ -1,3 +1,3 @@
 ﻿namespace Sudoku.Graphics.UI.Services;
 
-public interface ICreateCanvasDialogService : IDialogService<CanvasCreateResult>;
+public interface ICreateCanvasDialogService : IDialogService<CreateNewCanvasWindowResult>;

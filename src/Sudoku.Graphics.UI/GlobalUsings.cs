@@ -16,6 +16,7 @@ global using SkiaSharp;
 global using SkiaSharp.Views.WPF;
 global using Sudoku.Graphics.Items.Fills;
 global using Sudoku.Graphics.Items.Lines;
+global using Sudoku.Graphics.Templating;
 global using Sudoku.Graphics.Templating.Templates;
 global using Sudoku.Graphics.UI.Models;
 global using Sudoku.Graphics.UI.Services;

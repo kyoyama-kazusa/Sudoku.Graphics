@@ -49,7 +49,7 @@ internal sealed partial class CreateNewCanvasWindowViewModel : ObservableObject
 	public ICommand CancelCommand { get; }
 
 
-	public CanvasCreateResult? GetCanvasCreateResult()
+	public CreateNewCanvasWindowResult? GetCanvasCreateResult()
 	{
 		if (!float.TryParse(CellSizeString, out var cellSize)
 			|| !float.TryParse(MarginString, out var margin)
@@ -71,7 +71,7 @@ internal sealed partial class CreateNewCanvasWindowViewModel : ObservableObject
 			ColumnsCount = gridColumnsCount,
 			Vector = new(vectorLeft, vectorTop, vectorRight, vectorBottom)
 		};
-		return new(cellSize, margin, vector, blockRowsCount, blockColumnsCount);
+		return new StandardCreateNewCanvasWindowResult(cellSize, margin, vector, blockRowsCount, blockColumnsCount);
 	}
 
 	[MemberNotNull(nameof(TargetPictureSizeString))]

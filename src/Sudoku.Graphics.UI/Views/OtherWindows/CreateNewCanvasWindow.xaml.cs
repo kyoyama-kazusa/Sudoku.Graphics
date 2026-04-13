@@ -23,7 +23,7 @@ public partial class CreateNewCanvasWindow : Window
 	}
 
 
-	public CanvasCreateResult? Result => DialogResult is true ? _vm.GetCanvasCreateResult() : null;
+	public CreateNewCanvasWindowResult? Result => DialogResult is true ? _vm.GetCanvasCreateResult() : null;
 }
 
 file sealed class CloseService(CreateNewCanvasWindow _window) : ICloseService

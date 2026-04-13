@@ -27,7 +27,7 @@ public partial class MainWindow : Window
 	}
 }
 
-file sealed class ImageGeneratorService(Func<ICreateCanvasDialogService, CanvasCreateResult?> _resultCreator) : IImageGeneratorService
+file sealed class ImageGeneratorService(Func<ICreateCanvasDialogService, CreateNewCanvasWindowResult?> _resultCreator) : IImageGeneratorService
 {
 	public ImageSource? Generate(ICreateCanvasDialogService dialogService)
 	{
@@ -37,17 +37,7 @@ file sealed class ImageGeneratorService(Func<ICreateCanvasDialogService, CanvasC
 			return null;
 		}
 
-		var mapper = new PointMapper { CellSize = result.CellSize, Margin = result.Margin, TemplateSize = result.TemplateSize };
-		var template = new StandardTemplate(result.BlockRowsCount, result.BlockColumnsCount, mapper)
-		{
-			ThickLineColor = SKColors.Black,//Config
-			ThickLineWidth = 0.06M,//Config
-			ThickLineDashSequence = [],//Config
-			ThinLineColor = SKColors.Black,//Config
-			ThinLineWidth = 0.0225M,//Config
-			ThinLineDashSequence = []//Config
-		};
-
+		var template = result.CreateTemplate();
 		var canvas = new Canvas(template);
 		canvas.DrawItems(
 			new BackgroundFillItem { Color = SKColors.White },//Config
@@ -71,7 +61,7 @@ file sealed class AboutDialogService(Func<AboutWindow> _windowCreator) : IDialog
 
 file sealed class CanvasCreateDialogService(Func<CreateNewCanvasWindow?> _windowCreator) : ICreateCanvasDialogService
 {
-	public CanvasCreateResult? ShowDialog()
+	public CreateNewCanvasWindowResult? ShowDialog()
 	{
 		var dialog = _windowCreator();
 		if (dialog is null)
