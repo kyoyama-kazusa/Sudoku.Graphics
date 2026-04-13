@@ -55,11 +55,13 @@
 				HorizontalAlignment="Left"
 				VerticalAlignment="Top"
 				BorderBrush="LightGray"
-				BorderThickness="1"
-				MaxWidth="800">
+				BorderThickness="1">
 				<Image
-					x:Name="GridDisplayer"
-					Stretch="Uniform"
+                    Stretch="Uniform"
+					MaxWidth="800"
+                    MaxHeight="800"
+                    Width="{Binding GridDisplayWidth,UpdateSourceTrigger=PropertyChanged}"
+                    Height="{Binding GridDisplayHeight,UpdateSourceTrigger=PropertyChanged}"
 					Source="{Binding RenderedImage,UpdateSourceTrigger=PropertyChanged}" />
 			</Border>
 		</Grid>
