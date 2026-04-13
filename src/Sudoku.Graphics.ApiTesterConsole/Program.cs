@@ -8,7 +8,6 @@
 
 using System;
 using System.IO;
-using System.Linq;
 using SkiaSharp;
 using Sudoku.Graphics;
 using Sudoku.Graphics.Directions;
