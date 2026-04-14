@@ -20,12 +20,6 @@ internal sealed partial class MainWindowViewModel : ObservableObject
 
 
 	[ObservableProperty]
-	public partial double GridDisplayWidth { get; private set; }
-
-	[ObservableProperty]
-	public partial double GridDisplayHeight { get; private set; }
-
-	[ObservableProperty]
 	public partial ImageSource? RenderedImage { get; set; }
 
 	public ICommand QuitCommand { get; }
@@ -46,32 +40,4 @@ internal sealed partial class MainWindowViewModel : ObservableObject
 			RenderedImage = image;
 		}
 	}
-
-	private void UpdateDisplaySize()
-	{
-		if (RenderedImage is not BitmapSource bmp)
-		{
-			return;
-		}
-
-		var width = bmp.PixelWidth;
-		var height = bmp.PixelHeight;
-		if (width <= 0 || height <= 0)
-		{
-			GridDisplayWidth = 0;
-			GridDisplayHeight = 0;
-			return;
-		}
-
-		var scale = Math.Min(800D / width, 800D / height);
-		if (scale > 1)
-		{
-			scale = 1;
-		}
-
-		GridDisplayWidth = width * scale;
-		GridDisplayHeight = height * scale;
-	}
-
-	partial void OnRenderedImageChanged(ImageSource? value) => UpdateDisplaySize();
 }
