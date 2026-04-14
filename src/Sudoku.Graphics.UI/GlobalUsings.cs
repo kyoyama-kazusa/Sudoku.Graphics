@@ -2,6 +2,7 @@
 global using System.Collections.ObjectModel;
 global using System.Diagnostics;
 global using System.Windows;
+global using System.Windows.Controls;
 global using System.Windows.Input;
 global using System.Windows.Markup;
 global using System.Windows.Media;
@@ -9,4 +10,5 @@ global using System.Windows.Navigation;
 global using CommunityToolkit.Mvvm.ComponentModel;
 global using CommunityToolkit.Mvvm.Input;
 global using Sudoku.Graphics.UI.Properties;
+global using Sudoku.Graphics.UI.ViewModels;
 global using Sudoku.Graphics.UI.Views.OtherWindows;

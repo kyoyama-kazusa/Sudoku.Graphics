@@ -18,7 +18,7 @@ public partial class MainWindow : Window
 	public partial string CurrentModeString { get; set; } = string.Empty;
 
 	[ObservableProperty]
-	public partial ItemType CurrentItemType { get; set; }
+	public partial ItemType CurrentItemType { get; set; } = ItemType.None;
 
 	[ObservableProperty]
 	public partial ImageSource? GridImageSource { get; set; }
@@ -40,6 +40,14 @@ public partial class MainWindow : Window
 		if (modeString is not null)
 		{
 			CurrentModeString = modeString;
+		}
+	}
+
+	private void ToolItemButton_Click(object sender, RoutedEventArgs e)
+	{
+		if (sender is Button { Tag: ToolItem item })
+		{
+			CurrentItemType = item.ItemType;
 		}
 	}
 }

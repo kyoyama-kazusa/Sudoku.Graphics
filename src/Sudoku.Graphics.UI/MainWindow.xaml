@@ -85,7 +85,11 @@
 										<ItemsControl.ItemTemplate>
 											<DataTemplate>
 												<Grid RowDefinitions="Auto,*" Width="64" Margin="24,0,0,0">
-													<Button Grid.Row="0" HorizontalAlignment="Center">
+													<Button
+														Grid.Row="0"
+														HorizontalAlignment="Center"
+														Tag="{Binding}"
+														Click="ToolItemButton_Click">
 														<Image Source="{Binding Icon}" />
 													</Button>
 													<TextBlock
