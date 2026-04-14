@@ -4,64 +4,106 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-	xmlns:vm="clr-namespace:Sudoku.Graphics.UI.ViewModels"
+	xmlns:local="clr-namespace:Sudoku.Graphics.UI"
 	xmlns:p="clr-namespace:Sudoku.Graphics.UI.Properties"
-	d:DataContext="{d:DesignInstance Type=vm:MainWindowViewModel}"
 	mc:Ignorable="d"
-	Title="{x:Static p:Resources.MainWindow_Title}"
+	d:DataContext="{d:DesignInstance Type=local:MainWindow}"
+	Title="{x:Static p:LocalizationResources.MainWindow_MenuItem_Title}"
 	Height="900"
 	Width="1600"
 	WindowStartupLocation="CenterScreen">
+	<Window.Resources>
+		<Style TargetType="Border">
+			<Setter Property="BorderBrush" Value="Black" />
+		</Style>
+	</Window.Resources>
 	<Window.InputBindings>
-		<KeyBinding Gesture="Ctrl+N" Command="{Binding OpenCreateNewCanvasCommand}"/>
-		<KeyBinding Gesture="Ctrl+W" Command="{Binding CloseCommand}"/>
-		<KeyBinding Gesture="Ctrl+S" Command="{Binding SaveImageCommand}"/>
-		<KeyBinding Gesture="Alt+F4" Command="{Binding QuitCommand}"/>
+		<KeyBinding Gesture="Ctrl+N" Command="{Binding CreateCanvasCommand}" />
+		<KeyBinding Gesture="Ctrl+W" Command="{Binding CloseCanvasCommand}" />
+		<KeyBinding Gesture="Ctrl+S" Command="{Binding SaveCanvasCommand}" />
+		<KeyBinding Gesture="Alt+F4" Command="{Binding QuitCommand}" />
 	</Window.InputBindings>
-
-	<Grid RowDefinitions="Auto,*">
-		<Menu Grid.Row="0">
-			<MenuItem Header="{x:Static p:Resources.MainWindow_MenuItem_File}">
+	
+	<Grid RowDefinitions="Auto,Auto,*" ColumnDefinitions="Auto,*">
+		<Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+			<MenuItem Header="{x:Static p:LocalizationResources.MainWindow_MenuItem_File}">
 				<MenuItem
-					Header="{x:Static p:Resources.MainWindow_MenuItem_Create}"
-					Command="{Binding OpenCreateNewCanvasCommand}"
-					InputGestureText="Ctrl+N"/>
+					Header="{x:Static p:LocalizationResources.MainWindow_MenuItem_CreateCanvas}"
+					Command="{Binding CreateCanvasCommand}"
+					InputGestureText="Ctrl+N" />
 				<MenuItem
-					Header="{x:Static p:Resources.MainWindow_MenuItem_Close}"
-					Command="{Binding CloseCommand}"
-					InputGestureText="Ctrl+W"/>
+					Header="{x:Static p:LocalizationResources.MainWindow_MenuItem_CloseCanvas}"
+					Command="{Binding CloseCanvasCommand}"
+					InputGestureText="Ctrl+W" />
 				<MenuItem
-					Header="{x:Static p:Resources.MainWindow_MenuItem_Save}"
-					Command="{Binding SaveImageCommand}"
-					InputGestureText="Ctrl+S"/>
-				<Separator/>
+					Header="{x:Static p:LocalizationResources.MainWindow_MenuItem_SaveCanvas}"
+					Command="{Binding SaveCanvasCommand}"
+					InputGestureText="Ctrl+S" />
+				<Separator />
 				<MenuItem
-					Header="{x:Static p:Resources.MainWindow_MenuItem_Quit}"
-					InputGestureText="Alt+F4"
+					Header="{x:Static p:LocalizationResources.MainWindow_MenuItem_Quit}"
 					Command="{Binding QuitCommand}"
-					CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+					InputGestureText="Alt+F4" />
 			</MenuItem>
-			<MenuItem
-				Header="{x:Static p:Resources.MainWindow_MenuItem_About}"
-				Command="{Binding OpenAboutWindowCommand}"
-				CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
+			<MenuItem Header="{x:Static p:LocalizationResources.MainWindow_MenuItem_About}">
+				<MenuItem
+					x:Name="AboutMeMenuItem"
+					Header="{x:Static p:LocalizationResources.MainWindow_MenuItem_AboutMe}"
+					Click="AboutMeMenuItem_Click" />
 			</MenuItem>
 		</Menu>
-
-		<Grid Grid.Row="1" ColumnDefinitions="Auto,*">
-			<Border
-				Grid.Column="0"
-				Margin="16,16,0,0"
-				HorizontalAlignment="Left"
-				VerticalAlignment="Top"
-				BorderBrush="LightGray"
-				BorderThickness="1">
-				<Image
-					Stretch="Uniform"
-					Width="800"
-					Height="800"
-					Source="{Binding RenderedImage,UpdateSourceTrigger=PropertyChanged}"/>
-			</Border>
-		</Grid>
+		<Border Grid.Row="1" Grid.Column="0" CornerRadius="6" BorderThickness="2" Margin="16">
+			<Image Width="800" Height="800" Source="{Binding GridImageSource}" />
+		</Border>
+		<Border Grid.Row="1" Grid.Column="1" CornerRadius="6" BorderThickness="2" Margin="16">
+			<Grid RowDefinitions="Auto,*">
+				<Border Grid.Row="0" BorderBrush="DimGray" BorderThickness="0,0,0,1">
+					<TextBlock FontSize="20" Margin="8,12,0,12">
+						<Run Text="{x:Static p:LocalizationResources.MainWindow_CurrentMode}" FontWeight="Bold" />
+						<Run Text="{Binding CurrentModeString}" FontWeight="Bold" Foreground="Red" />
+					</TextBlock>
+				</Border>
+				<ScrollViewer Grid.Row="1" Margin="0,20,0,0" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+					<ItemsControl ItemsSource="{StaticResource BuiltInToolItemGroups}" Margin="6,0,0,0">
+						<ItemsControl.ItemsPanel>
+							<ItemsPanelTemplate>
+								<StackPanel Margin="0,0,0,25" />
+							</ItemsPanelTemplate>
+						</ItemsControl.ItemsPanel>
+						<ItemsControl.ItemTemplate>
+							<DataTemplate>
+								<StackPanel>
+									<Border BorderBrush="DimGray" Margin="8,0,8,12" BorderThickness="0,0,0,1">
+										<TextBlock Text="{Binding Title}" FontWeight="Bold" FontSize="20" />
+									</Border>
+									<ItemsControl ItemsSource="{Binding Items}">
+										<ItemsControl.ItemsPanel>
+											<ItemsPanelTemplate>
+												<UniformGrid Columns="5" HorizontalAlignment="Left" />
+											</ItemsPanelTemplate>
+										</ItemsControl.ItemsPanel>
+										<ItemsControl.ItemTemplate>
+											<DataTemplate>
+												<Grid RowDefinitions="Auto,*" Width="64" Margin="24,0,0,0">
+													<Button Grid.Row="0" HorizontalAlignment="Center">
+														<Image Source="{Binding Icon}" />
+													</Button>
+													<TextBlock
+														Grid.Row="1"
+														Text="{Binding ItemString}"
+														Margin="0,3,0,0"
+														TextWrapping="Wrap"
+														HorizontalAlignment="Center" />
+												</Grid>
+											</DataTemplate>
+										</ItemsControl.ItemTemplate>
+									</ItemsControl>
+								</StackPanel>
+							</DataTemplate>
+						</ItemsControl.ItemTemplate>
+					</ItemsControl>
+				</ScrollViewer>
+			</Grid>
+		</Border>
 	</Grid>
 </Window>

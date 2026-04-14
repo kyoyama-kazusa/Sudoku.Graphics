@@ -5,19 +5,12 @@
 /// </summary>
 public partial class AboutWindow : Window
 {
-	private readonly AboutWindowViewModel _vm;
+	public static readonly Uri GitHubPage = new(LocalizationResources.ResourceManager.GetString("AboutWindow_GitHubPage", null)!);
+
+	public static readonly Uri BilibiliPage = new(LocalizationResources.ResourceManager.GetString("AboutWindow_BilibiliPage", null)!);
 
 
-	/// <summary>
-	/// Initializes an <see cref="AboutWindow"/> instance.
-	/// </summary>
-	public AboutWindow()
-	{
-		InitializeComponent();
-
-		_vm = new(new CloseService(this));
-		DataContext = _vm;
-	}
+	public AboutWindow() => InitializeComponent();
 
 
 	private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
@@ -25,9 +18,4 @@ public partial class AboutWindow : Window
 		Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri) { UseShellExecute = true });
 		e.Handled = true;
 	}
-}
-
-file sealed class CloseService(AboutWindow _window) : ICloseService
-{
-	public void Close() => _window.Close();
 }

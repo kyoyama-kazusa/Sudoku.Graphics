@@ -118,99 +118,63 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutWindow_Author" xml:space="preserve">
-    <value>作者</value>
-  </data>
-  <data name="AboutWindow_AuthorGitHub" xml:space="preserve">
-    <value>GitHub 页面</value>
+    <value>作者：</value>
   </data>
   <data name="AboutWindow_AuthorName" xml:space="preserve">
     <value>杏山千纱</value>
   </data>
-  <data name="AboutWindow_Bilibili" xml:space="preserve">
-    <value>哔哩哔哩</value>
+  <data name="AboutWindow_GitHub" xml:space="preserve">
+    <value>GitHub：</value>
   </data>
-  <data name="AboutWindow_BilibiliName" xml:space="preserve">
-    <value>KyouyamaKazusa（23736703）</value>
+  <data name="AboutWindow_Title" xml:space="preserve">
+    <value>关于我</value>
   </data>
   <data name="AboutWindow_ClickMe" xml:space="preserve">
     <value>链接</value>
   </data>
-  <data name="AboutWindow_Title" xml:space="preserve">
-    <value>关于</value>
-  </data>
-  <data name="CreateNewCanvasWindow_BlockSize" xml:space="preserve">
-    <value>每个宫所占的行数和列数：</value>
-  </data>
-  <data name="CreateNewCanvasWindow_Cancel" xml:space="preserve">
-    <value>取消</value>
-  </data>
-  <data name="CreateNewCanvasWindow_CellSize" xml:space="preserve">
-    <value>单元格的大小（像素）：</value>
-  </data>
-  <data name="CreateNewCanvasWindow_GridSize" xml:space="preserve">
-    <value>盘面的行数和列数：</value>
-  </data>
-  <data name="CreateNewCanvasWindow_Margin" xml:space="preserve">
-    <value>外围留白（像素）：</value>
-  </data>
-  <data name="CreateNewCanvasWindow_Okay" xml:space="preserve">
-    <value>创建！</value>
-  </data>
-  <data name="CreateNewCanvasWindow_OutputPictureSize" xml:space="preserve">
-    <value>导出的图片尺寸：</value>
-  </data>
-  <data name="CreateNewCanvasWindow_TabPage_LatinSquare" xml:space="preserve">
-    <value>拉丁方（没有宫）</value>
-  </data>
-  <data name="CreateNewCanvasWindow_TabPage_Standard" xml:space="preserve">
-    <value>标准（有宫）</value>
-  </data>
-  <data name="CreateNewCanvasWindow_TargetPictureSizeStringDefaultValue" xml:space="preserve">
-    <value>&lt;未知&gt;</value>
-  </data>
-  <data name="CreateNewCanvasWindow_Title" xml:space="preserve">
-    <value>创建新画布……</value>
-  </data>
-  <data name="CreateNewCanvasWindow_Vector" xml:space="preserve">
-    <value>盘面外部留白的行数和列数：</value>
-  </data>
-  <data name="CreateNewCanvasWindow_VectorBottom" xml:space="preserve">
-    <value>底部：</value>
-  </data>
-  <data name="CreateNewCanvasWindow_VectorLeft" xml:space="preserve">
-    <value>左侧：</value>
-  </data>
-  <data name="CreateNewCanvasWindow_VectorRight" xml:space="preserve">
-    <value>右侧：</value>
-  </data>
-  <data name="CreateNewCanvasWindow_VectorTop" xml:space="preserve">
-    <value>顶部：</value>
-  </data>
-  <data name="MainWindow_MenuItem_About" xml:space="preserve">
-    <value>关于</value>
-  </data>
-  <data name="MainWindow_MenuItem_Close" xml:space="preserve">
-    <value>关闭当前画布</value>
-  </data>
-  <data name="MainWindow_MenuItem_Create" xml:space="preserve">
-    <value>创建新画布</value>
+  <data name="AboutWindow_Bilibili" xml:space="preserve">
+    <value>哔哩哔哩：</value>
   </data>
   <data name="MainWindow_MenuItem_File" xml:space="preserve">
     <value>文件</value>
   </data>
-  <data name="MainWindow_MenuItem_Quit" xml:space="preserve">
-    <value>退出</value>
+  <data name="MainWindow_MenuItem_About" xml:space="preserve">
+    <value>关于</value>
   </data>
-  <data name="MainWindow_MenuItem_Save" xml:space="preserve">
-    <value>保存</value>
+  <data name="MainWindow_MenuItem_CreateCanvas" xml:space="preserve">
+    <value>创建新画布……</value>
   </data>
-  <data name="MainWindow_Title" xml:space="preserve">
+  <data name="MainWindow_MenuItem_AboutMe" xml:space="preserve">
+    <value>关于我</value>
+  </data>
+  <data name="MainWindow_MenuItem_Title" xml:space="preserve">
     <value>数独盘面渲染器</value>
   </data>
-  <data name="SaveFileDialog_Filters" xml:space="preserve">
-    <value>PNG 图片（*.png）|*.png|JPEG 图片 （*.jpg;*.jpeg）|*.jpg;*.jpeg|Bitmap 图片（*.bmp）|*.bmp</value>
+  <data name="MainWindow_MenuItem_Quit" xml:space="preserve">
+    <value>退出程序</value>
   </data>
-  <data name="SaveFileDialog_Title" xml:space="preserve">
-    <value>保存文件到……</value>
+  <data name="MainWindow_MenuItem_CloseCanvas" xml:space="preserve">
+    <value>关闭当前画布</value>
+  </data>
+  <data name="MainWindow_MenuItem_SaveCanvas" xml:space="preserve">
+    <value>保存画布到……</value>
+  </data>
+  <data name="ItemType_None" xml:space="preserve">
+    <value>默认</value>
+  </data>
+  <data name="MainWindow_CurrentMode" xml:space="preserve">
+    <value>当前：</value>
+  </data>
+  <data name="ItemTypeGroup_Basic" xml:space="preserve">
+    <value>基础功能</value>
+  </data>
+  <data name="ItemType_Text_Given" xml:space="preserve">
+    <value>提示数标注</value>
+  </data>
+  <data name="ItemType_Text_Modifiable" xml:space="preserve">
+    <value>填入数标注</value>
+  </data>
+  <data name="ItemType_Text_Candidate" xml:space="preserve">
+    <value>候选数标注</value>
   </data>
 </root>

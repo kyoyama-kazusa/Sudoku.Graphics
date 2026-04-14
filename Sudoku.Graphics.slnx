@@ -5,7 +5,7 @@
     <File Path="README.md" />
   </Folder>
   <Project Path="src/Sudoku.Graphics.ApiTesterConsole/Sudoku.Graphics.ApiTesterConsole.csproj" Id="7de8eb3e-9f63-4280-8642-48cb47b45bce" />
-  <Project Path="src/Sudoku.Graphics.UI/Sudoku.Graphics.UI.csproj" Id="d9a72a3c-4333-413d-98b3-cb1f0649ac57" />
+  <Project Path="src/Sudoku.Graphics.UI/Sudoku.Graphics.UI.csproj" Id="6225aac7-eb7c-43eb-aa44-f03d3970c004" />
   <Project Path="src/Sudoku.Graphics/Sudoku.Graphics.csproj" />
   <Project Path="src/System/LibraryExtensions.csproj" Id="d708bbb9-0ff0-4894-ad86-488b984ae5d0" />
 </Solution>

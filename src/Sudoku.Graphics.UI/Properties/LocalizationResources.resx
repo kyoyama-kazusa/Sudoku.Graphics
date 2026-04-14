@@ -118,102 +118,69 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutWindow_Author" xml:space="preserve">
-    <value>Author</value>
-  </data>
-  <data name="AboutWindow_AuthorGitHub" xml:space="preserve">
-    <value>GitHub Page</value>
-  </data>
-  <data name="AboutWindow_AuthorGitHubPage" xml:space="preserve">
-    <value>https://github.com/kyoyama-kazusa</value>
+    <value>Author:</value>
   </data>
   <data name="AboutWindow_AuthorName" xml:space="preserve">
     <value>Kyouyama Kazusa</value>
   </data>
-  <data name="AboutWindow_Bilibili" xml:space="preserve">
-    <value>Bilibili Account</value>
-  </data>
-  <data name="AboutWindow_BilibiliName" xml:space="preserve">
-    <value>KyouyamaKazusa (23736703)</value>
-  </data>
-  <data name="AboutWindow_ClickMe" xml:space="preserve">
-    <value>Click me</value>
+  <data name="AboutWindow_GitHub" xml:space="preserve">
+    <value>GitHub:</value>
   </data>
   <data name="AboutWindow_Title" xml:space="preserve">
-    <value>About</value>
+    <value>About me</value>
   </data>
-  <data name="CreateNewCanvasWindow_BlockSize" xml:space="preserve">
-    <value>Size of blocks (in rows and columns):</value>
+  <data name="AboutWindow_ClickMe" xml:space="preserve">
+    <value>Link</value>
   </data>
-  <data name="CreateNewCanvasWindow_Cancel" xml:space="preserve">
-    <value>Cancel</value>
+  <data name="AboutWindow_GitHubPage" xml:space="preserve">
+    <value>https://github.com/kyoyama-kazusa</value>
   </data>
-  <data name="CreateNewCanvasWindow_CellSize" xml:space="preserve">
-    <value>Size of cell (in pixels):</value>
+  <data name="AboutWindow_Bilibili" xml:space="preserve">
+    <value>Bilibili:</value>
   </data>
-  <data name="CreateNewCanvasWindow_GridSize" xml:space="preserve">
-    <value>The number of rows and columns of grid:</value>
-  </data>
-  <data name="CreateNewCanvasWindow_Margin" xml:space="preserve">
-    <value>Margin (in pixels):</value>
-  </data>
-  <data name="CreateNewCanvasWindow_Okay" xml:space="preserve">
-    <value>Create!</value>
-  </data>
-  <data name="CreateNewCanvasWindow_OutputPictureSize" xml:space="preserve">
-    <value>Output picture size:</value>
-  </data>
-  <data name="CreateNewCanvasWindow_TabPage_LatinSquare" xml:space="preserve">
-    <value>Latin Square (No nonets)</value>
-  </data>
-  <data name="CreateNewCanvasWindow_TabPage_Standard" xml:space="preserve">
-    <value>Standard (Nonets included)</value>
-  </data>
-  <data name="CreateNewCanvasWindow_TargetPictureSizeStringDefaultValue" xml:space="preserve">
-    <value>&lt;Unknown&gt;</value>
-  </data>
-  <data name="CreateNewCanvasWindow_Title" xml:space="preserve">
-    <value>Create a new canvas...</value>
-  </data>
-  <data name="CreateNewCanvasWindow_Vector" xml:space="preserve">
-    <value>External size of grid (in number of rows and columns):</value>
-  </data>
-  <data name="CreateNewCanvasWindow_VectorBottom" xml:space="preserve">
-    <value>Bottom:</value>
-  </data>
-  <data name="CreateNewCanvasWindow_VectorLeft" xml:space="preserve">
-    <value>Left:</value>
-  </data>
-  <data name="CreateNewCanvasWindow_VectorRight" xml:space="preserve">
-    <value>Right:</value>
-  </data>
-  <data name="CreateNewCanvasWindow_VectorTop" xml:space="preserve">
-    <value>External size on top:</value>
-  </data>
-  <data name="MainWindow_MenuItem_About" xml:space="preserve">
-    <value>About</value>
-  </data>
-  <data name="MainWindow_MenuItem_Close" xml:space="preserve">
-    <value>Close the current canvas</value>
-  </data>
-  <data name="MainWindow_MenuItem_Create" xml:space="preserve">
-    <value>Create a new canvas</value>
+  <data name="AboutWindow_BilibiliPage" xml:space="preserve">
+    <value>https://space.bilibili.com/23736703</value>
   </data>
   <data name="MainWindow_MenuItem_File" xml:space="preserve">
     <value>File</value>
   </data>
+  <data name="MainWindow_MenuItem_About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="MainWindow_MenuItem_CreateCanvas" xml:space="preserve">
+    <value>Create new canvas...</value>
+  </data>
+  <data name="MainWindow_MenuItem_AboutMe" xml:space="preserve">
+    <value>About me</value>
+  </data>
+  <data name="MainWindow_MenuItem_Title" xml:space="preserve">
+    <value>Sudoku Painter</value>
+  </data>
   <data name="MainWindow_MenuItem_Quit" xml:space="preserve">
     <value>Quit</value>
   </data>
-  <data name="MainWindow_MenuItem_Save" xml:space="preserve">
-    <value>Save</value>
+  <data name="MainWindow_MenuItem_CloseCanvas" xml:space="preserve">
+    <value>Close this canvas</value>
   </data>
-  <data name="MainWindow_Title" xml:space="preserve">
-    <value>Sudoku Graphics</value>
+  <data name="MainWindow_MenuItem_SaveCanvas" xml:space="preserve">
+    <value>Save this canvas to...</value>
   </data>
-  <data name="SaveFileDialog_Filters" xml:space="preserve">
-    <value>PNG Image (*.png)|*.png|JPEG Image (*.jpg;*.jpeg)|*.jpg;*.jpeg|Bitmap Image (*.bmp)|*.bmp</value>
+  <data name="ItemType_None" xml:space="preserve">
+    <value>Default</value>
   </data>
-  <data name="SaveFileDialog_Title" xml:space="preserve">
-    <value>Save file to...</value>
+  <data name="MainWindow_CurrentMode" xml:space="preserve">
+    <value>Current:</value>
+  </data>
+  <data name="ItemTypeGroup_Basic" xml:space="preserve">
+    <value>Basic Items</value>
+  </data>
+  <data name="ItemType_Text_Given" xml:space="preserve">
+    <value>Given marks</value>
+  </data>
+  <data name="ItemType_Text_Modifiable" xml:space="preserve">
+    <value>Modifiable marks</value>
+  </data>
+  <data name="ItemType_Text_Candidate" xml:space="preserve">
+    <value>Candidates mark</value>
   </data>
 </root>

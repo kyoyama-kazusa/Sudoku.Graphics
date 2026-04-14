@@ -6,47 +6,44 @@
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	xmlns:local="clr-namespace:Sudoku.Graphics.UI.Views.OtherWindows"
 	xmlns:p="clr-namespace:Sudoku.Graphics.UI.Properties"
-	xmlns:vm="clr-namespace:Sudoku.Graphics.UI.ViewModels"
-	d:DataContext="{d:DesignInstance Type=vm:AboutWindowViewModel}"
+	d:DataContext="{d:DesignInstance Type=local:AboutWindow}"
 	mc:Ignorable="d"
-	Title="{x:Static p:Resources.AboutWindow_Title}"
-	MaxHeight="200"
-	Width="400"
-	ResizeMode="NoResize"
-	WindowStartupLocation="CenterOwner">
-	<Window.InputBindings>
-		<KeyBinding Gesture="Ctrl+W" Command="{Binding CloseCommand}"/>
-	</Window.InputBindings>
-
-	<Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="100,*" Margin="10">
-		<Grid.Resources>
-			<Style TargetType="TextBlock">
-				<Setter Property="Margin" Value="0,4"/>
+	Title="{x:Static p:LocalizationResources.AboutWindow_Title}"
+	Width="300" Height="200"
+	ResizeMode="NoResize">
+	<StackPanel>
+		<StackPanel.Resources>
+			<Style TargetType="StackPanel">
+				<Setter Property="Margin" Value="0,6" />
 			</Style>
-		</Grid.Resources>
-		<TextBlock Grid.Row="0" Grid.Column="0">
-			<Bold>
-				<Run Text="{x:Static p:Resources.AboutWindow_Author}"/>
-			</Bold>
-		</TextBlock>
-		<TextBlock Grid.Row="0" Grid.Column="1" Text="{x:Static p:Resources.AboutWindow_AuthorName}"/>
-		<TextBlock Grid.Row="1" Grid.Column="0">
-			<Bold>
-				<Run Text="{x:Static p:Resources.AboutWindow_AuthorGitHub}"/>
-			</Bold>
-		</TextBlock>
-		<TextBlock Grid.Row="1" Grid.Column="1">
-			<Hyperlink NavigateUri="{Binding GitHubPage}" RequestNavigate="Hyperlink_RequestNavigate">
-				<Hyperlink.Inlines>
-					<Run Text="{x:Static p:Resources.AboutWindow_ClickMe}"/>
-				</Hyperlink.Inlines>
-			</Hyperlink>
-		</TextBlock>
-		<TextBlock Grid.Row="2" Grid.Column="0">
-			<Bold>
-				<Run Text="{x:Static p:Resources.AboutWindow_Bilibili}"/>
-			</Bold>
-		</TextBlock>
-		<TextBlock Grid.Row="2" Grid.Column="1" Text="{x:Static p:Resources.AboutWindow_BilibiliName}"/>
-	</Grid>
+			<Style TargetType="TextBlock">
+				<Setter Property="Margin" Value="20,0,0,0" />
+			</Style>
+		</StackPanel.Resources>
+		
+		<StackPanel Orientation="Horizontal">
+			<TextBlock FontWeight="Bold" Text="{x:Static p:LocalizationResources.AboutWindow_Author}" />
+			<TextBlock Text="{x:Static p:LocalizationResources.AboutWindow_AuthorName}" />
+		</StackPanel>
+		<StackPanel Orientation="Horizontal">
+			<TextBlock FontWeight="Bold" Text="{x:Static p:LocalizationResources.AboutWindow_GitHub}" />
+			<TextBlock Grid.Row="1" Grid.Column="1">
+				<Hyperlink NavigateUri="{x:Static local:AboutWindow.GitHubPage}" RequestNavigate="Hyperlink_RequestNavigate">
+					<Hyperlink.Inlines>
+						<Run Text="{x:Static p:LocalizationResources.AboutWindow_ClickMe}"/>
+					</Hyperlink.Inlines>
+				</Hyperlink>
+			</TextBlock>
+		</StackPanel>
+		<StackPanel Orientation="Horizontal">
+			<TextBlock FontWeight="Bold" Text="{x:Static p:LocalizationResources.AboutWindow_Bilibili}" />
+			<TextBlock Grid.Row="1" Grid.Column="1">
+				<Hyperlink NavigateUri="{x:Static local:AboutWindow.BilibiliPage}" RequestNavigate="Hyperlink_RequestNavigate">
+					<Hyperlink.Inlines>
+						<Run Text="{x:Static p:LocalizationResources.AboutWindow_ClickMe}"/>
+					</Hyperlink.Inlines>
+				</Hyperlink>
+			</TextBlock>
+		</StackPanel>
+	</StackPanel>
 </Window>
