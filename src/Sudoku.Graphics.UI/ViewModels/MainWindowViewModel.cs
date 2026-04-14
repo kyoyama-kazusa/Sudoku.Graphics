@@ -54,23 +54,23 @@ internal sealed partial class MainWindowViewModel : ObservableObject
 			return;
 		}
 
-		var w = bmp.PixelWidth;
-		var h = bmp.PixelHeight;
-		if (w <= 0 || h <= 0)
+		var width = bmp.PixelWidth;
+		var height = bmp.PixelHeight;
+		if (width <= 0 || height <= 0)
 		{
 			GridDisplayWidth = 0;
 			GridDisplayHeight = 0;
 			return;
 		}
 
-		var scale = Math.Min(800D / w, 800D / h);
+		var scale = Math.Min(800D / width, 800D / height);
 		if (scale > 1)
 		{
 			scale = 1;
 		}
 
-		GridDisplayWidth = w * scale;
-		GridDisplayHeight = h * scale;
+		GridDisplayWidth = width * scale;
+		GridDisplayHeight = height * scale;
 	}
 
 	partial void OnRenderedImageChanged(ImageSource? value) => UpdateDisplaySize();
