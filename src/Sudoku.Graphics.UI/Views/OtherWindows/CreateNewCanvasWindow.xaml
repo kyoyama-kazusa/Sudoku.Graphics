@@ -12,7 +12,9 @@
 	mc:Ignorable="d"
 	Title="{x:Static p:Resources.CreateNewCanvasWindow_Title}"
 	ResizeMode="NoResize"
-	WindowStartupLocation="CenterOwner">
+	WindowStartupLocation="CenterOwner"
+	Width="800"
+	Height="600">
 	<Window.Resources>
 		<Style TargetType="TextBox">
 			<Setter Property="Width" Value="60"/>
@@ -28,15 +30,15 @@
 	<StackPanel>
 		<!--Segmented-->
 		<TabControl
-            Margin="6"
-            ItemsSource="{Binding Tabs}"
-            SelectedItem="{Binding SelectedTab,UpdateSourceTrigger=PropertyChanged}">
-            <TabControl.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding Title}" Margin="3"/>
-                </DataTemplate>
-            </TabControl.ItemTemplate>
-        </TabControl>
+			Margin="6"
+			ItemsSource="{Binding Tabs}"
+			SelectedItem="{Binding SelectedTab,UpdateSourceTrigger=PropertyChanged}">
+			<TabControl.ItemTemplate>
+				<DataTemplate>
+					<TextBlock Text="{Binding Title}" Margin="3"/>
+				</DataTemplate>
+			</TabControl.ItemTemplate>
+		</TabControl>
 
 		<!--Output picture size-->
 		<StackPanel Margin="0,6" Orientation="Horizontal">
@@ -45,7 +47,7 @@
 					<Run Text="{x:Static p:Resources.CreateNewCanvasWindow_OutputPictureSize}"/>
 				</Bold>
 			</TextBlock>
-            <TextBlock Text="{Binding SelectedTab.TargetPictureSizeString,UpdateSourceTrigger=PropertyChanged}"/>
+			<TextBlock Text="{Binding SelectedTab.TargetPictureSizeString,UpdateSourceTrigger=PropertyChanged}"/>
 		</StackPanel>
 
 		<!--Buttons-->

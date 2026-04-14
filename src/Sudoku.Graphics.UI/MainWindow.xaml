@@ -10,7 +10,8 @@
 	mc:Ignorable="d"
 	Title="{x:Static p:Resources.MainWindow_Title}"
 	Height="900"
-	Width="1600">
+	Width="1600"
+	WindowStartupLocation="CenterScreen">
 	<Window.InputBindings>
 		<KeyBinding Gesture="Ctrl+N" Command="{Binding OpenCreateNewCanvasCommand}"/>
 		<KeyBinding Gesture="Ctrl+W" Command="{Binding CloseCommand}"/>
