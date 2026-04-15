@@ -6476,6 +6476,27 @@
         <member name="M:Sudoku.Graphics.ThicknessExtensions.&lt;G&gt;$2F63DBA80350D211AAABE8DD05DD259B`1.op_CheckedSubtraction(Sudoku.Graphics.Thickness{`0},Sudoku.Graphics.Thickness{`0})">
             <inheritdoc cref="M:System.Numerics.ISubtractionOperators`3.op_CheckedSubtraction(`0,`1)"/>
         </member>
+        <member name="T:Sudoku.Notation.GridNotation">
+            <summary>
+            Provides a way to represent a grid using a <see cref="T:System.String"/> value.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Notation.GridNotation.CharToIndex(System.Char)">
+            <summary>
+            Converts the specified character into index between 0 and 109.
+            </summary>
+            <param name="ch">The character.</param>
+            <returns>The index to that character.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Throws when the character is not supported.</exception>
+        </member>
+        <member name="M:Sudoku.Notation.GridNotation.IndexToChar(System.Int32)">
+            <summary>
+            Converts the specified index into character.
+            </summary>
+            <param name="index">The index between 0 and 109.</param>
+            <returns>The character.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Throws when the value is out of range.</exception>
+        </member>
         <member name="T:Sudoku.Resources.Resource">
             <summary>
               A strongly-typed resource class, for looking up localized strings, etc.
