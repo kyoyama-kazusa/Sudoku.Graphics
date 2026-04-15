@@ -133,6 +133,168 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string CreateNewCanvasWindow_Cancel {
+            get {
+                return ResourceManager.GetString("CreateNewCanvasWindow_Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cell size.
+        /// </summary>
+        public static string CreateNewCanvasWindow_CellSize {
+            get {
+                return ResourceManager.GetString("CreateNewCanvasWindow_CellSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create.
+        /// </summary>
+        public static string CreateNewCanvasWindow_Create {
+            get {
+                return ResourceManager.GetString("CreateNewCanvasWindow_Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default Template.
+        /// </summary>
+        public static string CreateNewCanvasWindow_DefaultTemplate {
+            get {
+                return ResourceManager.GetString("CreateNewCanvasWindow_DefaultTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Treat border as thick lines.
+        /// </summary>
+        public static string CreateNewCanvasWindow_DrawBordersAsThickLines {
+            get {
+                return ResourceManager.GetString("CreateNewCanvasWindow_DrawBordersAsThickLines", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable rounded rectangle.
+        /// </summary>
+        public static string CreateNewCanvasWindow_IsBorderRoundedRectangle {
+            get {
+                return ResourceManager.GetString("CreateNewCanvasWindow_IsBorderRoundedRectangle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of columns of column.
+        /// </summary>
+        public static string CreateNewCanvasWindow_NumberOfBlockColumns {
+            get {
+                return ResourceManager.GetString("CreateNewCanvasWindow_NumberOfBlockColumns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of rows of block.
+        /// </summary>
+        public static string CreateNewCanvasWindow_NumberOfBlockRows {
+            get {
+                return ResourceManager.GetString("CreateNewCanvasWindow_NumberOfBlockRows", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of columns.
+        /// </summary>
+        public static string CreateNewCanvasWindow_NumberOfColumns {
+            get {
+                return ResourceManager.GetString("CreateNewCanvasWindow_NumberOfColumns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of rows.
+        /// </summary>
+        public static string CreateNewCanvasWindow_NumberOfRows {
+            get {
+                return ResourceManager.GetString("CreateNewCanvasWindow_NumberOfRows", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Margin of rendered grid (pixels).
+        /// </summary>
+        public static string CreateNewCanvasWindow_RenderedGridMargin {
+            get {
+                return ResourceManager.GetString("CreateNewCanvasWindow_RenderedGridMargin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Standard Template.
+        /// </summary>
+        public static string CreateNewCanvasWindow_StandardTemplate {
+            get {
+                return ResourceManager.GetString("CreateNewCanvasWindow_StandardTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create a new canvas.
+        /// </summary>
+        public static string CreateNewCanvasWindow_Title {
+            get {
+                return ResourceManager.GetString("CreateNewCanvasWindow_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of reserved outside lines.
+        /// </summary>
+        public static string CreateNewCanvasWindow_Vector {
+            get {
+                return ResourceManager.GetString("CreateNewCanvasWindow_Vector", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bottom.
+        /// </summary>
+        public static string CreateNewCanvasWindow_VectorBottom {
+            get {
+                return ResourceManager.GetString("CreateNewCanvasWindow_VectorBottom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Left.
+        /// </summary>
+        public static string CreateNewCanvasWindow_VectorLeft {
+            get {
+                return ResourceManager.GetString("CreateNewCanvasWindow_VectorLeft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Right.
+        /// </summary>
+        public static string CreateNewCanvasWindow_VectorRight {
+            get {
+                return ResourceManager.GetString("CreateNewCanvasWindow_VectorRight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Top.
+        /// </summary>
+        public static string CreateNewCanvasWindow_VectorTop {
+            get {
+                return ResourceManager.GetString("CreateNewCanvasWindow_VectorTop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Default.
         /// </summary>
         public static string ItemType_None {
@@ -255,6 +417,24 @@ namespace Sudoku.Graphics.UI.Properties {
         public static string MainWindow_MenuItem_Title {
             get {
                 return ResourceManager.GetString("MainWindow_MenuItem_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PNG Files (*.png)|*.png|JPEG Files (*.jpeg;*.jpg)|*.jpeg;*.jpg|BMP Files (*.bmp)|*.bmp.
+        /// </summary>
+        public static string SaveFileDialog_Filters {
+            get {
+                return ResourceManager.GetString("SaveFileDialog_Filters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save canvas as file.
+        /// </summary>
+        public static string SaveFileDialog_Title {
+            get {
+                return ResourceManager.GetString("SaveFileDialog_Title", resourceCulture);
             }
         }
     }

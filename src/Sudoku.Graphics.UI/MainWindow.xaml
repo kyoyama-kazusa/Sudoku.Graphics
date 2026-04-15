@@ -52,10 +52,10 @@
 					Click="AboutMeMenuItem_Click" />
 			</MenuItem>
 		</Menu>
-		<Border Grid.Row="1" Grid.Column="0" CornerRadius="6" BorderThickness="2" Margin="16">
+		<Border Grid.Row="1" Grid.Column="0" BorderThickness="2" Margin="16">
 			<Image Width="800" Height="800" Source="{Binding GridImageSource}" />
 		</Border>
-		<Border Grid.Row="1" Grid.Column="1" CornerRadius="6" BorderThickness="2" Margin="16">
+		<Border Grid.Row="1" Grid.Column="1" BorderThickness="2" Margin="16">
 			<Grid RowDefinitions="Auto,*">
 				<Border Grid.Row="0" BorderBrush="DimGray" BorderThickness="0,0,0,1">
 					<TextBlock FontSize="20" Margin="8,12,0,12">

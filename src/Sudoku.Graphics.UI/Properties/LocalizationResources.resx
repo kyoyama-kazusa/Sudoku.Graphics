@@ -183,4 +183,64 @@
   <data name="ItemType_Text_Candidate" xml:space="preserve">
     <value>Candidates mark</value>
   </data>
+  <data name="CreateNewCanvasWindow_Title" xml:space="preserve">
+    <value>Create a new canvas</value>
+  </data>
+  <data name="CreateNewCanvasWindow_CellSize" xml:space="preserve">
+    <value>Cell size</value>
+  </data>
+  <data name="CreateNewCanvasWindow_StandardTemplate" xml:space="preserve">
+    <value>Standard Template</value>
+  </data>
+  <data name="CreateNewCanvasWindow_DefaultTemplate" xml:space="preserve">
+    <value>Default Template</value>
+  </data>
+  <data name="CreateNewCanvasWindow_Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="CreateNewCanvasWindow_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CreateNewCanvasWindow_NumberOfRows" xml:space="preserve">
+    <value>Number of rows</value>
+  </data>
+  <data name="CreateNewCanvasWindow_NumberOfColumns" xml:space="preserve">
+    <value>Number of columns</value>
+  </data>
+  <data name="CreateNewCanvasWindow_RenderedGridMargin" xml:space="preserve">
+    <value>Margin of rendered grid (pixels)</value>
+  </data>
+  <data name="CreateNewCanvasWindow_Vector" xml:space="preserve">
+    <value>Number of reserved outside lines</value>
+  </data>
+  <data name="CreateNewCanvasWindow_VectorTop" xml:space="preserve">
+    <value>Top</value>
+  </data>
+  <data name="CreateNewCanvasWindow_VectorBottom" xml:space="preserve">
+    <value>Bottom</value>
+  </data>
+  <data name="CreateNewCanvasWindow_VectorLeft" xml:space="preserve">
+    <value>Left</value>
+  </data>
+  <data name="CreateNewCanvasWindow_VectorRight" xml:space="preserve">
+    <value>Right</value>
+  </data>
+  <data name="CreateNewCanvasWindow_NumberOfBlockRows" xml:space="preserve">
+    <value>Number of rows of block</value>
+  </data>
+  <data name="CreateNewCanvasWindow_NumberOfBlockColumns" xml:space="preserve">
+    <value>Number of columns of column</value>
+  </data>
+  <data name="CreateNewCanvasWindow_IsBorderRoundedRectangle" xml:space="preserve">
+    <value>Enable rounded rectangle</value>
+  </data>
+  <data name="CreateNewCanvasWindow_DrawBordersAsThickLines" xml:space="preserve">
+    <value>Treat border as thick lines</value>
+  </data>
+  <data name="SaveFileDialog_Title" xml:space="preserve">
+    <value>Save canvas as file</value>
+  </data>
+  <data name="SaveFileDialog_Filters" xml:space="preserve">
+    <value>PNG Files (*.png)|*.png|JPEG Files (*.jpeg;*.jpg)|*.jpeg;*.jpg|BMP Files (*.bmp)|*.bmp</value>
+  </data>
 </root>

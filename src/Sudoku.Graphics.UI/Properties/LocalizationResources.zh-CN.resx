@@ -177,4 +177,64 @@
   <data name="ItemType_Text_Candidate" xml:space="preserve">
     <value>候选数标注</value>
   </data>
+  <data name="CreateNewCanvasWindow_Title" xml:space="preserve">
+    <value>创建一个新的画布</value>
+  </data>
+  <data name="CreateNewCanvasWindow_CellSize" xml:space="preserve">
+    <value>单元格尺寸</value>
+  </data>
+  <data name="CreateNewCanvasWindow_StandardTemplate" xml:space="preserve">
+    <value>标准模板</value>
+  </data>
+  <data name="CreateNewCanvasWindow_DefaultTemplate" xml:space="preserve">
+    <value>无宫模板</value>
+  </data>
+  <data name="CreateNewCanvasWindow_Create" xml:space="preserve">
+    <value>创建</value>
+  </data>
+  <data name="CreateNewCanvasWindow_Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="CreateNewCanvasWindow_NumberOfRows" xml:space="preserve">
+    <value>行的数量</value>
+  </data>
+  <data name="CreateNewCanvasWindow_NumberOfColumns" xml:space="preserve">
+    <value>列的数量</value>
+  </data>
+  <data name="CreateNewCanvasWindow_RenderedGridMargin" xml:space="preserve">
+    <value>盘面边缘留白（像素）</value>
+  </data>
+  <data name="CreateNewCanvasWindow_Vector" xml:space="preserve">
+    <value>盘面外提示数预留行列数</value>
+  </data>
+  <data name="CreateNewCanvasWindow_VectorTop" xml:space="preserve">
+    <value>顶部预留行数</value>
+  </data>
+  <data name="CreateNewCanvasWindow_VectorBottom" xml:space="preserve">
+    <value>底部预留行数</value>
+  </data>
+  <data name="CreateNewCanvasWindow_VectorLeft" xml:space="preserve">
+    <value>左边预留列数</value>
+  </data>
+  <data name="CreateNewCanvasWindow_VectorRight" xml:space="preserve">
+    <value>右边预留列数</value>
+  </data>
+  <data name="CreateNewCanvasWindow_NumberOfBlockRows" xml:space="preserve">
+    <value>宫所占的行数</value>
+  </data>
+  <data name="CreateNewCanvasWindow_NumberOfBlockColumns" xml:space="preserve">
+    <value>宫所占的列数</value>
+  </data>
+  <data name="CreateNewCanvasWindow_IsBorderRoundedRectangle" xml:space="preserve">
+    <value>为盘面启用圆角</value>
+  </data>
+  <data name="CreateNewCanvasWindow_DrawBordersAsThickLines" xml:space="preserve">
+    <value>按粗线绘制最外侧边框线</value>
+  </data>
+  <data name="SaveFileDialog_Title" xml:space="preserve">
+    <value>将画布保存到文件</value>
+  </data>
+  <data name="SaveFileDialog_Filters" xml:space="preserve">
+    <value>PNG 文件（*.png）|*.png|JPEG 文件（*.jpeg;*.jpg）|*.jpeg;*.jpg|BMP 文件（*.bmp）|*.bmp</value>
+  </data>
 </root>
