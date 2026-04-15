@@ -1,8 +1,4 @@
-﻿using System.IO;
-using System.Windows.Media.Imaging;
-using Microsoft.Win32;
-
-namespace Sudoku.Graphics.UI;
+﻿namespace Sudoku.Graphics.UI;
 
 /// <summary>
 /// Interaction logic for MainWindow.xaml.
@@ -19,7 +15,7 @@ public partial class MainWindow : Window
 
 
 	[ObservableProperty]
-	public partial string CurrentModeString { get; set; } = string.Empty;
+	public partial string CurrentModeString { get; set; } = LocalizationResources.ResourceManager.GetString($"{nameof(ItemType)}_{ItemType.None}")!;
 
 	[ObservableProperty]
 	public partial ItemType CurrentItemType { get; set; } = ItemType.None;
