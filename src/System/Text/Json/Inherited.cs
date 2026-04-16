@@ -376,7 +376,6 @@ file sealed class GenericConverter<T>(JsonSerializerOptions _options) : JsonConv
 		using var doc = JsonDocument.Parse(bytes);
 		var root = doc.RootElement;
 
-
 		// If inner value is a string, we should encapsulate as an object in order to provide a way
 		// to distinct from referenced property name and value string.
 		// In edge cases, a type can be implemented a customized JSON converter that will also serialize into a string value,
