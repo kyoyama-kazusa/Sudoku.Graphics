@@ -18,10 +18,12 @@
 		</Style>
 	</Window.Resources>
 	<Window.InputBindings>
-		<KeyBinding Gesture="Ctrl+N" Command="{Binding CreateCanvasCommand}" />
-		<KeyBinding Gesture="Ctrl+W" Command="{Binding CloseCanvasCommand}" />
-		<KeyBinding Gesture="Ctrl+S" Command="{Binding SaveCanvasCommand}" />
 		<KeyBinding Gesture="Alt+F4" Command="{Binding QuitCommand}" />
+		<KeyBinding Gesture="Ctrl+N" Command="{Binding CreateCanvasCommand}" />
+		<KeyBinding Gesture="Ctrl+O" Command="{Binding LoadFromLocalCommand}" />
+		<KeyBinding Gesture="Ctrl+S" Command="{Binding SaveCanvasCommand}" />
+		<KeyBinding Gesture="Ctrl+W" Command="{Binding CloseCanvasCommand}" />
+		<KeyBinding Gesture="F12" Command="{Binding SaveAsJsonCommand}" />
 	</Window.InputBindings>
 	
 	<Grid RowDefinitions="Auto,Auto,*" ColumnDefinitions="Auto,*">
@@ -39,6 +41,15 @@
 					Header="{x:Static p:LocalizationResources.MainWindow_MenuItem_SaveCanvas}"
 					Command="{Binding SaveCanvasCommand}"
 					InputGestureText="Ctrl+S" />
+				<Separator />
+				<MenuItem
+					Header="{x:Static p:LocalizationResources.MainWindow_MenuItem_LoadCanvasFromLocal}"
+					Command="{Binding LoadFromLocalCommand}"
+					InputGestureText="Ctrl+O" />
+				<MenuItem
+					Header="{x:Static p:LocalizationResources.MainWindow_MenuItem_SaveAsConfig}"
+					Command="{Binding SaveAsJsonCommand}"
+					InputGestureText="F12" />
 				<Separator />
 				<MenuItem
 					Header="{x:Static p:LocalizationResources.MainWindow_MenuItem_Quit}"

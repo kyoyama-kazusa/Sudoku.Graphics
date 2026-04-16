@@ -6,6 +6,57 @@
 [INotifyPropertyChanged]
 public partial class MainWindow : Window
 {
+	/// <summary>
+	/// Indicates the threshold of file size that can be loaded.
+	/// </summary>
+	private const long FileSizeThreshold = 10 * 1024 * 1024;
+
+
+	/// <summary>
+	/// Indicates basic serializer options.
+	/// </summary>
+	private static readonly JsonSerializerOptions SerializerOptions = new()
+	{
+		WriteIndented = true,
+		AllowTrailingCommas = false,
+		IncludeFields = false,
+		IgnoreReadOnlyFields = true,
+		IgnoreReadOnlyProperties = true,
+		AllowDuplicateProperties = false,
+		RespectNullableAnnotations = true,
+		RespectRequiredConstructorParameters = true,
+		PropertyNameCaseInsensitive = false,
+		AllowOutOfOrderMetadataProperties = true,
+		IndentCharacter = ' ',
+		IndentSize = 2,
+		MaxDepth = 8,
+		NewLine = "\r\n",
+		Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
+		PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+		DictionaryKeyPolicy = JsonNamingPolicy.CamelCase,
+		PreferredObjectCreationHandling = JsonObjectCreationHandling.Populate,
+		ReadCommentHandling = JsonCommentHandling.Skip,
+		UnknownTypeHandling = JsonUnknownTypeHandling.JsonElement,
+		DefaultIgnoreCondition = JsonIgnoreCondition.Never,
+		UnmappedMemberHandling = JsonUnmappedMemberHandling.Skip,
+		NumberHandling = JsonNumberHandling.AllowReadingFromString | JsonNumberHandling.AllowNamedFloatingPointLiterals,
+		TypeInfoResolver = JsonTypeInfoResolver.Combine(
+			JsonTypeInfoResolver.Create<Template>(),
+			JsonTypeInfoResolver.Create<Item>(),
+			new DefaultJsonTypeInfoResolver()
+		),
+		Converters =
+		{
+			new JsonStringEnumConverter()
+		}
+	};
+
+
+	private ItemSet _items = [];
+
+	private Canvas? _canvas;
+
+
 	public MainWindow()
 	{
 		InitializeComponent();
@@ -15,7 +66,7 @@ public partial class MainWindow : Window
 
 
 	[ObservableProperty]
-	public partial string CurrentModeString { get; set; } = LocalizationResources.ResourceManager.GetString($"{nameof(ItemType)}_{ItemType.None}")!;
+	public partial string CurrentModeString { get; set; } = LocalizationResources.ResourceManager.GetString("ItemType_None")!;
 
 	[ObservableProperty]
 	public partial ItemType CurrentItemType { get; set; } = ItemType.None;
@@ -23,11 +74,15 @@ public partial class MainWindow : Window
 	[ObservableProperty]
 	public partial ImageSource? GridImageSource { get; set; }
 
-	public ICommand CreateCanvasCommand => new RelayCommand(RenderPicture);
+	public ICommand CreateCanvasCommand => new RelayCommand(OpenCreateCanvasWindowAndRenderPicture);
 
-	public ICommand CloseCanvasCommand => new RelayCommand(() => GridImageSource = null);
+	public ICommand CloseCanvasCommand => new RelayCommand(ClosePicture);
 
-	public ICommand SaveCanvasCommand => new RelayCommand(SaveGridImageAsFile);
+	public ICommand SaveCanvasCommand => new RelayCommand(SaveAsPictureFile);
+
+	public ICommand SaveAsJsonCommand => new AsyncRelayCommand(SaveAsJsonFileAsync);
+
+	public ICommand LoadFromLocalCommand => new AsyncRelayCommand(LoadFromJsonFileAsync);
 
 	public ICommand QuitCommand => new RelayCommand(Close);
 
@@ -42,8 +97,13 @@ public partial class MainWindow : Window
 		}
 	}
 
-	private void RenderPicture()
+	private void OpenCreateCanvasWindowAndRenderPicture()
 	{
+		if (GridImageSource is not null)
+		{
+			ClosePicture();
+		}
+
 		var window = new CreateNewCanvasWindow { Owner = this };
 		var result = window.ShowDialog();
 		if (result is not true)
@@ -51,18 +111,53 @@ public partial class MainWindow : Window
 			return;
 		}
 
-		var template = window.CreateTemplate();
-		var canvas = new Canvas(template);
-		canvas.DrawItems(
-			new BackgroundFillItem { Color = SKColors.White }, // Config
-			new TemplateLineItem()
-		);
+		InitializeItems();
+		ReinitializeCanvasAndItems([window.CreateTemplate()]);
+		RenderPicture();
+	}
 
-		using var image = canvas.Surface.Snapshot();
+	[MemberNotNull(nameof(_items))]
+	private void ReinitializeCanvasAndItems(ItemSet items) => _items = items;
+
+	[MemberNotNull(nameof(_canvas))]
+	private void ReinitializeCanvasAndItems(Template[] templates) => _canvas = new(templates);
+
+	[MemberNotNull(nameof(_items), nameof(_canvas))]
+	private void ReinitializeCanvasAndItems(Template[] templates, ItemSet items)
+	{
+		ReinitializeCanvasAndItems(templates);
+		ReinitializeCanvasAndItems(items);
+	}
+
+	private void DrawItemsToCanvas() => _canvas?.DrawItems(_items);
+
+	private void RenderPicture()
+	{
+		if (_canvas is null)
+		{
+			return;
+		}
+
+		DrawItemsToCanvas();
+
+		using var image = _canvas.Surface.Snapshot();
 		GridImageSource = image.ToWriteableBitmap();
 	}
 
-	private void SaveGridImageAsFile()
+	private void ClosePicture()
+	{
+		GridImageSource = null;
+		_canvas = null;
+		_items.Clear();
+	}
+
+	private void InitializeItems()
+	{
+		_items.Add(new BackgroundFillItem { Color = SKColors.White }); // Config
+		_items.Add(new TemplateLineItem());
+	}
+
+	private void SaveAsPictureFile()
 	{
 		if (GridImageSource is null)
 		{
@@ -92,14 +187,70 @@ public partial class MainWindow : Window
 			}
 		);
 
-		encoder.Frames.Add(BitmapFrame.Create((BitmapSource)GridImageSource));
+		encoder.Frames.Add(BitmapFrame.Create(GridImageSource));
 		using var stream = File.Create(filePath);
 		encoder.Save(stream);
 	}
 
+	private async Task SaveAsJsonFileAsync()
+	{
+		if (GridImageSource is null)
+		{
+			return;
+		}
+
+		var dialog = new SaveFileDialog
+		{
+			Title = LocalizationResources.SaveFileDialog_Title_Json,
+			Filter = LocalizationResources.SaveFileDialog_Filters_Json,
+			DefaultExt = ".json",
+			AddExtension = true
+		};
+		var filePath = dialog.ShowDialog() is true ? dialog.FileName : null;
+		if (filePath is null)
+		{
+			return;
+		}
+
+		var canvasInfo = new CanvasInfo(_canvas?.Templates, _items);
+		var json = JsonSerializer.Serialize(canvasInfo, SerializerOptions);
+		await File.WriteAllTextAsync(filePath, json);
+	}
+
+	private async Task LoadFromJsonFileAsync()
+	{
+		var dialog = new OpenFileDialog
+		{
+			Title = LocalizationResources.OpenFileDialog_Title_Json,
+			Filter = LocalizationResources.OpenFileDialog_Filters_Json,
+			DefaultExt = ".json",
+			AddExtension = true
+		};
+		var filePath = dialog.ShowDialog() is true ? dialog.FileName : null;
+		if (filePath is null)
+		{
+			return;
+		}
+
+		if (new FileInfo(filePath).Length > FileSizeThreshold)
+		{
+			MessageBox.Show(this, LocalizationResources.MessageBox_FileLengthExceeded);
+			return;
+		}
+
+		var json = await File.ReadAllTextAsync(filePath);
+		if (JsonSerializer.Deserialize<CanvasInfo>(json, SerializerOptions) is not ({ } templates, { } items))
+		{
+			return;
+		}
+
+		ReinitializeCanvasAndItems(templates, items);
+		RenderPicture();
+	}
+
 	partial void OnCurrentItemTypeChanged(ItemType value)
 	{
-		var modeString = LocalizationResources.ResourceManager.GetString($"{nameof(ItemType)}_{value}");
+		var modeString = LocalizationResources.ResourceManager.GetString($"ItemType_{value}");
 		if (modeString is not null)
 		{
 			CurrentModeString = modeString;

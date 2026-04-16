@@ -163,7 +163,7 @@
     <value>Close this canvas</value>
   </data>
   <data name="MainWindow_MenuItem_SaveCanvas" xml:space="preserve">
-    <value>Save this canvas to...</value>
+    <value>Save picture to...</value>
   </data>
   <data name="ItemType_None" xml:space="preserve">
     <value>Default</value>
@@ -238,9 +238,30 @@
     <value>Treat border as thick lines</value>
   </data>
   <data name="SaveFileDialog_Title" xml:space="preserve">
-    <value>Save canvas as file</value>
+    <value>Save canvas as picture</value>
   </data>
   <data name="SaveFileDialog_Filters" xml:space="preserve">
     <value>PNG Files (*.png)|*.png|JPEG Files (*.jpeg;*.jpg)|*.jpeg;*.jpg|BMP Files (*.bmp)|*.bmp</value>
+  </data>
+  <data name="MainWindow_MenuItem_LoadCanvasFromLocal" xml:space="preserve">
+    <value>Load file...</value>
+  </data>
+  <data name="MainWindow_MenuItem_SaveAsConfig" xml:space="preserve">
+    <value>Save as config to...</value>
+  </data>
+  <data name="SaveFileDialog_Filters_Json" xml:space="preserve">
+    <value>JSON File (*.json)|*.json</value>
+  </data>
+  <data name="SaveFileDialog_Title_Json" xml:space="preserve">
+    <value>Save canvas as config</value>
+  </data>
+  <data name="OpenFileDialog_Title_Json" xml:space="preserve">
+    <value>Load config file</value>
+  </data>
+  <data name="OpenFileDialog_Filters_Json" xml:space="preserve">
+    <value>JSON File (*.json)|*.json</value>
+  </data>
+  <data name="MessageBox_FileLengthExceeded" xml:space="preserve">
+    <value>File is greater than 10 MB, which is not allowed in this program due to too large.</value>
   </data>
 </root>

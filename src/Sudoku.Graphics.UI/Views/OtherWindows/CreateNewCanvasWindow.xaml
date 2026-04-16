@@ -74,7 +74,7 @@
 					Mode=OneWay,
 					UpdateSourceTrigger=PropertyChanged,
 					Converter={StaticResource TemplateModeToVisibilityConverter},
-					ConverterParameter={x:Static local:CreateCanvasMode.StandardTemplate}}">
+					ConverterParameter={x:Static local:CurrentCreateTemplateType.StandardTemplate}}">
 				<TextBlock
 					Style="{StaticResource PropertyNameTextBlockStyle}"
 					Text="{x:Static p:LocalizationResources.CreateNewCanvasWindow_NumberOfBlockRows}" />
@@ -86,7 +86,7 @@
 					Mode=OneWay,
 					UpdateSourceTrigger=PropertyChanged,
 					Converter={StaticResource TemplateModeToVisibilityConverter},
-					ConverterParameter={x:Static local:CreateCanvasMode.StandardTemplate}}">
+					ConverterParameter={x:Static local:CurrentCreateTemplateType.StandardTemplate}}">
 				<TextBlock
 					Style="{StaticResource PropertyNameTextBlockStyle}"
 					Text="{x:Static p:LocalizationResources.CreateNewCanvasWindow_NumberOfBlockColumns}" />
@@ -138,7 +138,7 @@
 					Mode=OneWay,
 					UpdateSourceTrigger=PropertyChanged,
 					Converter={StaticResource TemplateModeToVisibilityConverter},
-					ConverterParameter={x:Static local:CreateCanvasMode.DefaultTemplate}}">
+					ConverterParameter={x:Static local:CurrentCreateTemplateType.DefaultTemplate}}">
 				<CheckBox
 					Content="{x:Static p:LocalizationResources.CreateNewCanvasWindow_DrawBordersAsThickLines}"
 					IsThreeState="False"

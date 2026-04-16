@@ -394,6 +394,15 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Load file....
+        /// </summary>
+        public static string MainWindow_MenuItem_LoadCanvasFromLocal {
+            get {
+                return ResourceManager.GetString("MainWindow_MenuItem_LoadCanvasFromLocal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Quit.
         /// </summary>
         public static string MainWindow_MenuItem_Quit {
@@ -403,7 +412,16 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Save this canvas to....
+        ///   Looks up a localized string similar to Save as config to....
+        /// </summary>
+        public static string MainWindow_MenuItem_SaveAsConfig {
+            get {
+                return ResourceManager.GetString("MainWindow_MenuItem_SaveAsConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save picture to....
         /// </summary>
         public static string MainWindow_MenuItem_SaveCanvas {
             get {
@@ -421,6 +439,33 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to File is greater than 10 MB, which is not allowed in this program due to too large..
+        /// </summary>
+        public static string MessageBox_FileLengthExceeded {
+            get {
+                return ResourceManager.GetString("MessageBox_FileLengthExceeded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to JSON File (*.json)|*.json.
+        /// </summary>
+        public static string OpenFileDialog_Filters_Json {
+            get {
+                return ResourceManager.GetString("OpenFileDialog_Filters_Json", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Load config file.
+        /// </summary>
+        public static string OpenFileDialog_Title_Json {
+            get {
+                return ResourceManager.GetString("OpenFileDialog_Title_Json", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to PNG Files (*.png)|*.png|JPEG Files (*.jpeg;*.jpg)|*.jpeg;*.jpg|BMP Files (*.bmp)|*.bmp.
         /// </summary>
         public static string SaveFileDialog_Filters {
@@ -430,11 +475,29 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Save canvas as file.
+        ///   Looks up a localized string similar to JSON File (*.json)|*.json.
+        /// </summary>
+        public static string SaveFileDialog_Filters_Json {
+            get {
+                return ResourceManager.GetString("SaveFileDialog_Filters_Json", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save canvas as picture.
         /// </summary>
         public static string SaveFileDialog_Title {
             get {
                 return ResourceManager.GetString("SaveFileDialog_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save canvas as config.
+        /// </summary>
+        public static string SaveFileDialog_Title_Json {
+            get {
+                return ResourceManager.GetString("SaveFileDialog_Title_Json", resourceCulture);
             }
         }
     }

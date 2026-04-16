@@ -4,7 +4,7 @@ public sealed class TemplateModeToVisibilityConverter : IValueConverter
 {
 	/// <inheritdoc/>
 	public object? Convert(object? value, Type? targetType, object? parameter, CultureInfo? culture)
-		=> (value, parameter) is (CreateCanvasMode left, CreateCanvasMode right)
+		=> (value, parameter) is (CurrentCreateTemplateType left, CurrentCreateTemplateType right)
 			? left == right ? Visibility.Visible : Visibility.Collapsed
 			: throw new NotSupportedException();
 

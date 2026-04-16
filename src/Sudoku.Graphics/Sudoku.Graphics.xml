@@ -514,6 +514,40 @@
             Indicates the quality. Range 0..100. Default 80.
             </summary>
         </member>
+        <member name="T:Sudoku.Graphics.CanvasInfo">
+            <summary>
+            Represents a type that stores basic information of a <see cref="T:Sudoku.Graphics.Canvas"/> that can be used in serialization.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.CanvasInfo.#ctor">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Graphics.CanvasInfo"/> instance.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.CanvasInfo.#ctor(Sudoku.Graphics.Templating.Template[],Sudoku.Graphics.ItemSet)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Graphics.CanvasInfo"/> instance via the specified templates and items.
+            </summary>
+            <param name="templates">The templates.</param>
+            <param name="items">The items.</param>
+        </member>
+        <member name="P:Sudoku.Graphics.CanvasInfo.Templates">
+            <summary>
+            Indicates templates.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.CanvasInfo.Items">
+            <summary>
+            Indicates items.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.CanvasInfo.Deconstruct(Sudoku.Graphics.Templating.Template[]@,Sudoku.Graphics.ItemSet@)">
+            <summary>
+            Deconstructs the current instance into multiple values.
+            </summary>
+            <param name="templates">The templates.</param>
+            <param name="items">The items.</param>
+        </member>
         <member name="T:Sudoku.Graphics.CoverStyle">
             <summary>
             Represents a style of cover (text background).
@@ -6090,7 +6124,7 @@
             </remarks>
             <seealso cref="M:Sudoku.Graphics.Templating.Template.DrawGridLines(SkiaSharp.SKCanvas)"/>.
         </member>
-        <member name="M:Sudoku.Graphics.Templating.Template.TryProjectCellIndex``1(``0,``0,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute@)">
+        <member name="M:Sudoku.Graphics.Templating.Template.TryProjectCell``1(``0,``0,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute@)">
             <summary>
             Project cell index from source template to target template, aligning as top-left side of the canvas.
             </summary>
@@ -6101,7 +6135,7 @@
             <param name="targetCellIndex">The target cell absolute index.</param>
             <returns>A <see cref="T:System.Boolean"/> result indicating whether the projection operation is successful.</returns>
         </member>
-        <member name="M:Sudoku.Graphics.Templating.Template.ProjectCellIndex``1(``0,``0,Sudoku.Graphics.Absolute)">
+        <member name="M:Sudoku.Graphics.Templating.Template.ProjectCell``1(``0,``0,Sudoku.Graphics.Absolute)">
             <summary>
             Project cell index from source template to target template, aligning as top-left side of the canvas.
             </summary>
@@ -6112,7 +6146,7 @@
             <returns>The target cell absolute index.</returns>
             <exception cref="T:System.ArgumentException">Throws when failed to project.</exception>
         </member>
-        <member name="M:Sudoku.Graphics.Templating.Template.GetIntersectionCellIndices``1(``0,``0)">
+        <member name="M:Sudoku.Graphics.Templating.Template.GetIntersectionCells``1(``0,``0)">
             <summary>
             Gets intersection of 2 templates.
             </summary>

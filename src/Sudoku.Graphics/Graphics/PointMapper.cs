@@ -98,8 +98,7 @@ public sealed record PointMapper : IEqualityOperators<PointMapper, PointMapper, 
 	/// Throws when type <typeparamref name="TLocator"/> is not <see cref="Absolute"/>,
 	/// <see cref="Relative"/> or <see cref="CandidatePosition"/>.
 	/// </exception>
-	public SKPoint GetPoint<TLocator>(TLocator locator, Alignment alignment)
-		where TLocator : unmanaged, ILocator<TLocator>
+	public SKPoint GetPoint<TLocator>(TLocator locator, Alignment alignment) where TLocator : unmanaged, ILocator<TLocator>
 		=> locator switch
 		{
 			Absolute cell => GetPoint(cell, alignment),
@@ -138,8 +137,7 @@ public sealed record PointMapper : IEqualityOperators<PointMapper, PointMapper, 
 	}
 
 	/// <inheritdoc cref="GetPointBetween(Absolute, Absolute)"/>
-	public SKPoint GetPointBetween(Relative cell1, Relative cell2)
-		=> GetPointBetween(cell1.ToAbsolute(this), cell2.ToAbsolute(this));
+	public SKPoint GetPointBetween(Relative cell1, Relative cell2) => GetPointBetween(cell1.ToAbsolute(this), cell2.ToAbsolute(this));
 
 	/// <inheritdoc cref="GetPointBetweenWithAdjacentRelation(Absolute, Absolute, out Direction8)"/>
 	public SKPoint GetPointBetween(Relative cell1, Relative cell2, out Direction8 adjacentRelation)

@@ -14,9 +14,9 @@ public partial class CreateNewCanvasWindow : Window
 	}
 
 
-	public bool IsStandardMode => CreateCanvasMode == CreateCanvasMode.StandardTemplate;
+	public bool IsStandardMode => CreateCanvasMode == CurrentCreateTemplateType.StandardTemplate;
 
-	public bool IsDefaultMode => CreateCanvasMode == CreateCanvasMode.DefaultTemplate;
+	public bool IsDefaultMode => CreateCanvasMode == CurrentCreateTemplateType.DefaultTemplate;
 
 	[ObservableProperty]
 	public partial bool IsBorderRoundedRectangle { get; set; } = false;
@@ -57,14 +57,14 @@ public partial class CreateNewCanvasWindow : Window
 	[ObservableProperty]
 	[NotifyPropertyChangedFor(nameof(IsStandardMode))]
 	[NotifyPropertyChangedFor(nameof(IsDefaultMode))]
-	public partial CreateCanvasMode CreateCanvasMode { get; set; } = CreateCanvasMode.StandardTemplate;
+	public partial CurrentCreateTemplateType CreateCanvasMode { get; set; } = CurrentCreateTemplateType.StandardTemplate;
 
 
 	public Template CreateTemplate()
 	{
 		switch (CreateCanvasMode)
 		{
-			case CreateCanvasMode.StandardTemplate:
+			case CurrentCreateTemplateType.StandardTemplate:
 			{
 				var mapper = new PointMapper
 				{
@@ -89,7 +89,7 @@ public partial class CreateNewCanvasWindow : Window
 					ThinLineWidth = 0.0225M // Config
 				};
 			}
-			case CreateCanvasMode.DefaultTemplate:
+			case CurrentCreateTemplateType.DefaultTemplate:
 			{
 				return new DefaultTemplate
 				{
@@ -135,15 +135,8 @@ public partial class CreateNewCanvasWindow : Window
 	}
 
 	private void StandardTemplateRadioButton_Checked(object sender, RoutedEventArgs e)
-		=> CreateCanvasMode = CreateCanvasMode.StandardTemplate;
+		=> CreateCanvasMode = CurrentCreateTemplateType.StandardTemplate;
 
 	private void DefaultTemplateRadioButton_Checked(object sender, RoutedEventArgs e)
-		=> CreateCanvasMode = CreateCanvasMode.DefaultTemplate;
-}
-
-public enum CreateCanvasMode
-{
-	StandardTemplate,
-
-	DefaultTemplate
+		=> CreateCanvasMode = CurrentCreateTemplateType.DefaultTemplate;
 }

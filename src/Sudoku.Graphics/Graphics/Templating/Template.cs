@@ -137,7 +137,7 @@ public abstract partial class Template
 	/// <param name="sourceCellIndex">The source cell absolute index.</param>
 	/// <param name="targetCellIndex">The target cell absolute index.</param>
 	/// <returns>A <see cref="bool"/> result indicating whether the projection operation is successful.</returns>
-	public static bool TryProjectCellIndex<TTemplate>(
+	public static bool TryProjectCell<TTemplate>(
 		TTemplate source,
 		TTemplate target,
 		Absolute sourceCellIndex,
@@ -185,9 +185,9 @@ public abstract partial class Template
 	/// <param name="sourceCellIndex">The source cell absolute index.</param>
 	/// <returns>The target cell absolute index.</returns>
 	/// <exception cref="ArgumentException">Throws when failed to project.</exception>
-	public static Absolute ProjectCellIndex<TTemplate>(TTemplate source, TTemplate target, Absolute sourceCellIndex)
+	public static Absolute ProjectCell<TTemplate>(TTemplate source, TTemplate target, Absolute sourceCellIndex)
 		where TTemplate : Template
-		=> TryProjectCellIndex(source, target, sourceCellIndex, out var targetCellIndex)
+		=> TryProjectCell(source, target, sourceCellIndex, out var targetCellIndex)
 			? targetCellIndex
 			: throw new ArgumentException("Cannot project cell index because source cell index is invalid.", nameof(sourceCellIndex));
 
@@ -202,13 +202,12 @@ public abstract partial class Template
 	/// Due to design of absolute cell indices, the return value will be referenced from <paramref name="template1"/>.
 	/// </returns>
 	/// <seealso cref="Absolute"/>
-	public static Absolute[] GetIntersectionCellIndices<TTemplate>(TTemplate template1, TTemplate template2)
-		where TTemplate : Template
+	public static Absolute[] GetIntersectionCells<TTemplate>(TTemplate template1, TTemplate template2) where TTemplate : Template
 	{
 		var result = new HashSet<Absolute>();
 		foreach (var index in template1.EnumerateGridCellIndices())
 		{
-			if (TryProjectCellIndex(template1, template2, index, out var targetIndex)
+			if (TryProjectCell(template1, template2, index, out var targetIndex)
 				&& targetIndex.ToRelative(template2.Mapper) is var temp
 				&& temp >= 0 && temp < template2.Mapper.CellsCount)
 			{

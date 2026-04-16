@@ -125,10 +125,7 @@ file sealed class Converter : JsonConverter<Scale>
 {
 	/// <inheritdoc/>
 	public override Scale Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-	{
-		reader.Read();
-		return reader.GetDecimal();
-	}
+		=> reader.GetDecimal();
 
 	/// <inheritdoc/>
 	public override void Write(Utf8JsonWriter writer, Scale value, JsonSerializerOptions options)

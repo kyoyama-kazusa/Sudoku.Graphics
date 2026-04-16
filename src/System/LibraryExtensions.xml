@@ -474,14 +474,14 @@
             <seealso cref="T:System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver"/>
         </member>
         <member name="M:System.Text.Json.Serialization.Metadata.ResolverDerivedTypeFactory.Create``1">
-            <inheritdoc cref="M:System.Text.Json.Serialization.Metadata.ResolverDerivedTypeFactory.&lt;G&gt;$7BF486D0842E7BEC5F239621C5ED3EC5.Create``1"/>
+            <inheritdoc cref="M:System.Text.Json.Serialization.Metadata.ResolverDerivedTypeFactory.&lt;G&gt;$CFE272C06DA267948BE2989E5D64E23C.Create``1"/>
         </member>
-        <member name="T:System.Text.Json.Serialization.Metadata.ResolverDerivedTypeFactory.&lt;G&gt;$7BF486D0842E7BEC5F239621C5ED3EC5.&lt;M&gt;$CAA762FBF445B6C9ECC7B1C37A3ECE99">
+        <member name="T:System.Text.Json.Serialization.Metadata.ResolverDerivedTypeFactory.&lt;G&gt;$CFE272C06DA267948BE2989E5D64E23C.&lt;M&gt;$FD69ABADE99F952BB653222A28F61B01">
             <summary>
             Provides <see langword="static"/> members for <see cref="T:System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver"/>.
             </summary>
         </member>
-        <member name="M:System.Text.Json.Serialization.Metadata.ResolverDerivedTypeFactory.&lt;G&gt;$7BF486D0842E7BEC5F239621C5ED3EC5.Create``1">
+        <member name="M:System.Text.Json.Serialization.Metadata.ResolverDerivedTypeFactory.&lt;G&gt;$CFE272C06DA267948BE2989E5D64E23C.Create``1">
             <summary>
             Creates an <see cref="T:System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver"/> instance to be serialized / deserialized,
             that can replace traditional <see cref="T:System.Text.Json.Serialization.JsonPolymorphicAttribute"/> and <see cref="T:System.Text.Json.Serialization.JsonDerivedTypeAttribute"/> usages.
@@ -490,6 +490,20 @@
             <returns>An <see cref="T:System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver"/> instance.</returns>
             <seealso cref="T:System.Text.Json.Serialization.JsonPolymorphicAttribute"/>
             <seealso cref="T:System.Text.Json.Serialization.JsonDerivedTypeAttribute"/>
+        </member>
+        <member name="T:System.Text.Json.Serialization.Metadata.PolymorphicTypeInfoResolver`1">
+            <summary>
+            Represents a file-local polymorphic type information resolver.
+            </summary>
+            <typeparam name="T">The desired base type.</typeparam>
+        </member>
+        <member name="F:System.Text.Json.Serialization.Metadata.PolymorphicTypeInfoResolver`1._fallback">
+            <summary>
+            The fallback resolver.
+            </summary>
+        </member>
+        <member name="M:System.Text.Json.Serialization.Metadata.PolymorphicTypeInfoResolver`1.GetTypeInfo(System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
         </member>
         <member name="T:System.Text.StringBuilderExtensions">
             <summary>

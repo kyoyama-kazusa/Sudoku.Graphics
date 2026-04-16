@@ -70,7 +70,7 @@ public sealed record TemplateLineItem : LineItem, IItem_ColorProperty
 						continue;
 					}
 
-					foreach (var cell in Template.GetIntersectionCellIndices(it, jt))
+					foreach (var cell in Template.GetIntersectionCells(it, jt))
 					{
 						if (!intersectionCellsDictionary.TryAdd(i, [cell]))
 						{
