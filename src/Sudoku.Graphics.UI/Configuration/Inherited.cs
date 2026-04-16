@@ -19,21 +19,14 @@ internal static class Inherited
 	public static T R<T>(Expression<Func<Inherited<T>>> source) where T : notnull
 	{
 		const string message_TargetLambdaMustBeSpecifiedFormat = "The target lambda expression must be formatted as '() => instance.Property'.";
-		const string message_MemberExpressionCannotBeStatic = "Member expression must contain an expression.";
 		const string message_MethodCannotBeFound = $"Cannot find for method '{nameof(Inherited<>)}.{nameof(Inherited<>.Resolve)}<T>(T, int)'.";
 		const BindingFlags methodBindingFlags = BindingFlags.Instance | BindingFlags.Public;
 
-		if (source.Body is not MemberExpression memberExpression)
+		if (source.Body is not MemberExpression { Expression: { } instanceExpression, Type: var propertyType } memberExpression)
 		{
 			throw new ArgumentException(message_TargetLambdaMustBeSpecifiedFormat, nameof(source));
 		}
-		if (memberExpression.Expression is null)
-		{
-			throw new ArgumentException(message_MemberExpressionCannotBeStatic, nameof(source));
-		}
 
-		var instanceExpression = memberExpression.Expression;
-		var propertyType = memberExpression.Type;
 		var methodInfo = propertyType.GetMethod(nameof(Inherited<>.Resolve), methodBindingFlags)?.MakeGenericMethod(typeof(Preferences))
 			?? throw new InvalidOperationException(message_MethodCannotBeFound);
 		var callExpression = Expression.Call(memberExpression, methodInfo, instanceExpression, Expression.Constant(2));
