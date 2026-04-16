@@ -1,0 +1,42 @@
+﻿namespace Sudoku.Graphics.UI.Configuration;
+
+/// <summary>
+/// Provides handling on type <see cref="Inherited{T}"/>.
+/// </summary>
+/// <seealso cref="Inherited{T}"/>
+internal static class Inherited
+{
+	/// <summary>
+	/// Resolves a property <c>Property</c>,
+	/// and directly returns the result after called <c><see cref="App.UserPreferences"/>.Property.Resolve(<see cref="App.UserPreferences"/>)</c>.
+	/// </summary>
+	/// <typeparam name="T">The type of result value.</typeparam>
+	/// <param name="source">The source expression (lambda expression).</param>
+	/// <returns>The target value.</returns>
+	/// <exception cref="ArgumentException">Throws when the source is not the normal format <c>() => instance.Property</c>.</exception>
+	/// <exception cref="InvalidOperationException">Throws when the target type cannot find method <c>Resolve</c>.</exception>
+	/// <seealso cref="App.UserPreferences"/>
+	public static T R<T>(Expression<Func<Inherited<T>>> source) where T : notnull
+	{
+		const string message_TargetLambdaMustBeSpecifiedFormat = "The target lambda expression must be formatted as '() => instance.Property'.";
+		const string message_MemberExpressionCannotBeStatic = "Member expression must contain an expression.";
+		const string message_MethodCannotBeFound = $"Cannot find for method '{nameof(Inherited<>)}.{nameof(Inherited<>.Resolve)}<T>(T, int)'.";
+		const BindingFlags methodBindingFlags = BindingFlags.Instance | BindingFlags.Public;
+
+		if (source.Body is not MemberExpression memberExpression)
+		{
+			throw new ArgumentException(message_TargetLambdaMustBeSpecifiedFormat, nameof(source));
+		}
+		if (memberExpression.Expression is null)
+		{
+			throw new ArgumentException(message_MemberExpressionCannotBeStatic, nameof(source));
+		}
+
+		var instanceExpression = memberExpression.Expression;
+		var propertyType = memberExpression.Type;
+		var methodInfo = propertyType.GetMethod(nameof(Inherited<>.Resolve), methodBindingFlags)?.MakeGenericMethod(typeof(Preferences))
+			?? throw new InvalidOperationException(message_MethodCannotBeFound);
+		var callExpression = Expression.Call(memberExpression, methodInfo, instanceExpression, Expression.Constant(2));
+		return Expression.Lambda<Func<T>>(callExpression).Compile()();
+	}
+}

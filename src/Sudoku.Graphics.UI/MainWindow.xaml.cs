@@ -153,7 +153,7 @@ public partial class MainWindow : Window
 
 	private void InitializeItems()
 	{
-		_items.Add(new BackgroundFillItem { Color = App.UserPreferences.BackgroundFillColor.Resolve(App.UserPreferences) });
+		_items.Add(new BackgroundFillItem { Color = R(() => App.UserPreferences.BackgroundFillColor) });
 		_items.Add(new TemplateLineItem());
 	}
 
