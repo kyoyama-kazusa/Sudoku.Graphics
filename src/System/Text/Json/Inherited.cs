@@ -364,7 +364,7 @@ file sealed class GenericConverter<T>(JsonSerializerOptions _options) : JsonConv
 	/// <inheritdoc/>
 	public override void Write(Utf8JsonWriter writer, Inherited<T> value, JsonSerializerOptions options)
 	{
-		// If the target instance has a real value,
+		// If the target instance doesn't have a value, we should output as referenced property name.
 		if (!value.HasValue)
 		{
 			writer.WriteStringValue(value.Reference);
