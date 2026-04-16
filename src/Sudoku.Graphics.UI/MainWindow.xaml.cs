@@ -234,7 +234,8 @@ public partial class MainWindow : Window
 
 		if (new FileInfo(filePath).Length > FileSizeThreshold)
 		{
-			MessageBox.Show(this, LocalizationResources.MessageBox_FileLengthExceeded);
+			var message = string.Format(LocalizationResources.MessageBox_FileLengthExceeded, FileSizeThreshold.ToFileLengthString());
+			MessageBox.Show(this, message);
 			return;
 		}
 

@@ -439,7 +439,7 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to File is greater than 10 MB, which is not allowed in this program due to too large..
+        ///   Looks up a localized string similar to File is greater than {0}, which is not allowed in this program due to too large..
         /// </summary>
         public static string MessageBox_FileLengthExceeded {
             get {
