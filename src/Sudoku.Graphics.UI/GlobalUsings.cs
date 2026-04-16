@@ -27,6 +27,7 @@ global using Sudoku.Graphics.Items.Fills;
 global using Sudoku.Graphics.Items.Lines;
 global using Sudoku.Graphics.Templating;
 global using Sudoku.Graphics.Templating.Templates;
+global using Sudoku.Graphics.UI.Configuration;
 global using Sudoku.Graphics.UI.Properties;
 global using Sudoku.Graphics.UI.ViewModels;
 global using Sudoku.Graphics.UI.Views.OtherWindows;

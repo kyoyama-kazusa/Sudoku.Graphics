@@ -331,35 +331,67 @@ file sealed class GenericConverter<T>(JsonSerializerOptions _options) : JsonConv
 	/// <inheritdoc/>
 	public override Inherited<T> Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
 	{
-		// If token is string -> treat as reference name.
+		// If token type is a string, we must handle as a property name.
 		if (reader.TokenType == JsonTokenType.String)
 		{
 			return Inherited<T>.FromPropertyName(reader.GetString()!);
 		}
 
-		// If token is null.
+		// If the token type is null, treat it as default(T).
 		if (reader.TokenType == JsonTokenType.Null)
 		{
-			// Treat as value == default(T).
 			reader.Read();
 			return Inherited<T>.FromValue(default!);
 		}
 
-		// Otherwise deserialize as T.
+		// If the target token type is an object, we should firstly try to parse it as encapsulated format (with discriminator).
+		// If not, fallback to default handling as type 'T'.
+		if (reader.TokenType == JsonTokenType.StartObject)
+		{
+			using var doc = JsonDocument.ParseValue(ref reader);
+			var root = doc.RootElement;
+			return root.TryGetProperty(Inherited<T>.InheritedReferencedPropertyName, out var refElement)
+				? Inherited<T>.FromPropertyName(refElement.GetString()!)
+				: root.TryGetProperty(Inherited<T>.ValuePropertyName, out var valueElement)
+					? Inherited<T>.FromValue(valueElement.Deserialize<T>(_options)!)
+					: Inherited<T>.FromValue(root.Deserialize<T>(_options)!);
+		}
+
+		// Otherwise, deserialize it using default handling rule as normal type 'T'.
 		return Inherited<T>.FromValue(JsonSerializer.Deserialize<T>(ref reader, _options)!);
 	}
 
 	/// <inheritdoc/>
 	public override void Write(Utf8JsonWriter writer, Inherited<T> value, JsonSerializerOptions options)
 	{
-		if (value.HasValue)
+		// If the target instance has a real value,
+		if (!value.HasValue)
 		{
-			// Serialize the inner value as if it were the property itself.
-			JsonSerializer.Serialize(writer, value.Value, _options);
+			writer.WriteStringValue(value.Reference);
 			return;
 		}
 
-		writer.WriteStringValue(value.Reference);
+		// Firstly try to parse it as an individual JSON value from type T, check root token.
+		var bytes = JsonSerializer.SerializeToUtf8Bytes(value.Value, _options);
+		using var doc = JsonDocument.Parse(bytes);
+		var root = doc.RootElement;
+
+
+		// If inner value is a string, we should encapsulate as an object in order to provide a way
+		// to distinct from referenced property name and value string.
+		// In edge cases, a type can be implemented a customized JSON converter that will also serialize into a string value,
+		// which will break the rule "always parse string as property name".
+		if (root.ValueKind == JsonValueKind.String)
+		{
+			writer.WriteStartObject();
+			writer.WritePropertyName(Inherited<T>.ValuePropertyName);
+			root.WriteTo(writer);
+			writer.WriteEndObject();
+			return;
+		}
+
+		// Otherwise, keep it as normal.
+		root.WriteTo(writer);
 	}
 }
 

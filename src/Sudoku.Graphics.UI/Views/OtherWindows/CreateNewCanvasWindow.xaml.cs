@@ -80,13 +80,13 @@ public partial class CreateNewCanvasWindow : Window
 				return new StandardTemplate(BlockRowsCount, BlockColumnsCount, mapper)
 				{
 					IsBorderRoundedRectangle = IsBorderRoundedRectangle,
-					BorderCornerRadius = 0.25M, // Config
-					ThickLineColor = SKColors.Black, // Config
-					ThickLineDashSequence = [], // Config
-					ThickLineWidth = 0.06M, // Config
-					ThinLineColor = SKColors.Black, // Config
-					ThinLineDashSequence = [], // Config
-					ThinLineWidth = 0.0225M // Config
+					BorderCornerRadius = App.UserPreferences.Template_BorderCornerRadius.Resolve(App.UserPreferences),
+					ThickLineColor = App.UserPreferences.Template_ThickLineColor.Resolve(App.UserPreferences),
+					ThickLineDashSequence = App.UserPreferences.Template_ThickLineDashSequence.Resolve(App.UserPreferences),
+					ThickLineWidth = App.UserPreferences.Template_ThickLineWidth.Resolve(App.UserPreferences),
+					ThinLineColor = App.UserPreferences.Template_ThinLineColor.Resolve(App.UserPreferences),
+					ThinLineDashSequence = App.UserPreferences.Template_ThinLineDashSequence.Resolve(App.UserPreferences),
+					ThinLineWidth = App.UserPreferences.Template_ThinLineWidth.Resolve(App.UserPreferences)
 				};
 			}
 			case CurrentCreateTemplateType.DefaultTemplate:
@@ -105,14 +105,14 @@ public partial class CreateNewCanvasWindow : Window
 						}
 					},
 					IsBorderRoundedRectangle = IsBorderRoundedRectangle,
-					BorderCornerRadius = 0.25M, // Config
-					DrawBordersAsThickLines = DrawBordersAsThickLines, // Config
-					ThickLineColor = SKColors.Black, // Config
-					ThickLineDashSequence = [], // Config
-					ThickLineWidth = 0.06M, // Config
-					ThinLineColor = SKColors.Black, // Config
-					ThinLineDashSequence = [], // Config
-					ThinLineWidth = 0.0225M // Config
+					BorderCornerRadius = App.UserPreferences.Template_BorderCornerRadius.Resolve(App.UserPreferences),
+					DrawBordersAsThickLines = DrawBordersAsThickLines,
+					ThickLineColor = App.UserPreferences.Template_ThickLineColor.Resolve(App.UserPreferences),
+					ThickLineDashSequence = App.UserPreferences.Template_ThickLineDashSequence.Resolve(App.UserPreferences),
+					ThickLineWidth = App.UserPreferences.Template_ThickLineWidth.Resolve(App.UserPreferences),
+					ThinLineColor = App.UserPreferences.Template_ThinLineColor.Resolve(App.UserPreferences),
+					ThinLineDashSequence = App.UserPreferences.Template_ThinLineDashSequence.Resolve(App.UserPreferences),
+					ThinLineWidth = App.UserPreferences.Template_ThinLineWidth.Resolve(App.UserPreferences)
 				};
 			}
 			default:

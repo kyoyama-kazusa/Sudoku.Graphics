@@ -153,7 +153,7 @@ public partial class MainWindow : Window
 
 	private void InitializeItems()
 	{
-		_items.Add(new BackgroundFillItem { Color = SKColors.White }); // Config
+		_items.Add(new BackgroundFillItem { Color = App.UserPreferences.BackgroundFillColor.Resolve(App.UserPreferences) });
 		_items.Add(new TemplateLineItem());
 	}
 
@@ -247,6 +247,49 @@ public partial class MainWindow : Window
 
 		ReinitializeCanvasAndItems(templates, items);
 		RenderPicture();
+	}
+
+	private void Window_Closing(object sender, CancelEventArgs e)
+	{
+		var configFolder = ReservedPaths.ConfigFolderPath;
+		if (!Directory.Exists(configFolder))
+		{
+			Directory.CreateDirectory(configFolder);
+		}
+
+		var json = JsonSerializer.Serialize(App.UserPreferences, SerializerOptions);
+		File.WriteAllText(ReservedPaths.ConfigFilePath, json);
+	}
+
+	private void Window_Initialized(object sender, EventArgs e)
+	{
+		var configFolder = ReservedPaths.ConfigFolderPath;
+		if (!Directory.Exists(configFolder))
+		{
+			Directory.CreateDirectory(configFolder);
+		}
+
+		// Load config file if exists.
+		if (!File.Exists(ReservedPaths.ConfigFilePath))
+		{
+			return;
+		}
+
+		var fileInfo = new FileInfo(ReservedPaths.ConfigFilePath);
+		if (fileInfo.Length > FileSizeThreshold)
+		{
+			// Config file is too large - don't load.
+			return;
+		}
+
+		var json = File.ReadAllText(ReservedPaths.ConfigFilePath);
+		var instance = JsonSerializer.Deserialize<Preferences>(json, SerializerOptions);
+		if (instance is null)
+		{
+			return;
+		}
+
+		App.UserPreferences = instance;
 	}
 
 	partial void OnCurrentItemTypeChanged(ItemType value)

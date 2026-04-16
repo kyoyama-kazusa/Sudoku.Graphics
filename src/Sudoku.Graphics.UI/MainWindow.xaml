@@ -11,7 +11,9 @@
 	Title="{x:Static p:LocalizationResources.MainWindow_MenuItem_Title}"
 	Height="900"
 	Width="1600"
-	WindowStartupLocation="CenterScreen">
+	WindowStartupLocation="CenterScreen"
+	Initialized="Window_Initialized"
+	Closing="Window_Closing">
 	<Window.Resources>
 		<Style TargetType="Border">
 			<Setter Property="BorderBrush" Value="Black" />
