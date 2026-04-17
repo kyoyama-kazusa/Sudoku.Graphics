@@ -4965,6 +4965,9 @@
         <member name="M:Sudoku.Graphics.PointMapper.GetHashCode">
             <inheritdoc/>
         </member>
+        <member name="M:Sudoku.Graphics.PointMapper.ToString">
+            <inheritdoc/>
+        </member>
         <member name="M:Sudoku.Graphics.PointMapper.GetPoint(Sudoku.Graphics.Absolute,Sudoku.Graphics.Alignment)">
             <summary>
             Returns the position (point) of the specified alignment type of the specified cell.
@@ -5052,6 +5055,23 @@
             </summary>
             <param name="vector">The direction vector as offset.</param>
             <returns>The result <see cref="T:Sudoku.Graphics.PointMapper"/> instance.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.PointMapper.TryParse(System.String,Sudoku.Graphics.PointMapper@)">
+            <inheritdoc cref="M:System.IParsable`1.TryParse(System.String,System.IFormatProvider,`0@)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.PointMapper.Parse(System.String)">
+            <inheritdoc cref="M:System.IParsable`1.Parse(System.String,System.IFormatProvider)"/>
+        </member>
+        <member name="T:Sudoku.Graphics.Converter">
+            <summary>
+            Represents a JSON converter of this type.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Converter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Converter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.Graphics.PointMapper,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.PointMapperExtensions">
             <summary>

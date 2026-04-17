@@ -3,6 +3,7 @@
 /// <summary>
 /// Represents a point mapper instance.
 /// </summary>
+[JsonConverter(typeof(Converter))]
 public sealed record PointMapper : IEqualityOperators<PointMapper, PointMapper, bool>
 {
 	/// <summary>
@@ -45,6 +46,18 @@ public sealed record PointMapper : IEqualityOperators<PointMapper, PointMapper, 
 
 	/// <inheritdoc/>
 	public override int GetHashCode() => HashCode.Combine(CellSize, Margin, TemplateSize);
+
+	/// <inheritdoc/>
+	public override string ToString()
+	{
+		// Format: "<cell-size>,<margin>,<rows-count>,<columns-count>,<vector-left>,<vector-top>,<vector-right>,<vector-bottom>"
+		var (left, top, right, bottom) = Vector;
+		var l = left == 0 ? string.Empty : left.ToString();
+		var t = top == 0 ? string.Empty : top.ToString();
+		var r = right == 0 ? string.Empty : right.ToString();
+		var b = bottom == 0 ? string.Empty : bottom.ToString();
+		return $"{CellSize},{Margin},{RowsCount},{ColumnsCount},{l},{t},{r},{b}";
+	}
 
 	/// <summary>
 	/// Returns the position (point) of the specified alignment type of the specified cell.
@@ -211,4 +224,93 @@ public sealed record PointMapper : IEqualityOperators<PointMapper, PointMapper, 
 		builder.Append($"{nameof(TemplateSize)} = {TemplateSize}");
 		return true;
 	}
+
+
+	/// <inheritdoc cref="IParsable{TSelf}.TryParse(string?, IFormatProvider?, out TSelf)"/>
+	public static bool TryParse([NotNullWhen(true)] string? s, [NotNullWhen(true)] out PointMapper? result)
+	{
+		try
+		{
+			if (s is null)
+			{
+				goto ReturnFalse;
+			}
+
+			result = Parse(s);
+			return true;
+		}
+		catch (FormatException)
+		{
+		}
+
+	ReturnFalse:
+		result = default;
+		return false;
+	}
+
+	/// <inheritdoc cref="IParsable{TSelf}.Parse(string, IFormatProvider?)"/>
+	public static PointMapper Parse(string s)
+	{
+		// Format: "<cell-size>,<margin>,<rows-count>,<columns-count>,<vector-left>,<vector-top>,<vector-right>,<vector-bottom>"
+		var split = s.Split(',', StringSplitOptions.TrimEntries);
+		if (split is not [
+			var cellSizeString,
+			var marginString,
+			var rowsCountString,
+			var columnsCountString,
+			var leftString,
+			var topString,
+			var rightString,
+			var bottomString
+		])
+		{
+			throw new FormatException();
+		}
+
+		if (!float.TryParse(cellSizeString, out var cellSize)
+			|| !float.TryParse(marginString, out var margin)
+			|| !int.TryParse(rowsCountString, out var rowsCount)
+			|| !int.TryParse(columnsCountString, out var columnsCount)
+			|| c(leftString) is not { } vectorLeft
+			|| c(topString) is not { } vectorTop
+			|| c(rightString) is not { } vectorRight
+			|| c(bottomString) is not { } vectorBottom)
+		{
+			throw new FormatException();
+		}
+
+		var vector = new Thickness<Relative>(vectorLeft, vectorTop, vectorRight, vectorBottom);
+		return new()
+		{
+			CellSize = cellSize,
+			Margin = margin,
+			TemplateSize = new() { RowsCount = rowsCount, ColumnsCount = columnsCount, Vector = vector }
+		};
+
+
+		static int? c(string vectorValue)
+			=> vectorValue switch
+			{
+				"" => 0,
+				_ when int.TryParse(vectorValue, out var value) => value,
+				_ => null
+			};
+	}
+}
+
+/// <summary>
+/// Represents a JSON converter of this type.
+/// </summary>
+file sealed class Converter : JsonConverter<PointMapper>
+{
+	/// <inheritdoc/>
+	public override PointMapper? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+	{
+		var str = reader.GetString();
+		return str is null ? null : PointMapper.TryParse(str, out var r) ? r : throw new JsonException();
+	}
+
+	/// <inheritdoc/>
+	public override void Write(Utf8JsonWriter writer, PointMapper value, JsonSerializerOptions options)
+		=> writer.WriteStringValue(value.ToString());
 }
