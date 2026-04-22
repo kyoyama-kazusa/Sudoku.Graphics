@@ -103,6 +103,7 @@ public partial class DigitSelectorPanel : UserControl
 	public BitArray? DigitEnabledMap
 	{
 		get => (BitArray?)GetValue(DigitEnabledMapProperty);
+
 		set => SetValue(DigitEnabledMapProperty, value);
 	}
 
@@ -139,7 +140,6 @@ public partial class DigitSelectorPanel : UserControl
 
 		var totalCells = rows * columns;
 		var count = Math.Min(Math.Max(0, MaxDigit), totalCells);
-
 		for (var digit = 1; digit <= count; digit++)
 		{
 			var row = (digit - 1) / columns;
@@ -178,7 +178,7 @@ public partial class DigitSelectorPanel : UserControl
 		SelectedDigitChanged?.Invoke(this, digit);
 	}
 
-	public void SetDigitEnabledMap(BitArray? map) => DigitEnabledMap = map == null ? null : (BitArray)map.Clone();
+	public void SetDigitEnabledMap(BitArray? map) => DigitEnabledMap = map is null ? null : (BitArray)map.Clone();
 
 	public void SetDigitEnabled(int digit, bool enabled)
 	{
@@ -217,20 +217,7 @@ public partial class DigitSelectorPanel : UserControl
 	}
 
 	private bool IsDigitEnabled(int digit)
-	{
-		if (digit < 1)
-			return false;
-
-		var map = DigitEnabledMap;
-		if (map == null)
-			return true;
-
-		var index = digit - 1;
-		if (index >= map.Length)
-			return true;
-
-		return map[index];
-	}
+		=> digit >= 1 && (DigitEnabledMap is null || digit - 1 is var index && (index >= DigitEnabledMap.Length || DigitEnabledMap[index]));
 
 
 	private static void OnBoardConfigChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)

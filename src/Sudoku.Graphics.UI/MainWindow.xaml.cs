@@ -1,4 +1,5 @@
-﻿using Sudoku.Graphics.UI.Views.Controls;
+﻿using Sudoku.Graphics.Items.Texts;
+using Sudoku.Graphics.UI.Views.Controls;
 
 namespace Sudoku.Graphics.UI;
 
@@ -53,6 +54,8 @@ public partial class MainWindow : Window
 		}
 	};
 
+
+	private Absolute _cellClicked = -1;
 
 	private ItemSet _items = [];
 
@@ -306,6 +309,11 @@ public partial class MainWindow : Window
 			return;
 		}
 
+		if (sender is not Image { Source: var source } image)
+		{
+			return;
+		}
+
 		if (e.ChangedButton != MouseButton.Right)
 		{
 			return;
@@ -317,6 +325,22 @@ public partial class MainWindow : Window
 			return;
 		}
 
+		var pointOnImage = e.GetPosition(image);
+		var scaleX = image.ActualWidth / source.Width;
+		var scaleY = image.ActualHeight / source.Height;
+		var scale = Math.Min(scaleX, scaleY);
+		var offsetX = (image.ActualWidth - source.Width * scale) / 2;
+		var offsetY = (image.ActualHeight - source.Height * scale) / 2;
+		var originalX = (pointOnImage.X - offsetX) / scale;
+		var originalY = (pointOnImage.Y - offsetY) / scale;
+		var point = new Point(originalX, originalY);
+		if (!ImageSourcePointMapper.TryGetPoint(source, point, mapper, out var cellClicked))
+		{
+			return;
+		}
+
+		_cellClicked = cellClicked;
+
 		var desiredCandidateSize = (int)Math.Sqrt(mapper.RowsCount);
 		DigitSelectorPanel.RowsCount = DigitSelectorPanel.ColumnsCount = desiredCandidateSize;
 		DigitSelectorPanel.MaxDigit = mapper.RowsCount;
@@ -327,7 +351,32 @@ public partial class MainWindow : Window
 	private void DigitSelectorPanel_SelectedDigitChanged(object sender, int e)
 	{
 		DigitSelectorPopup.IsOpen = false;
+
+		if (_canvas is null || e == 0 || _cellClicked == -1)
+		{
+			return;
+		}
+
+		_items.Add(
+			new GivenTextItem
+			{
+				TemplateIndex = 0,
+				Cell = _cellClicked,
+				FontName = "Arial", //Config
+				FontSizeScale = 0.8M, //Config
+				Text = e.ToString(), //Config
+				Color = SKColors.Black, //Config
+				FontWidth = SKFontStyleWidth.Normal, //Config
+				FontSlant = SKFontStyleSlant.Upright, //Config
+				FontWeight = SKFontStyleWeight.Medium //Config
+			}
+		);
+
+		RenderPicture();
+		ResetCellClicked();
 	}
+
+	private void ResetCellClicked() => _cellClicked = -1;
 
 	partial void OnCurrentItemTypeChanged(ItemType value)
 	{
