@@ -337,7 +337,7 @@ public partial class MainWindow : Window
 	{
 		DigitSelectorPopup.IsOpen = false;
 
-		if (_canvas is null || e.Digit == 0 || _cellClicked == -1)
+		if (_canvas is null || e.Digit is not (var digit and not 0) || _cellClicked == -1)
 		{
 			return;
 		}
@@ -349,7 +349,7 @@ public partial class MainWindow : Window
 				Cell = _cellClicked,
 				FontName = R(() => App.UserPreferences.GivenFontName),
 				FontSizeScale = R(() => App.UserPreferences.GivenFontSizeScale),
-				Text = e.ToString(),
+				Text = digit.ToString(),
 				Color = R(() => App.UserPreferences.GivenTextColor),
 				FontWidth = R(() => App.UserPreferences.GivenFontWidth),
 				FontSlant = R(() => App.UserPreferences.GivenFontSlant),
