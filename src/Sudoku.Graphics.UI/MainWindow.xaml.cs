@@ -362,13 +362,13 @@ public partial class MainWindow : Window
 			{
 				TemplateIndex = 0,
 				Cell = _cellClicked,
-				FontName = "Arial", //Config
-				FontSizeScale = 0.8M, //Config
-				Text = e.ToString(), //Config
-				Color = SKColors.Black, //Config
-				FontWidth = SKFontStyleWidth.Normal, //Config
-				FontSlant = SKFontStyleSlant.Upright, //Config
-				FontWeight = SKFontStyleWeight.Medium //Config
+				FontName = R(() => App.UserPreferences.GivenFontName),
+				FontSizeScale = R(() => App.UserPreferences.GivenFontSizeScale),
+				Text = e.ToString(),
+				Color = R(() => App.UserPreferences.GivenTextColor),
+				FontWidth = R(() => App.UserPreferences.GivenFontWidth),
+				FontSlant = R(() => App.UserPreferences.GivenFontSlant),
+				FontWeight = R(() => App.UserPreferences.GivenFontWeight)
 			}
 		);
 
