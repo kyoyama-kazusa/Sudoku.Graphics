@@ -7,8 +7,8 @@
 internal static class Inherited
 {
 	/// <summary>
-	/// Resolves a property <c>Property</c>,
-	/// and directly returns the result after called <c><see cref="App.UserPreferences"/>.Property.Resolve(<see cref="App.UserPreferences"/>)</c>.
+	/// Resolves a property <c>instance.Property</c>,
+	/// and directly returns the result after called <c>instance.Property.Resolve(instance)</c>.
 	/// </summary>
 	/// <typeparam name="T">The type of result value.</typeparam>
 	/// <param name="source">The source expression (lambda expression).</param>
