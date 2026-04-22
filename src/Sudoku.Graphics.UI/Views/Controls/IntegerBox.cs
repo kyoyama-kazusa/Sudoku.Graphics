@@ -7,14 +7,28 @@ public sealed partial class IntegerBox : TextBox
 			nameof(Value),
 			typeof(int),
 			typeof(IntegerBox),
-			new(static (d, e) => ((IntegerBox)d).Text = e.NewValue.ToString())
+			new FrameworkPropertyMetadata(
+				0,
+				FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
+				static (d, e) => ((IntegerBox)d).Text = e.NewValue.ToString()
+			)
 		);
 
 	public static readonly DependencyProperty MinValueProperty =
-		DependencyProperty.Register(nameof(MinValue), typeof(int), typeof(IntegerBox), new(int.MinValue));
+		DependencyProperty.Register(
+			nameof(MinValue),
+			typeof(int),
+			typeof(IntegerBox),
+			new FrameworkPropertyMetadata(int.MinValue, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault)
+		);
 
 	public static readonly DependencyProperty MaxValueProperty =
-		DependencyProperty.Register(nameof(MaxValue), typeof(int), typeof(IntegerBox), new(int.MaxValue));
+		DependencyProperty.Register(
+			nameof(MaxValue),
+			typeof(int),
+			typeof(IntegerBox),
+			new FrameworkPropertyMetadata(int.MaxValue, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault)
+		);
 
 
 	public IntegerBox() : base()
@@ -23,6 +37,7 @@ public sealed partial class IntegerBox : TextBox
 
 		Text = 0.ToString();
 	}
+
 
 	public int Value
 	{

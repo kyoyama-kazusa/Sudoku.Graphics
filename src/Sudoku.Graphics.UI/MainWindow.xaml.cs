@@ -341,7 +341,7 @@ public partial class MainWindow : Window
 
 		_cellClicked = cellClicked;
 
-		var desiredCandidateSize = (int)Math.Sqrt(mapper.RowsCount);
+		var desiredCandidateSize = (int)Math.Ceiling(Math.Sqrt(mapper.RowsCount));
 		DigitSelectorPanel.RowsCount = DigitSelectorPanel.ColumnsCount = desiredCandidateSize;
 		DigitSelectorPanel.MaxDigit = mapper.RowsCount;
 
