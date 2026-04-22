@@ -1,4 +1,6 @@
-﻿namespace Sudoku.Graphics.UI;
+﻿using Sudoku.Graphics.UI.Views.Controls;
+
+namespace Sudoku.Graphics.UI;
 
 /// <summary>
 /// Interaction logic for MainWindow.xaml.
@@ -290,6 +292,41 @@ public partial class MainWindow : Window
 		}
 
 		App.UserPreferences = instance;
+	}
+
+	private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+	{
+
+	}
+
+	private void Image_MouseUp(object sender, MouseButtonEventArgs e)
+	{
+		if (_canvas is null)
+		{
+			return;
+		}
+
+		if (e.ChangedButton != MouseButton.Right)
+		{
+			return;
+		}
+
+		var mapper = _canvas.Templates[0].Mapper;
+		if (mapper.RowsCount != mapper.ColumnsCount)
+		{
+			return;
+		}
+
+		var desiredCandidateSize = (int)Math.Sqrt(mapper.RowsCount);
+		DigitSelectorPanel.RowsCount = DigitSelectorPanel.ColumnsCount = desiredCandidateSize;
+		DigitSelectorPanel.MaxDigit = mapper.RowsCount;
+
+		DigitSelectorPopup.IsOpen = true;
+	}
+
+	private void DigitSelectorPanel_SelectedDigitChanged(object sender, int e)
+	{
+		DigitSelectorPopup.IsOpen = false;
 	}
 
 	partial void OnCurrentItemTypeChanged(ItemType value)

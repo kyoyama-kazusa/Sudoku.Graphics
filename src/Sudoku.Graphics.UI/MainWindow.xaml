@@ -6,6 +6,7 @@
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	xmlns:local="clr-namespace:Sudoku.Graphics.UI"
 	xmlns:p="clr-namespace:Sudoku.Graphics.UI.Properties"
+	xmlns:c="clr-namespace:Sudoku.Graphics.UI.Views.Controls"
 	mc:Ignorable="d"
 	d:DataContext="{d:DesignInstance Type=local:MainWindow}"
 	Title="{x:Static p:LocalizationResources.MainWindow_MenuItem_Title}"
@@ -65,8 +66,25 @@
 					Click="AboutMeMenuItem_Click" />
 			</MenuItem>
 		</Menu>
+		<Popup x:Name="DigitSelectorPopup" Placement="MousePoint" StaysOpen="False" AllowsTransparency="True">
+			<Border Background="White" BorderBrush="Gray" BorderThickness="1" Padding="6">
+				<c:DigitSelectorPanel
+					x:Name="DigitSelectorPanel"
+					CellSize="48"
+					FontFamily="Arial"
+					FontSize="28"
+					FontWeight="Bold"
+					Foreground="Black"
+					SelectedDigitChanged="DigitSelectorPanel_SelectedDigitChanged" />
+			</Border>
+		</Popup>
 		<Border Grid.Row="1" Grid.Column="0" BorderThickness="2" Margin="16">
-			<Image Width="800" Height="800" Source="{Binding GridImageSource}" />
+			<Image
+				Width="800"
+				Height="800"
+				Source="{Binding GridImageSource}"
+				MouseDown="Image_MouseDown"
+				MouseUp="Image_MouseUp" />
 		</Border>
 		<Border Grid.Row="1" Grid.Column="1" BorderThickness="2" Margin="16">
 			<Grid RowDefinitions="Auto,*">
