@@ -80,6 +80,7 @@
 		</Popup>
 		<Border Grid.Row="1" Grid.Column="0" BorderThickness="2" Margin="16">
 			<Image
+				x:Name="MainGrid"
 				Width="800"
 				Height="800"
 				Source="{Binding GridImageSource}"

@@ -325,21 +325,7 @@ public partial class MainWindow : Window
 			return;
 		}
 
-		var pointOnImage = e.GetPosition(image);
-		var scaleX = image.ActualWidth / source.Width;
-		var scaleY = image.ActualHeight / source.Height;
-		var scale = Math.Min(scaleX, scaleY);
-		var offsetX = (image.ActualWidth - source.Width * scale) / 2;
-		var offsetY = (image.ActualHeight - source.Height * scale) / 2;
-		var originalX = (pointOnImage.X - offsetX) / scale;
-		var originalY = (pointOnImage.Y - offsetY) / scale;
-		var point = new Point(originalX, originalY);
-		if (!ImageSourcePointMapper.TryGetPoint(source, point, mapper, out var cellClicked))
-		{
-			return;
-		}
-
-		_cellClicked = cellClicked;
+		AssignCellClicked(e, mapper);
 
 		var desiredCandidateSize = (double)(int)mapper.RowsCount >> Math.Sqrt >> Math.Ceiling >> Convert.ToInt32;
 		DigitSelectorPanel.RowsCount = DigitSelectorPanel.ColumnsCount = desiredCandidateSize;
@@ -376,6 +362,24 @@ public partial class MainWindow : Window
 	}
 
 	private void ResetCellClicked() => _cellClicked = -1;
+
+	private void AssignCellClicked(MouseButtonEventArgs e, PointMapper mapper)
+	{
+		var source = MainGrid.Source;
+		var pointOnImage = e.GetPosition(MainGrid);
+		var scaleX = MainGrid.ActualWidth / source.Width;
+		var scaleY = MainGrid.ActualHeight / source.Height;
+		var scale = Math.Min(scaleX, scaleY);
+		var offsetX = (MainGrid.ActualWidth - source.Width * scale) / 2;
+		var offsetY = (MainGrid.ActualHeight - source.Height * scale) / 2;
+		var originalX = (pointOnImage.X - offsetX) / scale;
+		var originalY = (pointOnImage.Y - offsetY) / scale;
+		var point = new Point(originalX, originalY);
+		if (ImageSourcePointMapper.TryGetPoint(source, point, mapper, out var cellClicked))
+		{
+			_cellClicked = cellClicked;
+		}
+	}
 
 	partial void OnCurrentItemTypeChanged(ItemType value)
 	{
