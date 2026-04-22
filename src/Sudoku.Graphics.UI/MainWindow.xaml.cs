@@ -333,11 +333,11 @@ public partial class MainWindow : Window
 		DigitSelectorPopup.IsOpen = true;
 	}
 
-	private void DigitSelectorPanel_SelectedDigitChanged(object sender, int e)
+	private void DigitSelectorPanel_SelectedDigitChanged(DigitSelectorPanel sender, DigitSelectorPanelSelectedDigitChangedEventArgs e)
 	{
 		DigitSelectorPopup.IsOpen = false;
 
-		if (_canvas is null || e == 0 || _cellClicked == -1)
+		if (_canvas is null || e.Digit == 0 || _cellClicked == -1)
 		{
 			return;
 		}

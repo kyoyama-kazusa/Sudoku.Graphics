@@ -108,7 +108,7 @@ public partial class DigitSelectorPanel : UserControl
 	}
 
 
-	public event EventHandler<int>? SelectedDigitChanged;
+	public event EventHandler<DigitSelectorPanel, DigitSelectorPanelSelectedDigitChangedEventArgs>? SelectedDigitChanged;
 
 
 	private void RefreshBoard()
@@ -175,7 +175,7 @@ public partial class DigitSelectorPanel : UserControl
 		}
 
 		SelectedDigit = digit;
-		SelectedDigitChanged?.Invoke(this, digit);
+		SelectedDigitChanged?.Invoke(this, new(digit));
 	}
 
 	public void SetDigitEnabledMap(BitArray? map) => DigitEnabledMap = map is null ? null : (BitArray)map.Clone();
