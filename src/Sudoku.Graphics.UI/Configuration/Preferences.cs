@@ -19,6 +19,11 @@ internal sealed class Preferences
 	public StringI GivenFontName { get; set; } = StringI.FromValue("Arial");
 
 	/// <summary>
+	/// Indicates the modifiable font name.
+	/// </summary>
+	public StringI ModifiableFontName { get; set; } = StringI.FromPropertyName(nameof(GivenFontName));
+
+	/// <summary>
 	/// Indicates border corner radius used by rendering templates.
 	/// </summary>
 	public ScaleI Template_BorderCornerRadius { get; set; } = ScaleI.FromValue(0.25M);
@@ -37,6 +42,11 @@ internal sealed class Preferences
 	/// Indicates the given font size scale (related to cell size).
 	/// </summary>
 	public ScaleI GivenFontSizeScale { get; set; } = ScaleI.FromValue(0.8M);
+
+	/// <summary>
+	/// Indicates the modifiable font size scale (related to cell size).
+	/// </summary>
+	public ScaleI ModifiableFontSizeScale { get; set; } = ScaleI.FromPropertyName(nameof(GivenFontSizeScale));
 
 	/// <summary>
 	/// Indicates background fill color.
@@ -59,9 +69,19 @@ internal sealed class Preferences
 	public SerializableColorI GivenTextColor { get; set; } = SerializableColorI.FromValue(SKColors.Black);
 
 	/// <summary>
+	/// Indicates modifiable text color.
+	/// </summary>
+	public SerializableColorI ModifiableTextColor { get; set; } = SerializableColorI.FromValue(SKColors.Blue);
+
+	/// <summary>
 	/// Indicates given font width.
 	/// </summary>
 	public SKFontStyleWidthI GivenFontWidth { get; set; } = SKFontStyleWidthI.FromValue(SKFontStyleWidth.Normal);
+
+	/// <summary>
+	/// Indicates modifiable font width.
+	/// </summary>
+	public SKFontStyleWidthI ModifiableFontWidth { get; set; } = SKFontStyleWidthI.FromPropertyName(nameof(GivenFontWidth));
 
 	/// <summary>
 	/// Indicates given font slant.
@@ -69,9 +89,19 @@ internal sealed class Preferences
 	public SKFontStyleSlantI GivenFontSlant { get; set; } = SKFontStyleSlantI.FromValue(SKFontStyleSlant.Upright);
 
 	/// <summary>
+	/// Indicates modifiable font slant.
+	/// </summary>
+	public SKFontStyleSlantI ModifiableFontSlant { get; set; } = SKFontStyleSlantI.FromPropertyName(nameof(GivenFontSlant));
+
+	/// <summary>
 	/// Indicates given font weight.
 	/// </summary>
 	public SKFontStyleWeightI GivenFontWeight { get; set; } = SKFontStyleWeightI.FromValue(SKFontStyleWeight.Medium);
+
+	/// <summary>
+	/// Indicates modifiable font weight.
+	/// </summary>
+	public SKFontStyleWeightI ModifiableFontWeight { get; set; } = SKFontStyleWeightI.FromPropertyName(nameof(GivenFontWeight));
 
 	/// <summary>
 	/// Indicates thick line dash sequence used by rendering templates.
