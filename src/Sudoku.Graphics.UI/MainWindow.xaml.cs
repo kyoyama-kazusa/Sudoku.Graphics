@@ -1,7 +1,4 @@
-﻿using Sudoku.Graphics.Items.Texts;
-using Sudoku.Graphics.UI.Views.Controls;
-
-namespace Sudoku.Graphics.UI;
+﻿namespace Sudoku.Graphics.UI;
 
 /// <summary>
 /// Interaction logic for MainWindow.xaml.
