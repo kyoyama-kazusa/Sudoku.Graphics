@@ -21,6 +21,9 @@
             The backing value.
             </summary>
         </member>
+        <member name="P:Sudoku.Graphics.Absolute.IsInvalid">
+            <inheritdoc/>
+        </member>
         <member name="P:Sudoku.Graphics.Absolute.Sudoku#Graphics#IInteger{Sudoku#Graphics#Absolute}#Value">
             <inheritdoc/>
         </member>
@@ -906,6 +909,11 @@
         </member>
         <member name="M:Sudoku.Graphics.IInteger`1.Converter.Write(System.Text.Json.Utf8JsonWriter,`0,System.Text.Json.JsonSerializerOptions)">
             <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.IInteger`1.IsInvalid">
+            <summary>
+            Indicates whether the value is invalid or not (i.e. value is negative).
+            </summary>
         </member>
         <member name="P:Sudoku.Graphics.IInteger`1.Value">
             <summary>
@@ -5122,6 +5130,9 @@
             <summary>
             The backing value.
             </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Relative.IsInvalid">
+            <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Relative.Sudoku#Graphics#IInteger{Sudoku#Graphics#Relative}#Value">
             <inheritdoc/>

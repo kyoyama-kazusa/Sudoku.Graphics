@@ -7,9 +7,14 @@
 public partial interface IInteger<TSelf> : IComparable<TSelf>, IEquatable<TSelf> where TSelf : struct, IInteger<TSelf>
 {
 	/// <summary>
+	/// Indicates whether the value is invalid or not (i.e. value is negative).
+	/// </summary>
+	bool IsInvalid { get; }
+
+	/// <summary>
 	/// Indicates the value.
 	/// </summary>
-	public int Value { get; }
+	int Value { get; }
 
 
 	/// <summary>

@@ -16,6 +16,9 @@ public readonly struct Relative(int value) : IInteger<Relative>, ILocator<Relati
 
 
 	/// <inheritdoc/>
+	public bool IsInvalid => _value < 0;
+
+	/// <inheritdoc/>
 	int IInteger<Relative>.Value => _value;
 
 

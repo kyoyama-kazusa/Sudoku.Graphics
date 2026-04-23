@@ -107,6 +107,8 @@ public partial class DigitSelectorPanel : UserControl
 		set => SetValue(DigitEnabledMapProperty, value);
 	}
 
+	public OperationHandlerContext? OperationHandlerContext { get; set; }
+
 
 	public event EventHandler<DigitSelectorPanel, DigitSelectorPanelSelectedDigitChangedEventArgs>? SelectedDigitChanged;
 
@@ -175,7 +177,10 @@ public partial class DigitSelectorPanel : UserControl
 		}
 
 		SelectedDigit = digit;
-		SelectedDigitChanged?.Invoke(this, new(digit));
+		SelectedDigitChanged?.Invoke(
+			this,
+			new(digit, OperationHandlerContext ?? throw new InvalidOperationException("Expect non-null context."))
+		);
 	}
 
 	public void SetDigitEnabledMap(BitArray? map) => DigitEnabledMap = map is null ? null : (BitArray)map.Clone();

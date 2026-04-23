@@ -1,5 +1,6 @@
 ﻿global using System;
 global using System.Collections;
+global using System.Collections.Generic;
 global using System.Collections.ObjectModel;
 global using System.ComponentModel;
 global using System.Diagnostics;
@@ -33,6 +34,7 @@ global using Sudoku.Graphics.Items.Texts;
 global using Sudoku.Graphics.Templating;
 global using Sudoku.Graphics.Templating.Templates;
 global using Sudoku.Graphics.UI.Configuration;
+global using Sudoku.Graphics.UI.OperationHandlers;
 global using Sudoku.Graphics.UI.Properties;
 global using Sudoku.Graphics.UI.ViewModels;
 global using Sudoku.Graphics.UI.Views.Controls;

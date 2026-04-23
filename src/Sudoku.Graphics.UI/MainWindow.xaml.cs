@@ -13,50 +13,30 @@ public partial class MainWindow : Window
 
 
 	/// <summary>
+	/// Indicates operation handler factory dictionary.
+	/// </summary>
+	private static readonly Dictionary<ItemType, Func<OperationHandler>> ItemOperationHandlerFactory;
+
+	/// <summary>
 	/// Indicates basic serializer options.
 	/// </summary>
-	private static readonly JsonSerializerOptions SerializerOptions = new()
-	{
-		WriteIndented = true,
-		AllowTrailingCommas = false,
-		IncludeFields = false,
-		IgnoreReadOnlyFields = true,
-		IgnoreReadOnlyProperties = true,
-		AllowDuplicateProperties = false,
-		RespectNullableAnnotations = true,
-		RespectRequiredConstructorParameters = true,
-		PropertyNameCaseInsensitive = false,
-		AllowOutOfOrderMetadataProperties = true,
-		IndentCharacter = ' ',
-		IndentSize = 2,
-		MaxDepth = 8,
-		NewLine = "\r\n",
-		Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
-		PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-		DictionaryKeyPolicy = JsonNamingPolicy.CamelCase,
-		PreferredObjectCreationHandling = JsonObjectCreationHandling.Populate,
-		ReadCommentHandling = JsonCommentHandling.Skip,
-		UnknownTypeHandling = JsonUnknownTypeHandling.JsonElement,
-		DefaultIgnoreCondition = JsonIgnoreCondition.Never,
-		UnmappedMemberHandling = JsonUnmappedMemberHandling.Skip,
-		NumberHandling = JsonNumberHandling.AllowReadingFromString | JsonNumberHandling.AllowNamedFloatingPointLiterals,
-		TypeInfoResolver = JsonTypeInfoResolver.Combine(
-			JsonTypeInfoResolver.Create<Template>(),
-			JsonTypeInfoResolver.Create<Item>(),
-			new DefaultJsonTypeInfoResolver()
-		),
-		Converters =
-		{
-			new JsonStringEnumConverter()
-		}
-	};
+	private static readonly JsonSerializerOptions SerializerOptions;
 
 
-	private Absolute _cellClicked = -1;
-
+	/// <summary>
+	/// The backing items used.
+	/// </summary>
 	private ItemSet _items = [];
 
+	/// <summary>
+	/// The canvas.
+	/// </summary>
 	private Canvas? _canvas;
+
+	/// <summary>
+	/// The operation handler context.
+	/// </summary>
+	private OperationHandlerContext? _operationHandlerContext;
 
 
 	public MainWindow()
@@ -89,16 +69,6 @@ public partial class MainWindow : Window
 	public ICommand QuitCommand => new RelayCommand(Close);
 
 
-	private void AboutMeMenuItem_Click(object sender, RoutedEventArgs e) => new AboutWindow { Owner = this }.ShowDialog();
-
-	private void ToolItemButton_Click(object sender, RoutedEventArgs e)
-	{
-		if (sender is Button { Tag: ToolItem item })
-		{
-			CurrentItemType = item.ItemType;
-		}
-	}
-
 	private void OpenCreateCanvasWindowAndRenderPicture()
 	{
 		if (GridImageSource is not null)
@@ -113,37 +83,22 @@ public partial class MainWindow : Window
 			return;
 		}
 
-		InitializeItems();
-		ReinitializeCanvasAndItems([window.CreateTemplate()]);
+		_items.Add(new BackgroundFillItem { Color = R(() => App.UserPreferences.BackgroundFillColor) });
+		_items.Add(new TemplateLineItem());
+		_canvas = new(window.CreateTemplate());
+
 		RenderPicture();
 	}
 
-	[MemberNotNull(nameof(_items))]
-	private void ReinitializeCanvasAndItems(ItemSet items) => _items = items;
-
-	[MemberNotNull(nameof(_canvas))]
-	private void ReinitializeCanvasAndItems(Template[] templates) => _canvas = new(templates);
-
-	[MemberNotNull(nameof(_items), nameof(_canvas))]
-	private void ReinitializeCanvasAndItems(Template[] templates, ItemSet items)
-	{
-		ReinitializeCanvasAndItems(templates);
-		ReinitializeCanvasAndItems(items);
-	}
-
-	private void DrawItemsToCanvas() => _canvas?.DrawItems(_items);
-
 	private void RenderPicture()
 	{
-		if (_canvas is null)
+		if (_canvas is not null)
 		{
-			return;
+			_canvas.DrawItems(_items);
+
+			using var image = _canvas.Surface.Snapshot();
+			GridImageSource = image.ToWriteableBitmap();
 		}
-
-		DrawItemsToCanvas();
-
-		using var image = _canvas.Surface.Snapshot();
-		GridImageSource = image.ToWriteableBitmap();
 	}
 
 	private void ClosePicture()
@@ -151,12 +106,6 @@ public partial class MainWindow : Window
 		GridImageSource = null;
 		_canvas = null;
 		_items.Clear();
-	}
-
-	private void InitializeItems()
-	{
-		_items.Add(new BackgroundFillItem { Color = R(() => App.UserPreferences.BackgroundFillColor) });
-		_items.Add(new TemplateLineItem());
 	}
 
 	private void SaveAsPictureFile()
@@ -247,8 +196,31 @@ public partial class MainWindow : Window
 			return;
 		}
 
-		ReinitializeCanvasAndItems(templates, items);
+		_canvas = new(templates);
+		_items = items;
+
 		RenderPicture();
+	}
+
+
+	partial void OnCurrentItemTypeChanged(ItemType value)
+	{
+		var modeString = LocalizationResources.ResourceManager.GetString($"ItemType_{value}");
+		if (modeString is not null)
+		{
+			CurrentModeString = modeString;
+		}
+	}
+
+
+	private void AboutMeMenuItem_Click(object sender, RoutedEventArgs e) => new AboutWindow { Owner = this }.ShowDialog();
+
+	private void ToolItemButton_Click(object sender, RoutedEventArgs e)
+	{
+		if (sender is Button { Tag: ToolItem item })
+		{
+			CurrentItemType = item.ItemType;
+		}
 	}
 
 	private void Window_Closing(object sender, CancelEventArgs e)
@@ -294,96 +266,31 @@ public partial class MainWindow : Window
 		App.UserPreferences = instance;
 	}
 
+	[MemberNotNull(nameof(_operationHandlerContext))]
 	private void Image_MouseDown(object sender, MouseButtonEventArgs e)
 	{
+		_operationHandlerContext = new()
+		{
+			Items = _items,
+			Canvas = _canvas,
+			OwnerWindow = this,
+			MouseEventArgs = e,
+			PointPressed = e.GetPosition((IInputElement)e.OriginalSource)
+		};
 
+		var handler = ItemOperationHandlerFactory[CurrentItemType]();
+		handler.OnMouseButtonPressed(_operationHandlerContext);
 	}
 
 	private void Image_MouseUp(object sender, MouseButtonEventArgs e)
 	{
-		if (_canvas is null)
+		if (_operationHandlerContext is null)
 		{
 			return;
 		}
 
-		if (sender is not Image { Source: var source } image)
-		{
-			return;
-		}
-
-		if (e.ChangedButton != MouseButton.Right)
-		{
-			return;
-		}
-
-		var mapper = _canvas.Templates[0].Mapper;
-		if (mapper.RowsCount != mapper.ColumnsCount)
-		{
-			return;
-		}
-
-		AssignCellClicked(e, mapper);
-
-		var desiredCandidateSize = (double)(int)mapper.RowsCount >> Math.Sqrt >> Math.Ceiling >> Convert.ToInt32;
-		DigitSelectorPanel.RowsCount = DigitSelectorPanel.ColumnsCount = desiredCandidateSize;
-		DigitSelectorPanel.MaxDigit = mapper.RowsCount;
-		DigitSelectorPopup.IsOpen = true;
-	}
-
-	private void DigitSelectorPanel_SelectedDigitChanged(DigitSelectorPanel sender, DigitSelectorPanelSelectedDigitChangedEventArgs e)
-	{
-		DigitSelectorPopup.IsOpen = false;
-
-		if (_canvas is null || e.Digit is not (var digit and not 0) || _cellClicked == -1)
-		{
-			return;
-		}
-
-		_items.Add(
-			new GivenTextItem
-			{
-				TemplateIndex = 0,
-				Cell = _cellClicked,
-				FontName = R(() => App.UserPreferences.GivenFontName),
-				FontSizeScale = R(() => App.UserPreferences.GivenFontSizeScale),
-				Text = digit.ToString(),
-				Color = R(() => App.UserPreferences.GivenTextColor),
-				FontWidth = R(() => App.UserPreferences.GivenFontWidth),
-				FontSlant = R(() => App.UserPreferences.GivenFontSlant),
-				FontWeight = R(() => App.UserPreferences.GivenFontWeight)
-			}
-		);
-
-		RenderPicture();
-		ResetCellClicked();
-	}
-
-	private void ResetCellClicked() => _cellClicked = -1;
-
-	private void AssignCellClicked(MouseButtonEventArgs e, PointMapper mapper)
-	{
-		var source = MainGrid.Source;
-		var pointOnImage = e.GetPosition(MainGrid);
-		var scaleX = MainGrid.ActualWidth / source.Width;
-		var scaleY = MainGrid.ActualHeight / source.Height;
-		var scale = Math.Min(scaleX, scaleY);
-		var offsetX = (MainGrid.ActualWidth - source.Width * scale) / 2;
-		var offsetY = (MainGrid.ActualHeight - source.Height * scale) / 2;
-		var originalX = (pointOnImage.X - offsetX) / scale;
-		var originalY = (pointOnImage.Y - offsetY) / scale;
-		var point = new Point(originalX, originalY);
-		if (ImageSourcePointMapper.TryGetPoint(source, point, mapper, out var cellClicked))
-		{
-			_cellClicked = cellClicked;
-		}
-	}
-
-	partial void OnCurrentItemTypeChanged(ItemType value)
-	{
-		var modeString = LocalizationResources.ResourceManager.GetString($"ItemType_{value}");
-		if (modeString is not null)
-		{
-			CurrentModeString = modeString;
-		}
+		_operationHandlerContext.MouseEventArgs = e;
+		var handler = ItemOperationHandlerFactory[CurrentItemType]();
+		handler.OnMouseButtonReleased(_operationHandlerContext);
 	}
 }

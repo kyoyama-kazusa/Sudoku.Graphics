@@ -16,6 +16,9 @@ public readonly struct Absolute(int value) : IInteger<Absolute>, ILocator<Absolu
 
 
 	/// <inheritdoc/>
+	public bool IsInvalid => _value < 0;
+
+	/// <inheritdoc/>
 	int IInteger<Absolute>.Value => _value;
 
 

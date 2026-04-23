@@ -187,6 +187,9 @@ dotnet_diagnostic.CA1707.severity = none
 # CS0067: The event 'event' is never used
 dotnet_diagnostic.CS0067.severity = none
 
+# IDE0065: Misplaced using directive
+dotnet_diagnostic.IDE0065.severity = none
+
 [*.xaml]
 tab_width = 4
 indent_size = 4

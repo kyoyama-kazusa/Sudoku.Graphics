@@ -248,6 +248,11 @@
         <member name="M:System.MathFExtensions.&lt;G&gt;$99E69BC8D2E7440BB47F5FE7B730E827.Clamp(System.Single,System.Single,System.Single)">
             <inheritdoc cref="M:System.Math.Clamp(System.Single,System.Single,System.Single)"/>
         </member>
+        <member name="T:System.Optional">
+            <summary>
+            Provides an arbitrary value.
+            </summary>
+        </member>
         <member name="T:System.Pipelines.Pipeline">
             <summary>
             Provides a way to use pipeline.
@@ -270,6 +275,21 @@
             <param name="instance">The instance.</param>
             <param name="converter">The converter.</param>
             <returns>The result.</returns>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.IUnion">
+            <summary>
+            Represents a type that behaves like a union.
+            </summary>
+        </member>
+        <member name="P:System.Runtime.CompilerServices.IUnion.Value">
+            <summary>
+            Indicates the backing value of the union.
+            </summary>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.UnionAttribute">
+            <summary>
+            Represents a type that is a union or a union-like type.
+            </summary>
         </member>
         <member name="T:System.StringExtensions">
             <summary>
@@ -546,6 +566,26 @@
             </summary>
             <param name="count">The number of characters to remove.</param>
             <returns>The reference same as the current instance.</returns>
+        </member>
+        <member name="T:System.TypeExtensions">
+            <summary>
+            Provides extension members on <see cref="T:System.Type"/>.
+            </summary>
+            <seealso cref="T:System.Type"/>
+        </member>
+        <member name="M:System.TypeExtensions.get_HasParameterlessConstructor(System.Type)">
+            <inheritdoc cref="P:System.TypeExtensions.&lt;G&gt;$6B6159A298CA62A8C577E514BE40E3DD.HasParameterlessConstructor"/>
+        </member>
+        <member name="T:System.TypeExtensions.&lt;G&gt;$6B6159A298CA62A8C577E514BE40E3DD.&lt;M&gt;$DE732B1B288F314962E014BBF26F8C77">
+            <summary>
+            Provides extension members on <see cref="T:System.Type"/> instances.
+            </summary>
+            <param name="this">The current instance.</param>
+        </member>
+        <member name="P:System.TypeExtensions.&lt;G&gt;$6B6159A298CA62A8C577E514BE40E3DD.HasParameterlessConstructor">
+            <summary>
+            Indicates whether the type has a callable parameterless constructor or not.
+            </summary>
         </member>
         <member name="T:SkiaSharp.SKFontExtensions">
             <summary>

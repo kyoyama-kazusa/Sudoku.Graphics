@@ -1,12 +1,12 @@
-﻿using LineDashSequenceI = System.Text.Json.Inherited<Sudoku.Graphics.LineDashSequence>;
-using ScaleI = System.Text.Json.Inherited<Sudoku.Graphics.Scale>;
-using SerializableColorI = System.Text.Json.Inherited<Sudoku.Graphics.SerializableColor>;
-using SKFontStyleSlantI = System.Text.Json.Inherited<SkiaSharp.SKFontStyleSlant>;
-using SKFontStyleWeightI = System.Text.Json.Inherited<SkiaSharp.SKFontStyleWeight>;
-using SKFontStyleWidthI = System.Text.Json.Inherited<SkiaSharp.SKFontStyleWidth>;
-using StringI = System.Text.Json.Inherited<string>;
+﻿namespace Sudoku.Graphics.UI.Configuration;
 
-namespace Sudoku.Graphics.UI.Configuration;
+using LineDashSequenceI = Inherited<LineDashSequence>;
+using ScaleI = Inherited<Scale>;
+using SerializableColorI = Inherited<SerializableColor>;
+using SKFontStyleSlantI = Inherited<SKFontStyleSlant>;
+using SKFontStyleWeightI = Inherited<SKFontStyleWeight>;
+using SKFontStyleWidthI = Inherited<SKFontStyleWidth>;
+using StringI = Inherited<string>;
 
 /// <summary>
 /// Represents user preferences.
