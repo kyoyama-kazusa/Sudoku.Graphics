@@ -1,6 +1,4 @@
-﻿#pragma warning disable CS0809
-
-namespace Sudoku.Graphics.UI.OperationHandlers;
+﻿namespace Sudoku.Graphics.UI.OperationHandlers;
 
 /// <summary>
 /// Represents an attribute type that describes what item type the opertaion handler will support.
