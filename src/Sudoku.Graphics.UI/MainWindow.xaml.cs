@@ -272,7 +272,7 @@ public partial class MainWindow : Window
 			Canvas = _canvas,
 			OwnerWindow = this,
 			MouseEventArgs = e,
-			PointPressed = e.GetPosition((IInputElement)e.OriginalSource)
+			PointPressed = e.Position
 		};
 
 		var handler = ItemOperationHandlerFactory[CurrentItemType]();
