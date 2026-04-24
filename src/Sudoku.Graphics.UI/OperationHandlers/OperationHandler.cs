@@ -35,9 +35,16 @@ public abstract class OperationHandler
 	protected internal abstract void OnMouseButtonReleased(OperationHandlerContext context);
 
 	/// <summary>
+	/// Indicates whether the current operation is available.
+	/// </summary>
+	/// <param name="context">The context.</param>
+	/// <returns>A <see cref="bool"/> result indicating whether the operation is available or not.</returns>
+	protected internal virtual bool IsAvailable(OperationHandlerContext context) => true;
+
+	/// <summary>
 	/// Craeates a new <see cref="Item"/> instance.
 	/// </summary>
 	/// <param name="context">The context.</param>
 	/// <returns>The item created, or <see langword="null"/> if failed to create.</returns>
-	protected internal abstract Item? CreateItem(OperationHandlerContext context);
+	protected internal abstract ReadOnlySpan<Item> CreateItem(OperationHandlerContext context);
 }

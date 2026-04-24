@@ -104,6 +104,9 @@ public readonly struct Absolute(int value) : IInteger<Absolute>, ILocator<Absolu
 		};
 	}
 
+	/// <inheritdoc/>
+	public Relative GetCandidatesCountInEachRow() => (double)_value >> Math.Sqrt >> Math.Ceiling >> Convert.ToInt32;
+
 
 	/// <inheritdoc/>
 	public static bool IsAlignedAs(LocatorGridAlignment gridAlignment, Absolute first, Absolute second, PointMapper mapper)

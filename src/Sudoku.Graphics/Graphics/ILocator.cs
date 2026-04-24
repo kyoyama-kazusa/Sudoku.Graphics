@@ -35,6 +35,24 @@ public interface ILocator<TSelf> : IEquatable<TSelf> where TSelf : unmanaged, IL
 	/// <returns>The result.</returns>
 	float GetLocatorMeasurer(float cellSize);
 
+	/// <summary>
+	/// Gets the number of candidates in one row.
+	/// </summary>
+	/// <returns>The number of candidates in one row.</returns>
+	/// <remarks>
+	/// <para>
+	/// By design of candidate drawing system, we will split a cell into a square subgrid of size <i>n</i> by <i>n</i>,
+	/// where <i>n</i> is equal to value of property <see cref="CandidatePosition.SubgridSize"/>.
+	/// </para>
+	/// <para>
+	/// Then, we define an absolute internal index to describe a cell will be drawn, which is in range [0, <i>n</i> * <i>n</i>) -
+	/// property <see cref="CandidatePosition.InnerIndex"/>.
+	/// </para>
+	/// </remarks>
+	/// <seealso cref="CandidatePosition.SubgridSize"/>
+	/// <seealso cref="CandidatePosition.InnerIndex"/>
+	Relative GetCandidatesCountInEachRow();
+
 
 	/// <summary>
 	/// Determine whether two locator instances are aligned as the specified type of alignment in grid.

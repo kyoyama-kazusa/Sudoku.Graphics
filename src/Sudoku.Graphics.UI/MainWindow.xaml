@@ -77,6 +77,17 @@
 					Foreground="Black" />
 			</Border>
 		</Popup>
+		<Popup x:Name="MultipleDigitSelectorPopup" Placement="MousePoint" StaysOpen="False" AllowsTransparency="True">
+			<Border Background="White" BorderBrush="Gray" BorderThickness="1" Padding="6">
+				<c:MultipleDigitSelectorPanel
+					x:Name="MultipleDigitSelectorPanel"
+					CellSize="48"
+					FontFamily="Arial"
+					FontSize="28"
+					FontWeight="Bold"
+					Foreground="Black" />
+			</Border>
+		</Popup>
 		<Border Grid.Row="1" Grid.Column="0" BorderThickness="2" Margin="16">
 			<Image
 				x:Name="MainGrid"

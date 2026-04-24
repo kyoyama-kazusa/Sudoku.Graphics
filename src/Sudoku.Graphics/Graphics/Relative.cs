@@ -96,11 +96,14 @@ public readonly struct Relative(int value) : IInteger<Relative>, ILocator<Relati
 		};
 	}
 
+	/// <inheritdoc/>
+	public Relative GetCandidatesCountInEachRow() => (double)_value >> Math.Sqrt >> Math.Ceiling >> Convert.ToInt32;
+
 
 	/// <inheritdoc/>
 	public static bool IsAlignedAs(LocatorGridAlignment gridAlignment, Relative first, Relative second, PointMapper mapper)
 		=> Absolute.IsAlignedAs(gridAlignment, first.ToAbsolute(mapper), second.ToAbsolute(mapper), mapper);
-
+	
 
 	/// <inheritdoc/>
 	public static implicit operator Relative(int value) => new(value);

@@ -17,5 +17,5 @@ public sealed class NoneOperationHandler : OperationHandler
 	}
 
 	/// <inheritdoc/>
-	protected internal override Item? CreateItem(OperationHandlerContext context) => null;
+	protected internal override ReadOnlySpan<Item> CreateItem(OperationHandlerContext context) => [];
 }

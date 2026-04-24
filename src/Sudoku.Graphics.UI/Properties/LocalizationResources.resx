@@ -264,4 +264,7 @@
   <data name="MessageBox_FileLengthExceeded" xml:space="preserve">
     <value>File is greater than {0}, which is not allowed in this program due to too large.</value>
   </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
 </root>

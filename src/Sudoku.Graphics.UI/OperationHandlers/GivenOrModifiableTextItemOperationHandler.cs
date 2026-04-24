@@ -10,11 +10,7 @@ public abstract class GivenOrModifiableTextItemOperationHandler(bool _isGiven) :
 	/// <inheritdoc/>
 	protected internal sealed override void OnMouseButtonPressed(OperationHandlerContext context)
 	{
-		if (context is not { OwnerWindow.DigitSelectorPanel: var panel })
-		{
-			return;
-		}
-
+		var panel = context.OwnerWindow.DigitSelectorPanel;
 		panel.OperationHandlerContext = context;
 		panel.SelectedDigitChanged += Panel_SelectedDigitChanged;
 	}
@@ -24,50 +20,55 @@ public abstract class GivenOrModifiableTextItemOperationHandler(bool _isGiven) :
 	{
 		if (context is not
 			{
-				OwnerWindow: { MainGrid: { Source: var source } mainGrid, DigitSelectorPanel: var panel, DigitSelectorPopup: var popup },
-				MouseEventArgs.ChangedButton: MouseButton.Right,
+				OwnerWindow: { DigitSelectorPanel: var panel, DigitSelectorPopup: var popup },
 				Canvas.Templates: [{ Mapper: var mapper }]
 			})
 		{
 			return;
 		}
 
-		var desiredCandidateSize = (double)(int)mapper.RowsCount >> Math.Sqrt >> Math.Ceiling >> Convert.ToInt32;
+		var desiredCandidateSize = mapper.RowsCount.GetCandidatesCountInEachRow();
 		panel.RowsCount = panel.ColumnsCount = desiredCandidateSize;
 		panel.MaxDigit = mapper.RowsCount;
 		popup.IsOpen = true;
 	}
 
 	/// <inheritdoc/>
-	protected internal sealed override Item? CreateItem(OperationHandlerContext context)
+	protected internal sealed override bool IsAvailable(OperationHandlerContext context)
+		=> context.MouseEventArgs.ChangedButton == MouseButton.Right;
+
+	/// <inheritdoc/>
+	protected internal sealed override ReadOnlySpan<Item> CreateItem(OperationHandlerContext context)
 		=> context switch
 		{
-			{ State: int digit } => _isGiven
-				? new GivenTextItem
-				{
-					TemplateIndex = 0,
-					Cell = context.GetCell(),
-					FontName = R(() => App.UserPreferences.GivenFontName),
-					FontSizeScale = R(() => App.UserPreferences.GivenFontSizeScale),
-					Text = digit.ToString(),
-					Color = R(() => App.UserPreferences.GivenTextColor),
-					FontWidth = R(() => App.UserPreferences.GivenFontWidth),
-					FontSlant = R(() => App.UserPreferences.GivenFontSlant),
-					FontWeight = R(() => App.UserPreferences.GivenFontWeight)
-				}
-				: new ModifiableTextItem
-				{
-					TemplateIndex = 0,
-					Cell = context.GetCell(),
-					FontName = R(() => App.UserPreferences.ModifiableFontName),
-					FontSizeScale = R(() => App.UserPreferences.ModifiableFontSizeScale),
-					Text = digit.ToString(),
-					Color = R(() => App.UserPreferences.ModifiableTextColor),
-					FontWidth = R(() => App.UserPreferences.ModifiableFontWidth),
-					FontSlant = R(() => App.UserPreferences.ModifiableFontSlant),
-					FontWeight = R(() => App.UserPreferences.ModifiableFontWeight)
-				},
-			_ => null
+			{ State: int digit } => (Item[])[
+				_isGiven
+					? new GivenTextItem
+					{
+						TemplateIndex = 0,
+						Cell = context.GetCell(),
+						FontName = R(() => App.UserPreferences.GivenFontName),
+						FontSizeScale = R(() => App.UserPreferences.GivenFontSizeScale),
+						Text = digit.ToString(),
+						Color = R(() => App.UserPreferences.GivenTextColor),
+						FontWidth = R(() => App.UserPreferences.GivenFontWidth),
+						FontSlant = R(() => App.UserPreferences.GivenFontSlant),
+						FontWeight = R(() => App.UserPreferences.GivenFontWeight)
+					}
+					: new ModifiableTextItem
+					{
+						TemplateIndex = 0,
+						Cell = context.GetCell(),
+						FontName = R(() => App.UserPreferences.ModifiableFontName),
+						FontSizeScale = R(() => App.UserPreferences.ModifiableFontSizeScale),
+						Text = digit.ToString(),
+						Color = R(() => App.UserPreferences.ModifiableTextColor),
+						FontWidth = R(() => App.UserPreferences.ModifiableFontWidth),
+						FontSlant = R(() => App.UserPreferences.ModifiableFontSlant),
+						FontWeight = R(() => App.UserPreferences.ModifiableFontWeight)
+					}
+			],
+			_ => []
 		};
 
 	private void Panel_SelectedDigitChanged(DigitSelectorPanel sender, DigitSelectorPanelSelectedDigitChangedEventArgs e)
@@ -89,12 +90,12 @@ public abstract class GivenOrModifiableTextItemOperationHandler(bool _isGiven) :
 		popup.IsOpen = false;
 
 		context.State = digit;
-		if (CreateItem(context) is not { } item)
+		if (CreateItem(context) is not { IsEmpty: false } itemsCreated)
 		{
 			return;
 		}
 
-		items.Add(item);
+		items.AddRange(itemsCreated);
 		canvas.DrawItems(items);
 
 		using var image = surface.Snapshot();
