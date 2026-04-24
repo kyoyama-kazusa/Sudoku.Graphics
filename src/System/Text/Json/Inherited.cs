@@ -15,7 +15,7 @@ public sealed class Inherited<T> : IEquatable<Inherited<T>>, IEqualityOperators<
 	/// <summary>
 	/// Represents property name of value to be serialized and deserialized.
 	/// </summary>
-	internal const string ValuePropertyName = "value";
+	internal const string ValuePropertyName = "$value";
 
 	/// <summary>
 	/// Indicates binding flags on property members while resolving value.
@@ -474,7 +474,7 @@ file sealed class StringConverter : JsonConverter<Inherited<string>>
 	/// <inheritdoc/>
 	public override void Write(Utf8JsonWriter writer, Inherited<string> value, JsonSerializerOptions options)
 	{
-		var valuePropertyString = (options.PropertyNamingPolicy ?? JsonNamingPolicy.CamelCase).ConvertName(nameof(value));
+		var valuePropertyString = (options.PropertyNamingPolicy ?? JsonNamingPolicy.CamelCase).ConvertName(Inherited<string>.ValuePropertyName);
 		if (value.HasValue)
 		{
 			writer.WriteStartObject();
