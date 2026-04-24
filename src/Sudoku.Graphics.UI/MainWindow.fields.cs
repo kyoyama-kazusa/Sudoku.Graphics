@@ -17,6 +17,14 @@ public partial class MainWindow
 			}
 		}
 
+		BitmapEncoderFactory = new(StringComparer.OrdinalIgnoreCase)
+		{
+			{ ".jpg", static () => new JpegBitmapEncoder() },
+			{ ".jpeg", static () => new JpegBitmapEncoder() },
+			{ ".png", static () => new PngBitmapEncoder() },
+			{ ".bmp", static () => new BmpBitmapEncoder() }
+		};
+
 		SerializerOptions = new()
 		{
 			WriteIndented = true,

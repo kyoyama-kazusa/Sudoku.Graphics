@@ -18,6 +18,11 @@ public partial class MainWindow : Window
 	private static readonly Dictionary<ItemType, Func<OperationHandler>> ItemOperationHandlerFactory;
 
 	/// <summary>
+	/// Indicates bitmap encoder factory dictionary.
+	/// </summary>
+	private static readonly Dictionary<string, Func<BitmapEncoder>> BitmapEncoderFactory;
+
+	/// <summary>
 	/// Indicates basic serializer options.
 	/// </summary>
 	private static readonly JsonSerializerOptions SerializerOptions;
@@ -129,15 +134,7 @@ public partial class MainWindow : Window
 		}
 
 		var extension = Path.GetExtension(filePath);
-		var encoder = (BitmapEncoder)(
-			extension switch
-			{
-				".jpg" or ".jpeg" => new JpegBitmapEncoder(),
-				".bmp" => new BmpBitmapEncoder(),
-				_ => new PngBitmapEncoder()
-			}
-		);
-
+		var encoder = BitmapEncoderFactory[extension]();
 		encoder.Frames.Add(BitmapFrame.Create(GridImageSource));
 		using var stream = File.Create(filePath);
 		encoder.Save(stream);

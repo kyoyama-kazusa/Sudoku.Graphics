@@ -109,5 +109,6 @@ public sealed class CandidateTextMarkItemOperationHandler : OperationHandler
 
 		sender.SelectedDigitsChanged -= Panel_SelectedDigitsChanged;
 		panel.OperationHandlerContext = null;
+		panel.SelectedDigits = []; // It may trigger 'Panel_SelectedDigitsChanged' but we have just already unsubscribed this event.
 	}
 }
