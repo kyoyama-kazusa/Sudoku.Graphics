@@ -5336,6 +5336,290 @@
         <member name="M:Sudoku.Graphics.Converter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.Graphics.Scale,System.Text.Json.JsonSerializerOptions)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.Semantic.SudokuGrid">
+            <summary>
+            Represents a sudoku grid.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.Semantic.SudokuGrid.CandidatesEnumerator">
+            <summary>
+            Represents an enumerator that can iterate on each candidate in this collection.
+            </summary>
+            <param name="_candidates">Indicates the backing candidates.</param>
+            <param name="_digitsCount">The number of digits.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.CandidatesEnumerator.#ctor(System.Collections.BitArray,System.Int32)">
+            <summary>
+            Represents an enumerator that can iterate on each candidate in this collection.
+            </summary>
+            <param name="_candidates">Indicates the backing candidates.</param>
+            <param name="_digitsCount">The number of digits.</param>
+        </member>
+        <member name="F:Sudoku.Graphics.Semantic.SudokuGrid.CandidatesEnumerator._desiredSize">
+            <summary>
+            Indicates the number of digits in a row in a cell to draw.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Semantic.SudokuGrid.CandidatesEnumerator._currentIndex">
+            <summary>
+            Indicates the backing index.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Semantic.SudokuGrid.CandidatesEnumerator.Current">
+            <inheritdoc cref="P:System.Collections.Generic.IEnumerator`1.Current"/>
+        </member>
+        <member name="P:Sudoku.Graphics.Semantic.SudokuGrid.CandidatesEnumerator.System#Collections#IEnumerator#Current">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.CandidatesEnumerator.GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.CandidatesEnumerator.MoveNext">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.CandidatesEnumerator.GetCandidatePositionsImmediately">
+            <summary>
+            Returns a <see cref="T:System.ReadOnlySpan`1"/> of <see cref="T:Sudoku.Graphics.CandidatePosition"/> instances immediately.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.CandidatesEnumerator.System#IDisposable#Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.CandidatesEnumerator.System#Collections#IEnumerator#Reset">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.CandidatesEnumerator.System#Collections#IEnumerable#GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.CandidatesEnumerator.System#Collections#Generic#IEnumerable{Sudoku#Graphics#CandidatePosition}#GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="F:Sudoku.Graphics.Semantic.SudokuGrid._givens">
+            <summary>
+            Indicates the givens.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Semantic.SudokuGrid._modifiables">
+            <summary>
+            Indicates the modifiables.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Semantic.SudokuGrid._candidates">
+            <summary>
+            Indicates the candidates.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.#ctor(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Graphics.Semantic.SudokuGrid"/> instance via the specified number of rows and columns.
+            </summary>
+            <param name="rowsCount">The number of rows.</param>
+            <param name="columnsCount">The number of columns.</param>
+            <param name="digitsCount">The number of digits.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.#ctor(System.Int32[],System.Int32[],System.Collections.BitArray,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,System.Boolean)">
+            <summary>
+            Creates a clone from the specified instance.
+            </summary>
+            <param name="givens"><inheritdoc cref="F:Sudoku.Graphics.Semantic.SudokuGrid._givens" path="/summary"/></param>
+            <param name="modifiables"><inheritdoc cref="F:Sudoku.Graphics.Semantic.SudokuGrid._modifiables" path="/summary"/></param>
+            <param name="candidates"><inheritdoc cref="F:Sudoku.Graphics.Semantic.SudokuGrid._candidates" path="/summary"/></param>
+            <param name="rowsCount"><inheritdoc cref="P:Sudoku.Graphics.Semantic.SudokuGrid.RowsCount" path="/summary"/></param>
+            <param name="columnsCount"><inheritdoc cref="P:Sudoku.Graphics.Semantic.SudokuGrid.ColumnsCount" path="/summary"/></param>
+            <param name="digitsCount"><inheritdoc cref="P:Sudoku.Graphics.Semantic.SudokuGrid.DigitsCount" path="/summary"/></param>
+            <param name="clone">
+            Indicates whether this constructor will clone parameters
+            <paramref name="givens"/>, <paramref name="modifiables"/> and <paramref name="candidates"/>.
+            </param>
+        </member>
+        <member name="P:Sudoku.Graphics.Semantic.SudokuGrid.ContainsDisobeyedDigitMarks">
+            <summary>
+            Indicates whether this grid contains disobeyed digit marks or not,
+            which means any cell contains 2 or more kinds of digits (given, modifiable and candidate) in a single cell.
+            </summary>
+            <remarks>
+            In drawing system, we don't care about this case, but it may be used in checking some edge cases.
+            </remarks>
+        </member>
+        <member name="P:Sudoku.Graphics.Semantic.SudokuGrid.CellsCount">
+            <summary>
+            Indicates the number of cells.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Semantic.SudokuGrid.CandidatesCount">
+            <summary>
+            Indicates the number of candidates assigned.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Semantic.SudokuGrid.RowsCount">
+            <summary>
+            Indicates the number of rows.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Semantic.SudokuGrid.ColumnsCount">
+            <summary>
+            Indicates the number of columns.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Semantic.SudokuGrid.DigitsCount">
+            <summary>
+            Indicates the number of digits.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Semantic.SudokuGrid.FormatPattern">
+            <remarks>
+            Pattern:<br/>
+            <code>.{3}\\:\\s*.+(?:\\:\\s*.{3,}(?:\\s+.{3,})*)?</code><br/>
+            Options:<br/>
+            <code>RegexOptions.Compiled | RegexOptions.Singleline</code><br/>
+            Explanation:<br/>
+            <code>
+            ○ Match any character exactly 3 times.<br/>
+            ○ Match ':'.<br/>
+            ○ Match a whitespace character greedily any number of times.<br/>
+            ○ Match any character greedily at least once.<br/>
+            ○ Optional (greedy).<br/>
+                ○ Match ':'.<br/>
+                ○ Match a whitespace character greedily any number of times.<br/>
+                ○ Match any character greedily at least 3 times.<br/>
+                ○ Loop atomically any number of times.<br/>
+                    ○ Match a whitespace character greedily at least once.<br/>
+                    ○ Match any character greedily at least 3 times.<br/>
+            </code>
+            </remarks>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.Equals(Sudoku.Graphics.Semantic.SudokuGrid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.ContainsCandidate(Sudoku.Graphics.Absolute,System.Int32)">
+            <summary>
+            Indicates whether the specified candidate exists in the collection or not.
+            </summary>
+            <param name="cell">The cell.</param>
+            <param name="digit">The digit.</param>
+            <returns>A <see cref="T:System.Boolean"/> result.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.ContainsCandidate(Sudoku.Graphics.CandidatePosition)">
+            <summary>
+            Indicates whether the specified candidate exists in the collection or not.
+            </summary>
+            <param name="candidate">The candidate.</param>
+            <returns>A <see cref="T:System.Boolean"/> result.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.ToString">
+             <inheritdoc/>
+             <remarks>
+             Format:
+             <code>
+             format
+               : rows_count_character columns_count_character digits_count_character ':' ' '* value_sequence (':' ' '* candidates)?
+               ;
+            
+             rows_count_character
+               : value_character
+               ;
+            
+             columns_count_character
+               : value_character
+               ;
+            
+             digits_count_character
+               : value_character
+               ;
+            
+             value_sequence
+               : ('+'? value_character)+
+               ;
+            
+             candidates
+               : digit_character+ cell_row_index cell_column_index (' '+ digit_character+ cell_row_index cell_column_index)*
+               ;
+            
+             value_character
+               : '.' | '0' - '9' | 'A' - 'Z' | 'a' - 'z' | greek_letters_upper | greek_letters_lower
+               ;
+            
+             cell_row_index
+               : value_character
+               ;
+            
+             cell_column_index
+               : value_character
+               ;
+            
+             digit_character
+               : value_character
+               ;
+             </code>
+             </remarks>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.EnumerateCandidates">
+            <summary>
+            Try to enumerate all possible candidates defined in this collection.
+            </summary>
+            <returns>An enumerator type that can iterate candidates.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.GetCandidates(Sudoku.Graphics.Absolute)">
+            <summary>
+            Returns the candidates of the specified cell.
+            </summary>
+            <param name="cell">The cell.</param>
+            <returns>The candidates.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.Clone">
+            <inheritdoc cref="M:System.ICloneable.Clone"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.System#ICloneable#Clone">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.TryParse(System.String,Sudoku.Graphics.Semantic.SudokuGrid@)">
+            <inheritdoc cref="M:System.IParsable`1.TryParse(System.String,System.IFormatProvider,`0@)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.Parse(System.String)">
+            <inheritdoc cref="M:System.IParsable`1.Parse(System.String,System.IFormatProvider)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.op_Equality(Sudoku.Graphics.Semantic.SudokuGrid,Sudoku.Graphics.Semantic.SudokuGrid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.op_Inequality(Sudoku.Graphics.Semantic.SudokuGrid,Sudoku.Graphics.Semantic.SudokuGrid)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Semantic.SudokuGridNotation">
+            <summary>
+            Provides a way to represent a grid using a <see cref="T:System.String"/> value.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGridNotation.IsValidChar(System.Char)">
+            <summary>
+            Determine whether the character is valid or not.
+            </summary>
+            <param name="ch">The character.</param>
+            <returns>A <see cref="T:System.Boolean"/> result.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGridNotation.CharToIndex(System.Char)">
+            <summary>
+            Converts the specified character into index between 0 and 110.
+            </summary>
+            <param name="ch">The character.</param>
+            <returns>The index to that character.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Throws when the character is not supported.</exception>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGridNotation.IndexToChar(System.Int32,System.Char)">
+            <summary>
+            Converts the specified index into character.
+            </summary>
+            <param name="index">The index between 0 and 110.</param>
+            <param name="placeholderCh">The placeholder character.</param>
+            <returns>The character.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Throws when the value is out of range.</exception>
+        </member>
         <member name="T:Sudoku.Graphics.SerializableColor">
             <summary>
             Represents a repository-wide color instance that can be serialized and deserialized.
@@ -6556,27 +6840,6 @@
         <member name="M:Sudoku.Graphics.ThicknessExtensions.&lt;G&gt;$2F63DBA80350D211AAABE8DD05DD259B`1.op_CheckedSubtraction(Sudoku.Graphics.Thickness{`0},Sudoku.Graphics.Thickness{`0})">
             <inheritdoc cref="M:System.Numerics.ISubtractionOperators`3.op_CheckedSubtraction(`0,`1)"/>
         </member>
-        <member name="T:Sudoku.Notation.GridNotation">
-            <summary>
-            Provides a way to represent a grid using a <see cref="T:System.String"/> value.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Notation.GridNotation.CharToIndex(System.Char)">
-            <summary>
-            Converts the specified character into index between 0 and 109.
-            </summary>
-            <param name="ch">The character.</param>
-            <returns>The index to that character.</returns>
-            <exception cref="T:System.ArgumentOutOfRangeException">Throws when the character is not supported.</exception>
-        </member>
-        <member name="M:Sudoku.Notation.GridNotation.IndexToChar(System.Int32)">
-            <summary>
-            Converts the specified index into character.
-            </summary>
-            <param name="index">The index between 0 and 109.</param>
-            <returns>The character.</returns>
-            <exception cref="T:System.ArgumentOutOfRangeException">Throws when the value is out of range.</exception>
-        </member>
         <member name="T:Sudoku.Resources.Resource">
             <summary>
               A strongly-typed resource class, for looking up localized strings, etc.
@@ -6762,6 +7025,56 @@
             <summary>
             Indicates the key of resource entry.
             </summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.FormatPattern_0">
+            <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the FormatPattern method.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.FormatPattern_0.Instance">
+            <summary>Cached, thread-safe singleton instance.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.FormatPattern_0.#ctor">
+            <summary>Initializes the instance.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.FormatPattern_0.RunnerFactory">
+            <summary>Provides a factory for creating <see cref="T:System.Text.RegularExpressions.RegexRunner"/> instances to be used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.FormatPattern_0.RunnerFactory.CreateInstance">
+            <summary>Creates an instance of a <see cref="T:System.Text.RegularExpressions.RegexRunner"/> used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.FormatPattern_0.RunnerFactory.Runner">
+            <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.FormatPattern_0.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+            <summary>Scan the <paramref name="inputSpan"/> starting from base.runtextstart for the next match.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.FormatPattern_0.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Search <paramref name="inputSpan"/> starting from base.runtextpos for the next location a match could possibly start.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if a possible match was found; false if no more matches are possible.</returns>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.FormatPattern_0.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Determine whether <paramref name="inputSpan"/> at base.runtextpos is a match for the regular expression.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.Utilities">
+            <summary>Helper methods used by generated <see cref="T:System.Text.RegularExpressions.Regex"/>-derived implementations.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.Utilities.s_defaultTimeout">
+            <summary>Default timeout value set in <see cref="T:System.AppContext"/>, or <see cref="F:System.Text.RegularExpressions.Regex.InfiniteMatchTimeout"/> if none was set.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.Utilities.s_hasTimeout">
+            <summary>Whether <see cref="F:System.Text.RegularExpressions.Generated.Utilities.s_defaultTimeout"/> is non-infinite.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.Utilities.StackPop(System.Int32[],System.Int32@,System.Int32@,System.Int32@)">
+            <summary>Pops 2 values from the backtracking stack.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.Utilities.StackPush(System.Int32[]@,System.Int32@,System.Int32)">
+            <summary>Pushes 1 value onto the backtracking stack.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.Utilities.StackPush(System.Int32[]@,System.Int32@,System.Int32,System.Int32)">
+            <summary>Pushes 2 values onto the backtracking stack.</summary>
         </member>
     </members>
 </doc>

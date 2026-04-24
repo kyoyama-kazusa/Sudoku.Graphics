@@ -79,6 +79,134 @@
         <member name="M:System.Linq.SpanEnumerable.&lt;G&gt;$38406200860C59512D7718BA1AC2471B`2.Select(System.Func{`0,`1})">
             <inheritdoc cref="M:System.Linq.Enumerable.Select``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})"/>
         </member>
+        <member name="T:System.Collections.BitArrayExtensions">
+            <summary>
+            Provides extension members on <see cref="T:System.Collections.BitArray"/>.
+            </summary>
+            <seealso cref="T:System.Collections.BitArray"/>
+        </member>
+        <member name="F:System.Collections.BitArrayExtensions.NibblePopCount">
+            <summary>
+            Represents a field to be used as table lookup.
+            </summary>
+        </member>
+        <member name="M:System.Collections.BitArrayExtensions.get_Cardinality(System.Collections.BitArray)">
+            <inheritdoc cref="P:System.Collections.BitArrayExtensions.&lt;G&gt;$B5B861DD070448A37A7F15A6783AA476.Cardinality"/>
+        </member>
+        <member name="M:System.Collections.BitArrayExtensions.GetInternalArrayField(System.Collections.BitArray)">
+            <inheritdoc cref="M:System.Collections.BitArrayExtensions.&lt;G&gt;$B5B861DD070448A37A7F15A6783AA476.GetInternalArrayField"/>
+        </member>
+        <member name="M:System.Collections.BitArrayExtensions.Slice(System.Collections.BitArray,System.Int32,System.Int32)">
+            <inheritdoc cref="M:System.Collections.BitArrayExtensions.&lt;G&gt;$B5B861DD070448A37A7F15A6783AA476.Slice(System.Int32,System.Int32)"/>
+        </member>
+        <member name="M:System.Collections.BitArrayExtensions.Slice(System.Collections.BitArray,System.Int32)">
+            <inheritdoc cref="M:System.Collections.BitArrayExtensions.&lt;G&gt;$B5B861DD070448A37A7F15A6783AA476.Slice(System.Int32)"/>
+        </member>
+        <member name="M:System.Collections.BitArrayExtensions.op_BitwiseAndAssignment(System.Collections.BitArray,System.Collections.BitArray)">
+            <inheritdoc cref="M:System.Collections.BitArrayExtensions.&lt;G&gt;$B5B861DD070448A37A7F15A6783AA476.op_BitwiseAndAssignment(System.Collections.BitArray)"/>
+        </member>
+        <member name="M:System.Collections.BitArrayExtensions.op_BitwiseOrAssignment(System.Collections.BitArray,System.Collections.BitArray)">
+            <inheritdoc cref="M:System.Collections.BitArrayExtensions.&lt;G&gt;$B5B861DD070448A37A7F15A6783AA476.op_BitwiseOrAssignment(System.Collections.BitArray)"/>
+        </member>
+        <member name="M:System.Collections.BitArrayExtensions.op_ExclusiveOrAssignment(System.Collections.BitArray,System.Collections.BitArray)">
+            <inheritdoc cref="M:System.Collections.BitArrayExtensions.&lt;G&gt;$B5B861DD070448A37A7F15A6783AA476.op_ExclusiveOrAssignment(System.Collections.BitArray)"/>
+        </member>
+        <member name="M:System.Collections.BitArrayExtensions.op_BitwiseAnd(System.Collections.BitArray,System.Collections.BitArray)">
+            <inheritdoc cref="M:System.Collections.BitArrayExtensions.&lt;G&gt;$B5B861DD070448A37A7F15A6783AA476.op_BitwiseAnd(System.Collections.BitArray,System.Collections.BitArray)"/>
+        </member>
+        <member name="M:System.Collections.BitArrayExtensions.op_BitwiseOr(System.Collections.BitArray,System.Collections.BitArray)">
+            <inheritdoc cref="M:System.Collections.BitArrayExtensions.&lt;G&gt;$B5B861DD070448A37A7F15A6783AA476.op_BitwiseOr(System.Collections.BitArray,System.Collections.BitArray)"/>
+        </member>
+        <member name="M:System.Collections.BitArrayExtensions.op_ExclusiveOr(System.Collections.BitArray,System.Collections.BitArray)">
+            <inheritdoc cref="M:System.Collections.BitArrayExtensions.&lt;G&gt;$B5B861DD070448A37A7F15A6783AA476.op_ExclusiveOr(System.Collections.BitArray,System.Collections.BitArray)"/>
+        </member>
+        <member name="T:System.Collections.BitArrayExtensions.&lt;G&gt;$B5B861DD070448A37A7F15A6783AA476.&lt;M&gt;$6D0F179ED1C3C8065D8C3D25A60849FE">
+            <summary>
+            Provides extension members on <see cref="T:System.Collections.BitArray"/> instanaces.
+            </summary>
+            <param name="this">The current instance.</param>
+        </member>
+        <member name="P:System.Collections.BitArrayExtensions.&lt;G&gt;$B5B861DD070448A37A7F15A6783AA476.Cardinality">
+            <summary>
+            Indicates the number of bits set.
+            </summary>
+        </member>
+        <member name="M:System.Collections.BitArrayExtensions.&lt;G&gt;$B5B861DD070448A37A7F15A6783AA476.GetInternalArrayField">
+            <summary>
+            Try to get internal array field.
+            </summary>
+            <returns>The field.</returns>
+        </member>
+        <member name="M:System.Collections.BitArrayExtensions.&lt;G&gt;$B5B861DD070448A37A7F15A6783AA476.Slice(System.Int32,System.Int32)">
+            <summary>
+            Slices the current <see cref="T:System.Collections.BitArray"/> instance.
+            </summary>
+            <param name="start">The start index.</param>
+            <param name="count">The number.</param>
+            <returns>The result.</returns>
+        </member>
+        <member name="M:System.Collections.BitArrayExtensions.&lt;G&gt;$B5B861DD070448A37A7F15A6783AA476.Slice(System.Int32)">
+            <summary>
+            Slices the current <see cref="T:System.Collections.BitArray"/> instance.
+            </summary>
+            <param name="start">The start index.</param>
+            <returns>The result.</returns>
+        </member>
+        <member name="M:System.Collections.BitArrayExtensions.&lt;G&gt;$B5B861DD070448A37A7F15A6783AA476.op_BitwiseAndAssignment(System.Collections.BitArray)">
+            <summary>
+            Performs bitwise-and assignment.
+            </summary>
+            <param name="other">The other instance.</param>
+        </member>
+        <member name="M:System.Collections.BitArrayExtensions.&lt;G&gt;$B5B861DD070448A37A7F15A6783AA476.op_BitwiseOrAssignment(System.Collections.BitArray)">
+            <summary>
+            Performs bitwise-or assignment.
+            </summary>
+            <param name="other">The other instance.</param>
+        </member>
+        <member name="M:System.Collections.BitArrayExtensions.&lt;G&gt;$B5B861DD070448A37A7F15A6783AA476.op_ExclusiveOrAssignment(System.Collections.BitArray)">
+            <summary>
+            Performs bitwise-exclusive-or assignment.
+            </summary>
+            <param name="other">The other instance.</param>
+        </member>
+        <member name="M:System.Collections.BitArrayExtensions.&lt;G&gt;$B5B861DD070448A37A7F15A6783AA476.op_BitwiseAnd(System.Collections.BitArray,System.Collections.BitArray)">
+            <summary>
+            Performs bitwise-and operation.
+            </summary>
+            <param name="left">The left instance.</param>
+            <param name="right">The right instance.</param>
+            <returns>The <see cref="T:System.Collections.BitArray"/> result.</returns>
+        </member>
+        <member name="M:System.Collections.BitArrayExtensions.&lt;G&gt;$B5B861DD070448A37A7F15A6783AA476.op_BitwiseOr(System.Collections.BitArray,System.Collections.BitArray)">
+            <summary>
+            Performs bitwise-or operation.
+            </summary>
+            <param name="left">The left instance.</param>
+            <param name="right">The right instance.</param>
+            <returns>The <see cref="T:System.Collections.BitArray"/> result.</returns>
+        </member>
+        <member name="M:System.Collections.BitArrayExtensions.&lt;G&gt;$B5B861DD070448A37A7F15A6783AA476.op_ExclusiveOr(System.Collections.BitArray,System.Collections.BitArray)">
+            <summary>
+            Performs bitwise-exclusive-or operation.
+            </summary>
+            <param name="left">The left instance.</param>
+            <param name="right">The right instance.</param>
+            <returns>The <see cref="T:System.Collections.BitArray"/> result.</returns>
+        </member>
+        <member name="T:System.Collections.Entry">
+            <summary>
+            Represents an entry to call internal fields on <see cref="T:System.Collections.BitArray"/>.
+            </summary>
+            <seealso cref="T:System.Collections.BitArray"/>
+        </member>
+        <member name="M:System.Collections.Entry.GetArrayField(System.Collections.BitArray)">
+            <summary>
+            Try to fetch the internal field <c>m_array</c> in type <see cref="T:System.Collections.BitArray"/>.
+            </summary>
+            <param name="this">The list.</param>
+            <returns>The reference to the internal field.</returns>
+        </member>
         <member name="T:System.Collections.Generic.DictionaryExtensions">
             <summary>
             Provides extension members on <see cref="T:System.Collections.Generic.IReadOnlyDictionary`2"/>,
