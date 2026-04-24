@@ -34,7 +34,7 @@ public partial class MultipleDigitSelectorPanel : UserControl
 			nameof(SelectedDigits),
 			typeof(int[]),
 			typeof(MultipleDigitSelectorPanel),
-			new FrameworkPropertyMetadata(Array.Empty<int>(), FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnSelectedDigitsChanged)
+			new FrameworkPropertyMetadata((int[])[], FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnSelectedDigitsChanged)
 		);
 
 	public static readonly DependencyProperty CellSizeProperty =
