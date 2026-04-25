@@ -276,7 +276,10 @@ public partial class MainWindow : Window
 		};
 
 		var handler = ItemOperationHandlerFactory[CurrentItemType]();
-		handler.OnMouseButtonPressed(_operationHandlerContext);
+		if (handler.IsAvailable(_operationHandlerContext))
+		{
+			handler.OnMouseButtonPressed(_operationHandlerContext);
+		}
 	}
 
 	private void Image_MouseUp(object sender, MouseButtonEventArgs e)
@@ -288,6 +291,9 @@ public partial class MainWindow : Window
 
 		_operationHandlerContext.MouseEventArgs = e;
 		var handler = ItemOperationHandlerFactory[CurrentItemType]();
-		handler.OnMouseButtonReleased(_operationHandlerContext);
+		if (handler.IsAvailable(_operationHandlerContext))
+		{
+			handler.OnMouseButtonReleased(_operationHandlerContext);
+		}
 	}
 }
