@@ -167,68 +167,26 @@ public partial class MainWindow : Window
 		var candidates = CurrentGrid.Candidates;
 		for (var cell = 0; cell < CurrentGrid.CellsCount; cell++)
 		{
-			var givenDigit = givens[cell];
-			if (givenDigit != 0)
+			if (givens[cell] is var givenDigit and not 0)
 			{
-				_items.Add(
-					new GivenTextItem
-					{
-						TemplateIndex = 0,
-						Cell = cell,
-						FontName = ResolveProperty(() => App.UserPreferences.GivenFontName),
-						FontSizeScale = ResolveProperty(() => App.UserPreferences.GivenFontSizeScale),
-						Text = givenDigit.ToString(),
-						Color = ResolveProperty(() => App.UserPreferences.GivenTextColor),
-						FontWidth = ResolveProperty(() => App.UserPreferences.GivenFontWidth),
-						FontSlant = ResolveProperty(() => App.UserPreferences.GivenFontSlant),
-						FontWeight = ResolveProperty(() => App.UserPreferences.GivenFontWeight)
-					}
-				);
+				_items.Add(ItemsFactory.Given(cell, givenDigit));
 			}
-
-			var modifiableDigit = modifiables[cell];
-			if (modifiableDigit != 0)
+			if (modifiables[cell] is var modifiableDigit and not 0)
 			{
-				_items.Add(
-					new ModifiableTextItem
-					{
-						TemplateIndex = 0,
-						Cell = cell,
-						FontName = ResolveProperty(() => App.UserPreferences.ModifiableFontName),
-						FontSizeScale = ResolveProperty(() => App.UserPreferences.ModifiableFontSizeScale),
-						Text = modifiableDigit.ToString(),
-						Color = ResolveProperty(() => App.UserPreferences.ModifiableTextColor),
-						FontWidth = ResolveProperty(() => App.UserPreferences.ModifiableFontWidth),
-						FontSlant = ResolveProperty(() => App.UserPreferences.ModifiableFontSlant),
-						FontWeight = ResolveProperty(() => App.UserPreferences.ModifiableFontWeight)
-					}
-				);
+				_items.Add(ItemsFactory.Modifiable(cell, modifiableDigit));
 			}
-
-			var candidateDigits = candidates[cell];
-			if (candidateDigits is not null)
+			if (candidates[cell] is { } candidateDigits)
 			{
 				var subgridSize = CurrentGrid.RowsCount.GetCandidatesCountInEachRow();
+				var digits = new List<int>();
 				for (var digit = 1; digit <= CurrentGrid.DigitsCount; digit++)
 				{
 					if (candidateDigits[digit - 1])
 					{
-						_items.Add(
-							new CandidateTextItem
-							{
-								TemplateIndex = 0,
-								CandidatePosition = new(cell, subgridSize, digit - 1),
-								FontName = ResolveProperty(() => App.UserPreferences.GivenFontName),
-								FontSizeScale = ResolveProperty(() => App.UserPreferences.GivenFontSizeScale),
-								Text = digit.ToString(),
-								Color = ResolveProperty(() => App.UserPreferences.GivenTextColor),
-								FontWidth = ResolveProperty(() => App.UserPreferences.GivenFontWidth),
-								FontSlant = ResolveProperty(() => App.UserPreferences.GivenFontSlant),
-								FontWeight = ResolveProperty(() => App.UserPreferences.GivenFontWeight)
-							}
-						);
+						digits.Add(digit);
 					}
 				}
+				_items.AddRange(ItemsFactory.Candidates(cell, [.. digits], subgridSize));
 			}
 		}
 
