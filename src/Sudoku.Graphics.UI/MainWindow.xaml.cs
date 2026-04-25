@@ -186,7 +186,7 @@ public partial class MainWindow : Window
 						digits.Add(digit);
 					}
 				}
-				_items.AddRange(ItemsFactory.Candidates(cell, [.. digits], subgridSize));
+				_items.AddRange(ItemsFactory.Candidates(cell, digits, subgridSize));
 			}
 		}
 
