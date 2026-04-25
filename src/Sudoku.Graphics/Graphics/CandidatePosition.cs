@@ -5,7 +5,7 @@
 /// </summary>
 /// <param name="Cell">Indicates the target cell.</param>
 /// <param name="SubgridSize">Indicates subgrid size.</param>
-/// <param name="InnerIndex">The internal absolute position index of the candidate.</param>
+/// <param name="InnerIndex">The internal absolute position index of the candidate. Base 0.</param>
 /// <remarks>
 /// For more information, please visit <see cref="ILocator{TSelf}.GetCandidatesCountInEachRow"/> method.
 /// </remarks>

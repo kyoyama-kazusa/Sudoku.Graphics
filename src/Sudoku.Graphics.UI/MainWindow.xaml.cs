@@ -209,9 +209,9 @@ public partial class MainWindow : Window
 			if (candidateDigits is not null)
 			{
 				var subgridSize = CurrentGrid.RowsCount.GetCandidatesCountInEachRow();
-				for (var digit = 0; digit < CurrentGrid.DigitsCount; digit++)
+				for (var digit = 1; digit <= CurrentGrid.DigitsCount; digit++)
 				{
-					if (candidateDigits[digit])
+					if (candidateDigits[digit - 1])
 					{
 						_items.Add(
 							new CandidateTextItem

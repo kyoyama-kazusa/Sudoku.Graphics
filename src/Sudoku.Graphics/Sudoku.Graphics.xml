@@ -173,7 +173,7 @@
             </summary>
             <param name="Cell">Indicates the target cell.</param>
             <param name="SubgridSize">Indicates subgrid size.</param>
-            <param name="InnerIndex">The internal absolute position index of the candidate.</param>
+            <param name="InnerIndex">The internal absolute position index of the candidate. Base 0.</param>
             <remarks>
             For more information, please visit <see cref="M:Sudoku.Graphics.ILocator`1.GetCandidatesCountInEachRow"/> method.
             </remarks>
@@ -185,7 +185,7 @@
             </summary>
             <param name="Cell">Indicates the target cell.</param>
             <param name="SubgridSize">Indicates subgrid size.</param>
-            <param name="InnerIndex">The internal absolute position index of the candidate.</param>
+            <param name="InnerIndex">The internal absolute position index of the candidate. Base 0.</param>
             <remarks>
             For more information, please visit <see cref="M:Sudoku.Graphics.ILocator`1.GetCandidatesCountInEachRow"/> method.
             </remarks>
@@ -198,7 +198,7 @@
             <summary>Indicates subgrid size.</summary>
         </member>
         <member name="P:Sudoku.Graphics.CandidatePosition.InnerIndex">
-            <summary>The internal absolute position index of the candidate.</summary>
+            <summary>The internal absolute position index of the candidate. Base 0.</summary>
         </member>
         <member name="M:Sudoku.Graphics.CandidatePosition.IsSideWith(Sudoku.Graphics.CandidatePosition,Sudoku.Graphics.Directions.Direction4,Sudoku.Graphics.PointMapper,System.Boolean)">
             <inheritdoc/>
@@ -5602,7 +5602,7 @@
             Indicates whether the specified candidate exists in the collection or not.
             </summary>
             <param name="cell">The cell.</param>
-            <param name="digit">The digit.</param>
+            <param name="digit">The digit, a base-1 index.</param>
             <returns>A <see cref="T:System.Boolean"/> result.</returns>
         </member>
         <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.ContainsCandidate(Sudoku.Graphics.CandidatePosition)">

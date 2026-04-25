@@ -283,16 +283,16 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 		if (GetCandidates(cell).Cardinality != 0)
 		{
 			// Remove candidates and set candidates.
-			for (var d = 0; d < DigitsCount; d++)
+			for (var d = 1; d <= DigitsCount; d++)
 			{
-				_candidates[cell * DigitsCount + d] = false;
+				_candidates[cell * DigitsCount + d - 1] = false;
 			}
 		}
 
 		// Add candidates.
 		foreach (var digit in digits)
 		{
-			_candidates[cell * DigitsCount + digit] = true;
+			_candidates[cell * DigitsCount + digit - 1] = true;
 		}
 
 		// Trigger event (added).
@@ -327,9 +327,9 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 	/// Indicates whether the specified candidate exists in the collection or not.
 	/// </summary>
 	/// <param name="cell">The cell.</param>
-	/// <param name="digit">The digit.</param>
+	/// <param name="digit">The digit, a base-1 index.</param>
 	/// <returns>A <see cref="bool"/> result.</returns>
-	public bool ContainsCandidate(Absolute cell, int digit) => _candidates[cell * DigitsCount + digit];
+	public bool ContainsCandidate(Absolute cell, int digit) => _candidates[cell * DigitsCount + digit - 1];
 
 	/// <summary>
 	/// Indicates whether the specified candidate exists in the collection or not.
@@ -433,9 +433,9 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 	public BitArray GetCandidates(Absolute cell)
 	{
 		var result = new BitArray(DigitsCount);
-		for (var i = 0; i < DigitsCount; i++)
+		for (var digit = 1; digit <= DigitsCount; digit++)
 		{
-			result[i] = ContainsCandidate(cell, i);
+			result[digit - 1] = ContainsCandidate(cell, digit);
 		}
 		return result;
 	}
