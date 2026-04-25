@@ -88,7 +88,7 @@
 					Foreground="Black" />
 			</Border>
 		</Popup>
-		<Border Grid.Row="1" Grid.Column="0" BorderThickness="2" Margin="16">
+		<Border Grid.Row="1" Grid.Column="0" BorderThickness="2" Margin="16" Background="#F0F0F0">
 			<Image
 				x:Name="MainGrid"
 				Width="800"
@@ -99,7 +99,7 @@
 		</Border>
 		<Border Grid.Row="1" Grid.Column="1" BorderThickness="2" Margin="16">
 			<Grid RowDefinitions="Auto,*">
-				<Border Grid.Row="0" BorderBrush="DimGray" BorderThickness="0,0,0,1">
+				<Border Grid.Row="0" BorderBrush="Black" BorderThickness="0,0,0,2">
 					<TextBlock FontSize="20" Margin="8,12,0,12">
 						<Run Text="{x:Static p:LocalizationResources.MainWindow_CurrentMode}" FontWeight="Bold" />
 						<Run Text="{Binding CurrentModeString}" FontWeight="Bold" Foreground="Red" />
