@@ -34,11 +34,6 @@ public partial class MainWindow : Window
 	private ItemSet _items = [];
 
 	/// <summary>
-	/// The canvas.
-	/// </summary>
-	private Canvas? _canvas;
-
-	/// <summary>
 	/// The operation handler context.
 	/// </summary>
 	private OperationHandlerContext? _operationHandlerContext;
@@ -60,6 +55,18 @@ public partial class MainWindow : Window
 
 	[ObservableProperty]
 	public partial ImageSource? GridImageSource { get; set; }
+
+	/// <summary>
+	/// Indicates the current canvas.
+	/// </summary>
+	[ObservableProperty]
+	internal partial Canvas? CurrentCanvas { get; set; }
+
+	/// <summary>
+	/// Indicates the target grid to operate.
+	/// </summary>
+	[ObservableProperty]
+	internal partial SudokuGrid? CurrentGrid { get; set; }
 
 	public ICommand CreateCanvasCommand => new RelayCommand(OpenCreateCanvasWindowAndRenderPicture);
 
@@ -90,18 +97,18 @@ public partial class MainWindow : Window
 
 		_items.Add(new BackgroundFillItem { Color = ResolveProperty(() => App.UserPreferences.BackgroundFillColor) });
 		_items.Add(new TemplateLineItem());
-		_canvas = new(window.CreateTemplate());
+		CurrentCanvas = new(window.CreateTemplate());
 
 		RenderPicture();
 	}
 
 	private void RenderPicture()
 	{
-		if (_canvas is not null)
+		if (CurrentCanvas is not null)
 		{
-			_canvas.DrawItems(_items);
+			CurrentCanvas.DrawItems(_items);
 
-			using var image = _canvas.Surface.Snapshot();
+			using var image = CurrentCanvas.Surface.Snapshot();
 			GridImageSource = image.ToWriteableBitmap();
 		}
 	}
@@ -109,7 +116,7 @@ public partial class MainWindow : Window
 	private void ClosePicture()
 	{
 		GridImageSource = null;
-		_canvas = null;
+		CurrentCanvas = null;
 		_items.Clear();
 	}
 
@@ -160,7 +167,7 @@ public partial class MainWindow : Window
 			return;
 		}
 
-		var canvasInfo = new CanvasInfo(_canvas?.Templates, _items);
+		var canvasInfo = new CanvasInfo(CurrentCanvas?.Templates, _items);
 		var json = JsonSerializer.Serialize(canvasInfo, SerializerOptions);
 		await File.WriteAllTextAsync(filePath, json);
 	}
@@ -193,7 +200,7 @@ public partial class MainWindow : Window
 			return;
 		}
 
-		_canvas = new(templates);
+		CurrentCanvas = new(templates);
 		_items = items;
 
 		RenderPicture();
@@ -207,6 +214,16 @@ public partial class MainWindow : Window
 		{
 			CurrentModeString = modeString;
 		}
+	}
+
+	partial void OnCurrentGridChanged(SudokuGrid? value)
+	{
+		if (value is null)
+		{
+			return;
+		}
+
+		// TODO: Implement logic on grid-related events.
 	}
 
 
@@ -269,7 +286,7 @@ public partial class MainWindow : Window
 		_operationHandlerContext = new()
 		{
 			Items = _items,
-			Canvas = _canvas,
+			Canvas = CurrentCanvas,
 			OwnerWindow = this,
 			MouseEventArgs = e,
 			PointPressed = e.Position
