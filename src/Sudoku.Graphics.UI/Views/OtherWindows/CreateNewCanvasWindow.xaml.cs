@@ -80,13 +80,13 @@ public partial class CreateNewCanvasWindow : Window
 				return new StandardTemplate(BlockRowsCount, BlockColumnsCount, mapper)
 				{
 					IsBorderRoundedRectangle = IsBorderRoundedRectangle,
-					BorderCornerRadius = R(() => App.UserPreferences.Template_BorderCornerRadius),
-					ThickLineColor = R(() => App.UserPreferences.Template_ThickLineColor),
-					ThickLineDashSequence = R(() => App.UserPreferences.Template_ThickLineDashSequence),
-					ThickLineWidth = R(() => App.UserPreferences.Template_ThickLineWidth),
-					ThinLineColor = R(() => App.UserPreferences.Template_ThinLineColor),
-					ThinLineDashSequence = R(() => App.UserPreferences.Template_ThinLineDashSequence),
-					ThinLineWidth = R(() => App.UserPreferences.Template_ThinLineWidth)
+					BorderCornerRadius = ResolveProperty(() => App.UserPreferences.Template_BorderCornerRadius),
+					ThickLineColor = ResolveProperty(() => App.UserPreferences.Template_ThickLineColor),
+					ThickLineDashSequence = ResolveProperty(() => App.UserPreferences.Template_ThickLineDashSequence),
+					ThickLineWidth = ResolveProperty(() => App.UserPreferences.Template_ThickLineWidth),
+					ThinLineColor = ResolveProperty(() => App.UserPreferences.Template_ThinLineColor),
+					ThinLineDashSequence = ResolveProperty(() => App.UserPreferences.Template_ThinLineDashSequence),
+					ThinLineWidth = ResolveProperty(() => App.UserPreferences.Template_ThinLineWidth)
 				};
 			}
 			case CurrentCreateTemplateType.DefaultTemplate:
@@ -105,14 +105,14 @@ public partial class CreateNewCanvasWindow : Window
 						}
 					},
 					IsBorderRoundedRectangle = IsBorderRoundedRectangle,
-					BorderCornerRadius = R(() => App.UserPreferences.Template_BorderCornerRadius),
+					BorderCornerRadius = ResolveProperty(() => App.UserPreferences.Template_BorderCornerRadius),
 					DrawBordersAsThickLines = DrawBordersAsThickLines,
-					ThickLineColor = R(() => App.UserPreferences.Template_ThickLineColor),
-					ThickLineDashSequence = R(() => App.UserPreferences.Template_ThickLineDashSequence),
-					ThickLineWidth = R(() => App.UserPreferences.Template_ThickLineWidth),
-					ThinLineColor = R(() => App.UserPreferences.Template_ThinLineColor),
-					ThinLineDashSequence = R(() => App.UserPreferences.Template_ThinLineDashSequence),
-					ThinLineWidth = R(() => App.UserPreferences.Template_ThinLineWidth)
+					ThickLineColor = ResolveProperty(() => App.UserPreferences.Template_ThickLineColor),
+					ThickLineDashSequence = ResolveProperty(() => App.UserPreferences.Template_ThickLineDashSequence),
+					ThickLineWidth = ResolveProperty(() => App.UserPreferences.Template_ThickLineWidth),
+					ThinLineColor = ResolveProperty(() => App.UserPreferences.Template_ThinLineColor),
+					ThinLineDashSequence = ResolveProperty(() => App.UserPreferences.Template_ThinLineDashSequence),
+					ThinLineWidth = ResolveProperty(() => App.UserPreferences.Template_ThinLineWidth)
 				};
 			}
 			default:

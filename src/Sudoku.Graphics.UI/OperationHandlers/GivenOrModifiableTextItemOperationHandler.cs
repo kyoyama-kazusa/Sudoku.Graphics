@@ -47,25 +47,25 @@ public abstract class GivenOrModifiableTextItemOperationHandler(bool _isGiven) :
 					{
 						TemplateIndex = 0,
 						Cell = context.GetCell(),
-						FontName = R(() => App.UserPreferences.GivenFontName),
-						FontSizeScale = R(() => App.UserPreferences.GivenFontSizeScale),
+						FontName = ResolveProperty(() => App.UserPreferences.GivenFontName),
+						FontSizeScale = ResolveProperty(() => App.UserPreferences.GivenFontSizeScale),
 						Text = digit.ToString(),
-						Color = R(() => App.UserPreferences.GivenTextColor),
-						FontWidth = R(() => App.UserPreferences.GivenFontWidth),
-						FontSlant = R(() => App.UserPreferences.GivenFontSlant),
-						FontWeight = R(() => App.UserPreferences.GivenFontWeight)
+						Color = ResolveProperty(() => App.UserPreferences.GivenTextColor),
+						FontWidth = ResolveProperty(() => App.UserPreferences.GivenFontWidth),
+						FontSlant = ResolveProperty(() => App.UserPreferences.GivenFontSlant),
+						FontWeight = ResolveProperty(() => App.UserPreferences.GivenFontWeight)
 					}
 					: new ModifiableTextItem
 					{
 						TemplateIndex = 0,
 						Cell = context.GetCell(),
-						FontName = R(() => App.UserPreferences.ModifiableFontName),
-						FontSizeScale = R(() => App.UserPreferences.ModifiableFontSizeScale),
+						FontName = ResolveProperty(() => App.UserPreferences.ModifiableFontName),
+						FontSizeScale = ResolveProperty(() => App.UserPreferences.ModifiableFontSizeScale),
 						Text = digit.ToString(),
-						Color = R(() => App.UserPreferences.ModifiableTextColor),
-						FontWidth = R(() => App.UserPreferences.ModifiableFontWidth),
-						FontSlant = R(() => App.UserPreferences.ModifiableFontSlant),
-						FontWeight = R(() => App.UserPreferences.ModifiableFontWeight)
+						Color = ResolveProperty(() => App.UserPreferences.ModifiableTextColor),
+						FontWidth = ResolveProperty(() => App.UserPreferences.ModifiableFontWidth),
+						FontSlant = ResolveProperty(() => App.UserPreferences.ModifiableFontSlant),
+						FontWeight = ResolveProperty(() => App.UserPreferences.ModifiableFontWeight)
 					}
 			],
 			_ => []

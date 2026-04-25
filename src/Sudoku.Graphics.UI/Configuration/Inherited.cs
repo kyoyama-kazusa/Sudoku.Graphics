@@ -16,7 +16,7 @@ internal static class Inherited
 	/// <exception cref="ArgumentException">Throws when the source is not the normal format <c>() => instance.Property</c>.</exception>
 	/// <exception cref="InvalidOperationException">Throws when the target type cannot find method <c>Resolve</c>.</exception>
 	/// <seealso cref="App.UserPreferences"/>
-	public static T R<T>(Expression<Func<Inherited<T>>> source) where T : notnull
+	public static T ResolveProperty<T>(Expression<Func<Inherited<T>>> source) where T : notnull
 	{
 		const string message_TargetLambdaMustBeSpecifiedFormat = "The target lambda expression must be formatted as '() => instance.Property'.";
 		const string message_MethodCannotBeFound = $"Cannot find for method '{nameof(Inherited<>)}.{nameof(Inherited<>.Resolve)}<T>(T, int)'.";

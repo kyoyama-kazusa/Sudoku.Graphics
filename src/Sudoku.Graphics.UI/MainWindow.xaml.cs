@@ -88,7 +88,7 @@ public partial class MainWindow : Window
 			return;
 		}
 
-		_items.Add(new BackgroundFillItem { Color = R(() => App.UserPreferences.BackgroundFillColor) });
+		_items.Add(new BackgroundFillItem { Color = ResolveProperty(() => App.UserPreferences.BackgroundFillColor) });
 		_items.Add(new TemplateLineItem());
 		_canvas = new(window.CreateTemplate());
 

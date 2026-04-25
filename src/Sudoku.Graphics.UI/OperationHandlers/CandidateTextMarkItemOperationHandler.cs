@@ -67,13 +67,13 @@ public sealed class CandidateTextMarkItemOperationHandler : OperationHandler
 			{
 				TemplateIndex = 0,
 				CandidatePosition = new(cell, subgridSize, digit - 1),
-				FontName = R(() => App.UserPreferences.GivenFontName),
-				FontSizeScale = R(() => App.UserPreferences.GivenFontSizeScale),
+				FontName = ResolveProperty(() => App.UserPreferences.GivenFontName),
+				FontSizeScale = ResolveProperty(() => App.UserPreferences.GivenFontSizeScale),
 				Text = digit.ToString(),
-				Color = R(() => App.UserPreferences.GivenTextColor),
-				FontWidth = R(() => App.UserPreferences.GivenFontWidth),
-				FontSlant = R(() => App.UserPreferences.GivenFontSlant),
-				FontWeight = R(() => App.UserPreferences.GivenFontWeight)
+				Color = ResolveProperty(() => App.UserPreferences.GivenTextColor),
+				FontWidth = ResolveProperty(() => App.UserPreferences.GivenFontWidth),
+				FontSlant = ResolveProperty(() => App.UserPreferences.GivenFontSlant),
+				FontWeight = ResolveProperty(() => App.UserPreferences.GivenFontWeight)
 			};
 	}
 
