@@ -1,6 +1,4 @@
-﻿#pragma warning disable CS0809
-
-namespace Sudoku.Graphics.UI.OperationHandlers;
+﻿namespace Sudoku.Graphics.UI.OperationHandlers;
 
 /// <summary>
 /// Provides base operation on an <see cref="Item"/>.
@@ -8,6 +6,7 @@ namespace Sudoku.Graphics.UI.OperationHandlers;
 /// <seealso cref="Item"/>
 public abstract class OperationHandler
 {
+#pragma warning disable CS0809
 	/// <inheritdoc/>
 	[Obsolete($"This type does not support '{nameof(Equals)}' method.", true)]
 	public sealed override bool Equals(object? obj) => throw new NotSupportedException();
@@ -19,6 +18,7 @@ public abstract class OperationHandler
 	/// <inheritdoc/>
 	[Obsolete($"This type does not support '{nameof(ToString)}' method.", true)]
 	public sealed override string ToString() => throw new NotSupportedException();
+#pragma warning restore CS0809
 
 	/// <summary>
 	/// Process when mouse button is pressed (mouse down).
