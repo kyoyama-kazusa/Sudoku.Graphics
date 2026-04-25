@@ -36,6 +36,9 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 		_givens = new int[RowsCount * ColumnsCount];
 		_modifiables = new int[RowsCount * ColumnsCount];
 		_candidates = new(RowsCount * ColumnsCount * DigitsCount, false);
+
+		Array.Fill(_givens, -1);
+		Array.Fill(_modifiables, -1);
 	}
 
 	/// <summary>
@@ -122,7 +125,6 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 	}
 
 
-
 	[GeneratedRegex(""".{3}\:\s*.+(?:\:\s*.{3,}(?:\s+.{3,})*)?""", RegexOptions.Compiled | RegexOptions.Singleline)]
 	private static partial Regex FormatPattern { get; }
 
@@ -170,7 +172,7 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 		}
 
 		// Check conflict.
-		if (_givens[cell] is var originalDigit and not 0 && originalDigit != digit)
+		if (_givens[cell] is var originalDigit and not -1 && originalDigit != digit)
 		{
 			var conflictEventArgs = new SudokuGridDigitConflictDetectedEventArgs(DigitType.Given, cell, [originalDigit], [digit]);
 			DigitConflictDetected?.Invoke(this, conflictEventArgs);
@@ -179,10 +181,10 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 				return;
 			}
 		}
-		if (_modifiables[cell] != 0)
+		if (_modifiables[cell] != -1)
 		{
 			// Remove modifiable digit and set given.
-			_modifiables[cell] = 0;
+			_modifiables[cell] = -1;
 		}
 		if (GetCandidates(cell).Cardinality != 0)
 		{
@@ -222,15 +224,15 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 		}
 
 		// Check conflict.
-		if (_givens[cell] != 0)
+		if (_givens[cell] != -1)
 		{
 			// Do nothing - givens cannot be replaced with other values, and we also don't append modifiable digits into the cell.
 			return;
 		}
-		if (_modifiables[cell] is var modifiableDigit and not 0 && modifiableDigit != digit)
+		if (_modifiables[cell] is var modifiableDigit and not -1 && modifiableDigit != digit)
 		{
 			// Remove it and set modifiable.
-			_modifiables[cell] = 0;
+			_modifiables[cell] = -1;
 		}
 		if (GetCandidates(cell).Cardinality != 0)
 		{
@@ -270,12 +272,12 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 		}
 
 		// Check conflict.
-		if (_givens[cell] != 0)
+		if (_givens[cell] != -1)
 		{
 			// Do nothing - givens cannot be replaced with other values, and we also don't append candidates into the cell.
 			return;
 		}
-		if (_modifiables[cell] != 0)
+		if (_modifiables[cell] != -1)
 		{
 			// Also do nothing.
 			return;
@@ -283,16 +285,16 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 		if (GetCandidates(cell).Cardinality != 0)
 		{
 			// Remove candidates and set candidates.
-			for (var d = 1; d <= DigitsCount; d++)
+			for (var d = 0; d < DigitsCount; d++)
 			{
-				_candidates[cell * DigitsCount + d - 1] = false;
+				_candidates[cell * DigitsCount + d] = false;
 			}
 		}
 
 		// Add candidates.
 		foreach (var digit in digits)
 		{
-			_candidates[cell * DigitsCount + digit - 1] = true;
+			_candidates[cell * DigitsCount + digit] = true;
 		}
 
 		// Trigger event (added).
@@ -327,9 +329,9 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 	/// Indicates whether the specified candidate exists in the collection or not.
 	/// </summary>
 	/// <param name="cell">The cell.</param>
-	/// <param name="digit">The digit, a base-1 index.</param>
+	/// <param name="digit">The digit.</param>
 	/// <returns>A <see cref="bool"/> result.</returns>
-	public bool ContainsCandidate(Absolute cell, int digit) => _candidates[cell * DigitsCount + digit - 1];
+	public bool ContainsCandidate(Absolute cell, int digit) => _candidates[cell * DigitsCount + digit];
 
 	/// <summary>
 	/// Indicates whether the specified candidate exists in the collection or not.
@@ -433,9 +435,9 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 	public BitArray GetCandidates(Absolute cell)
 	{
 		var result = new BitArray(DigitsCount);
-		for (var digit = 1; digit <= DigitsCount; digit++)
+		for (var digit = 0; digit < DigitsCount; digit++)
 		{
-			result[digit - 1] = ContainsCandidate(cell, digit);
+			result[digit] = ContainsCandidate(cell, digit);
 		}
 		return result;
 	}
@@ -466,9 +468,9 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 	/// <exception cref="ArgumentException">Throws when argument is invalid.</exception>
 	private void VerifyArgumentDigit(int digit)
 	{
-		if (digit <= 0 || digit > DigitsCount)
+		if (digit < 0 || digit >= DigitsCount)
 		{
-			throw new ArgumentException($"The argument '{nameof(digit)}' must be between 1 and '{DigitsCount}'.", nameof(digit));
+			throw new ArgumentException($"The argument '{nameof(digit)}' must be between 0 and '{DigitsCount} - 1'.", nameof(digit));
 		}
 	}
 

@@ -45,7 +45,7 @@ public abstract class GivenOrModifiableTextItemOperationHandler(bool _isGiven) :
 	{
 		if (e is not
 			{
-				Digit: var digit and not 0,
+				Digit: var digit and not -1,
 				Context:
 				{
 					OwnerWindow:

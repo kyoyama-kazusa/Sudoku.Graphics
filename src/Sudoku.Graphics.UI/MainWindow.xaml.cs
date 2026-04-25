@@ -167,11 +167,11 @@ public partial class MainWindow : Window
 		var candidates = CurrentGrid.Candidates;
 		for (var cell = 0; cell < CurrentGrid.CellsCount; cell++)
 		{
-			if (givens[cell] is var givenDigit and not 0)
+			if (givens[cell] is var givenDigit and not -1)
 			{
 				_items.Add(ItemsFactory.Given(cell, givenDigit));
 			}
-			if (modifiables[cell] is var modifiableDigit and not 0)
+			if (modifiables[cell] is var modifiableDigit and not -1)
 			{
 				_items.Add(ItemsFactory.Modifiable(cell, modifiableDigit));
 			}
@@ -179,9 +179,9 @@ public partial class MainWindow : Window
 			{
 				var subgridSize = CurrentGrid.RowsCount.GetCandidatesCountInEachRow();
 				var digits = new List<int>();
-				for (var digit = 1; digit <= CurrentGrid.DigitsCount; digit++)
+				for (var digit = 0; digit < CurrentGrid.DigitsCount; digit++)
 				{
-					if (candidateDigits[digit - 1])
+					if (candidateDigits[digit])
 					{
 						digits.Add(digit);
 					}

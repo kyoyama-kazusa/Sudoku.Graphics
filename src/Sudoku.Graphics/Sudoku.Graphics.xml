@@ -5602,7 +5602,7 @@
             Indicates whether the specified candidate exists in the collection or not.
             </summary>
             <param name="cell">The cell.</param>
-            <param name="digit">The digit, a base-1 index.</param>
+            <param name="digit">The digit.</param>
             <returns>A <see cref="T:System.Boolean"/> result.</returns>
         </member>
         <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.ContainsCandidate(Sudoku.Graphics.CandidatePosition)">
@@ -5836,7 +5836,7 @@
         </member>
         <member name="M:Sudoku.Graphics.Semantic.SudokuGridNotation.CharToIndex(System.Char)">
             <summary>
-            Converts the specified character into index between 0 and 110.
+            Converts the specified character into index between -1 and 109.
             </summary>
             <param name="ch">The character.</param>
             <returns>The index to that character.</returns>
@@ -5846,7 +5846,7 @@
             <summary>
             Converts the specified index into character.
             </summary>
-            <param name="index">The index between 0 and 110.</param>
+            <param name="index">The index between -1 and 109.</param>
             <param name="placeholderCh">The placeholder character.</param>
             <returns>The character.</returns>
             <exception cref="T:System.ArgumentOutOfRangeException">Throws when the value is out of range.</exception>

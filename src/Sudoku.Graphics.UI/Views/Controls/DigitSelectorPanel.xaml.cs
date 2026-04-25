@@ -142,13 +142,13 @@ public partial class DigitSelectorPanel : UserControl
 
 		var totalCells = rows * columns;
 		var count = Math.Min(Math.Max(0, MaxDigit), totalCells);
-		for (var digit = 1; digit <= count; digit++)
+		for (var digit = 0; digit < count; digit++)
 		{
-			var row = (digit - 1) / columns;
-			var column = (digit - 1) % columns;
+			var row = digit / columns;
+			var column = digit % columns;
 			var button = new Button
 			{
-				Content = digit.ToString(),
+				Content = (digit + 1).ToString(),
 				Width = CellSize,
 				Height = CellSize,
 				Margin = new(2),
@@ -187,7 +187,7 @@ public partial class DigitSelectorPanel : UserControl
 
 	public void SetDigitEnabled(int digit, bool enabled)
 	{
-		if (digit < 1)
+		if (digit < 0)
 		{
 			return;
 		}
@@ -217,12 +217,12 @@ public partial class DigitSelectorPanel : UserControl
 			}
 		}
 
-		next[digit - 1] = enabled;
+		next[digit] = enabled;
 		DigitEnabledMap = next;
 	}
 
 	private bool IsDigitEnabled(int digit)
-		=> digit >= 1 && (DigitEnabledMap is null || digit - 1 is var index && (index >= DigitEnabledMap.Length || DigitEnabledMap[index]));
+		=> digit >= 0 && (DigitEnabledMap is null || digit > DigitEnabledMap.Length || DigitEnabledMap[digit]);
 
 
 	private static void OnBoardConfigChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
