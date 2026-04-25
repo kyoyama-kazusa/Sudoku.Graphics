@@ -214,20 +214,11 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Number of columns.
+        ///   Looks up a localized string similar to Number of rows and columns.
         /// </summary>
-        public static string CreateNewCanvasWindow_NumberOfColumns {
+        public static string CreateNewCanvasWindow_NumberOfRowsAndColumns {
             get {
-                return ResourceManager.GetString("CreateNewCanvasWindow_NumberOfColumns", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Number of rows.
-        /// </summary>
-        public static string CreateNewCanvasWindow_NumberOfRows {
-            get {
-                return ResourceManager.GetString("CreateNewCanvasWindow_NumberOfRows", resourceCulture);
+                return ResourceManager.GetString("CreateNewCanvasWindow_NumberOfRowsAndColumns", resourceCulture);
             }
         }
         

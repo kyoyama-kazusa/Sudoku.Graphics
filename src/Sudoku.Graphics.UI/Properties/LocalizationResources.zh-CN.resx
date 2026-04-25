@@ -195,11 +195,8 @@
   <data name="CreateNewCanvasWindow_Cancel" xml:space="preserve">
     <value>取消</value>
   </data>
-  <data name="CreateNewCanvasWindow_NumberOfRows" xml:space="preserve">
-    <value>行的数量</value>
-  </data>
-  <data name="CreateNewCanvasWindow_NumberOfColumns" xml:space="preserve">
-    <value>列的数量</value>
+  <data name="CreateNewCanvasWindow_NumberOfRowsAndColumns" xml:space="preserve">
+    <value>行、列的数量</value>
   </data>
   <data name="CreateNewCanvasWindow_RenderedGridMargin" xml:space="preserve">
     <value>盘面边缘留白（像素）</value>

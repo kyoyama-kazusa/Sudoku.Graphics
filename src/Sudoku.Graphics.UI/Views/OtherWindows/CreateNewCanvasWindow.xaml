@@ -59,14 +59,8 @@
 			<StackPanel>
 				<TextBlock
 					Style="{StaticResource PropertyNameTextBlockStyle}"
-					Text="{x:Static p:LocalizationResources.CreateNewCanvasWindow_NumberOfRows}" />
-				<c:IntegerBox Value="{Binding RowsCount}" MinValue="1" MaxValue="64" />
-			</StackPanel>
-			<StackPanel>
-				<TextBlock
-					Style="{StaticResource PropertyNameTextBlockStyle}"
-					Text="{x:Static p:LocalizationResources.CreateNewCanvasWindow_NumberOfColumns}" />
-				<c:IntegerBox Value="{Binding ColumnsCount}" MinValue="1" MaxValue="64" />
+					Text="{x:Static p:LocalizationResources.CreateNewCanvasWindow_NumberOfRowsAndColumns}" />
+				<c:IntegerBox Value="{Binding RowsAndColumnsCount}" MinValue="1" MaxValue="64" />
 			</StackPanel>
 			<StackPanel
 				Visibility="{Binding

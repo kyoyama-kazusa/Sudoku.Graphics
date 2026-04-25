@@ -20,8 +20,12 @@ public sealed class CandidateTextMarkItemOperationHandler : OperationHandler
 	{
 		if (context is not
 			{
-				OwnerWindow: { MultipleDigitSelectorPanel: var panel, MultipleDigitSelectorPopup: var popup },
-				Canvas.Templates: [{ Mapper: var mapper }]
+				OwnerWindow:
+				{
+					MultipleDigitSelectorPanel: var panel,
+					MultipleDigitSelectorPopup: var popup,
+					CurrentCanvas.Templates: [{ Mapper: var mapper }]
+				},
 			})
 		{
 			return;
@@ -38,44 +42,9 @@ public sealed class CandidateTextMarkItemOperationHandler : OperationHandler
 		=> context is
 		{
 			MouseEventArgs.ChangedButton: MouseButton.Right,
-			Canvas.Templates: [{ Mapper: { RowsCount: var rowsCount, ColumnsCount: var columnsCount } }]
+			OwnerWindow.CurrentCanvas.Templates: [{ Mapper: { RowsCount: var rowsCount, ColumnsCount: var columnsCount } }]
 		}
 		&& rowsCount == columnsCount;
-
-	/// <inheritdoc/>
-	protected internal override ReadOnlySpan<Item> CreateItem(OperationHandlerContext context)
-	{
-		if (context is not
-			{
-				State: int[] digits,
-				Canvas.Templates: [{ Mapper: { RowsCount: var rowsCount, ColumnsCount: var columnsCount } }]
-			})
-		{
-			return [];
-		}
-
-		if (rowsCount != columnsCount)
-		{
-			return [];
-		}
-
-		var cell = context.GetCell();
-		var subgridSize = rowsCount.GetCandidatesCountInEachRow();
-		return
-			from digit in digits
-			select new CandidateTextItem
-			{
-				TemplateIndex = 0,
-				CandidatePosition = new(cell, subgridSize, digit - 1),
-				FontName = ResolveProperty(() => App.UserPreferences.GivenFontName),
-				FontSizeScale = ResolveProperty(() => App.UserPreferences.GivenFontSizeScale),
-				Text = digit.ToString(),
-				Color = ResolveProperty(() => App.UserPreferences.GivenTextColor),
-				FontWidth = ResolveProperty(() => App.UserPreferences.GivenFontWidth),
-				FontSlant = ResolveProperty(() => App.UserPreferences.GivenFontSlant),
-				FontWeight = ResolveProperty(() => App.UserPreferences.GivenFontWeight)
-			};
-	}
 
 	private void Panel_SelectedDigitsChanged(MultipleDigitSelectorPanel sender, MultipleDigitSelectorPanelSelectedDigitsChangedEventArgs e)
 	{
@@ -84,8 +53,13 @@ public sealed class CandidateTextMarkItemOperationHandler : OperationHandler
 				Digits: { } digits,
 				Context:
 				{
-					OwnerWindow: { MultipleDigitSelectorPopup: var popup, MultipleDigitSelectorPanel: var panel } window,
-					Canvas: { Surface: var surface } canvas,
+					OwnerWindow:
+					{
+						MultipleDigitSelectorPopup: var popup,
+						MultipleDigitSelectorPanel: var panel,
+						CurrentCanvas: { Surface: var surface } canvas,
+						CurrentGrid: { } grid
+					} window,
 					Items: var items
 				} context
 			})
@@ -95,17 +69,7 @@ public sealed class CandidateTextMarkItemOperationHandler : OperationHandler
 
 		popup.IsOpen = false;
 
-		context.State = digits;
-		if (CreateItem(context) is not { IsEmpty: false } itemsCreated)
-		{
-			return;
-		}
-
-		items.AddRange(itemsCreated);
-		canvas.DrawItems(items);
-
-		using var image = surface.Snapshot();
-		window.GridImageSource = image.ToWriteableBitmap();
+		grid.AddCandidates(context.GetCell(), digits);
 
 		sender.SelectedDigitsChanged -= Panel_SelectedDigitsChanged;
 		panel.OperationHandlerContext = null;

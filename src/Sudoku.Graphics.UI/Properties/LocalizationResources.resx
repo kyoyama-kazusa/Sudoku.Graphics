@@ -201,11 +201,8 @@
   <data name="CreateNewCanvasWindow_Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
-  <data name="CreateNewCanvasWindow_NumberOfRows" xml:space="preserve">
-    <value>Number of rows</value>
-  </data>
-  <data name="CreateNewCanvasWindow_NumberOfColumns" xml:space="preserve">
-    <value>Number of columns</value>
+  <data name="CreateNewCanvasWindow_NumberOfRowsAndColumns" xml:space="preserve">
+    <value>Number of rows and columns</value>
   </data>
   <data name="CreateNewCanvasWindow_RenderedGridMargin" xml:space="preserve">
     <value>Margin of rendered grid (pixels)</value>

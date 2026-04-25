@@ -46,5 +46,5 @@ public abstract class OperationHandler
 	/// </summary>
 	/// <param name="context">The context.</param>
 	/// <returns>The item created, or <see langword="null"/> if failed to create.</returns>
-	protected internal abstract ReadOnlySpan<Item> CreateItem(OperationHandlerContext context);
+	protected internal virtual ReadOnlySpan<Item> CreateItem(OperationHandlerContext context) => [];
 }

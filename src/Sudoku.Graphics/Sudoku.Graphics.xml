@@ -4979,6 +4979,22 @@
             Indicates size information of the target grid to be drawn.
             </summary>
         </member>
+        <member name="M:Sudoku.Graphics.PointMapper.Deconstruct(Sudoku.Graphics.Absolute@,Sudoku.Graphics.Absolute@)">
+            <inheritdoc cref="M:Sudoku.Graphics.PointMapper.Deconstruct(Sudoku.Graphics.Absolute@,Sudoku.Graphics.Absolute@,Sudoku.Graphics.Absolute@,Sudoku.Graphics.Absolute@,Sudoku.Graphics.GridTemplateSize@)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.PointMapper.Deconstruct(Sudoku.Graphics.Absolute@,Sudoku.Graphics.Absolute@,Sudoku.Graphics.Absolute@,Sudoku.Graphics.Absolute@)">
+            <inheritdoc cref="M:Sudoku.Graphics.PointMapper.Deconstruct(Sudoku.Graphics.Absolute@,Sudoku.Graphics.Absolute@,Sudoku.Graphics.Absolute@,Sudoku.Graphics.Absolute@,Sudoku.Graphics.GridTemplateSize@)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.PointMapper.Deconstruct(Sudoku.Graphics.Absolute@,Sudoku.Graphics.Absolute@,Sudoku.Graphics.Absolute@,Sudoku.Graphics.Absolute@,Sudoku.Graphics.GridTemplateSize@)">
+            <summary>
+            Deconstructs the current instance into multiple values.
+            </summary>
+            <param name="rowsCount">The number of rows.</param>
+            <param name="columnsCount">The number of columns.</param>
+            <param name="absoluteRowsCount">The number of rows in absolute grid.</param>
+            <param name="absoluteColumnsCount">The number of columns in absolute grid.</param>
+            <param name="templateSize">The template size.</param>
+        </member>
         <member name="M:Sudoku.Graphics.PointMapper.Equals(Sudoku.Graphics.PointMapper)">
             <inheritdoc/>
         </member>
@@ -5336,6 +5352,31 @@
         <member name="M:Sudoku.Graphics.Converter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.Graphics.Scale,System.Text.Json.JsonSerializerOptions)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.Semantic.DigitType">
+            <summary>
+            Represents a type of a digit.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Semantic.DigitType.Unknown">
+            <summary>
+            Indicates unknown type.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Semantic.DigitType.Given">
+            <summary>
+            Indicates the type is a given digit.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Semantic.DigitType.Modifiable">
+            <summary>
+            Indicates the type is a modifiable digit.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Semantic.DigitType.Candidate">
+            <summary>
+            Indicates the type is a candidate digit.
+            </summary>
+        </member>
         <member name="T:Sudoku.Graphics.Semantic.SudokuGrid">
             <summary>
             Represents a sudoku grid.
@@ -5433,15 +5474,6 @@
             <paramref name="givens"/>, <paramref name="modifiables"/> and <paramref name="candidates"/>.
             </param>
         </member>
-        <member name="P:Sudoku.Graphics.Semantic.SudokuGrid.ContainsDisobeyedDigitMarks">
-            <summary>
-            Indicates whether this grid contains disobeyed digit marks or not,
-            which means any cell contains 2 or more kinds of digits (given, modifiable and candidate) in a single cell.
-            </summary>
-            <remarks>
-            In drawing system, we don't care about this case, but it may be used in checking some edge cases.
-            </remarks>
-        </member>
         <member name="P:Sudoku.Graphics.Semantic.SudokuGrid.CellsCount">
             <summary>
             Indicates the number of cells.
@@ -5467,6 +5499,21 @@
             Indicates the number of digits.
             </summary>
         </member>
+        <member name="P:Sudoku.Graphics.Semantic.SudokuGrid.Givens">
+            <summary>
+            Indicates the givens.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Semantic.SudokuGrid.Modifiables">
+            <summary>
+            Indicates the modifiables.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Semantic.SudokuGrid.Candidates">
+            <summary>
+            Indicates the candidates.
+            </summary>
+        </member>
         <member name="P:Sudoku.Graphics.Semantic.SudokuGrid.FormatPattern">
             <remarks>
             Pattern:<br/>
@@ -5488,6 +5535,61 @@
                     ○ Match any character greedily at least 3 times.<br/>
             </code>
             </remarks>
+        </member>
+        <member name="E:Sudoku.Graphics.Semantic.SudokuGrid.DigitsAdding">
+            <summary>
+            Represents an event that will be triggered when digits are adding.
+            </summary>
+        </member>
+        <member name="E:Sudoku.Graphics.Semantic.SudokuGrid.DigitsAdded">
+            <summary>
+            Represents an event that will be triggered when digits are added.
+            </summary>
+        </member>
+        <member name="E:Sudoku.Graphics.Semantic.SudokuGrid.Cleared">
+            <summary>
+            Represents an event that will be triggered when the whole grid is cleared.
+            </summary>
+        </member>
+        <member name="E:Sudoku.Graphics.Semantic.SudokuGrid.DigitConflictDetected">
+            <summary>
+            Represents an event that will be trigged when any digit-related conflict is detected.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.AddGiven(Sudoku.Graphics.Absolute,System.Int32)">
+            <summary>
+            Adds given digit into the grid.
+            </summary>
+            <param name="cell">The cell.</param>
+            <param name="digit">The digit.</param>
+            <exception cref="T:System.ArgumentException">
+            Throws when either argument <paramref name="cell"/> or <paramref name="digit"/> is invalid.
+            </exception>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.AddModifiable(Sudoku.Graphics.Absolute,System.Int32)">
+            <summary>
+            Adds modifiable digit into the grid.
+            </summary>
+            <param name="cell">The cell.</param>
+            <param name="digit">The digit.</param>
+            <exception cref="T:System.ArgumentException">
+            Throws when either argument <paramref name="cell"/> or <paramref name="digit"/> is invalid.
+            </exception>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.AddCandidates(Sudoku.Graphics.Absolute,System.Int32[])">
+            <summary>
+            Adds candidates into the grid.
+            </summary>
+            <param name="cell">The cell.</param>
+            <param name="digits">The digits.</param>
+            <exception cref="T:System.ArgumentException">
+            Throws when either argument <paramref name="cell"/> or <paramref name="digits"/> is invalid.
+            </exception>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.Clear">
+            <summary>
+            Clears the whole grid; removing all givens, modifiables and candidates.
+            </summary>
         </member>
         <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.Equals(System.Object)">
             <inheritdoc/>
@@ -5522,21 +5624,13 @@
                : rows_count_character columns_count_character digits_count_character ':' ' '* value_sequence (':' ' '* candidates)?
                ;
             
-             rows_count_character
-               : value_character
-               ;
+             rows_count_character : value_character ;
             
-             columns_count_character
-               : value_character
-               ;
+             columns_count_character : value_character ;
             
-             digits_count_character
-               : value_character
-               ;
+             digits_count_character : value_character ;
             
-             value_sequence
-               : ('+'? value_character)+
-               ;
+             value_sequence : ('+'? value_character)+ ;
             
              candidates
                : digit_character+ cell_row_index cell_column_index (' '+ digit_character+ cell_row_index cell_column_index)*
@@ -5546,17 +5640,11 @@
                : '.' | '0' - '9' | 'A' - 'Z' | 'a' - 'z' | greek_letters_upper | greek_letters_lower
                ;
             
-             cell_row_index
-               : value_character
-               ;
+             cell_row_index : value_character ;
             
-             cell_column_index
-               : value_character
-               ;
+             cell_column_index : value_character ;
             
-             digit_character
-               : value_character
-               ;
+             digit_character : value_character ;
              </code>
              </remarks>
         </member>
@@ -5579,6 +5667,27 @@
         <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.System#ICloneable#Clone">
             <inheritdoc/>
         </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.VerifyArgumentCell(Sudoku.Graphics.Absolute)">
+            <summary>
+            Verify validity of argument <paramref name="cell"/>.
+            </summary>
+            <param name="cell">The cell.</param>
+            <exception cref="T:System.ArgumentException">Throws when argument is invalid.</exception>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.VerifyArgumentDigit(System.Int32)">
+            <summary>
+            Verify validity of argument <paramref name="digit"/>.
+            </summary>
+            <param name="digit">The digit.</param>
+            <exception cref="T:System.ArgumentException">Throws when argument is invalid.</exception>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.VerifyArgumentDigits(System.Int32[])">
+            <summary>
+            Verify validity of argument <paramref name="digits"/>.
+            </summary>
+            <param name="digits">The digits.</param>
+            <exception cref="T:System.ArgumentException">Throws when argument is invalid.</exception>
+        </member>
         <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.TryParse(System.String,Sudoku.Graphics.Semantic.SudokuGrid@)">
             <inheritdoc cref="M:System.IParsable`1.TryParse(System.String,System.IFormatProvider,`0@)"/>
         </member>
@@ -5590,6 +5699,128 @@
         </member>
         <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.op_Inequality(Sudoku.Graphics.Semantic.SudokuGrid,Sudoku.Graphics.Semantic.SudokuGrid)">
             <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Semantic.SudokuGridClearedEventArgs">
+            <summary>
+            Provides data of event <see cref="E:Sudoku.Graphics.Semantic.SudokuGrid.Cleared"/>.
+            </summary>
+            <seealso cref="E:Sudoku.Graphics.Semantic.SudokuGrid.Cleared"/>
+        </member>
+        <member name="T:Sudoku.Graphics.Semantic.SudokuGridDigitAddedEventArgs">
+            <summary>
+            Provides data of event <see cref="E:Sudoku.Graphics.Semantic.SudokuGrid.DigitsAdded"/>.
+            </summary>
+            <param name="type">The type of digits added.</param>
+            <param name="cell">The cell.</param>
+            <param name="digits">The digits added.</param>
+            <seealso cref="E:Sudoku.Graphics.Semantic.SudokuGrid.DigitsAdded"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGridDigitAddedEventArgs.#ctor(Sudoku.Graphics.Semantic.DigitType,Sudoku.Graphics.Absolute,System.Int32[])">
+            <summary>
+            Provides data of event <see cref="E:Sudoku.Graphics.Semantic.SudokuGrid.DigitsAdded"/>.
+            </summary>
+            <param name="type">The type of digits added.</param>
+            <param name="cell">The cell.</param>
+            <param name="digits">The digits added.</param>
+            <seealso cref="E:Sudoku.Graphics.Semantic.SudokuGrid.DigitsAdded"/>
+        </member>
+        <member name="P:Sudoku.Graphics.Semantic.SudokuGridDigitAddedEventArgs.Digits">
+            <summary>
+            Indicates the digits added.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Semantic.SudokuGridDigitAddedEventArgs.Type">
+            <summary>
+            Indicates the type of the digits added.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Semantic.SudokuGridDigitAddedEventArgs.Cell">
+            <summary>
+            Indicates the cell.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.Semantic.SudokuGridDigitAddingEventArgs">
+            <summary>
+            Provides extra information of event <see cref="E:Sudoku.Graphics.Semantic.SudokuGrid.DigitsAdding"/>.
+            </summary>
+            <param name="type">The type of digits being added.</param>
+            <param name="cell">The cell.</param>
+            <param name="digits">The digits being added.</param>
+            <seealso cref="E:Sudoku.Graphics.Semantic.SudokuGrid.DigitsAdding"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGridDigitAddingEventArgs.#ctor(Sudoku.Graphics.Semantic.DigitType,Sudoku.Graphics.Absolute,System.Int32[])">
+            <summary>
+            Provides extra information of event <see cref="E:Sudoku.Graphics.Semantic.SudokuGrid.DigitsAdding"/>.
+            </summary>
+            <param name="type">The type of digits being added.</param>
+            <param name="cell">The cell.</param>
+            <param name="digits">The digits being added.</param>
+            <seealso cref="E:Sudoku.Graphics.Semantic.SudokuGrid.DigitsAdding"/>
+        </member>
+        <member name="P:Sudoku.Graphics.Semantic.SudokuGridDigitAddingEventArgs.Handled">
+            <summary>
+            Indicates whether the operation should be prevented here or not.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Semantic.SudokuGridDigitAddingEventArgs.Digits">
+            <summary>
+            Indicates the digits added.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Semantic.SudokuGridDigitAddingEventArgs.Type">
+            <summary>
+            Indicates the type of the digits added.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Semantic.SudokuGridDigitAddingEventArgs.Cell">
+            <summary>
+            Indicates the cell.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.Semantic.SudokuGridDigitConflictDetectedEventArgs">
+            <summary>
+            Provides data of event <see cref="E:Sudoku.Graphics.Semantic.SudokuGrid.DigitConflictDetected"/>.
+            </summary>
+            <param name="type">The type of cell.</param>
+            <param name="cell">The cell.</param>
+            <param name="originalDigits">The original digits.</param>
+            <param name="newDigits">The new digits.</param>
+            <seealso cref="E:Sudoku.Graphics.Semantic.SudokuGrid.DigitConflictDetected"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGridDigitConflictDetectedEventArgs.#ctor(Sudoku.Graphics.Semantic.DigitType,Sudoku.Graphics.Absolute,System.Int32[],System.Int32[])">
+            <summary>
+            Provides data of event <see cref="E:Sudoku.Graphics.Semantic.SudokuGrid.DigitConflictDetected"/>.
+            </summary>
+            <param name="type">The type of cell.</param>
+            <param name="cell">The cell.</param>
+            <param name="originalDigits">The original digits.</param>
+            <param name="newDigits">The new digits.</param>
+            <seealso cref="E:Sudoku.Graphics.Semantic.SudokuGrid.DigitConflictDetected"/>
+        </member>
+        <member name="P:Sudoku.Graphics.Semantic.SudokuGridDigitConflictDetectedEventArgs.Handled">
+            <summary>
+            Indicates whether the operation should be prevented.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Semantic.SudokuGridDigitConflictDetectedEventArgs.OriginalDigits">
+            <summary>
+            Indicates the original digit filled in this cell.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Semantic.SudokuGridDigitConflictDetectedEventArgs.NewDigits">
+            <summary>
+            Indicates the new digit filled in this cell.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Semantic.SudokuGridDigitConflictDetectedEventArgs.Type">
+            <summary>
+            Indicates the conflict digit type (which type of the cell currently is).
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Semantic.SudokuGridDigitConflictDetectedEventArgs.Cell">
+            <summary>
+            Indicates the cell conflict.
+            </summary>
         </member>
         <member name="T:Sudoku.Graphics.Semantic.SudokuGridNotation">
             <summary>
@@ -5619,6 +5850,12 @@
             <param name="placeholderCh">The placeholder character.</param>
             <returns>The character.</returns>
             <exception cref="T:System.ArgumentOutOfRangeException">Throws when the value is out of range.</exception>
+        </member>
+        <member name="T:Sudoku.Graphics.Semantic.SudokuGridRelatedEventArgs">
+            <summary>
+            Represents event arguments for <see cref="T:Sudoku.Graphics.Semantic.SudokuGrid"/>-related events.
+            </summary>
+            <seealso cref="T:Sudoku.Graphics.Semantic.SudokuGrid"/>
         </member>
         <member name="T:Sudoku.Graphics.SerializableColor">
             <summary>

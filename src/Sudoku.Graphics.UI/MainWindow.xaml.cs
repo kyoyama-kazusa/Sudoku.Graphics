@@ -97,7 +97,8 @@ public partial class MainWindow : Window
 
 		_items.Add(new BackgroundFillItem { Color = ResolveProperty(() => App.UserPreferences.BackgroundFillColor) });
 		_items.Add(new TemplateLineItem());
-		CurrentCanvas = new(window.CreateTemplate());
+		CurrentCanvas = new(window.CreateTemplate(out var grid));
+		CurrentGrid = grid;
 
 		RenderPicture();
 	}
@@ -117,6 +118,7 @@ public partial class MainWindow : Window
 	{
 		GridImageSource = null;
 		CurrentCanvas = null;
+		CurrentGrid = null;
 		_items.Clear();
 	}
 
@@ -145,6 +147,93 @@ public partial class MainWindow : Window
 		encoder.Frames.Add(BitmapFrame.Create(GridImageSource));
 		using var stream = File.Create(filePath);
 		encoder.Save(stream);
+	}
+
+	private void UpdateGridRelatedItems()
+	{
+		// Clear old items.
+		_items.Clear(ItemType.Text_Given);
+		_items.Clear(ItemType.Text_Modifiable);
+		_items.Clear(ItemType.Text_Candidate);
+
+		// Render picture.
+		if (CurrentGrid is null)
+		{
+			goto OnRenderingPicture;
+		}
+
+		var givens = CurrentGrid.Givens;
+		var modifiables = CurrentGrid.Modifiables;
+		var candidates = CurrentGrid.Candidates;
+		for (var cell = 0; cell < CurrentGrid.CellsCount; cell++)
+		{
+			var givenDigit = givens[cell];
+			if (givenDigit != 0)
+			{
+				_items.Add(
+					new GivenTextItem
+					{
+						TemplateIndex = 0,
+						Cell = cell,
+						FontName = ResolveProperty(() => App.UserPreferences.GivenFontName),
+						FontSizeScale = ResolveProperty(() => App.UserPreferences.GivenFontSizeScale),
+						Text = givenDigit.ToString(),
+						Color = ResolveProperty(() => App.UserPreferences.GivenTextColor),
+						FontWidth = ResolveProperty(() => App.UserPreferences.GivenFontWidth),
+						FontSlant = ResolveProperty(() => App.UserPreferences.GivenFontSlant),
+						FontWeight = ResolveProperty(() => App.UserPreferences.GivenFontWeight)
+					}
+				);
+			}
+
+			var modifiableDigit = modifiables[cell];
+			if (modifiableDigit != 0)
+			{
+				_items.Add(
+					new ModifiableTextItem
+					{
+						TemplateIndex = 0,
+						Cell = cell,
+						FontName = ResolveProperty(() => App.UserPreferences.ModifiableFontName),
+						FontSizeScale = ResolveProperty(() => App.UserPreferences.ModifiableFontSizeScale),
+						Text = modifiableDigit.ToString(),
+						Color = ResolveProperty(() => App.UserPreferences.ModifiableTextColor),
+						FontWidth = ResolveProperty(() => App.UserPreferences.ModifiableFontWidth),
+						FontSlant = ResolveProperty(() => App.UserPreferences.ModifiableFontSlant),
+						FontWeight = ResolveProperty(() => App.UserPreferences.ModifiableFontWeight)
+					}
+				);
+			}
+
+			var candidateDigits = candidates[cell];
+			if (candidateDigits is not null)
+			{
+				var subgridSize = CurrentGrid.RowsCount.GetCandidatesCountInEachRow();
+				for (var digit = 0; digit < CurrentGrid.DigitsCount; digit++)
+				{
+					if (candidateDigits[digit])
+					{
+						_items.Add(
+							new CandidateTextItem
+							{
+								TemplateIndex = 0,
+								CandidatePosition = new(cell, subgridSize, digit - 1),
+								FontName = ResolveProperty(() => App.UserPreferences.GivenFontName),
+								FontSizeScale = ResolveProperty(() => App.UserPreferences.GivenFontSizeScale),
+								Text = digit.ToString(),
+								Color = ResolveProperty(() => App.UserPreferences.GivenTextColor),
+								FontWidth = ResolveProperty(() => App.UserPreferences.GivenFontWidth),
+								FontSlant = ResolveProperty(() => App.UserPreferences.GivenFontSlant),
+								FontWeight = ResolveProperty(() => App.UserPreferences.GivenFontWeight)
+							}
+						);
+					}
+				}
+			}
+		}
+
+	OnRenderingPicture:
+		RenderPicture();
 	}
 
 	private async Task SaveAsJsonFileAsync()
@@ -216,16 +305,27 @@ public partial class MainWindow : Window
 		}
 	}
 
-	partial void OnCurrentGridChanged(SudokuGrid? value)
+	partial void OnCurrentGridChanging(SudokuGrid? value)
 	{
-		if (value is null)
+		if (value is not null)
 		{
-			return;
+			value.DigitsAdded -= CurrentGrid_DigitsAdded;
+			value.Cleared -= CurrentGrid_Cleared;
 		}
-
-		// TODO: Implement logic on grid-related events.
 	}
 
+	partial void OnCurrentGridChanged(SudokuGrid? value)
+	{
+		if (value is not null)
+		{
+			value.DigitsAdded += CurrentGrid_DigitsAdded;
+			value.Cleared += CurrentGrid_Cleared;
+		}
+	}
+
+	private void CurrentGrid_Cleared(SudokuGrid sender, SudokuGridClearedEventArgs e) => UpdateGridRelatedItems();
+
+	private void CurrentGrid_DigitsAdded(SudokuGrid sender, SudokuGridDigitAddedEventArgs e) => UpdateGridRelatedItems();
 
 	private void AboutMeMenuItem_Click(object sender, RoutedEventArgs e) => new AboutWindow { Owner = this }.ShowDialog();
 
@@ -286,7 +386,6 @@ public partial class MainWindow : Window
 		_operationHandlerContext = new()
 		{
 			Items = _items,
-			Canvas = CurrentCanvas,
 			OwnerWindow = this,
 			MouseEventArgs = e,
 			PointPressed = e.Position

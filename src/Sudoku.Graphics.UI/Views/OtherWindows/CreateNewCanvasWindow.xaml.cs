@@ -31,10 +31,7 @@ public partial class CreateNewCanvasWindow : Window
 	public partial int RenderedGridMargin { get; set; } = 15;
 
 	[ObservableProperty]
-	public partial int RowsCount { get; set; } = 9;
-
-	[ObservableProperty]
-	public partial int ColumnsCount { get; set; } = 9;
+	public partial int RowsAndColumnsCount { get; set; } = 9;
 
 	[ObservableProperty]
 	public partial int BlockRowsCount { get; set; } = 3;
@@ -60,7 +57,7 @@ public partial class CreateNewCanvasWindow : Window
 	public partial CurrentCreateTemplateType CreateCanvasMode { get; set; } = CurrentCreateTemplateType.StandardTemplate;
 
 
-	public Template CreateTemplate()
+	public Template CreateTemplate(out SudokuGrid grid)
 	{
 		switch (CreateCanvasMode)
 		{
@@ -72,11 +69,13 @@ public partial class CreateNewCanvasWindow : Window
 					Margin = RenderedGridMargin,
 					TemplateSize = new()
 					{
-						RowsCount = RowsCount,
-						ColumnsCount = ColumnsCount,
+						RowsCount = RowsAndColumnsCount,
+						ColumnsCount = RowsAndColumnsCount,
 						Vector = new(VectorLeft, VectorTop, VectorRight, VectorBottom)
 					}
 				};
+
+				grid = new(mapper.AbsoluteRowsCount, mapper.AbsoluteColumnsCount, mapper.RowsCount);
 				return new StandardTemplate(BlockRowsCount, BlockColumnsCount, mapper)
 				{
 					IsBorderRoundedRectangle = IsBorderRoundedRectangle,
@@ -91,19 +90,21 @@ public partial class CreateNewCanvasWindow : Window
 			}
 			case CurrentCreateTemplateType.DefaultTemplate:
 			{
+				var mapper = new PointMapper
+				{
+					CellSize = RenderedCellSize,
+					Margin = RenderedGridMargin,
+					TemplateSize = new()
+					{
+						RowsCount = RowsAndColumnsCount,
+						ColumnsCount = RowsAndColumnsCount,
+						Vector = new(VectorLeft, VectorTop, VectorRight, VectorBottom)
+					}
+				};
+				grid = new(mapper.AbsoluteRowsCount, mapper.AbsoluteColumnsCount, RowsAndColumnsCount);
 				return new DefaultTemplate
 				{
-					Mapper = new()
-					{
-						CellSize = RenderedCellSize,
-						Margin = RenderedGridMargin,
-						TemplateSize = new()
-						{
-							RowsCount = RowsCount,
-							ColumnsCount = ColumnsCount,
-							Vector = new(VectorLeft, VectorTop, VectorRight, VectorBottom)
-						}
-					},
+					Mapper = mapper,
 					IsBorderRoundedRectangle = IsBorderRoundedRectangle,
 					BorderCornerRadius = ResolveProperty(() => App.UserPreferences.Template_BorderCornerRadius),
 					DrawBordersAsThickLines = DrawBordersAsThickLines,

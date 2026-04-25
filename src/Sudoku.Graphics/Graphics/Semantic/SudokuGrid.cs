@@ -71,31 +71,6 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 
 
 	/// <summary>
-	/// Indicates whether this grid contains disobeyed digit marks or not,
-	/// which means any cell contains 2 or more kinds of digits (given, modifiable and candidate) in a single cell.
-	/// </summary>
-	/// <remarks>
-	/// In drawing system, we don't care about this case, but it may be used in checking some edge cases.
-	/// </remarks>
-	public bool ContainsDisobeyedDigitMarks
-	{
-		get
-		{
-			for (var cell = 0; cell < CellsCount; cell++)
-			{
-				var hasGiven = _givens[cell] != 0;
-				var hasModifiable = _modifiables[cell] != 0;
-				var hasCandidates = GetCandidates(cell).Cardinality != 0;
-				if (hasGiven && hasModifiable || hasGiven && hasCandidates || hasModifiable && hasCandidates)
-				{
-					return true;
-				}
-			}
-			return false;
-		}
-	}
-
-	/// <summary>
 	/// Indicates the number of cells.
 	/// </summary>
 	public int CellsCount => RowsCount * ColumnsCount;
@@ -120,10 +95,227 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 	/// </summary>
 	public Absolute DigitsCount { get; }
 
+	/// <summary>
+	/// Indicates the givens.
+	/// </summary>
+	public ReadOnlySpan<int> Givens => _givens;
+
+	/// <summary>
+	/// Indicates the modifiables.
+	/// </summary>
+	public ReadOnlySpan<int> Modifiables => _modifiables;
+
+	/// <summary>
+	/// Indicates the candidates.
+	/// </summary>
+	public ReadOnlySpan<BitArray?> Candidates
+	{
+		get
+		{
+			var result = new BitArray?[CellsCount];
+			for (var cell = 0; cell < CellsCount; cell++)
+			{
+				result[cell] = GetCandidates(cell) is { Cardinality: not 0 } valid ? valid : null;
+			}
+			return result;
+		}
+	}
+
+
 
 	[GeneratedRegex(""".{3}\:\s*.+(?:\:\s*.{3,}(?:\s+.{3,})*)?""", RegexOptions.Compiled | RegexOptions.Singleline)]
 	private static partial Regex FormatPattern { get; }
 
+
+	/// <summary>
+	/// Represents an event that will be triggered when digits are adding.
+	/// </summary>
+	public event EventHandler<SudokuGrid, SudokuGridDigitAddingEventArgs>? DigitsAdding;
+
+	/// <summary>
+	/// Represents an event that will be triggered when digits are added.
+	/// </summary>
+	public event EventHandler<SudokuGrid, SudokuGridDigitAddedEventArgs>? DigitsAdded;
+
+	/// <summary>
+	/// Represents an event that will be triggered when the whole grid is cleared.
+	/// </summary>
+	public event EventHandler<SudokuGrid, SudokuGridClearedEventArgs>? Cleared;
+
+	/// <summary>
+	/// Represents an event that will be trigged when any digit-related conflict is detected.
+	/// </summary>
+	public event EventHandler<SudokuGrid, SudokuGridDigitConflictDetectedEventArgs>? DigitConflictDetected;
+
+
+	/// <summary>
+	/// Adds given digit into the grid.
+	/// </summary>
+	/// <param name="cell">The cell.</param>
+	/// <param name="digit">The digit.</param>
+	/// <exception cref="ArgumentException">
+	/// Throws when either argument <paramref name="cell"/> or <paramref name="digit"/> is invalid.
+	/// </exception>
+	public void AddGiven(Absolute cell, int digit)
+	{
+		VerifyArgumentCell(cell);
+		VerifyArgumentDigit(digit);
+
+		// Trigger event (adding).
+		var addingEventArgs = new SudokuGridDigitAddingEventArgs(DigitType.Given, cell, [digit]);
+		DigitsAdding?.Invoke(this, addingEventArgs);
+		if (addingEventArgs.Handled)
+		{
+			return;
+		}
+
+		// Check conflict.
+		if (_givens[cell] is var originalDigit and not 0 && originalDigit != digit)
+		{
+			var conflictEventArgs = new SudokuGridDigitConflictDetectedEventArgs(DigitType.Given, cell, [originalDigit], [digit]);
+			DigitConflictDetected?.Invoke(this, conflictEventArgs);
+			if (conflictEventArgs.Handled)
+			{
+				return;
+			}
+		}
+		if (_modifiables[cell] != 0)
+		{
+			// Remove modifiable digit and set given.
+			_modifiables[cell] = 0;
+		}
+		if (GetCandidates(cell).Cardinality != 0)
+		{
+			// Remove candidates and set given.
+			for (var d = 0; d < DigitsCount; d++)
+			{
+				_candidates[cell * DigitsCount + d] = false;
+			}
+		}
+
+		// Add given.
+		_givens[cell] = digit;
+
+		// Trigger event (added).
+		DigitsAdded?.Invoke(this, new(DigitType.Given, cell, [digit]));
+	}
+
+	/// <summary>
+	/// Adds modifiable digit into the grid.
+	/// </summary>
+	/// <param name="cell">The cell.</param>
+	/// <param name="digit">The digit.</param>
+	/// <exception cref="ArgumentException">
+	/// Throws when either argument <paramref name="cell"/> or <paramref name="digit"/> is invalid.
+	/// </exception>
+	public void AddModifiable(Absolute cell, int digit)
+	{
+		VerifyArgumentCell(cell);
+		VerifyArgumentDigit(digit);
+
+		// Trigger event (adding).
+		var addingEventArgs = new SudokuGridDigitAddingEventArgs(DigitType.Modifiable, cell, [digit]);
+		DigitsAdding?.Invoke(this, addingEventArgs);
+		if (addingEventArgs.Handled)
+		{
+			return;
+		}
+
+		// Check conflict.
+		if (_givens[cell] != 0)
+		{
+			// Do nothing - givens cannot be replaced with other values, and we also don't append modifiable digits into the cell.
+			return;
+		}
+		if (_modifiables[cell] is var modifiableDigit and not 0 && modifiableDigit != digit)
+		{
+			// Remove it and set modifiable.
+			_modifiables[cell] = 0;
+		}
+		if (GetCandidates(cell).Cardinality != 0)
+		{
+			// Remove candidates and set modifiable.
+			for (var d = 0; d < DigitsCount; d++)
+			{
+				_candidates[cell * DigitsCount + d] = false;
+			}
+		}
+
+		// Add modifiable.
+		_modifiables[cell] = digit;
+
+		// Trigger event (added).
+		DigitsAdded?.Invoke(this, new(DigitType.Modifiable, cell, [digit]));
+	}
+
+	/// <summary>
+	/// Adds candidates into the grid.
+	/// </summary>
+	/// <param name="cell">The cell.</param>
+	/// <param name="digits">The digits.</param>
+	/// <exception cref="ArgumentException">
+	/// Throws when either argument <paramref name="cell"/> or <paramref name="digits"/> is invalid.
+	/// </exception>
+	public void AddCandidates(Absolute cell, params int[] digits)
+	{
+		VerifyArgumentCell(cell);
+		VerifyArgumentDigits(digits);
+
+		// Trigger event (adding).
+		var addingEventArgs = new SudokuGridDigitAddingEventArgs(DigitType.Candidate, cell, digits);
+		DigitsAdding?.Invoke(this, addingEventArgs);
+		if (addingEventArgs.Handled)
+		{
+			return;
+		}
+
+		// Check conflict.
+		if (_givens[cell] != 0)
+		{
+			// Do nothing - givens cannot be replaced with other values, and we also don't append candidates into the cell.
+			return;
+		}
+		if (_modifiables[cell] != 0)
+		{
+			// Also do nothing.
+			return;
+		}
+		if (GetCandidates(cell).Cardinality != 0)
+		{
+			// Remove candidates and set candidates.
+			for (var d = 0; d < DigitsCount; d++)
+			{
+				_candidates[cell * DigitsCount + d] = false;
+			}
+		}
+
+		// Add candidates.
+		foreach (var digit in digits)
+		{
+			_candidates[cell * DigitsCount + digit] = true;
+		}
+
+		// Trigger event (added).
+		DigitsAdded?.Invoke(this, new(DigitType.Candidate, cell, digits));
+	}
+
+	/// <summary>
+	/// Clears the whole grid; removing all givens, modifiables and candidates.
+	/// </summary>
+	public void Clear()
+	{
+		for (var cell = 0; cell < CellsCount; cell++)
+		{
+			_givens[cell] = 0;
+			_modifiables[cell] = 0;
+			for (var digit = 0; digit < DigitsCount; digit++)
+			{
+				_candidates[cell * DigitsCount + digit] = false;
+			}
+		}
+
+		Cleared?.Invoke(this, new());
+	}
 
 	/// <inheritdoc/>
 	public override bool Equals([NotNullWhen(true)] object? obj) => Equals(obj as SudokuGrid);
@@ -157,21 +349,13 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 	///   : rows_count_character columns_count_character digits_count_character ':' ' '* value_sequence (':' ' '* candidates)?
 	///   ;
 	///
-	/// rows_count_character
-	///   : value_character
-	///   ;
+	/// rows_count_character : value_character ;
 	///
-	/// columns_count_character
-	///   : value_character
-	///   ;
+	/// columns_count_character : value_character ;
 	///
-	/// digits_count_character
-	///   : value_character
-	///   ;
+	/// digits_count_character : value_character ;
 	///
-	/// value_sequence
-	///   : ('+'? value_character)+
-	///   ;
+	/// value_sequence : ('+'? value_character)+ ;
 	///
 	/// candidates
 	///   : digit_character+ cell_row_index cell_column_index (' '+ digit_character+ cell_row_index cell_column_index)*
@@ -181,17 +365,11 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 	///   : '.' | '0' - '9' | 'A' - 'Z' | 'a' - 'z' | greek_letters_upper | greek_letters_lower
 	///   ;
 	///
-	/// cell_row_index
-	///   : value_character
-	///   ;
+	/// cell_row_index : value_character ;
 	///
-	/// cell_column_index
-	///   : value_character
-	///   ;
+	/// cell_column_index : value_character ;
 	///
-	/// digit_character
-	///   : value_character
-	///   ;
+	/// digit_character : value_character ;
 	/// </code>
 	/// </remarks>
 	public override string ToString()
@@ -267,6 +445,45 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 
 	/// <inheritdoc/>
 	object ICloneable.Clone() => Clone();
+
+	/// <summary>
+	/// Verify validity of argument <paramref name="cell"/>.
+	/// </summary>
+	/// <param name="cell">The cell.</param>
+	/// <exception cref="ArgumentException">Throws when argument is invalid.</exception>
+	private void VerifyArgumentCell(Absolute cell)
+	{
+		if (cell < 0 || cell >= CellsCount)
+		{
+			throw new ArgumentException($"The argument '{nameof(cell)}' must be between 0 and '{CellsCount} - 1'.", nameof(cell));
+		}
+	}
+
+	/// <summary>
+	/// Verify validity of argument <paramref name="digit"/>.
+	/// </summary>
+	/// <param name="digit">The digit.</param>
+	/// <exception cref="ArgumentException">Throws when argument is invalid.</exception>
+	private void VerifyArgumentDigit(int digit)
+	{
+		if (digit <= 0 || digit > DigitsCount)
+		{
+			throw new ArgumentException($"The argument '{nameof(digit)}' must be between 1 and '{DigitsCount}'.", nameof(digit));
+		}
+	}
+
+	/// <summary>
+	/// Verify validity of argument <paramref name="digits"/>.
+	/// </summary>
+	/// <param name="digits">The digits.</param>
+	/// <exception cref="ArgumentException">Throws when argument is invalid.</exception>
+	private void VerifyArgumentDigits(int[] digits)
+	{
+		foreach (var digit in digits)
+		{
+			VerifyArgumentDigit(digit);
+		}
+	}
 
 
 	/// <inheritdoc cref="IParsable{TSelf}.TryParse(string?, IFormatProvider?, out TSelf)"/>

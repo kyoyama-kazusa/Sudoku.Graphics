@@ -30,11 +30,6 @@ public sealed class OperationHandlerContext
 	/// </summary>
 	public required ItemSet Items { get; init; }
 
-	/// <summary>
-	/// Indicates the canvas.
-	/// </summary>
-	public required Canvas? Canvas { get; init; }
-
 
 	/// <summary>
 	/// Try to project user-clicked point into the target cell clicked; or return -1 if failed to calculate.
@@ -45,13 +40,16 @@ public sealed class OperationHandlerContext
 		if (this is not
 			{
 				PointPressed: var (x, y),
-				OwnerWindow.MainGrid:
+				OwnerWindow:
 				{
-					Source: { Width: var sourceWidth, Height: var sourceHeight },
-					ActualWidth: var actualWidth,
-					ActualHeight: var actualHeight
+					MainGrid:
+					{
+						Source: { Width: var sourceWidth, Height: var sourceHeight },
+						ActualWidth: var actualWidth,
+						ActualHeight: var actualHeight
+					},
+					CurrentCanvas.Templates: [{ Mapper: var mapper }]
 				},
-				Canvas.Templates: [{ Mapper: var mapper }]
 			})
 		{
 			return -1;

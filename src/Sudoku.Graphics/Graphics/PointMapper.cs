@@ -40,6 +40,34 @@ public sealed record PointMapper : IEqualityOperators<PointMapper, PointMapper, 
 	public required GridTemplateSize TemplateSize { get; init; }
 
 
+	/// <inheritdoc cref="Deconstruct(out Absolute, out Absolute, out Absolute, out Absolute, out GridTemplateSize)"/>
+	public void Deconstruct(out Absolute rowsCount, out Absolute columnsCount)
+		=> (rowsCount, columnsCount) = (RowsCount, ColumnsCount);
+
+	/// <inheritdoc cref="Deconstruct(out Absolute, out Absolute, out Absolute, out Absolute, out GridTemplateSize)"/>
+	public void Deconstruct(
+		out Absolute rowsCount,
+		out Absolute columnsCount,
+		out Absolute absoluteRowsCount,
+		out Absolute absoluteColumnsCount
+	) => ((rowsCount, columnsCount), absoluteRowsCount, absoluteColumnsCount) = (this, AbsoluteRowsCount, AbsoluteColumnsCount);
+
+	/// <summary>
+	/// Deconstructs the current instance into multiple values.
+	/// </summary>
+	/// <param name="rowsCount">The number of rows.</param>
+	/// <param name="columnsCount">The number of columns.</param>
+	/// <param name="absoluteRowsCount">The number of rows in absolute grid.</param>
+	/// <param name="absoluteColumnsCount">The number of columns in absolute grid.</param>
+	/// <param name="templateSize">The template size.</param>
+	public void Deconstruct(
+		out Absolute rowsCount,
+		out Absolute columnsCount,
+		out Absolute absoluteRowsCount,
+		out Absolute absoluteColumnsCount,
+		out GridTemplateSize templateSize
+	) => ((rowsCount, columnsCount, absoluteRowsCount, absoluteColumnsCount), templateSize) = (this, TemplateSize);
+
 	/// <inheritdoc/>
 	public bool Equals([NotNullWhen(true)] PointMapper? other)
 		=> other is not null && CellSize == other.CellSize && Margin == other.Margin && TemplateSize == other.TemplateSize;
