@@ -1,16 +1,16 @@
 ﻿namespace Sudoku.Graphics.UI.OperationHandlers;
 
 /// <summary>
-/// Represents an operation handler type that creates for <see cref="CellTetrisMarkItem"/> instances.
+/// Represents an operation handler that produces <see cref="CellDiceMarkItem"/> instances.
 /// </summary>
-/// <seealso cref="CellTetrisMarkItem"/>
-[OperationHandler(ItemType.Cell_Tetris)]
-public sealed class TetrisOperationHandler : OperationHandler
+/// <seealso cref="CellDiceMarkItem"/>
+[OperationHandler(ItemType.Cell_Dice)]
+public sealed class DiceOperationHandler : OperationHandler
 {
 	/// <inheritdoc/>
 	protected internal override void OnMouseButtonPressed(OperationHandlerContext context)
 	{
-		var panel = context.OwnerWindow.TetrisSelectorPanel;
+		var panel = context.OwnerWindow.DiceSelectorPanel;
 		panel.OperationHandlerContext = context;
 		panel.SelectedItemChanged += Panel_SelectedItemChanged;
 	}
@@ -18,22 +18,18 @@ public sealed class TetrisOperationHandler : OperationHandler
 	/// <inheritdoc/>
 	protected internal override void OnMouseButtonReleased(OperationHandlerContext context)
 	{
-		if (context.OwnerWindow is { TetrisSelectorPopup: var popup })
+		if (context.OwnerWindow is { DiceSelectorPopup: var popup })
 		{
 			popup.IsOpen = true;
 		}
 	}
 
-	/// <inheritdoc/>
-	protected internal override bool IsAvailable(OperationHandlerContext context)
-		=> context.MouseEventArgs.ChangedButton == MouseButton.Right;
-
 	private void Panel_SelectedItemChanged(ItemSelectorPanel sender, ItemSelectorPanelSelectedItemChangedEventArgs e)
 	{
 		if (e is not
 			{
-				SelectedItem: var selectedItem and (TetrominoDisplayItem or null),
-				Context: { OwnerWindow: { TetrisSelectorPopup: var popup, TetrisSelectorPanel: var panel } window } context
+				SelectedItem: var selectedItem and (DiceDisplayItem or null),
+				Context: { OwnerWindow: { DiceSelectorPopup: var popup, DiceSelectorPanel: var panel } window } context
 			})
 		{
 			return;
@@ -44,7 +40,7 @@ public sealed class TetrisOperationHandler : OperationHandler
 		var cell = context.GetCell();
 		var item = selectedItem switch
 		{
-			TetrominoDisplayItem { Type: var piece, RotationType: var rotationType } => ItemsFactory.Tetris(cell, piece, rotationType),
+			DiceDisplayItem { Value: var value } => ItemsFactory.Dice(cell, value),
 			null => null,
 			_ => throw new UnreachableException()
 		};
@@ -54,7 +50,7 @@ public sealed class TetrisOperationHandler : OperationHandler
 			{
 				if (item is null)
 				{
-					items.Clear(cell, ItemType.Cell_Tetris);
+					items.Clear(cell, ItemType.Cell_Dice);
 				}
 				else
 				{

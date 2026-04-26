@@ -35,7 +35,13 @@
 		<KeyBinding Gesture="F12" Command="{Binding SaveAsJsonCommand}" />
 	</Window.InputBindings>
 	
+	<!--
+	Whole window
+	-->
 	<Grid RowDefinitions="Auto,Auto,*" ColumnDefinitions="Auto,*">
+		<!--
+		Menu bar
+		-->
 		<Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
 			<MenuItem Header="{x:Static p:LocalizationResources.MainWindow_MenuItem_File}">
 				<MenuItem
@@ -72,6 +78,8 @@
 					Click="AboutMeMenuItem_Click" />
 			</MenuItem>
 		</Menu>
+
+		<!--#region Popups-->
 		<Popup x:Name="DigitSelectorPopup">
 			<Border Background="White" BorderBrush="Gray" BorderThickness="1" Padding="6">
 				<c:DigitSelectorPanel
@@ -113,6 +121,31 @@
 				</c:ItemSelectorPanel>
 			</Border>
 		</Popup>
+		<Popup x:Name="DiceSelectorPopup">
+			<Border Background="White" BorderBrush="Gray" BorderThickness="1" Padding="6">
+				<c:ItemSelectorPanel
+					x:Name="DiceSelectorPanel"
+					CellSize="48"
+					FontFamily="Arial"
+					FontSize="28"
+					FontWeight="Bold"
+					Foreground="Black"
+					ColumnsCount="3"
+					ItemsSource="{StaticResource BuiltInDices}">
+					<c:ItemSelectorPanel.ItemTemplate>
+						<DataTemplate DataType="vm:DiceDisplayItem">
+							<TextBlock Text="{Binding ValueString}" />
+						</DataTemplate>
+					</c:ItemSelectorPanel.ItemTemplate>
+				</c:ItemSelectorPanel>
+			</Border>
+		</Popup>
+		<!--#endregion-->
+
+		<!--
+		Grid view
+		-->
+		<!--#region Grid view-->
 		<Border Grid.Row="1" Grid.Column="0" BorderThickness="2" Margin="16" Background="#F0F0F0">
 			<Image
 				x:Name="MainGrid"
@@ -122,6 +155,12 @@
 				MouseDown="Image_MouseDown"
 				MouseUp="Image_MouseUp" />
 		</Border>
+		<!--#endregion-->
+
+		<!--
+		Tool items
+		-->
+		<!--#region Tool items-->
 		<Border Grid.Row="1" Grid.Column="1" BorderThickness="2" Margin="16">
 			<Grid RowDefinitions="Auto,*">
 				<Border Grid.Row="0" BorderBrush="Black" BorderThickness="0,0,0,2">
@@ -176,5 +215,6 @@
 				</ScrollViewer>
 			</Grid>
 		</Border>
+		<!--#endregion-->
 	</Grid>
 </Window>

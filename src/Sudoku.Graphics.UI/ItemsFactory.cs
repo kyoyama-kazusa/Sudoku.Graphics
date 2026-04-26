@@ -64,4 +64,17 @@ public static class ItemsFactory
 			FillColor = ResolveProperty(() => App.UserPreferences.TetrominoFillColor),
 			SizeScale = ResolveProperty(() => App.UserPreferences.TetrominoSmallBlockSizeScale)
 		};
+
+	public static CellDiceMarkItem Dice(Absolute cell, int value)
+		=> new()
+		{
+			TemplateIndex = 0,
+			Cell = cell,
+			Value = value,
+			CornerRadiusScale = ResolveProperty(() => App.UserPreferences.DiceCornerRadiusScale),
+			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.DiceStrokeWidthScale),
+			StrokeColor = ResolveProperty(() => App.UserPreferences.DiceLineColor),
+			FillColor = ResolveProperty(() => App.UserPreferences.DiceFillColor),
+			SizeScale = ResolveProperty(() => App.UserPreferences.DiceSizeScale)
+		};
 }

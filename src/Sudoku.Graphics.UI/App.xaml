@@ -18,6 +18,7 @@
 				<vm:ToolItem ItemType="Text_Candidate" Icon="/Assets/ToolItems/ToolItem_Text_Candidate.png" />
 			</vm:ToolItemGroup>
 			<vm:ToolItemGroup Title="{x:Static p:LocalizationResources.ItemTypeGroup_CellMark}">
+				<vm:ToolItem ItemType="Cell_Dice" Icon="/Assets/ToolItems/ToolItem_Cell_Dice.png" />
 				<vm:ToolItem ItemType="Cell_Tetris" Icon="/Assets/ToolItems/ToolItem_Cell_Tetris.png" />
 			</vm:ToolItemGroup>
 		</vm:ToolItemGroupCollection>
@@ -59,6 +60,23 @@
 			<vm:TetrominoDisplayItem Type="Z" RotationType="Double" Icon="/Assets/Icons/Tetris_Z.png" />
 			<vm:TetrominoDisplayItem Type="Z" RotationType="Triple" Icon="/Assets/Icons/Tetris_Z_Single.png" />
 		</vm:TetrominoDisplayItemCollection>
+
+		<!--
+		Built-in dices
+		-->
+		<vm:DiceDisplayItemCollection x:Key="BuiltInDices">
+			<vm:DiceDisplayItem Value="0" />
+			<vm:DiceDisplayItem Value="1" />
+			<vm:DiceDisplayItem Value="2" />
+			<vm:DiceDisplayItem Value="3" />
+			<vm:DiceDisplayItem Value="4" />
+			<vm:DiceDisplayItem Value="5" />
+			<vm:DiceDisplayItem Value="6" />
+			<vm:DiceDisplayItem Value="7" />
+			<vm:DiceDisplayItem Value="8" />
+		</vm:DiceDisplayItemCollection>
+
+		<!--Preferences-->
 		<config:Preferences x:Key="UserPreferences" />
 	</Application.Resources>
 </Application>

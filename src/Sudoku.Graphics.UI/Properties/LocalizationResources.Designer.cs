@@ -304,6 +304,15 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dice.
+        /// </summary>
+        public static string ItemType_Cell_Dice {
+            get {
+                return ResourceManager.GetString("ItemType_Cell_Dice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tetromino.
         /// </summary>
         public static string ItemType_Cell_Tetris {

@@ -5,4 +5,4 @@
 /// </summary>
 /// <seealso cref="GivenTextItem"/>
 [OperationHandler(ItemType.Text_Given)]
-public sealed class GivenTextMarkOperationHandler() : GivenOrModifiableTextItemOperationHandler(true);
+public sealed class GivenOperationHandler() : GivenOrModifiableOperationHandler(true);

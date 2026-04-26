@@ -5,7 +5,7 @@
 /// </summary>
 /// <param name="_isGiven">Indicates whether the current handler is for given text items.</param>
 /// <seealso cref="GivenOrModifiableTextItem"/>
-public abstract class GivenOrModifiableTextItemOperationHandler(bool _isGiven) : OperationHandler
+public abstract class GivenOrModifiableOperationHandler(bool _isGiven) : OperationHandler
 {
 	/// <inheritdoc/>
 	protected internal sealed override void OnMouseButtonPressed(OperationHandlerContext context)

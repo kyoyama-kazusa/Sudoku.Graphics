@@ -5,7 +5,7 @@
 /// </summary>
 /// <seealso cref="CandidateTextItem"/>
 [OperationHandler(ItemType.Text_Candidate)]
-public sealed class CandidateTextMarkItemOperationHandler : OperationHandler
+public sealed class CandidateOperationHandler : OperationHandler
 {
 	/// <inheritdoc/>
 	protected internal override void OnMouseButtonPressed(OperationHandlerContext context)
