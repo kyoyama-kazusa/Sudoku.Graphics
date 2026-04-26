@@ -130,7 +130,7 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 
 
 	/// <summary>
-	/// Represents an event that will be triggered when digits are adding.
+	/// Represents an event that will be triggered when digits are being adding.
 	/// </summary>
 	public event EventHandler<SudokuGrid, SudokuGridDigitAddingEventArgs>? DigitsAdding;
 
@@ -145,9 +145,19 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 	public event EventHandler<SudokuGrid, SudokuGridClearedEventArgs>? Cleared;
 
 	/// <summary>
-	/// Represents an event that will be trigged when any digit-related conflict is detected.
+	/// Represents an event that will be triggered when any digit-related conflict is detected.
 	/// </summary>
 	public event EventHandler<SudokuGrid, SudokuGridDigitConflictDetectedEventArgs>? DigitConflictDetected;
+
+	/// <summary>
+	/// Represents an event that will be triggered when any digit is being removed from a cell.
+	/// </summary>
+	public event EventHandler<SudokuGrid, SudokuGridDigitRemovingEventArgs>? DigitRemoving;
+
+	/// <summary>
+	/// Represents an event that will be triggered when any digit is removed from a cell.
+	/// </summary>
+	public event EventHandler<SudokuGrid, SudokuGridDigitRemovedEventArgs>? DigitRemoved;
 
 
 	/// <summary>
@@ -299,6 +309,79 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 
 		// Trigger event (added).
 		DigitsAdded?.Invoke(this, new(DigitType.Candidate, cell, digits));
+	}
+
+	/// <summary>
+	/// Removes a given from a cell.
+	/// </summary>
+	/// <param name="cell">The cell.</param>
+	public void RemoveGiven(Absolute cell)
+	{
+		VerifyArgumentCell(cell);
+
+		var removingEventArgs = new SudokuGridDigitRemovingEventArgs(DigitType.Given, cell);
+		DigitRemoving?.Invoke(this, removingEventArgs);
+		if (removingEventArgs.Handled)
+		{
+			return;
+		}
+
+		if (_givens[cell] == -1)
+		{
+			return;
+		}
+
+		_givens[cell] = -1;
+
+		DigitRemoved?.Invoke(this, new(DigitType.Given, cell));
+	}
+
+	/// <summary>
+	/// Removes a modifiable from a cell.
+	/// </summary>
+	/// <param name="cell">The cell.</param>
+	public void RemoveModifiable(Absolute cell)
+	{
+		VerifyArgumentCell(cell);
+
+		var removingEventArgs = new SudokuGridDigitRemovingEventArgs(DigitType.Modifiable, cell);
+		DigitRemoving?.Invoke(this, removingEventArgs);
+		if (removingEventArgs.Handled)
+		{
+			return;
+		}
+
+		if (_modifiables[cell] == -1)
+		{
+			return;
+		}
+
+		_modifiables[cell] = -1;
+
+		DigitRemoved?.Invoke(this, new(DigitType.Modifiable, cell));
+	}
+
+	/// <summary>
+	/// Removes all candidates from a cell.
+	/// </summary>
+	/// <param name="cell">The cell.</param>
+	public void RemoveCandidates(Absolute cell)
+	{
+		VerifyArgumentCell(cell);
+
+		var removingEventArgs = new SudokuGridDigitRemovingEventArgs(DigitType.Candidate, cell);
+		DigitRemoving?.Invoke(this, removingEventArgs);
+		if (removingEventArgs.Handled)
+		{
+			return;
+		}
+
+		for (var digit = 0; digit < DigitsCount; digit++)
+		{
+			_candidates[cell * DigitsCount + digit] = false;
+		}
+
+		DigitRemoved?.Invoke(this, new(DigitType.Candidate, cell));
 	}
 
 	/// <summary>

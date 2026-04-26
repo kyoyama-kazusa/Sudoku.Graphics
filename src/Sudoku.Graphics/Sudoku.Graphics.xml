@@ -5538,7 +5538,7 @@
         </member>
         <member name="E:Sudoku.Graphics.Semantic.SudokuGrid.DigitsAdding">
             <summary>
-            Represents an event that will be triggered when digits are adding.
+            Represents an event that will be triggered when digits are being adding.
             </summary>
         </member>
         <member name="E:Sudoku.Graphics.Semantic.SudokuGrid.DigitsAdded">
@@ -5553,7 +5553,17 @@
         </member>
         <member name="E:Sudoku.Graphics.Semantic.SudokuGrid.DigitConflictDetected">
             <summary>
-            Represents an event that will be trigged when any digit-related conflict is detected.
+            Represents an event that will be triggered when any digit-related conflict is detected.
+            </summary>
+        </member>
+        <member name="E:Sudoku.Graphics.Semantic.SudokuGrid.DigitRemoving">
+            <summary>
+            Represents an event that will be triggered when any digit is being removed from a cell.
+            </summary>
+        </member>
+        <member name="E:Sudoku.Graphics.Semantic.SudokuGrid.DigitRemoved">
+            <summary>
+            Represents an event that will be triggered when any digit is removed from a cell.
             </summary>
         </member>
         <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.AddGiven(Sudoku.Graphics.Absolute,System.Int32)">
@@ -5585,6 +5595,24 @@
             <exception cref="T:System.ArgumentException">
             Throws when either argument <paramref name="cell"/> or <paramref name="digits"/> is invalid.
             </exception>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.RemoveGiven(Sudoku.Graphics.Absolute)">
+            <summary>
+            Removes a given from a cell.
+            </summary>
+            <param name="cell">The cell.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.RemoveModifiable(Sudoku.Graphics.Absolute)">
+            <summary>
+            Removes a modifiable from a cell.
+            </summary>
+            <param name="cell">The cell.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.RemoveCandidates(Sudoku.Graphics.Absolute)">
+            <summary>
+            Removes all candidates from a cell.
+            </summary>
+            <param name="cell">The cell.</param>
         </member>
         <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.Clear">
             <summary>
@@ -5820,6 +5848,63 @@
         <member name="P:Sudoku.Graphics.Semantic.SudokuGridDigitConflictDetectedEventArgs.Cell">
             <summary>
             Indicates the cell conflict.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.Semantic.SudokuGridDigitRemovedEventArgs">
+            <summary>
+            Provides extra information of event <see cref="E:Sudoku.Graphics.Semantic.SudokuGrid.DigitRemoved"/>.
+            </summary>
+            <param name="type">The type of digits being added.</param>
+            <param name="cell">The cell.</param>
+            <seealso cref="E:Sudoku.Graphics.Semantic.SudokuGrid.DigitRemoved"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGridDigitRemovedEventArgs.#ctor(Sudoku.Graphics.Semantic.DigitType,Sudoku.Graphics.Absolute)">
+            <summary>
+            Provides extra information of event <see cref="E:Sudoku.Graphics.Semantic.SudokuGrid.DigitRemoved"/>.
+            </summary>
+            <param name="type">The type of digits being added.</param>
+            <param name="cell">The cell.</param>
+            <seealso cref="E:Sudoku.Graphics.Semantic.SudokuGrid.DigitRemoved"/>
+        </member>
+        <member name="P:Sudoku.Graphics.Semantic.SudokuGridDigitRemovedEventArgs.Type">
+            <summary>
+            Indicates the cell type.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Semantic.SudokuGridDigitRemovedEventArgs.Cell">
+            <summary>
+            Indicates the cell.
+            </summary>
+        </member>
+        <member name="T:Sudoku.Graphics.Semantic.SudokuGridDigitRemovingEventArgs">
+            <summary>
+            Provides extra information of event <see cref="E:Sudoku.Graphics.Semantic.SudokuGrid.DigitRemoving"/>.
+            </summary>
+            <param name="type">The type of digits being added.</param>
+            <param name="cell">The cell.</param>
+            <seealso cref="E:Sudoku.Graphics.Semantic.SudokuGrid.DigitRemoving"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGridDigitRemovingEventArgs.#ctor(Sudoku.Graphics.Semantic.DigitType,Sudoku.Graphics.Absolute)">
+            <summary>
+            Provides extra information of event <see cref="E:Sudoku.Graphics.Semantic.SudokuGrid.DigitRemoving"/>.
+            </summary>
+            <param name="type">The type of digits being added.</param>
+            <param name="cell">The cell.</param>
+            <seealso cref="E:Sudoku.Graphics.Semantic.SudokuGrid.DigitRemoving"/>
+        </member>
+        <member name="P:Sudoku.Graphics.Semantic.SudokuGridDigitRemovingEventArgs.Handled">
+            <summary>
+            Indicates whether the operation should be prevented.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Semantic.SudokuGridDigitRemovingEventArgs.Type">
+            <summary>
+            Indicates the cell type.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Semantic.SudokuGridDigitRemovingEventArgs.Cell">
+            <summary>
+            Indicates the cell.
             </summary>
         </member>
         <member name="T:Sudoku.Graphics.Semantic.SudokuGridNotation">
