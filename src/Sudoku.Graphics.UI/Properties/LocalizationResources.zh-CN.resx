@@ -270,4 +270,20 @@
   <data name="ItemType_Cell_Dice" xml:space="preserve">
     <value>骰子点数</value>
   </data>
+  <data name="MainWindow_PhantomDiceSubgridSize" xml:space="preserve">
+    <value>骰子的渲染尺寸：</value>
+  </data>
+  <data name="MainWindow_PhantomDiceStatesMatrix" xml:space="preserve">
+    <value>有/无的状态（1 表示有，0 表示无）：</value>
+  </data>
+  <data name="MainWindow_PhantomDiceStatesMatrix_Example" xml:space="preserve">
+    <value>举例：1001,0110,0110,1001（逗号可有可无）</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="_ValidSeparators" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="ItemType_Cell_PhantomDice" xml:space="preserve">
+    <value>骰子点数（矩阵）</value>
+  </data>
 </root>

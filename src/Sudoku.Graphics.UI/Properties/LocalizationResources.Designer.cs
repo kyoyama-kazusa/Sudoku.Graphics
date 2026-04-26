@@ -61,6 +61,15 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ,;，；、.
+        /// </summary>
+        public static string _ValidSeparators {
+            get {
+                return ResourceManager.GetString("_ValidSeparators", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Author:.
         /// </summary>
         public static string AboutWindow_Author {
@@ -304,11 +313,20 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dice.
+        ///   Looks up a localized string similar to Dice (Classic).
         /// </summary>
         public static string ItemType_Cell_Dice {
             get {
                 return ResourceManager.GetString("ItemType_Cell_Dice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dice (Matrix).
+        /// </summary>
+        public static string ItemType_Cell_PhantomDice {
+            get {
+                return ResourceManager.GetString("ItemType_Cell_PhantomDice", resourceCulture);
             }
         }
         
@@ -471,6 +489,33 @@ namespace Sudoku.Graphics.UI.Properties {
         public static string MainWindow_MenuItem_Title {
             get {
                 return ResourceManager.GetString("MainWindow_MenuItem_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to States (1 for on, 0 for off):.
+        /// </summary>
+        public static string MainWindow_PhantomDiceStatesMatrix {
+            get {
+                return ResourceManager.GetString("MainWindow_PhantomDiceStatesMatrix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Example: 1001,0110,0110,1001 (Commas may not be required).
+        /// </summary>
+        public static string MainWindow_PhantomDiceStatesMatrix_Example {
+            get {
+                return ResourceManager.GetString("MainWindow_PhantomDiceStatesMatrix_Example", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Subgrid size of phantom dice dot matrix:.
+        /// </summary>
+        public static string MainWindow_PhantomDiceSubgridSize {
+            get {
+                return ResourceManager.GetString("MainWindow_PhantomDiceSubgridSize", resourceCulture);
             }
         }
         

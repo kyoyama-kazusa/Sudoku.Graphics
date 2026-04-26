@@ -19,6 +19,7 @@
 			</vm:ToolItemGroup>
 			<vm:ToolItemGroup Title="{x:Static p:LocalizationResources.ItemTypeGroup_CellMark}">
 				<vm:ToolItem ItemType="Cell_Dice" Icon="/Assets/ToolItems/ToolItem_Cell_Dice.png" />
+				<vm:ToolItem ItemType="Cell_PhantomDice" Icon="/Assets/ToolItems/ToolItem_Cell_PhantomDice.png" />
 				<vm:ToolItem ItemType="Cell_Tetris" Icon="/Assets/ToolItems/ToolItem_Cell_Tetris.png" />
 			</vm:ToolItemGroup>
 		</vm:ToolItemGroupCollection>

@@ -19,6 +19,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Resource Include="Assets\ToolItems\ToolItem_Cell_PhantomDice.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
 		<Resource Include="Assets\Unused\Icon_Sample.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>

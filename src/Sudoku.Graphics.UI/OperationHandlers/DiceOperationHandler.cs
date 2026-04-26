@@ -24,6 +24,10 @@ public sealed class DiceOperationHandler : OperationHandler
 		}
 	}
 
+	/// <inheritdoc/>
+	protected internal override bool IsAvailable(OperationHandlerContext context)
+		=> context.MouseEventArgs.ChangedButton == MouseButton.Right;
+
 	private void Panel_SelectedItemChanged(ItemSelectorPanel sender, ItemSelectorPanelSelectedItemChangedEventArgs e)
 	{
 		if (e is not

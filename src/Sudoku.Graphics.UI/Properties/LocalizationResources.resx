@@ -274,6 +274,21 @@
     <value>Tetromino</value>
   </data>
   <data name="ItemType_Cell_Dice" xml:space="preserve">
-    <value>Dice</value>
+    <value>Dice (Classic)</value>
+  </data>
+  <data name="MainWindow_PhantomDiceSubgridSize" xml:space="preserve">
+    <value>Subgrid size of phantom dice dot matrix:</value>
+  </data>
+  <data name="MainWindow_PhantomDiceStatesMatrix" xml:space="preserve">
+    <value>States (1 for on, 0 for off):</value>
+  </data>
+  <data name="MainWindow_PhantomDiceStatesMatrix_Example" xml:space="preserve">
+    <value>Example: 1001,0110,0110,1001 (Commas may not be required)</value>
+  </data>
+  <data name="_ValidSeparators" xml:space="preserve">
+    <value>,;，；、</value>
+  </data>
+  <data name="ItemType_Cell_PhantomDice" xml:space="preserve">
+    <value>Dice (Matrix)</value>
   </data>
 </root>

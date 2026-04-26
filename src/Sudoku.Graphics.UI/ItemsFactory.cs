@@ -77,4 +77,19 @@ public static class ItemsFactory
 			FillColor = ResolveProperty(() => App.UserPreferences.DiceFillColor),
 			SizeScale = ResolveProperty(() => App.UserPreferences.DiceSizeScale)
 		};
+
+	public static CellPhantomDiceMarkItem PhantomDice(Absolute cell, Relative subgridSize, BitArray states)
+		=> new()
+		{
+			TemplateIndex = 0,
+			Cell = cell,
+			SubgridSize = subgridSize,
+			States = states,
+			PhantomStrokeWidthScale = ResolveProperty(() => App.UserPreferences.DiceStrokeWidthScale),
+			CornerRadiusScale = ResolveProperty(() => App.UserPreferences.DiceCornerRadiusScale),
+			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.DiceStrokeWidthScale),
+			StrokeColor = ResolveProperty(() => App.UserPreferences.DiceLineColor),
+			FillColor = ResolveProperty(() => App.UserPreferences.DiceFillColor),
+			SizeScale = ResolveProperty(() => App.UserPreferences.DiceSizeScale)
+		};
 }

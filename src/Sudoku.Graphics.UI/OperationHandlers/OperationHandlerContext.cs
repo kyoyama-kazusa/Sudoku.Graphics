@@ -6,11 +6,6 @@
 public sealed class OperationHandlerContext
 {
 	/// <summary>
-	/// Provides an arbitrary value that can be used as interaction between mouse down and up events.
-	/// </summary>
-	public Optional State { get; set; }
-
-	/// <summary>
 	/// Indicates the mouse point pressed.
 	/// </summary>
 	public required Point PointPressed { get; init; }

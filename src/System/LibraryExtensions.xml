@@ -376,11 +376,6 @@
         <member name="M:System.MathFExtensions.&lt;G&gt;$99E69BC8D2E7440BB47F5FE7B730E827.Clamp(System.Single,System.Single,System.Single)">
             <inheritdoc cref="M:System.Math.Clamp(System.Single,System.Single,System.Single)"/>
         </member>
-        <member name="T:System.Optional">
-            <summary>
-            Provides an arbitrary value.
-            </summary>
-        </member>
         <member name="T:System.Pipelines.Pipeline">
             <summary>
             Provides a way to use pipeline.
