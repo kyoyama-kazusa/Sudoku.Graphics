@@ -12,6 +12,12 @@ public sealed partial class TetrominoDisplayItem : ObservableObject
 	public partial Tetromino Type { get; set; }
 
 	/// <summary>
+	/// Indicates rotation type.
+	/// </summary>
+	[ObservableProperty]
+	public partial TetrominoRotationType RotationType { get; set; }
+
+	/// <summary>
 	/// Indicates the icon to be diplayed.
 	/// </summary>
 	[ObservableProperty]

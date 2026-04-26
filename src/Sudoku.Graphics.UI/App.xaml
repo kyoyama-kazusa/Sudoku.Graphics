@@ -18,6 +18,40 @@
 				<vm:ToolItem ItemType="Cell_Tetris" Icon="/Assets/ToolItems/ToolItem_Cell_Tetris.png" />
 			</vm:ToolItemGroup>
 		</vm:ToolItemGroupCollection>
+		<vm:TetrominoDisplayItemCollection x:Key="BuiltInTetrominoes">
+			<!--
+			The order of such display item must be matched in backing implementaion defined in tetromino API.
+			In default settings they are not matched.
+			-->
+			<vm:TetrominoDisplayItem Type="I" RotationType="Single" Icon="/Assets/Icons/Tetris_I.png" />
+			<vm:TetrominoDisplayItem Type="I" RotationType="Double" Icon="/Assets/Icons/Tetris_I_Single.png" />
+			<vm:TetrominoDisplayItem Type="I" RotationType="Triple" Icon="/Assets/Icons/Tetris_I.png" />
+			<vm:TetrominoDisplayItem Type="I" RotationType="None" Icon="/Assets/Icons/Tetris_I_Single.png" />
+			<vm:TetrominoDisplayItem Type="O" RotationType="None" Icon="/Assets/Icons/Tetris_O.png" />
+			<vm:TetrominoDisplayItem Type="O" RotationType="Single" Icon="/Assets/Icons/Tetris_O.png" />
+			<vm:TetrominoDisplayItem Type="O" RotationType="Double" Icon="/Assets/Icons/Tetris_O.png" />
+			<vm:TetrominoDisplayItem Type="O" RotationType="Triple" Icon="/Assets/Icons/Tetris_O.png" />
+			<vm:TetrominoDisplayItem Type="T" RotationType="None" Icon="/Assets/Icons/Tetris_T.png" />
+			<vm:TetrominoDisplayItem Type="T" RotationType="Single" Icon="/Assets/Icons/Tetris_T_Single.png" />
+			<vm:TetrominoDisplayItem Type="T" RotationType="Double" Icon="/Assets/Icons/Tetris_T_Double.png" />
+			<vm:TetrominoDisplayItem Type="T" RotationType="Triple" Icon="/Assets/Icons/Tetris_T_Triple.png" />
+			<vm:TetrominoDisplayItem Type="J" RotationType="Triple" Icon="/Assets/Icons/Tetris_J.png" />
+			<vm:TetrominoDisplayItem Type="J" RotationType="None" Icon="/Assets/Icons/Tetris_J_Single.png" />
+			<vm:TetrominoDisplayItem Type="J" RotationType="Single" Icon="/Assets/Icons/Tetris_J_Double.png" />
+			<vm:TetrominoDisplayItem Type="J" RotationType="Double" Icon="/Assets/Icons/Tetris_J_Triple.png" />
+			<vm:TetrominoDisplayItem Type="L" RotationType="Single" Icon="/Assets/Icons/Tetris_L.png" />
+			<vm:TetrominoDisplayItem Type="L" RotationType="Double" Icon="/Assets/Icons/Tetris_L_Single.png" />
+			<vm:TetrominoDisplayItem Type="L" RotationType="Triple" Icon="/Assets/Icons/Tetris_L_Double.png" />
+			<vm:TetrominoDisplayItem Type="L" RotationType="None" Icon="/Assets/Icons/Tetris_L_Triple.png" />
+			<vm:TetrominoDisplayItem Type="S" RotationType="None" Icon="/Assets/Icons/Tetris_S.png" />
+			<vm:TetrominoDisplayItem Type="S" RotationType="Single" Icon="/Assets/Icons/Tetris_S_Single.png" />
+			<vm:TetrominoDisplayItem Type="S" RotationType="Double" Icon="/Assets/Icons/Tetris_S.png" />
+			<vm:TetrominoDisplayItem Type="S" RotationType="Triple" Icon="/Assets/Icons/Tetris_S_Single.png" />
+			<vm:TetrominoDisplayItem Type="Z" RotationType="None" Icon="/Assets/Icons/Tetris_Z.png" />
+			<vm:TetrominoDisplayItem Type="Z" RotationType="Single" Icon="/Assets/Icons/Tetris_Z_Single.png" />
+			<vm:TetrominoDisplayItem Type="Z" RotationType="Double" Icon="/Assets/Icons/Tetris_Z.png" />
+			<vm:TetrominoDisplayItem Type="Z" RotationType="Triple" Icon="/Assets/Icons/Tetris_Z_Single.png" />
+		</vm:TetrominoDisplayItemCollection>
 		<config:Preferences x:Key="UserPreferences" />
 	</Application.Resources>
 </Application>

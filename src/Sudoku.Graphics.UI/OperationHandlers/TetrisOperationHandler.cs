@@ -18,13 +18,10 @@ public sealed class TetrisOperationHandler : OperationHandler
 	/// <inheritdoc/>
 	protected internal override void OnMouseButtonReleased(OperationHandlerContext context)
 	{
-		if (context.OwnerWindow is not { TetrisSelectorPanel: var panel, TetrisSelectorPopup: var popup })
+		if (context.OwnerWindow is { TetrisSelectorPopup: var popup })
 		{
-			return;
+			popup.IsOpen = true;
 		}
-
-		panel.ColumnsCount = 3;
-		popup.IsOpen = true;
 	}
 
 	/// <inheritdoc/>
@@ -47,7 +44,7 @@ public sealed class TetrisOperationHandler : OperationHandler
 		var cell = context.GetCell();
 		var item = selectedItem switch
 		{
-			TetrominoDisplayItem { Type: var piece } => new CellTetrisMarkItem
+			TetrominoDisplayItem { Type: var piece, RotationType: var rotationType } => new CellTetrisMarkItem
 			{
 				TemplateIndex = 0,
 				Cell = cell,
@@ -57,13 +54,7 @@ public sealed class TetrisOperationHandler : OperationHandler
 				StrokeColor = ResolveProperty(() => App.UserPreferences.Template_ThinLineColor),
 				FillColor = ResolveProperty(() => App.UserPreferences.BackgroundFillColor),
 				SizeScale = 0.2M,
-				RotationType = piece switch
-				{
-					Tetromino.I => TetrominoRotationType.Single,
-					Tetromino.J => TetrominoRotationType.Triple,
-					Tetromino.L => TetrominoRotationType.Single,
-					_ => TetrominoRotationType.None
-				}
+				RotationType = rotationType
 			},
 			null => null,
 			_ => throw new UnreachableException()
