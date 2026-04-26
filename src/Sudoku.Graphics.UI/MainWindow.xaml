@@ -7,6 +7,7 @@
 	xmlns:local="clr-namespace:Sudoku.Graphics.UI"
 	xmlns:p="clr-namespace:Sudoku.Graphics.UI.Properties"
 	xmlns:c="clr-namespace:Sudoku.Graphics.UI.Views.Controls"
+	xmlns:vm="clr-namespace:Sudoku.Graphics.UI.ViewModels"
 	mc:Ignorable="d"
 	d:DataContext="{d:DesignInstance Type=local:MainWindow}"
 	Title="{x:Static p:LocalizationResources.MainWindow_MenuItem_Title}"
@@ -18,6 +19,11 @@
 	<Window.Resources>
 		<Style TargetType="Border">
 			<Setter Property="BorderBrush" Value="Black" />
+		</Style>
+		<Style TargetType="Popup">
+			<Setter Property="Placement" Value="MousePoint" />
+			<Setter Property="StaysOpen" Value="False" />
+			<Setter Property="AllowsTransparency" Value="True" />
 		</Style>
 	</Window.Resources>
 	<Window.InputBindings>
@@ -66,7 +72,7 @@
 					Click="AboutMeMenuItem_Click" />
 			</MenuItem>
 		</Menu>
-		<Popup x:Name="DigitSelectorPopup" Placement="MousePoint" StaysOpen="False" AllowsTransparency="True">
+		<Popup x:Name="DigitSelectorPopup">
 			<Border Background="White" BorderBrush="Gray" BorderThickness="1" Padding="6">
 				<c:DigitSelectorPanel
 					x:Name="DigitSelectorPanel"
@@ -77,7 +83,7 @@
 					Foreground="Black" />
 			</Border>
 		</Popup>
-		<Popup x:Name="MultipleDigitSelectorPopup" Placement="MousePoint" StaysOpen="False" AllowsTransparency="True">
+		<Popup x:Name="MultipleDigitSelectorPopup">
 			<Border Background="White" BorderBrush="Gray" BorderThickness="1" Padding="6">
 				<c:MultipleDigitSelectorPanel
 					x:Name="MultipleDigitSelectorPanel"
@@ -86,6 +92,34 @@
 					FontSize="28"
 					FontWeight="Bold"
 					Foreground="Black" />
+			</Border>
+		</Popup>
+		<Popup x:Name="TetrisSelectorPopup">
+			<Border Background="White" BorderBrush="Gray" BorderThickness="1" Padding="6">
+				<c:ItemSelectorPanel
+					x:Name="TetrisSelectorPanel"
+					CellSize="48"
+					FontFamily="Arial"
+					FontSize="28"
+					FontWeight="Bold"
+					Foreground="Black">
+					<c:ItemSelectorPanel.ItemsSource>
+						<vm:TetrominoDisplayItemCollection>
+							<vm:TetrominoDisplayItem Type="I" Icon="/Assets/Icons/Tetris_I.png" />
+							<vm:TetrominoDisplayItem Type="O" Icon="/Assets/Icons/Tetris_O.png" />
+							<vm:TetrominoDisplayItem Type="T" Icon="/Assets/Icons/Tetris_T.png" />
+							<vm:TetrominoDisplayItem Type="J" Icon="/Assets/Icons/Tetris_J.png" />
+							<vm:TetrominoDisplayItem Type="L" Icon="/Assets/Icons/Tetris_L.png" />
+							<vm:TetrominoDisplayItem Type="S" Icon="/Assets/Icons/Tetris_S.png" />
+							<vm:TetrominoDisplayItem Type="Z" Icon="/Assets/Icons/Tetris_Z.png" />
+						</vm:TetrominoDisplayItemCollection>
+					</c:ItemSelectorPanel.ItemsSource>
+					<c:ItemSelectorPanel.ItemTemplate>
+						<DataTemplate DataType="vm:TetrominoDisplayItem">
+							<Image Source="{Binding Icon}" />
+						</DataTemplate>
+					</c:ItemSelectorPanel.ItemTemplate>
+				</c:ItemSelectorPanel>
 			</Border>
 		</Popup>
 		<Border Grid.Row="1" Grid.Column="0" BorderThickness="2" Margin="16" Background="#F0F0F0">
@@ -109,12 +143,12 @@
 					<ItemsControl ItemsSource="{StaticResource BuiltInToolItemGroups}" Margin="6,0,0,0">
 						<ItemsControl.ItemsPanel>
 							<ItemsPanelTemplate>
-								<StackPanel Margin="0,0,0,25" />
+								<StackPanel Margin="0,0,6,6" />
 							</ItemsPanelTemplate>
 						</ItemsControl.ItemsPanel>
 						<ItemsControl.ItemTemplate>
 							<DataTemplate>
-								<StackPanel>
+								<StackPanel Margin="0,6">
 									<Border BorderBrush="DimGray" Margin="8,0,8,12" BorderThickness="0,0,0,1">
 										<TextBlock Text="{Binding Title}" FontWeight="Bold" FontSize="20" />
 									</Border>

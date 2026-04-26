@@ -1164,6 +1164,19 @@
             </summary>
             <param name="type">The item type to remove.</param>
         </member>
+        <member name="M:Sudoku.Graphics.ItemSet.Clear(Sudoku.Graphics.Absolute)">
+            <summary>
+            Clears all elements of the specified item in the specified cell.
+            </summary>
+            <param name="cell">The cell.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.Clear(Sudoku.Graphics.Absolute,Sudoku.Graphics.ItemType)">
+            <summary>
+            Clears all the specified type of items from the specified cell.
+            </summary>
+            <param name="cell">The cell.</param>
+            <param name="type">The type.</param>
+        </member>
         <member name="M:Sudoku.Graphics.ItemSet.Equals(System.Object)">
             <inheritdoc/>
         </member>

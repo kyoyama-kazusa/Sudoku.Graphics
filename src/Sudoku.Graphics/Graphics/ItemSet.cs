@@ -77,6 +77,59 @@ public sealed partial class ItemSet :
 	/// <param name="type">The item type to remove.</param>
 	public void Clear(ItemType type) => _itemsLookup.Remove(type);
 
+	/// <summary>
+	/// Clears all elements of the specified item in the specified cell.
+	/// </summary>
+	/// <param name="cell">The cell.</param>
+	public void Clear(Absolute cell)
+	{
+		var collected = new HashSet<Item>();
+		foreach (var items in _itemsLookup.Values)
+		{
+			foreach (var item in items)
+			{
+				if (item is IItem_CellProperty { Cell: var c } && c == cell)
+				{
+					collected.Add(item);
+				}
+			}
+		}
+
+		// Remove them.
+		foreach (var item in collected)
+		{
+			Remove(item);
+		}
+	}
+
+	/// <summary>
+	/// Clears all the specified type of items from the specified cell.
+	/// </summary>
+	/// <param name="cell">The cell.</param>
+	/// <param name="type">The type.</param>
+	public void Clear(Absolute cell, ItemType type)
+	{
+		if (!_itemsLookup.TryGetValue(type, out var items))
+		{
+			return;
+		}
+
+		var collected = new HashSet<Item>();
+		foreach (var item in items)
+		{
+			if (item is IItem_CellProperty { Cell: var c } && c == cell)
+			{
+				collected.Add(item);
+			}
+		}
+
+		// Remove them.
+		foreach (var item in collected)
+		{
+			Remove(item);
+		}
+	}
+
 	/// <inheritdoc/>
 	public override bool Equals([NotNullWhen(true)] object? obj) => Equals(obj as ItemSet);
 

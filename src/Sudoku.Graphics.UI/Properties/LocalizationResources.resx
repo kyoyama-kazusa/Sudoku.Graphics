@@ -267,4 +267,10 @@
   <data name="ClearCell" xml:space="preserve">
     <value>Clear</value>
   </data>
+  <data name="ItemTypeGroup_CellMark" xml:space="preserve">
+    <value>Cell Items</value>
+  </data>
+  <data name="ItemType_Cell_Tetris" xml:space="preserve">
+    <value>Tetromino</value>
+  </data>
 </root>

@@ -41,10 +41,27 @@ public abstract class OperationHandler
 	/// <returns>A <see cref="bool"/> result indicating whether the operation is available or not.</returns>
 	protected internal virtual bool IsAvailable(OperationHandlerContext context) => true;
 
+
 	/// <summary>
-	/// Craeates a new <see cref="Item"/> instance.
+	/// Update items.
 	/// </summary>
-	/// <param name="context">The context.</param>
-	/// <returns>The item created, or <see langword="null"/> if failed to create.</returns>
-	protected internal virtual ReadOnlySpan<Item> CreateItem(OperationHandlerContext context) => [];
+	/// <param name="window">The window.</param>
+	/// <param name="itemSetHandler">The handler of item set.</param>
+	protected static void UpdateItems(MainWindow window, Action<ItemSet> itemSetHandler)
+	{
+		if (window.CurrentCanvas is { } canvas)
+		{
+			ref var items = ref getItems(window);
+			itemSetHandler(items);
+			canvas.DrawItems(items);
+			renderPicture(window);
+		}
+
+
+		[UnsafeAccessor(UnsafeAccessorKind.Method, Name = "RenderPicture")]
+		static extern void renderPicture(MainWindow window);
+
+		[UnsafeAccessor(UnsafeAccessorKind.Field, Name = "_items")]
+		static extern ref ItemSet getItems(MainWindow window);
+	}
 }

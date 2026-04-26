@@ -11,7 +11,7 @@ public static class TetrominoInfo
 	public static readonly (Absolute RowIndex, Absolute ColumnIndex)[][] PiecesCoordinateTable = [
 		[(0, 0), (0, 1), (0, 2), (0, 3)], // I
 		[(0, 0), (0, 1), (1, 0), (1, 1)], // O
-		[(0, 0), (0, 1), (0, 2), (1, 1)], // T
+		[(0, 1), (1, 0), (1, 1), (1, 2)], // T (Inversed)
 		[(0, 0), (1, 0), (1, 1), (1, 2)], // J
 		[(0, 2), (1, 0), (1, 1), (1, 2)], // L
 		[(0, 1), (0, 2), (1, 0), (1, 1)], // S

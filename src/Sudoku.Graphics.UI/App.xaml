@@ -14,6 +14,9 @@
 				<vm:ToolItem ItemType="Text_Modifiable" Icon="/Assets/ToolItems/ToolItem_Text_Modifiable.png" />
 				<vm:ToolItem ItemType="Text_Candidate" Icon="/Assets/ToolItems/ToolItem_Text_Candidate.png" />
 			</vm:ToolItemGroup>
+			<vm:ToolItemGroup Title="{x:Static p:LocalizationResources.ItemTypeGroup_CellMark}">
+				<vm:ToolItem ItemType="Cell_Tetris" Icon="/Assets/ToolItems/ToolItem_Cell_Tetris.png" />
+			</vm:ToolItemGroup>
 		</vm:ToolItemGroupCollection>
 		<config:Preferences x:Key="UserPreferences" />
 	</Application.Resources>

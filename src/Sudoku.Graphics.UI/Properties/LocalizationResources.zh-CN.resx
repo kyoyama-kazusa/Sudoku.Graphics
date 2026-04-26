@@ -166,7 +166,7 @@
     <value>当前：</value>
   </data>
   <data name="ItemTypeGroup_Basic" xml:space="preserve">
-    <value>基础功能</value>
+    <value>基础内容</value>
   </data>
   <data name="ItemType_Text_Given" xml:space="preserve">
     <value>提示数标注</value>
@@ -260,5 +260,11 @@
   </data>
   <data name="ClearCell" xml:space="preserve">
     <value>清除</value>
+  </data>
+  <data name="ItemTypeGroup_CellMark" xml:space="preserve">
+    <value>单元格图标</value>
+  </data>
+  <data name="ItemType_Cell_Tetris" xml:space="preserve">
+    <value>俄罗斯方块</value>
   </data>
 </root>

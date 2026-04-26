@@ -304,6 +304,15 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tetromino.
+        /// </summary>
+        public static string ItemType_Cell_Tetris {
+            get {
+                return ResourceManager.GetString("ItemType_Cell_Tetris", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Default.
         /// </summary>
         public static string ItemType_None {
@@ -345,6 +354,15 @@ namespace Sudoku.Graphics.UI.Properties {
         public static string ItemTypeGroup_Basic {
             get {
                 return ResourceManager.GetString("ItemTypeGroup_Basic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cell Items.
+        /// </summary>
+        public static string ItemTypeGroup_CellMark {
+            get {
+                return ResourceManager.GetString("ItemTypeGroup_CellMark", resourceCulture);
             }
         }
         
