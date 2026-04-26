@@ -16,6 +16,7 @@
 				<Button
 					x:Name="ClearButton"
 					Content="{x:Static p:LocalizationResources.ClearCell}"
+					FontFamily="{x:Static SystemFonts.MessageFontFamily}"
 					Margin="0,6"
 					HorizontalAlignment="Right"
 					Click="ClearButton_Click" />

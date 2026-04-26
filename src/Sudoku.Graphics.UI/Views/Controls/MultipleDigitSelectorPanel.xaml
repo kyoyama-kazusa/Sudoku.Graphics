@@ -17,11 +17,13 @@
 					x:Name="ClearButton"
 					Content="{x:Static p:LocalizationResources.ClearCell}"
 					Margin="6"
+					FontFamily="{x:Static SystemFonts.MessageFontFamily}"
 					HorizontalAlignment="Right"
 					Click="ClearButton_Click" />
 				<Button
 					x:Name="PART_ConfirmButton"
 					Content="{x:Static p:LocalizationResources.Confirm}"
+					FontFamily="{x:Static SystemFonts.MessageFontFamily}"
 					Margin="6,6,0,6"
 					Click="ConfirmButton_Click" />
 			</StackPanel>
