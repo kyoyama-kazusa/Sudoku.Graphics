@@ -18,14 +18,11 @@ public sealed class CandidateTextMarkItemOperationHandler : OperationHandler
 	/// <inheritdoc/>
 	protected internal override void OnMouseButtonReleased(OperationHandlerContext context)
 	{
-		if (context is not
+		if (context.OwnerWindow is not
 			{
-				OwnerWindow:
-				{
-					MultipleDigitSelectorPanel: var panel,
-					MultipleDigitSelectorPopup: var popup,
-					CurrentCanvas.Templates: [{ Mapper: var mapper }]
-				},
+				MultipleDigitSelectorPanel: var panel,
+				MultipleDigitSelectorPopup: var popup,
+				CurrentCanvas.Templates: [{ Mapper: var mapper }]
 			})
 		{
 			return;

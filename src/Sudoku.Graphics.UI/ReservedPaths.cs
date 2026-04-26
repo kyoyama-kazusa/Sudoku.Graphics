@@ -1,4 +1,4 @@
-﻿namespace Sudoku.Graphics.UI.Configuration;
+﻿namespace Sudoku.Graphics.UI;
 
 /// <summary>
 /// Represents paths that are reserved by this program.
@@ -16,6 +16,9 @@ internal static class ReservedPaths
 	public static readonly string ConfigFilePath;
 
 
+	/// <summary>
+	/// The static constructor of the current type.
+	/// </summary>
 	static ReservedPaths()
 	{
 		var myDocuments = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
