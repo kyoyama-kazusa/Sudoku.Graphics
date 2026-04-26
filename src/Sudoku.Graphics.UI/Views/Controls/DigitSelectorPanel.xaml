@@ -5,10 +5,21 @@
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
 	xmlns:local="clr-namespace:Sudoku.Graphics.UI.Views.Controls"
+	xmlns:p="clr-namespace:Sudoku.Graphics.UI.Properties"
 	mc:Ignorable="d"
 	d:DataContext="{d:DesignInstance Type=local:DigitSelectorPanel}"
 	d:DesignHeight="300" d:DesignWidth="300">
 	<Border Padding="4">
-		<Grid x:Name="PART_Root" HorizontalAlignment="Left" VerticalAlignment="Top" />
+		<Grid RowDefinitions="Auto,Auto">
+			<Grid x:Name="PART_Root" HorizontalAlignment="Left" VerticalAlignment="Top" />
+			<Grid Grid.Row="1">
+				<Button
+					x:Name="ClearButton"
+					Content="{x:Static p:LocalizationResources.ClearCell}"
+					Margin="0,6"
+					HorizontalAlignment="Right"
+					Click="ClearButton_Click" />
+			</Grid>
+		</Grid>
 	</Border>
 </UserControl>

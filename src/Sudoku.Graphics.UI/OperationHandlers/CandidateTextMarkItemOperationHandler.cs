@@ -50,7 +50,7 @@ public sealed class CandidateTextMarkItemOperationHandler : OperationHandler
 	{
 		if (e is not
 			{
-				Digits: { } digits,
+				Digits: var digits,
 				Context:
 				{
 					OwnerWindow:
@@ -69,7 +69,15 @@ public sealed class CandidateTextMarkItemOperationHandler : OperationHandler
 
 		popup.IsOpen = false;
 
-		grid.AddCandidates(context.GetCell(), digits);
+		var cell = context.GetCell();
+		if (digits is null or [])
+		{
+			grid.RemoveCandidates(cell);
+		}
+		else
+		{
+			grid.AddCandidates(cell, digits);
+		}
 
 		sender.SelectedDigitsChanged -= Panel_SelectedDigitsChanged;
 		panel.OperationHandlerContext = null;

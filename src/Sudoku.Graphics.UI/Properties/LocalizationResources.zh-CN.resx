@@ -258,4 +258,7 @@
   <data name="Confirm" xml:space="preserve">
     <value>确认</value>
   </data>
+  <data name="ClearCell" xml:space="preserve">
+    <value>清除</value>
+  </data>
 </root>

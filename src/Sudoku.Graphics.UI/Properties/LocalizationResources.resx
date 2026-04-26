@@ -264,4 +264,7 @@
   <data name="Confirm" xml:space="preserve">
     <value>Confirm</value>
   </data>
+  <data name="ClearCell" xml:space="preserve">
+    <value>Clear</value>
+  </data>
 </root>

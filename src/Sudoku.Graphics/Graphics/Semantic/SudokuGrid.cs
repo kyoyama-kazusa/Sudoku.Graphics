@@ -140,16 +140,6 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 	public event EventHandler<SudokuGrid, SudokuGridDigitAddedEventArgs>? DigitsAdded;
 
 	/// <summary>
-	/// Represents an event that will be triggered when the whole grid is cleared.
-	/// </summary>
-	public event EventHandler<SudokuGrid, SudokuGridClearedEventArgs>? Cleared;
-
-	/// <summary>
-	/// Represents an event that will be triggered when any digit-related conflict is detected.
-	/// </summary>
-	public event EventHandler<SudokuGrid, SudokuGridDigitConflictDetectedEventArgs>? DigitConflictDetected;
-
-	/// <summary>
 	/// Represents an event that will be triggered when any digit is being removed from a cell.
 	/// </summary>
 	public event EventHandler<SudokuGrid, SudokuGridDigitRemovingEventArgs>? DigitRemoving;
@@ -158,6 +148,16 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 	/// Represents an event that will be triggered when any digit is removed from a cell.
 	/// </summary>
 	public event EventHandler<SudokuGrid, SudokuGridDigitRemovedEventArgs>? DigitRemoved;
+
+	/// <summary>
+	/// Represents an event that will be triggered when the whole grid is cleared.
+	/// </summary>
+	public event EventHandler<SudokuGrid, SudokuGridClearedEventArgs>? Cleared;
+
+	/// <summary>
+	/// Represents an event that will be triggered when a certain cell is cleared.
+	/// </summary>
+	public event EventHandler<SudokuGrid, SudokuGridCellRefreshedEventArgs>? CellCleared;
 
 
 	/// <summary>
@@ -181,29 +181,7 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 			return;
 		}
 
-		// Check conflict.
-		if (_givens[cell] is var originalDigit and not -1 && originalDigit != digit)
-		{
-			var conflictEventArgs = new SudokuGridDigitConflictDetectedEventArgs(DigitType.Given, cell, [originalDigit], [digit]);
-			DigitConflictDetected?.Invoke(this, conflictEventArgs);
-			if (conflictEventArgs.Handled)
-			{
-				return;
-			}
-		}
-		if (_modifiables[cell] != -1)
-		{
-			// Remove modifiable digit and set given.
-			_modifiables[cell] = -1;
-		}
-		if (GetCandidates(cell).Cardinality != 0)
-		{
-			// Remove candidates and set given.
-			for (var d = 0; d < DigitsCount; d++)
-			{
-				_candidates[cell * DigitsCount + d] = false;
-			}
-		}
+		ClearCellImpl(cell);
 
 		// Add given.
 		_givens[cell] = digit;
@@ -233,25 +211,7 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 			return;
 		}
 
-		// Check conflict.
-		if (_givens[cell] != -1)
-		{
-			// Do nothing - givens cannot be replaced with other values, and we also don't append modifiable digits into the cell.
-			return;
-		}
-		if (_modifiables[cell] is var modifiableDigit and not -1 && modifiableDigit != digit)
-		{
-			// Remove it and set modifiable.
-			_modifiables[cell] = -1;
-		}
-		if (GetCandidates(cell).Cardinality != 0)
-		{
-			// Remove candidates and set modifiable.
-			for (var d = 0; d < DigitsCount; d++)
-			{
-				_candidates[cell * DigitsCount + d] = false;
-			}
-		}
+		ClearCellImpl(cell);
 
 		// Add modifiable.
 		_modifiables[cell] = digit;
@@ -281,25 +241,7 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 			return;
 		}
 
-		// Check conflict.
-		if (_givens[cell] != -1)
-		{
-			// Do nothing - givens cannot be replaced with other values, and we also don't append candidates into the cell.
-			return;
-		}
-		if (_modifiables[cell] != -1)
-		{
-			// Also do nothing.
-			return;
-		}
-		if (GetCandidates(cell).Cardinality != 0)
-		{
-			// Remove candidates and set candidates.
-			for (var d = 0; d < DigitsCount; d++)
-			{
-				_candidates[cell * DigitsCount + d] = false;
-			}
-		}
+		ClearCellImpl(cell);
 
 		// Add candidates.
 		foreach (var digit in digits)
@@ -382,6 +324,17 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 		}
 
 		DigitRemoved?.Invoke(this, new(DigitType.Candidate, cell));
+	}
+
+	/// <summary>
+	/// Refresh the specified cell, removing all digits appeared in that cell.
+	/// </summary>
+	/// <param name="cell">The cell.</param>
+	public void ClearCell(Absolute cell)
+	{
+		ClearCellImpl(cell);
+
+		CellCleared?.Invoke(this, new(cell));
 	}
 
 	/// <summary>
@@ -567,6 +520,17 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 		foreach (var digit in digits)
 		{
 			VerifyArgumentDigit(digit);
+		}
+	}
+
+	/// <inheritdoc cref="ClearCell(Absolute)"/>
+	private void ClearCellImpl(Absolute cell)
+	{
+		_givens[cell] = -1;
+		_modifiables[cell] = -1;
+		for (var d = 0; d < DigitsCount; d++)
+		{
+			_candidates[cell * DigitsCount + d] = false;
 		}
 	}
 

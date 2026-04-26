@@ -45,7 +45,7 @@ public abstract class GivenOrModifiableTextItemOperationHandler(bool _isGiven) :
 	{
 		if (e is not
 			{
-				Digit: var digit and not -1,
+				Digit: var digit,
 				Context:
 				{
 					OwnerWindow:
@@ -63,13 +63,27 @@ public abstract class GivenOrModifiableTextItemOperationHandler(bool _isGiven) :
 		popup.IsOpen = false;
 
 		var cell = context.GetCell();
-		if (_isGiven)
+		if (digit == -1)
 		{
-			grid.AddGiven(cell, digit);
+			if (_isGiven)
+			{
+				grid.RemoveGiven(cell);
+			}
+			else
+			{
+				grid.RemoveModifiable(cell);
+			}
 		}
 		else
 		{
-			grid.AddModifiable(cell, digit);
+			if (_isGiven)
+			{
+				grid.AddGiven(cell, digit);
+			}
+			else
+			{
+				grid.AddModifiable(cell, digit);
+			}
 		}
 
 		sender.SelectedDigitChanged -= Panel_SelectedDigitChanged;

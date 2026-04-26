@@ -34,7 +34,7 @@ public partial class DigitSelectorPanel : UserControl
 			nameof(SelectedDigit),
 			typeof(int),
 			typeof(DigitSelectorPanel),
-			new FrameworkPropertyMetadata(0, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault)
+			new FrameworkPropertyMetadata(-1, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault)
 		);
 
 	public static readonly DependencyProperty CellSizeProperty =
@@ -223,6 +223,21 @@ public partial class DigitSelectorPanel : UserControl
 
 	private bool IsDigitEnabled(int digit)
 		=> digit >= 0 && (DigitEnabledMap is null || digit > DigitEnabledMap.Length || DigitEnabledMap[digit]);
+
+
+	private void ClearButton_Click(object sender, RoutedEventArgs e)
+	{
+		if (sender is not Button button)
+		{
+			return;
+		}
+
+		SelectedDigit = -1;
+		SelectedDigitChanged?.Invoke(
+			this,
+			new(-1, OperationHandlerContext ?? throw new InvalidOperationException("Expect non-null context."))
+		);
+	}
 
 
 	private static void OnBoardConfigChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)

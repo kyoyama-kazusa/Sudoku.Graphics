@@ -268,7 +268,9 @@ public partial class MainWindow : Window
 		if (value is not null)
 		{
 			value.DigitsAdded -= CurrentGrid_DigitsAdded;
+			value.DigitRemoved -= CurrentGrid_DigitRemoved;
 			value.Cleared -= CurrentGrid_Cleared;
+			value.CellCleared -= CurrentGrid_CellCleared;
 		}
 	}
 
@@ -277,13 +279,20 @@ public partial class MainWindow : Window
 		if (value is not null)
 		{
 			value.DigitsAdded += CurrentGrid_DigitsAdded;
+			value.DigitRemoved += CurrentGrid_DigitRemoved;
 			value.Cleared += CurrentGrid_Cleared;
+			value.CellCleared += CurrentGrid_CellCleared;
 		}
 	}
+
+
+	private void CurrentGrid_CellCleared(SudokuGrid sender, SudokuGridCellRefreshedEventArgs e) => UpdateGridRelatedItems();
 
 	private void CurrentGrid_Cleared(SudokuGrid sender, SudokuGridClearedEventArgs e) => UpdateGridRelatedItems();
 
 	private void CurrentGrid_DigitsAdded(SudokuGrid sender, SudokuGridDigitAddedEventArgs e) => UpdateGridRelatedItems();
+
+	private void CurrentGrid_DigitRemoved(SudokuGrid sender, SudokuGridDigitRemovedEventArgs e) => UpdateGridRelatedItems();
 
 	private void AboutMeMenuItem_Click(object sender, RoutedEventArgs e) => new AboutWindow { Owner = this }.ShowDialog();
 

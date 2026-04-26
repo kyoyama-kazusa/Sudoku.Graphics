@@ -92,7 +92,7 @@ public partial class MultipleDigitSelectorPanel : UserControl
 	{
 		get => (int[]?)GetValue(SelectedDigitsProperty);
 
-		set => SetValue(SelectedDigitsProperty, value is null ? [] : value[..]);
+		set => SetValue(SelectedDigitsProperty, value?[..]);
 	}
 
 	public double CellSize
@@ -254,6 +254,9 @@ public partial class MultipleDigitSelectorPanel : UserControl
 
 	private bool IsDigitEnabled(int digit)
 		=> digit >= 0 && (DigitEnabledMap is null || digit >= DigitEnabledMap.Length || DigitEnabledMap[digit]);
+
+
+	private void ClearButton_Click(object sender, RoutedEventArgs e) => SelectedDigits = null;
 
 
 	private static void OnBoardConfigChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)

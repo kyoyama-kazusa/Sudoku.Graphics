@@ -5546,16 +5546,6 @@
             Represents an event that will be triggered when digits are added.
             </summary>
         </member>
-        <member name="E:Sudoku.Graphics.Semantic.SudokuGrid.Cleared">
-            <summary>
-            Represents an event that will be triggered when the whole grid is cleared.
-            </summary>
-        </member>
-        <member name="E:Sudoku.Graphics.Semantic.SudokuGrid.DigitConflictDetected">
-            <summary>
-            Represents an event that will be triggered when any digit-related conflict is detected.
-            </summary>
-        </member>
         <member name="E:Sudoku.Graphics.Semantic.SudokuGrid.DigitRemoving">
             <summary>
             Represents an event that will be triggered when any digit is being removed from a cell.
@@ -5564,6 +5554,16 @@
         <member name="E:Sudoku.Graphics.Semantic.SudokuGrid.DigitRemoved">
             <summary>
             Represents an event that will be triggered when any digit is removed from a cell.
+            </summary>
+        </member>
+        <member name="E:Sudoku.Graphics.Semantic.SudokuGrid.Cleared">
+            <summary>
+            Represents an event that will be triggered when the whole grid is cleared.
+            </summary>
+        </member>
+        <member name="E:Sudoku.Graphics.Semantic.SudokuGrid.CellCleared">
+            <summary>
+            Represents an event that will be triggered when a certain cell is cleared.
             </summary>
         </member>
         <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.AddGiven(Sudoku.Graphics.Absolute,System.Int32)">
@@ -5611,6 +5611,12 @@
         <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.RemoveCandidates(Sudoku.Graphics.Absolute)">
             <summary>
             Removes all candidates from a cell.
+            </summary>
+            <param name="cell">The cell.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.ClearCell(Sudoku.Graphics.Absolute)">
+            <summary>
+            Refresh the specified cell, removing all digits appeared in that cell.
             </summary>
             <param name="cell">The cell.</param>
         </member>
@@ -5716,6 +5722,9 @@
             <param name="digits">The digits.</param>
             <exception cref="T:System.ArgumentException">Throws when argument is invalid.</exception>
         </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.ClearCellImpl(Sudoku.Graphics.Absolute)">
+            <inheritdoc cref="M:Sudoku.Graphics.Semantic.SudokuGrid.ClearCell(Sudoku.Graphics.Absolute)"/>
+        </member>
         <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.TryParse(System.String,Sudoku.Graphics.Semantic.SudokuGrid@)">
             <inheritdoc cref="M:System.IParsable`1.TryParse(System.String,System.IFormatProvider,`0@)"/>
         </member>
@@ -5727,6 +5736,25 @@
         </member>
         <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.op_Inequality(Sudoku.Graphics.Semantic.SudokuGrid,Sudoku.Graphics.Semantic.SudokuGrid)">
             <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Semantic.SudokuGridCellRefreshedEventArgs">
+            <summary>
+            Provides data of event <see cref="E:Sudoku.Graphics.Semantic.SudokuGrid.CellCleared"/>.
+            </summary>
+            <param name="cell">The cell.</param>
+            <seealso cref="E:Sudoku.Graphics.Semantic.SudokuGrid.CellCleared"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGridCellRefreshedEventArgs.#ctor(Sudoku.Graphics.Absolute)">
+            <summary>
+            Provides data of event <see cref="E:Sudoku.Graphics.Semantic.SudokuGrid.CellCleared"/>.
+            </summary>
+            <param name="cell">The cell.</param>
+            <seealso cref="E:Sudoku.Graphics.Semantic.SudokuGrid.CellCleared"/>
+        </member>
+        <member name="P:Sudoku.Graphics.Semantic.SudokuGridCellRefreshedEventArgs.Cell">
+            <summary>
+            Indicates the cell conflict.
+            </summary>
         </member>
         <member name="T:Sudoku.Graphics.Semantic.SudokuGridClearedEventArgs">
             <summary>
@@ -5803,51 +5831,6 @@
         <member name="P:Sudoku.Graphics.Semantic.SudokuGridDigitAddingEventArgs.Cell">
             <summary>
             Indicates the cell.
-            </summary>
-        </member>
-        <member name="T:Sudoku.Graphics.Semantic.SudokuGridDigitConflictDetectedEventArgs">
-            <summary>
-            Provides data of event <see cref="E:Sudoku.Graphics.Semantic.SudokuGrid.DigitConflictDetected"/>.
-            </summary>
-            <param name="type">The type of cell.</param>
-            <param name="cell">The cell.</param>
-            <param name="originalDigits">The original digits.</param>
-            <param name="newDigits">The new digits.</param>
-            <seealso cref="E:Sudoku.Graphics.Semantic.SudokuGrid.DigitConflictDetected"/>
-        </member>
-        <member name="M:Sudoku.Graphics.Semantic.SudokuGridDigitConflictDetectedEventArgs.#ctor(Sudoku.Graphics.Semantic.DigitType,Sudoku.Graphics.Absolute,System.Int32[],System.Int32[])">
-            <summary>
-            Provides data of event <see cref="E:Sudoku.Graphics.Semantic.SudokuGrid.DigitConflictDetected"/>.
-            </summary>
-            <param name="type">The type of cell.</param>
-            <param name="cell">The cell.</param>
-            <param name="originalDigits">The original digits.</param>
-            <param name="newDigits">The new digits.</param>
-            <seealso cref="E:Sudoku.Graphics.Semantic.SudokuGrid.DigitConflictDetected"/>
-        </member>
-        <member name="P:Sudoku.Graphics.Semantic.SudokuGridDigitConflictDetectedEventArgs.Handled">
-            <summary>
-            Indicates whether the operation should be prevented.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Semantic.SudokuGridDigitConflictDetectedEventArgs.OriginalDigits">
-            <summary>
-            Indicates the original digit filled in this cell.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Semantic.SudokuGridDigitConflictDetectedEventArgs.NewDigits">
-            <summary>
-            Indicates the new digit filled in this cell.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Semantic.SudokuGridDigitConflictDetectedEventArgs.Type">
-            <summary>
-            Indicates the conflict digit type (which type of the cell currently is).
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Semantic.SudokuGridDigitConflictDetectedEventArgs.Cell">
-            <summary>
-            Indicates the cell conflict.
             </summary>
         </member>
         <member name="T:Sudoku.Graphics.Semantic.SudokuGridDigitRemovedEventArgs">
