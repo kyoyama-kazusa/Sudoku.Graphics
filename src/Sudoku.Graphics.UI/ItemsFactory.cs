@@ -11,10 +11,10 @@ public static class ItemsFactory
 		{
 			TemplateIndex = 0,
 			Cell = cell,
+			Text = (digit + 1).ToString(),
 			FontName = ResolveProperty(() => App.UserPreferences.GivenFontName),
 			FontSizeScale = ResolveProperty(() => App.UserPreferences.GivenFontSizeScale),
-			Text = (digit + 1).ToString(),
-			Color = ResolveProperty(() => App.UserPreferences.GivenTextColor),
+			Color = ResolveProperty(() => App.UserPreferences.GivenFontColor),
 			FontWidth = ResolveProperty(() => App.UserPreferences.GivenFontWidth),
 			FontSlant = ResolveProperty(() => App.UserPreferences.GivenFontSlant),
 			FontWeight = ResolveProperty(() => App.UserPreferences.GivenFontWeight)
@@ -25,10 +25,10 @@ public static class ItemsFactory
 		{
 			TemplateIndex = 0,
 			Cell = cell,
+			Text = (digit + 1).ToString(),
 			FontName = ResolveProperty(() => App.UserPreferences.ModifiableFontName),
 			FontSizeScale = ResolveProperty(() => App.UserPreferences.ModifiableFontSizeScale),
-			Text = (digit + 1).ToString(),
-			Color = ResolveProperty(() => App.UserPreferences.ModifiableTextColor),
+			Color = ResolveProperty(() => App.UserPreferences.ModifiableFontColor),
 			FontWidth = ResolveProperty(() => App.UserPreferences.ModifiableFontWidth),
 			FontSlant = ResolveProperty(() => App.UserPreferences.ModifiableFontSlant),
 			FontWeight = ResolveProperty(() => App.UserPreferences.ModifiableFontWeight)
@@ -42,12 +42,26 @@ public static class ItemsFactory
 		{
 			TemplateIndex = 0,
 			CandidatePosition = new(cell, subgridSize, digit),
-			FontName = ResolveProperty(() => App.UserPreferences.GivenFontName),
-			FontSizeScale = ResolveProperty(() => App.UserPreferences.GivenFontSizeScale),
 			Text = (digit + 1).ToString(),
-			Color = ResolveProperty(() => App.UserPreferences.GivenTextColor),
-			FontWidth = ResolveProperty(() => App.UserPreferences.GivenFontWidth),
-			FontSlant = ResolveProperty(() => App.UserPreferences.GivenFontSlant),
-			FontWeight = ResolveProperty(() => App.UserPreferences.GivenFontWeight)
+			FontName = ResolveProperty(() => App.UserPreferences.CandidateFontName),
+			FontSizeScale = ResolveProperty(() => App.UserPreferences.CandidateFontSizeScale),
+			Color = ResolveProperty(() => App.UserPreferences.CandidateFontColor),
+			FontWidth = ResolveProperty(() => App.UserPreferences.CandidateFontWidth),
+			FontSlant = ResolveProperty(() => App.UserPreferences.CandidateFontSlant),
+			FontWeight = ResolveProperty(() => App.UserPreferences.CandidateFontWeight)
+		};
+
+	public static CellTetrisMarkItem Tetris(Absolute cell, Tetromino piece, TetrominoRotationType rotationType)
+		=> new()
+		{
+			TemplateIndex = 0,
+			Cell = cell,
+			Piece = piece,
+			RotationType = rotationType,
+			CornerRadiusScale = ResolveProperty(() => App.UserPreferences.TetrominoCornerRadiusScale),
+			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.TetrominoStrokeWidthScale),
+			StrokeColor = ResolveProperty(() => App.UserPreferences.TetrominoLineColor),
+			FillColor = ResolveProperty(() => App.UserPreferences.TetrominoFillColor),
+			SizeScale = ResolveProperty(() => App.UserPreferences.TetrominoSmallBlockSizeScale)
 		};
 }

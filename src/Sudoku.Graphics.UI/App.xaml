@@ -7,6 +7,9 @@
 	xmlns:config="clr-namespace:Sudoku.Graphics.UI.Configuration"
 	StartupUri="MainWindow.xaml">
 	<Application.Resources>
+		<!--
+		Built-in tool item groups
+		-->
 		<vm:ToolItemGroupCollection x:Key="BuiltInToolItemGroups">
 			<vm:ToolItemGroup Title="{x:Static p:LocalizationResources.ItemTypeGroup_Basic}">
 				<vm:ToolItem ItemType="None" Icon="/Assets/ToolItems/ToolItem_None.png" />
@@ -18,6 +21,10 @@
 				<vm:ToolItem ItemType="Cell_Tetris" Icon="/Assets/ToolItems/ToolItem_Cell_Tetris.png" />
 			</vm:ToolItemGroup>
 		</vm:ToolItemGroupCollection>
+
+		<!--
+		Built-in tetrominoes
+		-->
 		<vm:TetrominoDisplayItemCollection x:Key="BuiltInTetrominoes">
 			<!--
 			The order of such display item must be matched in backing implementaion defined in tetromino API.

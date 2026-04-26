@@ -44,18 +44,7 @@ public sealed class TetrisOperationHandler : OperationHandler
 		var cell = context.GetCell();
 		var item = selectedItem switch
 		{
-			TetrominoDisplayItem { Type: var piece, RotationType: var rotationType } => new CellTetrisMarkItem
-			{
-				TemplateIndex = 0,
-				Cell = cell,
-				Piece = piece,
-				CornerRadiusScale = 0.25M,
-				StrokeWidthScale = ResolveProperty(() => App.UserPreferences.Template_ThinLineWidth),
-				StrokeColor = ResolveProperty(() => App.UserPreferences.Template_ThinLineColor),
-				FillColor = ResolveProperty(() => App.UserPreferences.BackgroundFillColor),
-				SizeScale = 0.2M,
-				RotationType = rotationType
-			},
+			TetrominoDisplayItem { Type: var piece, RotationType: var rotationType } => ItemsFactory.Tetris(cell, piece, rotationType),
 			null => null,
 			_ => throw new UnreachableException()
 		};
