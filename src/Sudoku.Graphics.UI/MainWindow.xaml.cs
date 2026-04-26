@@ -214,7 +214,7 @@ public partial class MainWindow : Window
 			return;
 		}
 
-		var canvasInfo = new CanvasInfo(CurrentCanvas?.Templates, _items);
+		var canvasInfo = new SerializableCanvasInfo(CurrentCanvas?.Templates, _items);
 		var json = JsonSerializer.Serialize(canvasInfo, SerializerOptions);
 		await File.WriteAllTextAsync(filePath, json);
 	}
@@ -242,7 +242,7 @@ public partial class MainWindow : Window
 		}
 
 		var json = await File.ReadAllTextAsync(filePath);
-		if (JsonSerializer.Deserialize<CanvasInfo>(json, SerializerOptions) is not ({ } templates, { } items))
+		if (JsonSerializer.Deserialize<SerializableCanvasInfo>(json, SerializerOptions) is not ({ } templates, { } items))
 		{
 			return;
 		}

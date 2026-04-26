@@ -511,40 +511,6 @@
             Indicates the quality. Range 0..100. Default 80.
             </summary>
         </member>
-        <member name="T:Sudoku.Graphics.CanvasInfo">
-            <summary>
-            Represents a type that stores basic information of a <see cref="T:Sudoku.Graphics.Canvas"/> that can be used in serialization.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Graphics.CanvasInfo.#ctor">
-            <summary>
-            Initializes a <see cref="T:Sudoku.Graphics.CanvasInfo"/> instance.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Graphics.CanvasInfo.#ctor(Sudoku.Graphics.Templating.Template[],Sudoku.Graphics.ItemSet)">
-            <summary>
-            Initializes a <see cref="T:Sudoku.Graphics.CanvasInfo"/> instance via the specified templates and items.
-            </summary>
-            <param name="templates">The templates.</param>
-            <param name="items">The items.</param>
-        </member>
-        <member name="P:Sudoku.Graphics.CanvasInfo.Templates">
-            <summary>
-            Indicates templates.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.CanvasInfo.Items">
-            <summary>
-            Indicates items.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Graphics.CanvasInfo.Deconstruct(Sudoku.Graphics.Templating.Template[]@,Sudoku.Graphics.ItemSet@)">
-            <summary>
-            Deconstructs the current instance into multiple values.
-            </summary>
-            <param name="templates">The templates.</param>
-            <param name="items">The items.</param>
-        </member>
         <member name="T:Sudoku.Graphics.CoverStyle">
             <summary>
             Represents a style of cover (text background).
@@ -5924,6 +5890,40 @@
             Represents event arguments for <see cref="T:Sudoku.Graphics.Semantic.SudokuGrid"/>-related events.
             </summary>
             <seealso cref="T:Sudoku.Graphics.Semantic.SudokuGrid"/>
+        </member>
+        <member name="T:Sudoku.Graphics.SerializableCanvasInfo">
+            <summary>
+            Represents a type that stores basic information of a <see cref="T:Sudoku.Graphics.Canvas"/> that can be used in serialization.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableCanvasInfo.#ctor">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Graphics.SerializableCanvasInfo"/> instance.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableCanvasInfo.#ctor(Sudoku.Graphics.Templating.Template[],Sudoku.Graphics.ItemSet)">
+            <summary>
+            Initializes a <see cref="T:Sudoku.Graphics.SerializableCanvasInfo"/> instance via the specified templates and items.
+            </summary>
+            <param name="templates">The templates.</param>
+            <param name="items">The items.</param>
+        </member>
+        <member name="P:Sudoku.Graphics.SerializableCanvasInfo.Templates">
+            <summary>
+            Indicates templates.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.SerializableCanvasInfo.Items">
+            <summary>
+            Indicates items.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.SerializableCanvasInfo.Deconstruct(Sudoku.Graphics.Templating.Template[]@,Sudoku.Graphics.ItemSet@)">
+            <summary>
+            Deconstructs the current instance into multiple values.
+            </summary>
+            <param name="templates">The templates.</param>
+            <param name="items">The items.</param>
         </member>
         <member name="T:Sudoku.Graphics.SerializableColor">
             <summary>
