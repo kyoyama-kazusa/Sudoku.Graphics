@@ -207,6 +207,18 @@
             <param name="this">The list.</param>
             <returns>The reference to the internal field.</returns>
         </member>
+        <member name="T:System.Collections.BitArrayJsonConverter">
+            <summary>
+            Represents a JSON converter for type <see cref="T:System.Collections.BitArray"/>.
+            </summary>
+            <seealso cref="T:System.Collections.BitArray"/>
+        </member>
+        <member name="M:System.Collections.BitArrayJsonConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:System.Collections.BitArrayJsonConverter.Write(System.Text.Json.Utf8JsonWriter,System.Collections.BitArray,System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
         <member name="T:System.Collections.Generic.DictionaryExtensions">
             <summary>
             Provides extension members on <see cref="T:System.Collections.Generic.IReadOnlyDictionary`2"/>,

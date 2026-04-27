@@ -25,5 +25,5 @@ internal partial class Preferences
 	/// <summary>
 	/// Indicates dice fill color.
 	/// </summary>
-	public Inherited<SerializableColor> DiceFillColor { get; set; } = Inherited<SerializableColor>.FromPropertyName(nameof(DefaultFillColor));
+	public Inherited<SerializableColor> DiceFillColor { get; set; } = Inherited<SerializableColor>.FromValue(SKColors.White);
 }

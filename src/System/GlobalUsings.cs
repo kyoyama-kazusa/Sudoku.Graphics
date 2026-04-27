@@ -7,4 +7,5 @@ global using System.Reflection;
 global using System.Runtime.CompilerServices;
 global using System.Runtime.Intrinsics;
 global using System.Runtime.Intrinsics.X86;
+global using System.Text.Json;
 global using System.Text.Json.Serialization;

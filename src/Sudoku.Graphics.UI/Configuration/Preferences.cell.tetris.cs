@@ -25,5 +25,5 @@ internal partial class Preferences
 	/// <summary>
 	/// Indicates tetromino fill color.
 	/// </summary>
-	public Inherited<SerializableColor> TetrominoFillColor { get; set; } = Inherited<SerializableColor>.FromPropertyName(nameof(DefaultFillColor));
+	public Inherited<SerializableColor> TetrominoFillColor { get; set; } = Inherited<SerializableColor>.FromValue(SKColors.White);
 }

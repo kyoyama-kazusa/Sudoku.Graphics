@@ -57,6 +57,7 @@ public partial class MainWindow
 			),
 			Converters =
 			{
+				new BitArrayJsonConverter(),
 				new JsonStringEnumConverter()
 			}
 		};
