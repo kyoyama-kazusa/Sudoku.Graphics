@@ -5,65 +5,22 @@
 /// </summary>
 /// <seealso cref="CellSurroundingTrianglesMarkItem"/>
 [OperationHandler(ItemType.Cell_SurroundingTriangles)]
-public sealed class SurroundingTrianglesOperationHandler : OperationHandler
+public sealed class SurroundingTrianglesOperationHandler : CellBasedItemSelectorPanelOperationHandler
 {
 	/// <inheritdoc/>
-	protected internal override void OnMouseButtonPressed(OperationHandlerContext context)
-	{
-		var panel = context.OwnerWindow.SurroundingTrianglesPanel;
-		panel.OperationHandlerContext = context;
-		panel.SelectedItemChanged += Panel_SelectedItemChanged;
-	}
+	public override ItemType ItemType => ItemType.Cell_SurroundingTriangles;
 
 	/// <inheritdoc/>
-	protected internal override void OnMouseButtonReleased(OperationHandlerContext context)
-	{
-		if (context.OwnerWindow is { SurroundingTrianglesPopup: var popup })
-		{
-			popup.IsOpen = true;
-		}
-	}
-
-	/// <inheritdoc/>
-	protected internal override bool IsAvailable(OperationHandlerContext context)
-		=> context.MouseEventArgs.ChangedButton == MouseButton.Right;
-
-	private void Panel_SelectedItemChanged(ItemSelectorPanel sender, ItemSelectorPanelSelectedItemChangedEventArgs e)
-	{
-		if (e is not
-			{
-				SelectedItem: var selectedItem and (SurroundingTrianglesDisplayItem or null),
-				Context: { OwnerWindow: { SurroundingTrianglesPopup: var popup, SurroundingTrianglesPanel: var panel } window } context
-			})
-		{
-			return;
-		}
-
-		popup.IsOpen = false;
-
-		var cell = context.GetCell();
-		var item = selectedItem switch
+	public override Func<object?, Absolute, Item?> ItemFactory
+		=> static (item, cell) => item switch
 		{
 			SurroundingTrianglesDisplayItem { Value: var value } => ItemsFactory.SurroundingTriangles(cell, value),
-			null => null,
-			_ => throw new UnreachableException()
+			_ => null
 		};
-		UpdateItems(
-			window,
-			items =>
-			{
-				if (item is null)
-				{
-					items.Clear(cell, ItemType.Cell_SurroundingTriangles);
-				}
-				else
-				{
-					items.Add(item);
-				}
-			}
-		);
 
-		sender.SelectedItemChanged -= Panel_SelectedItemChanged;
-		panel.OperationHandlerContext = null;
-	}
+	/// <inheritdoc/>
+	public override Func<MainWindow, Popup> PopupSelector => static window => window.SurroundingTrianglesPopup;
+
+	/// <inheritdoc/>
+	public override Func<MainWindow, ItemSelectorPanel> PanelSelector => static window => window.SurroundingTrianglesPanel;
 }

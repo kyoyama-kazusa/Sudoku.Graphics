@@ -18,14 +18,11 @@ public abstract class GivenOrModifiableOperationHandler(bool _isGiven) : Operati
 	/// <inheritdoc/>
 	protected internal sealed override void OnMouseButtonReleased(OperationHandlerContext context)
 	{
-		if (context is not
+		if (context.OwnerWindow is not
 			{
-				OwnerWindow:
-				{
-					DigitSelectorPanel: var panel,
-					DigitSelectorPopup: var popup,
-					CurrentCanvas.Templates: [{ Mapper: var mapper }]
-				}
+				DigitSelectorPanel: var panel,
+				DigitSelectorPopup: var popup,
+				CurrentCanvas.Templates: [{ Mapper: var mapper }]
 			})
 		{
 			return;
