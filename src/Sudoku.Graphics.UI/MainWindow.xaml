@@ -25,6 +25,33 @@
 			<Setter Property="StaysOpen" Value="False" />
 			<Setter Property="AllowsTransparency" Value="True" />
 		</Style>
+		<Style x:Key="PopupBorderStyle" TargetType="Border">
+			<Setter Property="Background" Value="White" />
+			<Setter Property="BorderBrush" Value="DimGray" />
+			<Setter Property="BorderThickness" Value="1" />
+			<Setter Property="Padding" Value="6" />
+		</Style>
+		<Style x:Key="PanelStyle" TargetType="c:ItemSelectorPanel">
+			<Setter Property="CellSize" Value="48" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontSize" Value="28" />
+			<Setter Property="FontWeight" Value="Bold" />
+			<Setter Property="Foreground" Value="Black" />
+		</Style>
+		<Style x:Key="MultipleDigitPanelStyle" TargetType="c:MultipleDigitSelectorPanel">
+			<Setter Property="CellSize" Value="48" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontSize" Value="28" />
+			<Setter Property="FontWeight" Value="Bold" />
+			<Setter Property="Foreground" Value="Black" />
+		</Style>
+		<Style x:Key="DigitPanelStyle" TargetType="c:DigitSelectorPanel">
+			<Setter Property="CellSize" Value="48" />
+			<Setter Property="FontFamily" Value="Arial" />
+			<Setter Property="FontSize" Value="28" />
+			<Setter Property="FontWeight" Value="Bold" />
+			<Setter Property="Foreground" Value="Black" />
+		</Style>
 	</Window.Resources>
 	<Window.InputBindings>
 		<KeyBinding Gesture="Alt+F4" Command="{Binding QuitCommand}" />
@@ -35,13 +62,8 @@
 		<KeyBinding Gesture="F12" Command="{Binding SaveAsJsonCommand}" />
 	</Window.InputBindings>
 	
-	<!--
-	Whole window
-	-->
 	<Grid RowDefinitions="Auto,Auto,*" ColumnDefinitions="Auto,*">
-		<!--
-		Menu bar
-		-->
+		<!--#region Menu bar-->
 		<Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
 			<MenuItem Header="{x:Static p:LocalizationResources.MainWindow_MenuItem_File}">
 				<MenuItem
@@ -78,39 +100,24 @@
 					Click="AboutMeMenuItem_Click" />
 			</MenuItem>
 		</Menu>
+		<!--#endregion-->
 
 		<!--#region Popups-->
 		<Popup x:Name="DigitSelectorPopup">
-			<Border Background="White" BorderBrush="Gray" BorderThickness="1" Padding="6">
-				<c:DigitSelectorPanel
-					x:Name="DigitSelectorPanel"
-					CellSize="48"
-					FontFamily="Arial"
-					FontSize="28"
-					FontWeight="Bold"
-					Foreground="Black" />
+			<Border Style="{StaticResource PopupBorderStyle}">
+				<c:DigitSelectorPanel x:Name="DigitSelectorPanel" Style="{StaticResource DigitPanelStyle}" />
 			</Border>
 		</Popup>
 		<Popup x:Name="MultipleDigitSelectorPopup">
-			<Border Background="White" BorderBrush="Gray" BorderThickness="1" Padding="6">
-				<c:MultipleDigitSelectorPanel
-					x:Name="MultipleDigitSelectorPanel"
-					CellSize="48"
-					FontFamily="Arial"
-					FontSize="28"
-					FontWeight="Bold"
-					Foreground="Black" />
+			<Border Style="{StaticResource PopupBorderStyle}">
+				<c:MultipleDigitSelectorPanel x:Name="MultipleDigitSelectorPanel" Style="{StaticResource MultipleDigitPanelStyle}" />
 			</Border>
 		</Popup>
 		<Popup x:Name="TetrisSelectorPopup">
-			<Border Background="White" BorderBrush="Gray" BorderThickness="1" Padding="6">
+			<Border Style="{StaticResource PopupBorderStyle}">
 				<c:ItemSelectorPanel
 					x:Name="TetrisSelectorPanel"
-					CellSize="48"
-					FontFamily="Arial"
-					FontSize="28"
-					FontWeight="Bold"
-					Foreground="Black"
+					Style="{StaticResource PanelStyle}"
 					ColumnsCount="4"
 					ItemsSource="{StaticResource BuiltInTetrominoes}">
 					<c:ItemSelectorPanel.ItemTemplate>
@@ -122,14 +129,10 @@
 			</Border>
 		</Popup>
 		<Popup x:Name="DiceSelectorPopup">
-			<Border Background="White" BorderBrush="Gray" BorderThickness="1" Padding="6">
+			<Border Style="{StaticResource PopupBorderStyle}">
 				<c:ItemSelectorPanel
 					x:Name="DiceSelectorPanel"
-					CellSize="48"
-					FontFamily="Arial"
-					FontSize="28"
-					FontWeight="Bold"
-					Foreground="Black"
+					Style="{StaticResource PanelStyle}"
 					ColumnsCount="3"
 					ItemsSource="{StaticResource BuiltInDices}">
 					<c:ItemSelectorPanel.ItemTemplate>
@@ -141,7 +144,7 @@
 			</Border>
 		</Popup>
 		<Popup x:Name="PhantomDicePopup">
-			<Border Background="White" BorderBrush="Gray" BorderThickness="1" Padding="6">
+			<Border Style="{StaticResource PopupBorderStyle}">
 				<StackPanel>
 					<TextBlock
 						Text="{x:Static p:LocalizationResources.MainWindow_PhantomDiceSubgridSize}"
@@ -165,14 +168,10 @@
 			</Border>
 		</Popup>
 		<Popup x:Name="SurroundingTrianglesPopup">
-			<Border Background="White" BorderBrush="Gray" BorderThickness="1" Padding="6">
+			<Border Style="{StaticResource PopupBorderStyle}">
 				<c:ItemSelectorPanel
 					x:Name="SurroundingTrianglesPanel"
-					CellSize="48"
-					FontFamily="Arial"
-					FontSize="28"
-					FontWeight="Bold"
-					Foreground="Black"
+					Style="{StaticResource PanelStyle}"
 					ColumnsCount="6"
 					ItemsSource="{StaticResource BuiltInSurroundingTriangles}">
 					<c:ItemSelectorPanel.ItemTemplate>
@@ -185,9 +184,6 @@
 		</Popup>
 		<!--#endregion-->
 
-		<!--
-		Grid view
-		-->
 		<!--#region Grid view-->
 		<Border Grid.Row="1" Grid.Column="0" BorderThickness="2" Margin="16" Background="#F0F0F0">
 			<Image
@@ -200,9 +196,6 @@
 		</Border>
 		<!--#endregion-->
 
-		<!--
-		Tool items
-		-->
 		<!--#region Tool items-->
 		<Border Grid.Row="1" Grid.Column="1" BorderThickness="2" Margin="16">
 			<Grid RowDefinitions="Auto,*">
