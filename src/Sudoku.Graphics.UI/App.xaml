@@ -18,6 +18,7 @@
 				<vm:ToolItem ItemType="Text_Candidate" Icon="/Assets/ToolItems/ToolItem_Text_Candidate.png" />
 			</vm:ToolItemGroup>
 			<vm:ToolItemGroup Title="{x:Static p:LocalizationResources.ItemTypeGroup_CellMark}">
+				<vm:ToolItem ItemType="Cell_SurroundingTriangles" Icon="/Assets/ToolItems/ToolItem_Cell_Surrounding_Triangles.png" />
 				<vm:ToolItem ItemType="Cell_Dice" Icon="/Assets/ToolItems/ToolItem_Cell_Dice.png" />
 				<vm:ToolItem ItemType="Cell_PhantomDice" Icon="/Assets/ToolItems/ToolItem_Cell_PhantomDice.png" />
 				<vm:ToolItem ItemType="Cell_Tetris" Icon="/Assets/ToolItems/ToolItem_Cell_Tetris.png" />
@@ -76,6 +77,18 @@
 			<vm:DiceDisplayItem Value="7" />
 			<vm:DiceDisplayItem Value="8" />
 		</vm:DiceDisplayItemCollection>
+
+		<!--
+		Built-in surrounding triangles
+		-->
+		<vm:SurroundingTrianglesDisplayItemCollection x:Key="BuiltInSurroundingTriangles">
+			<vm:SurroundingTrianglesDisplayItem Value="1" Source="/Assets/Icons/SurroundingTriangles_1.png" />
+			<vm:SurroundingTrianglesDisplayItem Value="2" Source="/Assets/Icons/SurroundingTriangles_2.png" />
+			<vm:SurroundingTrianglesDisplayItem Value="3" Source="/Assets/Icons/SurroundingTriangles_3.png" />
+			<vm:SurroundingTrianglesDisplayItem Value="4" Source="/Assets/Icons/SurroundingTriangles_4.png" />
+			<vm:SurroundingTrianglesDisplayItem Value="5" Source="/Assets/Icons/SurroundingTriangles_5.png" />
+			<vm:SurroundingTrianglesDisplayItem Value="6" Source="/Assets/Icons/SurroundingTriangles_6.png" />
+		</vm:SurroundingTrianglesDisplayItemCollection>
 
 		<!--Preferences-->
 		<config:Preferences x:Key="UserPreferences" />

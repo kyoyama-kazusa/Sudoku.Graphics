@@ -286,4 +286,7 @@
   <data name="ItemType_Cell_PhantomDice" xml:space="preserve">
     <value>骰子点数（矩阵）</value>
   </data>
+  <data name="ItemType_Cell_SurroundingTriangles" xml:space="preserve">
+    <value>绕圈分布的三角形</value>
+  </data>
 </root>

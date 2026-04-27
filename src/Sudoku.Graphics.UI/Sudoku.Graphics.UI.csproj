@@ -19,6 +19,27 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Resource Include="Assets\ToolItems\ToolItem_Cell_Surrounding_Triangles.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Assets\Icons\SurroundingTriangles_1.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Assets\Icons\SurroundingTriangles_2.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Assets\Icons\SurroundingTriangles_3.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Assets\Icons\SurroundingTriangles_4.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Assets\Icons\SurroundingTriangles_5.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Assets\Icons\SurroundingTriangles_6.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
 		<Resource Include="Assets\ToolItems\ToolItem_Cell_PhantomDice.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>

@@ -331,6 +331,15 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Surrounding triangles.
+        /// </summary>
+        public static string ItemType_Cell_SurroundingTriangles {
+            get {
+                return ResourceManager.GetString("ItemType_Cell_SurroundingTriangles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tetromino.
         /// </summary>
         public static string ItemType_Cell_Tetris {

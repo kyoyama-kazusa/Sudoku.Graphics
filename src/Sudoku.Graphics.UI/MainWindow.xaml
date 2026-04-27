@@ -164,6 +164,25 @@
 				</StackPanel>
 			</Border>
 		</Popup>
+		<Popup x:Name="SurroundingTrianglesPopup">
+			<Border Background="White" BorderBrush="Gray" BorderThickness="1" Padding="6">
+				<c:ItemSelectorPanel
+					x:Name="SurroundingTrianglesPanel"
+					CellSize="48"
+					FontFamily="Arial"
+					FontSize="28"
+					FontWeight="Bold"
+					Foreground="Black"
+					ColumnsCount="6"
+					ItemsSource="{StaticResource BuiltInSurroundingTriangles}">
+					<c:ItemSelectorPanel.ItemTemplate>
+						<DataTemplate DataType="vm:SurroundingTrianglesDisplayItem">
+							<Image Source="{Binding Source}" />
+						</DataTemplate>
+					</c:ItemSelectorPanel.ItemTemplate>
+				</c:ItemSelectorPanel>
+			</Border>
+		</Popup>
 		<!--#endregion-->
 
 		<!--

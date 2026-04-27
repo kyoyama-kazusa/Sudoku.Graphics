@@ -291,4 +291,7 @@
   <data name="ItemType_Cell_PhantomDice" xml:space="preserve">
     <value>Dice (Matrix)</value>
   </data>
+  <data name="ItemType_Cell_SurroundingTriangles" xml:space="preserve">
+    <value>Surrounding triangles</value>
+  </data>
 </root>
