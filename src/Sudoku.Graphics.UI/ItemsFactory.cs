@@ -99,11 +99,11 @@ public static class ItemsFactory
 			TemplateIndex = 0,
 			Cell = cell,
 			TrianglesCount = value,
-			TipDistanceScale = 0.1M,
-			CornerRadiusScale = 0.1M,
-			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.DiceStrokeWidthScale),
-			StrokeColor = ResolveProperty(() => App.UserPreferences.DiceLineColor),
-			FillColor = SKColors.White,
-			SizeScale = ResolveProperty(() => App.UserPreferences.DiceSizeScale)
+			TipDistanceScale = ResolveProperty(() => App.UserPreferences.SurroundingTrianglesTipDistanceScale),
+			CornerRadiusScale = ResolveProperty(() => App.UserPreferences.SurroundingTrianglesCornerRadiusScale),
+			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.SurroundingTrianglesStrokeWidthScale),
+			StrokeColor = ResolveProperty(() => App.UserPreferences.SurroundingTrianglesStrokeColor),
+			FillColor = ResolveProperty(() => App.UserPreferences.SurroundingTrianglesFillColor),
+			SizeScale = ResolveProperty(() => App.UserPreferences.SurroundingTrianglesSizeScale)
 		};
 }
