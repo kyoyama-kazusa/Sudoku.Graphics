@@ -20,5 +20,5 @@ internal partial class Preferences
 	/// <summary>
 	/// Indicates the cell circle fill color.
 	/// </summary>
-	public Inherited<SerializableColor> CellCircleFillColor { get; set; } = Inherited<SerializableColor>.FromPropertyName(nameof(CellShapeFillColor));
+	public Inherited<SerializableColor> CellCircleFillColor { get; set; } = Inherited<SerializableColor>.FromPropertyName(nameof(DefaultShapeFillColor));
 }

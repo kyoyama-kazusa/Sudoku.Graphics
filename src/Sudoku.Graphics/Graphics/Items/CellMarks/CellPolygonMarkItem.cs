@@ -11,9 +11,9 @@ public sealed record CellPolygonMarkItem : CellMarkItem
 	public bool DrawConcavePolygon { get; init; } = false;
 
 	/// <summary>
-	/// Indicates rotation degrees, in angles. By default it's 0.
+	/// Indicates rotation degree, in angles. By default it's 0.
 	/// </summary>
-	public float RotationDegrees { get; init; } = 0;
+	public float RotationDegree { get; init; } = 0;
 
 	/// <summary>
 	/// Indicates the number of sides.
@@ -45,7 +45,7 @@ public sealed record CellPolygonMarkItem : CellMarkItem
 				StrokeColor,
 				FillColor,
 				mapper,
-				RotationDegrees
+				RotationDegree
 			);
 		}
 		else
@@ -58,7 +58,7 @@ public sealed record CellPolygonMarkItem : CellMarkItem
 				StrokeColor,
 				FillColor,
 				mapper,
-				RotationDegrees
+				RotationDegree
 			);
 		}
 	}

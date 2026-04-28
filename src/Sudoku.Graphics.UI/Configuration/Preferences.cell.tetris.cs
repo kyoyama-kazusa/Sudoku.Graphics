@@ -5,25 +5,25 @@ internal partial class Preferences
 	/// <summary>
 	/// Indicates tetromino corner radius scale.
 	/// </summary>
-	public Inherited<Scale> TetrominoCornerRadiusScale { get; set; } = Inherited<Scale>.FromPropertyName(nameof(DefaultCornerRadiusScale));
+	public Inherited<Scale> CellTetrominoCornerRadiusScale { get; set; } = Inherited<Scale>.FromPropertyName(nameof(DefaultCornerRadiusScale));
 
 	/// <summary>
 	/// Indicates tetromino stroke thickness scale.
 	/// </summary>
-	public Inherited<Scale> TetrominoStrokeWidthScale { get; set; } = Inherited<Scale>.FromPropertyName(nameof(DefaultThinLineWidth));
+	public Inherited<Scale> CellTetrominoStrokeWidthScale { get; set; } = Inherited<Scale>.FromPropertyName(nameof(DefaultThinLineWidth));
 
 	/// <summary>
 	/// Indicates the tetromino small block size scale, related to cell size.
 	/// </summary>
-	public Inherited<Scale> TetrominoSmallBlockSizeScale { get; set; } = Inherited<Scale>.FromValue(0.2M);
+	public Inherited<Scale> CellTetrominoSmallBlockSizeScale { get; set; } = Inherited<Scale>.FromValue(0.2M);
 
 	/// <summary>
 	/// Indicates tetromino line color.
 	/// </summary>
-	public Inherited<SerializableColor> TetrominoLineColor { get; set; } = Inherited<SerializableColor>.FromPropertyName(nameof(DefaultMiscellaneousLineColor));
+	public Inherited<SerializableColor> CellTetrominoLineColor { get; set; } = Inherited<SerializableColor>.FromPropertyName(nameof(DefaultMiscellaneousLineColor));
 
 	/// <summary>
 	/// Indicates tetromino fill color.
 	/// </summary>
-	public Inherited<SerializableColor> TetrominoFillColor { get; set; } = Inherited<SerializableColor>.FromValue(SKColors.White);
+	public Inherited<SerializableColor> CellTetrominoFillColor { get; set; } = Inherited<SerializableColor>.FromValue(SKColors.White);
 }

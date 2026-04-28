@@ -58,11 +58,11 @@ public static class ItemsFactory
 			Cell = cell,
 			Piece = piece,
 			RotationType = rotationType,
-			CornerRadiusScale = ResolveProperty(() => App.UserPreferences.TetrominoCornerRadiusScale),
-			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.TetrominoStrokeWidthScale),
-			StrokeColor = ResolveProperty(() => App.UserPreferences.TetrominoLineColor),
-			FillColor = ResolveProperty(() => App.UserPreferences.TetrominoFillColor),
-			SizeScale = ResolveProperty(() => App.UserPreferences.TetrominoSmallBlockSizeScale)
+			CornerRadiusScale = ResolveProperty(() => App.UserPreferences.CellTetrominoCornerRadiusScale),
+			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellTetrominoStrokeWidthScale),
+			StrokeColor = ResolveProperty(() => App.UserPreferences.CellTetrominoLineColor),
+			FillColor = ResolveProperty(() => App.UserPreferences.CellTetrominoFillColor),
+			SizeScale = ResolveProperty(() => App.UserPreferences.CellTetrominoSmallBlockSizeScale)
 		};
 
 	public static CellDiceMarkItem Dice(Absolute cell, int value)
@@ -71,11 +71,11 @@ public static class ItemsFactory
 			TemplateIndex = 0,
 			Cell = cell,
 			Value = value,
-			CornerRadiusScale = ResolveProperty(() => App.UserPreferences.DiceCornerRadiusScale),
-			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.DiceStrokeWidthScale),
-			StrokeColor = ResolveProperty(() => App.UserPreferences.DiceLineColor),
-			FillColor = ResolveProperty(() => App.UserPreferences.DiceFillColor),
-			SizeScale = ResolveProperty(() => App.UserPreferences.DiceSizeScale)
+			CornerRadiusScale = ResolveProperty(() => App.UserPreferences.CellDiceCornerRadiusScale),
+			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellDiceStrokeWidthScale),
+			StrokeColor = ResolveProperty(() => App.UserPreferences.CellDiceLineColor),
+			FillColor = ResolveProperty(() => App.UserPreferences.CellDiceFillColor),
+			SizeScale = ResolveProperty(() => App.UserPreferences.CellDiceSizeScale)
 		};
 
 	public static CellPhantomDiceMarkItem PhantomDice(Absolute cell, Relative subgridSize, BitArray states)
@@ -85,12 +85,12 @@ public static class ItemsFactory
 			Cell = cell,
 			SubgridSize = subgridSize,
 			States = states,
-			PhantomStrokeWidthScale = ResolveProperty(() => App.UserPreferences.PhantomDiceStrokeWidthScale),
-			CornerRadiusScale = ResolveProperty(() => App.UserPreferences.PhantomDiceCornerRadiusScale),
-			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.PhantomDiceStrokeWidthScale),
-			StrokeColor = ResolveProperty(() => App.UserPreferences.PhantomDiceLineColor),
-			FillColor = ResolveProperty(() => App.UserPreferences.PhantomDiceFillColor),
-			SizeScale = ResolveProperty(() => App.UserPreferences.PhantomDiceSizeScale)
+			PhantomStrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellPhantomDiceStrokeWidthScale),
+			CornerRadiusScale = ResolveProperty(() => App.UserPreferences.CellPhantomDiceCornerRadiusScale),
+			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellPhantomDiceStrokeWidthScale),
+			StrokeColor = ResolveProperty(() => App.UserPreferences.CellPhantomDiceLineColor),
+			FillColor = ResolveProperty(() => App.UserPreferences.CellPhantomDiceFillColor),
+			SizeScale = ResolveProperty(() => App.UserPreferences.CellPhantomDiceSizeScale)
 		};
 
 	public static CellSurroundingTrianglesMarkItem SurroundingTriangles(Absolute cell, int value)
@@ -138,5 +138,20 @@ public static class ItemsFactory
 			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellCrossStrokeWidthScale),
 			StrokeColor = ResolveProperty(() => App.UserPreferences.CellCrossStrokeColor),
 			FillColor = ResolveProperty(() => App.UserPreferences.CellCrossFillColor)
+		};
+
+	public static CellPolygonMarkItem Polygon(Absolute cell, int sidesCount, bool isConcave)
+		=> new()
+		{
+			TemplateIndex = 0,
+			Cell = cell,
+			SidesCount = sidesCount,
+			DrawConcavePolygon = isConcave,
+			ConcaveInnerScale = ResolveProperty(() => App.UserPreferences.CellPolygonConcaveInnerScale),
+			SizeScale = ResolveProperty(() => App.UserPreferences.CellPolygonSizeScale),
+			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellPolygonStrokeWidthScale),
+			StrokeColor = ResolveProperty(() => App.UserPreferences.CellPolygonStrokeColor),
+			FillColor = ResolveProperty(() => App.UserPreferences.CellPolygonFillColor),
+			RotationDegree = 0
 		};
 }

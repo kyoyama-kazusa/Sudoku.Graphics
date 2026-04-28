@@ -20,5 +20,5 @@ internal partial class Preferences
 	/// <summary>
 	/// Indicates the cell square fill color.
 	/// </summary>
-	public Inherited<SerializableColor> CellSquareFillColor { get; set; } = Inherited<SerializableColor>.FromPropertyName(nameof(CellShapeFillColor));
+	public Inherited<SerializableColor> CellSquareFillColor { get; set; } = Inherited<SerializableColor>.FromPropertyName(nameof(DefaultShapeFillColor));
 }

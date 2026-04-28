@@ -19,6 +19,42 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Resource Include="Assets\Icons\Polygon_3_Concave.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Assets\Icons\Polygon_3_Convex.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Assets\Icons\Polygon_4_Concave.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Assets\Icons\Polygon_4_Convex.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Assets\Icons\Polygon_5_Concave.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Assets\Icons\Polygon_5_Convex.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Assets\Icons\Polygon_6_Concave.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Assets\Icons\Polygon_6_Convex.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Assets\Icons\Polygon_7_Concave.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Assets\Icons\Polygon_7_Convex.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Assets\Icons\Polygon_8_Concave.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Assets\Icons\Polygon_8_Convex.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
 		<Resource Include="Assets\ToolItems\ToolItem_Cell_Circle.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>

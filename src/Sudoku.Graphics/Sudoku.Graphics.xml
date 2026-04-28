@@ -2531,9 +2531,9 @@
             Indicates whether this type draws for concave polygon or not. By default it's <see langword="false"/>.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellPolygonMarkItem.RotationDegrees">
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellPolygonMarkItem.RotationDegree">
             <summary>
-            Indicates rotation degrees, in angles. By default it's 0.
+            Indicates rotation degree, in angles. By default it's 0.
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellPolygonMarkItem.SidesCount">
@@ -6399,7 +6399,7 @@
             <param name="strokeColor">The stroke color.</param>
             <param name="fillColor">The fill color.</param>
             <param name="mapper">The mapper instance.</param>
-            <param name="rotationDegrees">The initial rotation degrees, in angle.</param>
+            <param name="rotationDegree">The initial rotation degree, in angle.</param>
             <exception cref="T:System.ArgumentException">Throws when the number of sides is invalid (below 3).</exception>
             <exception cref="T:System.InvalidOperationException">Throws when the number of sides is too large (above 16).</exception>
         </member>

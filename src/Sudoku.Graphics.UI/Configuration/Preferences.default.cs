@@ -38,6 +38,11 @@ internal partial class Preferences
 	public Inherited<SerializableColor> DefaultFillColor { get; set; } = Inherited<SerializableColor>.FromValue(SKColors.Black);
 
 	/// <summary>
+	/// Indicates default shape fill color.
+	/// </summary>
+	public Inherited<SerializableColor> DefaultShapeFillColor { get; set; } = Inherited<SerializableColor>.FromValue(SKColors.White);
+
+	/// <summary>
 	/// Indicates thick line colors.
 	/// </summary>
 	public Inherited<SerializableColor> DefaultThickLineColor { get; set; } = Inherited<SerializableColor>.FromValue(SKColors.Black);

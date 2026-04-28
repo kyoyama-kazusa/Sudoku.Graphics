@@ -93,6 +93,24 @@
 			<vm:SurroundingTrianglesDisplayItem Value="5" Source="/Assets/Icons/SurroundingTriangles_5.png" />
 			<vm:SurroundingTrianglesDisplayItem Value="6" Source="/Assets/Icons/SurroundingTriangles_6.png" />
 		</vm:SurroundingTrianglesDisplayItemCollection>
+		
+		<!--
+		Built-in polygons
+		-->
+		<vm:PolygonDisplayItemCollection x:Key="BuiltInPolygons">
+			<vm:PolygonDisplayItem SidesCount="3" IsConcave="False" Source="/Assets/Icons/Polygon_3_Convex.png" />
+			<vm:PolygonDisplayItem SidesCount="4" IsConcave="False" Source="/Assets/Icons/Polygon_4_Convex.png" />
+			<vm:PolygonDisplayItem SidesCount="5" IsConcave="False" Source="/Assets/Icons/Polygon_5_Convex.png" />
+			<vm:PolygonDisplayItem SidesCount="6" IsConcave="False" Source="/Assets/Icons/Polygon_6_Convex.png" />
+			<vm:PolygonDisplayItem SidesCount="7" IsConcave="False" Source="/Assets/Icons/Polygon_7_Convex.png" />
+			<vm:PolygonDisplayItem SidesCount="8" IsConcave="False" Source="/Assets/Icons/Polygon_8_Convex.png" />
+			<vm:PolygonDisplayItem SidesCount="3" IsConcave="True" Source="/Assets/Icons/Polygon_3_Concave.png" />
+			<vm:PolygonDisplayItem SidesCount="4" IsConcave="True" Source="/Assets/Icons/Polygon_4_Concave.png" />
+			<vm:PolygonDisplayItem SidesCount="5" IsConcave="True" Source="/Assets/Icons/Polygon_5_Concave.png" />
+			<vm:PolygonDisplayItem SidesCount="6" IsConcave="True" Source="/Assets/Icons/Polygon_6_Concave.png" />
+			<vm:PolygonDisplayItem SidesCount="7" IsConcave="True" Source="/Assets/Icons/Polygon_7_Concave.png" />
+			<vm:PolygonDisplayItem SidesCount="8" IsConcave="True" Source="/Assets/Icons/Polygon_8_Concave.png" />
+		</vm:PolygonDisplayItemCollection>
 
 		<!--Preferences-->
 		<config:Preferences x:Key="UserPreferences" />

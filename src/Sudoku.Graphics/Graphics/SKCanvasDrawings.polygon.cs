@@ -14,7 +14,7 @@ public partial class SKCanvasDrawings
 		/// <param name="strokeColor">The stroke color.</param>
 		/// <param name="fillColor">The fill color.</param>
 		/// <param name="mapper">The mapper instance.</param>
-		/// <param name="rotationDegrees">The initial rotation degrees, in angle.</param>
+		/// <param name="rotationDegree">The initial rotation degree, in angle.</param>
 		/// <exception cref="ArgumentException">Throws when the number of sides is invalid (below 3).</exception>
 		/// <exception cref="InvalidOperationException">Throws when the number of sides is too large (above 16).</exception>
 		public void DrawPolygonToCell(
@@ -25,7 +25,7 @@ public partial class SKCanvasDrawings
 			SerializableColor strokeColor,
 			SerializableColor fillColor,
 			PointMapper mapper,
-			float rotationDegrees = 0
+			float rotationDegree = 0
 		)
 		{
 			if (sizeScale < Scale.Zero)
@@ -56,7 +56,7 @@ public partial class SKCanvasDrawings
 
 			var cx = x + cellSize / 2;
 			var cy = y + cellSize / 2;
-			var startAngle = rotationDegrees * MathF.PI / 180 - MathF.PI / 2;
+			var startAngle = rotationDegree * MathF.PI / 180 - MathF.PI / 2;
 			var delta = MathF.Tau / sidesCount;
 
 			// Construct path.

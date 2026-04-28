@@ -16,9 +16,4 @@ internal partial class Preferences
 	/// Indicates the cell circle stroke color.
 	/// </summary>
 	public Inherited<SerializableColor> CellShapeStrokeColor { get; set; } = Inherited<SerializableColor>.FromPropertyName(nameof(DefaultThinLineColor));
-
-	/// <summary>
-	/// Indicates the cell circle fill color.
-	/// </summary>
-	public Inherited<SerializableColor> CellShapeFillColor { get; set; } = Inherited<SerializableColor>.FromValue(SKColors.White);
 }
