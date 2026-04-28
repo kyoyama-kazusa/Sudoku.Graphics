@@ -19,6 +19,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Resource Include="Assets\ToolItems\ToolItem_Cell_Circle.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Assets\ToolItems\ToolItem_Cell_Cross.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Assets\ToolItems\ToolItem_Cell_Polygon.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Assets\ToolItems\ToolItem_Cell_Square.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
 		<Resource Include="Assets\ToolItems\ToolItem_Cell_Surrounding_Triangles.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>

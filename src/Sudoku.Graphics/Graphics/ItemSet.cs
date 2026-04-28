@@ -202,11 +202,7 @@ public sealed partial class ItemSet :
 		return hashCode.ToHashCode();
 	}
 
-	/// <summary>
-	/// Adds a list of items into the current collection.
-	/// </summary>
-	/// <param name="items">A list of items to add.</param>
-	/// <returns>An <see cref="int"/> value indicating how many items are successfully added.</returns>
+	/// <inheritdoc cref="AddRange{TEnumerable}(TEnumerable)"/>
 	public int AddRange(params ReadOnlySpan<Item> items)
 	{
 		var result = 0;
@@ -237,6 +233,58 @@ public sealed partial class ItemSet :
 			}
 		}
 		return result;
+	}
+
+	/// <inheritdoc cref="RemoveRange{TEnumerable}(TEnumerable)"/>
+	public int RemoveRange(ReadOnlySpan<Item> items)
+	{
+		var result = 0;
+		foreach (var item in items)
+		{
+			if (Remove(item))
+			{
+				result++;
+			}
+		}
+		return result;
+	}
+
+	/// <summary>
+	/// Removes the specified list of items from the current collection, and return the number of elements successfully removed.
+	/// </summary>
+	/// <typeparam name="TEnumerable">The type of enumeration sequence of <see cref="Item"/> instances.</typeparam>
+	/// <param name="items">The items to remove.</param>
+	/// <returns>An <see cref="int"/> value indicating the number of successfully removed items.</returns>
+	public int RemoveRange<TEnumerable>(TEnumerable items) where TEnumerable : IEnumerable<Item>, allows ref struct
+	{
+		var result = 0;
+		foreach (var item in items)
+		{
+			if (Remove(item))
+			{
+				result++;
+			}
+		}
+		return result;
+	}
+
+	/// <summary>
+	/// Finds for the specified item with specified type in the specified cell.
+	/// </summary>
+	/// <param name="cell">The cell.</param>
+	/// <param name="type">The type.</param>
+	/// <returns>The item found; or <see langword="null"/> if not found.</returns>
+	public ReadOnlySpan<Item> Find(Absolute cell, ItemType type)
+	{
+		var result = new List<Item>();
+		foreach (var item in _itemsLookup.TryGetValue(type, out var v) ? v : [])
+		{
+			if (item is IItem_CellProperty { Cell: var c } && c == cell)
+			{
+				result.Add(item);
+			}
+		}
+		return result.AsSpan();
 	}
 
 	/// <inheritdoc cref="IEnumerable{T}.GetEnumerator"/>

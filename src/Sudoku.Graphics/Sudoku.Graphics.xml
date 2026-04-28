@@ -1208,11 +1208,7 @@
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.ItemSet.AddRange(System.ReadOnlySpan{Sudoku.Graphics.Item})">
-            <summary>
-            Adds a list of items into the current collection.
-            </summary>
-            <param name="items">A list of items to add.</param>
-            <returns>An <see cref="T:System.Int32"/> value indicating how many items are successfully added.</returns>
+            <inheritdoc cref="M:Sudoku.Graphics.ItemSet.AddRange``1(``0)"/>
         </member>
         <member name="M:Sudoku.Graphics.ItemSet.AddRange``1(``0)">
             <summary>
@@ -1221,6 +1217,25 @@
             <typeparam name="TEnumerable">The type of enumerable sequence of <see cref="T:Sudoku.Graphics.Item"/> instances.</typeparam>
             <param name="items">A list of items to add.</param>
             <returns>An <see cref="T:System.Int32"/> value indicating how many items are successfully added.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.RemoveRange(System.ReadOnlySpan{Sudoku.Graphics.Item})">
+            <inheritdoc cref="M:Sudoku.Graphics.ItemSet.RemoveRange``1(``0)"/>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.RemoveRange``1(``0)">
+            <summary>
+            Removes the specified list of items from the current collection, and return the number of elements successfully removed.
+            </summary>
+            <typeparam name="TEnumerable">The type of enumeration sequence of <see cref="T:Sudoku.Graphics.Item"/> instances.</typeparam>
+            <param name="items">The items to remove.</param>
+            <returns>An <see cref="T:System.Int32"/> value indicating the number of successfully removed items.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.Find(Sudoku.Graphics.Absolute,Sudoku.Graphics.ItemType)">
+            <summary>
+            Finds for the specified item with specified type in the specified cell.
+            </summary>
+            <param name="cell">The cell.</param>
+            <param name="type">The type.</param>
+            <returns>The item found; or <see langword="null"/> if not found.</returns>
         </member>
         <member name="M:Sudoku.Graphics.ItemSet.GetEnumerator">
             <inheritdoc cref="M:System.Collections.Generic.IEnumerable`1.GetEnumerator"/>
@@ -2244,6 +2259,18 @@
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellCircleMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellCircleMarkItem.SizeScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellCircleMarkItem.StrokeWidthScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellCircleMarkItem.StrokeColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellCircleMarkItem.FillColor">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellCircleMarkItem.DrawTo(Sudoku.Graphics.Canvas)">

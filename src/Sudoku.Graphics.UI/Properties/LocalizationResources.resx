@@ -294,4 +294,16 @@
   <data name="ItemType_Cell_SurroundingTriangles" xml:space="preserve">
     <value>Surrounding triangles</value>
   </data>
+  <data name="ItemType_Cell_Square" xml:space="preserve">
+    <value>Square</value>
+  </data>
+  <data name="ItemType_Cell_Circle" xml:space="preserve">
+    <value>Circle</value>
+  </data>
+  <data name="ItemType_Cell_Cross" xml:space="preserve">
+    <value>Cross</value>
+  </data>
+  <data name="ItemType_Cell_Polygon" xml:space="preserve">
+    <value>Polygon</value>
+  </data>
 </root>

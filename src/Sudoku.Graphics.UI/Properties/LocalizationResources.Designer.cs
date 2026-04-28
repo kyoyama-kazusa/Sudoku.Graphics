@@ -313,6 +313,24 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Circle.
+        /// </summary>
+        public static string ItemType_Cell_Circle {
+            get {
+                return ResourceManager.GetString("ItemType_Cell_Circle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cross.
+        /// </summary>
+        public static string ItemType_Cell_Cross {
+            get {
+                return ResourceManager.GetString("ItemType_Cell_Cross", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dice (Classic).
         /// </summary>
         public static string ItemType_Cell_Dice {
@@ -327,6 +345,24 @@ namespace Sudoku.Graphics.UI.Properties {
         public static string ItemType_Cell_PhantomDice {
             get {
                 return ResourceManager.GetString("ItemType_Cell_PhantomDice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Polygon.
+        /// </summary>
+        public static string ItemType_Cell_Polygon {
+            get {
+                return ResourceManager.GetString("ItemType_Cell_Polygon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Square.
+        /// </summary>
+        public static string ItemType_Cell_Square {
+            get {
+                return ResourceManager.GetString("ItemType_Cell_Square", resourceCulture);
             }
         }
         

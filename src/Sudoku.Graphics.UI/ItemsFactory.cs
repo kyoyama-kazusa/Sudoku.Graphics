@@ -106,4 +106,15 @@ public static class ItemsFactory
 			FillColor = ResolveProperty(() => App.UserPreferences.SurroundingTrianglesFillColor),
 			SizeScale = ResolveProperty(() => App.UserPreferences.SurroundingTrianglesSizeScale)
 		};
+
+	public static CellCircleMarkItem Circle(Absolute cell)
+		=> new()
+		{
+			TemplateIndex = 0,
+			Cell = cell,
+			SizeScale = ResolveProperty(() => App.UserPreferences.CellCircleSizeScale),
+			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellCircleStrokeWidthScale),
+			StrokeColor = ResolveProperty(() => App.UserPreferences.CellCircleStrokeColor),
+			FillColor = ResolveProperty(() => App.UserPreferences.CellCircleFillColor)
+		};
 }

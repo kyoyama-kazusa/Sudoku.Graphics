@@ -11,8 +11,8 @@
 	mc:Ignorable="d"
 	d:DataContext="{d:DesignInstance Type=local:MainWindow}"
 	Title="{x:Static p:LocalizationResources.MainWindow_MenuItem_Title}"
-	Height="900"
-	Width="1600"
+	Height="945"
+	Width="1680"
 	WindowStartupLocation="CenterScreen"
 	Initialized="Window_Initialized"
 	Closing="Window_Closing">
@@ -221,7 +221,7 @@
 									<ItemsControl ItemsSource="{Binding Items}">
 										<ItemsControl.ItemsPanel>
 											<ItemsPanelTemplate>
-												<UniformGrid Columns="5" HorizontalAlignment="Left" />
+												<UniformGrid Columns="8" HorizontalAlignment="Left" />
 											</ItemsPanelTemplate>
 										</ItemsControl.ItemsPanel>
 										<ItemsControl.ItemTemplate>

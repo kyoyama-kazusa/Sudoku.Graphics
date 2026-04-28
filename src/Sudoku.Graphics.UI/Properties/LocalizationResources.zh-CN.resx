@@ -289,4 +289,16 @@
   <data name="ItemType_Cell_SurroundingTriangles" xml:space="preserve">
     <value>绕圈分布的三角形</value>
   </data>
+  <data name="ItemType_Cell_Square" xml:space="preserve">
+    <value>正方形</value>
+  </data>
+  <data name="ItemType_Cell_Circle" xml:space="preserve">
+    <value>圆形</value>
+  </data>
+  <data name="ItemType_Cell_Cross" xml:space="preserve">
+    <value>叉号</value>
+  </data>
+  <data name="ItemType_Cell_Polygon" xml:space="preserve">
+    <value>多边形</value>
+  </data>
 </root>

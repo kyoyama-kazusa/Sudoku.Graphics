@@ -18,6 +18,10 @@
 				<vm:ToolItem ItemType="Text_Candidate" Icon="/Assets/ToolItems/ToolItem_Text_Candidate.png" />
 			</vm:ToolItemGroup>
 			<vm:ToolItemGroup Title="{x:Static p:LocalizationResources.ItemTypeGroup_CellMark}">
+				<vm:ToolItem ItemType="Cell_Square" Icon="/Assets/ToolItems/ToolItem_Cell_Square.png" />
+				<vm:ToolItem ItemType="Cell_Circle" Icon="/Assets/ToolItems/ToolItem_Cell_Circle.png" />
+				<vm:ToolItem ItemType="Cell_Cross" Icon="/Assets/ToolItems/ToolItem_Cell_Cross.png" />
+				<vm:ToolItem ItemType="Cell_Polygon" Icon="/Assets/ToolItems/ToolItem_Cell_Polygon.png" />
 				<vm:ToolItem ItemType="Cell_SurroundingTriangles" Icon="/Assets/ToolItems/ToolItem_Cell_Surrounding_Triangles.png" />
 				<vm:ToolItem ItemType="Cell_Dice" Icon="/Assets/ToolItems/ToolItem_Cell_Dice.png" />
 				<vm:ToolItem ItemType="Cell_PhantomDice" Icon="/Assets/ToolItems/ToolItem_Cell_PhantomDice.png" />

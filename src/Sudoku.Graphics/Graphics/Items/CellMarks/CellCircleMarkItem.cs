@@ -8,19 +8,27 @@ public sealed record CellCircleMarkItem : CellMarkItem
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.Cell_Circle;
 
+	/// <inheritdoc/>
+	public required override Scale SizeScale { get; init; }
+
+	/// <inheritdoc/>
+	public required override Scale StrokeWidthScale { get; init; }
+
+	/// <inheritdoc/>
+	public required override SerializableColor StrokeColor { get; init; }
+
+	/// <inheritdoc/>
+	public override SerializableColor FillColor { get; init; }
+
 
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)
-	{
-		var template = canvas.Templates[TemplateIndex];
-		var mapper = template.Mapper;
-		canvas.BackingCanvas.DrawCircleTo(
+		=> canvas.BackingCanvas.DrawCircleTo(
 			Cell,
 			SizeScale,
 			StrokeColor,
 			StrokeWidthScale,
 			FillColor,
-			mapper
+			canvas.Templates[TemplateIndex].Mapper
 		);
-	}
 }
