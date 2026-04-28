@@ -14,7 +14,7 @@ public sealed class DiceOperationHandler : CellBasedItemSelectorPanelOperationHa
 	public override Func<object?, Absolute, Item?> ItemFactory
 		=> static (item, cell) => item switch
 		{
-			DiceDisplayItem { Value: var value } => ItemsFactory.Dice(cell, value),
+			DiceDisplayItem { Value: var value } => ItemsFactory.Dice(cell, value, true),
 			_ => null
 		};
 

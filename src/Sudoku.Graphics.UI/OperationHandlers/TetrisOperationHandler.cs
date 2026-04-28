@@ -14,7 +14,8 @@ public sealed class TetrisOperationHandler : CellBasedItemSelectorPanelOperation
 	public override Func<object?, Absolute, Item?> ItemFactory
 		=> static (item, cell) => item switch
 		{
-			TetrominoDisplayItem { Type: var piece, RotationType: var rotationType } => ItemsFactory.Tetris(cell, piece, rotationType),
+			TetrominoDisplayItem { Type: var piece, RotationType: var rotationType }
+				=> ItemsFactory.Tetris(cell, piece, rotationType, true),
 			_ => null
 		};
 

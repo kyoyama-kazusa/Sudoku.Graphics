@@ -14,7 +14,7 @@ public sealed class SurroundingTrianglesOperationHandler : CellBasedItemSelector
 	public override Func<object?, Absolute, Item?> ItemFactory
 		=> static (item, cell) => item switch
 		{
-			SurroundingTrianglesDisplayItem { Value: var value } => ItemsFactory.SurroundingTriangles(cell, value),
+			SurroundingTrianglesDisplayItem { Value: var value } => ItemsFactory.SurroundingTriangles(cell, value, true),
 			_ => null
 		};
 

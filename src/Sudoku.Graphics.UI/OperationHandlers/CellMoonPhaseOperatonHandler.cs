@@ -19,7 +19,7 @@ public sealed class CellMoonPhaseOperatonHandler : CellBasedItemSelectorPanelOpe
 	public override Func<object?, Absolute, Item?> ItemFactory
 		=> static (item, cell) => item switch
 		{
-			MoonPhaseDisplayItem { Phase: var phase } => ItemsFactory.MoonPhase(cell, phase),
+			MoonPhaseDisplayItem { Phase: var phase } => ItemsFactory.MoonPhase(cell, phase, true),
 			_ => null
 		};
 

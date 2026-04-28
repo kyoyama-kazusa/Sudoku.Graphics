@@ -20,7 +20,7 @@ public sealed class CellPolygonOperationHandler : CellBasedItemSelectorPanelOper
 		=> static (item, cell) => item switch
 		{
 			PolygonDisplayItem { SidesCount: var sidesCount, IsConcave: var isConcave }
-				=> ItemsFactory.Polygon(cell, sidesCount, isConcave),
+				=> ItemsFactory.Polygon(cell, sidesCount, isConcave, true),
 			_ => null
 		};
 
