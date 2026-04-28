@@ -2638,6 +2638,18 @@
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellSquareMarkItem.Type">
             <inheritdoc/>
         </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellSquareMarkItem.SizeScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellSquareMarkItem.StrokeWidthScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellSquareMarkItem.StrokeColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellSquareMarkItem.FillColor">
+            <inheritdoc/>
+        </member>
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellSquareMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>

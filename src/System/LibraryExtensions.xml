@@ -553,7 +553,7 @@
             </summary>
             <typeparam name="TOwner">The type of <paramref name="owner"/>.</typeparam>
             <param name="owner">The owner instance.</param>
-            <param name="maxDepth">The max depth. By default it's 2.</param>
+            <param name="maxDepth">The max depth. By default it's 4.</param>
             <exception cref="T:System.InvalidOperationException">
             Throws when at least one invalid case is encountered:
             <list type="bullet">

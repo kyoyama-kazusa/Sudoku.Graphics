@@ -137,7 +137,7 @@ public sealed class Inherited<T> : IEquatable<Inherited<T>>, IEqualityOperators<
 	/// </summary>
 	/// <typeparam name="TOwner">The type of <paramref name="owner"/>.</typeparam>
 	/// <param name="owner">The owner instance.</param>
-	/// <param name="maxDepth">The max depth. By default it's 2.</param>
+	/// <param name="maxDepth">The max depth. By default it's 4.</param>
 	/// <exception cref="InvalidOperationException">
 	/// Throws when at least one invalid case is encountered:
 	/// <list type="bullet">
@@ -146,7 +146,7 @@ public sealed class Inherited<T> : IEquatable<Inherited<T>>, IEqualityOperators<
 	/// <item>Reference is not found by resolver.</item>
 	/// </list>
 	/// </exception>
-	public T Resolve<TOwner>(TOwner owner, int maxDepth = 2) where TOwner : class
+	public T Resolve<TOwner>(TOwner owner, int maxDepth = 4) where TOwner : class
 		=> TryResolve(owner, out _, out var result, out _, out var errorMessage, maxDepth)
 			? result
 			: throw new InvalidOperationException(errorMessage);

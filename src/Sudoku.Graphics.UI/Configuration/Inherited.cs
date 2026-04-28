@@ -29,7 +29,7 @@ internal static class Inherited
 
 		var methodInfo = propertyType.GetMethod(nameof(Inherited<>.Resolve), methodBindingFlags)?.MakeGenericMethod(typeof(Preferences))
 			?? throw new InvalidOperationException(message_MethodCannotBeFound);
-		var callExpression = Expression.Call(memberExpression, methodInfo, instanceExpression, Expression.Constant(2));
+		var callExpression = Expression.Call(memberExpression, methodInfo, instanceExpression, Expression.Constant(4));
 		return Expression.Lambda<Func<T>>(callExpression).Compile()();
 	}
 }
