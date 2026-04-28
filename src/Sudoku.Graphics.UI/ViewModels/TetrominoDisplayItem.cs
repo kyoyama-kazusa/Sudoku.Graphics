@@ -3,23 +3,20 @@
 /// <summary>
 /// Represents a tetromino display item.
 /// </summary>
-public sealed partial class TetrominoDisplayItem : ObservableObject
+public sealed class TetrominoDisplayItem
 {
 	/// <summary>
 	/// Indicates the item type.
 	/// </summary>
-	[ObservableProperty]
-	public partial Tetromino Type { get; set; }
+	public Tetromino Type { get; set; }
 
 	/// <summary>
 	/// Indicates rotation type.
 	/// </summary>
-	[ObservableProperty]
-	public partial TetrominoRotationType RotationType { get; set; }
+	public TetrominoRotationType RotationType { get; set; }
 
 	/// <summary>
 	/// Indicates the icon to be diplayed.
 	/// </summary>
-	[ObservableProperty]
-	public partial ImageSource? Icon { get; set; }
+	public ImageSource? Icon { get; set; }
 }

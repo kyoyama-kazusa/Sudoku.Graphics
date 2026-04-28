@@ -3,14 +3,12 @@
 /// <summary>
 /// Represents a dice display item.
 /// </summary>
-public sealed partial class DiceDisplayItem : ObservableObject
+public sealed class DiceDisplayItem
 {
 	/// <summary>
 	/// Indicates the value.
 	/// </summary>
-	[ObservableProperty]
-	[NotifyPropertyChangedFor(nameof(ValueString))]
-	public partial int Value { get; set; }
+	public int Value { get; set; }
 
 	/// <summary>
 	/// Indicates display string of value.
