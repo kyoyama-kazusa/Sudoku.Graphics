@@ -13,7 +13,7 @@ public abstract class CellShapeOperationHandler : OperationHandler
 	/// <summary>
 	/// Indicates the item factory.
 	/// </summary>
-	public abstract Func<Absolute, CellMarkItem> ItemFactory { get; }
+	public abstract Func<Absolute, CellShapeMarkItem> ItemFactory { get; }
 
 	/// <summary>
 	/// Indicates the changed mouse button that will trigger the event.
