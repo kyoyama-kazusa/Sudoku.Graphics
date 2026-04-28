@@ -11,5 +11,5 @@ public sealed class CellCrossOperationHandler : CellShapeOperationHandler
 	public override ItemType ItemType => ItemType.Cell_Cross;
 
 	/// <inheritdoc/>
-	public override Func<Absolute, CellShapeMarkItem> ItemFactory => ItemsFactory.Cross;
+	public override Func<Absolute, CellMarkItem> ItemFactory => ItemsFactory.Cross;
 }

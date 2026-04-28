@@ -2261,6 +2261,18 @@
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellCircleMarkItem.Type">
             <inheritdoc/>
         </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellCircleMarkItem.SizeScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellCircleMarkItem.StrokeWidthScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellCircleMarkItem.StrokeColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellCircleMarkItem.FillColor">
+            <inheritdoc/>
+        </member>
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellCircleMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
@@ -2270,6 +2282,18 @@
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellCrossMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellCrossMarkItem.SizeScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellCrossMarkItem.StrokeWidthScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellCrossMarkItem.StrokeColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellCrossMarkItem.FillColor">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellCrossMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
@@ -2618,29 +2642,24 @@
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellSevenSegmentDisplayMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
-        <member name="T:Sudoku.Graphics.Items.CellMarks.CellShapeMarkItem">
-            <summary>
-            Represents a cell shape item.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellShapeMarkItem.SizeScale">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellShapeMarkItem.StrokeWidthScale">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellShapeMarkItem.StrokeColor">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellShapeMarkItem.FillColor">
-            <inheritdoc/>
-        </member>
         <member name="T:Sudoku.Graphics.Items.CellMarks.CellSquareMarkItem">
             <summary>
             Represents a cell square mark item.
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellSquareMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellSquareMarkItem.SizeScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellSquareMarkItem.StrokeWidthScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellSquareMarkItem.StrokeColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellSquareMarkItem.FillColor">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellSquareMarkItem.DrawTo(Sudoku.Graphics.Canvas)">

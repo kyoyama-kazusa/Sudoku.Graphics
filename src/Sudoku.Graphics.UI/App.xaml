@@ -94,7 +94,7 @@
 			<vm:SurroundingTrianglesDisplayItem Value="5" Source="/Assets/Icons/SurroundingTriangles_5.png" />
 			<vm:SurroundingTrianglesDisplayItem Value="6" Source="/Assets/Icons/SurroundingTriangles_6.png" />
 		</vm:SurroundingTrianglesDisplayItemCollection>
-		
+
 		<!--
 		Built-in polygons
 		-->
@@ -112,7 +112,7 @@
 			<vm:PolygonDisplayItem SidesCount="7" IsConcave="True" Source="/Assets/Icons/Polygon_7_Concave.png" />
 			<vm:PolygonDisplayItem SidesCount="8" IsConcave="True" Source="/Assets/Icons/Polygon_8_Concave.png" />
 		</vm:PolygonDisplayItemCollection>
-		
+
 		<!--
 		Built-in moon phases
 		-->

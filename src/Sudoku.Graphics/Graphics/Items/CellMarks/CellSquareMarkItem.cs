@@ -3,10 +3,22 @@
 /// <summary>
 /// Represents a cell square mark item.
 /// </summary>
-public sealed record CellSquareMarkItem : CellShapeMarkItem
+public sealed record CellSquareMarkItem : CellMarkItem
 {
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.Cell_Square;
+
+	/// <inheritdoc/>
+	public required override Scale SizeScale { get; init; }
+
+	/// <inheritdoc/>
+	public required override Scale StrokeWidthScale { get; init; }
+
+	/// <inheritdoc/>
+	public required override SerializableColor StrokeColor { get; init; }
+
+	/// <inheritdoc/>
+	public override SerializableColor FillColor { get; init; }
 
 
 	/// <inheritdoc/>

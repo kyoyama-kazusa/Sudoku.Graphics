@@ -11,5 +11,5 @@ public sealed class CellCircleOperationHandler : CellShapeOperationHandler
 	public override ItemType ItemType => ItemType.Cell_Circle;
 
 	/// <inheritdoc/>
-	public override Func<Absolute, CellShapeMarkItem> ItemFactory => ItemsFactory.Circle;
+	public override Func<Absolute, CellMarkItem> ItemFactory => ItemsFactory.Circle;
 }
