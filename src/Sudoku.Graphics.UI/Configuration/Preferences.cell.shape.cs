@@ -5,7 +5,7 @@ internal partial class Preferences
 	/// <summary>
 	/// Indicates the cell circle size scale, related to cell size.
 	/// </summary>
-	public Inherited<Scale> CellShapeSizeScale { get; set; } = Inherited<Scale>.FromValue(0.75M);
+	public Inherited<Scale> CellShapeSizeScale { get; set; } = Inherited<Scale>.FromValue(0.5M);
 
 	/// <summary>
 	/// Indicates the cell circle stroke width scale, related to cell size.

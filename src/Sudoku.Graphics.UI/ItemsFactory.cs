@@ -128,4 +128,15 @@ public static class ItemsFactory
 			StrokeColor = ResolveProperty(() => App.UserPreferences.CellCircleStrokeColor),
 			FillColor = ResolveProperty(() => App.UserPreferences.CellCircleFillColor)
 		};
+
+	public static CellCrossMarkItem Cross(Absolute cell)
+		=> new()
+		{
+			TemplateIndex = 0,
+			Cell = cell,
+			SizeScale = ResolveProperty(() => App.UserPreferences.CellCrossSizeScale),
+			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellCrossStrokeWidthScale),
+			StrokeColor = ResolveProperty(() => App.UserPreferences.CellCrossStrokeColor),
+			FillColor = ResolveProperty(() => App.UserPreferences.CellCrossFillColor)
+		};
 }
