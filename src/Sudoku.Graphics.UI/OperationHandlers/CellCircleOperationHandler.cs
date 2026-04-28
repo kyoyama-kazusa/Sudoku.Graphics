@@ -5,36 +5,11 @@
 /// </summary>
 /// <seealso cref="CellCircleMarkItem"/>
 [OperationHandler(ItemType.Cell_Circle)]
-public sealed class CellCircleOperationHandler : OperationHandler
+public sealed class CellCircleOperationHandler : CellShapeOperationHandler
 {
 	/// <inheritdoc/>
-	protected internal override void OnMouseButtonPressed(OperationHandlerContext context)
-	{
-	}
+	public override ItemType ItemType => ItemType.Cell_Circle;
 
 	/// <inheritdoc/>
-	protected internal override void OnMouseButtonReleased(OperationHandlerContext context)
-	{
-		var cell = context.GetCell();
-		var item = ItemsFactory.Circle(cell);
-		UpdateItems(
-			context.OwnerWindow,
-			items =>
-			{
-				var found = items.Find(cell, ItemType.Cell_Circle);
-				if (found.Length == 0)
-				{
-					items.Add(item);
-				}
-				else
-				{
-					items.RemoveRange(found);
-				}
-			}
-		);
-	}
-
-	/// <inheritdoc/>
-	protected internal override bool IsAvailable(OperationHandlerContext context)
-		=> context.MouseEventArgs.ChangedButton == MouseButton.Left;
+	public override Func<Absolute, CellMarkItem> ItemFactory => ItemsFactory.Circle;
 }

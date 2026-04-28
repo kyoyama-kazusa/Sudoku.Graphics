@@ -5,36 +5,11 @@
 /// </summary>
 /// <seealso cref="CellSquareMarkItem"/>
 [OperationHandler(ItemType.Cell_Square)]
-public sealed class CellSquareOperationHandler : OperationHandler
+public sealed class CellSquareOperationHandler : CellShapeOperationHandler
 {
 	/// <inheritdoc/>
-	protected internal override void OnMouseButtonPressed(OperationHandlerContext context)
-	{
-	}
+	public override ItemType ItemType => ItemType.Cell_Square;
 
 	/// <inheritdoc/>
-	protected internal override void OnMouseButtonReleased(OperationHandlerContext context)
-	{
-		var cell = context.GetCell();
-		var item = ItemsFactory.Square(cell);
-		UpdateItems(
-			context.OwnerWindow,
-			items =>
-			{
-				var found = items.Find(cell, ItemType.Cell_Square);
-				if (found.Length == 0)
-				{
-					items.Add(item);
-				}
-				else
-				{
-					items.RemoveRange(found);
-				}
-			}
-		);
-	}
-
-	/// <inheritdoc/>
-	protected internal override bool IsAvailable(OperationHandlerContext context)
-		=> context.MouseEventArgs.ChangedButton == MouseButton.Left;
+	public override Func<Absolute, CellMarkItem> ItemFactory => ItemsFactory.Square;
 }

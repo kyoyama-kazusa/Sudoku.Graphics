@@ -5,36 +5,11 @@
 /// </summary>
 /// <seealso cref="CellCrossMarkItem"/>
 [OperationHandler(ItemType.Cell_Cross)]
-public sealed class CellCrossOperationHandler : OperationHandler
+public sealed class CellCrossOperationHandler : CellShapeOperationHandler
 {
 	/// <inheritdoc/>
-	protected internal override void OnMouseButtonPressed(OperationHandlerContext context)
-	{
-	}
+	public override ItemType ItemType => ItemType.Cell_Cross;
 
 	/// <inheritdoc/>
-	protected internal override void OnMouseButtonReleased(OperationHandlerContext context)
-	{
-		var cell = context.GetCell();
-		var item = ItemsFactory.Cross(cell);
-		UpdateItems(
-			context.OwnerWindow,
-			items =>
-			{
-				var found = items.Find(cell, ItemType.Cell_Cross);
-				if (found.Length == 0)
-				{
-					items.Add(item);
-				}
-				else
-				{
-					items.RemoveRange(found);
-				}
-			}
-		);
-	}
-
-	/// <inheritdoc/>
-	protected internal override bool IsAvailable(OperationHandlerContext context)
-		=> context.MouseEventArgs.ChangedButton == MouseButton.Left;
+	public override Func<Absolute, CellMarkItem> ItemFactory => ItemsFactory.Cross;
 }
