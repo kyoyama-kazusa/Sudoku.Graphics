@@ -23,4 +23,38 @@ public sealed class TetrisOperationHandler : CellBasedItemSelectorPanelOperation
 
 	/// <inheritdoc/>
 	public override Func<MainWindow, ItemSelectorPanel> PanelSelector => static window => window.TetrisSelectorPanel;
+
+	/// <inheritdoc/>
+	public override IReadOnlyDictionary<string, Func<IIconDisplayItem>> IconDisplayItemFactory
+	{
+		get
+		{
+			var result = new Dictionary<string, Func<IIconDisplayItem>>();
+			foreach (var piece in (Tetromino[])[
+				Tetromino.I,
+				Tetromino.O,
+				Tetromino.T,
+				Tetromino.J,
+				Tetromino.L,
+				Tetromino.S,
+				Tetromino.Z
+			])
+			{
+				foreach (var rotationType in (TetrominoRotationType[])[
+					TetrominoRotationType.None,
+					TetrominoRotationType.Single,
+					TetrominoRotationType.Double,
+					TetrominoRotationType.Triple
+				])
+				{
+					var targetName = $"Tetromino_{piece}_{rotationType}";
+					result.Add(
+						targetName,
+						() => new TetrominoDisplayItem { RotationType = rotationType, Type = piece }
+					);
+				}
+			}
+			return result;
+		}
+	}
 }

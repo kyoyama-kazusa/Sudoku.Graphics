@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a polygon display item.
 /// </summary>
-public sealed class PolygonDisplayItem
+public sealed class PolygonDisplayItem : IIconDisplayItem
 {
 	/// <summary>
 	/// Indicates the number of sides.
@@ -15,8 +15,6 @@ public sealed class PolygonDisplayItem
 	/// </summary>
 	public bool IsConcave { get; set; }
 
-	/// <summary>
-	/// Indicates image source.
-	/// </summary>
-	public ImageSource? Source { get; set; }
+	/// <inheritdoc/>
+	public ImageSource? Icon { get; set; }
 }

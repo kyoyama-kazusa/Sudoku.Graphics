@@ -23,4 +23,19 @@ public sealed class DiceOperationHandler : CellBasedItemSelectorPanelOperationHa
 
 	/// <inheritdoc/>
 	public override Func<MainWindow, ItemSelectorPanel> PanelSelector => static window => window.DiceSelectorPanel;
+
+	/// <inheritdoc/>
+	public override IReadOnlyDictionary<string, Func<IIconDisplayItem>> IconDisplayItemFactory
+		=> new Dictionary<string, Func<IIconDisplayItem>>
+		{
+			{ "Dice_0", static () => new DiceDisplayItem { Value = 0 } },
+			{ "Dice_1", static () => new DiceDisplayItem { Value = 1 } },
+			{ "Dice_2", static () => new DiceDisplayItem { Value = 2 } },
+			{ "Dice_3", static () => new DiceDisplayItem { Value = 3 } },
+			{ "Dice_4", static () => new DiceDisplayItem { Value = 4 } },
+			{ "Dice_5", static () => new DiceDisplayItem { Value = 5 } },
+			{ "Dice_6", static () => new DiceDisplayItem { Value = 6 } },
+			{ "Dice_7", static () => new DiceDisplayItem { Value = 7 } },
+			{ "Dice_8", static () => new DiceDisplayItem { Value = 8 } }
+		};
 }

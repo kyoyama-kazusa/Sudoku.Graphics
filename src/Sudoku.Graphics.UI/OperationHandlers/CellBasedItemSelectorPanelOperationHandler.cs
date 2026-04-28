@@ -12,6 +12,11 @@ public abstract class CellBasedItemSelectorPanelOperationHandler : OperationHand
 	public abstract ItemType ItemType { get; }
 
 	/// <summary>
+	/// Indicates the default changed button to be checked.
+	/// </summary>
+	public virtual MouseButton ChangedButton => MouseButton.Right;
+
+	/// <summary>
 	/// Represents a method that selects the target <see cref="ItemSelectorPanel"/> defined in the specified window.
 	/// </summary>
 	public abstract Func<MainWindow, ItemSelectorPanel> PanelSelector { get; }
@@ -27,9 +32,9 @@ public abstract class CellBasedItemSelectorPanelOperationHandler : OperationHand
 	public abstract Func<object?, Absolute, Item?> ItemFactory { get; }
 
 	/// <summary>
-	/// Indicates the default changed button to be checked.
+	/// Indicates icon display item lookup, indexed by the source path.
 	/// </summary>
-	public virtual MouseButton ChangedButton => MouseButton.Right;
+	public abstract IReadOnlyDictionary<string, Func<IIconDisplayItem>> IconDisplayItemFactory { get; }
 
 
 	/// <inheritdoc/>
@@ -38,6 +43,8 @@ public abstract class CellBasedItemSelectorPanelOperationHandler : OperationHand
 		var panel = PanelSelector(context.OwnerWindow);
 		panel.OperationHandlerContext = context;
 		panel.SelectedItemChanged += Panel_SelectedItemChanged;
+
+		LoadPictureFromLocalPath(panel);
 	}
 
 	/// <inheritdoc/>
@@ -80,5 +87,40 @@ public abstract class CellBasedItemSelectorPanelOperationHandler : OperationHand
 
 		sender.SelectedItemChanged -= Panel_SelectedItemChanged;
 		panel.OperationHandlerContext = null;
+	}
+
+	private void LoadPictureFromLocalPath(ItemSelectorPanel panel)
+	{
+		var values = new ObservableCollection<IIconDisplayItem>();
+		foreach (var (fileName, instanceFactory) in IconDisplayItemFactory)
+		{
+			var instance = instanceFactory();
+			using var canvas = new Canvas(
+				new SpecifiedTemplate(
+					new()
+					{
+						CellSize = 120,
+						Margin = 15,
+						TemplateSize = new() { RowsCount = 1, ColumnsCount = 1 }
+					}
+				)
+			);
+			canvas.DrawItem(ItemFactory(instance, 0)!);
+
+			using var image = canvas.Surface.Snapshot();
+			using var data = image.Encode(SKEncodedImageFormat.Png, 100);
+			var stream = data.AsStream();
+			var bitmap = new BitmapImage();
+			bitmap.BeginInit();
+			bitmap.CacheOption = BitmapCacheOption.OnLoad;
+			bitmap.StreamSource = stream;
+			bitmap.EndInit();
+			bitmap.Freeze();
+			instance.Icon = bitmap;
+
+			values.Add(instance);
+		}
+
+		panel.ItemsSource = values;
 	}
 }

@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a dice display item.
 /// </summary>
-public sealed class DiceDisplayItem
+public sealed class DiceDisplayItem : IIconDisplayItem
 {
 	/// <summary>
 	/// Indicates the value.
@@ -14,4 +14,7 @@ public sealed class DiceDisplayItem
 	/// Indicates display string of value.
 	/// </summary>
 	public string ValueString => (Value + 1).ToString();
+
+	/// <inheritdoc/>
+	public ImageSource? Icon { get; set; }
 }

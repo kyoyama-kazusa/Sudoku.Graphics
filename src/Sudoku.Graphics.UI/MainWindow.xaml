@@ -118,8 +118,7 @@
 				<c:ItemSelectorPanel
 					x:Name="TetrisSelectorPanel"
 					Style="{StaticResource PanelStyle}"
-					ColumnsCount="4"
-					ItemsSource="{StaticResource BuiltInTetrominoes}">
+					ColumnsCount="4">
 					<c:ItemSelectorPanel.ItemTemplate>
 						<DataTemplate DataType="vm:TetrominoDisplayItem">
 							<Image Source="{Binding Icon}" />
@@ -133,11 +132,10 @@
 				<c:ItemSelectorPanel
 					x:Name="DiceSelectorPanel"
 					Style="{StaticResource PanelStyle}"
-					ColumnsCount="3"
-					ItemsSource="{StaticResource BuiltInDices}">
+					ColumnsCount="3">
 					<c:ItemSelectorPanel.ItemTemplate>
 						<DataTemplate DataType="vm:DiceDisplayItem">
-							<TextBlock Text="{Binding ValueString}" />
+							<Image Source="{Binding Icon}" />
 						</DataTemplate>
 					</c:ItemSelectorPanel.ItemTemplate>
 				</c:ItemSelectorPanel>
@@ -172,11 +170,10 @@
 				<c:ItemSelectorPanel
 					x:Name="SurroundingTrianglesPanel"
 					Style="{StaticResource PanelStyle}"
-					ColumnsCount="6"
-					ItemsSource="{StaticResource BuiltInSurroundingTriangles}">
+					ColumnsCount="6">
 					<c:ItemSelectorPanel.ItemTemplate>
 						<DataTemplate DataType="vm:SurroundingTrianglesDisplayItem">
-							<Image Source="{Binding Source}" />
+							<Image Source="{Binding Icon}" />
 						</DataTemplate>
 					</c:ItemSelectorPanel.ItemTemplate>
 				</c:ItemSelectorPanel>
@@ -187,11 +184,10 @@
 				<c:ItemSelectorPanel
 					x:Name="PolygonPanel"
 					Style="{StaticResource PanelStyle}"
-					ColumnsCount="6"
-					ItemsSource="{StaticResource BuiltInPolygons}">
+					ColumnsCount="6">
 					<c:ItemSelectorPanel.ItemTemplate>
 						<DataTemplate DataType="vm:PolygonDisplayItem">
-							<Image Source="{Binding Source}" />
+							<Image Source="{Binding Icon}" />
 						</DataTemplate>
 					</c:ItemSelectorPanel.ItemTemplate>
 				</c:ItemSelectorPanel>
@@ -202,11 +198,10 @@
 				<c:ItemSelectorPanel
 					x:Name="MoonPhasePanel"
 					Style="{StaticResource PanelStyle}"
-					ColumnsCount="6"
-					ItemsSource="{StaticResource BuiltInMoonPhases}">
+					ColumnsCount="6">
 					<c:ItemSelectorPanel.ItemTemplate>
 						<DataTemplate DataType="vm:MoonPhaseDisplayItem">
-							<Image Source="{Binding Source}" />
+							<Image Source="{Binding Icon}" />
 						</DataTemplate>
 					</c:ItemSelectorPanel.ItemTemplate>
 				</c:ItemSelectorPanel>

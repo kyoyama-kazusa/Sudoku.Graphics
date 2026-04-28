@@ -21,8 +21,10 @@ internal static class ReservedPaths
 	/// </summary>
 	static ReservedPaths()
 	{
+		const string rootFolderName = "SudokuGraphics";
+
 		var myDocuments = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-		ConfigFolderPath = Path.Combine(myDocuments, "SudokuGraphics");
+		ConfigFolderPath = Path.Combine(myDocuments, rootFolderName);
 		ConfigFilePath = Path.Combine(ConfigFolderPath, "config.json");
 	}
 }

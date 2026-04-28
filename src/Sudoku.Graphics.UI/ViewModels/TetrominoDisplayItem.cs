@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a tetromino display item.
 /// </summary>
-public sealed class TetrominoDisplayItem
+public sealed class TetrominoDisplayItem : IIconDisplayItem
 {
 	/// <summary>
 	/// Indicates the item type.
@@ -15,8 +15,6 @@ public sealed class TetrominoDisplayItem
 	/// </summary>
 	public TetrominoRotationType RotationType { get; set; }
 
-	/// <summary>
-	/// Indicates the icon to be diplayed.
-	/// </summary>
+	/// <inheritdoc/>
 	public ImageSource? Icon { get; set; }
 }

@@ -22,4 +22,15 @@ public sealed class CellMoonPhaseOperatonHandler : CellBasedItemSelectorPanelOpe
 			MoonPhaseDisplayItem { Phase: var phase } => ItemsFactory.MoonPhase(cell, phase),
 			_ => null
 		};
+
+	/// <inheritdoc/>
+	public override IReadOnlyDictionary<string, Func<IIconDisplayItem>> IconDisplayItemFactory
+		=> new Dictionary<string, Func<IIconDisplayItem>>
+		{
+			{ "MoonPhase_LowerHalf_Curve", static () => new MoonPhaseDisplayItem { Phase = MoonPhase.LowerHalf_Curve } },
+			{ "MoonPhase_LowerHalf_Line", static () => new MoonPhaseDisplayItem { Phase = MoonPhase.LowerHalf_Line } },
+			{ "MoonPhase_UpperHalf_Curve", static () => new MoonPhaseDisplayItem { Phase = MoonPhase.UpperHalf_Curve } },
+			{ "MoonPhase_UpperHalf_Line", static () => new MoonPhaseDisplayItem { Phase = MoonPhase.UpperHalf_Line } },
+			{ "MoonPhase_Full", static () => new MoonPhaseDisplayItem { Phase = MoonPhase.Full } },
+		};
 }

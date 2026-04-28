@@ -3,15 +3,13 @@
 /// <summary>
 /// Represents a moon phase display item.
 /// </summary>
-public sealed class MoonPhaseDisplayItem
+public sealed class MoonPhaseDisplayItem : IIconDisplayItem
 {
 	/// <summary>
 	/// Indicates moon phase.
 	/// </summary>
 	public MoonPhase Phase { get; set; }
 
-	/// <summary>
-	/// Indicates image source.
-	/// </summary>
-	public ImageSource? Source { get; set; }
+	/// <inheritdoc/>
+	public ImageSource? Icon { get; set; }
 }
