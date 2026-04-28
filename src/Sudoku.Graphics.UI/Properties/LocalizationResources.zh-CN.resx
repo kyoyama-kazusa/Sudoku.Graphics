@@ -301,4 +301,7 @@
   <data name="ItemType_Cell_Polygon" xml:space="preserve">
     <value>多边形</value>
   </data>
+  <data name="ItemType_Cell_MoonPhase" xml:space="preserve">
+    <value>月相</value>
+  </data>
 </root>

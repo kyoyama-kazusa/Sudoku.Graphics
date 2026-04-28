@@ -154,4 +154,16 @@ public static class ItemsFactory
 			FillColor = ResolveProperty(() => App.UserPreferences.CellPolygonFillColor),
 			RotationDegree = 0
 		};
+
+	public static CellMoonPhaseMarkItem MoonPhase(Absolute cell, MoonPhase phase)
+		=> new()
+		{
+			TemplateIndex = 0,
+			Cell = cell,
+			Phase = phase,
+			SizeScale = ResolveProperty(() => App.UserPreferences.CellMoonPhaseSizeScale),
+			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellMoonPhaseStrokeWidthScale),
+			StrokeColor = ResolveProperty(() => App.UserPreferences.CellMoonPhaseStrokeColor),
+			FillColor = ResolveProperty(() => App.UserPreferences.CellMoonPhaseFillColor),
+		};
 }

@@ -340,6 +340,15 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Moon phase.
+        /// </summary>
+        public static string ItemType_Cell_MoonPhase {
+            get {
+                return ResourceManager.GetString("ItemType_Cell_MoonPhase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dice (Matrix).
         /// </summary>
         public static string ItemType_Cell_PhantomDice {

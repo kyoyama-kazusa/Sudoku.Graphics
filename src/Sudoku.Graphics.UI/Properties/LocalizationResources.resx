@@ -306,4 +306,7 @@
   <data name="ItemType_Cell_Polygon" xml:space="preserve">
     <value>Polygon</value>
   </data>
+  <data name="ItemType_Cell_MoonPhase" xml:space="preserve">
+    <value>Moon phase</value>
+  </data>
 </root>

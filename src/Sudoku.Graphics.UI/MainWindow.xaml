@@ -197,6 +197,21 @@
 				</c:ItemSelectorPanel>
 			</Border>
 		</Popup>
+		<Popup x:Name="MoonPhasePopup">
+			<Border Style="{StaticResource PopupBorderStyle}">
+				<c:ItemSelectorPanel
+					x:Name="MoonPhasePanel"
+					Style="{StaticResource PanelStyle}"
+					ColumnsCount="6"
+					ItemsSource="{StaticResource BuiltInMoonPhases}">
+					<c:ItemSelectorPanel.ItemTemplate>
+						<DataTemplate DataType="vm:MoonPhaseDisplayItem">
+							<Image Source="{Binding Source}" />
+						</DataTemplate>
+					</c:ItemSelectorPanel.ItemTemplate>
+				</c:ItemSelectorPanel>
+			</Border>
+		</Popup>
 		<!--#endregion-->
 
 		<!--#region Grid view-->

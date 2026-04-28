@@ -26,6 +26,7 @@
 				<vm:ToolItem ItemType="Cell_Dice" Icon="/Assets/ToolItems/ToolItem_Cell_Dice.png" />
 				<vm:ToolItem ItemType="Cell_PhantomDice" Icon="/Assets/ToolItems/ToolItem_Cell_PhantomDice.png" />
 				<vm:ToolItem ItemType="Cell_Tetris" Icon="/Assets/ToolItems/ToolItem_Cell_Tetris.png" />
+				<vm:ToolItem ItemType="Cell_MoonPhase" Icon="/Assets/ToolItems/ToolItem_Cell_MoonPhase.png" />
 			</vm:ToolItemGroup>
 		</vm:ToolItemGroupCollection>
 
@@ -111,6 +112,17 @@
 			<vm:PolygonDisplayItem SidesCount="7" IsConcave="True" Source="/Assets/Icons/Polygon_7_Concave.png" />
 			<vm:PolygonDisplayItem SidesCount="8" IsConcave="True" Source="/Assets/Icons/Polygon_8_Concave.png" />
 		</vm:PolygonDisplayItemCollection>
+		
+		<!--
+		Built-in moon phases
+		-->
+		<vm:MoonPhaseDisplayItemCollection x:Key="BuiltInMoonPhases">
+			<vm:MoonPhaseDisplayItem Phase="LowerHalf_Curve" Source="/Assets/Icons/MoonPhase_1.png" />
+			<vm:MoonPhaseDisplayItem Phase="LowerHalf_Line" Source="/Assets/Icons/MoonPhase_2.png" />
+			<vm:MoonPhaseDisplayItem Phase="UpperHalf_Curve" Source="/Assets/Icons/MoonPhase_3.png" />
+			<vm:MoonPhaseDisplayItem Phase="UpperHalf_Line" Source="/Assets/Icons/MoonPhase_4.png" />
+			<vm:MoonPhaseDisplayItem Phase="Full" Source="/Assets/Icons/MoonPhase_5.png" />
+		</vm:MoonPhaseDisplayItemCollection>
 
 		<!--Preferences-->
 		<config:Preferences x:Key="UserPreferences" />
