@@ -11,5 +11,5 @@ public sealed class CellSquareOperationHandler : CellShapeOperationHandler
 	public override ItemType ItemType => ItemType.Cell_Square;
 
 	/// <inheritdoc/>
-	public override Func<Absolute, CellMarkItem> ItemFactory => ItemsFactory.Square;
+	public override Func<Absolute, CellShapeMarkItem> ItemFactory => ItemsFactory.Square;
 }
