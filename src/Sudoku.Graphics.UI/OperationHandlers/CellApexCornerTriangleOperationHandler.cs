@@ -20,6 +20,9 @@ public sealed class CellApexCornerTriangleOperationHandler : CellBasedItemSelect
 		];
 
 	/// <inheritdoc/>
+	protected override DuplicateLevel ItemDuplicateLevel => DuplicateLevel.Item;
+
+	/// <inheritdoc/>
 	protected override Func<object?, Absolute, Item?> ItemFactory
 		=> static (item, cell) => item is CellApexCornerTriangleDisplayItem { Alignment: var alignment } ? ItemsFactory.CellApexCornerTriangle(cell, alignment) : null;
 

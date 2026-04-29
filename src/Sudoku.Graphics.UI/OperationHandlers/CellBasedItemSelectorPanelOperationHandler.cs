@@ -4,7 +4,7 @@
 /// Represents an operation handler that produces instances that can be selected using <see cref="ItemSelectorPanel"/>.
 /// </summary>
 /// <seealso cref="ItemSelectorPanel"/>
-public abstract class CellBasedItemSelectorPanelOperationHandler : OperationHandler
+public abstract partial class CellBasedItemSelectorPanelOperationHandler : OperationHandler
 {
 	/// <summary>
 	/// Indicates the item type supported.
@@ -20,6 +20,11 @@ public abstract class CellBasedItemSelectorPanelOperationHandler : OperationHand
 	/// Indicates icon display item lookup, indexed by the source path.
 	/// </summary>
 	protected abstract ReadOnlySpan<Func<IIconDisplayItem>> IconsFactory { get; }
+
+	/// <summary>
+	/// Represents duplicate level on filtering duplicate items to remove before adding a new item.
+	/// </summary>
+	protected virtual DuplicateLevel ItemDuplicateLevel => DuplicateLevel.CellOnlyCurrentItemType;
 
 	/// <summary>
 	/// Represents a method that selects the target <see cref="ItemSelectorPanel"/> defined in the specified window.
@@ -82,10 +87,43 @@ public abstract class CellBasedItemSelectorPanelOperationHandler : OperationHand
 				if (item is null)
 				{
 					items.Clear(cell, ItemType);
+					return;
 				}
-				else
+
+				var exists = items.Contains(item);
+				switch (ItemDuplicateLevel, item)
 				{
-					items.Add(item);
+					case (DuplicateLevel.Item, _):
+					{
+						if (!items.Remove(item))
+						{
+							goto default;
+						}
+						break;
+					}
+					case (DuplicateLevel.CellAllTypes, IItem_CellProperty { Cell: var c }):
+					{
+						items.Clear(c);
+						if (!exists)
+						{
+							goto default;
+						}
+						break;
+					}
+					case (DuplicateLevel.CellOnlyCurrentItemType, IItem_CellProperty { Cell: var c }):
+					{
+						items.Clear(c, ItemType);
+						if (!exists)
+						{
+							goto default;
+						}
+						break;
+					}
+					default:
+					{
+						items.Add(item);
+						break;
+					}
 				}
 			}
 		);
