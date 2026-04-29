@@ -133,7 +133,7 @@ public abstract partial class CellBasedItemSelectorPanelOperationHandler : Opera
 		foreach (var instanceFactory in IconsFactory)
 		{
 			var instance = instanceFactory();
-			using var canvas = new Canvas(new SpecifiedTemplate(new() { CellSize = 120, Margin = 15, TemplateSize = new() { RowsCount = 1, ColumnsCount = 1 } }));
+			using var canvas = Canvas.SampleCanvas;
 			canvas.DrawItem(ItemFactory(instance, 0)!);
 
 			using var image = canvas.Surface.Snapshot();

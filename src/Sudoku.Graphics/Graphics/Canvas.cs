@@ -55,6 +55,13 @@ public sealed class Canvas : IDisposable
 
 
 	/// <summary>
+	/// Represents a sample canvas.
+	/// </summary>
+	public static Canvas SampleCanvas
+		=> new(new SpecifiedTemplate(new() { CellSize = 120, Margin = 15, TemplateSize = new() { RowsCount = 1, ColumnsCount = 1 } }));
+
+
+	/// <summary>
 	/// Try to draw the specified item onto the current canvas.
 	/// </summary>
 	/// <param name="item">The item to draw.</param>

@@ -253,6 +253,11 @@
             Indicates backing canvas.
             </summary>
         </member>
+        <member name="P:Sudoku.Graphics.Canvas.SampleCanvas">
+            <summary>
+            Represents a sample canvas.
+            </summary>
+        </member>
         <member name="M:Sudoku.Graphics.Canvas.DrawItem(Sudoku.Graphics.Item)">
             <summary>
             Try to draw the specified item onto the current canvas.
