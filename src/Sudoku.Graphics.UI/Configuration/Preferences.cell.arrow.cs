@@ -8,11 +8,6 @@ internal partial class Preferences
 	public Inherited<Scale> CellArrowSizeScale { get; set; } = Inherited<Scale>.FromPropertyName(nameof(CellShapeSizeScale));
 
 	/// <summary>
-	/// Indicates the cell arrow base scale, related to cell size.
-	/// </summary>
-	public Inherited<Scale> CellArrowBaseScale { get; set; } = Inherited<Scale>.FromValue(0.5M);
-
-	/// <summary>
 	/// Indicates the cell arrow stroke width scale, related to cell size.
 	/// </summary>
 	public Inherited<Scale> CellArrowStrokeWidthScale { get; set; } = Inherited<Scale>.FromPropertyName(nameof(CellShapeStrokeWidthScale));
