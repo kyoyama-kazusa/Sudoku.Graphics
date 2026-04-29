@@ -292,7 +292,7 @@
     <value>Dice (Matrix)</value>
   </data>
   <data name="ItemType_Cell_SurroundingTriangles" xml:space="preserve">
-    <value>Surrounding triangles</value>
+    <value>Triangle group</value>
   </data>
   <data name="ItemType_Cell_Square" xml:space="preserve">
     <value>Square</value>
@@ -313,9 +313,12 @@
     <value>Triangle</value>
   </data>
   <data name="ItemType_Cell_ArrowTriangle" xml:space="preserve">
-    <value>Arrow triangle</value>
+    <value>Triangle (Arrow)</value>
   </data>
   <data name="ItemType_Cell_Arrow" xml:space="preserve">
     <value>Arrow</value>
+  </data>
+  <data name="ItemType_Cell_ApexCornerTriangle" xml:space="preserve">
+    <value>Triangle (Corner)</value>
   </data>
 </root>

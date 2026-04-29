@@ -313,6 +313,15 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Triangle (Corner).
+        /// </summary>
+        public static string ItemType_Cell_ApexCornerTriangle {
+            get {
+                return ResourceManager.GetString("ItemType_Cell_ApexCornerTriangle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Arrow.
         /// </summary>
         public static string ItemType_Cell_Arrow {
@@ -322,7 +331,7 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Arrow triangle.
+        ///   Looks up a localized string similar to Triangle (Arrow).
         /// </summary>
         public static string ItemType_Cell_ArrowTriangle {
             get {
@@ -394,7 +403,7 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Surrounding triangles.
+        ///   Looks up a localized string similar to Triangle group.
         /// </summary>
         public static string ItemType_Cell_SurroundingTriangles {
             get {

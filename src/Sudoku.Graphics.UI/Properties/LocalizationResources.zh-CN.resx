@@ -287,7 +287,7 @@
     <value>骰子点数（矩阵）</value>
   </data>
   <data name="ItemType_Cell_SurroundingTriangles" xml:space="preserve">
-    <value>绕圈分布的三角形</value>
+    <value>三角形组</value>
   </data>
   <data name="ItemType_Cell_Square" xml:space="preserve">
     <value>正方形</value>
@@ -305,12 +305,15 @@
     <value>月相</value>
   </data>
   <data name="ItemType_Cell_Triangle" xml:space="preserve">
-    <value>三角形</value>
+    <value>三角</value>
   </data>
   <data name="ItemType_Cell_ArrowTriangle" xml:space="preserve">
-    <value>三角形箭头</value>
+    <value>三角（箭头）</value>
   </data>
   <data name="ItemType_Cell_Arrow" xml:space="preserve">
     <value>箭头（图形）</value>
+  </data>
+  <data name="ItemType_Cell_ApexCornerTriangle" xml:space="preserve">
+    <value>三角（靠边角）</value>
   </data>
 </root>

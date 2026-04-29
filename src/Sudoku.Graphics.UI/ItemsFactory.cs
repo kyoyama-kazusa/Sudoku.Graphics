@@ -207,4 +207,17 @@ public static class ItemsFactory
 			StrokeColor = ResolveProperty(() => App.UserPreferences.CellArrowStrokeColor),
 			FillColor = ResolveProperty(() => App.UserPreferences.CellArrowFillColor)
 		};
+
+	public static CellApexCornerTriangleMarkItem CellApexCornerTriangle(Absolute cell, Alignment cornerAlignement, bool isSample = false)
+		=> new()
+		{
+			TemplateIndex = 0,
+			Cell = cell,
+			CornerAlignment = cornerAlignement,
+			PaddingScale = ResolveProperty(() => App.UserPreferences.CellApexCornerTrianglePaddingScale),
+			SizeScale = isSample ? 1M : ResolveProperty(() => App.UserPreferences.CellApexCornerTriangleSizeScale),
+			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellApexCornerTriangleStrokeWidthScale),
+			StrokeColor = ResolveProperty(() => App.UserPreferences.CellApexCornerTriangleStrokeColor),
+			FillColor = ResolveProperty(() => App.UserPreferences.CellApexCornerTriangleFillColor)
+		};
 }
