@@ -313,6 +313,15 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Arrow.
+        /// </summary>
+        public static string ItemType_Cell_Arrow {
+            get {
+                return ResourceManager.GetString("ItemType_Cell_Arrow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Arrow triangle.
         /// </summary>
         public static string ItemType_Cell_ArrowTriangle {

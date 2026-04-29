@@ -2,10 +2,11 @@
 
 /// <summary>
 /// Represents cell triangle display item. This type will be used by creating
-/// both types <see cref="CellTriangleMarkItem"/> and <see cref="CellArrowTriangleMarkItem"/>.
+/// types <see cref="CellTriangleMarkItem"/>, <see cref="CellArrowTriangleMarkItem"/> and <see cref="CellArrowMarkItem"/>.
 /// </summary>
 /// <seealso cref="CellTriangleMarkItem"/>
 /// <seealso cref="CellArrowTriangleMarkItem"/>
+/// <seealso cref="CellArrowMarkItem"/>
 public sealed class CellTriagleDisplayItem : IIconDisplayItem
 {
 	/// <summary>

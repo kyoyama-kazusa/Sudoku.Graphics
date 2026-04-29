@@ -10,10 +10,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <None Remove="Assets\ToolItems\ToolItem_Cell_ArrowTriangle.png" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
 		<PackageReference Include="SkiaSharp.Views.WPF" Version="3.119.3-preview.1.1" />
 	</ItemGroup>
@@ -23,8 +19,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Resource Include="Assets\ToolItems\ToolItem_Cell_Arrow.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
 		<Resource Include="Assets\ToolItems\ToolItem_Cell_ArrowTriangle.png">
-		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
 		<Resource Include="Assets\ToolItems\ToolItem_Cell_Circle.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>

@@ -235,6 +235,20 @@
 				</c:ItemSelectorPanel>
 			</Border>
 		</Popup>
+		<Popup x:Name="CellArrowPopup">
+			<Border Style="{StaticResource PopupBorderStyle}">
+				<c:ItemSelectorPanel
+					x:Name="CellArrowPanel"
+					Style="{StaticResource PanelStyle}"
+					ColumnsCount="4">
+					<c:ItemSelectorPanel.ItemTemplate>
+						<DataTemplate DataType="vm:CellTriagleDisplayItem">
+							<Image Source="{Binding Icon}" />
+						</DataTemplate>
+					</c:ItemSelectorPanel.ItemTemplate>
+				</c:ItemSelectorPanel>
+			</Border>
+		</Popup>
 		<!--#endregion-->
 
 		<!--#region Grid view-->

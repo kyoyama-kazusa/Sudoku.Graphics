@@ -191,4 +191,20 @@ public static class ItemsFactory
 			StrokeColor = ResolveProperty(() => App.UserPreferences.CellTriangleStrokeColor),
 			FillColor = ResolveProperty(() => App.UserPreferences.CellTriangleFillColor)
 		};
+
+	public static CellArrowMarkItem CellArrow(Absolute cell, Direction8 direction, bool isSample = false)
+		=> new()
+		{
+			TemplateIndex = 0,
+			Cell = cell,
+			Direction = direction,
+			TriangleWidthScale = .75M,
+			TriangleHeightScale = .375M,
+			ShaftWidthScale = .375M,
+			ShaftHeightScale = .375M,
+			SizeScale = isSample ? 1M : ResolveProperty(() => App.UserPreferences.CellTriangleSizeScale),
+			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellTriangleStrokeWidthScale),
+			StrokeColor = ResolveProperty(() => App.UserPreferences.CellTriangleStrokeColor),
+			FillColor = ResolveProperty(() => App.UserPreferences.CellTriangleFillColor)
+		};
 }
