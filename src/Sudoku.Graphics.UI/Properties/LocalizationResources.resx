@@ -309,4 +309,7 @@
   <data name="ItemType_Cell_MoonPhase" xml:space="preserve">
     <value>Moon phase</value>
   </data>
+  <data name="ItemType_Cell_Triangle" xml:space="preserve">
+    <value>Triangle</value>
+  </data>
 </root>

@@ -394,6 +394,15 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Triangle.
+        /// </summary>
+        public static string ItemType_Cell_Triangle {
+            get {
+                return ResourceManager.GetString("ItemType_Cell_Triangle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Default.
         /// </summary>
         public static string ItemType_None {

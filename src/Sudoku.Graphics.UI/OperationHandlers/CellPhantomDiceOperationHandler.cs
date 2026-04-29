@@ -5,7 +5,7 @@
 /// </summary>
 /// <seealso cref="CellPhantomDiceMarkItem"/>
 [OperationHandler(ItemType.Cell_PhantomDice)]
-public sealed class PhantomDiceOperationHandler : OperationHandler
+public sealed class CellPhantomDiceOperationHandler : OperationHandler
 {
 	/// <inheritdoc/>
 	protected internal override void OnMouseButtonPressed(OperationHandlerContext context)

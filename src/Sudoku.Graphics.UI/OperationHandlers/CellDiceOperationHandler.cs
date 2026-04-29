@@ -5,7 +5,7 @@
 /// </summary>
 /// <seealso cref="CellDiceMarkItem"/>
 [OperationHandler(ItemType.Cell_Dice)]
-public sealed class DiceOperationHandler : CellBasedItemSelectorPanelOperationHandler
+public sealed class CellDiceOperationHandler : CellBasedItemSelectorPanelOperationHandler
 {
 	/// <inheritdoc/>
 	public override ItemType ItemType => ItemType.Cell_Dice;

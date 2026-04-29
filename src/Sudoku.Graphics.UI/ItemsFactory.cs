@@ -166,4 +166,16 @@ public static class ItemsFactory
 			StrokeColor = ResolveProperty(() => App.UserPreferences.CellMoonPhaseStrokeColor),
 			FillColor = ResolveProperty(() => App.UserPreferences.CellMoonPhaseFillColor),
 		};
+
+	public static CellTriangleMarkItem CellTriangle(Absolute cell, Direction8 direction, bool isSample = false)
+		=> new()
+		{
+			TemplateIndex = 0,
+			Cell = cell,
+			Direction = direction,
+			SizeScale = isSample ? 1M : ResolveProperty(() => App.UserPreferences.CellTriangleSizeScale),
+			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellTriangleStrokeWidthScale),
+			StrokeColor = ResolveProperty(() => App.UserPreferences.CellTriangleStrokeColor),
+			FillColor = ResolveProperty(() => App.UserPreferences.CellTriangleFillColor)
+		};
 }

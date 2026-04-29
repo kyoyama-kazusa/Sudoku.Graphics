@@ -5,7 +5,7 @@
 /// </summary>
 /// <seealso cref="CellTetrisMarkItem"/>
 [OperationHandler(ItemType.Cell_Tetris)]
-public sealed class TetrisOperationHandler : CellBasedItemSelectorPanelOperationHandler
+public sealed class CellTetrisOperationHandler : CellBasedItemSelectorPanelOperationHandler
 {
 	/// <inheritdoc/>
 	public override ItemType ItemType => ItemType.Cell_Tetris;

@@ -59,7 +59,7 @@ public abstract record CellTextMarkItem : CellMarkItem
 			FontSlant,
 			StrokeColor,
 			FillColor,
-			RotationDirection.RotationDegrees,
+			RotationDirection.RotationDegree,
 			AlignedDirection,
 			canvas.Templates[TemplateIndex].Mapper
 		);

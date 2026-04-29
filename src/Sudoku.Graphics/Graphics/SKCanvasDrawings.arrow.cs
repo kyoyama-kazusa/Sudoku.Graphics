@@ -156,7 +156,7 @@ file static class ArrowPainterHelper
 		var tip = new SKPoint(cx, cy - halfLength);
 		var baseLeft = new SKPoint(cx - baseWidth / 2, cy + halfLength);
 		var baseRight = new SKPoint(cx + baseWidth / 2, cy + halfLength);
-		var angleDeg = direction.RotationDegrees;
+		var angleDeg = direction.RotationDegree;
 		var rotatedTip = rotateAround(tip, new(cx, cy), angleDeg);
 		var rotatedBaseLeft = rotateAround(baseLeft, new(cx, cy), angleDeg);
 		var rotatedBaseRight = rotateAround(baseRight, new(cx, cy), angleDeg);
@@ -258,7 +258,7 @@ file static class ArrowPainterHelper
 		var shaftTopRightPoint = new SKPoint(halfShaftWidth, baseY);
 
 		// Transform to center point.
-		var angleDegree = direction.RotationDegrees;
+		var angleDegree = direction.RotationDegree;
 		tipPoint = rotateAndTranslate(tipPoint, angleDegree, cx, cy);
 		baseLeftPoint = rotateAndTranslate(baseLeftPoint, angleDegree, cx, cy);
 		shaftTopLeftPoint = rotateAndTranslate(shaftTopLeftPoint, angleDegree, cx, cy);

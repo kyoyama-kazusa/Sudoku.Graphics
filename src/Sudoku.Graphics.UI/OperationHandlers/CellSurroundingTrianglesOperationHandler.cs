@@ -5,7 +5,7 @@
 /// </summary>
 /// <seealso cref="CellSurroundingTrianglesMarkItem"/>
 [OperationHandler(ItemType.Cell_SurroundingTriangles)]
-public sealed class SurroundingTrianglesOperationHandler : CellBasedItemSelectorPanelOperationHandler
+public sealed class CellSurroundingTrianglesOperationHandler : CellBasedItemSelectorPanelOperationHandler
 {
 	/// <inheritdoc/>
 	public override ItemType ItemType => ItemType.Cell_SurroundingTriangles;
@@ -23,10 +23,7 @@ public sealed class SurroundingTrianglesOperationHandler : CellBasedItemSelector
 
 	/// <inheritdoc/>
 	protected override Func<object?, Absolute, Item?> ItemFactory
-		=> static (item, cell) =>
-			item is SurroundingTrianglesDisplayItem { Value: var value }
-				? ItemsFactory.SurroundingTriangles(cell, value)
-				: null;
+		=> static (item, cell) => item is SurroundingTrianglesDisplayItem { Value: var value } ? ItemsFactory.SurroundingTriangles(cell, value) : null;
 
 	/// <inheritdoc/>
 	protected override Func<MainWindow, Popup> PopupSelector => static window => window.SurroundingTrianglesPopup;

@@ -676,8 +676,8 @@
         <member name="M:Sudoku.Graphics.Directions.Direction8Extensions.get_ArrowString(Sudoku.Graphics.Directions.Direction8)">
             <inheritdoc cref="P:Sudoku.Graphics.Directions.Direction8Extensions.&lt;G&gt;$1C31DA024E5B9271B9DAD708D064BAF2.ArrowString"/>
         </member>
-        <member name="M:Sudoku.Graphics.Directions.Direction8Extensions.get_RotationDegrees(Sudoku.Graphics.Directions.Direction8)">
-            <inheritdoc cref="P:Sudoku.Graphics.Directions.Direction8Extensions.&lt;G&gt;$1C31DA024E5B9271B9DAD708D064BAF2.RotationDegrees"/>
+        <member name="M:Sudoku.Graphics.Directions.Direction8Extensions.get_RotationDegree(Sudoku.Graphics.Directions.Direction8)">
+            <inheritdoc cref="P:Sudoku.Graphics.Directions.Direction8Extensions.&lt;G&gt;$1C31DA024E5B9271B9DAD708D064BAF2.RotationDegree"/>
         </member>
         <member name="T:Sudoku.Graphics.Directions.Direction8Extensions.&lt;G&gt;$1C31DA024E5B9271B9DAD708D064BAF2.&lt;M&gt;$86966439171B911499FB08F171AECF45">
             <param name="this">The current instance.</param>
@@ -696,9 +696,9 @@
             </exception>
             <seealso cref="F:Sudoku.Graphics.Directions.Direction8.None"/>
         </member>
-        <member name="P:Sudoku.Graphics.Directions.Direction8Extensions.&lt;G&gt;$1C31DA024E5B9271B9DAD708D064BAF2.RotationDegrees">
+        <member name="P:Sudoku.Graphics.Directions.Direction8Extensions.&lt;G&gt;$1C31DA024E5B9271B9DAD708D064BAF2.RotationDegree">
             <summary>
-            Indicates the degrees of the specified direction, in angle.
+            Indicates the rotation degree of the specified direction, in angle.
             </summary>
             <exception cref="T:System.ArgumentOutOfRangeException">Throws when the current instance is not defined.</exception>
             <seealso cref="F:Sudoku.Graphics.Directions.Direction8.None"/>

@@ -304,4 +304,7 @@
   <data name="ItemType_Cell_MoonPhase" xml:space="preserve">
     <value>月相</value>
   </data>
+  <data name="ItemType_Cell_Triangle" xml:space="preserve">
+    <value>三角形</value>
+  </data>
 </root>

@@ -31,6 +31,7 @@ global using CommunityToolkit.Mvvm.Input;
 global using Microsoft.Win32;
 global using SkiaSharp;
 global using SkiaSharp.Views.WPF;
+global using Sudoku.Graphics.Directions;
 global using Sudoku.Graphics.Items.CellMarks;
 global using Sudoku.Graphics.Items.Fills;
 global using Sudoku.Graphics.Items.Lines;

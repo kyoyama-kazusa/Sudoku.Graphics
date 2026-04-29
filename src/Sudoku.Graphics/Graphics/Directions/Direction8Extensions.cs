@@ -36,11 +36,11 @@ public static class Direction8Extensions
 			};
 
 		/// <summary>
-		/// Indicates the degrees of the specified direction, in angle.
+		/// Indicates the rotation degree of the specified direction, in angle.
 		/// </summary>
 		/// <exception cref="ArgumentOutOfRangeException">Throws when the current instance is not defined.</exception>
 		/// <seealso cref="Direction8.None"/>
-		public float RotationDegrees
+		public float RotationDegree
 			=> @this switch
 			{
 				Direction8.Up or Direction8.None => 0,
