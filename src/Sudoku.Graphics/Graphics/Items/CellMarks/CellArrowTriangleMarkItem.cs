@@ -19,10 +19,7 @@ public sealed record CellArrowTriangleMarkItem : CellMarkItem, IItem_DirectionPr
 
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)
-	{
-		var template = canvas.Templates[TemplateIndex];
-		var mapper = template.Mapper;
-		canvas.BackingCanvas.DrawArrowTriangleToCell(
+		=> canvas.BackingCanvas.DrawArrowTriangleToCell(
 			Cell,
 			Direction,
 			SizeScale,
@@ -30,7 +27,6 @@ public sealed record CellArrowTriangleMarkItem : CellMarkItem, IItem_DirectionPr
 			StrokeWidthScale,
 			StrokeColor,
 			FillColor,
-			mapper
+			canvas.Templates[TemplateIndex].Mapper
 		);
-	}
 }

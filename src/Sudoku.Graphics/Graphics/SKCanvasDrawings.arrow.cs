@@ -156,10 +156,10 @@ file static class ArrowPainterHelper
 		var tip = new SKPoint(cx, cy - halfLength);
 		var baseLeft = new SKPoint(cx - baseWidth / 2, cy + halfLength);
 		var baseRight = new SKPoint(cx + baseWidth / 2, cy + halfLength);
-		var angleDeg = direction.RotationDegree;
-		var rotatedTip = rotateAround(tip, new(cx, cy), angleDeg);
-		var rotatedBaseLeft = rotateAround(baseLeft, new(cx, cy), angleDeg);
-		var rotatedBaseRight = rotateAround(baseRight, new(cx, cy), angleDeg);
+		var angleDegree = direction.RotationDegree;
+		var rotatedTip = rotateAround(tip, new(cx, cy), angleDegree);
+		var rotatedBaseLeft = rotateAround(baseLeft, new(cx, cy), angleDegree);
+		var rotatedBaseRight = rotateAround(baseRight, new(cx, cy), angleDegree);
 		var path = new SKPath { FillType = SKPathFillType.EvenOdd };
 		path.MoveTo(rotatedTip);
 		path.LineTo(rotatedBaseLeft);
@@ -175,8 +175,8 @@ file static class ArrowPainterHelper
 			var sine = MathF.Sin(rad);
 			var dx = p.X - center.X;
 			var dy = p.Y - center.Y;
-			var rx = dx * cosine + dy * sine;
-			var ry = -dx * sine + dy * cosine;
+			var rx = dx * cosine - dy * sine;
+			var ry = dx * sine + dy * cosine;
 			return new(center.X + rx, center.Y + ry);
 		}
 	}

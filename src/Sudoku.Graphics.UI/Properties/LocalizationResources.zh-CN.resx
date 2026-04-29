@@ -307,4 +307,7 @@
   <data name="ItemType_Cell_Triangle" xml:space="preserve">
     <value>三角形</value>
   </data>
+  <data name="ItemType_Cell_ArrowTriangle" xml:space="preserve">
+    <value>三角形箭头</value>
+  </data>
 </root>

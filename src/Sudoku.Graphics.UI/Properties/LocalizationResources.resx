@@ -312,4 +312,7 @@
   <data name="ItemType_Cell_Triangle" xml:space="preserve">
     <value>Triangle</value>
   </data>
+  <data name="ItemType_Cell_ArrowTriangle" xml:space="preserve">
+    <value>Arrow triangle</value>
+  </data>
 </root>
