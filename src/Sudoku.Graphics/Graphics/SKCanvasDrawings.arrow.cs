@@ -320,8 +320,8 @@ file static class ArrowPainterHelper
 			var rad = degreesClockwise * MathF.PI / 180;
 			var cosine = MathF.Cos(rad);
 			var sine = MathF.Sin(rad);
-			var rx = p.X * cosine + p.Y * sine;
-			var ry = -p.X * sine + p.Y * cosine;
+			var rx = p.X * cosine - p.Y * sine;
+			var ry = p.X * sine + p.Y * cosine;
 			return new(tx + rx, ty + ry);
 		}
 	}

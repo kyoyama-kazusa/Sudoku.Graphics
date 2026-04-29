@@ -185,11 +185,11 @@ public static class ItemsFactory
 			TemplateIndex = 0,
 			Cell = cell,
 			Direction = direction,
-			BaseScale = 0.5M,
-			SizeScale = isSample ? 1M : ResolveProperty(() => App.UserPreferences.CellTriangleSizeScale),
-			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellTriangleStrokeWidthScale),
-			StrokeColor = ResolveProperty(() => App.UserPreferences.CellTriangleStrokeColor),
-			FillColor = ResolveProperty(() => App.UserPreferences.CellTriangleFillColor)
+			BaseScale = ResolveProperty(() => App.UserPreferences.CellArrowTriangleBaseScale),
+			SizeScale = isSample ? 1M : ResolveProperty(() => App.UserPreferences.CellArrowTriangleSizeScale),
+			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellArrowTriangleStrokeWidthScale),
+			StrokeColor = ResolveProperty(() => App.UserPreferences.CellArrowTriangleStrokeColor),
+			FillColor = ResolveProperty(() => App.UserPreferences.CellArrowTriangleFillColor)
 		};
 
 	public static CellArrowMarkItem CellArrow(Absolute cell, Direction8 direction, bool isSample = false)
@@ -198,13 +198,13 @@ public static class ItemsFactory
 			TemplateIndex = 0,
 			Cell = cell,
 			Direction = direction,
-			TriangleWidthScale = .75M,
-			TriangleHeightScale = .375M,
-			ShaftWidthScale = .375M,
-			ShaftHeightScale = .375M,
-			SizeScale = isSample ? 1M : ResolveProperty(() => App.UserPreferences.CellTriangleSizeScale),
-			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellTriangleStrokeWidthScale),
-			StrokeColor = ResolveProperty(() => App.UserPreferences.CellTriangleStrokeColor),
-			FillColor = ResolveProperty(() => App.UserPreferences.CellTriangleFillColor)
+			TriangleWidthScale = ResolveProperty(() => App.UserPreferences.CellArrowTriangleWidthScale),
+			TriangleHeightScale = ResolveProperty(() => App.UserPreferences.CellArrowTriangleHeightScale),
+			ShaftWidthScale = ResolveProperty(() => App.UserPreferences.CellArrowShaftWidthScale),
+			ShaftHeightScale = ResolveProperty(() => App.UserPreferences.CellArrowShaftHeightScale),
+			SizeScale = isSample ? 1M : ResolveProperty(() => App.UserPreferences.CellArrowSizeScale),
+			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellArrowStrokeWidthScale),
+			StrokeColor = ResolveProperty(() => App.UserPreferences.CellArrowStrokeColor),
+			FillColor = ResolveProperty(() => App.UserPreferences.CellArrowFillColor)
 		};
 }

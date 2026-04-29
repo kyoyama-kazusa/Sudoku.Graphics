@@ -34,10 +34,7 @@ public sealed record CellArrowMarkItem : CellMarkItem, IItem_DirectionProperty<D
 
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)
-	{
-		var template = canvas.Templates[TemplateIndex];
-		var mapper = template.Mapper;
-		canvas.BackingCanvas.DrawArrowToCell(
+		=> canvas.BackingCanvas.DrawArrowToCell(
 			Cell,
 			Direction,
 			TriangleWidthScale,
@@ -49,7 +46,6 @@ public sealed record CellArrowMarkItem : CellMarkItem, IItem_DirectionProperty<D
 			FillColor,
 			Direction4.None,
 			default,
-			mapper
+			canvas.Templates[TemplateIndex].Mapper
 		);
-	}
 }
