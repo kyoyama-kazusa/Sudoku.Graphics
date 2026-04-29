@@ -11,26 +11,11 @@ public sealed class TetrisOperationHandler : CellBasedItemSelectorPanelOperation
 	public override ItemType ItemType => ItemType.Cell_Tetris;
 
 	/// <inheritdoc/>
-	public override Func<object?, Absolute, Item?> ItemFactory
-		=> static (item, cell) => item switch
-		{
-			TetrominoDisplayItem { Type: var piece, RotationType: var rotationType }
-				=> ItemsFactory.Tetris(cell, piece, rotationType, true),
-			_ => null
-		};
-
-	/// <inheritdoc/>
-	public override Func<MainWindow, Popup> PopupSelector => static window => window.TetrisSelectorPopup;
-
-	/// <inheritdoc/>
-	public override Func<MainWindow, ItemSelectorPanel> PanelSelector => static window => window.TetrisSelectorPanel;
-
-	/// <inheritdoc/>
-	public override IReadOnlyDictionary<string, Func<IIconDisplayItem>> IconDisplayItemFactory
+	protected override ReadOnlySpan<Func<IIconDisplayItem>> IconsFactory
 	{
 		get
 		{
-			var result = new Dictionary<string, Func<IIconDisplayItem>>();
+			var result = new List<Func<IIconDisplayItem>>();
 			foreach (var piece in (Tetromino[])[
 				Tetromino.I,
 				Tetromino.O,
@@ -49,13 +34,27 @@ public sealed class TetrisOperationHandler : CellBasedItemSelectorPanelOperation
 				])
 				{
 					var targetName = $"Tetromino_{piece}_{rotationType}";
-					result.Add(
-						targetName,
-						() => new TetrominoDisplayItem { RotationType = rotationType, Type = piece }
-					);
+					result.Add(() => new TetrominoDisplayItem { RotationType = rotationType, Type = piece });
 				}
 			}
-			return result;
+			return result.AsSpan();
 		}
 	}
+
+	/// <inheritdoc/>
+	protected override Func<object?, Absolute, Item?> ItemFactory
+		=> static (item, cell) =>
+			item is TetrominoDisplayItem { Type: var piece, RotationType: var rotationType }
+				? ItemsFactory.Tetris(cell, piece, rotationType)
+				: null;
+
+	/// <inheritdoc/>
+	protected override Func<MainWindow, Popup> PopupSelector => static window => window.TetrisSelectorPopup;
+
+	/// <inheritdoc/>
+	protected override Func<MainWindow, ItemSelectorPanel> PanelSelector => static window => window.TetrisSelectorPanel;
+
+	/// <inheritdoc/>
+	protected override Func<IIconDisplayItem, Item?> SampleItemFactory
+		=> static item => ItemsFactory.Tetris(0, ((TetrominoDisplayItem)item).Type, ((TetrominoDisplayItem)item).RotationType, true);
 }

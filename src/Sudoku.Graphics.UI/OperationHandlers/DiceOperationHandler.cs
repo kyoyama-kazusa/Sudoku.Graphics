@@ -11,31 +11,30 @@ public sealed class DiceOperationHandler : CellBasedItemSelectorPanelOperationHa
 	public override ItemType ItemType => ItemType.Cell_Dice;
 
 	/// <inheritdoc/>
-	public override Func<object?, Absolute, Item?> ItemFactory
-		=> static (item, cell) => item switch
-		{
-			DiceDisplayItem { Value: var value } => ItemsFactory.Dice(cell, value, true),
-			_ => null
-		};
+	protected override ReadOnlySpan<Func<IIconDisplayItem>> IconsFactory
+		=> (Func<IIconDisplayItem>[])[
+			static () => new DiceDisplayItem { Value = 0 },
+			static () => new DiceDisplayItem { Value = 1 },
+			static () => new DiceDisplayItem { Value = 2 },
+			static () => new DiceDisplayItem { Value = 3 },
+			static () => new DiceDisplayItem { Value = 4 },
+			static () => new DiceDisplayItem { Value = 5 },
+			static () => new DiceDisplayItem { Value = 6 },
+			static () => new DiceDisplayItem { Value = 7 },
+			static () => new DiceDisplayItem { Value = 8 }
+		];
 
 	/// <inheritdoc/>
-	public override Func<MainWindow, Popup> PopupSelector => static window => window.DiceSelectorPopup;
+	protected override Func<object?, Absolute, Item?> ItemFactory
+		=> static (item, cell) => item is DiceDisplayItem { Value: var value } ? ItemsFactory.Dice(cell, value) : null;
 
 	/// <inheritdoc/>
-	public override Func<MainWindow, ItemSelectorPanel> PanelSelector => static window => window.DiceSelectorPanel;
+	protected override Func<MainWindow, Popup> PopupSelector => static window => window.DiceSelectorPopup;
 
 	/// <inheritdoc/>
-	public override IReadOnlyDictionary<string, Func<IIconDisplayItem>> IconDisplayItemFactory
-		=> new Dictionary<string, Func<IIconDisplayItem>>
-		{
-			{ "Dice_0", static () => new DiceDisplayItem { Value = 0 } },
-			{ "Dice_1", static () => new DiceDisplayItem { Value = 1 } },
-			{ "Dice_2", static () => new DiceDisplayItem { Value = 2 } },
-			{ "Dice_3", static () => new DiceDisplayItem { Value = 3 } },
-			{ "Dice_4", static () => new DiceDisplayItem { Value = 4 } },
-			{ "Dice_5", static () => new DiceDisplayItem { Value = 5 } },
-			{ "Dice_6", static () => new DiceDisplayItem { Value = 6 } },
-			{ "Dice_7", static () => new DiceDisplayItem { Value = 7 } },
-			{ "Dice_8", static () => new DiceDisplayItem { Value = 8 } }
-		};
+	protected override Func<MainWindow, ItemSelectorPanel> PanelSelector => static window => window.DiceSelectorPanel;
+
+	/// <inheritdoc/>
+	protected override Func<IIconDisplayItem, Item?> SampleItemFactory
+		=> static item => ItemsFactory.Dice(0, ((DiceDisplayItem)item).Value, true);
 }

@@ -11,28 +11,30 @@ public sealed class SurroundingTrianglesOperationHandler : CellBasedItemSelector
 	public override ItemType ItemType => ItemType.Cell_SurroundingTriangles;
 
 	/// <inheritdoc/>
-	public override Func<object?, Absolute, Item?> ItemFactory
-		=> static (item, cell) => item switch
-		{
-			SurroundingTrianglesDisplayItem { Value: var value } => ItemsFactory.SurroundingTriangles(cell, value, true),
-			_ => null
-		};
+	protected override ReadOnlySpan<Func<IIconDisplayItem>> IconsFactory
+		=> (Func<IIconDisplayItem>[])[
+			static () => new SurroundingTrianglesDisplayItem { Value = 1 },
+			static () => new SurroundingTrianglesDisplayItem { Value = 2 },
+			static () => new SurroundingTrianglesDisplayItem { Value = 3 },
+			static () => new SurroundingTrianglesDisplayItem { Value = 4 },
+			static () => new SurroundingTrianglesDisplayItem { Value = 5 },
+			static () => new SurroundingTrianglesDisplayItem { Value = 6 }
+		];
 
 	/// <inheritdoc/>
-	public override Func<MainWindow, Popup> PopupSelector => static window => window.SurroundingTrianglesPopup;
+	protected override Func<object?, Absolute, Item?> ItemFactory
+		=> static (item, cell) =>
+			item is SurroundingTrianglesDisplayItem { Value: var value }
+				? ItemsFactory.SurroundingTriangles(cell, value)
+				: null;
 
 	/// <inheritdoc/>
-	public override Func<MainWindow, ItemSelectorPanel> PanelSelector => static window => window.SurroundingTrianglesPanel;
+	protected override Func<MainWindow, Popup> PopupSelector => static window => window.SurroundingTrianglesPopup;
 
 	/// <inheritdoc/>
-	public override IReadOnlyDictionary<string, Func<IIconDisplayItem>> IconDisplayItemFactory
-		=> new Dictionary<string, Func<IIconDisplayItem>>
-		{
-			{ "SurroundingTriangles_1", static () => new SurroundingTrianglesDisplayItem { Value = 1 } },
-			{ "SurroundingTriangles_2", static () => new SurroundingTrianglesDisplayItem { Value = 2 } },
-			{ "SurroundingTriangles_3", static () => new SurroundingTrianglesDisplayItem { Value = 3 } },
-			{ "SurroundingTriangles_4", static () => new SurroundingTrianglesDisplayItem { Value = 4 } },
-			{ "SurroundingTriangles_5", static () => new SurroundingTrianglesDisplayItem { Value = 5 } },
-			{ "SurroundingTriangles_6", static () => new SurroundingTrianglesDisplayItem { Value = 6 } }
-		};
+	protected override Func<MainWindow, ItemSelectorPanel> PanelSelector => static window => window.SurroundingTrianglesPanel;
+
+	/// <inheritdoc/>
+	protected override Func<IIconDisplayItem, Item?> SampleItemFactory
+		=> static item => ItemsFactory.SurroundingTriangles(0, ((SurroundingTrianglesDisplayItem)item).Value, true);
 }

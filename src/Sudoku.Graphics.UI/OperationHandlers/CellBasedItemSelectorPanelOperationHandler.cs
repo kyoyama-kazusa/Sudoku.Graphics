@@ -17,24 +17,29 @@ public abstract class CellBasedItemSelectorPanelOperationHandler : OperationHand
 	public virtual MouseButton ChangedButton => MouseButton.Right;
 
 	/// <summary>
+	/// Indicates icon display item lookup, indexed by the source path.
+	/// </summary>
+	protected abstract ReadOnlySpan<Func<IIconDisplayItem>> IconsFactory { get; }
+
+	/// <summary>
 	/// Represents a method that selects the target <see cref="ItemSelectorPanel"/> defined in the specified window.
 	/// </summary>
-	public abstract Func<MainWindow, ItemSelectorPanel> PanelSelector { get; }
+	protected abstract Func<MainWindow, ItemSelectorPanel> PanelSelector { get; }
 
 	/// <summary>
 	/// Represents a method that selects the target <see cref="Popup"/> defined in the specified window.
 	/// </summary>
-	public abstract Func<MainWindow, Popup> PopupSelector { get; }
+	protected abstract Func<MainWindow, Popup> PopupSelector { get; }
 
 	/// <summary>
 	/// Represents a method that produces an item to add, or <see langword="null"/> if invalid.
 	/// </summary>
-	public abstract Func<object?, Absolute, Item?> ItemFactory { get; }
+	protected abstract Func<object?, Absolute, Item?> ItemFactory { get; }
 
 	/// <summary>
-	/// Indicates icon display item lookup, indexed by the source path.
+	/// Represents an item factory that only produces a sample item displayed in UI.
 	/// </summary>
-	public abstract IReadOnlyDictionary<string, Func<IIconDisplayItem>> IconDisplayItemFactory { get; }
+	protected abstract Func<IIconDisplayItem, Item?> SampleItemFactory { get; }
 
 
 	/// <inheritdoc/>
@@ -91,21 +96,12 @@ public abstract class CellBasedItemSelectorPanelOperationHandler : OperationHand
 
 	private void LoadPictureFromLocalPath(ItemSelectorPanel panel)
 	{
-		var values = new ObservableCollection<IIconDisplayItem>();
-		foreach (var (fileName, instanceFactory) in IconDisplayItemFactory)
+		var values = new List<IIconDisplayItem>();
+		foreach (var instanceFactory in IconsFactory)
 		{
 			var instance = instanceFactory();
-			using var canvas = new Canvas(
-				new SpecifiedTemplate(
-					new()
-					{
-						CellSize = 120,
-						Margin = 15,
-						TemplateSize = new() { RowsCount = 1, ColumnsCount = 1 }
-					}
-				)
-			);
-			canvas.DrawItem(ItemFactory(instance, 0)!);
+			using var canvas = new Canvas(new SpecifiedTemplate(new() { CellSize = 120, Margin = 15, TemplateSize = new() { RowsCount = 1, ColumnsCount = 1 } }));
+			canvas.DrawItem(SampleItemFactory(instance)!);
 
 			using var image = canvas.Surface.Snapshot();
 			using var data = image.Encode(SKEncodedImageFormat.Png, 100);
