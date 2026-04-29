@@ -55,13 +55,6 @@ public sealed class Canvas : IDisposable
 
 
 	/// <summary>
-	/// Represents a sample canvas.
-	/// </summary>
-	public static Canvas SampleCanvas
-		=> new(new SpecifiedTemplate(new() { CellSize = 120, Margin = 15, TemplateSize = new() { RowsCount = 1, ColumnsCount = 1 } }));
-
-
-	/// <summary>
 	/// Try to draw the specified item onto the current canvas.
 	/// </summary>
 	/// <param name="item">The item to draw.</param>
@@ -124,4 +117,23 @@ public sealed class Canvas : IDisposable
 				_ => throw new NotSupportedException()
 			};
 	}
+
+
+	/// <summary>
+	/// Returns a sample canvas.
+	/// </summary>
+	/// <param name="cellSize">Indicates the cell size.</param>
+	/// <param name="margin">The margin.</param>
+	/// <returns>The sample canvas.</returns>
+	public static Canvas GetSampleCanvas(float cellSize, float margin)
+		=> new(
+			new SpecifiedTemplate(
+				new()
+				{
+					CellSize = cellSize,
+					Margin = margin,
+					TemplateSize = new() { RowsCount = 1, ColumnsCount = 1 }
+				}
+			)
+		);
 }

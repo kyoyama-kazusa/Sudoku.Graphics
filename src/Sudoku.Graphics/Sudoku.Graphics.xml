@@ -253,11 +253,6 @@
             Indicates backing canvas.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Canvas.SampleCanvas">
-            <summary>
-            Represents a sample canvas.
-            </summary>
-        </member>
         <member name="M:Sudoku.Graphics.Canvas.DrawItem(Sudoku.Graphics.Item)">
             <summary>
             Try to draw the specified item onto the current canvas.
@@ -279,6 +274,14 @@
             </summary>
             <param name="path">The file path. The extension specified will be used as output file format.</param>
             <param name="options">The options.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.Canvas.GetSampleCanvas(System.Single,System.Single)">
+            <summary>
+            Returns a sample canvas.
+            </summary>
+            <param name="cellSize">Indicates the cell size.</param>
+            <param name="margin">The margin.</param>
+            <returns>The sample canvas.</returns>
         </member>
         <member name="T:Sudoku.Graphics.CanvasDrawingOptions">
             <summary>
