@@ -53,8 +53,4 @@ public sealed class CellTetrisOperationHandler : CellBasedItemSelectorPanelOpera
 
 	/// <inheritdoc/>
 	protected override Func<MainWindow, ItemSelectorPanel> PanelSelector => static window => window.TetrisSelectorPanel;
-
-	/// <inheritdoc/>
-	protected override Func<IIconDisplayItem, Item?> SampleItemFactory
-		=> static item => ItemsFactory.Tetris(0, ((TetrominoDisplayItem)item).Type, ((TetrominoDisplayItem)item).RotationType, true);
 }

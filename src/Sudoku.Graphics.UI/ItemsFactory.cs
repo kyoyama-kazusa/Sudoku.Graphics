@@ -51,7 +51,7 @@ public static class ItemsFactory
 			FontWeight = ResolveProperty(() => App.UserPreferences.CandidateFontWeight)
 		};
 
-	public static CellTetrisMarkItem Tetris(Absolute cell, Tetromino piece, TetrominoRotationType rotationType, bool isSample = false)
+	public static CellTetrisMarkItem Tetris(Absolute cell, Tetromino piece, TetrominoRotationType rotationType)
 		=> new()
 		{
 			TemplateIndex = 0,
@@ -62,10 +62,10 @@ public static class ItemsFactory
 			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellTetrominoStrokeWidthScale),
 			StrokeColor = ResolveProperty(() => App.UserPreferences.CellTetrominoLineColor),
 			FillColor = ResolveProperty(() => App.UserPreferences.CellTetrominoFillColor),
-			SizeScale = isSample ? .3M : ResolveProperty(() => App.UserPreferences.CellTetrominoSmallBlockSizeScale)
+			SizeScale = ResolveProperty(() => App.UserPreferences.CellTetrominoSmallBlockSizeScale)
 		};
 
-	public static CellDiceMarkItem Dice(Absolute cell, int value, bool isSample = false)
+	public static CellDiceMarkItem Dice(Absolute cell, int value)
 		=> new()
 		{
 			TemplateIndex = 0,
@@ -75,7 +75,7 @@ public static class ItemsFactory
 			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellDiceStrokeWidthScale),
 			StrokeColor = ResolveProperty(() => App.UserPreferences.CellDiceLineColor),
 			FillColor = ResolveProperty(() => App.UserPreferences.CellDiceFillColor),
-			SizeScale = isSample ? 0.45M : ResolveProperty(() => App.UserPreferences.CellDiceSizeScale)
+			SizeScale = ResolveProperty(() => App.UserPreferences.CellDiceSizeScale)
 		};
 
 	public static CellPhantomDiceMarkItem PhantomDice(Absolute cell, Relative subgridSize, BitArray states)
@@ -93,7 +93,7 @@ public static class ItemsFactory
 			SizeScale = ResolveProperty(() => App.UserPreferences.CellPhantomDiceSizeScale)
 		};
 
-	public static CellSurroundingTrianglesMarkItem SurroundingTriangles(Absolute cell, int value, bool isSample = false)
+	public static CellSurroundingTrianglesMarkItem SurroundingTriangles(Absolute cell, int value)
 		=> new()
 		{
 			TemplateIndex = 0,
@@ -104,7 +104,7 @@ public static class ItemsFactory
 			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.SurroundingTrianglesStrokeWidthScale),
 			StrokeColor = ResolveProperty(() => App.UserPreferences.SurroundingTrianglesStrokeColor),
 			FillColor = ResolveProperty(() => App.UserPreferences.SurroundingTrianglesFillColor),
-			SizeScale = isSample ? 0.5M : ResolveProperty(() => App.UserPreferences.SurroundingTrianglesSizeScale)
+			SizeScale = ResolveProperty(() => App.UserPreferences.SurroundingTrianglesSizeScale)
 		};
 
 	public static CellCircleMarkItem Circle(Absolute cell)
@@ -140,7 +140,7 @@ public static class ItemsFactory
 			FillColor = ResolveProperty(() => App.UserPreferences.CellCrossFillColor)
 		};
 
-	public static CellPolygonMarkItem Polygon(Absolute cell, int sidesCount, bool isConcave, bool isSample = false)
+	public static CellPolygonMarkItem Polygon(Absolute cell, int sidesCount, bool isConcave)
 		=> new()
 		{
 			TemplateIndex = 0,
@@ -148,51 +148,51 @@ public static class ItemsFactory
 			SidesCount = sidesCount,
 			DrawConcavePolygon = isConcave,
 			ConcaveInnerScale = ResolveProperty(() => App.UserPreferences.CellPolygonConcaveInnerScale),
-			SizeScale = isSample ? 1M : ResolveProperty(() => App.UserPreferences.CellPolygonSizeScale),
+			SizeScale = ResolveProperty(() => App.UserPreferences.CellPolygonSizeScale),
 			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellPolygonStrokeWidthScale),
 			StrokeColor = ResolveProperty(() => App.UserPreferences.CellPolygonStrokeColor),
 			FillColor = ResolveProperty(() => App.UserPreferences.CellPolygonFillColor),
 			RotationDegree = 0
 		};
 
-	public static CellMoonPhaseMarkItem MoonPhase(Absolute cell, MoonPhase phase, bool isSample = false)
+	public static CellMoonPhaseMarkItem MoonPhase(Absolute cell, MoonPhase phase)
 		=> new()
 		{
 			TemplateIndex = 0,
 			Cell = cell,
 			Phase = phase,
-			SizeScale = isSample ? 1M : ResolveProperty(() => App.UserPreferences.CellMoonPhaseSizeScale),
+			SizeScale = ResolveProperty(() => App.UserPreferences.CellMoonPhaseSizeScale),
 			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellMoonPhaseStrokeWidthScale),
 			StrokeColor = ResolveProperty(() => App.UserPreferences.CellMoonPhaseStrokeColor),
 			FillColor = ResolveProperty(() => App.UserPreferences.CellMoonPhaseFillColor),
 		};
 
-	public static CellTriangleMarkItem CellTriangle(Absolute cell, Direction8 direction, bool isSample = false)
+	public static CellTriangleMarkItem CellTriangle(Absolute cell, Direction8 direction)
 		=> new()
 		{
 			TemplateIndex = 0,
 			Cell = cell,
 			Direction = direction,
-			SizeScale = isSample ? 1M : ResolveProperty(() => App.UserPreferences.CellTriangleSizeScale),
+			SizeScale = ResolveProperty(() => App.UserPreferences.CellTriangleSizeScale),
 			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellTriangleStrokeWidthScale),
 			StrokeColor = ResolveProperty(() => App.UserPreferences.CellTriangleStrokeColor),
 			FillColor = ResolveProperty(() => App.UserPreferences.CellTriangleFillColor)
 		};
 
-	public static CellArrowTriangleMarkItem CellArrowTriangle(Absolute cell, Direction8 direction, bool isSample = false)
+	public static CellArrowTriangleMarkItem CellArrowTriangle(Absolute cell, Direction8 direction)
 		=> new()
 		{
 			TemplateIndex = 0,
 			Cell = cell,
 			Direction = direction,
 			BaseScale = ResolveProperty(() => App.UserPreferences.CellArrowTriangleBaseScale),
-			SizeScale = isSample ? 1M : ResolveProperty(() => App.UserPreferences.CellArrowTriangleSizeScale),
+			SizeScale = ResolveProperty(() => App.UserPreferences.CellArrowTriangleSizeScale),
 			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellArrowTriangleStrokeWidthScale),
 			StrokeColor = ResolveProperty(() => App.UserPreferences.CellArrowTriangleStrokeColor),
 			FillColor = ResolveProperty(() => App.UserPreferences.CellArrowTriangleFillColor)
 		};
 
-	public static CellArrowMarkItem CellArrow(Absolute cell, Direction8 direction, bool isSample = false)
+	public static CellArrowMarkItem CellArrow(Absolute cell, Direction8 direction)
 		=> new()
 		{
 			TemplateIndex = 0,
@@ -202,20 +202,20 @@ public static class ItemsFactory
 			TriangleHeightScale = ResolveProperty(() => App.UserPreferences.CellArrowTriangleHeightScale),
 			ShaftWidthScale = ResolveProperty(() => App.UserPreferences.CellArrowShaftWidthScale),
 			ShaftHeightScale = ResolveProperty(() => App.UserPreferences.CellArrowShaftHeightScale),
-			SizeScale = isSample ? 1M : ResolveProperty(() => App.UserPreferences.CellArrowSizeScale),
+			SizeScale = ResolveProperty(() => App.UserPreferences.CellArrowSizeScale),
 			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellArrowStrokeWidthScale),
 			StrokeColor = ResolveProperty(() => App.UserPreferences.CellArrowStrokeColor),
 			FillColor = ResolveProperty(() => App.UserPreferences.CellArrowFillColor)
 		};
 
-	public static CellApexCornerTriangleMarkItem CellApexCornerTriangle(Absolute cell, Alignment cornerAlignement, bool isSample = false)
+	public static CellApexCornerTriangleMarkItem CellApexCornerTriangle(Absolute cell, Alignment cornerAlignement)
 		=> new()
 		{
 			TemplateIndex = 0,
 			Cell = cell,
 			CornerAlignment = cornerAlignement,
 			PaddingScale = ResolveProperty(() => App.UserPreferences.CellApexCornerTrianglePaddingScale),
-			SizeScale = isSample ? 1M : ResolveProperty(() => App.UserPreferences.CellApexCornerTriangleSizeScale),
+			SizeScale = ResolveProperty(() => App.UserPreferences.CellApexCornerTriangleSizeScale),
 			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellApexCornerTriangleStrokeWidthScale),
 			StrokeColor = ResolveProperty(() => App.UserPreferences.CellApexCornerTriangleStrokeColor),
 			FillColor = ResolveProperty(() => App.UserPreferences.CellApexCornerTriangleFillColor)

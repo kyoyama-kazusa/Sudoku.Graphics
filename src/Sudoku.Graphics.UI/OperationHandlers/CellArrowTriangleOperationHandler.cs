@@ -32,8 +32,4 @@ public sealed class CellArrowTriangleOperationHandler : CellBasedItemSelectorPan
 
 	/// <inheritdoc/>
 	protected override Func<MainWindow, Popup> PopupSelector => static window => window.CellArrowTrianglePopup;
-
-	/// <inheritdoc/>
-	protected override Func<IIconDisplayItem, Item?> SampleItemFactory
-		=> static item => ItemsFactory.CellArrowTriangle(0, ((CellTriagleDisplayItem)item).Direction, true);
 }

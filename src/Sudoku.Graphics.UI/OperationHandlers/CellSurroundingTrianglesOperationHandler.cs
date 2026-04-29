@@ -30,8 +30,4 @@ public sealed class CellSurroundingTrianglesOperationHandler : CellBasedItemSele
 
 	/// <inheritdoc/>
 	protected override Func<MainWindow, ItemSelectorPanel> PanelSelector => static window => window.SurroundingTrianglesPanel;
-
-	/// <inheritdoc/>
-	protected override Func<IIconDisplayItem, Item?> SampleItemFactory
-		=> static item => ItemsFactory.SurroundingTriangles(0, ((SurroundingTrianglesDisplayItem)item).Value, true);
 }

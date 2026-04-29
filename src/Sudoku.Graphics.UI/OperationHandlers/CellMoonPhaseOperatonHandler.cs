@@ -28,8 +28,4 @@ public sealed class CellMoonPhaseOperatonHandler : CellBasedItemSelectorPanelOpe
 
 	/// <inheritdoc/>
 	protected override Func<MainWindow, Popup> PopupSelector => static window => window.MoonPhasePopup;
-
-	/// <inheritdoc/>
-	protected override Func<IIconDisplayItem, Item?> SampleItemFactory
-		=> static item => ItemsFactory.MoonPhase(0, ((MoonPhaseDisplayItem)item).Phase, true);
 }

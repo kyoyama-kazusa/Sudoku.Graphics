@@ -31,8 +31,4 @@ public sealed class CellApexCornerTriangleOperationHandler : CellBasedItemSelect
 
 	/// <inheritdoc/>
 	protected override Func<MainWindow, Popup> PopupSelector => static window => window.CellApexCornerTrianglePopup;
-
-	/// <inheritdoc/>
-	protected override Func<IIconDisplayItem, Item?> SampleItemFactory
-		=> static item => ItemsFactory.CellApexCornerTriangle(0, ((CellApexCornerTriangleDisplayItem)item).Alignment, true);
 }

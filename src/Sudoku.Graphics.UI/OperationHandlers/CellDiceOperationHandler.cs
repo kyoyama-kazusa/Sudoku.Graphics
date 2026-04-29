@@ -33,8 +33,4 @@ public sealed class CellDiceOperationHandler : CellBasedItemSelectorPanelOperati
 
 	/// <inheritdoc/>
 	protected override Func<MainWindow, ItemSelectorPanel> PanelSelector => static window => window.DiceSelectorPanel;
-
-	/// <inheritdoc/>
-	protected override Func<IIconDisplayItem, Item?> SampleItemFactory
-		=> static item => ItemsFactory.Dice(0, ((DiceDisplayItem)item).Value, true);
 }

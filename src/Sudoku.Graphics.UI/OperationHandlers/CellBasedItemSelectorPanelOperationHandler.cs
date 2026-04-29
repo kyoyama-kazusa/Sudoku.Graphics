@@ -41,11 +41,6 @@ public abstract partial class CellBasedItemSelectorPanelOperationHandler : Opera
 	/// </summary>
 	protected abstract Func<object?, Absolute, Item?> ItemFactory { get; }
 
-	/// <summary>
-	/// Represents an item factory that only produces a sample item displayed in UI.
-	/// </summary>
-	protected abstract Func<IIconDisplayItem, Item?> SampleItemFactory { get; }
-
 
 	/// <inheritdoc/>
 	protected internal sealed override void OnMouseButtonPressed(OperationHandlerContext context)
@@ -139,7 +134,7 @@ public abstract partial class CellBasedItemSelectorPanelOperationHandler : Opera
 		{
 			var instance = instanceFactory();
 			using var canvas = new Canvas(new SpecifiedTemplate(new() { CellSize = 120, Margin = 15, TemplateSize = new() { RowsCount = 1, ColumnsCount = 1 } }));
-			canvas.DrawItem(SampleItemFactory(instance)!);
+			canvas.DrawItem(ItemFactory(instance, 0)!);
 
 			using var image = canvas.Surface.Snapshot();
 			using var data = image.Encode(SKEncodedImageFormat.Png, 100);

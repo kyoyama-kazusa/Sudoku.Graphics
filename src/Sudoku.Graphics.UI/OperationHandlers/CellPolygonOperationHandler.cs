@@ -38,8 +38,4 @@ public sealed class CellPolygonOperationHandler : CellBasedItemSelectorPanelOper
 
 	/// <inheritdoc/>
 	protected override Func<MainWindow, Popup> PopupSelector => static window => window.PolygonPopup;
-
-	/// <inheritdoc/>
-	protected override Func<IIconDisplayItem, Item?> SampleItemFactory
-		=> static item => ItemsFactory.Polygon(0, ((PolygonDisplayItem)item).SidesCount, ((PolygonDisplayItem)item).IsConcave, true);
 }
