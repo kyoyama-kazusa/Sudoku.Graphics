@@ -316,4 +316,7 @@
   <data name="ItemType_Cell_ApexCornerTriangle" xml:space="preserve">
     <value>三角（靠边角）</value>
   </data>
+  <data name="ItemType_Cell_BisectorLine" xml:space="preserve">
+    <value>二分线</value>
+  </data>
 </root>

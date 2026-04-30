@@ -49,7 +49,7 @@ public abstract partial class CellBasedItemSelectorPanelOperationHandler : Opera
 		panel.OperationHandlerContext = context;
 		panel.SelectedItemChanged += Panel_SelectedItemChanged;
 
-		LoadPictureFromLocalPath(panel);
+		LoadSamplePicture(panel);
 	}
 
 	/// <inheritdoc/>
@@ -127,7 +127,7 @@ public abstract partial class CellBasedItemSelectorPanelOperationHandler : Opera
 		panel.OperationHandlerContext = null;
 	}
 
-	private void LoadPictureFromLocalPath(ItemSelectorPanel panel)
+	private void LoadSamplePicture(ItemSelectorPanel panel)
 	{
 		var values = new List<IIconDisplayItem>();
 		foreach (var instanceFactory in IconsFactory)

@@ -256,7 +256,21 @@
 					Style="{StaticResource PanelStyle}"
 					ColumnsCount="4">
 					<c:ItemSelectorPanel.ItemTemplate>
-						<DataTemplate DataType="vm:CellApexCornerTriangleItem">
+						<DataTemplate DataType="vm:CellApexCornerTriangleDisplayItem">
+							<Image Source="{Binding Icon}" />
+						</DataTemplate>
+					</c:ItemSelectorPanel.ItemTemplate>
+				</c:ItemSelectorPanel>
+			</Border>
+		</Popup>
+		<Popup x:Name="CellBisectorLinePopup">
+			<Border Style="{StaticResource PopupBorderStyle}">
+				<c:ItemSelectorPanel
+					x:Name="CellBisectorLinePanel"
+					Style="{StaticResource PanelStyle}"
+					ColumnsCount="4">
+					<c:ItemSelectorPanel.ItemTemplate>
+						<DataTemplate DataType="vm:CellBisectorLineDisplayItem">
 							<Image Source="{Binding Icon}" />
 						</DataTemplate>
 					</c:ItemSelectorPanel.ItemTemplate>

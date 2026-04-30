@@ -25,6 +25,7 @@
 				<vm:ToolItem ItemType="Cell_ArrowTriangle" Icon="/Assets/ToolItems/ToolItem_Cell_ArrowTriangle.png" />
 				<vm:ToolItem ItemType="Cell_Arrow" Icon="/Assets/ToolItems/ToolItem_Cell_Arrow.png" />
 				<vm:ToolItem ItemType="Cell_ApexCornerTriangle" Icon="/Assets/ToolItems/ToolItem_Cell_ApexCornerTriangle.png" />
+				<vm:ToolItem ItemType="Cell_BisectorLine" Icon="/Assets/ToolItems/ToolItem_Cell_BisectorLine.png" />
 				<vm:ToolItem ItemType="Cell_Polygon" Icon="/Assets/ToolItems/ToolItem_Cell_Polygon.png" />
 				<vm:ToolItem ItemType="Cell_SurroundingTriangles" Icon="/Assets/ToolItems/ToolItem_Cell_Surrounding_Triangles.png" />
 				<vm:ToolItem ItemType="Cell_Dice" Icon="/Assets/ToolItems/ToolItem_Cell_Dice.png" />

@@ -321,4 +321,7 @@
   <data name="ItemType_Cell_ApexCornerTriangle" xml:space="preserve">
     <value>Triangle (Corner)</value>
   </data>
+  <data name="ItemType_Cell_BisectorLine" xml:space="preserve">
+    <value>Bisector</value>
+  </data>
 </root>

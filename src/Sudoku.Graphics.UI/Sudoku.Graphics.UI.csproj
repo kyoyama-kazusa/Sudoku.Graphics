@@ -28,6 +28,9 @@
 		<Resource Include="Assets\ToolItems\ToolItem_Cell_ArrowTriangle.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
+		<Resource Include="Assets\ToolItems\ToolItem_Cell_BisectorLine.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
 		<Resource Include="Assets\ToolItems\ToolItem_Cell_Circle.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>

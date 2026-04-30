@@ -220,4 +220,15 @@ public static class ItemsFactory
 			StrokeColor = ResolveProperty(() => App.UserPreferences.CellApexCornerTriangleStrokeColor),
 			FillColor = ResolveProperty(() => App.UserPreferences.CellApexCornerTriangleFillColor)
 		};
+
+	public static CellBisectorLineMarkItem CellBisectorLine(Absolute cell, Orientation4 orientation)
+		=> new()
+		{
+			TemplateIndex = 0,
+			Cell = cell,
+			Orientation = orientation,
+			SizeScale = ResolveProperty(() => App.UserPreferences.CellBisectorLineSizeScale),
+			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellBisectorLineStrokeWidthScale),
+			StrokeColor = ResolveProperty(() => App.UserPreferences.CellBisectorLineStrokeColor)
+		};
 }
