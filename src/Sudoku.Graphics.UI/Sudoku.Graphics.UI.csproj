@@ -34,6 +34,12 @@
 		<Resource Include="Assets\ToolItems\ToolItem_Cell_BisectorLine.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
+		<Resource Include="Assets\ToolItems\ToolItem_Cell_BorderAlignedArrow.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Assets\ToolItems\ToolItem_Cell_BorderAlignedTriangle.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
 		<Resource Include="Assets\ToolItems\ToolItem_Cell_Circle.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>

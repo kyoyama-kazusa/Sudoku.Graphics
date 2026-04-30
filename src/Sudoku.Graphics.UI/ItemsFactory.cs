@@ -200,7 +200,7 @@ public static class ItemsFactory
 			SizeScale = ResolveProperty(() => App.UserPreferences.CellMoonPhaseSizeScale),
 			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellMoonPhaseStrokeWidthScale),
 			StrokeColor = ResolveProperty(() => App.UserPreferences.CellMoonPhaseStrokeColor),
-			FillColor = ResolveProperty(() => App.UserPreferences.CellMoonPhaseFillColor),
+			FillColor = ResolveProperty(() => App.UserPreferences.CellMoonPhaseFillColor)
 		};
 
 	public static CellTriangleMarkItem CellTriangle(Absolute cell, Direction8 direction)
@@ -284,5 +284,32 @@ public static class ItemsFactory
 			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellSevenSegmentDisplayStrokeWidthScale),
 			StrokeColor = ResolveProperty(() => App.UserPreferences.CellSevenSegmentDisplayStrokeColor),
 			FillColor = ResolveProperty(() => App.UserPreferences.CellSevenSegmentDisplayFillColor)
+		};
+
+
+	public static CellBorderAlignedTriangleMarkItem CellBorderAlignedTriangle(Absolute cell, Direction4 direction)
+		=> new()
+		{
+			TemplateIndex = 0,
+			Cell = cell,
+			Direction = direction,
+			SizeScale = ResolveProperty(() => App.UserPreferences.CellBorderAlignedTriangleSizeScale),
+			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellBorderAlignedTriangleStrokeWidthScale),
+			StrokeColor = ResolveProperty(() => App.UserPreferences.CellBorderAlignedTriangleStrokeColor),
+			FillColor = ResolveProperty(() => App.UserPreferences.CellBorderAlignedTriangleFillColor)
+		};
+
+	public static CellBorderAlignedArrowMarkItem CellBorderAlignedArrow(Absolute cell, Direction4 direction, RotationDirection rotationDirection)
+		=> new()
+		{
+			TemplateIndex = 0,
+			Cell = cell,
+			Direction = direction,
+			RotationDirection = rotationDirection,
+			PaddingScale = ResolveProperty(() => App.UserPreferences.CellBorderAlignedArrowPaddingScale),
+			SizeScale = ResolveProperty(() => App.UserPreferences.CellBorderAlignedArrowSizeScale),
+			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellBorderAlignedArrowStrokeWidthScale),
+			StrokeColor = ResolveProperty(() => App.UserPreferences.CellBorderAlignedArrowStrokeColor),
+			FillColor = ResolveProperty(() => App.UserPreferences.CellBorderAlignedArrowFillColor)
 		};
 }

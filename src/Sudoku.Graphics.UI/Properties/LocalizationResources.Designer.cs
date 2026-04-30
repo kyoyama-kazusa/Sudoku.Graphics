@@ -358,6 +358,24 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Arrow (Border-aligned).
+        /// </summary>
+        public static string ItemType_Cell_BorderAlignedArrow {
+            get {
+                return ResourceManager.GetString("ItemType_Cell_BorderAlignedArrow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Triangle (Border-aligned).
+        /// </summary>
+        public static string ItemType_Cell_BorderAlignedTriangle {
+            get {
+                return ResourceManager.GetString("ItemType_Cell_BorderAlignedTriangle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Circle.
         /// </summary>
         public static string ItemType_Cell_Circle {

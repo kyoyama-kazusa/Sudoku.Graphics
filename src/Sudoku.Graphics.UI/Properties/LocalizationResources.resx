@@ -336,4 +336,10 @@
   <data name="ItemType_Cell_SevenSegmentDisplay" xml:space="preserve">
     <value>LED digit</value>
   </data>
+  <data name="ItemType_Cell_BorderAlignedTriangle" xml:space="preserve">
+    <value>Triangle (Border-aligned)</value>
+  </data>
+  <data name="ItemType_Cell_BorderAlignedArrow" xml:space="preserve">
+    <value>Arrow (Border-aligned)</value>
+  </data>
 </root>

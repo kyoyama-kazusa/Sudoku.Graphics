@@ -5,7 +5,7 @@
 /// </summary>
 /// <seealso cref="CellBisectorLineMarkItem"/>
 [OperationHandler(ItemType.Cell_BisectorLine)]
-public sealed class BisectorLineOperationHandler : CellBasedItemSelectorPanelOperationHandler
+public sealed class CellBisectorLineOperationHandler : CellBasedItemSelectorPanelOperationHandler
 {
 	/// <inheritdoc/>
 	public override ItemType ItemType => ItemType.Cell_BisectorLine;

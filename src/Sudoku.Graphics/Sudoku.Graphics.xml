@@ -2224,11 +2224,6 @@
             Represents cell border-aligned arrow mark item.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedArrowMarkItem.PaddingScale">
-            <summary>
-            Indicates arrows padding scale.
-            </summary>
-        </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedArrowMarkItem.Direction">
             <inheritdoc/>
         </member>
@@ -2240,6 +2235,23 @@
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedArrowMarkItem.Type">
             <inheritdoc/>
         </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedArrowMarkItem.PaddingScale">
+            <summary>
+            Indicates arrows padding scale.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedArrowMarkItem.SizeScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedArrowMarkItem.StrokeWidthScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedArrowMarkItem.StrokeColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedArrowMarkItem.FillColor">
+            <inheritdoc/>
+        </member>
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedArrowMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
@@ -2248,15 +2260,22 @@
             Represents a cell border-aligned triangle mark item.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedTriangleMarkItem.AlignedDirection">
-            <summary>
-            Indicates the direction, meaning which direction the triangle will be put in.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedTriangleMarkItem.Type">
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedTriangleMarkItem.Direction">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedTriangleMarkItem.Sudoku#Graphics#Items#IItem_DirectionProperty{Sudoku#Graphics#Directions#Direction4}#Direction">
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedTriangleMarkItem.SizeScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedTriangleMarkItem.StrokeWidthScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedTriangleMarkItem.StrokeColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedTriangleMarkItem.FillColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedTriangleMarkItem.Type">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellBorderAlignedTriangleMarkItem.DrawTo(Sudoku.Graphics.Canvas)">

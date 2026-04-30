@@ -331,4 +331,10 @@
   <data name="ItemType_Cell_SevenSegmentDisplay" xml:space="preserve">
     <value>LED 数字</value>
   </data>
+  <data name="ItemType_Cell_BorderAlignedTriangle" xml:space="preserve">
+    <value>三角（贴边）</value>
+  </data>
+  <data name="ItemType_Cell_BorderAlignedArrow" xml:space="preserve">
+    <value>箭头（贴边）</value>
+  </data>
 </root>

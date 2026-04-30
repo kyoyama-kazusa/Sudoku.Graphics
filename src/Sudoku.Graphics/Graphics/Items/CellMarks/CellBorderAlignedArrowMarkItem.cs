@@ -5,11 +5,6 @@
 /// </summary>
 public sealed record CellBorderAlignedArrowMarkItem : CellMarkItem, IItem_DirectionProperty<Direction4>
 {
-	/// <summary>
-	/// Indicates arrows padding scale.
-	/// </summary>
-	public required Scale PaddingScale { get; init; }
-
 	/// <inheritdoc/>
 	public required Direction4 Direction { get; init; }
 
@@ -20,6 +15,23 @@ public sealed record CellBorderAlignedArrowMarkItem : CellMarkItem, IItem_Direct
 
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.Cell_BorderAlignedArrow;
+
+	/// <summary>
+	/// Indicates arrows padding scale.
+	/// </summary>
+	public required Scale PaddingScale { get; init; }
+
+	/// <inheritdoc/>
+	public required override Scale SizeScale { get; init; }
+
+	/// <inheritdoc/>
+	public required override Scale StrokeWidthScale { get; init; }
+
+	/// <inheritdoc/>
+	public required override SerializableColor StrokeColor { get; init; }
+
+	/// <inheritdoc/>
+	public required override SerializableColor FillColor { get; init; }
 
 
 	/// <inheritdoc/>

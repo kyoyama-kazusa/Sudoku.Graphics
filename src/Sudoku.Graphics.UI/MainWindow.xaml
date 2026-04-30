@@ -305,6 +305,34 @@
 				</c:ItemSelectorPanel>
 			</Border>
 		</Popup>
+		<Popup x:Name="CellBorderAlignedTrianglePopup">
+			<Border Style="{StaticResource PopupBorderStyle}">
+				<c:ItemSelectorPanel
+					x:Name="CellBorderAlignedTrianglePanel"
+					Style="{StaticResource PanelStyle}"
+					ColumnsCount="4">
+					<c:ItemSelectorPanel.ItemTemplate>
+						<DataTemplate DataType="vm:BorderAlignedTriangleDisplayItem">
+							<Image Source="{Binding Icon}" />
+						</DataTemplate>
+					</c:ItemSelectorPanel.ItemTemplate>
+				</c:ItemSelectorPanel>
+			</Border>
+		</Popup>
+		<Popup x:Name="CellBorderAlignedArrowPopup">
+			<Border Style="{StaticResource PopupBorderStyle}">
+				<c:ItemSelectorPanel
+					x:Name="CellBorderAlignedArrowPanel"
+					Style="{StaticResource PanelStyle}"
+					ColumnsCount="4">
+					<c:ItemSelectorPanel.ItemTemplate>
+						<DataTemplate DataType="vm:BorderAlignedArrowDisplayItem">
+							<Image Source="{Binding Icon}" />
+						</DataTemplate>
+					</c:ItemSelectorPanel.ItemTemplate>
+				</c:ItemSelectorPanel>
+			</Border>
+		</Popup>
 		<!--#endregion-->
 
 		<!--#region Grid view-->

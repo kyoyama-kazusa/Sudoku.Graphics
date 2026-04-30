@@ -36,6 +36,8 @@
 				<vm:ToolItem ItemType="Cell_MoonPhase" Icon="/Assets/ToolItems/ToolItem_Cell_MoonPhase.png" />
 				<vm:ToolItem ItemType="Cell_Battenburg" Icon="/Assets/ToolItems/ToolItem_Cell_Battenburg.png" />
 				<vm:ToolItem ItemType="Cell_SevenSegmentDisplay" Icon="/Assets/ToolItems/ToolItem_Cell_SevenSegmentDisplay.png" />
+				<vm:ToolItem ItemType="Cell_BorderAlignedTriangle" Icon="/Assets/ToolItems/ToolItem_Cell_BorderAlignedTriangle.png" />
+				<vm:ToolItem ItemType="Cell_BorderAlignedArrow" Icon="/Assets/ToolItems/ToolItem_Cell_BorderAlignedArrow.png" />
 			</vm:ToolItemGroup>
 		</vm:ToolItemGroupCollection>
 

@@ -5,21 +5,23 @@
 /// </summary>
 public sealed record CellBorderAlignedTriangleMarkItem : CellMarkItem, IItem_DirectionProperty<Direction4>
 {
-	/// <summary>
-	/// Indicates the direction, meaning which direction the triangle will be put in.
-	/// </summary>
-	public required Direction4 AlignedDirection { get; init; }
+	/// <inheritdoc/>
+	public required Direction4 Direction { get; init; }
+
+	/// <inheritdoc/>
+	public required override Scale SizeScale { get; init; }
+
+	/// <inheritdoc/>
+	public required override Scale StrokeWidthScale { get; init; }
+
+	/// <inheritdoc/>
+	public required override SerializableColor StrokeColor { get; init; }
+
+	/// <inheritdoc/>
+	public required override SerializableColor FillColor { get; init; }
 
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.Cell_BorderAlignedTriangle;
-
-	/// <inheritdoc/>
-	Direction4 IItem_DirectionProperty<Direction4>.Direction
-	{
-		get => AlignedDirection;
-
-		init => AlignedDirection = value;
-	}
 
 
 	/// <inheritdoc/>
@@ -33,7 +35,7 @@ public sealed record CellBorderAlignedTriangleMarkItem : CellMarkItem, IItem_Dir
 		var left = new SKPoint(center.X - cellSize / 2, center.Y);
 		var right = new SKPoint(center.X + cellSize / 2, center.Y);
 		var triangleBaseSize = SizeScale.Measure(cellSize);
-		var (p1, p2, p3) = AlignedDirection switch
+		var (p1, p2, p3) = Direction switch
 		{
 			Direction4.Up => (
 				new SKPoint(top.X - triangleBaseSize / 2, top.Y),
@@ -55,7 +57,7 @@ public sealed record CellBorderAlignedTriangleMarkItem : CellMarkItem, IItem_Dir
 				new(right.X, right.Y + triangleBaseSize / 2),
 				new(right.X - triangleBaseSize / 2, right.Y)
 			),
-			_ => throw new InvalidOperationException($"{nameof(AlignedDirection)} is not defined or '{Direction4.None}'.")
+			_ => throw new InvalidOperationException($"{nameof(Direction)} is not defined or '{Direction4.None}'.")
 		};
 		using var path = new SKPath();
 		path.MoveTo(p1);
