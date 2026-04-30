@@ -319,4 +319,7 @@
   <data name="ItemType_Cell_BisectorLine" xml:space="preserve">
     <value>二分线</value>
   </data>
+  <data name="ItemType_Cell_Diamond" xml:space="preserve">
+    <value>菱形</value>
+  </data>
 </root>

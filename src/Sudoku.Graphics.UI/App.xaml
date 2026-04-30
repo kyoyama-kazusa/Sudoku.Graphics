@@ -21,6 +21,7 @@
 				<vm:ToolItem ItemType="Cell_Square" Icon="/Assets/ToolItems/ToolItem_Cell_Square.png" />
 				<vm:ToolItem ItemType="Cell_Circle" Icon="/Assets/ToolItems/ToolItem_Cell_Circle.png" />
 				<vm:ToolItem ItemType="Cell_Cross" Icon="/Assets/ToolItems/ToolItem_Cell_Cross.png" />
+				<vm:ToolItem ItemType="Cell_Diamond" Icon="/Assets/ToolItems/ToolItem_Cell_Diamond.png" />
 				<vm:ToolItem ItemType="Cell_Triangle" Icon="/Assets/ToolItems/ToolItem_Cell_Triangle.png" />
 				<vm:ToolItem ItemType="Cell_ArrowTriangle" Icon="/Assets/ToolItems/ToolItem_Cell_ArrowTriangle.png" />
 				<vm:ToolItem ItemType="Cell_Arrow" Icon="/Assets/ToolItems/ToolItem_Cell_Arrow.png" />

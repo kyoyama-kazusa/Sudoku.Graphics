@@ -140,6 +140,17 @@ public static class ItemsFactory
 			FillColor = ResolveProperty(() => App.UserPreferences.CellCrossFillColor)
 		};
 
+	public static CellDiamondMarkItem Diamond(Absolute cell)
+		=> new()
+		{
+			TemplateIndex = 0,
+			Cell = cell,
+			SizeScale = ResolveProperty(() => App.UserPreferences.CellCrossSizeScale),
+			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellCrossStrokeWidthScale),
+			StrokeColor = ResolveProperty(() => App.UserPreferences.CellCrossStrokeColor),
+			FillColor = ResolveProperty(() => App.UserPreferences.CellCrossFillColor)
+		};
+
 	public static CellPolygonMarkItem Polygon(Absolute cell, int sidesCount, bool isConcave)
 		=> new()
 		{

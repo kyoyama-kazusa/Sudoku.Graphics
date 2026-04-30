@@ -324,4 +324,7 @@
   <data name="ItemType_Cell_BisectorLine" xml:space="preserve">
     <value>Bisector</value>
   </data>
+  <data name="ItemType_Cell_Diamond" xml:space="preserve">
+    <value>Diamond</value>
+  </data>
 </root>

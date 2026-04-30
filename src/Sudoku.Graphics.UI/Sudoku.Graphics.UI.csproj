@@ -37,6 +37,9 @@
 		<Resource Include="Assets\ToolItems\ToolItem_Cell_Cross.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
+		<Resource Include="Assets\ToolItems\ToolItem_Cell_Diamond.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
 		<Resource Include="Assets\ToolItems\ToolItem_Cell_MoonPhase.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
