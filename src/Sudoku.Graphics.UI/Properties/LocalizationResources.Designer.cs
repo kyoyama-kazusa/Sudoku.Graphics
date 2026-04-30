@@ -340,6 +340,15 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Battenburg.
+        /// </summary>
+        public static string ItemType_Cell_Battenburg {
+            get {
+                return ResourceManager.GetString("ItemType_Cell_Battenburg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bisector.
         /// </summary>
         public static string ItemType_Cell_BisectorLine {

@@ -163,6 +163,19 @@ public static class ItemsFactory
 			FillColor = ResolveProperty(() => App.UserPreferences.CellDiamondFillColor)
 		};
 
+	public static CellBattenburgMarkItem Battenburg(Absolute cell)
+		=> new()
+		{
+			TemplateIndex = 0,
+			Cell = cell,
+			Color1 = ResolveProperty(() => App.UserPreferences.CellBattenburgColor1),
+			Color2 = ResolveProperty(() => App.UserPreferences.CellBattenburgColor2),
+			UniformCornerRadiusScale = ResolveProperty(() => App.UserPreferences.CellBattenburgUniformCornerRadiusScale),
+			SizeScale = ResolveProperty(() => App.UserPreferences.CellBattenburgSizeScale),
+			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellBattenburgStrokeWidthScale),
+			StrokeColor = ResolveProperty(() => App.UserPreferences.CellBattenburgStrokeColor)
+		};
+
 	public static CellPolygonMarkItem Polygon(Absolute cell, int sidesCount, bool isConcave)
 		=> new()
 		{

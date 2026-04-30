@@ -330,4 +330,7 @@
   <data name="ItemType_Cell_Hexagon" xml:space="preserve">
     <value>Hexagon</value>
   </data>
+  <data name="ItemType_Cell_Battenburg" xml:space="preserve">
+    <value>Battenburg</value>
+  </data>
 </root>

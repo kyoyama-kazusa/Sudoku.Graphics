@@ -27,7 +27,7 @@ public sealed record CellBattenburgMarkItem : CellMarkItem
 	/// <summary>
 	/// Indicates uniform corner radius.
 	/// </summary>
-	public required Scale UniformCornerRadius { get; init; }
+	public required Scale UniformCornerRadiusScale { get; init; }
 
 
 	/// <inheritdoc/>
@@ -41,7 +41,7 @@ public sealed record CellBattenburgMarkItem : CellMarkItem
 			Color2,
 			StrokeColor,
 			StrokeWidthScale,
-			[UniformCornerRadius, UniformCornerRadius, UniformCornerRadius, UniformCornerRadius],
+			[UniformCornerRadiusScale, UniformCornerRadiusScale, UniformCornerRadiusScale, UniformCornerRadiusScale],
 			mapper
 		);
 	}

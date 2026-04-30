@@ -325,4 +325,7 @@
   <data name="ItemType_Cell_Hexagon" xml:space="preserve">
     <value>六边形</value>
   </data>
+  <data name="ItemType_Cell_Battenburg" xml:space="preserve">
+    <value>双色蛋糕</value>
+  </data>
 </root>

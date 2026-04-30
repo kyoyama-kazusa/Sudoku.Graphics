@@ -2197,7 +2197,7 @@
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellBattenburgMarkItem.StrokeWidthScale">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellBattenburgMarkItem.UniformCornerRadius">
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellBattenburgMarkItem.UniformCornerRadiusScale">
             <summary>
             Indicates uniform corner radius.
             </summary>
