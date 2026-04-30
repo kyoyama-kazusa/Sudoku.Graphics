@@ -342,4 +342,7 @@
   <data name="ItemType_Cell_BorderAlignedArrow" xml:space="preserve">
     <value>Arrow (Border-aligned)</value>
   </data>
+  <data name="ItemType_Cell_LargeDiamond" xml:space="preserve">
+    <value>Diamond (Large)</value>
+  </data>
 </root>

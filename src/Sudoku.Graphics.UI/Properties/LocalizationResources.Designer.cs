@@ -421,6 +421,15 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Diamond (Large).
+        /// </summary>
+        public static string ItemType_Cell_LargeDiamond {
+            get {
+                return ResourceManager.GetString("ItemType_Cell_LargeDiamond", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Moon phase.
         /// </summary>
         public static string ItemType_Cell_MoonPhase {

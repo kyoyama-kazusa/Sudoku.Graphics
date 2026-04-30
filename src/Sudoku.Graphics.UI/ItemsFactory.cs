@@ -312,4 +312,15 @@ public static class ItemsFactory
 			StrokeColor = ResolveProperty(() => App.UserPreferences.CellBorderAlignedArrowStrokeColor),
 			FillColor = ResolveProperty(() => App.UserPreferences.CellBorderAlignedArrowFillColor)
 		};
+
+	public static CellLargeDiamondMarkItem CellLargeDiamond(Absolute cell)
+		=> new()
+		{
+			TemplateIndex = 0,
+			Cell = cell,
+			SizeScale = ResolveProperty(() => App.UserPreferences.CellLargeDiamondSizeScale),
+			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellLargeDiamondStrokeWidthScale),
+			StrokeColor = ResolveProperty(() => App.UserPreferences.CellLargeDiamondStrokeColor),
+			FillColor = ResolveProperty(() => App.UserPreferences.CellLargeDiamondFillColor)
+		};
 }
