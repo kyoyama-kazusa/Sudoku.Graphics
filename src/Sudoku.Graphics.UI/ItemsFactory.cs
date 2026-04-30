@@ -323,4 +323,16 @@ public static class ItemsFactory
 			StrokeColor = ResolveProperty(() => App.UserPreferences.CellLargeDiamondStrokeColor),
 			FillColor = ResolveProperty(() => App.UserPreferences.CellLargeDiamondFillColor)
 		};
+
+	public static CellLoopSegmentLineMarkItem CellLoopSegmentLine(Absolute cell, Direction4 directions)
+		=> new()
+		{
+			TemplateIndex = 0,
+			Cell = cell,
+			OccupiedDirections = directions,
+			SizeScale = ResolveProperty(() => App.UserPreferences.CellLoopSegmentLineSizeScale),
+			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellLoopSegmentLineStrokeWidthScale),
+			StrokeColor = ResolveProperty(() => App.UserPreferences.CellLoopSegmentLineStrokeColor),
+			CornerRadiusScale = ResolveProperty(() => App.UserPreferences.CellLoopSegmentLineCornerRadiusScale)
+		};
 }

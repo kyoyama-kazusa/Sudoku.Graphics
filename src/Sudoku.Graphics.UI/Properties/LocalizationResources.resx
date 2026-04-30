@@ -345,4 +345,7 @@
   <data name="ItemType_Cell_LargeDiamond" xml:space="preserve">
     <value>Diamond (Large)</value>
   </data>
+  <data name="ItemType_Cell_LoopSegmentLine" xml:space="preserve">
+    <value>Loop segment</value>
+  </data>
 </root>

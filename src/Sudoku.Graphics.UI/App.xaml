@@ -39,6 +39,7 @@
 				<vm:ToolItem ItemType="Cell_SevenSegmentDisplay" Icon="/Assets/ToolItems/ToolItem_Cell_SevenSegmentDisplay.png" />
 				<vm:ToolItem ItemType="Cell_BorderAlignedTriangle" Icon="/Assets/ToolItems/ToolItem_Cell_BorderAlignedTriangle.png" />
 				<vm:ToolItem ItemType="Cell_BorderAlignedArrow" Icon="/Assets/ToolItems/ToolItem_Cell_BorderAlignedArrow.png" />
+				<vm:ToolItem ItemType="Cell_LoopSegmentLine" Icon="/Assets/ToolItems/ToolItem_Cell_LoopSegmentLine.png" />
 			</vm:ToolItemGroup>
 		</vm:ToolItemGroupCollection>
 
