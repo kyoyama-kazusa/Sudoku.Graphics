@@ -327,4 +327,7 @@
   <data name="ItemType_Cell_Diamond" xml:space="preserve">
     <value>Diamond</value>
   </data>
+  <data name="ItemType_Cell_Hexagon" xml:space="preserve">
+    <value>Hexagon</value>
+  </data>
 </root>

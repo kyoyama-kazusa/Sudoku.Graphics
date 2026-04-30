@@ -145,10 +145,22 @@ public static class ItemsFactory
 		{
 			TemplateIndex = 0,
 			Cell = cell,
-			SizeScale = ResolveProperty(() => App.UserPreferences.CellCrossSizeScale),
-			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellCrossStrokeWidthScale),
-			StrokeColor = ResolveProperty(() => App.UserPreferences.CellCrossStrokeColor),
-			FillColor = ResolveProperty(() => App.UserPreferences.CellCrossFillColor)
+			SizeScale = ResolveProperty(() => App.UserPreferences.CellDiamondSizeScale),
+			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellDiamondStrokeWidthScale),
+			StrokeColor = ResolveProperty(() => App.UserPreferences.CellDiamondStrokeColor),
+			FillColor = ResolveProperty(() => App.UserPreferences.CellDiamondFillColor)
+		};
+
+	public static CellHexagonMarkItem Hexagon(Absolute cell, Orientation2 orientation)
+		=> new()
+		{
+			TemplateIndex = 0,
+			Cell = cell,
+			Orientation = orientation,
+			SizeScale = ResolveProperty(() => App.UserPreferences.CellDiamondSizeScale),
+			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellDiamondStrokeWidthScale),
+			StrokeColor = ResolveProperty(() => App.UserPreferences.CellDiamondStrokeColor),
+			FillColor = ResolveProperty(() => App.UserPreferences.CellDiamondFillColor)
 		};
 
 	public static CellPolygonMarkItem Polygon(Absolute cell, int sidesCount, bool isConcave)

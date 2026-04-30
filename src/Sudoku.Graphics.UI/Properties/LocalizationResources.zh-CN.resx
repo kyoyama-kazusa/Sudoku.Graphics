@@ -314,12 +314,15 @@
     <value>箭头（图形）</value>
   </data>
   <data name="ItemType_Cell_ApexCornerTriangle" xml:space="preserve">
-    <value>三角（靠边角）</value>
+    <value>三角（靠角）</value>
   </data>
   <data name="ItemType_Cell_BisectorLine" xml:space="preserve">
     <value>二分线</value>
   </data>
   <data name="ItemType_Cell_Diamond" xml:space="preserve">
     <value>菱形</value>
+  </data>
+  <data name="ItemType_Cell_Hexagon" xml:space="preserve">
+    <value>六边形</value>
   </data>
 </root>

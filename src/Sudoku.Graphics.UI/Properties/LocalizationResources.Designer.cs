@@ -385,6 +385,15 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hexagon.
+        /// </summary>
+        public static string ItemType_Cell_Hexagon {
+            get {
+                return ResourceManager.GetString("ItemType_Cell_Hexagon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Moon phase.
         /// </summary>
         public static string ItemType_Cell_MoonPhase {
