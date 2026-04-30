@@ -267,4 +267,22 @@ public static class ItemsFactory
 			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellBisectorLineStrokeWidthScale),
 			StrokeColor = ResolveProperty(() => App.UserPreferences.CellBisectorLineStrokeColor)
 		};
+
+	public static CellSevenSegmentDisplayMarkItem CellSevenSegmentDisplay(Absolute cell, int value)
+		=> new()
+		{
+			TemplateIndex = 0,
+			Cell = cell,
+			Value = value,
+			UseSecondaryStyle = ResolveProperty(() => App.UserPreferences.CellSevenSegmentDisplayUseSecondaryDigitStyle),
+			ShowPhantomSegments = ResolveProperty(() => App.UserPreferences.CellSevenSegmentDisplayShowPhantomSegments),
+			SizeScale = ResolveProperty(() => App.UserPreferences.CellSevenSegmentDisplaySizeScale),
+			SegmentRectWidthScale = ResolveProperty(() => App.UserPreferences.CellSevenSegmentDisplaySegmentRectWidthScale),
+			SegmentRectHeightScale = ResolveProperty(() => App.UserPreferences.CellSevenSegmentDisplaySegmentRectHeightScale),
+			PhantomStrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellSevenSegmentDisplayPhantomStrokeWidthScale),
+			PhantomStrokeColor = ResolveProperty(() => App.UserPreferences.CellSevenSegmentDisplayPhantomStrokeColor),
+			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellSevenSegmentDisplayStrokeWidthScale),
+			StrokeColor = ResolveProperty(() => App.UserPreferences.CellSevenSegmentDisplayStrokeColor),
+			FillColor = ResolveProperty(() => App.UserPreferences.CellSevenSegmentDisplayFillColor)
+		};
 }

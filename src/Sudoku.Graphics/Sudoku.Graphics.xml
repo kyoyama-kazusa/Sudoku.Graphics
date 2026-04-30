@@ -2622,6 +2622,11 @@
             ]]></code>
             </remarks>
         </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellSevenSegmentDisplayMarkItem.UseSecondaryStyle">
+            <summary>
+            Indicates whether secondary style will be chosen.
+            </summary>
+        </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellSevenSegmentDisplayMarkItem.ShowPhantomSegments">
             <summary>
             Indicates whether phantom segments (segments not shown in specified value) are also shown, but not filled.
@@ -2644,6 +2649,23 @@
             <summary>
             Indicates scale of stroke width of phantom segments, related to cell size.
             </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellSevenSegmentDisplayMarkItem.StrokeWidthScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellSevenSegmentDisplayMarkItem.SizeScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellSevenSegmentDisplayMarkItem.StrokeColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellSevenSegmentDisplayMarkItem.PhantomStrokeColor">
+            <summary>
+            Indicates phantom segment stroke color.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellSevenSegmentDisplayMarkItem.FillColor">
+            <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellSevenSegmentDisplayMarkItem.Type">
             <inheritdoc/>

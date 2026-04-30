@@ -39,6 +39,11 @@ public sealed record CellSevenSegmentDisplayMarkItem : CellMarkItem, IItem_Value
 
 
 	/// <summary>
+	/// Indicates whether secondary style will be chosen.
+	/// </summary>
+	public bool UseSecondaryStyle { get; init; } = false;
+
+	/// <summary>
 	/// Indicates whether phantom segments (segments not shown in specified value) are also shown, but not filled.
 	/// </summary>
 	public required bool ShowPhantomSegments { get; init; }
@@ -60,6 +65,23 @@ public sealed record CellSevenSegmentDisplayMarkItem : CellMarkItem, IItem_Value
 	/// Indicates scale of stroke width of phantom segments, related to cell size.
 	/// </summary>
 	public required Scale PhantomStrokeWidthScale { get; init; }
+
+	/// <inheritdoc/>
+	public required override Scale StrokeWidthScale { get; init; }
+
+	/// <inheritdoc/>
+	public required override Scale SizeScale { get; init; }
+
+	/// <inheritdoc/>
+	public required override SerializableColor StrokeColor { get; init; }
+
+	/// <summary>
+	/// Indicates phantom segment stroke color.
+	/// </summary>
+	public required SerializableColor PhantomStrokeColor { get; init; }
+
+	/// <inheritdoc/>
+	public required override SerializableColor FillColor { get; init; }
 
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.Cell_SevenSegmentDisplay;
@@ -157,7 +179,7 @@ public sealed record CellSevenSegmentDisplayMarkItem : CellMarkItem, IItem_Value
 		{
 			Style = SKPaintStyle.Stroke,
 			IsAntialias = true,
-			Color = StrokeColor,
+			Color = PhantomStrokeColor,
 			StrokeWidth = PhantomStrokeWidthScale.Measure(cellSize)
 		};
 		using var fillPaint = new SKPaint { Style = SKPaintStyle.Fill, IsAntialias = true, Color = FillColor };
@@ -166,7 +188,7 @@ public sealed record CellSevenSegmentDisplayMarkItem : CellMarkItem, IItem_Value
 		for (var i = 0; i < segmentsLightup.Length; i++)
 		{
 			using var path = new SKPath();
-			path.MoveTo(points[i][0]);
+			path.MoveTo(points[i][UseSecondaryStyle ? ^1 : 0]);
 			for (var j = 1; j < 6; j++)
 			{
 				path.LineTo(points[i][j]);

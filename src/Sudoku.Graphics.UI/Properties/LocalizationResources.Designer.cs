@@ -430,6 +430,15 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to LED digit.
+        /// </summary>
+        public static string ItemType_Cell_SevenSegmentDisplay {
+            get {
+                return ResourceManager.GetString("ItemType_Cell_SevenSegmentDisplay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Square.
         /// </summary>
         public static string ItemType_Cell_Square {

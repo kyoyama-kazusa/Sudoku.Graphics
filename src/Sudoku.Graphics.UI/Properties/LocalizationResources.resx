@@ -333,4 +333,7 @@
   <data name="ItemType_Cell_Battenburg" xml:space="preserve">
     <value>Battenburg</value>
   </data>
+  <data name="ItemType_Cell_SevenSegmentDisplay" xml:space="preserve">
+    <value>LED digit</value>
+  </data>
 </root>

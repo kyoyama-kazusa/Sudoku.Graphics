@@ -328,4 +328,7 @@
   <data name="ItemType_Cell_Battenburg" xml:space="preserve">
     <value>双色蛋糕</value>
   </data>
+  <data name="ItemType_Cell_SevenSegmentDisplay" xml:space="preserve">
+    <value>LED 数字</value>
+  </data>
 </root>

@@ -35,6 +35,7 @@
 				<vm:ToolItem ItemType="Cell_Tetris" Icon="/Assets/ToolItems/ToolItem_Cell_Tetris.png" />
 				<vm:ToolItem ItemType="Cell_MoonPhase" Icon="/Assets/ToolItems/ToolItem_Cell_MoonPhase.png" />
 				<vm:ToolItem ItemType="Cell_Battenburg" Icon="/Assets/ToolItems/ToolItem_Cell_Battenburg.png" />
+				<vm:ToolItem ItemType="Cell_SevenSegmentDisplay" Icon="/Assets/ToolItems/ToolItem_Cell_SevenSegmentDisplay.png" />
 			</vm:ToolItemGroup>
 		</vm:ToolItemGroupCollection>
 

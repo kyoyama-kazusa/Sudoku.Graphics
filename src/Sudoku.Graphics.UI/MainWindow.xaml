@@ -282,9 +282,23 @@
 				<c:ItemSelectorPanel
 					x:Name="CellHexagonPanel"
 					Style="{StaticResource PanelStyle}"
-					ColumnsCount="4">
+					ColumnsCount="2">
 					<c:ItemSelectorPanel.ItemTemplate>
 						<DataTemplate DataType="vm:CellHexagonDisplayItem">
+							<Image Source="{Binding Icon}" />
+						</DataTemplate>
+					</c:ItemSelectorPanel.ItemTemplate>
+				</c:ItemSelectorPanel>
+			</Border>
+		</Popup>
+		<Popup x:Name="CellSevenSegmentDisplayPopup">
+			<Border Style="{StaticResource PopupBorderStyle}">
+				<c:ItemSelectorPanel
+					x:Name="CellSevenSegmentDisplayPanel"
+					Style="{StaticResource PanelStyle}"
+					ColumnsCount="3">
+					<c:ItemSelectorPanel.ItemTemplate>
+						<DataTemplate DataType="vm:CellSevenSegmentDisplayDisplayItem">
 							<Image Source="{Binding Icon}" />
 						</DataTemplate>
 					</c:ItemSelectorPanel.ItemTemplate>
