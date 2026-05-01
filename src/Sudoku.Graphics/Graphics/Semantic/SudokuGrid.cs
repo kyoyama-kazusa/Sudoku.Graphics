@@ -440,18 +440,26 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 	/// </remarks>
 	public override string ToString()
 	{
-		var rowsCountStr = SudokuGridNotation.IndexToChar(RowsCount);
-		var columnsCountStr = SudokuGridNotation.IndexToChar(ColumnsCount);
-		var digitsCountStr = SudokuGridNotation.IndexToChar(DigitsCount);
+		var rowsCountStr = SudokuGridNotation.IndexToChar(RowsCount - 1);
+		var columnsCountStr = SudokuGridNotation.IndexToChar(ColumnsCount - 1);
+		var digitsCountStr = SudokuGridNotation.IndexToChar(DigitsCount - 1);
 
+		const string defaultPlaceholder = ".";
 		var valuesSb = new StringBuilder();
-		foreach (var digit in _givens)
+		for (var i = 0; i < CellsCount; i++)
 		{
-			valuesSb.Append(digit);
-		}
-		foreach (var digit in _modifiables)
-		{
-			valuesSb.Append($"+{digit}");
+			if (_givens[i] is var given and not -1)
+			{
+				valuesSb.Append(given + 1);
+			}
+			else if (_modifiables[i] is var modifiable and not -1)
+			{
+				valuesSb.Append($"+{modifiable + 1}");
+			}
+			else
+			{
+				valuesSb.Append(defaultPlaceholder[0]);
+			}
 		}
 
 		if (!(EnumerateCandidates().GetCandidatePositionsImmediately() is { Length: not 0 } candidates))
@@ -603,9 +611,9 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 			goto ThrowFormatException;
 		}
 
-		var rowsCount = SudokuGridNotation.CharToIndex(rowsCountCh);
-		var columnsCount = SudokuGridNotation.CharToIndex(columnsCountCh);
-		var digitsCount = SudokuGridNotation.CharToIndex(digitsCountCh);
+		var rowsCount = SudokuGridNotation.CharToIndex(rowsCountCh) + 1;
+		var columnsCount = SudokuGridNotation.CharToIndex(columnsCountCh) + 1;
+		var digitsCount = SudokuGridNotation.CharToIndex(digitsCountCh) + 1;
 
 		var givens = new int[rowsCount * columnsCount];
 		var modifiables = new int[rowsCount * columnsCount];
@@ -619,7 +627,7 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 			{
 				case '0' or '.':
 				{
-					givens[cell] = 0;
+					givens[cell] = -1;
 					i++;
 					break;
 				}
@@ -631,7 +639,7 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 						{
 							case '0' or '.':
 							{
-								modifiables[cell] = 0;
+								modifiables[cell] = -1;
 								break;
 							}
 							case var ch when SudokuGridNotation.IsValidChar(ch):
