@@ -310,4 +310,24 @@ public static class ItemsFactory
 			StrokeColor = ResolveProperty(() => App.UserPreferences.CellLoopSegmentLineStrokeColor),
 			CornerRadiusScale = ResolveProperty(() => App.UserPreferences.CellLoopSegmentLineCornerRadiusScale)
 		};
+
+	public static CandidateCircleMarkItem CandidateCircle(CandidatePosition candidate)
+		=> new()
+		{
+			CandidatePosition = candidate,
+			SizeScale = ResolveProperty(() => App.UserPreferences.CandidateCircleSizeScale),
+			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CandidateCircleStrokeWidthScale),
+			StrokeColor = ResolveProperty(() => App.UserPreferences.CandidateCircleStrokeColor),
+			FillColor = ResolveProperty(() => App.UserPreferences.CandidateCircleFillColor)
+		};
+
+	public static CandidateCrossMarkItem CandidateCross(CandidatePosition candidate)
+		=> new()
+		{
+			CandidatePosition = candidate,
+			SizeScale = ResolveProperty(() => App.UserPreferences.CandidateCrossSizeScale),
+			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CandidateCrossStrokeWidthScale),
+			StrokeColor = ResolveProperty(() => App.UserPreferences.CandidateCrossStrokeColor),
+			FillColor = ResolveProperty(() => App.UserPreferences.CandidateCrossFillColor)
+		};
 }

@@ -343,4 +343,13 @@
   <data name="ItemType_Cell_LoopSegmentLine" xml:space="preserve">
     <value>数回回路线段</value>
   </data>
+  <data name="ItemTypeGroup_CandidateMark" xml:space="preserve">
+    <value>候选数图标</value>
+  </data>
+  <data name="ItemType_Candidate_Circle" xml:space="preserve">
+    <value>圆形</value>
+  </data>
+  <data name="ItemType_Candidate_Cross" xml:space="preserve">
+    <value>叉号</value>
+  </data>
 </root>

@@ -41,6 +41,10 @@
 				<vm:ToolItem ItemType="Cell_BorderAlignedArrow" Icon="/Assets/ToolItems/ToolItem_Cell_BorderAlignedArrow.png" />
 				<vm:ToolItem ItemType="Cell_LoopSegmentLine" Icon="/Assets/ToolItems/ToolItem_Cell_LoopSegmentLine.png" />
 			</vm:ToolItemGroup>
+			<vm:ToolItemGroup Title="{x:Static p:LocalizationResources.ItemTypeGroup_CandidateMark}">
+				<vm:ToolItem ItemType="Candidate_Circle" Icon="/Assets/ToolItems/ToolItem_Cell_Circle.png" />
+				<vm:ToolItem ItemType="Candidate_Cross" Icon="/Assets/ToolItems/ToolItem_Cell_Cross.png" />
+			</vm:ToolItemGroup>
 		</vm:ToolItemGroupCollection>
 
 		<!--Preferences-->

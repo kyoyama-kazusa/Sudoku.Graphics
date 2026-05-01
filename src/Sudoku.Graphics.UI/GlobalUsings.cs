@@ -33,6 +33,7 @@ global using SkiaSharp;
 global using SkiaSharp.Views.WPF;
 global using Sudoku.Graphics.Directions;
 global using Sudoku.Graphics.Items;
+global using Sudoku.Graphics.Items.CandidateMarks;
 global using Sudoku.Graphics.Items.CellMarks;
 global using Sudoku.Graphics.Items.Fills;
 global using Sudoku.Graphics.Items.Lines;

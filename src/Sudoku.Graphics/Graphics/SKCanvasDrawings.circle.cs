@@ -7,22 +7,20 @@ public partial class SKCanvasDrawings
 		/// <summary>
 		/// Draws a square into the specified cell or candidate.
 		/// </summary>
-		/// <typeparam name="TLocator">The type of cell or candidate.</typeparam>
 		/// <param name="locator">The cell or candidate.</param>
-		/// <param name="sizeScale">The scale of size, related to cell or candidate.</param>
+		/// <param name="sizeScale">The scale of size, related to its locator size (cell or candidate).</param>
 		/// <param name="strokeColor">The stroke color.</param>
 		/// <param name="strokeWidthScale">The scale of stroke width, related to cell.</param>
 		/// <param name="fillColor">The fill color.</param>
 		/// <param name="mapper">The mapper instance.</param>
-		public void DrawCircleTo<TLocator>(
-			TLocator locator,
+		public void DrawCircleTo(
+			Locator locator,
 			Scale sizeScale,
 			SerializableColor strokeColor,
 			Scale strokeWidthScale,
 			SerializableColor fillColor,
 			PointMapper mapper
 		)
-			where TLocator : unmanaged, ILocator<TLocator>
 		{
 			if (sizeScale < Scale.Zero)
 			{

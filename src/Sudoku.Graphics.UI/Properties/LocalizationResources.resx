@@ -348,4 +348,13 @@
   <data name="ItemType_Cell_LoopSegmentLine" xml:space="preserve">
     <value>Loop segment</value>
   </data>
+  <data name="ItemTypeGroup_CandidateMark" xml:space="preserve">
+    <value>Candidate Items</value>
+  </data>
+  <data name="ItemType_Candidate_Circle" xml:space="preserve">
+    <value>Circle</value>
+  </data>
+  <data name="ItemType_Candidate_Cross" xml:space="preserve">
+    <value>Cross</value>
+  </data>
 </root>

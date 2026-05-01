@@ -1,12 +1,9 @@
 ﻿namespace Sudoku.Graphics;
 
 /// <summary>
-/// Represents a case that a locator instance (<see cref="Absolute"/>, <see cref="Relative"/> or <see cref="CandidatePosition"/>)
-/// should be aligned.
+/// Represents a case that a <see cref="Locator"/> instance should be aligned.
 /// </summary>
-/// <seealso cref="Absolute"/>
-/// <seealso cref="Relative"/>
-/// <seealso cref="CandidatePosition"/>
+/// <seealso cref="Locator"/>
 public enum LocatorGridAlignment
 {
 	/// <summary>

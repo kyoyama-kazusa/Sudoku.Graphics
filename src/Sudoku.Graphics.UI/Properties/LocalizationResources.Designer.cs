@@ -313,6 +313,24 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Circle.
+        /// </summary>
+        public static string ItemType_Candidate_Circle {
+            get {
+                return ResourceManager.GetString("ItemType_Candidate_Circle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cross.
+        /// </summary>
+        public static string ItemType_Candidate_Cross {
+            get {
+                return ResourceManager.GetString("ItemType_Candidate_Cross", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Triangle (Corner).
         /// </summary>
         public static string ItemType_Cell_ApexCornerTriangle {
@@ -552,6 +570,15 @@ namespace Sudoku.Graphics.UI.Properties {
         public static string ItemTypeGroup_Basic {
             get {
                 return ResourceManager.GetString("ItemTypeGroup_Basic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Candidate Items.
+        /// </summary>
+        public static string ItemTypeGroup_CandidateMark {
+            get {
+                return ResourceManager.GetString("ItemTypeGroup_CandidateMark", resourceCulture);
             }
         }
         

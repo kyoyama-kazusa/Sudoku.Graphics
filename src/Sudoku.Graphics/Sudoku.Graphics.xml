@@ -1239,11 +1239,11 @@
             <param name="type">The type.</param>
             <returns>The number of elements removed.</returns>
         </member>
-        <member name="M:Sudoku.Graphics.ItemSet.Find(Sudoku.Graphics.Absolute,Sudoku.Graphics.ItemType)">
+        <member name="M:Sudoku.Graphics.ItemSet.Find(Sudoku.Graphics.Locator,Sudoku.Graphics.ItemType)">
             <summary>
-            Finds for the specified item with specified type in the specified cell.
+            Finds for the specified item with specified type in the specified cell or candidate.
             </summary>
-            <param name="cell">The cell.</param>
+            <param name="locator">The cell or candidate.</param>
             <param name="type">The type.</param>
             <returns>The item found; or <see langword="null"/> if not found.</returns>
         </member>
@@ -4932,14 +4932,105 @@
         <member name="M:Sudoku.Graphics.Converter.Write(System.Text.Json.Utf8JsonWriter,Sudoku.Graphics.LineDashSequence,System.Text.Json.JsonSerializerOptions)">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.Locator">
+            <summary>
+            Represents a locator object (absolute cell index, relative cell index or candidate position).
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Locator._type">
+            <summary>
+            The type of backing value (0 = <see cref="T:Sudoku.Graphics.Absolute"/>, 1 = <see cref="T:Sudoku.Graphics.Relative"/>, 2 = <see cref="T:Sudoku.Graphics.CandidatePosition"/>).
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Locator._absolute">
+            <summary>
+            The backing value of type <see cref="T:Sudoku.Graphics.Absolute"/>.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Locator._relative">
+            <summary>
+            The backing value of type <see cref="T:Sudoku.Graphics.Relative"/>.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.Locator._candidate">
+            <summary>
+            The backing value of type <see cref="T:Sudoku.Graphics.CandidatePosition"/>.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Locator.#ctor(Sudoku.Graphics.Absolute)">
+            <summary>
+            Creates a <see cref="T:Sudoku.Graphics.Locator"/> object via <see cref="T:Sudoku.Graphics.Absolute"/> instance.
+            </summary>
+            <param name="absolute">The instance.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.Locator.#ctor(Sudoku.Graphics.Relative)">
+            <summary>
+            Creates a <see cref="T:Sudoku.Graphics.Locator"/> object via <see cref="T:Sudoku.Graphics.Relative"/> instance.
+            </summary>
+            <param name="relative">The instance.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.Locator.#ctor(Sudoku.Graphics.CandidatePosition)">
+            <summary>
+            Creates a <see cref="T:Sudoku.Graphics.Locator"/> object via <see cref="T:Sudoku.Graphics.CandidatePosition"/> instance.
+            </summary>
+            <param name="candidate">The instance.</param>
+        </member>
+        <member name="P:Sudoku.Graphics.Locator.Value">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Locator.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Locator.Equals(Sudoku.Graphics.Locator)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Locator.IsSideWith(Sudoku.Graphics.Locator,Sudoku.Graphics.Directions.Direction4,Sudoku.Graphics.PointMapper,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Locator.TryGetValue(Sudoku.Graphics.Absolute@)">
+            <summary>
+            Try to get the backing value of type <see cref="T:Sudoku.Graphics.Absolute"/> if available.
+            </summary>
+            <param name="result">The value.</param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating whether the type matches.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.Locator.TryGetValue(Sudoku.Graphics.Relative@)">
+            <summary>
+            Try to get the backing value of type <see cref="T:Sudoku.Graphics.Relative"/> if available.
+            </summary>
+            <param name="result">The value.</param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating whether the type matches.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.Locator.TryGetValue(Sudoku.Graphics.CandidatePosition@)">
+            <summary>
+            Try to get the backing value of type <see cref="T:Sudoku.Graphics.CandidatePosition"/> if available.
+            </summary>
+            <param name="result">The value.</param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating whether the type matches.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.Locator.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Locator.GetLocatorMeasurer(System.Single)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Locator.GetCandidatesCountInEachRow">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Locator.IsAlignedAs(Sudoku.Graphics.LocatorGridAlignment,Sudoku.Graphics.Locator,Sudoku.Graphics.Locator,Sudoku.Graphics.PointMapper)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Locator.op_Equality(Sudoku.Graphics.Locator,Sudoku.Graphics.Locator)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Sudoku.Graphics.Locator.op_Inequality(Sudoku.Graphics.Locator,Sudoku.Graphics.Locator)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.LocatorGridAlignment">
             <summary>
-            Represents a case that a locator instance (<see cref="T:Sudoku.Graphics.Absolute"/>, <see cref="T:Sudoku.Graphics.Relative"/> or <see cref="T:Sudoku.Graphics.CandidatePosition"/>)
-            should be aligned.
+            Represents a case that a <see cref="T:Sudoku.Graphics.Locator"/> instance should be aligned.
             </summary>
-            <seealso cref="T:Sudoku.Graphics.Absolute"/>
-            <seealso cref="T:Sudoku.Graphics.Relative"/>
-            <seealso cref="T:Sudoku.Graphics.CandidatePosition"/>
+            <seealso cref="T:Sudoku.Graphics.Locator"/>
         </member>
         <member name="F:Sudoku.Graphics.LocatorGridAlignment.None">
             <summary>
@@ -5054,18 +5145,13 @@
             </exception>
             <seealso cref="F:Sudoku.Graphics.Alignment.None"/>
         </member>
-        <member name="M:Sudoku.Graphics.PointMapper.GetPoint``1(``0,Sudoku.Graphics.Alignment)">
+        <member name="M:Sudoku.Graphics.PointMapper.GetPoint(Sudoku.Graphics.Locator,Sudoku.Graphics.Alignment)">
             <summary>
             Returns the position (point) of the specified alignment type of the specified cell or candidate.
             </summary>
-            <typeparam name="TLocator">The type of locator (cell or candidate).</typeparam>
             <param name="locator">The locator object (cell or candidate).</param>
             <param name="alignment">The alignment.</param>
             <returns>The point instance that represents the target position.</returns>
-            <exception cref="T:System.NotSupportedException">
-            Throws when type <typeparamref name="TLocator"/> is not <see cref="T:Sudoku.Graphics.Absolute"/>,
-            <see cref="T:Sudoku.Graphics.Relative"/> or <see cref="T:Sudoku.Graphics.CandidatePosition"/>.
-            </exception>
         </member>
         <member name="M:Sudoku.Graphics.PointMapper.GetPoint(Sudoku.Graphics.CandidatePosition,Sudoku.Graphics.Alignment)">
             <summary>
@@ -6319,11 +6405,11 @@
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawTextWithCover(SkiaSharp.SKCanvas,SkiaSharp.SKPoint,System.String,SkiaSharp.SKTextAlign,Sudoku.Graphics.CoverStyle,SkiaSharp.SKFont,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPaint,Sudoku.Graphics.Thickness{System.Single},SkiaSharp.SKPoint)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextWithCover(SkiaSharp.SKPoint,System.String,SkiaSharp.SKTextAlign,Sudoku.Graphics.CoverStyle,SkiaSharp.SKFont,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPaint,Sudoku.Graphics.Thickness{System.Single},SkiaSharp.SKPoint)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawCircleTo``1(SkiaSharp.SKCanvas,``0,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCircleTo``1(``0,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawCircleTo(SkiaSharp.SKCanvas,Sudoku.Graphics.Locator,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCircleTo(Sudoku.Graphics.Locator,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawCrossTo``1(SkiaSharp.SKCanvas,``0,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper,SkiaSharp.SKStrokeCap)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCrossTo``1(``0,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper,SkiaSharp.SKStrokeCap)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawCrossTo(SkiaSharp.SKCanvas,Sudoku.Graphics.Locator,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper,SkiaSharp.SKStrokeCap)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCrossTo(Sudoku.Graphics.Locator,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper,SkiaSharp.SKStrokeCap)"/>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawPolygonToCell(SkiaSharp.SKCanvas,Sudoku.Graphics.Absolute,System.Int32,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper,System.Single)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawPolygonToCell(Sudoku.Graphics.Absolute,System.Int32,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper,System.Single)"/>
@@ -6465,25 +6551,23 @@
             <param name="offset">The offset to the text to be drawn.</param>
             <exception cref="T:System.ArgumentOutOfRangeException">Throws when <paramref name="textAlign"/> is not defined.</exception>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCircleTo``1(``0,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCircleTo(Sudoku.Graphics.Locator,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper)">
             <summary>
             Draws a square into the specified cell or candidate.
             </summary>
-            <typeparam name="TLocator">The type of cell or candidate.</typeparam>
             <param name="locator">The cell or candidate.</param>
-            <param name="sizeScale">The scale of size, related to cell or candidate.</param>
+            <param name="sizeScale">The scale of size, related to its locator size (cell or candidate).</param>
             <param name="strokeColor">The stroke color.</param>
             <param name="strokeWidthScale">The scale of stroke width, related to cell.</param>
             <param name="fillColor">The fill color.</param>
             <param name="mapper">The mapper instance.</param>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCrossTo``1(``0,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper,SkiaSharp.SKStrokeCap)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCrossTo(Sudoku.Graphics.Locator,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper,SkiaSharp.SKStrokeCap)">
             <summary>
             Draws a cross symbol into the specified cell or candidate.
             </summary>
-            <typeparam name="TLocator">The type of cell or candidate.</typeparam>
             <param name="locator">The cell or candidate.</param>
-            <param name="sizeScale">The scale of size, related to cell size.</param>
+            <param name="sizeScale">The scale of size, related to its locator size (cell or candidate size).</param>
             <param name="strokeWidthScale">The stroke width scale.</param>
             <param name="color">The color.</param>
             <param name="mapper">The mapper instance.</param>

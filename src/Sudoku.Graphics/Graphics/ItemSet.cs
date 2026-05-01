@@ -271,19 +271,28 @@ public sealed partial class ItemSet :
 	}
 
 	/// <summary>
-	/// Finds for the specified item with specified type in the specified cell.
+	/// Finds for the specified item with specified type in the specified cell or candidate.
 	/// </summary>
-	/// <param name="cell">The cell.</param>
+	/// <param name="locator">The cell or candidate.</param>
 	/// <param name="type">The type.</param>
 	/// <returns>The item found; or <see langword="null"/> if not found.</returns>
-	public ReadOnlySpan<Item> Find(Absolute cell, ItemType type)
+	public ReadOnlySpan<Item> Find(Locator locator, ItemType type)
 	{
 		var result = new List<Item>();
 		foreach (var item in _itemsLookup.TryGetValue(type, out var v) ? v : [])
 		{
-			if (item is IItem_CellProperty { Cell: var c } && c == cell)
+			switch (item, locator)
 			{
-				result.Add(item);
+				case (IItem_CellProperty { Cell: var c }, Absolute cell) when c == cell:
+				{
+					result.Add(item);
+					break;
+				}
+				case (IItem_CandidatePositionProperty { CandidatePosition: var c }, CandidatePosition candidate) when c == candidate:
+				{
+					result.Add(item);
+					break;
+				}
 			}
 		}
 		return result.AsSpan();

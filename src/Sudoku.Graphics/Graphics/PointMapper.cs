@@ -131,21 +131,15 @@ public sealed record PointMapper : IEqualityOperators<PointMapper, PointMapper, 
 	/// <summary>
 	/// Returns the position (point) of the specified alignment type of the specified cell or candidate.
 	/// </summary>
-	/// <typeparam name="TLocator">The type of locator (cell or candidate).</typeparam>
 	/// <param name="locator">The locator object (cell or candidate).</param>
 	/// <param name="alignment">The alignment.</param>
 	/// <returns>The point instance that represents the target position.</returns>
-	/// <exception cref="NotSupportedException">
-	/// Throws when type <typeparamref name="TLocator"/> is not <see cref="Absolute"/>,
-	/// <see cref="Relative"/> or <see cref="CandidatePosition"/>.
-	/// </exception>
-	public SKPoint GetPoint<TLocator>(TLocator locator, Alignment alignment) where TLocator : unmanaged, ILocator<TLocator>
+	public SKPoint GetPoint(Locator locator, Alignment alignment)
 		=> locator switch
 		{
 			Absolute cell => GetPoint(cell, alignment),
 			Relative cell => GetPoint(cell.ToAbsolute(this), alignment),
-			CandidatePosition candidate => GetPoint(candidate, alignment),
-			_ => throw new NotSupportedException($"The specified type '{typeof(TLocator).Name}' is not supported - it must be of type '{nameof(Absolute)}', '{nameof(Relative)}' or '{nameof(CandidatePosition)}'.")
+			CandidatePosition candidate => GetPoint(candidate, alignment)
 		};
 
 	/// <summary>
