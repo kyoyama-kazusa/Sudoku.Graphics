@@ -137,7 +137,12 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 	/// <summary>
 	/// Represents an event that will be triggered when digits are added.
 	/// </summary>
-	public event EventHandler<SudokuGrid, SudokuGridDigitAddedEventArgs>? DigitsAdded;
+	public event EventHandler<SudokuGrid, SudokuGridDigitAddedEventArgs>? DigitAdded;
+
+	/// <summary>
+	/// Represents an event that will be triggered when a candidate is added.
+	/// </summary>
+	public event EventHandler<SudokuGrid, SudokuGridCandidateAddedEventArgs>? CandidateAdded;
 
 	/// <summary>
 	/// Represents an event that will be triggered when any digit is being removed from a cell.
@@ -148,6 +153,11 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 	/// Represents an event that will be triggered when any digit is removed from a cell.
 	/// </summary>
 	public event EventHandler<SudokuGrid, SudokuGridDigitRemovedEventArgs>? DigitRemoved;
+
+	/// <summary>
+	/// Represents an event that will be triggered when any candidate is removed from a cell.
+	/// </summary>
+	public event EventHandler<SudokuGrid, SudokuGridCandidateRemovedEventArgs>? CandidateRemoved;
 
 	/// <summary>
 	/// Represents an event that will be triggered when the whole grid is cleared.
@@ -174,7 +184,7 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 		VerifyArgumentDigit(digit);
 
 		// Trigger event (adding).
-		var addingEventArgs = new SudokuGridDigitAddingEventArgs(DigitType.Given, cell, [digit]);
+		var addingEventArgs = new SudokuGridDigitAddingEventArgs(DigitType.Given, cell, digit);
 		DigitsAdding?.Invoke(this, addingEventArgs);
 		if (addingEventArgs.Handled)
 		{
@@ -187,7 +197,7 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 		_givens[cell] = digit;
 
 		// Trigger event (added).
-		DigitsAdded?.Invoke(this, new(DigitType.Given, cell, [digit]));
+		DigitAdded?.Invoke(this, new(DigitType.Given, cell, digit));
 	}
 
 	/// <summary>
@@ -204,7 +214,7 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 		VerifyArgumentDigit(digit);
 
 		// Trigger event (adding).
-		var addingEventArgs = new SudokuGridDigitAddingEventArgs(DigitType.Modifiable, cell, [digit]);
+		var addingEventArgs = new SudokuGridDigitAddingEventArgs(DigitType.Modifiable, cell, digit);
 		DigitsAdding?.Invoke(this, addingEventArgs);
 		if (addingEventArgs.Handled)
 		{
@@ -217,41 +227,61 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 		_modifiables[cell] = digit;
 
 		// Trigger event (added).
-		DigitsAdded?.Invoke(this, new(DigitType.Modifiable, cell, [digit]));
+		DigitAdded?.Invoke(this, new(DigitType.Modifiable, cell, digit));
 	}
 
 	/// <summary>
-	/// Adds candidates into the grid.
+	/// Adds a candidate into the grid.
 	/// </summary>
 	/// <param name="cell">The cell.</param>
-	/// <param name="digits">The digits.</param>
-	/// <exception cref="ArgumentException">
-	/// Throws when either argument <paramref name="cell"/> or <paramref name="digits"/> is invalid.
-	/// </exception>
-	public void AddCandidates(Absolute cell, params int[] digits)
+	/// <param name="digit">The digit.</param>
+	/// <exception cref="ArgumentException">Throws when the argument <paramref name="cell"/> is invalid.</exception>
+	public void AddCandidate(Absolute cell, int digit)
 	{
 		VerifyArgumentCell(cell);
-		VerifyArgumentDigits(digits);
+		VerifyArgumentDigit(digit);
 
 		// Trigger event (adding).
-		var addingEventArgs = new SudokuGridDigitAddingEventArgs(DigitType.Candidate, cell, digits);
+		var addingEventArgs = new SudokuGridDigitAddingEventArgs(DigitType.Candidate, cell, digit);
 		DigitsAdding?.Invoke(this, addingEventArgs);
 		if (addingEventArgs.Handled)
 		{
 			return;
 		}
 
-		ClearCellImpl(cell);
-
-		// Add candidates.
-		foreach (var digit in digits)
+		if (ContainsCandidate(cell, digit))
 		{
-			_candidates[cell * DigitsCount + digit] = true;
+			return;
 		}
 
+		_candidates[cell * DigitsCount + digit] = true;
+
 		// Trigger event (added).
-		DigitsAdded?.Invoke(this, new(DigitType.Candidate, cell, digits));
+		CandidateAdded?.Invoke(this, new(new(cell, DigitsCount.GetCandidatesCountInEachRow(), digit)));
 	}
+
+	/// <summary>
+	/// Flips a candidate (if appeared, remove; or disappeared, add).
+	/// </summary>
+	/// <param name="cell">The cell.</param>
+	/// <param name="digit">The digit.</param>
+	public void FlipCandidate(Absolute cell, int digit)
+	{
+		if (ContainsCandidate(cell, digit))
+		{
+			RemoveCandidate(cell, digit);
+		}
+		else
+		{
+			AddCandidate(cell, digit);
+		}
+	}
+
+	/// <summary>
+	/// Flips a candidate (if appeared, remove; or disappeared, add).
+	/// </summary>
+	/// <param name="candidate">The candidate.</param>
+	public void FlipCandidate(CandidatePosition candidate) => FlipCandidate(candidate.Cell, candidate.InnerIndex);
 
 	/// <summary>
 	/// Removes a given from a cell.
@@ -304,10 +334,11 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 	}
 
 	/// <summary>
-	/// Removes all candidates from a cell.
+	/// Removes the specified candidate from a cell.
 	/// </summary>
 	/// <param name="cell">The cell.</param>
-	public void RemoveCandidates(Absolute cell)
+	/// <param name="digit">The digit.</param>
+	public void RemoveCandidate(Absolute cell, int digit)
 	{
 		VerifyArgumentCell(cell);
 
@@ -318,12 +349,9 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 			return;
 		}
 
-		for (var digit = 0; digit < DigitsCount; digit++)
-		{
-			_candidates[cell * DigitsCount + digit] = false;
-		}
+		_candidates[cell * DigitsCount + digit] = false;
 
-		DigitRemoved?.Invoke(this, new(DigitType.Candidate, cell));
+		CandidateRemoved?.Invoke(this, new(new(cell, DigitsCount.GetCandidatesCountInEachRow(), digit)));
 	}
 
 	/// <summary>

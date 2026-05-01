@@ -60,6 +60,78 @@ public sealed class OperationHandlerContext
 		var point = new Point(originalX, originalY);
 		return ImageSourcePointMapper.TryGetPoint(point, mapper, out var cell) ? cell : -1;
 	}
+
+	/// <summary>
+	/// Try to project user-clicked point into the target candidate clicked;
+	/// or return <see cref="CandidatePosition.Invalid"/> if failed to calculate.
+	/// </summary>
+	/// <returns>The target cell clicked.</returns>
+	/// <seealso cref="CandidatePosition.Invalid"/>
+	public CandidatePosition GetCandidate()
+	{
+		if (this is not
+			{
+				PointPressed: var (x, y),
+				OwnerWindow:
+				{
+					MainGrid:
+					{
+						Source: { Width: var sourceWidth, Height: var sourceHeight },
+						ActualWidth: var actualWidth,
+						ActualHeight: var actualHeight
+					},
+					CurrentCanvas.Mapper: { TemplateSize: { RowsCount: var r, ColumnsCount: var c } } mapper
+				},
+			})
+		{
+			return CandidatePosition.Invalid;
+		}
+		if (r != c)
+		{
+			return CandidatePosition.Invalid;
+		}
+
+		var scaleX = actualWidth / sourceWidth;
+		var scaleY = actualHeight / sourceHeight;
+		var scale = Math.Min(scaleX, scaleY);
+		var offsetX = (actualWidth - sourceWidth * scale) / 2;
+		var offsetY = (actualHeight - sourceHeight * scale) / 2;
+		var originalX = (x - offsetX) / scale;
+		var originalY = (y - offsetY) / scale;
+		var cellSize = mapper.CellSize;
+		var margin = mapper.Margin;
+		var absoluteRowsCount = mapper.AbsoluteRowsCount;
+		var absoluteColumnsCount = mapper.AbsoluteColumnsCount;
+		var gridStartX = margin;
+		var gridStartY = margin;
+		var gridWidth = absoluteColumnsCount * cellSize;
+		var gridHeight = absoluteRowsCount * cellSize;
+		if (originalX < gridStartX || originalX >= gridStartX + gridWidth
+			|| originalY < gridStartY || originalY >= gridStartY + gridHeight)
+		{
+			return CandidatePosition.Invalid;
+		}
+
+		var rowFloat = (originalY - gridStartY) / cellSize;
+		var colFloat = (originalX - gridStartX) / cellSize;
+		var cellRow = (int)rowFloat;
+		var cellColumn = (int)colFloat;
+		if (cellRow < 0 || cellRow >= absoluteRowsCount || cellColumn < 0 || cellColumn >= absoluteColumnsCount)
+		{
+			return CandidatePosition.Invalid;
+		}
+
+		var localX = Math.Clamp(colFloat - cellColumn, 0, 1 - 1E-6);
+		var localY = Math.Clamp(rowFloat - cellRow, 0, 1 - 1E-6);
+		var subgridSize = r.GetCandidatesCountInEachRow();
+		var subCellWidth = 1.0 / subgridSize;
+		var subCellHeight = 1.0 / subgridSize;
+		var subRow = Math.Clamp((int)(localY / subCellHeight), 0, subgridSize - 1);
+		var subCol = Math.Clamp((int)(localX / subCellWidth), 0, subgridSize - 1);
+		var innerIndex = subRow * subgridSize + subCol;
+		var cellIndex = cellRow * absoluteColumnsCount + cellColumn;
+		return new(cellIndex, subgridSize, innerIndex);
+	}
 }
 
 /// <summary>

@@ -14,6 +14,12 @@ public readonly record struct CandidatePosition(Absolute Cell, Relative SubgridS
 	IEqualityOperators<CandidatePosition, CandidatePosition, bool>,
 	ILocator<CandidatePosition>
 {
+	/// <summary>
+	/// Represents an invalid position.
+	/// </summary>
+	public static readonly CandidatePosition Invalid = new(-1, -1, -1);
+
+
 	/// <inheritdoc/>
 	public bool IsSideWith(CandidatePosition other, Direction4 direction, PointMapper mapper, bool isInStrictDirection)
 		=> Cell.IsSideWith(other.Cell, direction, mapper, isInStrictDirection);

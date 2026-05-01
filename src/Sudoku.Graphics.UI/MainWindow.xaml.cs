@@ -267,8 +267,10 @@ public partial class MainWindow : Window
 	{
 		if (value is not null)
 		{
-			value.DigitsAdded -= CurrentGrid_DigitsAdded;
+			value.DigitAdded -= CurrentGrid_DigitsAdded;
+			value.CandidateAdded -= CurrentGrid_CandidateAdded;
 			value.DigitRemoved -= CurrentGrid_DigitRemoved;
+			value.CandidateRemoved -= CurrentGrid_CandidateRemoved;
 			value.Cleared -= CurrentGrid_Cleared;
 			value.CellCleared -= CurrentGrid_CellCleared;
 		}
@@ -278,13 +280,18 @@ public partial class MainWindow : Window
 	{
 		if (value is not null)
 		{
-			value.DigitsAdded += CurrentGrid_DigitsAdded;
+			value.DigitAdded += CurrentGrid_DigitsAdded;
+			value.CandidateAdded += CurrentGrid_CandidateAdded;
 			value.DigitRemoved += CurrentGrid_DigitRemoved;
+			value.CandidateRemoved += CurrentGrid_CandidateRemoved;
 			value.Cleared += CurrentGrid_Cleared;
 			value.CellCleared += CurrentGrid_CellCleared;
 		}
 	}
 
+	private void CurrentGrid_CandidateRemoved(SudokuGrid sender, SudokuGridCandidateRemovedEventArgs e) => UpdateGridRelatedItems();
+
+	private void CurrentGrid_CandidateAdded(SudokuGrid sender, SudokuGridCandidateAddedEventArgs e) => UpdateGridRelatedItems();
 
 	private void CurrentGrid_CellCleared(SudokuGrid sender, SudokuGridCellRefreshedEventArgs e) => UpdateGridRelatedItems();
 

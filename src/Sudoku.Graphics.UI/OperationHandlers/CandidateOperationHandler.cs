@@ -10,74 +10,28 @@ public sealed class CandidateOperationHandler : OperationHandler
 	/// <inheritdoc/>
 	protected internal override void OnMouseButtonPressed(OperationHandlerContext context)
 	{
-		var panel = context.OwnerWindow.MultipleDigitSelectorPanel;
-		panel.OperationHandlerContext = context;
-		panel.SelectedDigitsChanged += Panel_SelectedDigitsChanged;
 	}
 
 	/// <inheritdoc/>
 	protected internal override void OnMouseButtonReleased(OperationHandlerContext context)
 	{
-		if (context.OwnerWindow is not
-			{
-				MultipleDigitSelectorPanel: var panel,
-				MultipleDigitSelectorPopup: var popup,
-				CurrentCanvas.Mapper: var mapper
-			})
+		if (context.OwnerWindow.CurrentGrid is { } grid)
 		{
-			return;
+			var candidate = context.GetCandidate();
+			grid.FlipCandidate(candidate);
 		}
-
-		var desiredCandidateSize = mapper.RowsCount.GetCandidatesCountInEachRow();
-		panel.RowsCount = panel.ColumnsCount = desiredCandidateSize;
-		panel.MaxDigit = mapper.RowsCount;
-		popup.IsOpen = true;
 	}
 
 	/// <inheritdoc/>
 	protected internal override bool IsAvailable(OperationHandlerContext context)
 		=> context is
 		{
-			MouseEventArgs.ChangedButton: MouseButton.Right,
-			OwnerWindow.CurrentCanvas.Mapper: { RowsCount: var rowsCount, ColumnsCount: var columnsCount }
+			MouseEventArgs.ChangedButton: MouseButton.Left,
+			OwnerWindow:
+			{
+				CurrentCanvas.Mapper: { RowsCount: var rowsCount, ColumnsCount: var columnsCount },
+				CurrentGrid: not null
+			}
 		}
 		&& rowsCount == columnsCount;
-
-	private void Panel_SelectedDigitsChanged(MultipleDigitSelectorPanel sender, MultipleDigitSelectorPanelSelectedDigitsChangedEventArgs e)
-	{
-		if (e is not
-			{
-				Digits: var digits,
-				Context:
-				{
-					OwnerWindow:
-					{
-						MultipleDigitSelectorPopup: var popup,
-						MultipleDigitSelectorPanel: var panel,
-						CurrentCanvas: { Surface: var surface } canvas,
-						CurrentGrid: { } grid
-					} window,
-					Items: var items
-				} context
-			})
-		{
-			return;
-		}
-
-		popup.IsOpen = false;
-
-		var cell = context.GetCell();
-		if (digits is null or [])
-		{
-			grid.RemoveCandidates(cell);
-		}
-		else
-		{
-			grid.AddCandidates(cell, digits);
-		}
-
-		sender.SelectedDigitsChanged -= Panel_SelectedDigitsChanged;
-		panel.OperationHandlerContext = null;
-		panel.SelectedDigits = []; // It may trigger 'Panel_SelectedDigitsChanged' but we have just already unsubscribed this event.
-	}
 }

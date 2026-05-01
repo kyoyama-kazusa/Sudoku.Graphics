@@ -5,9 +5,9 @@
 /// </summary>
 /// <param name="type">The type of digits being added.</param>
 /// <param name="cell">The cell.</param>
-/// <param name="digits">The digits being added.</param>
+/// <param name="digit">The digit being added.</param>
 /// <seealso cref="SudokuGrid.DigitsAdding"/>
-public sealed class SudokuGridDigitAddingEventArgs(DigitType type, Absolute cell, int[] digits) : SudokuGridRelatedEventArgs
+public sealed class SudokuGridDigitAddingEventArgs(DigitType type, Absolute cell, int digit) : SudokuGridRelatedEventArgs
 {
 	/// <summary>
 	/// Indicates whether the operation should be prevented here or not.
@@ -15,9 +15,9 @@ public sealed class SudokuGridDigitAddingEventArgs(DigitType type, Absolute cell
 	public bool Handled { get; set; }
 
 	/// <summary>
-	/// Indicates the digits added.
+	/// Indicates the digit added.
 	/// </summary>
-	public int[] Digits { get; } = digits;
+	public int Digit { get; } = digit;
 
 	/// <summary>
 	/// Indicates the type of the digits added.

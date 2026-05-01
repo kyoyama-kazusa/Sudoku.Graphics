@@ -108,11 +108,6 @@
 				<c:DigitSelectorPanel x:Name="DigitSelectorPanel" Style="{StaticResource DigitPanelStyle}" />
 			</Border>
 		</Popup>
-		<Popup x:Name="MultipleDigitSelectorPopup">
-			<Border Style="{StaticResource PopupBorderStyle}">
-				<c:MultipleDigitSelectorPanel x:Name="MultipleDigitSelectorPanel" Style="{StaticResource MultipleDigitPanelStyle}" />
-			</Border>
-		</Popup>
 		<Popup x:Name="TetrisSelectorPopup">
 			<Border Style="{StaticResource PopupBorderStyle}">
 				<c:ItemSelectorPanel
