@@ -22,7 +22,7 @@ public sealed class CandidateOperationHandler : OperationHandler
 			{
 				MultipleDigitSelectorPanel: var panel,
 				MultipleDigitSelectorPopup: var popup,
-				CurrentCanvas.Templates: [{ Mapper: var mapper }]
+				CurrentCanvas.Mapper: var mapper
 			})
 		{
 			return;
@@ -39,7 +39,7 @@ public sealed class CandidateOperationHandler : OperationHandler
 		=> context is
 		{
 			MouseEventArgs.ChangedButton: MouseButton.Right,
-			OwnerWindow.CurrentCanvas.Templates: [{ Mapper: { RowsCount: var rowsCount, ColumnsCount: var columnsCount } }]
+			OwnerWindow.CurrentCanvas.Mapper: { RowsCount: var rowsCount, ColumnsCount: var columnsCount }
 		}
 		&& rowsCount == columnsCount;
 

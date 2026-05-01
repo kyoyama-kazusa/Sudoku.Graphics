@@ -21,10 +21,7 @@ public sealed record CellTetrisMarkItem : CellMarkItem
 
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)
-	{
-		var template = canvas.Templates[TemplateIndex];
-		var mapper = template.Mapper;
-		canvas.BackingCanvas.DrawTetromino(
+		=> canvas.BackingCanvas.DrawTetromino(
 			Cell,
 			StrokeWidthScale,
 			SizeScale,
@@ -33,7 +30,6 @@ public sealed record CellTetrisMarkItem : CellMarkItem
 			FillColor,
 			.1M,
 			.3M,
-			mapper
+			canvas.Mapper
 		);
-	}
 }

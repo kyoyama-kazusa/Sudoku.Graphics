@@ -18,8 +18,7 @@ public sealed record CellMoonPhaseMarkItem : CellMarkItem
 	protected internal override void DrawTo(Canvas canvas)
 	{
 		var backingCanvas = canvas.BackingCanvas;
-		var template = canvas.Templates[TemplateIndex];
-		var mapper = template.Mapper;
+		var mapper = canvas.Mapper;
 		var cellSize = mapper.CellSize;
 		var (x, y) = mapper.GetPoint(Cell, Alignment.TopLeft);
 		var cx = x + cellSize / 2;

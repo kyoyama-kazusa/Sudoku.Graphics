@@ -53,7 +53,7 @@ public sealed record VariantLineItem : LineItem, IItem_ColorProperty, IItem_Temp
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)
 	{
-		var mapper = canvas.Templates[TemplateIndex].Mapper;
+		var mapper = canvas.Mapper;
 		var (start, end) = WillExtendLine
 			? GridLineExtender.ComputeExtendedLine(
 				mapper.GetPoint(StartCell, Alignment.TopLeft),

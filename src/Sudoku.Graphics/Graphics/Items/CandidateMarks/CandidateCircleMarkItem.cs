@@ -31,6 +31,6 @@ public sealed record CandidateCircleMarkItem : CandidateMarkItem
 			StrokeColor,
 			StrokeWidthScale,
 			FillColor,
-			canvas.Templates[TemplateIndex].Mapper
+			canvas.Mapper
 		);
 }

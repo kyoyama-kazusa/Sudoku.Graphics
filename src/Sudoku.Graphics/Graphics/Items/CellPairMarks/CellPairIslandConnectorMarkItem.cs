@@ -27,7 +27,7 @@ public sealed record CellPairIslandConnectorMarkItem : CellPairMarkItem
 	protected internal override void DrawTo(Canvas canvas)
 	{
 		var backingCanvas = canvas.BackingCanvas;
-		var mapper = canvas.Templates[TemplateIndex].Mapper;
+		var mapper = canvas.Mapper;
 		var cellSize = mapper.CellSize;
 		var startPoint = mapper.GetPoint(Cell1, Alignment.TopLeft);
 		var endPoint = mapper.GetPoint(Cell2, Alignment.TopLeft);

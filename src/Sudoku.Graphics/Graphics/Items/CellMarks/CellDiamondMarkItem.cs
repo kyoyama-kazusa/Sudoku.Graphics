@@ -12,7 +12,7 @@ public sealed record CellDiamondMarkItem : CellMarkItem
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)
 	{
-		var mapper = canvas.Templates[TemplateIndex].Mapper;
+		var mapper = canvas.Mapper;
 		var cellSize = mapper.CellSize;
 		var lineContainingBoxSize = SizeScale.Measure(cellSize);
 		var halfPadding = (cellSize - lineContainingBoxSize) / 2;

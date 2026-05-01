@@ -32,8 +32,6 @@ public sealed record CellPolygonMarkItem : CellMarkItem
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)
 	{
-		var template = canvas.Templates[TemplateIndex];
-		var mapper = template.Mapper;
 		if (DrawConcavePolygon)
 		{
 			canvas.BackingCanvas.DrawConcavePolygonToCell(
@@ -44,7 +42,7 @@ public sealed record CellPolygonMarkItem : CellMarkItem
 				StrokeWidthScale,
 				StrokeColor,
 				FillColor,
-				mapper,
+				canvas.Mapper,
 				RotationDegree
 			);
 		}
@@ -57,7 +55,7 @@ public sealed record CellPolygonMarkItem : CellMarkItem
 				StrokeWidthScale,
 				StrokeColor,
 				FillColor,
-				mapper,
+				canvas.Mapper,
 				RotationDegree
 			);
 		}

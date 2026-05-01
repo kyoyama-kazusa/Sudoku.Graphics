@@ -31,7 +31,7 @@ public sealed record CellPairKropkiMarkItem : CellPairMarkItem
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)
 	{
-		var mapper = canvas.Templates[TemplateIndex].Mapper;
+		var mapper = canvas.Mapper;
 		var cellSize = mapper.CellSize;
 		var radius = SizeScale.Measure(cellSize) / 2;
 		var center = mapper.GetPointBetween(Cell1, Cell2);

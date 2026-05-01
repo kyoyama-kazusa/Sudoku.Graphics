@@ -57,7 +57,7 @@ public sealed record CellBorderAlignedArrowMarkItem : CellMarkItem, IItem_Direct
 			FillColor,
 			RotationDirection == RotationDirection.Clockwise ? originalDirection : originalDirection.Reversed,
 			PaddingScale,
-			canvas.Templates[TemplateIndex].Mapper
+			canvas.Mapper
 		);
 	}
 }

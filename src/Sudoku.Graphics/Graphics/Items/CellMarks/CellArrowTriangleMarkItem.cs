@@ -27,6 +27,6 @@ public sealed record CellArrowTriangleMarkItem : CellMarkItem, IItem_DirectionPr
 			StrokeWidthScale,
 			StrokeColor,
 			FillColor,
-			canvas.Templates[TemplateIndex].Mapper
+			canvas.Mapper
 		);
 }

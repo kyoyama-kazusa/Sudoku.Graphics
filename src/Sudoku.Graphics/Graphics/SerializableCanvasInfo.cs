@@ -13,13 +13,13 @@ public sealed class SerializableCanvasInfo
 	}
 
 	/// <summary>
-	/// Initializes a <see cref="SerializableCanvasInfo"/> instance via the specified templates and items.
+	/// Initializes a <see cref="SerializableCanvasInfo"/> instance via the specified template and items.
 	/// </summary>
-	/// <param name="templates">The templates.</param>
+	/// <param name="template">The template.</param>
 	/// <param name="items">The items.</param>
-	public SerializableCanvasInfo(Template[]? templates, ItemSet? items)
+	public SerializableCanvasInfo(Template? template, ItemSet? items)
 	{
-		Templates = templates;
+		Template = template;
 		Items = items;
 	}
 
@@ -27,7 +27,7 @@ public sealed class SerializableCanvasInfo
 	/// <summary>
 	/// Indicates templates.
 	/// </summary>
-	public Template[]? Templates { get; set; }
+	public Template? Template { get; set; }
 
 	/// <summary>
 	/// Indicates items.
@@ -38,7 +38,7 @@ public sealed class SerializableCanvasInfo
 	/// <summary>
 	/// Deconstructs the current instance into multiple values.
 	/// </summary>
-	/// <param name="templates">The templates.</param>
+	/// <param name="template">The template.</param>
 	/// <param name="items">The items.</param>
-	public void Deconstruct(out Template[]? templates, out ItemSet? items) => (templates, items) = (Templates, Items);
+	public void Deconstruct(out Template? template, out ItemSet? items) => (template, items) = (Template, Items);
 }

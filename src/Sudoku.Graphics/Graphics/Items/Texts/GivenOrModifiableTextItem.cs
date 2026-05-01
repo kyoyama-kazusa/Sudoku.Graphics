@@ -27,6 +27,6 @@ public abstract record GivenOrModifiableTextItem : TextItem, IItem_CellProperty
 			Color,
 			0,
 			Direction8.None,
-			canvas.Templates[TemplateIndex].Mapper
+			canvas.Mapper
 		);
 }

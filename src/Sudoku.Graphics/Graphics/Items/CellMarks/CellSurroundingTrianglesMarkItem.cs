@@ -27,7 +27,7 @@ public sealed record CellSurroundingTrianglesMarkItem : CellMarkItem
 			throw new InvalidOperationException($"'{nameof(TrianglesCount)}' Expected a value between 1 and 9.");
 		}
 
-		var mapper = canvas.Templates[TemplateIndex].Mapper;
+		var mapper = canvas.Mapper;
 		var cellSize = mapper.CellSize;
 		if (cellSize <= 0)
 		{

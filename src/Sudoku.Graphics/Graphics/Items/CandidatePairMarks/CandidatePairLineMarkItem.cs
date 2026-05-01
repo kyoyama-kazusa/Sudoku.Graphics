@@ -44,7 +44,7 @@ public record CandidatePairLineMarkItem : CandidatePairMarkItem
 	protected internal override void DrawTo(Canvas canvas)
 	{
 		var backingCanvas = canvas.BackingCanvas;
-		var mapper = canvas.Templates[TemplateIndex].Mapper;
+		var mapper = canvas.Mapper;
 		var cellSize = mapper.CellSize;
 		var ((_, candidateSize1, _), (_, candidateSize2, _)) = (CandidatePosition1, CandidatePosition2);
 		var candidateSizeMeasurer1 = CandidatePosition1.GetLocatorMeasurer(cellSize);

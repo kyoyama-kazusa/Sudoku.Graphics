@@ -222,11 +222,11 @@
             Indicates whether the object has already been disposed.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.Canvas.#ctor(Sudoku.Graphics.Templating.Template[])">
+        <member name="M:Sudoku.Graphics.Canvas.#ctor(Sudoku.Graphics.Templating.Template)">
             <summary>
-            Initializes a <see cref="T:Sudoku.Graphics.Canvas"/> instance via the specified values.
+            Initializes a <see cref="T:Sudoku.Graphics.Canvas"/> instance via the specified template.
             </summary>
-            <param name="templates">The templates to be drawn.</param>
+            <param name="template">The template to be drawn.</param>
         </member>
         <member name="P:Sudoku.Graphics.Canvas.GlobalTemplateSize">
             <summary>
@@ -238,14 +238,19 @@
             Indicates The ordering on rendering items.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Canvas.Templates">
+        <member name="P:Sudoku.Graphics.Canvas.Template">
             <summary>
-            Indicates all templates.
+            Indicates the target template to draw.
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.Canvas.Surface">
             <summary>
             Indicates the backing surface.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Canvas.Mapper">
+            <summary>
+            Indicates the target mapper.
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.Canvas.BackingCanvas">
@@ -826,15 +831,6 @@
         </member>
         <member name="M:Sudoku.Graphics.GridTemplateSize.GetHashCode">
             <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.GridTemplateSize.Create(System.ReadOnlySpan{Sudoku.Graphics.Templating.Template})">
-            <summary>
-            Creates a <see cref="T:Sudoku.Graphics.GridTemplateSize"/> instance via the specified list of templates.
-            Such templates will be drawn into one <see cref="T:Sudoku.Graphics.Canvas"/> instance, aligning as top-left cell <c>(0, 0)</c>.
-            </summary>
-            <param name="templates">The templates.</param>
-            <returns>A <see cref="T:Sudoku.Graphics.GridTemplateSize"/> instance that is the minimal size, covering all templates specified.</returns>
-            <seealso cref="T:Sudoku.Graphics.Canvas"/>
         </member>
         <member name="T:Sudoku.Graphics.HouseType">
             <summary>
@@ -4234,23 +4230,7 @@
             Represents template line item.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.Lines.TemplateLineItem.FillIntersectionCells">
-            <summary>
-            Indicates whether intersection cells should be filled with another color.
-            By default it's <see langword="false"/>.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.Lines.TemplateLineItem.TemplateIntersectionCellsColor">
-            <summary>
-            Indicates the color to be filled in intersection cells.
-            This property must contain a valid color if <see cref="P:Sudoku.Graphics.Items.Lines.TemplateLineItem.FillIntersectionCells"/> is <see langword="true"/>.
-            </summary>
-            <seealso cref="P:Sudoku.Graphics.Items.Lines.TemplateLineItem.FillIntersectionCells"/>
-        </member>
         <member name="P:Sudoku.Graphics.Items.Lines.TemplateLineItem.Type">
-            <inheritdoc/>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.Lines.TemplateLineItem.Sudoku#Graphics#Items#IItem_ColorProperty#Color">
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Items.Lines.TemplateLineItem.DrawTo(Sudoku.Graphics.Canvas)">
@@ -6015,14 +5995,14 @@
             Initializes a <see cref="T:Sudoku.Graphics.SerializableCanvasInfo"/> instance.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.SerializableCanvasInfo.#ctor(Sudoku.Graphics.Templating.Template[],Sudoku.Graphics.ItemSet)">
+        <member name="M:Sudoku.Graphics.SerializableCanvasInfo.#ctor(Sudoku.Graphics.Templating.Template,Sudoku.Graphics.ItemSet)">
             <summary>
-            Initializes a <see cref="T:Sudoku.Graphics.SerializableCanvasInfo"/> instance via the specified templates and items.
+            Initializes a <see cref="T:Sudoku.Graphics.SerializableCanvasInfo"/> instance via the specified template and items.
             </summary>
-            <param name="templates">The templates.</param>
+            <param name="template">The template.</param>
             <param name="items">The items.</param>
         </member>
-        <member name="P:Sudoku.Graphics.SerializableCanvasInfo.Templates">
+        <member name="P:Sudoku.Graphics.SerializableCanvasInfo.Template">
             <summary>
             Indicates templates.
             </summary>
@@ -6032,11 +6012,11 @@
             Indicates items.
             </summary>
         </member>
-        <member name="M:Sudoku.Graphics.SerializableCanvasInfo.Deconstruct(Sudoku.Graphics.Templating.Template[]@,Sudoku.Graphics.ItemSet@)">
+        <member name="M:Sudoku.Graphics.SerializableCanvasInfo.Deconstruct(Sudoku.Graphics.Templating.Template@,Sudoku.Graphics.ItemSet@)">
             <summary>
             Deconstructs the current instance into multiple values.
             </summary>
-            <param name="templates">The templates.</param>
+            <param name="template">The template.</param>
             <param name="items">The items.</param>
         </member>
         <member name="T:Sudoku.Graphics.SerializableColor">

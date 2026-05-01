@@ -33,7 +33,7 @@ public sealed record CellLoopSegmentLineMarkItem : CellMarkItem
 			return;
 		}
 
-		var mapper = canvas.Templates[TemplateIndex].Mapper;
+		var mapper = canvas.Mapper;
 		var cellSize = mapper.CellSize;
 		using var strokePaint = new SKPaint
 		{

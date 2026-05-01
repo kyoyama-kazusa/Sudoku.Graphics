@@ -27,7 +27,7 @@ public sealed class CellPhantomDiceOperationHandler : OperationHandler
 		=> context is
 		{
 			MouseEventArgs.ChangedButton: MouseButton.Right,
-			OwnerWindow.CurrentCanvas.Templates: [{ Mapper: { RowsCount: var rowsCount, ColumnsCount: var columnsCount } }]
+			OwnerWindow.CurrentCanvas.Mapper: { RowsCount: var rowsCount, ColumnsCount: var columnsCount }
 		}
 		&& rowsCount == columnsCount;
 

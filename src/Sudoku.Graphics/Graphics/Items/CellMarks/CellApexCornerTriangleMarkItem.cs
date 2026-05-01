@@ -23,8 +23,7 @@ public sealed record CellApexCornerTriangleMarkItem : CellMarkItem
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)
 	{
-		var template = canvas.Templates[TemplateIndex];
-		var mapper = template.Mapper;
+		var mapper = canvas.Mapper;
 		var cellSize = mapper.CellSize;
 		var offset = PaddingScale.Measure(cellSize);
 		var (x, y) = mapper.GetPoint(Cell, Alignment.TopLeft);

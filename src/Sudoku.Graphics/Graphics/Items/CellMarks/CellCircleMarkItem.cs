@@ -29,6 +29,6 @@ public sealed record CellCircleMarkItem : CellMarkItem
 			StrokeColor,
 			StrokeWidthScale,
 			FillColor,
-			canvas.Templates[TemplateIndex].Mapper
+			canvas.Mapper
 		);
 }

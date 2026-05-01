@@ -19,9 +19,9 @@ public sealed record CellFillItem : FillItem, IItem_CellProperty, IItem_Template
 	protected internal override void DrawTo(Canvas canvas)
 	{
 		using var fillPaint = new SKPaint { Style = SKPaintStyle.Fill, Color = Color };
-		var template = canvas.Templates[TemplateIndex];
-		var topLeft = template.Mapper.GetPoint(Cell, Alignment.TopLeft);
-		var bottomRight = template.Mapper.GetPoint(Cell, Alignment.BottomRight);
+		var mapper = canvas.Mapper;
+		var topLeft = mapper.GetPoint(Cell, Alignment.TopLeft);
+		var bottomRight = mapper.GetPoint(Cell, Alignment.BottomRight);
 		var rect = SKRect.Create(topLeft, bottomRight);
 		canvas.BackingCanvas.DrawRect(rect, fillPaint);
 	}

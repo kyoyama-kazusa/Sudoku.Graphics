@@ -27,7 +27,7 @@ public sealed record CellBorderAlignedTriangleMarkItem : CellMarkItem, IItem_Dir
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)
 	{
-		var mapper = canvas.Templates[TemplateIndex].Mapper;
+		var mapper = canvas.Mapper;
 		var cellSize = mapper.CellSize;
 		var center = mapper.GetPoint(Cell, Alignment.Center);
 		var top = new SKPoint(center.X, center.Y - cellSize / 2);

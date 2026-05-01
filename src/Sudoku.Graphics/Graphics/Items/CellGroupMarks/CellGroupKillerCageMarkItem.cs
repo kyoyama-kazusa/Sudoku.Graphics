@@ -76,7 +76,7 @@ public sealed record CellGroupKillerCageMarkItem : CellGroupMarkItem
 	protected internal override void DrawTo(Canvas canvas)
 	{
 		var backingCanvas = canvas.BackingCanvas;
-		var mapper = canvas.Templates[TemplateIndex].Mapper;
+		var mapper = canvas.Mapper;
 		var cellSize = mapper.CellSize;
 		var points = from cell in Cells select mapper.GetPoint(cell, Alignment.TopLeft);
 		var shortSide = ShortSideScale.Measure(cellSize);

@@ -20,7 +20,7 @@ public sealed record CellGroupTrailMarkItem : CellGroupMarkItem
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)
 	{
-		var mapper = canvas.Templates[TemplateIndex].Mapper;
+		var mapper = canvas.Mapper;
 		var cellSize = mapper.CellSize;
 		var squareSize = SizeScale.Measure(cellSize);
 		var halfSquareSize = squareSize / 2;

@@ -14,7 +14,7 @@ public sealed record CandidatePairBezierLineMarkItem : CandidatePairLineMarkItem
 	{
 		// Define a list of variables to be used.
 		var backingCanvas = canvas.BackingCanvas;
-		var mapper = canvas.Templates[TemplateIndex].Mapper;
+		var mapper = canvas.Mapper;
 		var cellSize = mapper.CellSize;
 		var candidateSizeMeasurer1 = CandidatePosition1.GetLocatorMeasurer(cellSize);
 		var candidateSizeMeasurer2 = CandidatePosition2.GetLocatorMeasurer(cellSize);

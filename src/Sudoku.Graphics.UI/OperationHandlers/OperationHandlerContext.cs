@@ -43,7 +43,7 @@ public sealed class OperationHandlerContext
 						ActualWidth: var actualWidth,
 						ActualHeight: var actualHeight
 					},
-					CurrentCanvas.Templates: [{ Mapper: var mapper }]
+					CurrentCanvas.Mapper: var mapper
 				},
 			})
 		{

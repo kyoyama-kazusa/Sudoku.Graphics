@@ -39,6 +39,6 @@ public sealed record CellDiceMarkItem : CellMarkItem, IItem_ValueProperty<int>
 			FillColor,
 			.2M,
 			1M,
-			canvas.Templates[TemplateIndex].Mapper
+			canvas.Mapper
 		);
 }

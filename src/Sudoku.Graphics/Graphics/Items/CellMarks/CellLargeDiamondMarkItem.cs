@@ -21,7 +21,7 @@ public sealed record CellLargeDiamondMarkItem : CellMarkItem
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)
 	{
-		var mapper = canvas.Templates[TemplateIndex].Mapper;
+		var mapper = canvas.Mapper;
 		var cellSize = mapper.CellSize;
 
 		// Find for the points above, below, left-side and right-side the current cell.

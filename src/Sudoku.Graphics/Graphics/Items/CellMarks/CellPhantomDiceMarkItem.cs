@@ -28,7 +28,7 @@ public sealed record CellPhantomDiceMarkItem : CellMarkItem
 	protected internal override void DrawTo(Canvas canvas)
 	{
 		var backingCanvas = canvas.BackingCanvas;
-		var mapper = canvas.Templates[TemplateIndex].Mapper;
+		var mapper = canvas.Mapper;
 		var cellSize = mapper.CellSize;
 		for (var i = 0; i < SubgridSize * SubgridSize; i++)
 		{

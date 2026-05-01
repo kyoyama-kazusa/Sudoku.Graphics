@@ -91,7 +91,7 @@ public sealed record CellSevenSegmentDisplayMarkItem : CellMarkItem, IItem_Value
 	protected internal override void DrawTo(Canvas canvas)
 	{
 		var backingCanvas = canvas.BackingCanvas;
-		var mapper = canvas.Templates[TemplateIndex].Mapper;
+		var mapper = canvas.Mapper;
 		var cellSize = mapper.CellSize;
 		var center = mapper.GetPoint(Cell, Alignment.Center);
 		var size = SizeScale.Measure(cellSize);

@@ -14,17 +14,14 @@ public sealed record CellHexagonMarkItem : CellMarkItem, IItem_OrientationProper
 
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)
-	{
-		var template = canvas.Templates[TemplateIndex];
-		var mapper = template.Mapper;
-		canvas.BackingCanvas.DrawPolygonToCell(
+		=> canvas.BackingCanvas.DrawPolygonToCell(
 			Cell,
 			6,
 			SizeScale,
 			StrokeWidthScale,
 			StrokeColor,
 			FillColor,
-			mapper,
+			canvas.Mapper,
 			Orientation switch
 			{
 				Orientation2.Horizontal => 30,
@@ -32,5 +29,4 @@ public sealed record CellHexagonMarkItem : CellMarkItem, IItem_OrientationProper
 				_ => throw new InvalidOperationException($"{nameof(Orientation)} is not defined or invalid.")
 			}
 		);
-	}
 }

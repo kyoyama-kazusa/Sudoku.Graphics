@@ -23,7 +23,7 @@ public sealed record CellPairConnectionLineMarkItem : CellPairMarkItem
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)
 	{
-		var mapper = canvas.Templates[TemplateIndex].Mapper;
+		var mapper = canvas.Mapper;
 		if (Absolute.GetAdjacentRelation(Cell1, Cell2, mapper) is not (var adjacentRelation and not Direction8.None))
 		{
 			return;

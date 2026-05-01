@@ -38,7 +38,7 @@ public sealed record CellPairBattenburgMarkItem : CellPairMarkItem
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)
 	{
-		var mapper = canvas.Templates[TemplateIndex].Mapper;
+		var mapper = canvas.Mapper;
 
 		var (cell1, cell2) = (Cell1, Cell2);
 		if (cell1 > cell2)

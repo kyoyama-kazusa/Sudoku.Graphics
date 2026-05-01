@@ -61,6 +61,6 @@ public abstract record CellTextMarkItem : CellMarkItem
 			FillColor,
 			RotationDirection.RotationDegree,
 			AlignedDirection,
-			canvas.Templates[TemplateIndex].Mapper
+			canvas.Mapper
 		);
 }

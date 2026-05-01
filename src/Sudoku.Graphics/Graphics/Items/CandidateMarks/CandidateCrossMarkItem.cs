@@ -27,6 +27,6 @@ public sealed record CandidateCrossMarkItem : CandidateMarkItem
 			SizeScale,
 			StrokeWidthScale,
 			StrokeColor,
-			canvas.Templates[TemplateIndex].Mapper
+			canvas.Mapper
 		);
 }

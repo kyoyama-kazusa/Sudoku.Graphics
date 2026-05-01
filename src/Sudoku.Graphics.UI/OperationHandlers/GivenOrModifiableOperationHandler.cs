@@ -22,7 +22,7 @@ public abstract class GivenOrModifiableOperationHandler(bool _isGiven) : Operati
 			{
 				DigitSelectorPanel: var panel,
 				DigitSelectorPopup: var popup,
-				CurrentCanvas.Templates: [{ Mapper: var mapper }]
+				CurrentCanvas.Mapper: var mapper
 			})
 		{
 			return;

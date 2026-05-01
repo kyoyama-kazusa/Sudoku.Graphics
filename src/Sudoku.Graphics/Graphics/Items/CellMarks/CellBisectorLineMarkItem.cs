@@ -15,8 +15,7 @@ public sealed record CellBisectorLineMarkItem : CellMarkItem, IItem_OrientationP
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)
 	{
-		var template = canvas.Templates[TemplateIndex];
-		var mapper = template.Mapper;
+		var mapper = canvas.Mapper;
 		var cellSize = mapper.CellSize;
 		var lineContainingBoxSize = SizeScale.Measure(cellSize);
 		var halfPadding = (cellSize - lineContainingBoxSize) / 2;

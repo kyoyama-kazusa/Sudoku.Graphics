@@ -214,7 +214,7 @@ public partial class MainWindow : Window
 			return;
 		}
 
-		var canvasInfo = new SerializableCanvasInfo(CurrentCanvas?.Templates, _items);
+		var canvasInfo = new SerializableCanvasInfo(CurrentCanvas?.Template, _items);
 		var json = JsonSerializer.Serialize(canvasInfo, SerializerOptions);
 		await File.WriteAllTextAsync(filePath, json);
 	}

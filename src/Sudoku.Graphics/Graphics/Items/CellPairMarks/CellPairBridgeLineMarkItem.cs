@@ -47,7 +47,7 @@ public sealed record CellPairBridgeLineMarkItem : CellPairMarkItem
 	protected internal override void DrawTo(Canvas canvas)
 	{
 		var backingCanvas = canvas.BackingCanvas;
-		var mapper = canvas.Templates[TemplateIndex].Mapper;
+		var mapper = canvas.Mapper;
 		if (LinesCount is < 1 or > 8)
 		{
 			throw new NotSupportedException("The specified number of lines is not supported due to complexity or invalidity.");

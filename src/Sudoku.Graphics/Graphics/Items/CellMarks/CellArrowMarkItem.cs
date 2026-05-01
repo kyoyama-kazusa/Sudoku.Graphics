@@ -46,6 +46,6 @@ public sealed record CellArrowMarkItem : CellMarkItem, IItem_DirectionProperty<D
 			FillColor,
 			Direction4.None,
 			default,
-			canvas.Templates[TemplateIndex].Mapper
+			canvas.Mapper
 		);
 }

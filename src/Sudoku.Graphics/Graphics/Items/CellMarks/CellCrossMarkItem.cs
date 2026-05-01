@@ -28,6 +28,6 @@ public sealed record CellCrossMarkItem : CellMarkItem
 			SizeScale,
 			StrokeWidthScale,
 			StrokeColor,
-			canvas.Templates[TemplateIndex].Mapper
+			canvas.Mapper
 		);
 }

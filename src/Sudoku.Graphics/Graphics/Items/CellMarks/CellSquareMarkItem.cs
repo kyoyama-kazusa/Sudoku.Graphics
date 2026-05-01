@@ -24,7 +24,7 @@ public sealed record CellSquareMarkItem : CellMarkItem
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)
 	{
-		var mapper = canvas.Templates[TemplateIndex].Mapper;
+		var mapper = canvas.Mapper;
 		if (SizeScale < Scale.Zero)
 		{
 			// Nothing to draw.

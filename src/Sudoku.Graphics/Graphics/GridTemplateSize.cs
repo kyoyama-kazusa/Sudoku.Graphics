@@ -54,34 +54,4 @@ public readonly record struct GridTemplateSize() : IEqualityOperators<GridTempla
 		builder.Append(Vector.ToString());
 		return true;
 	}
-
-
-	/// <summary>
-	/// Creates a <see cref="GridTemplateSize"/> instance via the specified list of templates.
-	/// Such templates will be drawn into one <see cref="Canvas"/> instance, aligning as top-left cell <c>(0, 0)</c>.
-	/// </summary>
-	/// <param name="templates">The templates.</param>
-	/// <returns>A <see cref="GridTemplateSize"/> instance that is the minimal size, covering all templates specified.</returns>
-	/// <seealso cref="Canvas"/>
-	public static GridTemplateSize Create(params ReadOnlySpan<Template> templates)
-	{
-		if (templates.IsEmpty)
-		{
-			return default;
-		}
-
-		var (maxRowsCount, maxColumnsCount) = (0, 0);
-		foreach (var template in templates)
-		{
-			if (template.Mapper.AbsoluteRowsCount is var r && r >= maxRowsCount)
-			{
-				maxRowsCount = r;
-			}
-			if (template.Mapper.AbsoluteColumnsCount is var c && c >= maxColumnsCount)
-			{
-				maxColumnsCount = c;
-			}
-		}
-		return new() { RowsCount = maxRowsCount, ColumnsCount = maxColumnsCount };
-	}
 }

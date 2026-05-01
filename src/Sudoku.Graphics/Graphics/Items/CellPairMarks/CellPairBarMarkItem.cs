@@ -42,7 +42,7 @@ public sealed record CellPairBarMarkItem : CellPairMarkItem
 			(cell1, _) = (cell2, cell1);
 		}
 
-		var mapper = canvas.Templates[TemplateIndex].Mapper;
+		var mapper = canvas.Mapper;
 		if (!Absolute.IsAdjacent(cell1, cell2, mapper, out var houseType))
 		{
 			throw new ArgumentException($"Cells '{cell1}' and '{cell2}' must be adjacent with each other.");

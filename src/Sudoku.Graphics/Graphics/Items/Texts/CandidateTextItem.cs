@@ -25,6 +25,6 @@ public sealed record CandidateTextItem : TextItem, IItem_CandidatePositionProper
 			FontSlant,
 			SKColors.Transparent,
 			Color,
-			canvas.Templates[TemplateIndex].Mapper
+			canvas.Mapper
 		);
 }

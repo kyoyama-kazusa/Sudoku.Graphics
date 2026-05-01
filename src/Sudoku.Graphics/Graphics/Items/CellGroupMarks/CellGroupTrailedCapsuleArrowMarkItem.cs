@@ -41,7 +41,7 @@ public sealed record CellGroupTrailedCapsuleArrowMarkItem : CellGroupMarkItem
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)
 	{
-		var mapper = canvas.Templates[TemplateIndex].Mapper;
+		var mapper = canvas.Mapper;
 		var cellSize = mapper.CellSize;
 		var strokeWidth = StrokeWidthScale.Measure(cellSize);
 		using var fillPaint = new SKPaint { Style = SKPaintStyle.Fill, Color = FillColor, IsAntialias = true };

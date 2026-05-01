@@ -27,7 +27,7 @@ public sealed record CellGroupThermometerMarkItem : CellGroupMarkItem
 	protected internal override void DrawTo(Canvas canvas)
 	{
 		var backingCanvas = canvas.BackingCanvas;
-		var mapper = canvas.Templates[TemplateIndex].Mapper;
+		var mapper = canvas.Mapper;
 		var points = from cell in Cells select mapper.GetPoint(cell, Alignment.Center);
 		using var path = new SKPath();
 		path.MoveTo(points[0]);

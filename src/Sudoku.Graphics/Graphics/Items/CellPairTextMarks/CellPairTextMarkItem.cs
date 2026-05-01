@@ -71,7 +71,7 @@ public abstract record CellPairTextMarkItem : Item, IItem_FontRelatedProperties,
 	/// <inheritdoc/>
 	protected internal sealed override void DrawTo(Canvas canvas)
 	{
-		var mapper = canvas.Templates[TemplateIndex].Mapper;
+		var mapper = canvas.Mapper;
 		var cellSize = mapper.CellSize;
 		var center = mapper.GetPointBetweenWithAdjacentRelation(Cell1, Cell2, out _);
 

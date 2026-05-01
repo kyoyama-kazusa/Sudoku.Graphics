@@ -12,17 +12,21 @@ public sealed class Canvas : IDisposable
 
 
 	/// <summary>
-	/// Initializes a <see cref="Canvas"/> instance via the specified values.
+	/// Initializes a <see cref="Canvas"/> instance via the specified template.
 	/// </summary>
-	/// <param name="templates">The templates to be drawn.</param>
-	public Canvas(params Template[] templates)
+	/// <param name="template">The template to be drawn.</param>
+	public Canvas(Template template)
 	{
-		Templates = templates;
-		GlobalTemplateSize = GridTemplateSize.Create(templates);
+		Template = template;
+		GlobalTemplateSize = new()
+		{
+			RowsCount = template.Mapper.AbsoluteRowsCount,
+			ColumnsCount = template.Mapper.AbsoluteColumnsCount
+		};
 		Surface = SKSurface.Create(
 			new SKSizeI(
-				(int)(templates[0].Mapper.CellSize * GlobalTemplateSize.AbsoluteColumnsCount + 2 * templates[0].Mapper.Margin),
-				(int)(templates[0].Mapper.CellSize * GlobalTemplateSize.AbsoluteRowsCount + 2 * templates[0].Mapper.Margin)
+				(int)(template.Mapper.CellSize * GlobalTemplateSize.AbsoluteColumnsCount + 2 * template.Mapper.Margin),
+				(int)(template.Mapper.CellSize * GlobalTemplateSize.AbsoluteRowsCount + 2 * template.Mapper.Margin)
 			)
 		);
 	}
@@ -39,14 +43,19 @@ public sealed class Canvas : IDisposable
 	public ItemTypeOrdering Ordering { get; init; } = ItemTypeOrdering.Default;
 
 	/// <summary>
-	/// Indicates all templates.
+	/// Indicates the target template to draw.
 	/// </summary>
-	public Template[] Templates { get; }
+	public Template Template { get; }
 
 	/// <summary>
 	/// Indicates the backing surface.
 	/// </summary>
 	public SKSurface Surface { get; }
+
+	/// <summary>
+	/// Indicates the target mapper.
+	/// </summary>
+	public PointMapper Mapper => Template.Mapper;
 
 	/// <summary>
 	/// Indicates backing canvas.
