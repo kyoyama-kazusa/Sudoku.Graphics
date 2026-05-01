@@ -94,7 +94,6 @@ public sealed record CrossmathFormula : IEqualityOperators<CrossmathFormula, Cro
 						Cell = nextCell,
 						FontName = fontName,
 						FontSizeScale = fontSizeScale,
-						TemplateIndex = 0,
 						Text = textValue,
 						Color = color
 					}

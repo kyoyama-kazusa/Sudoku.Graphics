@@ -3,15 +3,12 @@
 /// <summary>
 /// Represents variant line item.
 /// </summary>
-public sealed record VariantLineItem : LineItem, IItem_ColorProperty, IItem_TemplateIndexProperty
+public sealed record VariantLineItem : LineItem, IItem_ColorProperty
 {
 	/// <summary>
 	/// Indicates whether this line will be extended to grid border.
 	/// </summary>
 	public required bool WillExtendLine { get; init; }
-
-	/// <inheritdoc/>
-	public required int TemplateIndex { get; init; }
 
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.Line_Variant;

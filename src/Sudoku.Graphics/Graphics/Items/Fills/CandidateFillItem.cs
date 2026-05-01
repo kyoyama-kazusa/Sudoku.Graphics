@@ -3,13 +3,10 @@
 /// <summary>
 /// Represents a candidate fill item.
 /// </summary>
-public sealed record CandidateFillItem : FillItem, IItem_CandidatePositionProperty, IItem_TemplateIndexProperty
+public sealed record CandidateFillItem : FillItem, IItem_CandidatePositionProperty
 {
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.Fill_Candidate;
-
-	/// <inheritdoc/>
-	public required int TemplateIndex { get; init; }
 
 	/// <inheritdoc/>
 	public required CandidatePosition CandidatePosition { get; init; }

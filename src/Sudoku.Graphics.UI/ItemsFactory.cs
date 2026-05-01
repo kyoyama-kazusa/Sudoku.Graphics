@@ -9,7 +9,6 @@ public static class ItemsFactory
 	public static GivenTextItem Given(Absolute cell, int digit)
 		=> new()
 		{
-			TemplateIndex = 0,
 			Cell = cell,
 			Text = (digit + 1).ToString(),
 			FontName = ResolveProperty(() => App.UserPreferences.GivenFontName),
@@ -23,7 +22,6 @@ public static class ItemsFactory
 	public static ModifiableTextItem Modifiable(Absolute cell, int digit)
 		=> new()
 		{
-			TemplateIndex = 0,
 			Cell = cell,
 			Text = (digit + 1).ToString(),
 			FontName = ResolveProperty(() => App.UserPreferences.ModifiableFontName),
@@ -40,7 +38,6 @@ public static class ItemsFactory
 		from digit in digits
 		select new CandidateTextItem
 		{
-			TemplateIndex = 0,
 			CandidatePosition = new(cell, subgridSize, digit),
 			Text = (digit + 1).ToString(),
 			FontName = ResolveProperty(() => App.UserPreferences.CandidateFontName),
@@ -54,7 +51,6 @@ public static class ItemsFactory
 	public static CellTetrisMarkItem Tetris(Absolute cell, Tetromino piece, TetrominoRotationType rotationType)
 		=> new()
 		{
-			TemplateIndex = 0,
 			Cell = cell,
 			Piece = piece,
 			RotationType = rotationType,
@@ -68,7 +64,6 @@ public static class ItemsFactory
 	public static CellDiceMarkItem Dice(Absolute cell, int value)
 		=> new()
 		{
-			TemplateIndex = 0,
 			Cell = cell,
 			Value = value,
 			CornerRadiusScale = ResolveProperty(() => App.UserPreferences.CellDiceCornerRadiusScale),
@@ -81,7 +76,6 @@ public static class ItemsFactory
 	public static CellPhantomDiceMarkItem PhantomDice(Absolute cell, Relative subgridSize, BitArray states)
 		=> new()
 		{
-			TemplateIndex = 0,
 			Cell = cell,
 			SubgridSize = subgridSize,
 			States = states,
@@ -96,7 +90,6 @@ public static class ItemsFactory
 	public static CellSurroundingTrianglesMarkItem SurroundingTriangles(Absolute cell, int value)
 		=> new()
 		{
-			TemplateIndex = 0,
 			Cell = cell,
 			TrianglesCount = value,
 			TipDistanceScale = ResolveProperty(() => App.UserPreferences.SurroundingTrianglesTipDistanceScale),
@@ -110,7 +103,6 @@ public static class ItemsFactory
 	public static CellCircleMarkItem Circle(Absolute cell)
 		=> new()
 		{
-			TemplateIndex = 0,
 			Cell = cell,
 			SizeScale = ResolveProperty(() => App.UserPreferences.CellCircleSizeScale),
 			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellCircleStrokeWidthScale),
@@ -121,7 +113,6 @@ public static class ItemsFactory
 	public static CellSquareMarkItem Square(Absolute cell)
 		=> new()
 		{
-			TemplateIndex = 0,
 			Cell = cell,
 			SizeScale = ResolveProperty(() => App.UserPreferences.CellCircleSizeScale),
 			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellCircleStrokeWidthScale),
@@ -132,7 +123,6 @@ public static class ItemsFactory
 	public static CellCrossMarkItem Cross(Absolute cell)
 		=> new()
 		{
-			TemplateIndex = 0,
 			Cell = cell,
 			SizeScale = ResolveProperty(() => App.UserPreferences.CellCrossSizeScale),
 			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellCrossStrokeWidthScale),
@@ -143,7 +133,6 @@ public static class ItemsFactory
 	public static CellDiamondMarkItem Diamond(Absolute cell)
 		=> new()
 		{
-			TemplateIndex = 0,
 			Cell = cell,
 			SizeScale = ResolveProperty(() => App.UserPreferences.CellDiamondSizeScale),
 			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellDiamondStrokeWidthScale),
@@ -154,7 +143,6 @@ public static class ItemsFactory
 	public static CellHexagonMarkItem Hexagon(Absolute cell, Orientation2 orientation)
 		=> new()
 		{
-			TemplateIndex = 0,
 			Cell = cell,
 			Orientation = orientation,
 			SizeScale = ResolveProperty(() => App.UserPreferences.CellDiamondSizeScale),
@@ -166,7 +154,6 @@ public static class ItemsFactory
 	public static CellBattenburgMarkItem Battenburg(Absolute cell)
 		=> new()
 		{
-			TemplateIndex = 0,
 			Cell = cell,
 			Color1 = ResolveProperty(() => App.UserPreferences.CellBattenburgColor1),
 			Color2 = ResolveProperty(() => App.UserPreferences.CellBattenburgColor2),
@@ -179,7 +166,6 @@ public static class ItemsFactory
 	public static CellPolygonMarkItem Polygon(Absolute cell, int sidesCount, bool isConcave)
 		=> new()
 		{
-			TemplateIndex = 0,
 			Cell = cell,
 			SidesCount = sidesCount,
 			DrawConcavePolygon = isConcave,
@@ -194,7 +180,6 @@ public static class ItemsFactory
 	public static CellMoonPhaseMarkItem MoonPhase(Absolute cell, MoonPhase phase)
 		=> new()
 		{
-			TemplateIndex = 0,
 			Cell = cell,
 			Phase = phase,
 			SizeScale = ResolveProperty(() => App.UserPreferences.CellMoonPhaseSizeScale),
@@ -206,7 +191,6 @@ public static class ItemsFactory
 	public static CellTriangleMarkItem CellTriangle(Absolute cell, Direction8 direction)
 		=> new()
 		{
-			TemplateIndex = 0,
 			Cell = cell,
 			Direction = direction,
 			SizeScale = ResolveProperty(() => App.UserPreferences.CellTriangleSizeScale),
@@ -218,7 +202,6 @@ public static class ItemsFactory
 	public static CellArrowTriangleMarkItem CellArrowTriangle(Absolute cell, Direction8 direction)
 		=> new()
 		{
-			TemplateIndex = 0,
 			Cell = cell,
 			Direction = direction,
 			BaseScale = ResolveProperty(() => App.UserPreferences.CellArrowTriangleBaseScale),
@@ -231,7 +214,6 @@ public static class ItemsFactory
 	public static CellArrowMarkItem CellArrow(Absolute cell, Direction8 direction)
 		=> new()
 		{
-			TemplateIndex = 0,
 			Cell = cell,
 			Direction = direction,
 			TriangleWidthScale = ResolveProperty(() => App.UserPreferences.CellArrowTriangleWidthScale),
@@ -247,7 +229,6 @@ public static class ItemsFactory
 	public static CellApexCornerTriangleMarkItem CellApexCornerTriangle(Absolute cell, Alignment cornerAlignement)
 		=> new()
 		{
-			TemplateIndex = 0,
 			Cell = cell,
 			CornerAlignment = cornerAlignement,
 			PaddingScale = ResolveProperty(() => App.UserPreferences.CellApexCornerTrianglePaddingScale),
@@ -260,7 +241,6 @@ public static class ItemsFactory
 	public static CellBisectorLineMarkItem CellBisectorLine(Absolute cell, Orientation4 orientation)
 		=> new()
 		{
-			TemplateIndex = 0,
 			Cell = cell,
 			Orientation = orientation,
 			SizeScale = ResolveProperty(() => App.UserPreferences.CellBisectorLineSizeScale),
@@ -271,7 +251,6 @@ public static class ItemsFactory
 	public static CellSevenSegmentDisplayMarkItem CellSevenSegmentDisplay(Absolute cell, int value)
 		=> new()
 		{
-			TemplateIndex = 0,
 			Cell = cell,
 			Value = value,
 			UseSecondaryStyle = ResolveProperty(() => App.UserPreferences.CellSevenSegmentDisplayUseSecondaryDigitStyle),
@@ -290,7 +269,6 @@ public static class ItemsFactory
 	public static CellBorderAlignedTriangleMarkItem CellBorderAlignedTriangle(Absolute cell, Direction4 direction)
 		=> new()
 		{
-			TemplateIndex = 0,
 			Cell = cell,
 			Direction = direction,
 			SizeScale = ResolveProperty(() => App.UserPreferences.CellBorderAlignedTriangleSizeScale),
@@ -302,7 +280,6 @@ public static class ItemsFactory
 	public static CellBorderAlignedArrowMarkItem CellBorderAlignedArrow(Absolute cell, Direction4 direction, RotationDirection rotationDirection)
 		=> new()
 		{
-			TemplateIndex = 0,
 			Cell = cell,
 			Direction = direction,
 			RotationDirection = rotationDirection,
@@ -316,7 +293,6 @@ public static class ItemsFactory
 	public static CellLargeDiamondMarkItem CellLargeDiamond(Absolute cell)
 		=> new()
 		{
-			TemplateIndex = 0,
 			Cell = cell,
 			SizeScale = ResolveProperty(() => App.UserPreferences.CellLargeDiamondSizeScale),
 			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellLargeDiamondStrokeWidthScale),
@@ -327,7 +303,6 @@ public static class ItemsFactory
 	public static CellLoopSegmentLineMarkItem CellLoopSegmentLine(Absolute cell, Direction4 directions)
 		=> new()
 		{
-			TemplateIndex = 0,
 			Cell = cell,
 			OccupiedDirections = directions,
 			SizeScale = ResolveProperty(() => App.UserPreferences.CellLoopSegmentLineSizeScale),

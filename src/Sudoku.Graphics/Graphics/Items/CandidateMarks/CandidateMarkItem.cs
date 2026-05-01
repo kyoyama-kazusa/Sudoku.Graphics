@@ -6,12 +6,8 @@
 public abstract record CandidateMarkItem :
 	Item,
 	IItem_CandidatePositionProperty,
-	IItem_MarkRelatedProperties,
-	IItem_TemplateIndexProperty
+	IItem_MarkRelatedProperties
 {
-	/// <inheritdoc/>
-	public required int TemplateIndex { get; init; }
-
 	/// <inheritdoc/>
 	public required CandidatePosition CandidatePosition { get; init; }
 

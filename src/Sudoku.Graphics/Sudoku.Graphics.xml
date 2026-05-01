@@ -1618,9 +1618,6 @@
             Represents a candidate mark item.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CandidateMarks.CandidateMarkItem.TemplateIndex">
-            <inheritdoc/>
-        </member>
         <member name="P:Sudoku.Graphics.Items.CandidateMarks.CandidateMarkItem.CandidatePosition">
             <inheritdoc/>
         </member>
@@ -1690,9 +1687,6 @@
             <summary>
             Represents a candidate pair mark item.
             </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CandidatePairMarks.CandidatePairMarkItem.TemplateIndex">
-            <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.CandidatePairMarks.CandidatePairMarkItem.CandidatePosition1">
             <summary>
@@ -1863,9 +1857,6 @@
             <summary>
             Represents cell group mark item.
             </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupMarkItem.TemplateIndex">
-            <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellGroupMarks.CellGroupMarkItem.TextFontName">
             <summary>
@@ -2448,9 +2439,6 @@
             <summary>
             Represents a cell mark item.
             </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellMarkItem.TemplateIndex">
-            <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellMarkItem.TextFontName">
             <summary>
@@ -3333,9 +3321,6 @@
             Represents a cell pair mark item.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairMarkItem.TemplateIndex">
-            <inheritdoc/>
-        </member>
         <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairMarkItem.TextFontName">
             <summary>
             Indicates text font.
@@ -3472,9 +3457,6 @@
             <summary>
             Represents a cell pair text mark item.
             </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.CellPairTextMarks.CellPairTextMarkItem.TemplateIndex">
-            <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellPairTextMarks.CellPairTextMarkItem.FontWeight">
             <inheritdoc/>
@@ -4048,9 +4030,6 @@
         <member name="P:Sudoku.Graphics.Items.Fills.CandidateFillItem.Type">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.Fills.CandidateFillItem.TemplateIndex">
-            <inheritdoc/>
-        </member>
         <member name="P:Sudoku.Graphics.Items.Fills.CandidateFillItem.CandidatePosition">
             <inheritdoc/>
         </member>
@@ -4061,9 +4040,6 @@
             <summary>
             Represents cell fill item.
             </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.Fills.CellFillItem.TemplateIndex">
-            <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.Fills.CellFillItem.Type">
             <inheritdoc/>
@@ -4189,16 +4165,6 @@
             Indicates the orientation.
             </summary>
         </member>
-        <member name="T:Sudoku.Graphics.Items.IItem_TemplateIndexProperty">
-            <summary>
-            Represents a type that includes <see cref="P:Sudoku.Graphics.Items.IItem_TemplateIndexProperty.TemplateIndex"/> property.
-            </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.IItem_TemplateIndexProperty.TemplateIndex">
-            <summary>
-            Indicates the target template index.
-            </summary>
-        </member>
         <member name="T:Sudoku.Graphics.Items.IItem_TextProperty">
             <summary>
             Represents a type that includes <see cref="P:Sudoku.Graphics.Items.IItem_TextProperty.Text"/> property.
@@ -4245,9 +4211,6 @@
             <summary>
             Indicates whether this line will be extended to grid border.
             </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.Lines.VariantLineItem.TemplateIndex">
-            <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.Lines.VariantLineItem.Type">
             <inheritdoc/>
@@ -4370,9 +4333,6 @@
             <summary>
             Represents a text item.
             </summary>
-        </member>
-        <member name="P:Sudoku.Graphics.Items.Texts.TextItem.TemplateIndex">
-            <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.Texts.TextItem.Text">
             <inheritdoc/>

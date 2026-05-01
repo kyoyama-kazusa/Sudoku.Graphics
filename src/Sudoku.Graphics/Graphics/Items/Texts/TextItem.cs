@@ -7,12 +7,8 @@ public abstract record TextItem :
 	Item,
 	IItem_ColorProperty,
 	IItem_FontRelatedProperties,
-	IItem_TemplateIndexProperty,
 	IItem_TextProperty
 {
-	/// <inheritdoc/>
-	public required int TemplateIndex { get; init; }
-
 	/// <inheritdoc/>
 	public required string Text { get; init; }
 

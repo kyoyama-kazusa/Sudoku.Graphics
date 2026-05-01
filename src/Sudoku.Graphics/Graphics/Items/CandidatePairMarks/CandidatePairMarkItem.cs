@@ -3,11 +3,8 @@
 /// <summary>
 /// Represents a candidate pair mark item.
 /// </summary>
-public abstract record CandidatePairMarkItem : Item, IItem_MarkRelatedProperties, IItem_TemplateIndexProperty
+public abstract record CandidatePairMarkItem : Item, IItem_MarkRelatedProperties
 {
-	/// <inheritdoc/>
-	public required int TemplateIndex { get; init; }
-
 	/// <summary>
 	/// Indicates the candidate position 1.
 	/// </summary>

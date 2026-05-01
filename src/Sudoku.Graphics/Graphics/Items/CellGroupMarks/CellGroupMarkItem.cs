@@ -3,11 +3,8 @@
 /// <summary>
 /// Represents cell group mark item.
 /// </summary>
-public abstract record CellGroupMarkItem : Item, IItem_FontRelatedProperties, IItem_MarkRelatedProperties, IItem_TemplateIndexProperty
+public abstract record CellGroupMarkItem : Item, IItem_FontRelatedProperties, IItem_MarkRelatedProperties
 {
-	/// <inheritdoc/>
-	public required int TemplateIndex { get; init; }
-
 	/// <summary>
 	/// Indicates text font.
 	/// </summary>

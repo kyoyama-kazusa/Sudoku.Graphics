@@ -7,12 +7,8 @@ public abstract record CellMarkItem :
 	Item,
 	IItem_CellProperty,
 	IItem_FontRelatedProperties,
-	IItem_MarkRelatedProperties,
-	IItem_TemplateIndexProperty
+	IItem_MarkRelatedProperties
 {
-	/// <inheritdoc/>
-	public required int TemplateIndex { get; init; }
-
 	/// <summary>
 	/// Indicates text font.
 	/// </summary>

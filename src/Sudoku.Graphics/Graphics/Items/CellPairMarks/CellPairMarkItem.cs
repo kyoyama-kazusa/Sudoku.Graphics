@@ -3,11 +3,8 @@
 /// <summary>
 /// Represents a cell pair mark item.
 /// </summary>
-public abstract record CellPairMarkItem : Item, IItem_FontRelatedProperties, IItem_MarkRelatedProperties, IItem_TemplateIndexProperty
+public abstract record CellPairMarkItem : Item, IItem_FontRelatedProperties, IItem_MarkRelatedProperties
 {
-	/// <inheritdoc/>
-	public required int TemplateIndex { get; init; }
-
 	/// <summary>
 	/// Indicates text font.
 	/// </summary>

@@ -3,11 +3,8 @@
 /// <summary>
 /// Represents a cell pair text mark item.
 /// </summary>
-public abstract record CellPairTextMarkItem : Item, IItem_FontRelatedProperties, IItem_MarkRelatedProperties, IItem_TemplateIndexProperty
+public abstract record CellPairTextMarkItem : Item, IItem_FontRelatedProperties, IItem_MarkRelatedProperties
 {
-	/// <inheritdoc/>
-	public required int TemplateIndex { get; init; }
-
 	/// <inheritdoc/>
 	public SKFontStyleWeight FontWeight { get; init; } = SKFontStyleWeight.Normal;
 

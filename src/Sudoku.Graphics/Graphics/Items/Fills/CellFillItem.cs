@@ -3,11 +3,8 @@
 /// <summary>
 /// Represents cell fill item.
 /// </summary>
-public sealed record CellFillItem : FillItem, IItem_CellProperty, IItem_TemplateIndexProperty
+public sealed record CellFillItem : FillItem, IItem_CellProperty
 {
-	/// <inheritdoc/>
-	public required int TemplateIndex { get; init; }
-
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.Fill_Cell;
 
