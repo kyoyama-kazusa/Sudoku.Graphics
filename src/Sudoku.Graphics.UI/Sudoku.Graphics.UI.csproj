@@ -19,6 +19,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Resource Include="Assets\ToolItems\ToolItem_Candidate_Circle.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Assets\ToolItems\ToolItem_Candidate_Cross.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
 		<Resource Include="Assets\ToolItems\ToolItem_Cell_ApexCornerTriangle.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
