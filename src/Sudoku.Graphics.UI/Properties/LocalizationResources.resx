@@ -267,9 +267,6 @@
   <data name="ClearCell" xml:space="preserve">
     <value>Clear</value>
   </data>
-  <data name="ItemTypeGroup_CellMark" xml:space="preserve">
-    <value>Cell Items</value>
-  </data>
   <data name="ItemType_Cell_Tetris" xml:space="preserve">
     <value>Tetromino</value>
   </data>
@@ -348,13 +345,19 @@
   <data name="ItemType_Cell_LoopSegmentLine" xml:space="preserve">
     <value>Loop segment</value>
   </data>
-  <data name="ItemTypeGroup_CandidateMark" xml:space="preserve">
-    <value>Candidate Items</value>
+  <data name="ItemTypeGroup_CandidateMark_ShapeBased" xml:space="preserve">
+    <value>Candidate Shape Items</value>
   </data>
   <data name="ItemType_Candidate_Circle" xml:space="preserve">
     <value>Circle</value>
   </data>
   <data name="ItemType_Candidate_Cross" xml:space="preserve">
     <value>Cross</value>
+  </data>
+  <data name="ItemTypeGroup_CellMark_ShapeBased" xml:space="preserve">
+    <value>Cell Shape Items</value>
+  </data>
+  <data name="ItemTypeGroup_CellMark_FunctionalBased" xml:space="preserve">
+    <value>Cell Functional Items</value>
   </data>
 </root>

@@ -181,7 +181,11 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 	public void AddGiven(Absolute cell, int digit)
 	{
 		VerifyArgumentCell(cell);
-		VerifyArgumentDigit(digit);
+		VerifyArgumentDigit(ref digit);
+		if (digit == -1)
+		{
+			return;
+		}
 
 		// Trigger event (adding).
 		var addingEventArgs = new SudokuGridDigitAddingEventArgs(DigitType.Given, cell, digit);
@@ -211,7 +215,11 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 	public void AddModifiable(Absolute cell, int digit)
 	{
 		VerifyArgumentCell(cell);
-		VerifyArgumentDigit(digit);
+		VerifyArgumentDigit(ref digit);
+		if (digit == -1)
+		{
+			return;
+		}
 
 		// Trigger event (adding).
 		var addingEventArgs = new SudokuGridDigitAddingEventArgs(DigitType.Modifiable, cell, digit);
@@ -239,7 +247,11 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 	public void AddCandidate(Absolute cell, int digit)
 	{
 		VerifyArgumentCell(cell);
-		VerifyArgumentDigit(digit);
+		VerifyArgumentDigit(ref digit);
+		if (digit == -1)
+		{
+			return;
+		}
 
 		// Trigger event (adding).
 		var addingEventArgs = new SudokuGridDigitAddingEventArgs(DigitType.Candidate, cell, digit);
@@ -534,28 +546,14 @@ public sealed partial class SudokuGrid : ICloneable, IEquatable<SudokuGrid>, IEq
 	}
 
 	/// <summary>
-	/// Verify validity of argument <paramref name="digit"/>.
+	/// Verify validity of argument <paramref name="digit"/>. If the digit is out of range, it will be replaced with -1.
 	/// </summary>
 	/// <param name="digit">The digit.</param>
-	/// <exception cref="ArgumentException">Throws when argument is invalid.</exception>
-	private void VerifyArgumentDigit(int digit)
+	private void VerifyArgumentDigit(ref int digit)
 	{
 		if (digit < 0 || digit >= DigitsCount)
 		{
-			throw new ArgumentException($"The argument '{nameof(digit)}' must be between 0 and '{DigitsCount} - 1'.", nameof(digit));
-		}
-	}
-
-	/// <summary>
-	/// Verify validity of argument <paramref name="digits"/>.
-	/// </summary>
-	/// <param name="digits">The digits.</param>
-	/// <exception cref="ArgumentException">Throws when argument is invalid.</exception>
-	private void VerifyArgumentDigits(int[] digits)
-	{
-		foreach (var digit in digits)
-		{
-			VerifyArgumentDigit(digit);
+			digit = -1;
 		}
 	}
 

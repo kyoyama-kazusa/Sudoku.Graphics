@@ -166,7 +166,7 @@
     <value>当前：</value>
   </data>
   <data name="ItemTypeGroup_Basic" xml:space="preserve">
-    <value>基础内容</value>
+    <value>基础</value>
   </data>
   <data name="ItemType_Text_Given" xml:space="preserve">
     <value>提示数标注</value>
@@ -261,9 +261,6 @@
   <data name="ClearCell" xml:space="preserve">
     <value>清除</value>
   </data>
-  <data name="ItemTypeGroup_CellMark" xml:space="preserve">
-    <value>单元格图标</value>
-  </data>
   <data name="ItemType_Cell_Tetris" xml:space="preserve">
     <value>俄罗斯方块</value>
   </data>
@@ -343,13 +340,19 @@
   <data name="ItemType_Cell_LoopSegmentLine" xml:space="preserve">
     <value>数回回路线段</value>
   </data>
-  <data name="ItemTypeGroup_CandidateMark" xml:space="preserve">
-    <value>候选数图标</value>
+  <data name="ItemTypeGroup_CandidateMark_ShapeBased" xml:space="preserve">
+    <value>候选数 - 图形</value>
   </data>
   <data name="ItemType_Candidate_Circle" xml:space="preserve">
     <value>圆形</value>
   </data>
   <data name="ItemType_Candidate_Cross" xml:space="preserve">
     <value>叉号</value>
+  </data>
+  <data name="ItemTypeGroup_CellMark_ShapeBased" xml:space="preserve">
+    <value>单元格 - 图形</value>
+  </data>
+  <data name="ItemTypeGroup_CellMark_FunctionalBased" xml:space="preserve">
+    <value>单元格 - 功能</value>
   </data>
 </root>

@@ -5838,19 +5838,11 @@
             <param name="cell">The cell.</param>
             <exception cref="T:System.ArgumentException">Throws when argument is invalid.</exception>
         </member>
-        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.VerifyArgumentDigit(System.Int32)">
+        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.VerifyArgumentDigit(System.Int32@)">
             <summary>
-            Verify validity of argument <paramref name="digit"/>.
+            Verify validity of argument <paramref name="digit"/>. If the digit is out of range, it will be replaced with -1.
             </summary>
             <param name="digit">The digit.</param>
-            <exception cref="T:System.ArgumentException">Throws when argument is invalid.</exception>
-        </member>
-        <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.VerifyArgumentDigits(System.Int32[])">
-            <summary>
-            Verify validity of argument <paramref name="digits"/>.
-            </summary>
-            <param name="digits">The digits.</param>
-            <exception cref="T:System.ArgumentException">Throws when argument is invalid.</exception>
         </member>
         <member name="M:Sudoku.Graphics.Semantic.SudokuGrid.ClearCellImpl(Sudoku.Graphics.Absolute)">
             <inheritdoc cref="M:Sudoku.Graphics.Semantic.SudokuGrid.ClearCell(Sudoku.Graphics.Absolute)"/>

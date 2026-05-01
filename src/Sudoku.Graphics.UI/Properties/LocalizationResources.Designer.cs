@@ -574,20 +574,29 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Candidate Items.
+        ///   Looks up a localized string similar to Candidate Shape Items.
         /// </summary>
-        public static string ItemTypeGroup_CandidateMark {
+        public static string ItemTypeGroup_CandidateMark_ShapeBased {
             get {
-                return ResourceManager.GetString("ItemTypeGroup_CandidateMark", resourceCulture);
+                return ResourceManager.GetString("ItemTypeGroup_CandidateMark_ShapeBased", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cell Items.
+        ///   Looks up a localized string similar to Cell Functional Items.
         /// </summary>
-        public static string ItemTypeGroup_CellMark {
+        public static string ItemTypeGroup_CellMark_FunctionalBased {
             get {
-                return ResourceManager.GetString("ItemTypeGroup_CellMark", resourceCulture);
+                return ResourceManager.GetString("ItemTypeGroup_CellMark_FunctionalBased", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cell Shape Items.
+        /// </summary>
+        public static string ItemTypeGroup_CellMark_ShapeBased {
+            get {
+                return ResourceManager.GetString("ItemTypeGroup_CellMark_ShapeBased", resourceCulture);
             }
         }
         

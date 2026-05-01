@@ -17,7 +17,7 @@
 				<vm:ToolItem ItemType="Text_Modifiable" Icon="/Assets/ToolItems/ToolItem_Text_Modifiable.png" />
 				<vm:ToolItem ItemType="Text_Candidate" Icon="/Assets/ToolItems/ToolItem_Text_Candidate.png" />
 			</vm:ToolItemGroup>
-			<vm:ToolItemGroup Title="{x:Static p:LocalizationResources.ItemTypeGroup_CellMark}">
+			<vm:ToolItemGroup Title="{x:Static p:LocalizationResources.ItemTypeGroup_CellMark_ShapeBased}">
 				<vm:ToolItem ItemType="Cell_Square" Icon="/Assets/ToolItems/ToolItem_Cell_Square.png" />
 				<vm:ToolItem ItemType="Cell_Circle" Icon="/Assets/ToolItems/ToolItem_Cell_Circle.png" />
 				<vm:ToolItem ItemType="Cell_Cross" Icon="/Assets/ToolItems/ToolItem_Cell_Cross.png" />
@@ -29,19 +29,21 @@
 				<vm:ToolItem ItemType="Cell_Triangle" Icon="/Assets/ToolItems/ToolItem_Cell_Triangle.png" />
 				<vm:ToolItem ItemType="Cell_Hexagon" Icon="/Assets/ToolItems/ToolItem_Cell_Hexagon.png" />
 				<vm:ToolItem ItemType="Cell_Polygon" Icon="/Assets/ToolItems/ToolItem_Cell_Polygon.png" />
-				<vm:ToolItem ItemType="Cell_BisectorLine" Icon="/Assets/ToolItems/ToolItem_Cell_BisectorLine.png" />
 				<vm:ToolItem ItemType="Cell_SurroundingTriangles" Icon="/Assets/ToolItems/ToolItem_Cell_Surrounding_Triangles.png" />
-				<vm:ToolItem ItemType="Cell_Dice" Icon="/Assets/ToolItems/ToolItem_Cell_Dice.png" />
-				<vm:ToolItem ItemType="Cell_PhantomDice" Icon="/Assets/ToolItems/ToolItem_Cell_PhantomDice.png" />
 				<vm:ToolItem ItemType="Cell_Tetris" Icon="/Assets/ToolItems/ToolItem_Cell_Tetris.png" />
 				<vm:ToolItem ItemType="Cell_MoonPhase" Icon="/Assets/ToolItems/ToolItem_Cell_MoonPhase.png" />
+			</vm:ToolItemGroup>
+			<vm:ToolItemGroup Title="{x:Static p:LocalizationResources.ItemTypeGroup_CellMark_FunctionalBased}">
+				<vm:ToolItem ItemType="Cell_BisectorLine" Icon="/Assets/ToolItems/ToolItem_Cell_BisectorLine.png" />
+				<vm:ToolItem ItemType="Cell_Dice" Icon="/Assets/ToolItems/ToolItem_Cell_Dice.png" />
+				<vm:ToolItem ItemType="Cell_PhantomDice" Icon="/Assets/ToolItems/ToolItem_Cell_PhantomDice.png" />
 				<vm:ToolItem ItemType="Cell_Battenburg" Icon="/Assets/ToolItems/ToolItem_Cell_Battenburg.png" />
 				<vm:ToolItem ItemType="Cell_SevenSegmentDisplay" Icon="/Assets/ToolItems/ToolItem_Cell_SevenSegmentDisplay.png" />
 				<vm:ToolItem ItemType="Cell_BorderAlignedTriangle" Icon="/Assets/ToolItems/ToolItem_Cell_BorderAlignedTriangle.png" />
 				<vm:ToolItem ItemType="Cell_BorderAlignedArrow" Icon="/Assets/ToolItems/ToolItem_Cell_BorderAlignedArrow.png" />
 				<vm:ToolItem ItemType="Cell_LoopSegmentLine" Icon="/Assets/ToolItems/ToolItem_Cell_LoopSegmentLine.png" />
 			</vm:ToolItemGroup>
-			<vm:ToolItemGroup Title="{x:Static p:LocalizationResources.ItemTypeGroup_CandidateMark}">
+			<vm:ToolItemGroup Title="{x:Static p:LocalizationResources.ItemTypeGroup_CandidateMark_ShapeBased}">
 				<vm:ToolItem ItemType="Candidate_Circle" Icon="/Assets/ToolItems/ToolItem_Candidate_Circle.png" />
 				<vm:ToolItem ItemType="Candidate_Cross" Icon="/Assets/ToolItems/ToolItem_Candidate_Cross.png" />
 			</vm:ToolItemGroup>
