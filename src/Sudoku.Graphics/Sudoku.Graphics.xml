@@ -2313,9 +2313,6 @@
         <member name="P:Sudoku.Graphics.Items.CellMarks.CellCrossMarkItem.StrokeColor">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellCrossMarkItem.FillColor">
-            <inheritdoc/>
-        </member>
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellCrossMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>

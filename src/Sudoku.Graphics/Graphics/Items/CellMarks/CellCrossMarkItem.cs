@@ -17,9 +17,6 @@ public sealed record CellCrossMarkItem : CellMarkItem
 	/// <inheritdoc/>
 	public required override SerializableColor StrokeColor { get; init; }
 
-	/// <inheritdoc/>
-	public override SerializableColor FillColor { get; init; }
-
 
 	/// <inheritdoc/>
 	protected internal override void DrawTo(Canvas canvas)

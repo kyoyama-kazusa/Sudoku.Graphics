@@ -16,9 +16,4 @@ internal partial class Preferences
 	/// Indicates the cell cross stroke color.
 	/// </summary>
 	public Inherited<SerializableColor> CellCrossStrokeColor { get; set; } = Inherited<SerializableColor>.FromPropertyName(nameof(CellShapeStrokeColor));
-
-	/// <summary>
-	/// Indicates the cell cross fill color.
-	/// </summary>
-	public Inherited<SerializableColor> CellCrossFillColor { get; set; } = Inherited<SerializableColor>.FromPropertyName(nameof(DefaultShapeFillColor));
 }

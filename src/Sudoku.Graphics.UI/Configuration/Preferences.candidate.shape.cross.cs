@@ -16,9 +16,4 @@ internal partial class Preferences
 	/// Indicates the candidate cross stroke color.
 	/// </summary>
 	public Inherited<SerializableColor> CandidateCrossStrokeColor { get; set; } = Inherited<SerializableColor>.FromPropertyName(nameof(CandidateShapeStrokeColor));
-
-	/// <summary>
-	/// Indicates the candidate cross fill color.
-	/// </summary>
-	public Inherited<SerializableColor> CandidateCrossFillColor { get; set; } = Inherited<SerializableColor>.FromPropertyName(nameof(DefaultShapeFillColor));
 }

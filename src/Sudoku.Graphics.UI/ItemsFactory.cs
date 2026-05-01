@@ -126,8 +126,7 @@ public static class ItemsFactory
 			Cell = cell,
 			SizeScale = ResolveProperty(() => App.UserPreferences.CellCrossSizeScale),
 			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellCrossStrokeWidthScale),
-			StrokeColor = ResolveProperty(() => App.UserPreferences.CellCrossStrokeColor),
-			FillColor = ResolveProperty(() => App.UserPreferences.CellCrossFillColor)
+			StrokeColor = ResolveProperty(() => App.UserPreferences.CellCrossStrokeColor)
 		};
 
 	public static CellDiamondMarkItem Diamond(Absolute cell)
@@ -327,7 +326,6 @@ public static class ItemsFactory
 			CandidatePosition = candidate,
 			SizeScale = ResolveProperty(() => App.UserPreferences.CandidateCrossSizeScale),
 			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CandidateCrossStrokeWidthScale),
-			StrokeColor = ResolveProperty(() => App.UserPreferences.CandidateCrossStrokeColor),
-			FillColor = ResolveProperty(() => App.UserPreferences.CandidateCrossFillColor)
+			StrokeColor = ResolveProperty(() => App.UserPreferences.CandidateCrossStrokeColor)
 		};
 }
