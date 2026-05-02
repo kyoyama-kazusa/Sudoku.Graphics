@@ -529,6 +529,24 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Exclamation mark.
+        /// </summary>
+        public static string ItemType_CellText_Exclamation {
+            get {
+                return ResourceManager.GetString("ItemType_CellText_Exclamation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Question mark.
+        /// </summary>
+        public static string ItemType_CellText_Question {
+            get {
+                return ResourceManager.GetString("ItemType_CellText_Question", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Default.
         /// </summary>
         public static string ItemType_None {

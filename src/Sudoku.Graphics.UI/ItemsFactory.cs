@@ -328,4 +328,32 @@ public static class ItemsFactory
 			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CandidateCrossStrokeWidthScale),
 			StrokeColor = ResolveProperty(() => App.UserPreferences.CandidateCrossStrokeColor)
 		};
+
+	public static CellQuestionMarkItem CellQuestion(Absolute cell)
+		=> new()
+		{
+			Cell = cell,
+			TextFontName = ResolveProperty(() => App.UserPreferences.QuestionFontName),
+			SizeScale = ResolveProperty(() => App.UserPreferences.QuestionFontSizeScale),
+			StrokeWidthScale = 0M,
+			StrokeColor = SKColors.Transparent,
+			FillColor = ResolveProperty(() => App.UserPreferences.QuestionFontColor),
+			FontWidth = ResolveProperty(() => App.UserPreferences.QuestionFontWidth),
+			FontSlant = ResolveProperty(() => App.UserPreferences.QuestionFontSlant),
+			FontWeight = ResolveProperty(() => App.UserPreferences.QuestionFontWeight)
+		};
+
+	public static CellExclamationMarkItem CellExclamation(Absolute cell)
+		=> new()
+		{
+			Cell = cell,
+			TextFontName = ResolveProperty(() => App.UserPreferences.ExclamationFontName),
+			SizeScale = ResolveProperty(() => App.UserPreferences.ExclamationFontSizeScale),
+			StrokeWidthScale = 0M,
+			StrokeColor = SKColors.Transparent,
+			FillColor = ResolveProperty(() => App.UserPreferences.ExclamationFontColor),
+			FontWidth = ResolveProperty(() => App.UserPreferences.ExclamationFontWidth),
+			FontSlant = ResolveProperty(() => App.UserPreferences.ExclamationFontSlant),
+			FontWeight = ResolveProperty(() => App.UserPreferences.ExclamationFontWeight)
+		};
 }

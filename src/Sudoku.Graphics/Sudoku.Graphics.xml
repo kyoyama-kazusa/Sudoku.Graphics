@@ -175,9 +175,9 @@
             <param name="SubgridSize">Indicates subgrid size.</param>
             <param name="InnerIndex">The internal absolute position index of the candidate. Base 0.</param>
             <remarks>
-            For more information, please visit <see cref="M:Sudoku.Graphics.ILocator`1.GetCandidatesCountInEachRow"/> method.
+            For more information, please visit <see cref="M:Sudoku.Graphics.Locator.GetCandidatesCountInEachRow"/> method.
             </remarks>
-            <seealso cref="M:Sudoku.Graphics.ILocator`1.GetCandidatesCountInEachRow"/>
+            <seealso cref="M:Sudoku.Graphics.Locator.GetCandidatesCountInEachRow"/>
         </member>
         <member name="M:Sudoku.Graphics.CandidatePosition.#ctor(Sudoku.Graphics.Absolute,Sudoku.Graphics.Relative,Sudoku.Graphics.Absolute)">
             <summary>
@@ -187,9 +187,9 @@
             <param name="SubgridSize">Indicates subgrid size.</param>
             <param name="InnerIndex">The internal absolute position index of the candidate. Base 0.</param>
             <remarks>
-            For more information, please visit <see cref="M:Sudoku.Graphics.ILocator`1.GetCandidatesCountInEachRow"/> method.
+            For more information, please visit <see cref="M:Sudoku.Graphics.Locator.GetCandidatesCountInEachRow"/> method.
             </remarks>
-            <seealso cref="M:Sudoku.Graphics.ILocator`1.GetCandidatesCountInEachRow"/>
+            <seealso cref="M:Sudoku.Graphics.Locator.GetCandidatesCountInEachRow"/>
         </member>
         <member name="P:Sudoku.Graphics.CandidatePosition.Cell">
             <summary>Indicates the target cell.</summary>
@@ -941,18 +941,6 @@
             Gets the number of candidates in one row.
             </summary>
             <returns>The number of candidates in one row.</returns>
-            <remarks>
-            <para>
-            By design of candidate drawing system, we will split a cell into a square subgrid of size <i>n</i> by <i>n</i>,
-            where <i>n</i> is equal to value of property <see cref="P:Sudoku.Graphics.CandidatePosition.SubgridSize"/>.
-            </para>
-            <para>
-            Then, we define an absolute internal index to describe a cell will be drawn, which is in range [0, <i>n</i> * <i>n</i>) -
-            property <see cref="P:Sudoku.Graphics.CandidatePosition.InnerIndex"/>.
-            </para>
-            </remarks>
-            <seealso cref="P:Sudoku.Graphics.CandidatePosition.SubgridSize"/>
-            <seealso cref="P:Sudoku.Graphics.CandidatePosition.InnerIndex"/>
         </member>
         <member name="M:Sudoku.Graphics.ILocator`1.IsAlignedAs(Sudoku.Graphics.LocatorGridAlignment,`0,`0,Sudoku.Graphics.PointMapper)">
             <summary>
@@ -4951,6 +4939,18 @@
         </member>
         <member name="M:Sudoku.Graphics.Locator.GetCandidatesCountInEachRow">
             <inheritdoc/>
+            <remarks>
+            <para>
+            By design of candidate drawing system, we will split a cell into a square subgrid of size <i>n</i> by <i>n</i>,
+            where <i>n</i> is equal to value of property <see cref="P:Sudoku.Graphics.CandidatePosition.SubgridSize"/>.
+            </para>
+            <para>
+            Then, we define an absolute internal index to describe a cell will be drawn, which is in range [0, <i>n</i> * <i>n</i>) -
+            property <see cref="P:Sudoku.Graphics.CandidatePosition.InnerIndex"/>.
+            </para>
+            </remarks>
+            <seealso cref="P:Sudoku.Graphics.CandidatePosition.SubgridSize"/>
+            <seealso cref="P:Sudoku.Graphics.CandidatePosition.InnerIndex"/>
         </member>
         <member name="M:Sudoku.Graphics.Locator.IsAlignedAs(Sudoku.Graphics.LocatorGridAlignment,Sudoku.Graphics.Locator,Sudoku.Graphics.Locator,Sudoku.Graphics.PointMapper)">
             <inheritdoc/>

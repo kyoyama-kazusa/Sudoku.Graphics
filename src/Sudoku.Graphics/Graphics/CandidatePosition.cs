@@ -7,9 +7,9 @@
 /// <param name="SubgridSize">Indicates subgrid size.</param>
 /// <param name="InnerIndex">The internal absolute position index of the candidate. Base 0.</param>
 /// <remarks>
-/// For more information, please visit <see cref="ILocator{TSelf}.GetCandidatesCountInEachRow"/> method.
+/// For more information, please visit <see cref="Locator.GetCandidatesCountInEachRow"/> method.
 /// </remarks>
-/// <seealso cref="ILocator{TSelf}.GetCandidatesCountInEachRow"/>
+/// <seealso cref="Locator.GetCandidatesCountInEachRow"/>
 public readonly record struct CandidatePosition(Absolute Cell, Relative SubgridSize, Absolute InnerIndex) :
 	IEqualityOperators<CandidatePosition, CandidatePosition, bool>,
 	ILocator<CandidatePosition>

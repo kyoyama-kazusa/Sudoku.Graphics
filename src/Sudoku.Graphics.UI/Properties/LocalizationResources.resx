@@ -360,4 +360,10 @@
   <data name="ItemTypeGroup_CellMark_FunctionalBased" xml:space="preserve">
     <value>Cell Functional Items</value>
   </data>
+  <data name="ItemType_CellText_Exclamation" xml:space="preserve">
+    <value>Exclamation mark</value>
+  </data>
+  <data name="ItemType_CellText_Question" xml:space="preserve">
+    <value>Question mark</value>
+  </data>
 </root>

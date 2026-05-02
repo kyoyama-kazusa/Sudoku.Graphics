@@ -1,0 +1,34 @@
+﻿namespace Sudoku.Graphics.UI.Configuration;
+
+internal partial class Preferences
+{
+	/// <summary>
+	/// Indicates the given font name.
+	/// </summary>
+	public Inherited<string> QuestionFontName { get; set; } = Inherited<string>.FromValue("Cascadia Code");
+
+	/// <summary>
+	/// Indicates the given font size scale (related to cell size).
+	/// </summary>
+	public Inherited<Scale> QuestionFontSizeScale { get; set; } = Inherited<Scale>.FromPropertyName(nameof(DefaultFontSizeScale));
+
+	/// <summary>
+	/// Indicates given text color.
+	/// </summary>
+	public Inherited<SerializableColor> QuestionFontColor { get; set; } = Inherited<SerializableColor>.FromValue(SKColors.Gray);
+
+	/// <summary>
+	/// Indicates given font slant.
+	/// </summary>
+	public Inherited<SKFontStyleSlant> QuestionFontSlant { get; set; } = Inherited<SKFontStyleSlant>.FromPropertyName(nameof(DefaultFontSlant));
+
+	/// <summary>
+	/// Indicates given font width.
+	/// </summary>
+	public Inherited<SKFontStyleWidth> QuestionFontWidth { get; set; } = Inherited<SKFontStyleWidth>.FromPropertyName(nameof(DefaultFontWidth));
+
+	/// <summary>
+	/// Indicates given font weight.
+	/// </summary>
+	public Inherited<SKFontStyleWeight> QuestionFontWeight { get; set; } = Inherited<SKFontStyleWeight>.FromPropertyName(nameof(DefaultFontWeight));
+}

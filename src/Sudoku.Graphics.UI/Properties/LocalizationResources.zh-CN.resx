@@ -355,4 +355,10 @@
   <data name="ItemTypeGroup_CellMark_FunctionalBased" xml:space="preserve">
     <value>单元格 - 功能</value>
   </data>
+  <data name="ItemType_CellText_Exclamation" xml:space="preserve">
+    <value>感叹号</value>
+  </data>
+  <data name="ItemType_CellText_Question" xml:space="preserve">
+    <value>问号</value>
+  </data>
 </root>

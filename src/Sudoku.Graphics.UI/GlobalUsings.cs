@@ -35,6 +35,7 @@ global using Sudoku.Graphics.Directions;
 global using Sudoku.Graphics.Items;
 global using Sudoku.Graphics.Items.CandidateMarks;
 global using Sudoku.Graphics.Items.CellMarks;
+global using Sudoku.Graphics.Items.CellTextMarks;
 global using Sudoku.Graphics.Items.Fills;
 global using Sudoku.Graphics.Items.Lines;
 global using Sudoku.Graphics.Items.Texts;

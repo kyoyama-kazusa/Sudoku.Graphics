@@ -57,6 +57,18 @@ public readonly union Locator(Absolute, Relative, CandidatePosition) : ILocator<
 		};
 
 	/// <inheritdoc/>
+	/// <remarks>
+	/// <para>
+	/// By design of candidate drawing system, we will split a cell into a square subgrid of size <i>n</i> by <i>n</i>,
+	/// where <i>n</i> is equal to value of property <see cref="CandidatePosition.SubgridSize"/>.
+	/// </para>
+	/// <para>
+	/// Then, we define an absolute internal index to describe a cell will be drawn, which is in range [0, <i>n</i> * <i>n</i>) -
+	/// property <see cref="CandidatePosition.InnerIndex"/>.
+	/// </para>
+	/// </remarks>
+	/// <seealso cref="CandidatePosition.SubgridSize"/>
+	/// <seealso cref="CandidatePosition.InnerIndex"/>
 	public Relative GetCandidatesCountInEachRow()
 		=> this switch
 		{
