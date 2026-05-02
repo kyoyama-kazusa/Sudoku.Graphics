@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a zodiac symbol.
 /// </summary>
-public enum ZodiacSymbol
+public enum Zodiac
 {
 	/// <summary>
 	/// The placeholder of this type.

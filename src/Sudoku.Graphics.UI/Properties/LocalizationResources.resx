@@ -372,4 +372,7 @@
   <data name="ItemType_CellText_Suit" xml:space="preserve">
     <value>Suits</value>
   </data>
+  <data name="ItemType_CellText_ZodiacEmoji" xml:space="preserve">
+    <value>Zodiacs</value>
+  </data>
 </root>

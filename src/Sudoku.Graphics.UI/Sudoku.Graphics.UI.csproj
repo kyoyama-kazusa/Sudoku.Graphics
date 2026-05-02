@@ -38,6 +38,9 @@
 		<Resource Include="Assets\ToolItems\ToolItem_CellText_Suit.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
+		<Resource Include="Assets\ToolItems\ToolItem_CellText_ZodiacEmoji.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
 		<Resource Include="Assets\ToolItems\ToolItem_Cell_ApexCornerTriangle.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>

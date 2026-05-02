@@ -556,6 +556,15 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Zodiacs.
+        /// </summary>
+        public static string ItemType_CellText_ZodiacEmoji {
+            get {
+                return ResourceManager.GetString("ItemType_CellText_ZodiacEmoji", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Default.
         /// </summary>
         public static string ItemType_None {

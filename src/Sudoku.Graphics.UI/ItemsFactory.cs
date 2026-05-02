@@ -383,4 +383,17 @@ public static class ItemsFactory
 			FontWeight = ResolveProperty(() => App.UserPreferences.SuitFontWeight)
 		};
 	}
+
+	public static CellZodiacEmojiMarkItem CellZodiac(Absolute cell, Zodiac zodiac)
+		=> new()
+		{
+			Cell = cell,
+			Zodiac = zodiac,
+			TextFontName = "Segoe UI Emoji",
+			SizeScale = ResolveProperty(() => App.UserPreferences.ZodiacFontSizeScale),
+			FillColor = SKColors.Black,
+			FontWidth = SKFontStyleWidth.Normal,
+			FontSlant = SKFontStyleSlant.Upright,
+			FontWeight = SKFontStyleWeight.Medium
+		};
 }

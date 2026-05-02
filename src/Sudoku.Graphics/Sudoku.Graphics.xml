@@ -3748,9 +3748,9 @@
             Represents a cell zodiac emoji mark item.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellZodiacEmojiMarkItem.Symbol">
+        <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellZodiacEmojiMarkItem.Zodiac">
             <summary>
-            Indicates the zodiac symbol.
+            Indicates the zodiac.
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellZodiacEmojiMarkItem.Type">
@@ -3910,92 +3910,92 @@
             Indicates fill color.
             </summary>
         </member>
-        <member name="T:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbol">
+        <member name="T:Sudoku.Graphics.Items.CellTextMarks.Zodiac">
             <summary>
             Represents a zodiac symbol.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbol.None">
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.Zodiac.None">
             <summary>
             The placeholder of this type.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbol.Rat">
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.Zodiac.Rat">
             <summary>
             Indicates rat.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbol.Ox">
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.Zodiac.Ox">
             <summary>
             Indicates ox.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbol.Tiger">
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.Zodiac.Tiger">
             <summary>
             Indicates tiger.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbol.Rabbit">
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.Zodiac.Rabbit">
             <summary>
             Indicates rabbit.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbol.Dragon">
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.Zodiac.Dragon">
             <summary>
             Indicates dragon.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbol.Snake">
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.Zodiac.Snake">
             <summary>
             Indicates snake.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbol.Horse">
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.Zodiac.Horse">
             <summary>
             Indicates horse.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbol.Sheep">
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.Zodiac.Sheep">
             <summary>
             Indicates sheep.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbol.Monkey">
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.Zodiac.Monkey">
             <summary>
             Indicates monkey.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbol.Rooster">
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.Zodiac.Rooster">
             <summary>
             Indicates rooster.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbol.Dog">
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.Zodiac.Dog">
             <summary>
             Indicates dog.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbol.Pig">
+        <member name="F:Sudoku.Graphics.Items.CellTextMarks.Zodiac.Pig">
             <summary>
             Indicates pig.
             </summary>
         </member>
-        <member name="T:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbolExtensions">
+        <member name="T:Sudoku.Graphics.Items.CellTextMarks.ZodiacExtensions">
             <summary>
-            Provides extensions for type <see cref="T:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbol"/>.
+            Provides extensions for type <see cref="T:Sudoku.Graphics.Items.CellTextMarks.Zodiac"/>.
             </summary>
-            <seealso cref="T:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbol"/>
+            <seealso cref="T:Sudoku.Graphics.Items.CellTextMarks.Zodiac"/>
         </member>
-        <member name="M:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbolExtensions.get_EmojiString(Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbol)">
-            <inheritdoc cref="P:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbolExtensions.&lt;G&gt;$7ABCED690DEDCAB678D37DA1950A8329.EmojiString"/>
+        <member name="M:Sudoku.Graphics.Items.CellTextMarks.ZodiacExtensions.get_EmojiString(Sudoku.Graphics.Items.CellTextMarks.Zodiac)">
+            <inheritdoc cref="P:Sudoku.Graphics.Items.CellTextMarks.ZodiacExtensions.&lt;G&gt;$D861554D23325D4192AB8981D32039E9.EmojiString"/>
         </member>
-        <member name="T:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbolExtensions.&lt;G&gt;$7ABCED690DEDCAB678D37DA1950A8329.&lt;M&gt;$ED80FC85ABD694BC18C76D4D2E4365D9">
+        <member name="T:Sudoku.Graphics.Items.CellTextMarks.ZodiacExtensions.&lt;G&gt;$D861554D23325D4192AB8981D32039E9.&lt;M&gt;$A82CD3256731B8CF93CCCF3254683FF4">
             <summary>
-            Provides extension members on <see cref="T:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbol"/> instances.
+            Provides extension members on <see cref="T:Sudoku.Graphics.Items.CellTextMarks.Zodiac"/> instances.
             </summary>
             <param name="this">The current instance.</param>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellTextMarks.ZodiacSymbolExtensions.&lt;G&gt;$7ABCED690DEDCAB678D37DA1950A8329.EmojiString">
+        <member name="P:Sudoku.Graphics.Items.CellTextMarks.ZodiacExtensions.&lt;G&gt;$D861554D23325D4192AB8981D32039E9.EmojiString">
             <summary>
             Indicates the emoji string representation of this symbol.
             </summary>

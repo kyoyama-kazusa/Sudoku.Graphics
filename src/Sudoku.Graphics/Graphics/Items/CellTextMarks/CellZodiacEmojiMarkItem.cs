@@ -6,13 +6,13 @@
 public sealed record CellZodiacEmojiMarkItem : CellTextMarkItem
 {
 	/// <summary>
-	/// Indicates the zodiac symbol.
+	/// Indicates the zodiac.
 	/// </summary>
-	public required ZodiacSymbol Symbol { get; init; }
+	public required Zodiac Zodiac { get; init; }
 
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.CellText_ZodiacEmoji;
 
 	/// <inheritdoc/>
-	protected override string PrintingText => Symbol.EmojiString;
+	protected override string PrintingText => Zodiac.EmojiString;
 }

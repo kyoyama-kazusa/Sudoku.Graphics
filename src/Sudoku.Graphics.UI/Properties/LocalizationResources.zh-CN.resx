@@ -367,4 +367,7 @@
   <data name="ItemType_CellText_Suit" xml:space="preserve">
     <value>纸牌花色</value>
   </data>
+  <data name="ItemType_CellText_ZodiacEmoji" xml:space="preserve">
+    <value>生肖</value>
+  </data>
 </root>
