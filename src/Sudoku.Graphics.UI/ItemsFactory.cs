@@ -49,31 +49,32 @@ public static class ItemsFactory
 		};
 
 	public static CellTetrisMarkItem Tetris(Absolute cell, Tetromino piece, TetrominoRotationType rotationType)
-		=> new()
+	{
+		var useSrsColors = ResolveProperty(() => App.UserPreferences.UseSrsPredefinedTetrominoFillColors);
+		return new()
 		{
 			Cell = cell,
 			Piece = piece,
 			RotationType = rotationType,
 			CornerRadiusScale = ResolveProperty(() => App.UserPreferences.CellTetrominoCornerRadiusScale),
 			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellTetrominoStrokeWidthScale),
-			StrokeColor = ResolveProperty(() => App.UserPreferences.CellTetrominoLineColor),
-#if true
-			FillColor = ResolveProperty(() => App.UserPreferences.CellTetrominoFillColor),
-#else
-			FillColor = piece switch
-			{
-				Tetromino.I => SKColors.Tetrimino_I,
-				Tetromino.O => SKColors.Tetrimino_O,
-				Tetromino.T => SKColors.Tetrimino_T,
-				Tetromino.J => SKColors.Tetrimino_J,
-				Tetromino.L => SKColors.Tetrimino_L,
-				Tetromino.S => SKColors.Tetrimino_S,
-				Tetromino.Z => SKColors.Tetrimino_Z,
-				_ => throw new ArgumentOutOfRangeException(nameof(piece))
-			},
-#endif
+			StrokeColor = useSrsColors ? SKColors.Transparent : ResolveProperty(() => App.UserPreferences.CellTetrominoLineColor),
+			FillColor = useSrsColors
+				? piece switch
+				{
+					Tetromino.I => SKColors.Tetrimino_I,
+					Tetromino.O => SKColors.Tetrimino_O,
+					Tetromino.T => SKColors.Tetrimino_T,
+					Tetromino.J => SKColors.Tetrimino_J,
+					Tetromino.L => SKColors.Tetrimino_L,
+					Tetromino.S => SKColors.Tetrimino_S,
+					Tetromino.Z => SKColors.Tetrimino_Z,
+					_ => throw new ArgumentOutOfRangeException(nameof(piece))
+				}
+				: ResolveProperty(() => App.UserPreferences.CellTetrominoFillColor),
 			SizeScale = ResolveProperty(() => App.UserPreferences.CellTetrominoSmallBlockSizeScale)
 		};
+	}
 
 	public static CellDiceMarkItem Dice(Absolute cell, int value)
 		=> new()
