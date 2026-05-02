@@ -14,6 +14,7 @@
 	Height="945"
 	Width="1680"
 	WindowStartupLocation="CenterScreen"
+	Icon="/Assets/icon.ico"
 	Initialized="Window_Initialized"
 	Closing="Window_Closing">
 	<Window.Resources>

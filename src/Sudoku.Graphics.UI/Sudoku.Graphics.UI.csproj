@@ -7,6 +7,7 @@
 		<UseWPF>true</UseWPF>
 		<LangVersion>preview</LangVersion>
 		<NoWarn>NU1701</NoWarn>
+		<ApplicationIcon>Assets\icon.ico</ApplicationIcon>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -19,6 +20,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Resource Include="Assets\icon.ico">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
 		<Resource Include="Assets\ToolItems\ToolItem_Candidate_Circle.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
