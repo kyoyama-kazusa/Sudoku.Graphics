@@ -9,7 +9,7 @@
 /// <param name="digit">The digit added.</param>
 /// <seealso cref="SudokuGrid.DigitAdded"/>
 public abstract class SudokuGridDigitAddedEventArgs<TLocator>(DigitType type, TLocator locator, int digit) : SudokuGridRelatedEventArgs
-	where TLocator : unmanaged, ILocator<TLocator>
+	where TLocator : ILocator<TLocator>
 {
 	/// <summary>
 	/// Indicates the digit added.

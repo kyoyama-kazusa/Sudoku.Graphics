@@ -8,7 +8,7 @@
 /// <param name="locator">The cell.</param>
 /// <seealso cref="SudokuGrid.DigitRemoved"/>
 public abstract class SudokuGridDigitRemovedEventArgs<TLocator>(DigitType type, TLocator locator) : SudokuGridRelatedEventArgs
-	where TLocator : unmanaged, ILocator<TLocator>
+	where TLocator : ILocator<TLocator>
 {
 	/// <summary>
 	/// Indicates the cell type.

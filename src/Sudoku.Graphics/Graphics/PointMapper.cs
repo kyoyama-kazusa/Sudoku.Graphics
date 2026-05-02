@@ -134,12 +134,14 @@ public sealed record PointMapper : IEqualityOperators<PointMapper, PointMapper, 
 	/// <param name="locator">The locator object (cell or candidate).</param>
 	/// <param name="alignment">The alignment.</param>
 	/// <returns>The point instance that represents the target position.</returns>
+	/// <exception cref="ArgumentException">Throws when <paramref name="locator"/> does not have a valid value.</exception>
 	public SKPoint GetPoint(Locator locator, Alignment alignment)
 		=> locator switch
 		{
 			Absolute cell => GetPoint(cell, alignment),
 			Relative cell => GetPoint(cell.ToAbsolute(this), alignment),
-			CandidatePosition candidate => GetPoint(candidate, alignment)
+			CandidatePosition candidate => GetPoint(candidate, alignment),
+			null => throw new ArgumentException($"The argument '{nameof(locator)}' must hold a valid value.", nameof(locator))
 		};
 
 	/// <summary>

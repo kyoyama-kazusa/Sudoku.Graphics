@@ -4934,47 +4934,6 @@
             Represents a locator object (absolute cell index, relative cell index or candidate position).
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.Locator._type">
-            <summary>
-            The type of backing value (0 = <see cref="T:Sudoku.Graphics.Absolute"/>, 1 = <see cref="T:Sudoku.Graphics.Relative"/>, 2 = <see cref="T:Sudoku.Graphics.CandidatePosition"/>).
-            </summary>
-        </member>
-        <member name="F:Sudoku.Graphics.Locator._absolute">
-            <summary>
-            The backing value of type <see cref="T:Sudoku.Graphics.Absolute"/>.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Graphics.Locator._relative">
-            <summary>
-            The backing value of type <see cref="T:Sudoku.Graphics.Relative"/>.
-            </summary>
-        </member>
-        <member name="F:Sudoku.Graphics.Locator._candidate">
-            <summary>
-            The backing value of type <see cref="T:Sudoku.Graphics.CandidatePosition"/>.
-            </summary>
-        </member>
-        <member name="M:Sudoku.Graphics.Locator.#ctor(Sudoku.Graphics.Absolute)">
-            <summary>
-            Creates a <see cref="T:Sudoku.Graphics.Locator"/> object via <see cref="T:Sudoku.Graphics.Absolute"/> instance.
-            </summary>
-            <param name="absolute">The instance.</param>
-        </member>
-        <member name="M:Sudoku.Graphics.Locator.#ctor(Sudoku.Graphics.Relative)">
-            <summary>
-            Creates a <see cref="T:Sudoku.Graphics.Locator"/> object via <see cref="T:Sudoku.Graphics.Relative"/> instance.
-            </summary>
-            <param name="relative">The instance.</param>
-        </member>
-        <member name="M:Sudoku.Graphics.Locator.#ctor(Sudoku.Graphics.CandidatePosition)">
-            <summary>
-            Creates a <see cref="T:Sudoku.Graphics.Locator"/> object via <see cref="T:Sudoku.Graphics.CandidatePosition"/> instance.
-            </summary>
-            <param name="candidate">The instance.</param>
-        </member>
-        <member name="P:Sudoku.Graphics.Locator.Value">
-            <inheritdoc/>
-        </member>
         <member name="M:Sudoku.Graphics.Locator.Equals(System.Object)">
             <inheritdoc/>
         </member>
@@ -4983,27 +4942,6 @@
         </member>
         <member name="M:Sudoku.Graphics.Locator.IsSideWith(Sudoku.Graphics.Locator,Sudoku.Graphics.Directions.Direction4,Sudoku.Graphics.PointMapper,System.Boolean)">
             <inheritdoc/>
-        </member>
-        <member name="M:Sudoku.Graphics.Locator.TryGetValue(Sudoku.Graphics.Absolute@)">
-            <summary>
-            Try to get the backing value of type <see cref="T:Sudoku.Graphics.Absolute"/> if available.
-            </summary>
-            <param name="result">The value.</param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating whether the type matches.</returns>
-        </member>
-        <member name="M:Sudoku.Graphics.Locator.TryGetValue(Sudoku.Graphics.Relative@)">
-            <summary>
-            Try to get the backing value of type <see cref="T:Sudoku.Graphics.Relative"/> if available.
-            </summary>
-            <param name="result">The value.</param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating whether the type matches.</returns>
-        </member>
-        <member name="M:Sudoku.Graphics.Locator.TryGetValue(Sudoku.Graphics.CandidatePosition@)">
-            <summary>
-            Try to get the backing value of type <see cref="T:Sudoku.Graphics.CandidatePosition"/> if available.
-            </summary>
-            <param name="result">The value.</param>
-            <returns>A <see cref="T:System.Boolean"/> result indicating whether the type matches.</returns>
         </member>
         <member name="M:Sudoku.Graphics.Locator.GetHashCode">
             <inheritdoc/>
@@ -5149,6 +5087,7 @@
             <param name="locator">The locator object (cell or candidate).</param>
             <param name="alignment">The alignment.</param>
             <returns>The point instance that represents the target position.</returns>
+            <exception cref="T:System.ArgumentException">Throws when <paramref name="locator"/> does not have a valid value.</exception>
         </member>
         <member name="M:Sudoku.Graphics.PointMapper.GetPoint(Sudoku.Graphics.CandidatePosition,Sudoku.Graphics.Alignment)">
             <summary>
