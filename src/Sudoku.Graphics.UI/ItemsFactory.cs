@@ -57,7 +57,21 @@ public static class ItemsFactory
 			CornerRadiusScale = ResolveProperty(() => App.UserPreferences.CellTetrominoCornerRadiusScale),
 			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellTetrominoStrokeWidthScale),
 			StrokeColor = ResolveProperty(() => App.UserPreferences.CellTetrominoLineColor),
+#if true
 			FillColor = ResolveProperty(() => App.UserPreferences.CellTetrominoFillColor),
+#else
+			FillColor = piece switch
+			{
+				Tetromino.I => SKColors.Tetrimino_I,
+				Tetromino.O => SKColors.Tetrimino_O,
+				Tetromino.T => SKColors.Tetrimino_T,
+				Tetromino.J => SKColors.Tetrimino_J,
+				Tetromino.L => SKColors.Tetrimino_L,
+				Tetromino.S => SKColors.Tetrimino_S,
+				Tetromino.Z => SKColors.Tetrimino_Z,
+				_ => throw new ArgumentOutOfRangeException(nameof(piece))
+			},
+#endif
 			SizeScale = ResolveProperty(() => App.UserPreferences.CellTetrominoSmallBlockSizeScale)
 		};
 
