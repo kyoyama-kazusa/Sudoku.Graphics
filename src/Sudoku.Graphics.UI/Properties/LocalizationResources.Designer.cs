@@ -619,6 +619,15 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cell Text Items.
+        /// </summary>
+        public static string ItemTypeGroup_CellMark_TextIcon {
+            get {
+                return ResourceManager.GetString("ItemTypeGroup_CellMark_TextIcon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Current:.
         /// </summary>
         public static string MainWindow_CurrentMode {

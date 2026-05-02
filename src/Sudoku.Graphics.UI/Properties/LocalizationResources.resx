@@ -366,4 +366,7 @@
   <data name="ItemType_CellText_Question" xml:space="preserve">
     <value>Question mark</value>
   </data>
+  <data name="ItemTypeGroup_CellMark_TextIcon" xml:space="preserve">
+    <value>Cell Text Items</value>
+  </data>
 </root>

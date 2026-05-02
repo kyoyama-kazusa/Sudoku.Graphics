@@ -32,6 +32,8 @@
 				<vm:ToolItem ItemType="Cell_SurroundingTriangles" Icon="/Assets/ToolItems/ToolItem_Cell_Surrounding_Triangles.png" />
 				<vm:ToolItem ItemType="Cell_Tetris" Icon="/Assets/ToolItems/ToolItem_Cell_Tetris.png" />
 				<vm:ToolItem ItemType="Cell_MoonPhase" Icon="/Assets/ToolItems/ToolItem_Cell_MoonPhase.png" />
+			</vm:ToolItemGroup>
+			<vm:ToolItemGroup Title="{x:Static p:LocalizationResources.ItemTypeGroup_CellMark_TextIcon}">
 				<vm:ToolItem ItemType="CellText_Question" Icon="/Assets/ToolItems/ToolItem_CellText_Question.png" />
 				<vm:ToolItem ItemType="CellText_Exclamation" Icon="/Assets/ToolItems/ToolItem_CellText_Exclamation.png" />
 			</vm:ToolItemGroup>

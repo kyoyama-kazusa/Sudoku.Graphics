@@ -361,4 +361,7 @@
   <data name="ItemType_CellText_Question" xml:space="preserve">
     <value>问号</value>
   </data>
+  <data name="ItemTypeGroup_CellMark_TextIcon" xml:space="preserve">
+    <value>单元格 - 字符图案</value>
+  </data>
 </root>

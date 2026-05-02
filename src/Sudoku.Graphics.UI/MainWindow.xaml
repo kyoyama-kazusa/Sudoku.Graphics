@@ -63,7 +63,7 @@
 		<KeyBinding Gesture="F12" Command="{Binding SaveAsJsonCommand}" />
 	</Window.InputBindings>
 	
-	<Grid RowDefinitions="Auto,Auto,*" ColumnDefinitions="Auto,*">
+	<Grid RowDefinitions="Auto,836,*" ColumnDefinitions="Auto,*">
 		<!--#region Menu bar-->
 		<Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
 			<MenuItem Header="{x:Static p:LocalizationResources.MainWindow_MenuItem_File}">

@@ -29,7 +29,7 @@ public abstract record CellTextMarkItem : CellMarkItem
 	public override SKFontStyleSlant FontSlant { get; init; } = SKFontStyleSlant.Upright;
 
 	/// <inheritdoc/>
-	public required sealed override SerializableColor StrokeColor { get; init; }
+	public sealed override SerializableColor StrokeColor { get; init; }
 
 	/// <inheritdoc/>
 	public required sealed override SerializableColor FillColor { get; init; }
@@ -38,7 +38,7 @@ public abstract record CellTextMarkItem : CellMarkItem
 	public required sealed override Scale SizeScale { get; init; }
 
 	/// <inheritdoc/>
-	public required sealed override Scale StrokeWidthScale { get; init; }
+	public sealed override Scale StrokeWidthScale { get; init; }
 
 	/// <summary>
 	/// Indicates the printing text.
