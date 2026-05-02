@@ -1,9 +1,10 @@
 ﻿namespace Sudoku.Graphics.UI.OperationHandlers;
 
 /// <summary>
-/// Represents an operation handler that produces candidate shape items.
+/// Represents a cell or candidate shape operation handler.
 /// </summary>
-public abstract class CandidateShapeOperationHandler : OperationHandler
+/// <param name="_isCellBased">Indicates whether the handler is cell-based or not.</param>
+public abstract class LocatorGenericShapeOperationHandler(bool _isCellBased) : OperationHandler
 {
 	/// <summary>
 	/// Indicates the supported item type.
@@ -11,14 +12,14 @@ public abstract class CandidateShapeOperationHandler : OperationHandler
 	public abstract ItemType ItemType { get; }
 
 	/// <summary>
-	/// Indicates the item factory.
-	/// </summary>
-	public abstract Func<CandidatePosition, CandidateMarkItem> ItemFactory { get; }
-
-	/// <summary>
 	/// Indicates the changed mouse button that will trigger the event.
 	/// </summary>
 	public virtual MouseButton ChangedButton => MouseButton.Left;
+
+	/// <summary>
+	/// Indicates the item factory.
+	/// </summary>
+	protected abstract Func<Locator, Item> ItemFactoryBase { get; }
 
 
 	/// <inheritdoc/>
@@ -29,13 +30,17 @@ public abstract class CandidateShapeOperationHandler : OperationHandler
 	/// <inheritdoc/>
 	protected internal sealed override void OnMouseButtonReleased(OperationHandlerContext context)
 	{
-		var candidate = context.GetCandidate();
-		var item = ItemFactory(candidate);
+		var locator = (Locator)(_isCellBased ? context.GetCell() : context.GetCandidate());
+		if (ItemFactoryBase(locator) is not Item item)
+		{
+			return;
+		}
+
 		UpdateItems(
 			context.OwnerWindow,
 			items =>
 			{
-				var found = items.Find(candidate, ItemType);
+				var found = items.Find(locator, ItemType);
 				if (found.Length == 0)
 				{
 					items.Add(item);

@@ -1,4 +1,4 @@
-﻿namespace Sudoku.Graphics.UI.OperationHandlers;
+﻿namespace Sudoku.Graphics.UI.OperationHandlers.ItemSelectorPanelBased;
 
 /// <summary>
 /// Represents an operation handler type that creates for <see cref="CellTetrisMarkItem"/> instances.

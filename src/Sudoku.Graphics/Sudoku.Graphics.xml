@@ -4058,6 +4058,9 @@
             Indicates candidate position to be set.
             </summary>
         </member>
+        <member name="P:Sudoku.Graphics.Items.IItem_CandidatePositionProperty.Sudoku#Graphics#Items#IItem_LocatorProperty#Locator">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.Items.IItem_CellProperty">
             <summary>
             Represents a type that includes <see cref="P:Sudoku.Graphics.Items.IItem_CellProperty.Cell"/> property.
@@ -4071,6 +4074,9 @@
             </summary>
             <seealso cref="T:Sudoku.Graphics.Relative"/>
             <seealso cref="M:Sudoku.Graphics.Relative.ToAbsolute(Sudoku.Graphics.PointMapper)"/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.IItem_CellProperty.Sudoku#Graphics#Items#IItem_LocatorProperty#Locator">
+            <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.Items.IItem_ColorProperty">
             <summary>
@@ -4124,6 +4130,16 @@
             Indicates the font slant. By default it's <see cref="F:SkiaSharp.SKFontStyleSlant.Upright"/>.
             </summary>
             <seealso cref="F:SkiaSharp.SKFontStyleSlant.Upright"/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.IItem_LocatorProperty">
+            <summary>
+            Represents a type that includes <see cref="P:Sudoku.Graphics.Items.IItem_LocatorProperty.Locator"/> property.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.IItem_LocatorProperty.Locator">
+            <summary>
+            Indicates the cell or candidate to be drawn.
+            </summary>
         </member>
         <member name="T:Sudoku.Graphics.Items.IItem_MarkRelatedProperties">
             <summary>

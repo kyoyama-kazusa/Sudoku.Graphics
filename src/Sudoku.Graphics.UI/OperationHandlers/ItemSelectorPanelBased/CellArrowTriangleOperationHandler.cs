@@ -1,14 +1,14 @@
-﻿namespace Sudoku.Graphics.UI.OperationHandlers;
+﻿namespace Sudoku.Graphics.UI.OperationHandlers.ItemSelectorPanelBased;
 
 /// <summary>
-/// Represents an operation handler that produces <see cref="CellArrowMarkItem"/> instances.
+/// Represents an operation handler that produces <see cref="CellArrowTriangleMarkItem"/> instances.
 /// </summary>
-/// <seealso cref="CellArrowMarkItem"/>
-[OperationHandler(ItemType.Cell_Arrow)]
-public sealed class CellArrowOperationHandler : CellBasedItemSelectorPanelOperationHandler
+/// <seealso cref="CellArrowTriangleMarkItem"/>
+[OperationHandler(ItemType.Cell_ArrowTriangle)]
+public sealed class CellArrowTriangleOperationHandler : CellBasedItemSelectorPanelOperationHandler
 {
 	/// <inheritdoc/>
-	public override ItemType ItemType => ItemType.Cell_Arrow;
+	public override ItemType ItemType => ItemType.Cell_ArrowTriangle;
 
 	/// <inheritdoc/>
 	protected override ReadOnlySpan<Func<IIconDisplayItem>> IconsFactory
@@ -25,11 +25,11 @@ public sealed class CellArrowOperationHandler : CellBasedItemSelectorPanelOperat
 
 	/// <inheritdoc/>
 	protected override Func<object?, Absolute, Item?> ItemFactory
-		=> static (item, cell) => item is CellTriagleDisplayItem { Direction: var direction } ? ItemsFactory.CellArrow(cell, direction) : null;
+		=> static (item, cell) => item is CellTriagleDisplayItem { Direction: var direction } ? ItemsFactory.CellArrowTriangle(cell, direction) : null;
 
 	/// <inheritdoc/>
-	protected override Func<MainWindow, ItemSelectorPanel> PanelSelector => static window => window.CellArrowPanel;
+	protected override Func<MainWindow, ItemSelectorPanel> PanelSelector => static window => window.CellArrowTrianglePanel;
 
 	/// <inheritdoc/>
-	protected override Func<MainWindow, Popup> PopupSelector => static window => window.CellArrowPopup;
+	protected override Func<MainWindow, Popup> PopupSelector => static window => window.CellArrowTrianglePopup;
 }

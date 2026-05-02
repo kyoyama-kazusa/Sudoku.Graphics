@@ -1,4 +1,4 @@
-﻿namespace Sudoku.Graphics.UI.OperationHandlers;
+﻿namespace Sudoku.Graphics.UI.OperationHandlers.ItemSelectorPanelBased;
 
 /// <summary>
 /// Represents cell loop segment line operation handler.

@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a type that includes <see cref="Cell"/> property.
 /// </summary>
-public interface IItem_CellProperty
+public interface IItem_CellProperty : IItem_LocatorProperty
 {
 	/// <summary>
 	/// Indicates the cell to be drawn, of absolute cell index.
@@ -13,4 +13,15 @@ public interface IItem_CellProperty
 	/// <seealso cref="Relative"/>
 	/// <seealso cref="Relative.ToAbsolute(PointMapper)"/>
 	Absolute Cell { get; init; }
+
+	/// <inheritdoc/>
+	Locator IItem_LocatorProperty.Locator
+	{
+		get => Cell;
+
+		init
+			=> Cell = value is Absolute a
+				? a
+				: throw new ArgumentException($"Type mismatches - expected '{nameof(Absolute)}'.", nameof(value));
+	}
 }
