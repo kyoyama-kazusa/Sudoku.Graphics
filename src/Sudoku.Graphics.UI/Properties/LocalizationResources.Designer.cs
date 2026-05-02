@@ -547,6 +547,15 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Suits.
+        /// </summary>
+        public static string ItemType_CellText_Suit {
+            get {
+                return ResourceManager.GetString("ItemType_CellText_Suit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Default.
         /// </summary>
         public static string ItemType_None {

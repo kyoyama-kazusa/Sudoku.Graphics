@@ -36,6 +36,7 @@
 			<vm:ToolItemGroup Title="{x:Static p:LocalizationResources.ItemTypeGroup_CellMark_TextIcon}">
 				<vm:ToolItem ItemType="CellText_Question" Icon="/Assets/ToolItems/ToolItem_CellText_Question.png" />
 				<vm:ToolItem ItemType="CellText_Exclamation" Icon="/Assets/ToolItems/ToolItem_CellText_Exclamation.png" />
+				<vm:ToolItem ItemType="CellText_Suit" Icon="/Assets/ToolItems/ToolItem_CellText_Suit.png" />
 			</vm:ToolItemGroup>
 			<vm:ToolItemGroup Title="{x:Static p:LocalizationResources.ItemTypeGroup_CellMark_FunctionalBased}">
 				<vm:ToolItem ItemType="Cell_BisectorLine" Icon="/Assets/ToolItems/ToolItem_Cell_BisectorLine.png" />

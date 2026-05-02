@@ -7,4 +7,9 @@ internal partial class Preferences
 	/// (<see href="https://tetris.wiki/Super_Rotation_System">Super Rotation System</see>) defined colors.
 	/// </summary>
 	public Inherited<bool> UseSrsPredefinedTetrominoFillColors { get; set; } = Inherited<bool>.FromValue(true);
+
+	/// <summary>
+	/// Indicates whether suits will be colorized with predefined values (red or black).
+	/// </summary>
+	public Inherited<bool> UsePredefinedSuitsFillColors { get; set; } = Inherited<bool>.FromValue(true);
 }

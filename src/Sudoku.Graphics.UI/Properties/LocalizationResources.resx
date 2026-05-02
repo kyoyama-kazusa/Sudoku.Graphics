@@ -369,4 +369,7 @@
   <data name="ItemTypeGroup_CellMark_TextIcon" xml:space="preserve">
     <value>Cell Text Items</value>
   </data>
+  <data name="ItemType_CellText_Suit" xml:space="preserve">
+    <value>Suits</value>
+  </data>
 </root>

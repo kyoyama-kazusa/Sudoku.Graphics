@@ -343,6 +343,20 @@
 				</c:ItemSelectorPanel>
 			</Border>
 		</Popup>
+		<Popup x:Name="CellSuitPopup">
+			<Border Style="{StaticResource PopupBorderStyle}">
+				<c:ItemSelectorPanel
+					x:Name="CellSuitPanel"
+					Style="{StaticResource PanelStyle}"
+					ColumnsCount="4">
+					<c:ItemSelectorPanel.ItemTemplate>
+						<DataTemplate DataType="vm:CellSuitDisplayItem">
+							<Image Source="{Binding Icon}" />
+						</DataTemplate>
+					</c:ItemSelectorPanel.ItemTemplate>
+				</c:ItemSelectorPanel>
+			</Border>
+		</Popup>
 		<!--#endregion-->
 
 		<!--#region Grid view-->

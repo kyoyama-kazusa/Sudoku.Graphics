@@ -367,4 +367,20 @@ public static class ItemsFactory
 			FontSlant = ResolveProperty(() => App.UserPreferences.ExclamationFontSlant),
 			FontWeight = ResolveProperty(() => App.UserPreferences.ExclamationFontWeight)
 		};
+
+	public static CellSuitTextMarkItem CellSuit(Absolute cell, Suit suit)
+	{
+		var usePredefinedColor = ResolveProperty(() => App.UserPreferences.UsePredefinedSuitsFillColors);
+		return new()
+		{
+			Cell = cell,
+			Suit = suit,
+			TextFontName = ResolveProperty(() => App.UserPreferences.SuitFontName),
+			SizeScale = ResolveProperty(() => App.UserPreferences.SuitFontSizeScale),
+			FillColor = usePredefinedColor ? suit.FillColor : ResolveProperty(() => App.UserPreferences.SuitFontColor),
+			FontWidth = ResolveProperty(() => App.UserPreferences.SuitFontWidth),
+			FontSlant = ResolveProperty(() => App.UserPreferences.SuitFontSlant),
+			FontWeight = ResolveProperty(() => App.UserPreferences.SuitFontWeight)
+		};
+	}
 }

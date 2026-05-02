@@ -364,4 +364,7 @@
   <data name="ItemTypeGroup_CellMark_TextIcon" xml:space="preserve">
     <value>单元格 - 字符图案</value>
   </data>
+  <data name="ItemType_CellText_Suit" xml:space="preserve">
+    <value>纸牌花色</value>
+  </data>
 </root>
