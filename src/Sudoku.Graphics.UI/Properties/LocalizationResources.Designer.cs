@@ -529,6 +529,15 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Arrow.
+        /// </summary>
+        public static string ItemType_CellText_Arrow {
+            get {
+                return ResourceManager.GetString("ItemType_CellText_Arrow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Exclamation mark.
         /// </summary>
         public static string ItemType_CellText_Exclamation {

@@ -1,13 +1,15 @@
 ﻿namespace Sudoku.Graphics.UI.ViewModels;
 
 /// <summary>
-/// Represents cell triangle display item. This type will be used by creating
-/// types <see cref="CellTriangleMarkItem"/>, <see cref="CellArrowTriangleMarkItem"/> and <see cref="CellArrowMarkItem"/>.
+/// Represents cell direction-based display item. This type will be used by creating
+/// types <see cref="CellTriangleMarkItem"/>, <see cref="CellArrowTriangleMarkItem"/>, <see cref="CellArrowMarkItem"/>
+/// and <see cref="CellArrowTextMarkItem"/>.
 /// </summary>
 /// <seealso cref="CellTriangleMarkItem"/>
 /// <seealso cref="CellArrowTriangleMarkItem"/>
 /// <seealso cref="CellArrowMarkItem"/>
-public sealed class CellTriagleDisplayItem : IIconDisplayItem
+/// <seealso cref="CellArrowTextMarkItem"/>
+public sealed class CellDirectionBasedDisplayItem : IIconDisplayItem
 {
 	/// <summary>
 	/// Indicates the direction.

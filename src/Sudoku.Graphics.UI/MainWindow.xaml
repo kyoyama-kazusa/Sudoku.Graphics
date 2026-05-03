@@ -210,7 +210,7 @@
 					Style="{StaticResource PanelStyle}"
 					ColumnsCount="4">
 					<c:ItemSelectorPanel.ItemTemplate>
-						<DataTemplate DataType="vm:CellTriagleDisplayItem">
+						<DataTemplate DataType="vm:CellDirectionBasedDisplayItem">
 							<Image Source="{Binding Icon}" />
 						</DataTemplate>
 					</c:ItemSelectorPanel.ItemTemplate>
@@ -224,7 +224,7 @@
 					Style="{StaticResource PanelStyle}"
 					ColumnsCount="4">
 					<c:ItemSelectorPanel.ItemTemplate>
-						<DataTemplate DataType="vm:CellTriagleDisplayItem">
+						<DataTemplate DataType="vm:CellDirectionBasedDisplayItem">
 							<Image Source="{Binding Icon}" />
 						</DataTemplate>
 					</c:ItemSelectorPanel.ItemTemplate>
@@ -238,7 +238,7 @@
 					Style="{StaticResource PanelStyle}"
 					ColumnsCount="4">
 					<c:ItemSelectorPanel.ItemTemplate>
-						<DataTemplate DataType="vm:CellTriagleDisplayItem">
+						<DataTemplate DataType="vm:CellDirectionBasedDisplayItem">
 							<Image Source="{Binding Icon}" />
 						</DataTemplate>
 					</c:ItemSelectorPanel.ItemTemplate>
@@ -365,6 +365,20 @@
 					ColumnsCount="4">
 					<c:ItemSelectorPanel.ItemTemplate>
 						<DataTemplate DataType="vm:CellZodiacDisplayItem">
+							<Image Source="{Binding Icon}" />
+						</DataTemplate>
+					</c:ItemSelectorPanel.ItemTemplate>
+				</c:ItemSelectorPanel>
+			</Border>
+		</Popup>
+		<Popup x:Name="CellArrowTextPopup">
+			<Border Style="{StaticResource PopupBorderStyle}">
+				<c:ItemSelectorPanel
+					x:Name="CellArrowTextPanel"
+					Style="{StaticResource PanelStyle}"
+					ColumnsCount="4">
+					<c:ItemSelectorPanel.ItemTemplate>
+						<DataTemplate DataType="vm:CellDirectionBasedDisplayItem">
 							<Image Source="{Binding Icon}" />
 						</DataTemplate>
 					</c:ItemSelectorPanel.ItemTemplate>

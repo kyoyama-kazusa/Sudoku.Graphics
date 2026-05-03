@@ -396,4 +396,17 @@ public static class ItemsFactory
 			FontSlant = SKFontStyleSlant.Upright,
 			FontWeight = SKFontStyleWeight.Medium
 		};
+
+	public static CellArrowTextMarkItem CellArrowText(Absolute cell, Direction8 direction)
+		=> new()
+		{
+			Cell = cell,
+			Direction = direction,
+			TextFontName = ResolveProperty(() => App.UserPreferences.CellArrowTextFontName),
+			SizeScale = ResolveProperty(() => App.UserPreferences.CellArrowTextFontSizeScale),
+			FillColor = ResolveProperty(() => App.UserPreferences.CellArrowTextFontColor),
+			FontWidth = ResolveProperty(() => App.UserPreferences.CellArrowTextFontWidth),
+			FontSlant = ResolveProperty(() => App.UserPreferences.CellArrowTextFontSlant),
+			FontWeight = ResolveProperty(() => App.UserPreferences.CellArrowTextFontWeight)
+		};
 }

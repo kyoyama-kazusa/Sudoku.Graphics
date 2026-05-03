@@ -38,6 +38,7 @@
 				<vm:ToolItem ItemType="CellText_Exclamation" Icon="/Assets/ToolItems/ToolItem_CellText_Exclamation.png" />
 				<vm:ToolItem ItemType="CellText_Suit" Icon="/Assets/ToolItems/ToolItem_CellText_Suit.png" />
 				<vm:ToolItem ItemType="CellText_ZodiacEmoji" Icon="/Assets/ToolItems/ToolItem_CellText_ZodiacEmoji.png" />
+				<vm:ToolItem ItemType="CellText_Arrow" Icon="/Assets/ToolItems/ToolItem_CellText_Arrow.png" />
 			</vm:ToolItemGroup>
 			<vm:ToolItemGroup Title="{x:Static p:LocalizationResources.ItemTypeGroup_CellMark_FunctionalBased}">
 				<vm:ToolItem ItemType="Cell_BisectorLine" Icon="/Assets/ToolItems/ToolItem_Cell_BisectorLine.png" />

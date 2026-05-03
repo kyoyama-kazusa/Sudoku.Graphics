@@ -375,4 +375,7 @@
   <data name="ItemType_CellText_ZodiacEmoji" xml:space="preserve">
     <value>Zodiacs</value>
   </data>
+  <data name="ItemType_CellText_Arrow" xml:space="preserve">
+    <value>Arrow</value>
+  </data>
 </root>
