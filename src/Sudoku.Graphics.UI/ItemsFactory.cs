@@ -409,4 +409,18 @@ public static class ItemsFactory
 			FontSlant = ResolveProperty(() => App.UserPreferences.CellArrowTextFontSlant),
 			FontWeight = ResolveProperty(() => App.UserPreferences.CellArrowTextFontWeight)
 		};
+
+	public static CellBorderAlignedDigitTextMarkItem CellBorderAlignedDigit(Absolute cell, int digit, Alignment alignment)
+		=> new()
+		{
+			Cell = cell,
+			Alignment = alignment,
+			Digit = digit,
+			TextFontName = ResolveProperty(() => App.UserPreferences.CellBorderAlignedDigitFontName),
+			SizeScale = ResolveProperty(() => App.UserPreferences.CellBorderAlignedDigitFontSizeScale),
+			FillColor = ResolveProperty(() => App.UserPreferences.CellBorderAlignedDigitFontColor),
+			FontWidth = ResolveProperty(() => App.UserPreferences.CellBorderAlignedDigitFontWidth),
+			FontSlant = ResolveProperty(() => App.UserPreferences.CellBorderAlignedDigitFontSlant),
+			FontWeight = ResolveProperty(() => App.UserPreferences.CellBorderAlignedDigitFontWeight)
+		};
 }

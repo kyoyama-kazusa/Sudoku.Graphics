@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a cell border-aligned text mark item.
 /// </summary>
-public sealed record CellBorderAlignedTextMarkItem : CellTextMarkItem
+public record CellBorderAlignedTextMarkItem : CellTextMarkItem
 {
 	/// <summary>
 	/// Indicates text.
@@ -11,7 +11,7 @@ public sealed record CellBorderAlignedTextMarkItem : CellTextMarkItem
 	public required string Text { get; init; }
 
 	/// <inheritdoc/>
-	public required override Direction8 AlignedDirection { get; init; }
+	public required override Alignment Alignment { get; init; }
 
 	/// <inheritdoc/>
 	public override ItemType Type => ItemType.CellText_BorderAligned;

@@ -70,6 +70,7 @@ public partial class ItemTypeOrdering
 				yield return ItemType.CellText_ArithmeticOperator;
 				yield return ItemType.CellText_BitwiseOperator;
 				yield return ItemType.CellText_ComparisonOperator;
+				yield return ItemType.CellText_BorderAlignedDigit;
 				yield return ItemType.CellText_BorderAligned;
 			}
 

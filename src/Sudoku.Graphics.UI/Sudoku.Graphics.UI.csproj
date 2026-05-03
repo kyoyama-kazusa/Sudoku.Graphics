@@ -32,6 +32,9 @@
 		<Resource Include="Assets\ToolItems\ToolItem_CellText_Arrow.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
+		<Resource Include="Assets\ToolItems\ToolItem_CellText_BorderAlignedDigit.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
 		<Resource Include="Assets\ToolItems\ToolItem_CellText_Exclamation.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>

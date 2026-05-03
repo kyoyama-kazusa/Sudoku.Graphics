@@ -238,6 +238,11 @@ public enum ItemType
 	/// Indicates cell border-aligned text mark.
 	/// </summary>
 	CellText_BorderAligned,
+
+	/// <summary>
+	/// Indicates cell border-aligned digit text mark.
+	/// </summary>
+	CellText_BorderAlignedDigit,
 	#endregion
 
 	//

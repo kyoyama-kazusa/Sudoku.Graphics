@@ -20,14 +20,15 @@ public partial class SKCanvasDrawings
 		/// <param name="outlineColor">The outline color.</param>
 		/// <param name="fillColor">The fill color of text.</param>
 		/// <param name="rotationDegree">The rotation degrees, in angle.</param>
-		/// <param name="alignedDirection">The aligned direction.</param>
+		/// <param name="alignment">The aligned direction.</param>
 		/// <param name="mapper">The mapper.</param>
 		/// <exception cref="InvalidOperationException">
-		/// Throws when <paramref name="alignedDirection"/> is not diagonally aligned.
+		/// Throws when <paramref name="alignment"/> is not diagonally aligned (e.g. <see cref="Alignment.Center"/>).
 		/// </exception>
 		/// <exception cref="ArgumentOutOfRangeException">
-		/// Throws when <paramref name="alignedDirection"/> is not defined.
+		/// Throws when <paramref name="alignment"/> is not defined.
 		/// </exception>
+		/// <seealso cref="Alignment.Center"/>
 		public void DrawOutlinedTextToCell(
 			string text,
 			Absolute cell,
@@ -40,13 +41,13 @@ public partial class SKCanvasDrawings
 			SerializableColor outlineColor,
 			SerializableColor fillColor,
 			float rotationDegree,
-			Direction8 alignedDirection,
+			Alignment alignment,
 			PointMapper mapper
 		)
 		{
-			if (!Enum.IsDefined(alignedDirection))
+			if (!Enum.IsDefined(alignment))
 			{
-				throw new ArgumentOutOfRangeException(nameof(alignedDirection));
+				throw new ArgumentOutOfRangeException(nameof(alignment));
 			}
 
 			var cellSize = mapper.CellSize;
@@ -56,21 +57,17 @@ public partial class SKCanvasDrawings
 
 			var center = mapper.GetPoint(cell, Alignment.Center);
 			var targetPoint = center;
-			if (alignedDirection != Direction8.None)
+			if (alignment != Alignment.None)
 			{
-				if (!alignedDirection.IsDiagonal)
-				{
-					throw new InvalidOperationException($"The specified direction '{alignedDirection}' is not supported.");
-				}
-
 				var quarterCellSize = cellSize / 4;
-				targetPoint = alignedDirection switch
+				targetPoint = alignment switch
 				{
-					Direction8.LeftUp => targetPoint + (-quarterCellSize, -quarterCellSize),
-					Direction8.RightUp => targetPoint + (+quarterCellSize, -quarterCellSize),
-					Direction8.LeftDown => targetPoint + (-quarterCellSize, +quarterCellSize),
-					Direction8.RightDown => targetPoint + (+quarterCellSize, +quarterCellSize),
-					_ => throw new ArgumentOutOfRangeException(nameof(alignedDirection))
+					Alignment.TopLeft => targetPoint + (-quarterCellSize, -quarterCellSize),
+					Alignment.TopRight => targetPoint + (+quarterCellSize, -quarterCellSize),
+					Alignment.BottomLeft => targetPoint + (-quarterCellSize, +quarterCellSize),
+					Alignment.BottomRight => targetPoint + (+quarterCellSize, +quarterCellSize),
+					Alignment.Center => throw new InvalidOperationException("Alignment cannot be center."),
+					_ => throw new ArgumentOutOfRangeException(nameof(alignment))
 				};
 			}
 

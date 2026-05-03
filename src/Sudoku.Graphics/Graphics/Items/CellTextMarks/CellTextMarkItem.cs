@@ -9,9 +9,9 @@ public abstract record CellTextMarkItem : CellMarkItem
 	public required sealed override string? TextFontName { get; init; }
 
 	/// <summary>
-	/// Indicates the aligned direction.
+	/// Indicates the alignment.
 	/// </summary>
-	public virtual Direction8 AlignedDirection { get; init; }
+	public virtual Alignment Alignment { get; init; }
 
 	/// <summary>
 	/// Indicates the rotation direction. By default it's <see cref="Direction8.Up"/> (upright, no rotation).
@@ -60,7 +60,7 @@ public abstract record CellTextMarkItem : CellMarkItem
 			StrokeColor,
 			FillColor,
 			RotationDirection.RotationDegree,
-			AlignedDirection,
+			Alignment,
 			canvas.Mapper
 		);
 }

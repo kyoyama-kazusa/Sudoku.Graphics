@@ -538,6 +538,15 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cornered digits.
+        /// </summary>
+        public static string ItemType_CellText_BorderAlignedDigit {
+            get {
+                return ResourceManager.GetString("ItemType_CellText_BorderAlignedDigit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Exclamation mark.
         /// </summary>
         public static string ItemType_CellText_Exclamation {

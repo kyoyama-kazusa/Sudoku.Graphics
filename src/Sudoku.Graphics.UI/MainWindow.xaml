@@ -385,6 +385,20 @@
 				</c:ItemSelectorPanel>
 			</Border>
 		</Popup>
+		<Popup x:Name="CellBorderAlignedDigitPopup">
+			<Border Style="{StaticResource PopupBorderStyle}">
+				<c:ItemSelectorPanel
+					x:Name="CellBorderAlignedDigitPanel"
+					Style="{StaticResource PanelStyle}"
+					ColumnsCount="9">
+					<c:ItemSelectorPanel.ItemTemplate>
+						<DataTemplate DataType="vm:CellBorderAlignedDigitDisplayItem">
+							<Image Source="{Binding Icon}" />
+						</DataTemplate>
+					</c:ItemSelectorPanel.ItemTemplate>
+				</c:ItemSelectorPanel>
+			</Border>
+		</Popup>
 		<!--#endregion-->
 
 		<!--#region Grid view-->

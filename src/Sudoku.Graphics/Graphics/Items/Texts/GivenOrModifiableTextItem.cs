@@ -26,7 +26,7 @@ public abstract record GivenOrModifiableTextItem : TextItem, IItem_CellProperty
 			SKColors.Transparent,
 			Color,
 			0,
-			Direction8.None,
+			Alignment.None,
 			canvas.Mapper
 		);
 }

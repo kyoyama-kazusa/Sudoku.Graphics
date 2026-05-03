@@ -373,4 +373,7 @@
   <data name="ItemType_CellText_Arrow" xml:space="preserve">
     <value>箭头</value>
   </data>
+  <data name="ItemType_CellText_BorderAlignedDigit" xml:space="preserve">
+    <value>数字（贴角）</value>
+  </data>
 </root>

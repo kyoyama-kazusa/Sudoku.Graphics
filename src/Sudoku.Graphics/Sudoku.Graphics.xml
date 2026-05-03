@@ -3627,6 +3627,22 @@
         <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellBitwiseOperatorTextMarkItem.Type">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.Items.CellTextMarks.CellBorderAlignedDigitTextMarkItem">
+            <summary>
+            Represents a cell border-aligned digit text mark item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellBorderAlignedDigitTextMarkItem.Digit">
+            <summary>
+            Indicates digit, base 0.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellBorderAlignedDigitTextMarkItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellBorderAlignedDigitTextMarkItem.PrintingText">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.Items.CellTextMarks.CellBorderAlignedTextMarkItem">
             <summary>
             Represents a cell border-aligned text mark item.
@@ -3637,7 +3653,7 @@
             Indicates text.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellBorderAlignedTextMarkItem.AlignedDirection">
+        <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellBorderAlignedTextMarkItem.Alignment">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellBorderAlignedTextMarkItem.Type">
@@ -3703,9 +3719,9 @@
         <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellTextMarkItem.TextFontName">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellTextMarkItem.AlignedDirection">
+        <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellTextMarkItem.Alignment">
             <summary>
-            Indicates the aligned direction.
+            Indicates the alignment.
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellTextMarks.CellTextMarkItem.RotationDirection">
@@ -4569,6 +4585,11 @@
         <member name="F:Sudoku.Graphics.ItemType.CellText_BorderAligned">
             <summary>
             Indicates cell border-aligned text mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.CellText_BorderAlignedDigit">
+            <summary>
+            Indicates cell border-aligned digit text mark.
             </summary>
         </member>
         <member name="F:Sudoku.Graphics.ItemType.CellPairText_RomanNumeral">
@@ -6340,8 +6361,8 @@
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawBattenburg(SkiaSharp.SKCanvas,SkiaSharp.SKPoint,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale[],Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawBattenburg(SkiaSharp.SKPoint,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale[],Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawOutlinedTextToCell(SkiaSharp.SKCanvas,System.String,Sudoku.Graphics.Absolute,System.String,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,System.Single,Sudoku.Graphics.Directions.Direction8,Sudoku.Graphics.PointMapper)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCell(System.String,Sudoku.Graphics.Absolute,System.String,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,System.Single,Sudoku.Graphics.Directions.Direction8,Sudoku.Graphics.PointMapper)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawOutlinedTextToCell(SkiaSharp.SKCanvas,System.String,Sudoku.Graphics.Absolute,System.String,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,System.Single,Sudoku.Graphics.Alignment,Sudoku.Graphics.PointMapper)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCell(System.String,Sudoku.Graphics.Absolute,System.String,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,System.Single,Sudoku.Graphics.Alignment,Sudoku.Graphics.PointMapper)"/>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawOutlinedTextToCandidate(SkiaSharp.SKCanvas,System.String,Sudoku.Graphics.CandidatePosition,System.String,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCandidate(System.String,Sudoku.Graphics.CandidatePosition,System.String,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper)"/>
@@ -6433,7 +6454,7 @@
             <param name="cornerRadiiScale">The scale of corner radii.</param>
             <param name="mapper">The mapper instance.</param>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCell(System.String,Sudoku.Graphics.Absolute,System.String,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,System.Single,Sudoku.Graphics.Directions.Direction8,Sudoku.Graphics.PointMapper)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCell(System.String,Sudoku.Graphics.Absolute,System.String,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,System.Single,Sudoku.Graphics.Alignment,Sudoku.Graphics.PointMapper)">
             <summary>
             Draws the specified text into the target cell, with outlined.
             </summary>
@@ -6450,14 +6471,15 @@
             <param name="outlineColor">The outline color.</param>
             <param name="fillColor">The fill color of text.</param>
             <param name="rotationDegree">The rotation degrees, in angle.</param>
-            <param name="alignedDirection">The aligned direction.</param>
+            <param name="alignment">The aligned direction.</param>
             <param name="mapper">The mapper.</param>
             <exception cref="T:System.InvalidOperationException">
-            Throws when <paramref name="alignedDirection"/> is not diagonally aligned.
+            Throws when <paramref name="alignment"/> is not diagonally aligned (e.g. <see cref="F:Sudoku.Graphics.Alignment.Center"/>).
             </exception>
             <exception cref="T:System.ArgumentOutOfRangeException">
-            Throws when <paramref name="alignedDirection"/> is not defined.
+            Throws when <paramref name="alignment"/> is not defined.
             </exception>
+            <seealso cref="F:Sudoku.Graphics.Alignment.Center"/>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCandidate(System.String,Sudoku.Graphics.CandidatePosition,System.String,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper)">
             <summary>
