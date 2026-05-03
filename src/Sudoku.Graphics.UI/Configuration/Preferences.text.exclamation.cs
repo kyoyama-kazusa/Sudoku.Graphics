@@ -15,7 +15,7 @@ internal partial class Preferences
 	/// <summary>
 	/// Indicates exclamation text color.
 	/// </summary>
-	public Inherited<SerializableColor> ExclamationFontColor { get; set; } = Inherited<SerializableColor>.FromPropertyName(nameof(QuestionFontColor));
+	public Inherited<SerializableColor> ExclamationFontColor { get; set; } = Inherited<SerializableColor>.FromPropertyName(nameof(DefaultFontIconColor));
 
 	/// <summary>
 	/// Indicates exclamation font slant.

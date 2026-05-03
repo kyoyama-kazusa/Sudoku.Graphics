@@ -15,7 +15,7 @@ internal partial class Preferences
 	/// <summary>
 	/// Indicates suit text color.
 	/// </summary>
-	public Inherited<SerializableColor> SuitFontColor { get; set; } = Inherited<SerializableColor>.FromPropertyName(nameof(QuestionFontColor));
+	public Inherited<SerializableColor> SuitFontColor { get; set; } = Inherited<SerializableColor>.FromPropertyName(nameof(DefaultFontIconColor));
 
 	/// <summary>
 	/// Indicates suit font slant.

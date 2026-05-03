@@ -15,7 +15,7 @@ internal partial class Preferences
 	/// <summary>
 	/// Indicates cell arrow text text color.
 	/// </summary>
-	public Inherited<SerializableColor> CellArrowTextFontColor { get; set; } = Inherited<SerializableColor>.FromPropertyName(nameof(QuestionFontColor));
+	public Inherited<SerializableColor> CellArrowTextFontColor { get; set; } = Inherited<SerializableColor>.FromPropertyName(nameof(DefaultFontIconColor));
 
 	/// <summary>
 	/// Indicates cell arrow text font slant.

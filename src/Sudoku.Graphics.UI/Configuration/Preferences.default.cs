@@ -63,6 +63,11 @@ internal partial class Preferences
 	public Inherited<SerializableColor> DefaultFontColor { get; set; } = Inherited<SerializableColor>.FromValue(SKColors.Black);
 
 	/// <summary>
+	/// Indicates font icon color.
+	/// </summary>
+	public Inherited<SerializableColor> DefaultFontIconColor { get; set; } = Inherited<SerializableColor>.FromValue(SKColors.Gray);
+
+	/// <summary>
 	/// Indicates given font width.
 	/// </summary>
 	public Inherited<SKFontStyleWidth> DefaultFontWidth { get; set; } = Inherited<SKFontStyleWidth>.FromValue(SKFontStyleWidth.Normal);

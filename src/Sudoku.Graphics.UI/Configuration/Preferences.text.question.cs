@@ -15,7 +15,7 @@ internal partial class Preferences
 	/// <summary>
 	/// Indicates question text color.
 	/// </summary>
-	public Inherited<SerializableColor> QuestionFontColor { get; set; } = Inherited<SerializableColor>.FromValue(SKColors.Gray);
+	public Inherited<SerializableColor> QuestionFontColor { get; set; } = Inherited<SerializableColor>.FromPropertyName(nameof(DefaultFontIconColor));
 
 	/// <summary>
 	/// Indicates question font slant.
