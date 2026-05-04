@@ -110,7 +110,7 @@
 		<Resource Include="Assets\ToolItems\ToolItem_Cell_Dice.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
-		<Resource Include="Assets\ToolItems\ToolItem_Cell_Tetris.png">
+		<Resource Include="Assets\ToolItems\ToolItem_Cell_Tetromino.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
 		<Resource Include="Assets\ToolItems\ToolItem_None.png">

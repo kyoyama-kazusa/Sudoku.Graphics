@@ -2710,25 +2710,25 @@
         <member name="M:Sudoku.Graphics.Items.CellMarks.CellSurroundingTrianglesMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
-        <member name="T:Sudoku.Graphics.Items.CellMarks.CellTetrisMarkItem">
+        <member name="T:Sudoku.Graphics.Items.CellMarks.CellTetrominoMarkItem">
             <summary>
-            Represents a cell tetris mark item.
+            Represents a cell tetromino mark item.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellTetrisMarkItem.Piece">
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellTetrominoMarkItem.Piece">
             <summary>
             Indicates the piece used.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellTetrisMarkItem.RotationType">
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellTetrominoMarkItem.RotationType">
             <summary>
             Indicates rotation type of piece.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellMarks.CellTetrisMarkItem.Type">
+        <member name="P:Sudoku.Graphics.Items.CellMarks.CellTetrominoMarkItem.Type">
             <inheritdoc/>
         </member>
-        <member name="M:Sudoku.Graphics.Items.CellMarks.CellTetrisMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
+        <member name="M:Sudoku.Graphics.Items.CellMarks.CellTetrominoMarkItem.DrawTo(Sudoku.Graphics.Canvas)">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.Items.CellMarks.CellTriangleMarkItem">
@@ -2842,14 +2842,14 @@
             </summary>
             <seealso cref="T:Sudoku.Graphics.Items.CellMarks.Tetromino"/>
         </member>
-        <member name="M:Sudoku.Graphics.Items.CellMarks.TetrominoLineSegmentsFactory.GetTetrisPieceBooleanSequence(Sudoku.Graphics.Items.CellMarks.Tetromino,Sudoku.Graphics.Items.CellMarks.TetrominoRotationType)">
-            <inheritdoc cref="M:Sudoku.Graphics.Items.CellMarks.TetrominoLineSegmentsFactory.&lt;G&gt;$D8545EE6247122574DF577F2102FF53A.GetTetrisPieceBooleanSequence(Sudoku.Graphics.Items.CellMarks.TetrominoRotationType)"/>
+        <member name="M:Sudoku.Graphics.Items.CellMarks.TetrominoLineSegmentsFactory.GetTetrominoBooleanSequence(Sudoku.Graphics.Items.CellMarks.Tetromino,Sudoku.Graphics.Items.CellMarks.TetrominoRotationType)">
+            <inheritdoc cref="M:Sudoku.Graphics.Items.CellMarks.TetrominoLineSegmentsFactory.&lt;G&gt;$D8545EE6247122574DF577F2102FF53A.GetTetrominoBooleanSequence(Sudoku.Graphics.Items.CellMarks.TetrominoRotationType)"/>
         </member>
         <member name="M:Sudoku.Graphics.Items.CellMarks.TetrominoLineSegmentsFactory.GetOutline(Sudoku.Graphics.Items.CellMarks.Tetromino,Sudoku.Graphics.Items.CellMarks.TetrominoRotationType,Sudoku.Graphics.PointMapper,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute)">
             <inheritdoc cref="M:Sudoku.Graphics.Items.CellMarks.TetrominoLineSegmentsFactory.&lt;G&gt;$D8545EE6247122574DF577F2102FF53A.GetOutline(Sudoku.Graphics.Items.CellMarks.TetrominoRotationType,Sudoku.Graphics.PointMapper,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute)"/>
         </member>
-        <member name="M:Sudoku.Graphics.Items.CellMarks.TetrominoLineSegmentsFactory.GetTetrisPiece(Sudoku.Graphics.Items.CellMarks.Tetromino,Sudoku.Graphics.PointMapper,Sudoku.Graphics.Items.CellMarks.TetrominoRotationType)">
-            <inheritdoc cref="M:Sudoku.Graphics.Items.CellMarks.TetrominoLineSegmentsFactory.&lt;G&gt;$D8545EE6247122574DF577F2102FF53A.GetTetrisPiece(Sudoku.Graphics.PointMapper,Sudoku.Graphics.Items.CellMarks.TetrominoRotationType)"/>
+        <member name="M:Sudoku.Graphics.Items.CellMarks.TetrominoLineSegmentsFactory.GetTetromino(Sudoku.Graphics.Items.CellMarks.Tetromino,Sudoku.Graphics.PointMapper,Sudoku.Graphics.Items.CellMarks.TetrominoRotationType)">
+            <inheritdoc cref="M:Sudoku.Graphics.Items.CellMarks.TetrominoLineSegmentsFactory.&lt;G&gt;$D8545EE6247122574DF577F2102FF53A.GetTetromino(Sudoku.Graphics.PointMapper,Sudoku.Graphics.Items.CellMarks.TetrominoRotationType)"/>
         </member>
         <member name="M:Sudoku.Graphics.Items.CellMarks.TetrominoLineSegmentsFactory.RotateViaCoordinateTable(System.Int32,System.ValueTuple{Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute}[])">
             <summary>
@@ -2860,11 +2860,11 @@
             <returns>The target coordinate table.</returns>
         </member>
         <member name="T:Sudoku.Graphics.Items.CellMarks.TetrominoLineSegmentsFactory.&lt;G&gt;$D8545EE6247122574DF577F2102FF53A.&lt;M&gt;$C1F8063F389AB92DF682A3DEB427CF87">
-            <param name="this">The specified tetris piece.</param>
+            <param name="this">The specified tetromino.</param>
         </member>
-        <member name="M:Sudoku.Graphics.Items.CellMarks.TetrominoLineSegmentsFactory.&lt;G&gt;$D8545EE6247122574DF577F2102FF53A.GetTetrisPieceBooleanSequence(Sudoku.Graphics.Items.CellMarks.TetrominoRotationType)">
+        <member name="M:Sudoku.Graphics.Items.CellMarks.TetrominoLineSegmentsFactory.&lt;G&gt;$D8545EE6247122574DF577F2102FF53A.GetTetrominoBooleanSequence(Sudoku.Graphics.Items.CellMarks.TetrominoRotationType)">
             <summary>
-            Try to get sequence of tetris piece, after rotated.
+            Try to get sequence of tetromino, after rotated.
             </summary>
             <param name="rotationType">The rotation type.</param>
             <returns>The boolean sequence.</returns>
@@ -2880,9 +2880,9 @@
             <param name="offsetColumnsCount">The offset columns count.</param>
             <returns>An array of <see cref="T:Sudoku.Graphics.Templating.LineSegment"/> instances.</returns>
         </member>
-        <member name="M:Sudoku.Graphics.Items.CellMarks.TetrominoLineSegmentsFactory.&lt;G&gt;$D8545EE6247122574DF577F2102FF53A.GetTetrisPiece(Sudoku.Graphics.PointMapper,Sudoku.Graphics.Items.CellMarks.TetrominoRotationType)">
+        <member name="M:Sudoku.Graphics.Items.CellMarks.TetrominoLineSegmentsFactory.&lt;G&gt;$D8545EE6247122574DF577F2102FF53A.GetTetromino(Sudoku.Graphics.PointMapper,Sudoku.Graphics.Items.CellMarks.TetrominoRotationType)">
             <summary>
-            Creates a list of absolute cell indices of the specified piece, defined in tetris.
+            Creates a list of absolute cell indices of the specified tetromino.
             </summary>
             <param name="mapper">The mapper instance that represents basic information of the number of rows and columns.</param>
             <param name="rotationType">The rotation type. By default it's <see cref="F:Sudoku.Graphics.Items.CellMarks.TetrominoRotationType.None"/>.</param>
@@ -4402,7 +4402,7 @@
             Indicates candidate filling.
             </summary>
         </member>
-        <member name="F:Sudoku.Graphics.ItemType.Cell_Tetris">
+        <member name="F:Sudoku.Graphics.ItemType.Cell_Tetromino">
             <summary>
             Indicates cell tetris mark.
             </summary>

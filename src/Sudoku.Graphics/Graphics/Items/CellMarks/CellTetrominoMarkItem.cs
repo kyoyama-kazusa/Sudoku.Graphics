@@ -1,9 +1,9 @@
 ﻿namespace Sudoku.Graphics.Items.CellMarks;
 
 /// <summary>
-/// Represents a cell tetris mark item.
+/// Represents a cell tetromino mark item.
 /// </summary>
-public sealed record CellTetrisMarkItem : CellMarkItem
+public sealed record CellTetrominoMarkItem : CellMarkItem
 {
 	/// <summary>
 	/// Indicates the piece used.
@@ -16,7 +16,7 @@ public sealed record CellTetrisMarkItem : CellMarkItem
 	public TetrominoRotationType RotationType { get; init; } = TetrominoRotationType.None;
 
 	/// <inheritdoc/>
-	public override ItemType Type => ItemType.Cell_Tetris;
+	public override ItemType Type => ItemType.Cell_Tetromino;
 
 
 	/// <inheritdoc/>
@@ -25,7 +25,7 @@ public sealed record CellTetrisMarkItem : CellMarkItem
 			Cell,
 			StrokeWidthScale,
 			SizeScale,
-			TetrominoLineSegmentsFactory.GetTetrisPieceBooleanSequence(Piece, RotationType),
+			TetrominoLineSegmentsFactory.GetTetrominoBooleanSequence(Piece, RotationType),
 			StrokeColor,
 			FillColor,
 			.1M,

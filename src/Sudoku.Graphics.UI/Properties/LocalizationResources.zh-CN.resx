@@ -261,7 +261,7 @@
   <data name="ClearCell" xml:space="preserve">
     <value>清除</value>
   </data>
-  <data name="ItemType_Cell_Tetris" xml:space="preserve">
+  <data name="ItemType_Cell_Tetromino" xml:space="preserve">
     <value>俄罗斯方块</value>
   </data>
   <data name="ItemType_Cell_Dice" xml:space="preserve">

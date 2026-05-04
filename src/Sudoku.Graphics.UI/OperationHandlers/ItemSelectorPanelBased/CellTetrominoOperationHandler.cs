@@ -1,14 +1,14 @@
 ﻿namespace Sudoku.Graphics.UI.OperationHandlers.ItemSelectorPanelBased;
 
 /// <summary>
-/// Represents an operation handler type that creates for <see cref="CellTetrisMarkItem"/> instances.
+/// Represents an operation handler type that creates for <see cref="CellTetrominoMarkItem"/> instances.
 /// </summary>
-/// <seealso cref="CellTetrisMarkItem"/>
-[OperationHandler(ItemType.Cell_Tetris)]
-public sealed class CellTetrisOperationHandler : CellBasedItemSelectorPanelOperationHandler
+/// <seealso cref="CellTetrominoMarkItem"/>
+[OperationHandler(ItemType.Cell_Tetromino)]
+public sealed class CellTetrominoOperationHandler : CellBasedItemSelectorPanelOperationHandler
 {
 	/// <inheritdoc/>
-	public override ItemType ItemType => ItemType.Cell_Tetris;
+	public override ItemType ItemType => ItemType.Cell_Tetromino;
 
 	/// <inheritdoc/>
 	protected override ReadOnlySpan<Func<IIconDisplayItem>> IconsFactory
@@ -45,12 +45,12 @@ public sealed class CellTetrisOperationHandler : CellBasedItemSelectorPanelOpera
 	protected override Func<object?, Absolute, Item?> ItemFactory
 		=> static (item, cell) =>
 			item is TetrominoDisplayItem { Type: var piece, RotationType: var rotationType }
-				? ItemsFactory.Tetris(cell, piece, rotationType)
+				? ItemsFactory.Tetromino(cell, piece, rotationType)
 				: null;
 
 	/// <inheritdoc/>
-	protected override Func<MainWindow, Popup> PopupSelector => static window => window.TetrisSelectorPopup;
+	protected override Func<MainWindow, Popup> PopupSelector => static window => window.TetrominoSelectorPopup;
 
 	/// <inheritdoc/>
-	protected override Func<MainWindow, ItemSelectorPanel> PanelSelector => static window => window.TetrisSelectorPanel;
+	protected override Func<MainWindow, ItemSelectorPanel> PanelSelector => static window => window.TetrominoSelectorPanel;
 }

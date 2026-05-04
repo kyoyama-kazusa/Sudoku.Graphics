@@ -513,9 +513,9 @@ namespace Sudoku.Graphics.UI.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Tetromino.
         /// </summary>
-        public static string ItemType_Cell_Tetris {
+        public static string ItemType_Cell_Tetromino {
             get {
-                return ResourceManager.GetString("ItemType_Cell_Tetris", resourceCulture);
+                return ResourceManager.GetString("ItemType_Cell_Tetromino", resourceCulture);
             }
         }
         

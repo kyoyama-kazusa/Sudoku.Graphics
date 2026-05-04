@@ -6,16 +6,16 @@
 /// <seealso cref="Tetromino"/>
 public static class TetrominoLineSegmentsFactory
 {
-	/// <param name="this">The specified tetris piece.</param>
+	/// <param name="this">The specified tetromino.</param>
 	extension(Tetromino @this)
 	{
 		/// <summary>
-		/// Try to get sequence of tetris piece, after rotated.
+		/// Try to get sequence of tetromino, after rotated.
 		/// </summary>
 		/// <param name="rotationType">The rotation type.</param>
 		/// <returns>The boolean sequence.</returns>
 		/// <exception cref="ArgumentOutOfRangeException">Throws when <paramref name="rotationType"/> is not defined.</exception>
-		public bool[,] GetTetrisPieceBooleanSequence(TetrominoRotationType rotationType)
+		public bool[,] GetTetrominoBooleanSequence(TetrominoRotationType rotationType)
 		{
 			// Get table.
 			var resultCoordinates = RotateViaCoordinateTable(
@@ -59,12 +59,12 @@ public static class TetrominoLineSegmentsFactory
 			Absolute offsetRowsCount,
 			Absolute offsetColumnsCount
 		) => LineSegmentFactory.GetOutline(
-			@this.GetTetrisPiece(mapper, rotationType).WithOffset(offsetRowsCount, offsetColumnsCount, mapper),
+			@this.GetTetromino(mapper, rotationType).WithOffset(offsetRowsCount, offsetColumnsCount, mapper),
 			mapper
 		);
 
 		/// <summary>
-		/// Creates a list of absolute cell indices of the specified piece, defined in tetris.
+		/// Creates a list of absolute cell indices of the specified tetromino.
 		/// </summary>
 		/// <param name="mapper">The mapper instance that represents basic information of the number of rows and columns.</param>
 		/// <param name="rotationType">The rotation type. By default it's <see cref="TetrominoRotationType.None"/>.</param>
@@ -73,7 +73,7 @@ public static class TetrominoLineSegmentsFactory
 		/// Throws when <paramref name="this"/> or <paramref name="rotationType"/> is not defined.
 		/// </exception>
 		/// <seealso cref="TetrominoRotationType.None"/>
-		public Absolute[] GetTetrisPiece(PointMapper mapper, TetrominoRotationType rotationType = TetrominoRotationType.None)
+		public Absolute[] GetTetromino(PointMapper mapper, TetrominoRotationType rotationType = TetrominoRotationType.None)
 		{
 			var resultCoordinates = RotateViaCoordinateTable(
 				(int)rotationType % 4,

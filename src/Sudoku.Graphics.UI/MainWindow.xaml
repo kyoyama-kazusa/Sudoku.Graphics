@@ -109,10 +109,10 @@
 				<c:DigitSelectorPanel x:Name="DigitSelectorPanel" Style="{StaticResource DigitPanelStyle}" />
 			</Border>
 		</Popup>
-		<Popup x:Name="TetrisSelectorPopup">
+		<Popup x:Name="TetrominoSelectorPopup">
 			<Border Style="{StaticResource PopupBorderStyle}">
 				<c:ItemSelectorPanel
-					x:Name="TetrisSelectorPanel"
+					x:Name="TetrominoSelectorPanel"
 					Style="{StaticResource PanelStyle}"
 					ColumnsCount="4">
 					<c:ItemSelectorPanel.ItemTemplate>

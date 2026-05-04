@@ -42,7 +42,7 @@ public enum ItemType
 	/// <summary>
 	/// Indicates cell tetris mark.
 	/// </summary>
-	Cell_Tetris,
+	Cell_Tetromino,
 
 	/// <summary>
 	/// Indicates cell dice mark.

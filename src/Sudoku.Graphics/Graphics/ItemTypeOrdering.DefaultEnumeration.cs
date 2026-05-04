@@ -22,7 +22,7 @@ public partial class ItemTypeOrdering
 
 			// Cell marks
 			{
-				yield return ItemType.Cell_Tetris;
+				yield return ItemType.Cell_Tetromino;
 				yield return ItemType.Cell_Dice;
 				yield return ItemType.Cell_PhantomDice;
 				yield return ItemType.Cell_SurroundingTriangles;

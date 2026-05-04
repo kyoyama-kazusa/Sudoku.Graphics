@@ -30,7 +30,7 @@
 				<vm:ToolItem ItemType="Cell_Hexagon" Icon="/Assets/ToolItems/ToolItem_Cell_Hexagon.png" />
 				<vm:ToolItem ItemType="Cell_Polygon" Icon="/Assets/ToolItems/ToolItem_Cell_Polygon.png" />
 				<vm:ToolItem ItemType="Cell_SurroundingTriangles" Icon="/Assets/ToolItems/ToolItem_Cell_Surrounding_Triangles.png" />
-				<vm:ToolItem ItemType="Cell_Tetris" Icon="/Assets/ToolItems/ToolItem_Cell_Tetris.png" />
+				<vm:ToolItem ItemType="Cell_Tetromino" Icon="/Assets/ToolItems/ToolItem_Cell_Tetromino.png" />
 				<vm:ToolItem ItemType="Cell_MoonPhase" Icon="/Assets/ToolItems/ToolItem_Cell_MoonPhase.png" />
 			</vm:ToolItemGroup>
 			<vm:ToolItemGroup Title="{x:Static p:LocalizationResources.ItemTypeGroup_CellMark_TextIcon}">

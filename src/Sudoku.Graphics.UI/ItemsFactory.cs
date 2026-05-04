@@ -48,7 +48,7 @@ public static class ItemsFactory
 			FontWeight = ResolveProperty(() => App.UserPreferences.CandidateFontWeight)
 		};
 
-	public static CellTetrisMarkItem Tetris(Absolute cell, Tetromino piece, TetrominoRotationType rotationType)
+	public static CellTetrominoMarkItem Tetromino(Absolute cell, Tetromino piece, TetrominoRotationType rotationType)
 	{
 		var useSrsColors = ResolveProperty(() => App.UserPreferences.UseSrsPredefinedTetrominoFillColors);
 		return new()
@@ -58,20 +58,20 @@ public static class ItemsFactory
 			RotationType = rotationType,
 			CornerRadiusScale = ResolveProperty(() => App.UserPreferences.CellTetrominoCornerRadiusScale),
 			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellTetrominoStrokeWidthScale),
-			StrokeColor = useSrsColors ? SKColors.Transparent : ResolveProperty(() => App.UserPreferences.CellTetrominoLineColor),
+			StrokeColor = useSrsColors ? global::SkiaSharp.SKColors.Transparent : global::Sudoku.Graphics.UI.Configuration.Inherited.ResolveProperty<global::Sudoku.Graphics.SerializableColor>(() => global::Sudoku.Graphics.UI.App.UserPreferences.CellTetrominoLineColor),
 			FillColor = useSrsColors
 				? piece switch
 				{
-					Tetromino.I => SKColors.Tetrimino_I,
-					Tetromino.O => SKColors.Tetrimino_O,
-					Tetromino.T => SKColors.Tetrimino_T,
-					Tetromino.J => SKColors.Tetrimino_J,
-					Tetromino.L => SKColors.Tetrimino_L,
-					Tetromino.S => SKColors.Tetrimino_S,
-					Tetromino.Z => SKColors.Tetrimino_Z,
-					_ => throw new ArgumentOutOfRangeException(nameof(piece))
+					global::Sudoku.Graphics.Items.CellMarks.Tetromino.I => global::SkiaSharp.SKColors.Tetrimino_I,
+					global::Sudoku.Graphics.Items.CellMarks.Tetromino.O => global::SkiaSharp.SKColors.Tetrimino_O,
+					global::Sudoku.Graphics.Items.CellMarks.Tetromino.T => global::SkiaSharp.SKColors.Tetrimino_T,
+					global::Sudoku.Graphics.Items.CellMarks.Tetromino.J => global::SkiaSharp.SKColors.Tetrimino_J,
+					global::Sudoku.Graphics.Items.CellMarks.Tetromino.L => global::SkiaSharp.SKColors.Tetrimino_L,
+					global::Sudoku.Graphics.Items.CellMarks.Tetromino.S => global::SkiaSharp.SKColors.Tetrimino_S,
+					global::Sudoku.Graphics.Items.CellMarks.Tetromino.Z => global::SkiaSharp.SKColors.Tetrimino_Z,
+					_ => throw new global::System.ArgumentOutOfRangeException(nameof(piece))
 				}
-				: ResolveProperty(() => App.UserPreferences.CellTetrominoFillColor),
+				: global::Sudoku.Graphics.UI.Configuration.Inherited.ResolveProperty<global::Sudoku.Graphics.SerializableColor>(() => global::Sudoku.Graphics.UI.App.UserPreferences.CellTetrominoFillColor),
 			SizeScale = ResolveProperty(() => App.UserPreferences.CellTetrominoSmallBlockSizeScale)
 		};
 	}
