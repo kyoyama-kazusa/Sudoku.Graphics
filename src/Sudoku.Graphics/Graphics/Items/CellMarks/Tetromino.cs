@@ -1,7 +1,7 @@
 ﻿namespace Sudoku.Graphics.Items.CellMarks;
 
 /// <summary>
-/// Represents a tetris piece.
+/// Represents a tetromino.
 /// </summary>
 public enum Tetromino
 {

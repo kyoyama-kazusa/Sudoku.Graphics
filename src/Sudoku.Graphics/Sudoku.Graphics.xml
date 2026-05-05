@@ -2782,7 +2782,7 @@
         </member>
         <member name="T:Sudoku.Graphics.Items.CellMarks.Tetromino">
             <summary>
-            Represents a tetris piece.
+            Represents a tetromino.
             </summary>
         </member>
         <member name="F:Sudoku.Graphics.Items.CellMarks.Tetromino.I">

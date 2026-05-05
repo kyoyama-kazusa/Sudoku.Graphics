@@ -1,4 +1,6 @@
-﻿namespace Sudoku.Graphics.UI;
+﻿using TetrisTetromino = Sudoku.Graphics.Items.CellMarks.Tetromino;
+
+namespace Sudoku.Graphics.UI;
 
 /// <summary>
 /// Provides a factory type that creates <see cref="Item"/> instances onto canvas.
@@ -58,20 +60,20 @@ public static class ItemsFactory
 			RotationType = rotationType,
 			CornerRadiusScale = ResolveProperty(() => App.UserPreferences.CellTetrominoCornerRadiusScale),
 			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellTetrominoStrokeWidthScale),
-			StrokeColor = useSrsColors ? global::SkiaSharp.SKColors.Transparent : global::Sudoku.Graphics.UI.Configuration.Inherited.ResolveProperty<global::Sudoku.Graphics.SerializableColor>(() => global::Sudoku.Graphics.UI.App.UserPreferences.CellTetrominoLineColor),
+			StrokeColor = useSrsColors ? SKColors.Transparent : Inherited.ResolveProperty<SerializableColor>(() => App.UserPreferences.CellTetrominoLineColor),
 			FillColor = useSrsColors
 				? piece switch
 				{
-					global::Sudoku.Graphics.Items.CellMarks.Tetromino.I => global::SkiaSharp.SKColors.Tetrimino_I,
-					global::Sudoku.Graphics.Items.CellMarks.Tetromino.O => global::SkiaSharp.SKColors.Tetrimino_O,
-					global::Sudoku.Graphics.Items.CellMarks.Tetromino.T => global::SkiaSharp.SKColors.Tetrimino_T,
-					global::Sudoku.Graphics.Items.CellMarks.Tetromino.J => global::SkiaSharp.SKColors.Tetrimino_J,
-					global::Sudoku.Graphics.Items.CellMarks.Tetromino.L => global::SkiaSharp.SKColors.Tetrimino_L,
-					global::Sudoku.Graphics.Items.CellMarks.Tetromino.S => global::SkiaSharp.SKColors.Tetrimino_S,
-					global::Sudoku.Graphics.Items.CellMarks.Tetromino.Z => global::SkiaSharp.SKColors.Tetrimino_Z,
-					_ => throw new global::System.ArgumentOutOfRangeException(nameof(piece))
+					TetrisTetromino.I => SKColors.Tetrimino_I,
+					TetrisTetromino.O => SKColors.Tetrimino_O,
+					TetrisTetromino.T => SKColors.Tetrimino_T,
+					TetrisTetromino.J => SKColors.Tetrimino_J,
+					TetrisTetromino.L => SKColors.Tetrimino_L,
+					TetrisTetromino.S => SKColors.Tetrimino_S,
+					TetrisTetromino.Z => SKColors.Tetrimino_Z,
+					_ => throw new ArgumentOutOfRangeException(nameof(piece))
 				}
-				: global::Sudoku.Graphics.UI.Configuration.Inherited.ResolveProperty<global::Sudoku.Graphics.SerializableColor>(() => global::Sudoku.Graphics.UI.App.UserPreferences.CellTetrominoFillColor),
+				: Inherited.ResolveProperty<SerializableColor>(() => App.UserPreferences.CellTetrominoFillColor),
 			SizeScale = ResolveProperty(() => App.UserPreferences.CellTetrominoSmallBlockSizeScale)
 		};
 	}
