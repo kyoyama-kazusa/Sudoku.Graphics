@@ -271,11 +271,43 @@ public sealed partial class ItemSet :
 	}
 
 	/// <summary>
+	/// Clears all the specified type of items from the specified cell.
+	/// </summary>
+	/// <param name="cell1">The cell 1.</param>
+	/// <param name="cell2">The cell 2.</param>
+	/// <param name="type">The type.</param>
+	/// <returns>The number of elements removed.</returns>
+	public int Clear(Absolute cell1, Absolute cell2, ItemType type)
+	{
+		if (!_itemsLookup.TryGetValue(type, out var items))
+		{
+			return 0;
+		}
+
+		var collected = new HashSet<Item>();
+		foreach (var item in items)
+		{
+			if (item is IItem_CellPairProperty { Cell1: var c1, Cell2: var c2 }
+				&& (c1 == cell1 && c2 == cell2 || c1 == cell2 && c2 == cell1))
+			{
+				collected.Add(item);
+			}
+		}
+
+		// Remove them.
+		foreach (var item in collected)
+		{
+			Remove(item);
+		}
+		return collected.Count;
+	}
+
+	/// <summary>
 	/// Finds for the specified item with specified type in the specified cell or candidate.
 	/// </summary>
 	/// <param name="locator">The cell or candidate.</param>
 	/// <param name="type">The type.</param>
-	/// <returns>The item found; or <see langword="null"/> if not found.</returns>
+	/// <returns>The item found; or an empty sequence if not found.</returns>
 	public ReadOnlySpan<Item> Find(Locator locator, ItemType type)
 	{
 		var result = new List<Item>();
@@ -293,6 +325,27 @@ public sealed partial class ItemSet :
 					result.Add(item);
 					break;
 				}
+			}
+		}
+		return result.AsSpan();
+	}
+
+	/// <summary>
+	/// Finds for the specified item with specified type in the specified cell.
+	/// </summary>
+	/// <param name="cell1">The first cell.</param>
+	/// <param name="cell2">The second cell.</param>
+	/// <param name="type">The type.</param>
+	/// <returns>The item found; or an empty sequence if not found.</returns>
+	public ReadOnlySpan<Item> Find(Absolute cell1, Absolute cell2, ItemType type)
+	{
+		var result = new List<Item>();
+		foreach (var item in _itemsLookup.TryGetValue(type, out var v) ? v : [])
+		{
+			if (item is IItem_CellPairProperty { Cell1: var c1, Cell2: var c2 }
+				&& (c1 == cell1 && c2 == cell2 || c1 == cell2 && c2 == cell1))
+			{
+				result.Add(item);
 			}
 		}
 		return result.AsSpan();

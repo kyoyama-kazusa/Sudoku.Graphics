@@ -1227,13 +1227,31 @@
             <param name="type">The type.</param>
             <returns>The number of elements removed.</returns>
         </member>
+        <member name="M:Sudoku.Graphics.ItemSet.Clear(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.Graphics.ItemType)">
+            <summary>
+            Clears all the specified type of items from the specified cell.
+            </summary>
+            <param name="cell1">The cell 1.</param>
+            <param name="cell2">The cell 2.</param>
+            <param name="type">The type.</param>
+            <returns>The number of elements removed.</returns>
+        </member>
         <member name="M:Sudoku.Graphics.ItemSet.Find(Sudoku.Graphics.Locator,Sudoku.Graphics.ItemType)">
             <summary>
             Finds for the specified item with specified type in the specified cell or candidate.
             </summary>
             <param name="locator">The cell or candidate.</param>
             <param name="type">The type.</param>
-            <returns>The item found; or <see langword="null"/> if not found.</returns>
+            <returns>The item found; or an empty sequence if not found.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.Find(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.Graphics.ItemType)">
+            <summary>
+            Finds for the specified item with specified type in the specified cell.
+            </summary>
+            <param name="cell1">The first cell.</param>
+            <param name="cell2">The second cell.</param>
+            <param name="type">The type.</param>
+            <returns>The item found; or an empty sequence if not found.</returns>
         </member>
         <member name="M:Sudoku.Graphics.ItemSet.GetEnumerator">
             <inheritdoc cref="M:System.Collections.Generic.IEnumerable`1.GetEnumerator"/>
@@ -3443,6 +3461,18 @@
         <member name="P:Sudoku.Graphics.Items.CellPairTextMarks.CellPairRomanNumeralTextMarkItem.PrintingText">
             <inheritdoc/>
         </member>
+        <member name="T:Sudoku.Graphics.Items.CellPairTextMarks.CellPairRomanNumeralTextMarkItem.Notation">
+            <summary>
+            Provides a way to print Roman numerals.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.CellPairTextMarks.CellPairRomanNumeralTextMarkItem.Notation.ToNumeralString(System.Int32)">
+            <summary>
+            Returns a <see cref="T:System.String"/> value that displays the same value of the specified number, in Roman numeral format.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>The string value.</returns>
+        </member>
         <member name="T:Sudoku.Graphics.Items.CellPairTextMarks.CellPairTextMarkItem">
             <summary>
             Represents a cell pair text mark item.
@@ -3458,14 +3488,10 @@
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellPairTextMarks.CellPairTextMarkItem.Cell1">
-            <summary>
-            Indicates the cell 1.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellPairTextMarks.CellPairTextMarkItem.Cell2">
-            <summary>
-            Indicates the cell 2.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellPairTextMarks.CellPairTextMarkItem.Padding">
             <summary>
@@ -4076,6 +4102,21 @@
         </member>
         <member name="P:Sudoku.Graphics.Items.IItem_CandidatePositionProperty.Sudoku#Graphics#Items#IItem_LocatorProperty#Locator">
             <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.IItem_CellPairProperty">
+            <summary>
+            Represents a type that includes properties <see cref="P:Sudoku.Graphics.Items.IItem_CellPairProperty.Cell1"/> and <see cref="P:Sudoku.Graphics.Items.IItem_CellPairProperty.Cell2"/>.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.IItem_CellPairProperty.Cell1">
+            <summary>
+            Indicates the first cell.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.IItem_CellPairProperty.Cell2">
+            <summary>
+            Indicates the second cell.
+            </summary>
         </member>
         <member name="T:Sudoku.Graphics.Items.IItem_CellProperty">
             <summary>

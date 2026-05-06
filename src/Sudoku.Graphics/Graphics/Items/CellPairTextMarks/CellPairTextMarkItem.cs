@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a cell pair text mark item.
 /// </summary>
-public abstract record CellPairTextMarkItem : Item, IItem_FontRelatedProperties, IItem_MarkRelatedProperties
+public abstract record CellPairTextMarkItem : Item, IItem_FontRelatedProperties, IItem_MarkRelatedProperties, IItem_CellPairProperty
 {
 	/// <inheritdoc/>
 	public SKFontStyleWeight FontWeight { get; init; } = SKFontStyleWeight.Normal;
@@ -14,14 +14,10 @@ public abstract record CellPairTextMarkItem : Item, IItem_FontRelatedProperties,
 	/// <inheritdoc/>
 	public SKFontStyleSlant FontSlant { get; init; } = SKFontStyleSlant.Upright;
 
-	/// <summary>
-	/// Indicates the cell 1.
-	/// </summary>
+	/// <inheritdoc/>
 	public required Absolute Cell1 { get; init; }
 
-	/// <summary>
-	/// Indicates the cell 2.
-	/// </summary>
+	/// <inheritdoc/>
 	public required Absolute Cell2 { get; init; }
 
 	/// <summary>

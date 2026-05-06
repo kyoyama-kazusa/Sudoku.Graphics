@@ -376,4 +376,10 @@
   <data name="ItemType_CellText_BorderAlignedDigit" xml:space="preserve">
     <value>数字（贴角）</value>
   </data>
+  <data name="ItemType_CellPairText_RomanNumeral" xml:space="preserve">
+    <value>罗马数字</value>
+  </data>
+  <data name="ItemTypeGroup_CellPair_TextIcon" xml:space="preserve">
+    <value>相邻单元格对 - 图形</value>
+  </data>
 </root>

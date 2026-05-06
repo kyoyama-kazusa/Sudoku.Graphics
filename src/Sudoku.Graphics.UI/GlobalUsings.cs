@@ -50,3 +50,4 @@ global using Sudoku.Graphics.UI.Views.Controls;
 global using Sudoku.Graphics.UI.Views.OtherWindows;
 global using static Sudoku.Graphics.UI.Configuration.Inherited;
 global using Expression = System.Linq.Expressions.Expression;
+global using Sudoku.Graphics.Items.CellPairTextMarks;

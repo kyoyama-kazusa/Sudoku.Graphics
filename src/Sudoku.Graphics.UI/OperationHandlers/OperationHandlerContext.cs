@@ -61,6 +61,37 @@ public sealed class OperationHandlerContext
 		return ImageSourcePointMapper.TryGetPoint(point, mapper, out var cell) ? cell : -1;
 	}
 
+	public (Absolute Cell1, Absolute Cell2) GetBorder()
+	{
+		if (this is not
+			{
+				PointPressed: var (x, y),
+				OwnerWindow:
+				{
+					MainGrid:
+					{
+						Source: { Width: var sourceWidth, Height: var sourceHeight },
+						ActualWidth: var actualWidth,
+						ActualHeight: var actualHeight
+					},
+					CurrentCanvas.Mapper: var mapper
+				},
+			})
+		{
+			return (-1, -1);
+		}
+
+		var scaleX = actualWidth / sourceWidth;
+		var scaleY = actualHeight / sourceHeight;
+		var scale = Math.Min(scaleX, scaleY);
+		var offsetX = (actualWidth - sourceWidth * scale) / 2;
+		var offsetY = (actualHeight - sourceHeight * scale) / 2;
+		var originalX = (x - offsetX) / scale;
+		var originalY = (y - offsetY) / scale;
+		var point = new Point(originalX, originalY);
+		return ImageSourcePointMapper.TryGetBorder(point, mapper, out var cell1, out var cell2) ? (cell1, cell2) : (-1, -1);
+	}
+
 	/// <summary>
 	/// Try to project user-clicked point into the target candidate clicked;
 	/// or return <see cref="CandidatePosition.Invalid"/> if failed to calculate.
@@ -171,5 +202,64 @@ file static class ImageSourcePointMapper
 		}
 		result = row * absoluteColumns + column;
 		return true;
+	}
+
+	/// <summary>
+	/// Try to get border clicked. This method will find for the nearest border 
+	/// </summary>
+	/// <param name="point">The point.</param>
+	/// <param name="mapper">The mapper instance.</param>
+	/// <param name="cell1">The cell 1 that provides the half of the border.</param>
+	/// <param name="cell2">The cell 2 that provides the other half of the border.</param>
+	/// <returns>A <see cref="bool"/> result indicating whether the border is correctly projected.</returns>
+	public static bool TryGetBorder(Point point, PointMapper mapper, out Absolute cell1, out Absolute cell2)
+	{
+		// Find cell clicked.
+		if (!TryGetPoint(point, mapper, out var cell))
+		{
+			goto ReturnFalse;
+		}
+
+		// Check distance to four borders.
+		var distanceUp = Math.Abs(point.Y - mapper.GetPoint(cell, Alignment.TopLeft).Y);
+		var distanceDown = Math.Abs(point.Y - mapper.GetPoint(cell, Alignment.BottomLeft).Y);
+		var distanceLeft = Math.Abs(point.X - mapper.GetPoint(cell, Alignment.TopLeft).X);
+		var distanceRight = Math.Abs(point.X - mapper.GetPoint(cell, Alignment.TopRight).X);
+		var min = Enumerable.Min([distanceUp, distanceDown, distanceLeft, distanceRight]);
+		if (min == distanceUp)
+		{
+			(cell1, cell2) = (cell - mapper.AbsoluteColumnsCount, cell);
+		}
+		else if (min == distanceDown)
+		{
+			(cell1, cell2) = (cell, cell + mapper.AbsoluteColumnsCount);
+		}
+		else if (min == distanceLeft)
+		{
+			(cell1, cell2) = (cell - 1, cell);
+		}
+		else if (min == distanceRight)
+		{
+			(cell1, cell2) = (cell, cell + 1);
+		}
+		else
+		{
+			goto ReturnFalse;
+		}
+
+		// Check whether border overflows.
+		var (cellRow, cellColumn) = (cell / mapper.AbsoluteColumnsCount, cell % mapper.AbsoluteColumnsCount);
+		if (min == distanceUp && cellRow == 0
+			|| min == distanceDown && cellRow == mapper.AbsoluteRowsCount - 1
+			|| min == distanceLeft && cellColumn == 0
+			|| min == distanceRight && cellColumn == mapper.AbsoluteColumnsCount - 1)
+		{
+			goto ReturnFalse;
+		}
+		return true;
+
+	ReturnFalse:
+		(cell1, cell2) = (-1, -1);
+		return false;
 	}
 }

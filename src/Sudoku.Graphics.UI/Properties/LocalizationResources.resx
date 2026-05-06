@@ -381,4 +381,10 @@
   <data name="ItemType_CellText_BorderAlignedDigit" xml:space="preserve">
     <value>Cornered digits</value>
   </data>
+  <data name="ItemType_CellPairText_RomanNumeral" xml:space="preserve">
+    <value>Roman numeral</value>
+  </data>
+  <data name="ItemTypeGroup_CellPair_TextIcon" xml:space="preserve">
+    <value>Adjacent Cell Pair Items</value>
+  </data>
 </root>

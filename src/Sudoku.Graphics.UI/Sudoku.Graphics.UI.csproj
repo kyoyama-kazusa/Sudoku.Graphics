@@ -29,6 +29,9 @@
 		<Resource Include="Assets\ToolItems\ToolItem_Candidate_Cross.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
+		<Resource Include="Assets\ToolItems\ToolItem_CellPairText_RomanNumeral.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
 		<Resource Include="Assets\ToolItems\ToolItem_CellText_Arrow.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>

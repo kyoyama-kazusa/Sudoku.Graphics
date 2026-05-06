@@ -399,6 +399,20 @@
 				</c:ItemSelectorPanel>
 			</Border>
 		</Popup>
+		<Popup x:Name="CellPairRomanNumeralPopup">
+			<Border Style="{StaticResource PopupBorderStyle}">
+				<c:ItemSelectorPanel
+					x:Name="CellPairRomanNumeralPanel"
+					Style="{StaticResource PanelStyle}"
+					ColumnsCount="6">
+					<c:ItemSelectorPanel.ItemTemplate>
+						<DataTemplate DataType="vm:RomanNumeralDisplayItem">
+							<TextBlock Text="{Binding ValueString}" />
+						</DataTemplate>
+					</c:ItemSelectorPanel.ItemTemplate>
+				</c:ItemSelectorPanel>
+			</Border>
+		</Popup>
 		<!--#endregion-->
 
 		<!--#region Grid view-->

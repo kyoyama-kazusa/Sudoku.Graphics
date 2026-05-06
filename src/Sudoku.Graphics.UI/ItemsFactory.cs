@@ -281,7 +281,6 @@ public static class ItemsFactory
 			FillColor = ResolveProperty(() => App.UserPreferences.CellSevenSegmentDisplayFillColor)
 		};
 
-
 	public static CellBorderAlignedTriangleMarkItem CellBorderAlignedTriangle(Absolute cell, Direction4 direction)
 		=> new()
 		{
@@ -424,5 +423,21 @@ public static class ItemsFactory
 			FontWidth = ResolveProperty(() => App.UserPreferences.CellBorderAlignedDigitFontWidth),
 			FontSlant = ResolveProperty(() => App.UserPreferences.CellBorderAlignedDigitFontSlant),
 			FontWeight = ResolveProperty(() => App.UserPreferences.CellBorderAlignedDigitFontWeight)
+		};
+
+	public static CellPairRomanNumeralTextMarkItem CellPairRomanNumeral(Absolute cell1, Absolute cell2, int value)
+		=> new()
+		{
+			Cell1 = cell1,
+			Cell2 = cell2,
+			Value = value,
+			FontName = ResolveProperty(() => App.UserPreferences.CellRomanNumeralFontName),
+			FontSizeScale = ResolveProperty(() => App.UserPreferences.CellRomanNumeralFontSizeScale),
+			FontColor =	ResolveProperty(() => App.UserPreferences.CellRomanNumeralFontColor),
+			FillColor = ResolveProperty(() => App.UserPreferences.CellRomanNumeralCoverColor),
+			Padding = ResolveProperty(() => App.UserPreferences.CellRomanNumeralPadding),
+			FontWidth = ResolveProperty(() => App.UserPreferences.CellRomanNumeralFontWidth),
+			FontWeight = ResolveProperty(() => App.UserPreferences.CellRomanNumeralFontWeight),
+			FontSlant = ResolveProperty(() => App.UserPreferences.CellRomanNumeralFontSlant)
 		};
 }
