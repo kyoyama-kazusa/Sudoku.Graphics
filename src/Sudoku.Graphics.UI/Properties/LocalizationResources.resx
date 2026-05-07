@@ -393,4 +393,7 @@
   <data name="ItemType_CellPairText_Number" xml:space="preserve">
     <value>Number</value>
   </data>
+  <data name="ItemType_CellPairText_Arrow" xml:space="preserve">
+    <value>Arrow</value>
+  </data>
 </root>

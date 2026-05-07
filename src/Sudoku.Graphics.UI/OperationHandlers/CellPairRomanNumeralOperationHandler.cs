@@ -14,16 +14,12 @@ public sealed class CellPairRomanNumeralOperationHandler : OperationHandler
 		panel.OperationHandlerContext = context;
 		panel.SelectedItemChanged += Panel_SelectedItemChanged;
 
-		var values = new List<RomanNumeralDisplayItem>();
-		values.AddRange(
-			[
-				new() { Value = 1 }, new() { Value = 4 }, new() { Value = 5 },
-				new() { Value = 6 }, new() { Value = 9 }, new() { Value = 10 },
-				new() { Value = 11 }, new() { Value = 14 }, new() { Value = 15 },
-				new() { Value = 16 }, new() { Value = 19 }, new() { Value = 20 }
-			]
-		);
-		panel.ItemsSource = values;
+		panel.ItemsSource = (RomanNumeralDisplayItem[])[
+			new() { Value = 1 }, new() { Value = 4 }, new() { Value = 5 },
+			new() { Value = 6 }, new() { Value = 9 }, new() { Value = 10 },
+			new() { Value = 11 }, new() { Value = 14 }, new() { Value = 15 },
+			new() { Value = 16 }, new() { Value = 19 }, new() { Value = 20 }
+		];
 	}
 
 	/// <inheritdoc/>
@@ -67,6 +63,86 @@ public sealed class CellPairRomanNumeralOperationHandler : OperationHandler
 				}
 
 				var found = items.Find(cell1, cell2, ItemType.CellPairText_RomanNumeral);
+				if (found.Length != 0)
+				{
+					items.RemoveRange(found);
+				}
+				items.Add(item);
+			}
+		);
+
+		sender.SelectedItemChanged -= Panel_SelectedItemChanged;
+		panel.OperationHandlerContext = null;
+	}
+}
+
+/// <summary>
+/// Represents an operation handler that produces <see cref="CellPairArrowTextMarkItem"/> instances.
+/// </summary>
+/// <seealso cref="CellPairArrowTextMarkItem"/>
+[OperationHandler(ItemType.CellPairText_Arrow)]
+public sealed class CellPairArrowOperationHandler : OperationHandler
+{
+	/// <inheritdoc/>
+	protected internal override void OnMouseButtonPressed(OperationHandlerContext context)
+	{
+		var panel = context.OwnerWindow.CellPairArrowPanel;
+		panel.OperationHandlerContext = context;
+		panel.SelectedItemChanged += Panel_SelectedItemChanged;
+
+		panel.ItemsSource = (ArrowDirectionDisplayItem[])[
+			new() { Direction = Direction8.Up },
+			new() { Direction = Direction8.Down },
+			new() { Direction = Direction8.Left },
+			new() { Direction = Direction8.Right },
+			new() { Direction = Direction8.LeftUp },
+			new() { Direction = Direction8.RightUp },
+			new() { Direction = Direction8.LeftDown },
+			new() { Direction = Direction8.RightDown }
+		];
+	}
+
+	/// <inheritdoc/>
+	protected internal override void OnMouseButtonReleased(OperationHandlerContext context)
+		=> context.OwnerWindow.CellPairArrowPopup.IsOpen = true;
+
+	/// <inheritdoc/>
+	protected internal override bool IsAvailable(OperationHandlerContext context)
+		=> context.MouseEventArgs.ChangedButton == MouseButton.Right;
+
+	private void Panel_SelectedItemChanged(ItemSelectorPanel sender, ItemSelectorPanelSelectedItemChangedEventArgs e)
+	{
+		if (e.Context is not { OwnerWindow: { CurrentCanvas.Mapper: var mapper } window } context)
+		{
+			return;
+		}
+
+		var popup = window.CellPairArrowPopup;
+		var panel = window.CellPairArrowPanel;
+		var selectedItem = e.SelectedItem;
+
+		popup.IsOpen = false;
+
+		var (cell1, cell2) = context.GetBorder();
+		var cell1Row = cell1 / mapper.AbsoluteColumnsCount;
+		var cell1Column = cell1 % mapper.AbsoluteColumnsCount;
+		if (cell1 == -1 || cell2 == -1)
+		{
+			return;
+		}
+
+		var item = ItemsFactory.CellPairArrow(cell1, cell2, ((ArrowDirectionDisplayItem)selectedItem!).Direction);
+		UpdateItems(
+			window,
+			items =>
+			{
+				if (item is null)
+				{
+					items.Clear(cell1, cell2, ItemType.CellPairText_Arrow);
+					return;
+				}
+
+				var found = items.Find(cell1, cell2, ItemType.CellPairText_Arrow);
 				if (found.Length != 0)
 				{
 					items.RemoveRange(found);

@@ -456,4 +456,20 @@ public static class ItemsFactory
 			FontWeight = ResolveProperty(() => App.UserPreferences.CellNumberFontWeight),
 			FontSlant = ResolveProperty(() => App.UserPreferences.CellNumberFontSlant)
 		};
+
+	public static CellPairArrowTextMarkItem CellPairArrow(Absolute cell1, Absolute cell2, Direction8 direction)
+		=> new()
+		{
+			Cell1 = cell1,
+			Cell2 = cell2,
+			Direction = direction,
+			FontName = ResolveProperty(() => App.UserPreferences.CellNumberFontName),
+			FontSizeScale = ResolveProperty(() => App.UserPreferences.CellNumberFontSizeScale),
+			FontColor = ResolveProperty(() => App.UserPreferences.CellNumberFontColor),
+			FillColor = ResolveProperty(() => App.UserPreferences.CellNumberCoverColor),
+			Padding = ResolveProperty(() => App.UserPreferences.CellNumberPadding),
+			FontWidth = ResolveProperty(() => App.UserPreferences.CellNumberFontWidth),
+			FontWeight = ResolveProperty(() => App.UserPreferences.CellNumberFontWeight),
+			FontSlant = ResolveProperty(() => App.UserPreferences.CellNumberFontSlant)
+		};
 }

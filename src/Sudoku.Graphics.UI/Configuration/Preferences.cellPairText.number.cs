@@ -5,7 +5,7 @@ internal partial class Preferences
 	/// <summary>
 	/// Indicates cell number font name.
 	/// </summary>
-	public Inherited<string> CellNumberFontName { get; set; } = Inherited<string>.FromPropertyName(nameof(DefaultCellPairTextFontName));
+	public Inherited<string> CellNumberFontName { get; set; } = Inherited<string>.FromValue("JetBrains Mono");
 
 	/// <summary>
 	/// Indicates cell number font slant.

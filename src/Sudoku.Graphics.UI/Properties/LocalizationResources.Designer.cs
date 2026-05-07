@@ -529,6 +529,15 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Arrow.
+        /// </summary>
+        public static string ItemType_CellPairText_Arrow {
+            get {
+                return ResourceManager.GetString("ItemType_CellPairText_Arrow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Number.
         /// </summary>
         public static string ItemType_CellPairText_Number {

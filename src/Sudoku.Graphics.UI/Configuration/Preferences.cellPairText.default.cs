@@ -40,5 +40,5 @@ internal partial class Preferences
 	/// <summary>
 	/// Indicates default cell pair text padding.
 	/// </summary>
-	public Inherited<Thickness<float>> DefaultCellPairTextPadding { get; set; } = Inherited<Thickness<float>>.FromValue(new(6));
+	public Inherited<Thickness<float>> DefaultCellPairTextPadding { get; set; } = Inherited<Thickness<float>>.FromValue(new(12));
 }

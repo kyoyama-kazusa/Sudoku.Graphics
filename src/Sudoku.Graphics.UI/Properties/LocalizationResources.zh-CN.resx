@@ -388,4 +388,7 @@
   <data name="ItemType_CellPairText_Number" xml:space="preserve">
     <value>数字</value>
   </data>
+  <data name="ItemType_CellPairText_Arrow" xml:space="preserve">
+    <value>箭头</value>
+  </data>
 </root>
