@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents roman numeral display item.
 /// </summary>
-public sealed class RomanNumeralDisplayItem
+public sealed class RomanNumeralDisplayItem : ITextDisplayItem
 {
 	/// <summary>
 	/// Indicates the value.
@@ -14,4 +14,7 @@ public sealed class RomanNumeralDisplayItem
 	/// Indicates the value string.
 	/// </summary>
 	public string ValueString => CellPairRomanNumeralTextMarkItem.Notation.ToNumeralString(Value);
+
+	/// <inheritdoc/>
+	string ITextDisplayItem.Text => ValueString;
 }

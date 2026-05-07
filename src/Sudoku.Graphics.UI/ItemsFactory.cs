@@ -463,13 +463,13 @@ public static class ItemsFactory
 			Cell1 = cell1,
 			Cell2 = cell2,
 			Direction = direction,
-			FontName = ResolveProperty(() => App.UserPreferences.CellNumberFontName),
-			FontSizeScale = ResolveProperty(() => App.UserPreferences.CellNumberFontSizeScale),
-			FontColor = ResolveProperty(() => App.UserPreferences.CellNumberFontColor),
-			FillColor = ResolveProperty(() => App.UserPreferences.CellNumberCoverColor),
-			Padding = ResolveProperty(() => App.UserPreferences.CellNumberPadding),
-			FontWidth = ResolveProperty(() => App.UserPreferences.CellNumberFontWidth),
-			FontWeight = ResolveProperty(() => App.UserPreferences.CellNumberFontWeight),
-			FontSlant = ResolveProperty(() => App.UserPreferences.CellNumberFontSlant)
+			FontName = ResolveProperty(() => App.UserPreferences.CellPairArrowFontName),
+			FontSizeScale = ResolveProperty(() => App.UserPreferences.CellPairArrowFontSizeScale),
+			FontColor = ResolveProperty(() => App.UserPreferences.CellPairArrowFontColor),
+			FillColor = ResolveProperty(() => App.UserPreferences.CellPairArrowCoverColor),
+			Padding = ResolveProperty(() => App.UserPreferences.CellPairArrowPadding),
+			FontWidth = ResolveProperty(() => App.UserPreferences.CellPairArrowFontWidth),
+			FontWeight = ResolveProperty(() => App.UserPreferences.CellPairArrowFontWeight),
+			FontSlant = ResolveProperty(() => App.UserPreferences.CellPairArrowFontSlant)
 		};
 }

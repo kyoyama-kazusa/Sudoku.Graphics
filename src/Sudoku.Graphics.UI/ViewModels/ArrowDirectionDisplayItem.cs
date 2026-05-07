@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents arrow direction display item.
 /// </summary>
-public sealed class ArrowDirectionDisplayItem
+public sealed class ArrowDirectionDisplayItem : ITextDisplayItem
 {
 	/// <summary>
 	/// Indicates the direction string.
@@ -14,4 +14,7 @@ public sealed class ArrowDirectionDisplayItem
 	/// Indicates the direction.
 	/// </summary>
 	public Direction8 Direction { get; set; }
+
+	/// <inheritdoc/>
+	string ITextDisplayItem.Text => DirectionString;
 }
