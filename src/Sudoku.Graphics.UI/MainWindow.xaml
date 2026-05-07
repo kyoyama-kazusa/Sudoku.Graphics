@@ -413,6 +413,14 @@
 				</c:ItemSelectorPanel>
 			</Border>
 		</Popup>
+		<Popup x:Name="CellPairNumberPopup">
+			<Border Style="{StaticResource PopupBorderStyle}">
+				<StackPanel>
+					<TextBlock Text="{x:Static p:LocalizationResources.MainWindow_CellPairNumber}" FontSize="18" Margin="0,0,0,6" />
+					<c:IntegerBox x:Name="CellPairNumberBox" Margin="0,0,0,6" FontSize="18" />
+				</StackPanel>
+			</Border>
+		</Popup>
 		<!--#endregion-->
 
 		<!--#region Grid view-->

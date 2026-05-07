@@ -387,4 +387,10 @@
   <data name="ItemTypeGroup_CellPair_TextIcon" xml:space="preserve">
     <value>Adjacent Cell Pair Items</value>
   </data>
+  <data name="MainWindow_CellPairNumber" xml:space="preserve">
+    <value>Number:</value>
+  </data>
+  <data name="ItemType_CellPairText_Number" xml:space="preserve">
+    <value>Number</value>
+  </data>
 </root>

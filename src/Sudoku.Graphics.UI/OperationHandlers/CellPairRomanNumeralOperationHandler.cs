@@ -1,10 +1,11 @@
 ﻿namespace Sudoku.Graphics.UI.OperationHandlers;
 
 /// <summary>
-/// Represents an operation handler that produces <see cref="CellPairRomanNumeralTextItem"/> instances.
+/// Represents an operation handler that produces <see cref="CellPairRomanNumeralTextMarkItem"/> instances.
 /// </summary>
+/// <seealso cref="CellPairRomanNumeralTextMarkItem"/>
 [OperationHandler(ItemType.CellPairText_RomanNumeral)]
-public sealed class RomanNumeralOperationHandler : OperationHandler
+public sealed class CellPairRomanNumeralOperationHandler : OperationHandler
 {
 	/// <inheritdoc/>
 	protected internal override void OnMouseButtonPressed(OperationHandlerContext context)

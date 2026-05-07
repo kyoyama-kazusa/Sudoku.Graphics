@@ -57,6 +57,7 @@
 			</vm:ToolItemGroup>
 			<vm:ToolItemGroup Title="{x:Static p:LocalizationResources.ItemTypeGroup_CellPair_TextIcon}">
 				<vm:ToolItem ItemType="CellPairText_RomanNumeral" Icon="/Assets/ToolItems/ToolItem_CellPairText_RomanNumeral.png" />
+				<vm:ToolItem ItemType="CellPairText_Number" Icon="/Assets/ToolItems/ToolItem_CellPairText_Number.png" />
 			</vm:ToolItemGroup>
 		</vm:ToolItemGroupCollection>
 

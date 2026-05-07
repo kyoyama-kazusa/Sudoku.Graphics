@@ -440,4 +440,20 @@ public static class ItemsFactory
 			FontWeight = ResolveProperty(() => App.UserPreferences.CellRomanNumeralFontWeight),
 			FontSlant = ResolveProperty(() => App.UserPreferences.CellRomanNumeralFontSlant)
 		};
+
+	public static CellPairNumberTextMarkItem CellPairNumber(Absolute cell1, Absolute cell2, int value)
+		=> new()
+		{
+			Cell1 = cell1,
+			Cell2 = cell2,
+			Value = value,
+			FontName = ResolveProperty(() => App.UserPreferences.CellNumberFontName),
+			FontSizeScale = ResolveProperty(() => App.UserPreferences.CellNumberFontSizeScale),
+			FontColor = ResolveProperty(() => App.UserPreferences.CellNumberFontColor),
+			FillColor = ResolveProperty(() => App.UserPreferences.CellNumberCoverColor),
+			Padding = ResolveProperty(() => App.UserPreferences.CellNumberPadding),
+			FontWidth = ResolveProperty(() => App.UserPreferences.CellNumberFontWidth),
+			FontWeight = ResolveProperty(() => App.UserPreferences.CellNumberFontWeight),
+			FontSlant = ResolveProperty(() => App.UserPreferences.CellNumberFontSlant)
+		};
 }

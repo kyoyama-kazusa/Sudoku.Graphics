@@ -529,6 +529,15 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Number.
+        /// </summary>
+        public static string ItemType_CellPairText_Number {
+            get {
+                return ResourceManager.GetString("ItemType_CellPairText_Number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Roman numeral.
         /// </summary>
         public static string ItemType_CellPairText_RomanNumeral {
@@ -678,6 +687,15 @@ namespace Sudoku.Graphics.UI.Properties {
         public static string ItemTypeGroup_CellPair_TextIcon {
             get {
                 return ResourceManager.GetString("ItemTypeGroup_CellPair_TextIcon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number:.
+        /// </summary>
+        public static string MainWindow_CellPairNumber {
+            get {
+                return ResourceManager.GetString("MainWindow_CellPairNumber", resourceCulture);
             }
         }
         
