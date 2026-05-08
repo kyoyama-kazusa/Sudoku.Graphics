@@ -6,6 +6,9 @@
 public abstract record CellPairTextMarkItem : Item, IItem_FontRelatedProperties, IItem_MarkRelatedProperties, IItem_CellPairProperty
 {
 	/// <inheritdoc/>
+	public required string FontName { get; init; }
+
+	/// <inheritdoc/>
 	public SKFontStyleWeight FontWeight { get; init; } = SKFontStyleWeight.Normal;
 
 	/// <inheritdoc/>
@@ -49,8 +52,10 @@ public abstract record CellPairTextMarkItem : Item, IItem_FontRelatedProperties,
 	/// <inheritdoc/>
 	public required SerializableColor FillColor { get; init; }
 
-	/// <inheritdoc/>
-	public required string FontName { get; init; }
+	/// <summary>
+	/// Represents rotation degrees table.
+	/// </summary>
+	public IDictionary<Direction8, float> RotationDegreesLookup { get; } = new Dictionary<Direction8, float>();
 
 	/// <summary>
 	/// Indicates the printing text.
@@ -66,7 +71,8 @@ public abstract record CellPairTextMarkItem : Item, IItem_FontRelatedProperties,
 	{
 		var mapper = canvas.Mapper;
 		var cellSize = mapper.CellSize;
-		var center = mapper.GetPointBetweenWithAdjacentRelation(Cell1, Cell2, out _);
+		var center = mapper.GetPointBetweenWithAdjacentRelation(Cell1, Cell2, out var adjacentRelation);
+		var rotationDegree = RotationDegreesLookup.TryGetValue(adjacentRelation, out var d) ? d : 0;
 
 		using var typeface = SKTypeface.FromFamilyName(FontName, FontWeight, FontWidth, FontSlant);
 		var fontSize = FontSizeScale.Measure(cellSize);
@@ -106,7 +112,8 @@ public abstract record CellPairTextMarkItem : Item, IItem_FontRelatedProperties,
 			coverStrokePaint,
 			coverFillPaint,
 			Padding,
-			Offset
+			Offset,
+			rotationDegree
 		);
 	}
 }

@@ -178,6 +178,7 @@ public partial class SKCanvasDrawings
 		/// <param name="coverFillPaint">The fill paint of cover background.</param>
 		/// <param name="padding">The padding of the boundary of text drawn.</param>
 		/// <param name="offset">The offset to the text to be drawn.</param>
+		/// <param name="rotationDegree">The rotation degree, in angle.</param>
 		/// <exception cref="ArgumentOutOfRangeException">Throws when <paramref name="textAlign"/> is not defined.</exception>
 		public void DrawTextWithCover(
 			SKPoint point,
@@ -189,7 +190,8 @@ public partial class SKCanvasDrawings
 			SKPaint? coverStrokePaint,
 			SKPaint? coverFillPaint,
 			Thickness<float> padding,
-			SKPoint offset
+			SKPoint offset,
+			float rotationDegree = 0
 		)
 		{
 			if (string.IsNullOrWhiteSpace(text) || coverStyle == CoverStyle.None || !Enum.IsDefined(coverStyle)
@@ -226,14 +228,6 @@ public partial class SKCanvasDrawings
 					{
 						makeBoundsSquareOrCircle(ref coverBounds, textAlign);
 					}
-					if (coverStrokePaint is not null)
-					{
-						@this.DrawRect(coverBounds, coverStrokePaint);
-					}
-					if (coverFillPaint is not null)
-					{
-						@this.DrawRect(coverBounds, coverFillPaint);
-					}
 					break;
 				}
 				case CoverStyle.Oval or CoverStyle.Circle:
@@ -241,14 +235,6 @@ public partial class SKCanvasDrawings
 					if (coverStyle == CoverStyle.Circle)
 					{
 						makeBoundsSquareOrCircle(ref coverBounds, textAlign);
-					}
-					if (coverStrokePaint is not null)
-					{
-						@this.DrawOval(coverBounds, coverStrokePaint);
-					}
-					if (coverFillPaint is not null)
-					{
-						@this.DrawOval(coverBounds, coverFillPaint);
 					}
 					break;
 				}
@@ -258,7 +244,53 @@ public partial class SKCanvasDrawings
 				}
 			}
 
-			@this.DrawText(text, drawPoint, textAlign, font, textPaint);
+			var textCenter = new SKPoint(bounds.MidX, bounds.MidY);
+			@this.Save();
+			try
+			{
+				if (rotationDegree != 0)
+				{
+					@this.RotateDegrees(rotationDegree, textCenter.X, textCenter.Y);
+				}
+
+				switch (coverStyle)
+				{
+					case CoverStyle.Rectangle or CoverStyle.Square:
+					{
+						if (coverStrokePaint is not null)
+						{
+							@this.DrawRect(coverBounds, coverStrokePaint);
+						}
+						if (coverFillPaint is not null)
+						{
+							@this.DrawRect(coverBounds, coverFillPaint);
+						}
+						break;
+					}
+					case CoverStyle.Oval or CoverStyle.Circle:
+					{
+						if (coverStrokePaint is not null)
+						{
+							@this.DrawOval(coverBounds, coverStrokePaint);
+						}
+						if (coverFillPaint is not null)
+						{
+							@this.DrawOval(coverBounds, coverFillPaint);
+						}
+						break;
+					}
+					default:
+					{
+						throw new UnreachableException();
+					}
+				}
+
+				@this.DrawText(text, drawPoint, textAlign, font, textPaint);
+			}
+			finally
+			{
+				@this.Restore();
+			}
 
 
 			static void makeBoundsSquareOrCircle(ref SKRect coverBounds, SKTextAlign textAlign)
@@ -274,7 +306,11 @@ public partial class SKCanvasDrawings
 					var coverBoundDelta and < 0 => textAlign switch
 					{
 						SKTextAlign.Left => coverBounds with { Right = right + -coverBoundDelta },
-						SKTextAlign.Center => coverBounds with { Left = left - -coverBoundDelta / 2, Right = right + -coverBoundDelta / 2 },
+						SKTextAlign.Center => coverBounds with
+						{
+							Left = left - -coverBoundDelta / 2,
+							Right = right + -coverBoundDelta / 2
+						},
 						_ => coverBounds with { Left = left - -coverBoundDelta }
 					},
 					_ => coverBounds

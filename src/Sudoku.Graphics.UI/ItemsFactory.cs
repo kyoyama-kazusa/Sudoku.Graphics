@@ -486,6 +486,7 @@ public static class ItemsFactory
 			Padding = ResolveProperty(() => App.UserPreferences.CellPairComparisonOperatorPadding),
 			FontWidth = ResolveProperty(() => App.UserPreferences.CellPairComparisonOperatorFontWidth),
 			FontWeight = ResolveProperty(() => App.UserPreferences.CellPairComparisonOperatorFontWeight),
-			FontSlant = ResolveProperty(() => App.UserPreferences.CellPairComparisonOperatorFontSlant)
+			FontSlant = ResolveProperty(() => App.UserPreferences.CellPairComparisonOperatorFontSlant),
+			RotationDegreesLookup = { { Direction8.Up, 90 }, { Direction8.Down, 90 } }
 		};
 }

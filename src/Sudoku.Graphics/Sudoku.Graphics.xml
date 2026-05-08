@@ -3478,6 +3478,9 @@
             Represents a cell pair text mark item.
             </summary>
         </member>
+        <member name="P:Sudoku.Graphics.Items.CellPairTextMarks.CellPairTextMarkItem.FontName">
+            <inheritdoc/>
+        </member>
         <member name="P:Sudoku.Graphics.Items.CellPairTextMarks.CellPairTextMarkItem.FontWeight">
             <inheritdoc/>
         </member>
@@ -3522,8 +3525,10 @@
         <member name="P:Sudoku.Graphics.Items.CellPairTextMarks.CellPairTextMarkItem.FillColor">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellPairTextMarks.CellPairTextMarkItem.FontName">
-            <inheritdoc/>
+        <member name="P:Sudoku.Graphics.Items.CellPairTextMarks.CellPairTextMarkItem.RotationDegreesLookup">
+            <summary>
+            Represents rotation degrees table.
+            </summary>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellPairTextMarks.CellPairTextMarkItem.PrintingText">
             <summary>
@@ -6408,8 +6413,8 @@
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawOutlinedTextToCandidate(SkiaSharp.SKCanvas,System.String,Sudoku.Graphics.CandidatePosition,System.String,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawOutlinedTextToCandidate(System.String,Sudoku.Graphics.CandidatePosition,System.String,Sudoku.Graphics.Scale,Sudoku.Graphics.Scale,SkiaSharp.SKFontStyleWeight,SkiaSharp.SKFontStyleWidth,SkiaSharp.SKFontStyleSlant,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper)"/>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawTextWithCover(SkiaSharp.SKCanvas,SkiaSharp.SKPoint,System.String,SkiaSharp.SKTextAlign,Sudoku.Graphics.CoverStyle,SkiaSharp.SKFont,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPaint,Sudoku.Graphics.Thickness{System.Single},SkiaSharp.SKPoint)">
-            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextWithCover(SkiaSharp.SKPoint,System.String,SkiaSharp.SKTextAlign,Sudoku.Graphics.CoverStyle,SkiaSharp.SKFont,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPaint,Sudoku.Graphics.Thickness{System.Single},SkiaSharp.SKPoint)"/>
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawTextWithCover(SkiaSharp.SKCanvas,SkiaSharp.SKPoint,System.String,SkiaSharp.SKTextAlign,Sudoku.Graphics.CoverStyle,SkiaSharp.SKFont,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPaint,Sudoku.Graphics.Thickness{System.Single},SkiaSharp.SKPoint,System.Single)">
+            <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextWithCover(SkiaSharp.SKPoint,System.String,SkiaSharp.SKTextAlign,Sudoku.Graphics.CoverStyle,SkiaSharp.SKFont,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPaint,Sudoku.Graphics.Thickness{System.Single},SkiaSharp.SKPoint,System.Single)"/>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.DrawCircleTo(SkiaSharp.SKCanvas,Sudoku.Graphics.Locator,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper)">
             <inheritdoc cref="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCircleTo(Sudoku.Graphics.Locator,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper)"/>
@@ -6540,7 +6545,7 @@
             <param name="fillColor">The fill color of text.</param>
             <param name="mapper">The mapper.</param>
         </member>
-        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextWithCover(SkiaSharp.SKPoint,System.String,SkiaSharp.SKTextAlign,Sudoku.Graphics.CoverStyle,SkiaSharp.SKFont,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPaint,Sudoku.Graphics.Thickness{System.Single},SkiaSharp.SKPoint)">
+        <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawTextWithCover(SkiaSharp.SKPoint,System.String,SkiaSharp.SKTextAlign,Sudoku.Graphics.CoverStyle,SkiaSharp.SKFont,SkiaSharp.SKPaint,SkiaSharp.SKPaint,SkiaSharp.SKPaint,Sudoku.Graphics.Thickness{System.Single},SkiaSharp.SKPoint,System.Single)">
             <summary>
             Draws the specified text with background cover.
             </summary>
@@ -6556,6 +6561,7 @@
             <param name="coverFillPaint">The fill paint of cover background.</param>
             <param name="padding">The padding of the boundary of text drawn.</param>
             <param name="offset">The offset to the text to be drawn.</param>
+            <param name="rotationDegree">The rotation degree, in angle.</param>
             <exception cref="T:System.ArgumentOutOfRangeException">Throws when <paramref name="textAlign"/> is not defined.</exception>
         </member>
         <member name="M:Sudoku.Graphics.SKCanvasDrawings.&lt;G&gt;$359ECC46DCBA4EE52CCFB3524D1D0811.DrawCircleTo(Sudoku.Graphics.Locator,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.Scale,Sudoku.Graphics.SerializableColor,Sudoku.Graphics.PointMapper)">
