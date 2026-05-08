@@ -55,7 +55,7 @@ public abstract record CellPairTextMarkItem : Item, IItem_FontRelatedProperties,
 	/// <summary>
 	/// Represents rotation degrees table.
 	/// </summary>
-	public IDictionary<Direction8, float> RotationDegreesLookup { get; } = new Dictionary<Direction8, float>();
+	public IReadOnlyDictionary<Direction8, float> RotationDegreesLookup { get; set; } = new Dictionary<Direction8, float>();
 
 	/// <summary>
 	/// Indicates the printing text.
@@ -106,7 +106,7 @@ public abstract record CellPairTextMarkItem : Item, IItem_FontRelatedProperties,
 			center.AlignYAsBaseline(font),
 			PrintingText,
 			SKTextAlign.Center,
-			CoverStyle.Rectangle,
+			CoverStyle.Circle,
 			font,
 			textStrokePaint,
 			coverStrokePaint,
