@@ -16,7 +16,7 @@ public sealed partial class ItemSet :
 	/// <summary>
 	/// Indicates the backing lookup dictionary of items, grouped by ites layer priority property, ordered.
 	/// </summary>
-	private readonly SortedDictionary<ItemType, HashSet<Item>> _itemsLookup = [];
+	internal readonly SortedDictionary<ItemType, HashSet<Item>> _itemsLookup = [];
 
 
 	/// <summary>
@@ -215,6 +215,25 @@ public sealed partial class ItemSet :
 	}
 
 	/// <summary>
+	/// Remove all elements that satisfy the specified condition.
+	/// </summary>
+	/// <param name="condition">The condition.</param>
+	/// <returns>An <see cref="int"/> value indicating the number of elements successfully removed.</returns>
+	public int RemoveAll(Predicate<Item> condition)
+	{
+		// Remove them.
+		var result = 0;
+		foreach (var item in Find(condition))
+		{
+			if (Remove(item))
+			{
+				result++;
+			}
+		}
+		return result;
+	}
+
+	/// <summary>
 	/// Clears all elements of the specified item in the specified cell.
 	/// </summary>
 	/// <param name="cell">The cell.</param>
@@ -349,6 +368,27 @@ public sealed partial class ItemSet :
 			}
 		}
 		return result.AsSpan();
+	}
+
+	/// <summary>
+	/// Finds all possible items that satisfy the specified condition.
+	/// </summary>
+	/// <param name="condition">The condition.</param>
+	/// <returns>A list of items satisfying the specified condition.</returns>
+	public ReadOnlySpan<Item> Find(Predicate<Item> condition)
+	{
+		var selected = new List<Item>();
+		foreach (var (type, items) in _itemsLookup)
+		{
+			foreach (var item in items)
+			{
+				if (condition(item))
+				{
+					selected.Add(item);
+				}
+			}
+		}
+		return selected.AsSpan();
 	}
 
 	/// <inheritdoc cref="IEnumerable{T}.GetEnumerator"/>

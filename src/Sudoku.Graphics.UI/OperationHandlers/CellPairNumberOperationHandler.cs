@@ -124,16 +124,27 @@ public sealed class CellPairRawTextOperationHandler : OperationHandler
 			return;
 		}
 
+		value = value.Trim();
 		var item = ItemsFactory.CellPairRawText(cell1, cell2, value);
 		UpdateItems(
 			window,
 			items =>
 			{
-				if (item is null)
+				var found = items.Find(
+					i =>
+						i is CellPairRawTextMarkItem { Cell1: var c1, Cell2: var c2 }
+						&& (c1 == cell1 && c2 == cell2 || c1 == cell2 && c2 == cell1)
+				);
+				var foundMatched = false;
+				foreach (CellPairRawTextMarkItem i in found)
 				{
-					items.Clear(cell1, cell2, ItemType.CellPairText_Raw);
+					if (i.Text == value)
+					{
+						foundMatched = true;
+					}
+					items.Remove(i);
 				}
-				else
+				if (!foundMatched)
 				{
 					items.Add(item);
 				}

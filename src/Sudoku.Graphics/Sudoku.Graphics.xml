@@ -1213,6 +1213,13 @@
             <param name="items">The items to remove.</param>
             <returns>An <see cref="T:System.Int32"/> value indicating the number of successfully removed items.</returns>
         </member>
+        <member name="M:Sudoku.Graphics.ItemSet.RemoveAll(System.Predicate{Sudoku.Graphics.Item})">
+            <summary>
+            Remove all elements that satisfy the specified condition.
+            </summary>
+            <param name="condition">The condition.</param>
+            <returns>An <see cref="T:System.Int32"/> value indicating the number of elements successfully removed.</returns>
+        </member>
         <member name="M:Sudoku.Graphics.ItemSet.Clear(Sudoku.Graphics.Absolute)">
             <summary>
             Clears all elements of the specified item in the specified cell.
@@ -1252,6 +1259,13 @@
             <param name="cell2">The second cell.</param>
             <param name="type">The type.</param>
             <returns>The item found; or an empty sequence if not found.</returns>
+        </member>
+        <member name="M:Sudoku.Graphics.ItemSet.Find(System.Predicate{Sudoku.Graphics.Item})">
+            <summary>
+            Finds all possible items that satisfy the specified condition.
+            </summary>
+            <param name="condition">The condition.</param>
+            <returns>A list of items satisfying the specified condition.</returns>
         </member>
         <member name="M:Sudoku.Graphics.ItemSet.GetEnumerator">
             <inheritdoc cref="M:System.Collections.Generic.IEnumerable`1.GetEnumerator"/>
