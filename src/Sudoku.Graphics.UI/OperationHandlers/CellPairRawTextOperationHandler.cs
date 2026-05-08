@@ -1,11 +1,11 @@
 ﻿namespace Sudoku.Graphics.UI.OperationHandlers;
 
 /// <summary>
-/// Represents an operation handler that produces <see cref="CellPairNumberTextMarkItem"/> instances.
+/// Represents an operation handler that produces <see cref="CellPairRawTextMarkItem"/> instances.
 /// </summary>
-/// <seealso cref="CellPairNumberTextMarkItem"/>
-[OperationHandler(ItemType.CellPairText_Number)]
-public sealed class CellPairNumberOperationHandler : OperationHandler
+/// <seealso cref="CellPairRawTextMarkItem"/>
+[OperationHandler(ItemType.CellPairText_Raw)]
+public sealed class CellPairRawTextOperationHandler : OperationHandler
 {
 	/// <inheritdoc/>
 	protected internal override void OnMouseButtonPressed(OperationHandlerContext context)
@@ -15,7 +15,7 @@ public sealed class CellPairNumberOperationHandler : OperationHandler
 	/// <inheritdoc/>
 	protected internal override void OnMouseButtonReleased(OperationHandlerContext context)
 	{
-		var popup = context.OwnerWindow.CellPairNumberPopup;
+		var popup = context.OwnerWindow.CellPairAribitraryTextPopup;
 		popup.Tag = context;
 		popup.Closed += Popup_Closed;
 
@@ -34,7 +34,7 @@ public sealed class CellPairNumberOperationHandler : OperationHandler
 				{
 					OwnerWindow:
 					{
-						CellPairNumberBox.Value: var value,
+						CellPairAribitraryTextBox.Text: var value,
 						CurrentCanvas.Mapper: var mapper
 					} window
 				} context
@@ -51,16 +51,27 @@ public sealed class CellPairNumberOperationHandler : OperationHandler
 			return;
 		}
 
-		var item = ItemsFactory.CellPairNumber(cell1, cell2, value);
+		value = value.Trim();
+		var item = ItemsFactory.CellPairRawText(cell1, cell2, value);
 		UpdateItems(
 			window,
 			items =>
 			{
-				if (item is null)
+				var found = items.Find(
+					i =>
+						i is CellPairRawTextMarkItem { Cell1: var c1, Cell2: var c2 }
+						&& (c1 == cell1 && c2 == cell2 || c1 == cell2 && c2 == cell1)
+				);
+				var foundMatched = false;
+				foreach (CellPairRawTextMarkItem i in found)
 				{
-					items.Clear(cell1, cell2, ItemType.CellPairText_Number);
+					if (i.Text == value)
+					{
+						foundMatched = true;
+					}
+					items.Remove(i);
 				}
-				else
+				if (!foundMatched)
 				{
 					items.Add(item);
 				}
