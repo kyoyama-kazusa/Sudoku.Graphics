@@ -72,3 +72,76 @@ public sealed class CellPairNumberOperationHandler : OperationHandler
 		popup.Tag = null;
 	}
 }
+
+/// <summary>
+/// Represents an operation handler that produces <see cref="CellPairRawTextMarkItem"/> instances.
+/// </summary>
+/// <seealso cref="CellPairRawTextMarkItem"/>
+[OperationHandler(ItemType.CellPairText_Raw)]
+public sealed class CellPairRawTextOperationHandler : OperationHandler
+{
+	/// <inheritdoc/>
+	protected internal override void OnMouseButtonPressed(OperationHandlerContext context)
+	{
+	}
+
+	/// <inheritdoc/>
+	protected internal override void OnMouseButtonReleased(OperationHandlerContext context)
+	{
+		var popup = context.OwnerWindow.CellPairAribitraryTextPopup;
+		popup.Tag = context;
+		popup.Closed += Popup_Closed;
+
+		popup.IsOpen = true;
+	}
+
+	/// <inheritdoc/>
+	protected internal override bool IsAvailable(OperationHandlerContext context)
+		=> context.MouseEventArgs.ChangedButton == MouseButton.Right;
+
+	private void Popup_Closed(object? sender, EventArgs e)
+	{
+		if (sender is not Popup
+			{
+				Tag: OperationHandlerContext
+				{
+					OwnerWindow:
+					{
+						CellPairAribitraryTextBox.Text: var value,
+						CurrentCanvas.Mapper: var mapper
+					} window
+				} context
+			} popup)
+		{
+			return;
+		}
+
+		var (cell1, cell2) = context.GetBorder();
+		var cell1Row = cell1 / mapper.AbsoluteColumnsCount;
+		var cell1Column = cell1 % mapper.AbsoluteColumnsCount;
+		if (cell1 == -1 || cell2 == -1)
+		{
+			return;
+		}
+
+		var item = ItemsFactory.CellPairRawText(cell1, cell2, value);
+		UpdateItems(
+			window,
+			items =>
+			{
+				if (item is null)
+				{
+					items.Clear(cell1, cell2, ItemType.CellPairText_Raw);
+				}
+				else
+				{
+					items.Add(item);
+				}
+			}
+		);
+
+		// Clear context.
+		popup.Closed -= Popup_Closed;
+		popup.Tag = null;
+	}
+}

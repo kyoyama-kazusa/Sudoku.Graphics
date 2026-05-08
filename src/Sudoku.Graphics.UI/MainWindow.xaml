@@ -440,6 +440,14 @@
 				</c:ItemSelectorPanel>
 			</Border>
 		</Popup>
+		<Popup x:Name="CellPairAribitraryTextPopup">
+			<Border Style="{StaticResource PopupBorderStyle}">
+				<StackPanel>
+					<TextBlock Text="{x:Static p:LocalizationResources.MainWindow_CellPairArbitraryText}" FontSize="18" Margin="0,0,0,6" />
+					<TextBox x:Name="CellPairAribitraryTextBox" Margin="0,0,0,6" FontSize="18" MinWidth="125" />
+				</StackPanel>
+			</Border>
+		</Popup>
 		<!--#endregion-->
 
 		<!--#region Grid view-->

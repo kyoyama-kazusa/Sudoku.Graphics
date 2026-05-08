@@ -30,6 +30,9 @@ public sealed class CellPairArrowOperationHandler : CellPairBasedItemSelectorPan
 	public override Func<MainWindow, Popup> PopupSelector => static window => window.CellPairArrowPopup;
 
 	/// <inheritdoc/>
-	public override Func<ITextDisplayItem, Absolute, Absolute, Item> ItemFactory
-		=> static (item, cell1, cell2) => ItemsFactory.CellPairArrow(cell1, cell2, ((ArrowDirectionDisplayItem)item).Direction);
+	public override Func<ITextDisplayItem?, Absolute, Absolute, Item?> ItemFactory
+		=> static (item, cell1, cell2) =>
+			item is null
+				? null
+				: ItemsFactory.CellPairArrow(cell1, cell2, ((ArrowDirectionDisplayItem)item).Direction);
 }

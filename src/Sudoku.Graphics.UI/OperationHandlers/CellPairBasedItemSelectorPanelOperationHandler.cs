@@ -33,7 +33,7 @@ public abstract class CellPairBasedItemSelectorPanelOperationHandler : Operation
 	/// <summary>
 	/// Indicates item factory.
 	/// </summary>
-	public abstract Func<ITextDisplayItem, Absolute, Absolute, Item> ItemFactory { get; }
+	public abstract Func<ITextDisplayItem?, Absolute, Absolute, Item?> ItemFactory { get; }
 
 
 	/// <inheritdoc/>

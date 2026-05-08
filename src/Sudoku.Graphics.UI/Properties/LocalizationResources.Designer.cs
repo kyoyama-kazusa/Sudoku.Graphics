@@ -556,6 +556,15 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Arbitrary text.
+        /// </summary>
+        public static string ItemType_CellPairText_Raw {
+            get {
+                return ResourceManager.GetString("ItemType_CellPairText_Raw", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Roman numeral.
         /// </summary>
         public static string ItemType_CellPairText_RomanNumeral {
@@ -705,6 +714,15 @@ namespace Sudoku.Graphics.UI.Properties {
         public static string ItemTypeGroup_CellPair_TextIcon {
             get {
                 return ResourceManager.GetString("ItemTypeGroup_CellPair_TextIcon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Input any text:.
+        /// </summary>
+        public static string MainWindow_CellPairArbitraryText {
+            get {
+                return ResourceManager.GetString("MainWindow_CellPairArbitraryText", resourceCulture);
             }
         }
         

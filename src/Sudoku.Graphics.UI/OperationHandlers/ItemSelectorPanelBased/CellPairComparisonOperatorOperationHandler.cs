@@ -28,6 +28,9 @@ public sealed class CellPairComparisonOperatorOperationHandler : CellPairBasedIt
 	public override Func<MainWindow, Popup> PopupSelector => static window => window.CellPairComparisonOperatorPopup;
 
 	/// <inheritdoc/>
-	public override Func<ITextDisplayItem, Absolute, Absolute, Item> ItemFactory
-		=> static (item, cell1, cell2) => ItemsFactory.CellPairComparisonOperator(cell1, cell2, ((ComparisonOperatorDisplayItem)item).Operator);
+	public override Func<ITextDisplayItem?, Absolute, Absolute, Item?> ItemFactory
+		=> static (item, cell1, cell2) =>
+			item is null
+				? null
+				: ItemsFactory.CellPairComparisonOperator(cell1, cell2, ((ComparisonOperatorDisplayItem)item).Operator);
 }

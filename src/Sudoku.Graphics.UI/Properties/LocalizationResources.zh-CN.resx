@@ -394,4 +394,10 @@
   <data name="ItemType_CellPairText_ComparisonOperator" xml:space="preserve">
     <value>比较运算</value>
   </data>
+  <data name="ItemType_CellPairText_Raw" xml:space="preserve">
+    <value>任意文本</value>
+  </data>
+  <data name="MainWindow_CellPairArbitraryText" xml:space="preserve">
+    <value>请输入文本：</value>
+  </data>
 </root>

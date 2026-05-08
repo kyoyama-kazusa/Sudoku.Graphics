@@ -433,7 +433,7 @@ public static class ItemsFactory
 			Value = value,
 			FontName = ResolveProperty(() => App.UserPreferences.CellRomanNumeralFontName),
 			FontSizeScale = ResolveProperty(() => App.UserPreferences.CellRomanNumeralFontSizeScale),
-			FontColor =	ResolveProperty(() => App.UserPreferences.CellRomanNumeralFontColor),
+			FontColor = ResolveProperty(() => App.UserPreferences.CellRomanNumeralFontColor),
 			FillColor = ResolveProperty(() => App.UserPreferences.CellRomanNumeralCoverColor),
 			Padding = ResolveProperty(() => App.UserPreferences.CellRomanNumeralPadding),
 			FontWidth = ResolveProperty(() => App.UserPreferences.CellRomanNumeralFontWidth),
@@ -488,5 +488,21 @@ public static class ItemsFactory
 			FontWeight = ResolveProperty(() => App.UserPreferences.CellPairComparisonOperatorFontWeight),
 			FontSlant = ResolveProperty(() => App.UserPreferences.CellPairComparisonOperatorFontSlant),
 			RotationDegreesLookup = new Dictionary<Direction8, float>() { { Direction8.Up, 90 }, { Direction8.Down, 90 } }
+		};
+
+	public static CellPairRawTextMarkItem CellPairRawText(Absolute cell1, Absolute cell2, string text)
+		=> new()
+		{
+			Cell1 = cell1,
+			Cell2 = cell2,
+			Text = text,
+			FontName = ResolveProperty(() => App.UserPreferences.CellPairRawTextFontName),
+			FontSizeScale = ResolveProperty(() => App.UserPreferences.CellPairRawTextFontSizeScale),
+			FontColor = ResolveProperty(() => App.UserPreferences.CellPairRawTextFontColor),
+			FillColor = ResolveProperty(() => App.UserPreferences.CellPairRawTextCoverColor),
+			Padding = ResolveProperty(() => App.UserPreferences.CellPairRawTextPadding),
+			FontWidth = ResolveProperty(() => App.UserPreferences.CellPairRawTextFontWidth),
+			FontWeight = ResolveProperty(() => App.UserPreferences.CellPairRawTextFontWeight),
+			FontSlant = ResolveProperty(() => App.UserPreferences.CellPairRawTextFontSlant)
 		};
 }
