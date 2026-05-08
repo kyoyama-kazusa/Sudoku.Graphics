@@ -479,13 +479,13 @@ public static class ItemsFactory
 			Cell1 = cell1,
 			Cell2 = cell2,
 			Operator = @operator,
-			FontName = ResolveProperty(() => App.UserPreferences.CellPairArrowFontName),
-			FontSizeScale = ResolveProperty(() => App.UserPreferences.CellPairArrowFontSizeScale),
-			FontColor = ResolveProperty(() => App.UserPreferences.CellPairArrowFontColor),
-			FillColor = ResolveProperty(() => App.UserPreferences.CellPairArrowCoverColor),
-			Padding = ResolveProperty(() => App.UserPreferences.CellPairArrowPadding),
-			FontWidth = ResolveProperty(() => App.UserPreferences.CellPairArrowFontWidth),
-			FontWeight = ResolveProperty(() => App.UserPreferences.CellPairArrowFontWeight),
-			FontSlant = ResolveProperty(() => App.UserPreferences.CellPairArrowFontSlant)
+			FontName = ResolveProperty(() => App.UserPreferences.CellPairComparisonOperatorFontName),
+			FontSizeScale = ResolveProperty(() => App.UserPreferences.CellPairComparisonOperatorFontSizeScale),
+			FontColor = ResolveProperty(() => App.UserPreferences.CellPairComparisonOperatorFontColor),
+			FillColor = ResolveProperty(() => App.UserPreferences.CellPairComparisonOperatorCoverColor),
+			Padding = ResolveProperty(() => App.UserPreferences.CellPairComparisonOperatorPadding),
+			FontWidth = ResolveProperty(() => App.UserPreferences.CellPairComparisonOperatorFontWidth),
+			FontWeight = ResolveProperty(() => App.UserPreferences.CellPairComparisonOperatorFontWeight),
+			FontSlant = ResolveProperty(() => App.UserPreferences.CellPairComparisonOperatorFontSlant)
 		};
 }
