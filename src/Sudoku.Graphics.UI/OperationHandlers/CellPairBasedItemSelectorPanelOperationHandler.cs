@@ -43,12 +43,12 @@ public abstract class CellPairBasedItemSelectorPanelOperationHandler : Operation
 		panel.OperationHandlerContext = context;
 		panel.SelectedItemChanged += Panel_SelectedItemChanged;
 
-		panel.ItemsSource = DisplayItemFactory.ToArray();
+		panel.ItemsSource = (from factory in DisplayItemFactory select factory()).ToArray();
 	}
 
 	/// <inheritdoc/>
 	protected internal sealed override void OnMouseButtonReleased(OperationHandlerContext context)
-		=> context.OwnerWindow.CellPairArrowPopup.IsOpen = true;
+		=> PopupSelector(context.OwnerWindow).IsOpen = true;
 
 	/// <inheritdoc/>
 	protected internal sealed override bool IsAvailable(OperationHandlerContext context)

@@ -401,10 +401,7 @@
 		</Popup>
 		<Popup x:Name="CellPairRomanNumeralPopup">
 			<Border Style="{StaticResource PopupBorderStyle}">
-				<c:ItemSelectorPanel
-					x:Name="CellPairRomanNumeralPanel"
-					Style="{StaticResource PanelStyle}"
-					ColumnsCount="6">
+				<c:ItemSelectorPanel x:Name="CellPairRomanNumeralPanel" Style="{StaticResource PanelStyle}" ColumnsCount="6">
 					<c:ItemSelectorPanel.ItemTemplate>
 						<DataTemplate DataType="vm:RomanNumeralDisplayItem">
 							<TextBlock Text="{Binding ValueString}" />
@@ -423,13 +420,21 @@
 		</Popup>
 		<Popup x:Name="CellPairArrowPopup">
 			<Border Style="{StaticResource PopupBorderStyle}">
-				<c:ItemSelectorPanel
-					x:Name="CellPairArrowPanel"
-					Style="{StaticResource PanelStyle}"
-					ColumnsCount="4">
+				<c:ItemSelectorPanel x:Name="CellPairArrowPanel" Style="{StaticResource PanelStyle}" ColumnsCount="4">
 					<c:ItemSelectorPanel.ItemTemplate>
 						<DataTemplate DataType="vm:ArrowDirectionDisplayItem">
 							<TextBlock Text="{Binding DirectionString}" FontFamily="JetBrains Mono" />
+						</DataTemplate>
+					</c:ItemSelectorPanel.ItemTemplate>
+				</c:ItemSelectorPanel>
+			</Border>
+		</Popup>
+		<Popup x:Name="CellPairComparisonOperatorPopup">
+			<Border Style="{StaticResource PopupBorderStyle}">
+				<c:ItemSelectorPanel x:Name="CellPairComparisonOperatorPanel" Style="{StaticResource PanelStyle}" ColumnsCount="3">
+					<c:ItemSelectorPanel.ItemTemplate>
+						<DataTemplate DataType="vm:ComparisonOperatorDisplayItem">
+							<TextBlock Text="{Binding OperatorString}" FontFamily="Consolas" />
 						</DataTemplate>
 					</c:ItemSelectorPanel.ItemTemplate>
 				</c:ItemSelectorPanel>

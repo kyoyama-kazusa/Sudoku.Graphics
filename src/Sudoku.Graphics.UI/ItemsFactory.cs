@@ -472,4 +472,20 @@ public static class ItemsFactory
 			FontWeight = ResolveProperty(() => App.UserPreferences.CellPairArrowFontWeight),
 			FontSlant = ResolveProperty(() => App.UserPreferences.CellPairArrowFontSlant)
 		};
+
+	public static CellPairComparisonOperatorTextMarkItem CellPairComparisonOperator(Absolute cell1, Absolute cell2, ComparisonOperator @operator)
+		=> new()
+		{
+			Cell1 = cell1,
+			Cell2 = cell2,
+			Operator = @operator,
+			FontName = ResolveProperty(() => App.UserPreferences.CellPairArrowFontName),
+			FontSizeScale = ResolveProperty(() => App.UserPreferences.CellPairArrowFontSizeScale),
+			FontColor = ResolveProperty(() => App.UserPreferences.CellPairArrowFontColor),
+			FillColor = ResolveProperty(() => App.UserPreferences.CellPairArrowCoverColor),
+			Padding = ResolveProperty(() => App.UserPreferences.CellPairArrowPadding),
+			FontWidth = ResolveProperty(() => App.UserPreferences.CellPairArrowFontWidth),
+			FontWeight = ResolveProperty(() => App.UserPreferences.CellPairArrowFontWeight),
+			FontSlant = ResolveProperty(() => App.UserPreferences.CellPairArrowFontSlant)
+		};
 }

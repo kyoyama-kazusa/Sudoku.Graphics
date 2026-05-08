@@ -538,6 +538,15 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Comparison.
+        /// </summary>
+        public static string ItemType_CellPairText_ComparisonOperator {
+            get {
+                return ResourceManager.GetString("ItemType_CellPairText_ComparisonOperator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Number.
         /// </summary>
         public static string ItemType_CellPairText_Number {

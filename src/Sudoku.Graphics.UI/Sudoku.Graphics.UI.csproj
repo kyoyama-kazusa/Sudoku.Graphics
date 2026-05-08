@@ -32,6 +32,9 @@
 		<Resource Include="Assets\ToolItems\ToolItem_CellPairText_Arrow.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
+		<Resource Include="Assets\ToolItems\ToolItem_CellPairText_ComparisonOperator.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
 		<Resource Include="Assets\ToolItems\ToolItem_CellPairText_Number.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>

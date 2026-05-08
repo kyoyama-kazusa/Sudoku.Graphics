@@ -396,4 +396,7 @@
   <data name="ItemType_CellPairText_Arrow" xml:space="preserve">
     <value>Arrow</value>
   </data>
+  <data name="ItemType_CellPairText_ComparisonOperator" xml:space="preserve">
+    <value>Comparison</value>
+  </data>
 </root>

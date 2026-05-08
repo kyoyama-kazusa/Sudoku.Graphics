@@ -391,4 +391,7 @@
   <data name="ItemType_CellPairText_Arrow" xml:space="preserve">
     <value>箭头</value>
   </data>
+  <data name="ItemType_CellPairText_ComparisonOperator" xml:space="preserve">
+    <value>比较运算</value>
+  </data>
 </root>
