@@ -81,6 +81,7 @@
 					InputGestureText="Ctrl+S" />
 				<MenuItem
 					Header="{x:Static p:LocalizationResources.MainWindow_MenuItem_ClearAllItems}"
+					Foreground="Orange"
 					Command="{Binding ClearAllItemsCommand}" />
 				<Separator />
 				<MenuItem
@@ -95,6 +96,7 @@
 				<MenuItem
 					Header="{x:Static p:LocalizationResources.MainWindow_MenuItem_Quit}"
 					Command="{Binding QuitCommand}"
+					Foreground="Red"
 					InputGestureText="Alt+F4" />
 			</MenuItem>
 			<MenuItem Header="{x:Static p:LocalizationResources.MainWindow_MenuItem_About}">
