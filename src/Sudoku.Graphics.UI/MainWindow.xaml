@@ -79,6 +79,9 @@
 					Header="{x:Static p:LocalizationResources.MainWindow_MenuItem_SaveCanvas}"
 					Command="{Binding SaveCanvasCommand}"
 					InputGestureText="Ctrl+S" />
+				<MenuItem
+					Header="{x:Static p:LocalizationResources.MainWindow_MenuItem_ClearAllItems}"
+					Command="{Binding ClearAllItemsCommand}" />
 				<Separator />
 				<MenuItem
 					Header="{x:Static p:LocalizationResources.MainWindow_MenuItem_LoadCanvasFromLocal}"
@@ -111,10 +114,7 @@
 		</Popup>
 		<Popup x:Name="TetrominoSelectorPopup">
 			<Border Style="{StaticResource PopupBorderStyle}">
-				<c:ItemSelectorPanel
-					x:Name="TetrominoSelectorPanel"
-					Style="{StaticResource PanelStyle}"
-					ColumnsCount="4">
+				<c:ItemSelectorPanel x:Name="TetrominoSelectorPanel" Style="{StaticResource PanelStyle}" ColumnsCount="4">
 					<c:ItemSelectorPanel.ItemTemplate>
 						<DataTemplate DataType="vm:TetrominoDisplayItem">
 							<Image Source="{Binding Icon}" />
@@ -125,10 +125,7 @@
 		</Popup>
 		<Popup x:Name="DiceSelectorPopup">
 			<Border Style="{StaticResource PopupBorderStyle}">
-				<c:ItemSelectorPanel
-					x:Name="DiceSelectorPanel"
-					Style="{StaticResource PanelStyle}"
-					ColumnsCount="3">
+				<c:ItemSelectorPanel x:Name="DiceSelectorPanel" Style="{StaticResource PanelStyle}" ColumnsCount="3">
 					<c:ItemSelectorPanel.ItemTemplate>
 						<DataTemplate DataType="vm:DiceDisplayItem">
 							<Image Source="{Binding Icon}" />
@@ -163,10 +160,7 @@
 		</Popup>
 		<Popup x:Name="SurroundingTrianglesPopup">
 			<Border Style="{StaticResource PopupBorderStyle}">
-				<c:ItemSelectorPanel
-					x:Name="SurroundingTrianglesPanel"
-					Style="{StaticResource PanelStyle}"
-					ColumnsCount="6">
+				<c:ItemSelectorPanel x:Name="SurroundingTrianglesPanel" Style="{StaticResource PanelStyle}" ColumnsCount="6">
 					<c:ItemSelectorPanel.ItemTemplate>
 						<DataTemplate DataType="vm:SurroundingTrianglesDisplayItem">
 							<Image Source="{Binding Icon}" />
@@ -177,10 +171,7 @@
 		</Popup>
 		<Popup x:Name="PolygonPopup">
 			<Border Style="{StaticResource PopupBorderStyle}">
-				<c:ItemSelectorPanel
-					x:Name="PolygonPanel"
-					Style="{StaticResource PanelStyle}"
-					ColumnsCount="6">
+				<c:ItemSelectorPanel x:Name="PolygonPanel" Style="{StaticResource PanelStyle}" ColumnsCount="6">
 					<c:ItemSelectorPanel.ItemTemplate>
 						<DataTemplate DataType="vm:PolygonDisplayItem">
 							<Image Source="{Binding Icon}" />
@@ -191,10 +182,7 @@
 		</Popup>
 		<Popup x:Name="MoonPhasePopup">
 			<Border Style="{StaticResource PopupBorderStyle}">
-				<c:ItemSelectorPanel
-					x:Name="MoonPhasePanel"
-					Style="{StaticResource PanelStyle}"
-					ColumnsCount="6">
+				<c:ItemSelectorPanel x:Name="MoonPhasePanel" Style="{StaticResource PanelStyle}" ColumnsCount="6">
 					<c:ItemSelectorPanel.ItemTemplate>
 						<DataTemplate DataType="vm:MoonPhaseDisplayItem">
 							<Image Source="{Binding Icon}" />
@@ -205,10 +193,7 @@
 		</Popup>
 		<Popup x:Name="CellTrianglePopup">
 			<Border Style="{StaticResource PopupBorderStyle}">
-				<c:ItemSelectorPanel
-					x:Name="CellTrianglePanel"
-					Style="{StaticResource PanelStyle}"
-					ColumnsCount="4">
+				<c:ItemSelectorPanel x:Name="CellTrianglePanel" Style="{StaticResource PanelStyle}" ColumnsCount="4">
 					<c:ItemSelectorPanel.ItemTemplate>
 						<DataTemplate DataType="vm:CellDirectionBasedDisplayItem">
 							<Image Source="{Binding Icon}" />
@@ -219,10 +204,7 @@
 		</Popup>
 		<Popup x:Name="CellArrowTrianglePopup">
 			<Border Style="{StaticResource PopupBorderStyle}">
-				<c:ItemSelectorPanel
-					x:Name="CellArrowTrianglePanel"
-					Style="{StaticResource PanelStyle}"
-					ColumnsCount="4">
+				<c:ItemSelectorPanel x:Name="CellArrowTrianglePanel" Style="{StaticResource PanelStyle}" ColumnsCount="4">
 					<c:ItemSelectorPanel.ItemTemplate>
 						<DataTemplate DataType="vm:CellDirectionBasedDisplayItem">
 							<Image Source="{Binding Icon}" />
@@ -233,10 +215,7 @@
 		</Popup>
 		<Popup x:Name="CellArrowPopup">
 			<Border Style="{StaticResource PopupBorderStyle}">
-				<c:ItemSelectorPanel
-					x:Name="CellArrowPanel"
-					Style="{StaticResource PanelStyle}"
-					ColumnsCount="4">
+				<c:ItemSelectorPanel x:Name="CellArrowPanel" Style="{StaticResource PanelStyle}" ColumnsCount="4">
 					<c:ItemSelectorPanel.ItemTemplate>
 						<DataTemplate DataType="vm:CellDirectionBasedDisplayItem">
 							<Image Source="{Binding Icon}" />
@@ -247,10 +226,7 @@
 		</Popup>
 		<Popup x:Name="CellApexCornerTrianglePopup">
 			<Border Style="{StaticResource PopupBorderStyle}">
-				<c:ItemSelectorPanel
-					x:Name="CellApexCornerTrianglePanel"
-					Style="{StaticResource PanelStyle}"
-					ColumnsCount="4">
+				<c:ItemSelectorPanel x:Name="CellApexCornerTrianglePanel" Style="{StaticResource PanelStyle}" ColumnsCount="4">
 					<c:ItemSelectorPanel.ItemTemplate>
 						<DataTemplate DataType="vm:CellApexCornerTriangleDisplayItem">
 							<Image Source="{Binding Icon}" />
@@ -261,10 +237,7 @@
 		</Popup>
 		<Popup x:Name="CellBisectorLinePopup">
 			<Border Style="{StaticResource PopupBorderStyle}">
-				<c:ItemSelectorPanel
-					x:Name="CellBisectorLinePanel"
-					Style="{StaticResource PanelStyle}"
-					ColumnsCount="4">
+				<c:ItemSelectorPanel x:Name="CellBisectorLinePanel" Style="{StaticResource PanelStyle}" ColumnsCount="2">
 					<c:ItemSelectorPanel.ItemTemplate>
 						<DataTemplate DataType="vm:CellBisectorLineDisplayItem">
 							<Image Source="{Binding Icon}" />
@@ -275,10 +248,7 @@
 		</Popup>
 		<Popup x:Name="CellHexagonPopup">
 			<Border Style="{StaticResource PopupBorderStyle}">
-				<c:ItemSelectorPanel
-					x:Name="CellHexagonPanel"
-					Style="{StaticResource PanelStyle}"
-					ColumnsCount="2">
+				<c:ItemSelectorPanel x:Name="CellHexagonPanel" Style="{StaticResource PanelStyle}" ColumnsCount="2">
 					<c:ItemSelectorPanel.ItemTemplate>
 						<DataTemplate DataType="vm:CellHexagonDisplayItem">
 							<Image Source="{Binding Icon}" />
@@ -289,10 +259,7 @@
 		</Popup>
 		<Popup x:Name="CellSevenSegmentDisplayPopup">
 			<Border Style="{StaticResource PopupBorderStyle}">
-				<c:ItemSelectorPanel
-					x:Name="CellSevenSegmentDisplayPanel"
-					Style="{StaticResource PanelStyle}"
-					ColumnsCount="3">
+				<c:ItemSelectorPanel x:Name="CellSevenSegmentDisplayPanel" Style="{StaticResource PanelStyle}" ColumnsCount="3">
 					<c:ItemSelectorPanel.ItemTemplate>
 						<DataTemplate DataType="vm:CellSevenSegmentDisplayDisplayItem">
 							<Image Source="{Binding Icon}" />
@@ -303,10 +270,7 @@
 		</Popup>
 		<Popup x:Name="CellBorderAlignedTrianglePopup">
 			<Border Style="{StaticResource PopupBorderStyle}">
-				<c:ItemSelectorPanel
-					x:Name="CellBorderAlignedTrianglePanel"
-					Style="{StaticResource PanelStyle}"
-					ColumnsCount="4">
+				<c:ItemSelectorPanel x:Name="CellBorderAlignedTrianglePanel" Style="{StaticResource PanelStyle}" ColumnsCount="4">
 					<c:ItemSelectorPanel.ItemTemplate>
 						<DataTemplate DataType="vm:BorderAlignedTriangleDisplayItem">
 							<Image Source="{Binding Icon}" />
@@ -317,10 +281,7 @@
 		</Popup>
 		<Popup x:Name="CellBorderAlignedArrowPopup">
 			<Border Style="{StaticResource PopupBorderStyle}">
-				<c:ItemSelectorPanel
-					x:Name="CellBorderAlignedArrowPanel"
-					Style="{StaticResource PanelStyle}"
-					ColumnsCount="4">
+				<c:ItemSelectorPanel x:Name="CellBorderAlignedArrowPanel" Style="{StaticResource PanelStyle}" ColumnsCount="4">
 					<c:ItemSelectorPanel.ItemTemplate>
 						<DataTemplate DataType="vm:BorderAlignedArrowDisplayItem">
 							<Image Source="{Binding Icon}" />
@@ -331,10 +292,7 @@
 		</Popup>
 		<Popup x:Name="CellLoopSegmentLinePopup">
 			<Border Style="{StaticResource PopupBorderStyle}">
-				<c:ItemSelectorPanel
-					x:Name="CellLoopSegmentLinePanel"
-					Style="{StaticResource PanelStyle}"
-					ColumnsCount="4">
+				<c:ItemSelectorPanel x:Name="CellLoopSegmentLinePanel" Style="{StaticResource PanelStyle}" ColumnsCount="4">
 					<c:ItemSelectorPanel.ItemTemplate>
 						<DataTemplate DataType="vm:LoopSegmentLineDisplayItem">
 							<Image Source="{Binding Icon}" />
@@ -345,10 +303,7 @@
 		</Popup>
 		<Popup x:Name="CellSuitPopup">
 			<Border Style="{StaticResource PopupBorderStyle}">
-				<c:ItemSelectorPanel
-					x:Name="CellSuitPanel"
-					Style="{StaticResource PanelStyle}"
-					ColumnsCount="4">
+				<c:ItemSelectorPanel x:Name="CellSuitPanel" Style="{StaticResource PanelStyle}" ColumnsCount="4">
 					<c:ItemSelectorPanel.ItemTemplate>
 						<DataTemplate DataType="vm:CellSuitDisplayItem">
 							<Image Source="{Binding Icon}" />
@@ -359,10 +314,7 @@
 		</Popup>
 		<Popup x:Name="CellZodiacPopup">
 			<Border Style="{StaticResource PopupBorderStyle}">
-				<c:ItemSelectorPanel
-					x:Name="CellZodiacPanel"
-					Style="{StaticResource PanelStyle}"
-					ColumnsCount="4">
+				<c:ItemSelectorPanel x:Name="CellZodiacPanel" Style="{StaticResource PanelStyle}" ColumnsCount="4">
 					<c:ItemSelectorPanel.ItemTemplate>
 						<DataTemplate DataType="vm:CellZodiacDisplayItem">
 							<Image Source="{Binding Icon}" />
@@ -373,10 +325,7 @@
 		</Popup>
 		<Popup x:Name="CellArrowTextPopup">
 			<Border Style="{StaticResource PopupBorderStyle}">
-				<c:ItemSelectorPanel
-					x:Name="CellArrowTextPanel"
-					Style="{StaticResource PanelStyle}"
-					ColumnsCount="4">
+				<c:ItemSelectorPanel x:Name="CellArrowTextPanel" Style="{StaticResource PanelStyle}" ColumnsCount="4">
 					<c:ItemSelectorPanel.ItemTemplate>
 						<DataTemplate DataType="vm:CellDirectionBasedDisplayItem">
 							<Image Source="{Binding Icon}" />
@@ -387,10 +336,7 @@
 		</Popup>
 		<Popup x:Name="CellBorderAlignedDigitPopup">
 			<Border Style="{StaticResource PopupBorderStyle}">
-				<c:ItemSelectorPanel
-					x:Name="CellBorderAlignedDigitPanel"
-					Style="{StaticResource PanelStyle}"
-					ColumnsCount="9">
+				<c:ItemSelectorPanel x:Name="CellBorderAlignedDigitPanel" Style="{StaticResource PanelStyle}" ColumnsCount="9">
 					<c:ItemSelectorPanel.ItemTemplate>
 						<DataTemplate DataType="vm:CellBorderAlignedDigitDisplayItem">
 							<Image Source="{Binding Icon}" />

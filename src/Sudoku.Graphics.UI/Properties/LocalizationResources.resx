@@ -405,4 +405,7 @@
   <data name="MainWindow_CellPairArbitraryText" xml:space="preserve">
     <value>Input any text:</value>
   </data>
+  <data name="MainWindow_MenuItem_ClearAllItems" xml:space="preserve">
+    <value>Clear all items</value>
+  </data>
 </root>

@@ -34,6 +34,15 @@ public partial class MainWindow : Window
 	private ItemSet _items = [];
 
 	/// <summary>
+	/// The backing snapshot. The value can only be initialized in methods
+	/// <list type="bullet">
+	/// <item><see cref="OpenCreateCanvasWindowAndRenderPicture"/></item>
+	/// <item><see cref="ClosePicture"/></item>
+	/// </list>
+	/// </summary>
+	private Snapshot? _snapshot;
+
+	/// <summary>
 	/// The operation handler context.
 	/// </summary>
 	private OperationHandlerContext? _operationHandlerContext;
@@ -78,6 +87,8 @@ public partial class MainWindow : Window
 
 	public ICommand LoadFromLocalCommand => new AsyncRelayCommand(LoadFromJsonFileAsync);
 
+	public ICommand ClearAllItemsCommand => new RelayCommand(ClearAllItemsExceptGridTemplateLines);
+
 	public ICommand QuitCommand => new RelayCommand(Close);
 
 
@@ -95,10 +106,14 @@ public partial class MainWindow : Window
 			return;
 		}
 
-		_items.Add(new BackgroundFillItem { Color = ResolveProperty(() => App.UserPreferences.BackgroundFillColor) });
-		_items.Add(new TemplateLineItem());
-		CurrentCanvas = new(window.CreateTemplate(out var grid));
+		var backgroundFill = new BackgroundFillItem { Color = ResolveProperty(() => App.UserPreferences.BackgroundFillColor) };
+		var templateLine = new TemplateLineItem();
+		_items.Add(backgroundFill);
+		_items.Add(templateLine);
+		var defaultTemplate = window.CreateTemplate(out var grid);
+		CurrentCanvas = new(defaultTemplate);
 		CurrentGrid = grid;
+		_snapshot = new(backgroundFill, templateLine, defaultTemplate, grid);
 
 		RenderPicture();
 	}
@@ -119,6 +134,7 @@ public partial class MainWindow : Window
 		GridImageSource = null;
 		CurrentCanvas = null;
 		CurrentGrid = null;
+		_snapshot = null;
 		_items.Clear();
 	}
 
@@ -250,6 +266,22 @@ public partial class MainWindow : Window
 		CurrentCanvas = new(templates);
 		_items = items;
 
+		RenderPicture();
+	}
+
+	private void ClearAllItemsExceptGridTemplateLines()
+	{
+		if (_snapshot is not var (backgroundFill, templateLine, defaultTemplate, grid))
+		{
+			return;
+		}
+
+		ClosePicture();
+
+		_items.Add(backgroundFill);
+		_items.Add(templateLine);
+		CurrentCanvas = new(defaultTemplate);
+		CurrentGrid = grid;
 		RenderPicture();
 	}
 

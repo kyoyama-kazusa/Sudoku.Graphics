@@ -400,4 +400,7 @@
   <data name="MainWindow_CellPairArbitraryText" xml:space="preserve">
     <value>请输入文本：</value>
   </data>
+  <data name="MainWindow_MenuItem_ClearAllItems" xml:space="preserve">
+    <value>清空此画布的全部内容</value>
+  </data>
 </root>

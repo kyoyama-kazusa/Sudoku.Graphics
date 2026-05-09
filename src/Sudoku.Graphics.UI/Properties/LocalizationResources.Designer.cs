@@ -763,6 +763,15 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Clear all items.
+        /// </summary>
+        public static string MainWindow_MenuItem_ClearAllItems {
+            get {
+                return ResourceManager.GetString("MainWindow_MenuItem_ClearAllItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Close this canvas.
         /// </summary>
         public static string MainWindow_MenuItem_CloseCanvas {
