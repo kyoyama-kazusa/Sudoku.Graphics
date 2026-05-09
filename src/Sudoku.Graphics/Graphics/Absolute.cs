@@ -191,7 +191,7 @@ public readonly struct Absolute(int value) : IInteger<Absolute>, ILocator<Absolu
 	/// <returns>The direction instance.</returns>
 	public static Direction8 GetAdjacentRelation(Absolute left, Absolute right, PointMapper mapper)
 	{
-		var columnsCount = mapper.ColumnsCount;
+		var columnsCount = mapper.AbsoluteColumnsCount;
 		var leftRow = left / columnsCount;
 		var leftColumn = left % columnsCount;
 		var rightRow = right / columnsCount;

@@ -709,7 +709,7 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Adjacent Cell Pair Items.
+        ///   Looks up a localized string similar to Cell Pair Items.
         /// </summary>
         public static string ItemTypeGroup_CellPair_TextIcon {
             get {

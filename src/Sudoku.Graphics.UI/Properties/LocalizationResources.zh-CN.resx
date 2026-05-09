@@ -380,7 +380,7 @@
     <value>罗马数字</value>
   </data>
   <data name="ItemTypeGroup_CellPair_TextIcon" xml:space="preserve">
-    <value>相邻单元格对 - 图形</value>
+    <value>单元格对 - 图形</value>
   </data>
   <data name="MainWindow_CellPairNumber" xml:space="preserve">
     <value>数字：</value>
