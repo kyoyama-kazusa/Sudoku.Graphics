@@ -1,4 +1,6 @@
-﻿namespace Sudoku.Graphics.UI.OperationHandlers.ItemSelectorPanelBased;
+﻿#undef HORIZONTAL_AND_VERTICAL
+
+namespace Sudoku.Graphics.UI.OperationHandlers.ItemSelectorPanelBased;
 
 /// <summary>
 /// Represents an operation handler that produces <see cref="CellBisectorLineMarkItem"/> instances.
@@ -13,8 +15,10 @@ public sealed class CellBisectorLineOperationHandler : CellBasedItemSelectorPane
 	/// <inheritdoc/>
 	protected override ReadOnlySpan<Func<IIconDisplayItem>> IconsFactory
 		=> (Func<IIconDisplayItem>[])[
+#if HORIZONTAL_AND_VERTICAL
 			static () => new BisectorLineDisplayItem { Orientation = Orientation4.Horizontal },
 			static () => new BisectorLineDisplayItem { Orientation = Orientation4.Vertical },
+#endif
 			static () => new BisectorLineDisplayItem { Orientation = Orientation4.Slash },
 			static () => new BisectorLineDisplayItem { Orientation = Orientation4.Backslash }
 		];

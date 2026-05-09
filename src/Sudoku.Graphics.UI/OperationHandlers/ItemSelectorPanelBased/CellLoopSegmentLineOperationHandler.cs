@@ -14,11 +14,17 @@ public sealed class CellLoopSegmentLineOperationHandler : CellBasedItemSelectorP
 
 	/// <inheritdoc/>
 	protected override ReadOnlySpan<Func<IIconDisplayItem>> IconsFactory
-		=> (Func<IIconDisplayItem>[])[
-			static () => new LoopSegmentLineDisplayItem { Direction = Direction4.Up },
-			static () => new LoopSegmentLineDisplayItem { Direction = Direction4.Down },
-			static () => new LoopSegmentLineDisplayItem { Direction = Direction4.Left },
-			static () => new LoopSegmentLineDisplayItem { Direction = Direction4.Right }
+		=> (Func<LoopSegmentLineDisplayItem>[])[
+			static () => new() { Direction = Direction4.Up },
+			static () => new() { Direction = Direction4.Down },
+			static () => new() { Direction = Direction4.Left },
+			static () => new() { Direction = Direction4.Right },
+			static () => new() { Direction = Direction4.Up | Direction4.Down },
+			static () => new() { Direction = Direction4.Left | Direction4.Right },
+			static () => new() { Direction = Direction4.Up | Direction4.Left },
+			static () => new() { Direction = Direction4.Up | Direction4.Right },
+			static () => new() { Direction = Direction4.Down | Direction4.Left },
+			static () => new() { Direction = Direction4.Down | Direction4.Right }
 		];
 
 	/// <inheritdoc/>
