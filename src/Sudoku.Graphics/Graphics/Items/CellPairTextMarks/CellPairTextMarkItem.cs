@@ -77,31 +77,31 @@ public abstract record CellPairTextMarkItem : Item, IItem_FontRelatedProperties,
 		using var typeface = SKTypeface.FromFamilyName(FontName, FontWeight, FontWidth, FontSlant);
 		var fontSize = FontSizeScale.Measure(cellSize);
 		using var font = new SKFont(typeface, fontSize) { Subpixel = true };
-		using var textStrokePaint = FontColor.Alpha == 0 ? null : new SKPaint
-		{
-			IsAntialias = true,
-			Style = SKPaintStyle.Fill,
-			Color = FontColor,
-			StrokeWidth = fontSize,
-			StrokeCap = SKStrokeCap.Round,
-			StrokeJoin = SKStrokeJoin.Round
-		};
-		using var coverStrokePaint = StrokeColor.Alpha == 0 ? null : new SKPaint
-		{
-			IsAntialias = true,
-			Style = SKPaintStyle.Stroke,
-			Color = StrokeColor,
-			StrokeWidth = StrokeWidthScale.Measure(cellSize),
-			StrokeCap = SKStrokeCap.Round,
-			StrokeJoin = SKStrokeJoin.Round
-		};
-		using var coverFillPaint = FillColor.Alpha == 0 ? null : new SKPaint
-		{
-			IsAntialias = true,
-			Style = SKPaintStyle.Fill,
-			Color = FillColor
-		};
-
+		using var textStrokePaint = FontColor.Alpha == 0
+			? null
+			: new SKPaint
+			{
+				IsAntialias = true,
+				Style = SKPaintStyle.Fill,
+				Color = FontColor,
+				StrokeWidth = fontSize,
+				StrokeCap = SKStrokeCap.Round,
+				StrokeJoin = SKStrokeJoin.Round
+			};
+		using var coverStrokePaint = StrokeColor.Alpha == 0
+			? null
+			: new SKPaint
+			{
+				IsAntialias = true,
+				Style = SKPaintStyle.Stroke,
+				Color = StrokeColor,
+				StrokeWidth = StrokeWidthScale.Measure(cellSize),
+				StrokeCap = SKStrokeCap.Round,
+				StrokeJoin = SKStrokeJoin.Round
+			};
+		using var coverFillPaint = FillColor.Alpha == 0
+			? null
+			: new SKPaint { IsAntialias = true, Style = SKPaintStyle.Fill, Color = FillColor };
 		canvas.BackingCanvas.DrawTextWithCover(
 			center.AlignYAsBaseline(font),
 			PrintingText,
