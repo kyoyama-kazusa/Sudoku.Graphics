@@ -8,7 +8,7 @@ public sealed class OperationHandlerContext
 	/// <summary>
 	/// Indicates the mouse point pressed.
 	/// </summary>
-	public required Point PointPressed { get; init; }
+	public required Point PointPressed { get; set; }
 
 	/// <summary>
 	/// Indicates the owner window.

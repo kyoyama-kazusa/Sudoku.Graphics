@@ -408,4 +408,10 @@
   <data name="MainWindow_MenuItem_ClearAllItems" xml:space="preserve">
     <value>Clear all items</value>
   </data>
+  <data name="MainWindow_CellPairInputBridgeLinesCount" xml:space="preserve">
+    <value>Input the number of links:</value>
+  </data>
+  <data name="ItemType_CellPair_BridgeLine" xml:space="preserve">
+    <value>Bridge</value>
+  </data>
 </root>

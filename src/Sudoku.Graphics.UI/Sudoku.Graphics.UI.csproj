@@ -11,10 +11,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <None Remove="Assets\ToolItems\ToolItem_CellPairText_Raw.png" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
 		<PackageReference Include="SkiaSharp.Views.WPF" Version="3.119.3-preview.1.1" />
 	</ItemGroup>
@@ -43,9 +39,12 @@
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
 		<Resource Include="Assets\ToolItems\ToolItem_CellPairText_Raw.png">
-		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
 		<Resource Include="Assets\ToolItems\ToolItem_CellPairText_RomanNumeral.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Assets\ToolItems\ToolItem_CellPair_BridgeLine.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
 		<Resource Include="Assets\ToolItems\ToolItem_CellText_Arrow.png">

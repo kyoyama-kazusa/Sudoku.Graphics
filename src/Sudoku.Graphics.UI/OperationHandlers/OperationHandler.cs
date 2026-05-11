@@ -6,6 +6,19 @@
 /// <seealso cref="Item"/>
 public abstract class OperationHandler
 {
+	/// <summary>
+	/// Indicates whether the operation handler can be reused in different events, mouse down and up.
+	/// By default it's <see langword="true"/>.
+	/// </summary>
+	public virtual bool UseDifferentInstancesBetweenEvents => true;
+
+	/// <summary>
+	/// Indicates whether the operation handler will differ events, mouse down and up.
+	/// By default it's <see langword="false"/>. If <see langword="false"/>, clicked point on mouse down event is applied in both events.
+	/// </summary>
+	public virtual bool DiffersMousePositionsOnEvents => false;
+
+
 #pragma warning disable CS0809
 	/// <inheritdoc/>
 	[Obsolete($"This type does not support '{nameof(Equals)}' method.", true)]

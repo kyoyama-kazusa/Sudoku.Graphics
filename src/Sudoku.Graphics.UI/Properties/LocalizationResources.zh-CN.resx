@@ -403,4 +403,10 @@
   <data name="MainWindow_MenuItem_ClearAllItems" xml:space="preserve">
     <value>清空此画布的全部内容</value>
   </data>
+  <data name="MainWindow_CellPairInputBridgeLinesCount" xml:space="preserve">
+    <value>请输入连接线的数量：</value>
+  </data>
+  <data name="ItemType_CellPair_BridgeLine" xml:space="preserve">
+    <value>数桥连线</value>
+  </data>
 </root>

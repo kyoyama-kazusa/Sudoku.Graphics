@@ -529,6 +529,15 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bridge.
+        /// </summary>
+        public static string ItemType_CellPair_BridgeLine {
+            get {
+                return ResourceManager.GetString("ItemType_CellPair_BridgeLine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Arrow.
         /// </summary>
         public static string ItemType_CellPairText_Arrow {
@@ -723,6 +732,15 @@ namespace Sudoku.Graphics.UI.Properties {
         public static string MainWindow_CellPairArbitraryText {
             get {
                 return ResourceManager.GetString("MainWindow_CellPairArbitraryText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Input the number of links:.
+        /// </summary>
+        public static string MainWindow_CellPairInputBridgeLinesCount {
+            get {
+                return ResourceManager.GetString("MainWindow_CellPairInputBridgeLinesCount", resourceCulture);
             }
         }
         

@@ -47,6 +47,11 @@ public partial class MainWindow : Window
 	/// </summary>
 	private OperationHandlerContext? _operationHandlerContext;
 
+	/// <summary>
+	/// The previous operation handler.
+	/// </summary>
+	private OperationHandler? _previousOperationHandler;
+
 
 	public MainWindow()
 	{
@@ -387,35 +392,41 @@ public partial class MainWindow : Window
 	}
 
 	[MemberNotNull(nameof(_operationHandlerContext))]
+	[MemberNotNull(nameof(_previousOperationHandler))]
 	private void Image_MouseDown(object sender, MouseButtonEventArgs e)
 	{
-		_operationHandlerContext = new()
-		{
-			Items = _items,
-			OwnerWindow = this,
-			MouseEventArgs = e,
-			PointPressed = e.Position
-		};
+		_operationHandlerContext = new() { Items = _items, OwnerWindow = this, MouseEventArgs = e, PointPressed = e.Position };
 
 		var handler = ItemOperationHandlerFactory[CurrentItemType]();
 		if (handler.IsAvailable(_operationHandlerContext))
 		{
 			handler.OnMouseButtonPressed(_operationHandlerContext);
 		}
+
+		_previousOperationHandler = handler;
 	}
 
 	private void Image_MouseUp(object sender, MouseButtonEventArgs e)
 	{
-		if (_operationHandlerContext is null)
+		if (_operationHandlerContext is null || _previousOperationHandler is null)
 		{
 			return;
 		}
 
+		var newInstance = ItemOperationHandlerFactory[CurrentItemType]();
+		var handler = newInstance.UseDifferentInstancesBetweenEvents ? newInstance : _previousOperationHandler;
 		_operationHandlerContext.MouseEventArgs = e;
-		var handler = ItemOperationHandlerFactory[CurrentItemType]();
+		if (handler.DiffersMousePositionsOnEvents)
+		{
+			_operationHandlerContext.PointPressed = e.Position;
+		}
+
 		if (handler.IsAvailable(_operationHandlerContext))
 		{
 			handler.OnMouseButtonReleased(_operationHandlerContext);
 		}
+
+		_operationHandlerContext = null;
+		_previousOperationHandler = null;
 	}
 }

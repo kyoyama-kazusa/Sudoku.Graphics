@@ -396,6 +396,14 @@
 				</StackPanel>
 			</Border>
 		</Popup>
+		<Popup x:Name="CellPairBridgeLinesCountPopup">
+			<Border Style="{StaticResource PopupBorderStyle}">
+				<StackPanel>
+					<TextBlock Text="{x:Static p:LocalizationResources.MainWindow_CellPairInputBridgeLinesCount}" FontSize="18" Margin="0,0,0,6" />
+					<c:IntegerBox x:Name="CellPairBridgeLinesCountBox" MinValue="1" MaxValue="4" Margin="0,0,0,6" FontSize="18" />
+				</StackPanel>
+			</Border>
+		</Popup>
 		<!--#endregion-->
 
 		<!--#region Grid view-->

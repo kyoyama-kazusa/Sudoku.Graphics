@@ -505,4 +505,17 @@ public static class ItemsFactory
 			FontWeight = ResolveProperty(() => App.UserPreferences.CellPairRawTextFontWeight),
 			FontSlant = ResolveProperty(() => App.UserPreferences.CellPairRawTextFontSlant)
 		};
+
+	public static CellPairBridgeLineMarkItem CellPairBridgeLine(Absolute cell1, Absolute cell2, int linesCount)
+		=> new()
+		{
+			Cell1 = cell1,
+			Cell2 = cell2,
+			LinesCount = linesCount,
+			FillColor = ResolveProperty(() => App.UserPreferences.DefaultShapeFillColor),
+			CircleDiameterScale = 0.9M,
+			StrokeColor = SKColors.Black,
+			LinesMaxGapScale = .2M,
+			StrokeWidthScale = 0.06M
+		};
 }

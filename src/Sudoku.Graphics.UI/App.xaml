@@ -61,6 +61,7 @@
 				<vm:ToolItem ItemType="CellPairText_ComparisonOperator" Icon="/Assets/ToolItems/ToolItem_CellPairText_ComparisonOperator.png" />
 				<vm:ToolItem ItemType="CellPairText_Arrow" Icon="/Assets/ToolItems/ToolItem_CellPairText_Arrow.png" />
 				<vm:ToolItem ItemType="CellPairText_Raw" Icon="/Assets/ToolItems/ToolItem_CellPairText_Raw.png" />
+				<vm:ToolItem ItemType="CellPair_BridgeLine" Icon="/Assets/ToolItems/ToolItem_CellPair_BridgeLine.png" />
 			</vm:ToolItemGroup>
 		</vm:ToolItemGroupCollection>
 
