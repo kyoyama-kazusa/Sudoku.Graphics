@@ -14,9 +14,10 @@ public abstract class OperationHandler
 
 	/// <summary>
 	/// Indicates whether the operation handler will differ events, mouse down and up.
-	/// By default it's <see langword="false"/>. If <see langword="false"/>, clicked point on mouse down event is applied in both events.
+	/// By default it's <see langword="false"/>.
+	/// If <see langword="false"/>, clicked point on mouse down event is applied in both events.
 	/// </summary>
-	public virtual bool DiffersMousePositionsOnEvents => false;
+	public virtual bool DiffersMousePositionsBetweenEvents => false;
 
 
 #pragma warning disable CS0809

@@ -512,10 +512,10 @@ public static class ItemsFactory
 			Cell1 = cell1,
 			Cell2 = cell2,
 			LinesCount = linesCount,
-			FillColor = ResolveProperty(() => App.UserPreferences.DefaultShapeFillColor),
-			CircleDiameterScale = 0.9M,
-			StrokeColor = SKColors.Black,
-			LinesMaxGapScale = .2M,
-			StrokeWidthScale = 0.06M
+			FillColor = ResolveProperty(() => App.UserPreferences.CellPairBridgeLinesCircleFillColor),
+			CircleDiameterScale = ResolveProperty(() => App.UserPreferences.CellPairBridgeLinesCircleDiameterScale),
+			StrokeColor = ResolveProperty(() => App.UserPreferences.CellPairBridgeLinesStrokeColor),
+			LinesMaxGapScale = ResolveProperty(() => App.UserPreferences.CellPairBridgeLinesMaxGapScale),
+			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellPairBridgeLinesStrokeWidthScale)
 		};
 }

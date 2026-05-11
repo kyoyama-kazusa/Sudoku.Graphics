@@ -416,7 +416,7 @@ public partial class MainWindow : Window
 		var newInstance = ItemOperationHandlerFactory[CurrentItemType]();
 		var handler = newInstance.UseDifferentInstancesBetweenEvents ? newInstance : _previousOperationHandler;
 		_operationHandlerContext.MouseEventArgs = e;
-		if (handler.DiffersMousePositionsOnEvents)
+		if (handler.DiffersMousePositionsBetweenEvents)
 		{
 			_operationHandlerContext.PointPressed = e.Position;
 		}
