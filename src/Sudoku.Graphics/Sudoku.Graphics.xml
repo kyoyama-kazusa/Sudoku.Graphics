@@ -3349,14 +3349,10 @@
             </summary>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairMarkItem.Cell1">
-            <summary>
-            Indicates the first cell.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairMarkItem.Cell2">
-            <summary>
-            Indicates the second cell.
-            </summary>
+            <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairMarkItem.StrokeWidthScale">
             <summary>

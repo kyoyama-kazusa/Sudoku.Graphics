@@ -80,18 +80,22 @@ public sealed class CellPairBridgeLineOperationHandler : OperationHandler
 			window,
 			items =>
 			{
-				if (item is null)
-				{
-					items.Clear(_startCell, _endCell, ItemType.CellPair_BridgeLine);
-					return;
-				}
-
 				var found = items.Find(_startCell, _endCell, ItemType.CellPair_BridgeLine);
-				if (found.Length != 0)
+				var sameItemIsFound = false;
+				foreach (var item in found)
 				{
-					items.RemoveRange(found);
+					if (item is CellPairBridgeLineMarkItem { Cell1: var cell1, Cell2: var cell2, LinesCount: var tempLinesCount }
+						&& (cell1 == _startCell && cell2 == _endCell || cell1 == _endCell && cell2 == _startCell)
+						&& tempLinesCount == linesCount)
+					{
+						sameItemIsFound = true;
+					}
+					items.Remove(item);
 				}
-				items.Add(item);
+				if (!sameItemIsFound)
+				{
+					items.Add(item);
+				}
 			}
 		);
 

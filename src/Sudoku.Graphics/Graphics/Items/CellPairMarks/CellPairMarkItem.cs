@@ -3,21 +3,17 @@
 /// <summary>
 /// Represents a cell pair mark item.
 /// </summary>
-public abstract record CellPairMarkItem : Item, IItem_FontRelatedProperties, IItem_MarkRelatedProperties
+public abstract record CellPairMarkItem : Item, IItem_FontRelatedProperties, IItem_MarkRelatedProperties, IItem_CellPairProperty
 {
 	/// <summary>
 	/// Indicates text font.
 	/// </summary>
 	public virtual string? TextFontName { get; init; }
 
-	/// <summary>
-	/// Indicates the first cell.
-	/// </summary>
+	/// <inheritdoc/>
 	public required Absolute Cell1 { get; init; }
 
-	/// <summary>
-	/// Indicates the second cell.
-	/// </summary>
+	/// <inheritdoc/>
 	public required Absolute Cell2 { get; init; }
 
 	/// <summary>
