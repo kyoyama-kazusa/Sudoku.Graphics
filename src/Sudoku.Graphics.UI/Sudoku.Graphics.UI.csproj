@@ -6,6 +6,7 @@
 		<Nullable>enable</Nullable>
 		<UseWPF>true</UseWPF>
 		<LangVersion>preview</LangVersion>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<NoWarn>NU1701</NoWarn>
 		<ApplicationIcon>Assets\icon.ico</ApplicationIcon>
 	</PropertyGroup>

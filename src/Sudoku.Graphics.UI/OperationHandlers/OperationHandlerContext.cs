@@ -61,35 +61,29 @@ public sealed class OperationHandlerContext
 		return ImageSourcePointMapper.TryGetPoint(point, mapper, out var cell) ? cell : -1;
 	}
 
+	/// <summary>
+	/// When a user clicked a border, this method will calculate which border of two adjacent cells he clicked.
+	/// </summary>
+	/// <returns>Two cells.</returns>
 	public (Absolute Cell1, Absolute Cell2) GetBorder()
 	{
-		if (this is not
-			{
-				PointPressed: var (x, y),
-				OwnerWindow:
-				{
-					MainGrid:
-					{
-						Source: { Width: var sourceWidth, Height: var sourceHeight },
-						ActualWidth: var actualWidth,
-						ActualHeight: var actualHeight
-					},
-					CurrentCanvas.Mapper: var mapper
-				},
-			})
+		unsafe
 		{
-			return (-1, -1);
+			return GetBorderOrCornerCore(&ImageSourcePointMapper.TryGetBorder);
 		}
+	}
 
-		var scaleX = actualWidth / sourceWidth;
-		var scaleY = actualHeight / sourceHeight;
-		var scale = Math.Min(scaleX, scaleY);
-		var offsetX = (actualWidth - sourceWidth * scale) / 2;
-		var offsetY = (actualHeight - sourceHeight * scale) / 2;
-		var originalX = (x - offsetX) / scale;
-		var originalY = (y - offsetY) / scale;
-		var point = new Point(originalX, originalY);
-		return ImageSourcePointMapper.TryGetBorder(point, mapper, out var cell1, out var cell2) ? (cell1, cell2) : (-1, -1);
+	/// <summary>
+	/// When a user clicked a border or corner, this method will calculate which border or corner he clicked.
+	/// This method returns a pair of cells indicating the corner or border shared.
+	/// </summary>
+	/// <returns>Two cells.</returns>
+	public (Absolute Cell1, Absolute Cell2) GetBorderOrCorner()
+	{
+		unsafe
+		{
+			return GetBorderOrCornerCore(&ImageSourcePointMapper.TryGetBorderOrCorner);
+		}
 	}
 
 	/// <summary>
@@ -163,6 +157,46 @@ public sealed class OperationHandlerContext
 		var cellIndex = cellRow * absoluteColumnsCount + cellColumn;
 		return new(cellIndex, subgridSize, innerIndex);
 	}
+
+	/// <summary>
+	/// The backing method of <see cref="GetBorderOrCorner"/> and <see cref="GetBorder"/>.
+	/// </summary>
+	/// <param name="checker">The checker method.</param>
+	/// <returns>A pair of cells.</returns>
+	/// <seealso cref="GetBorder"/>
+	/// <seealso cref="GetBorderOrCorner"/>
+	private unsafe (Absolute Cell1, Absolute Cell2) GetBorderOrCornerCore(
+		[DisallowNull, NotNull] delegate*<Point, PointMapper, out Absolute, out Absolute, bool> checker
+	)
+	{
+		if (this is not
+			{
+				PointPressed: var (x, y),
+				OwnerWindow:
+				{
+					MainGrid:
+					{
+						Source: { Width: var sourceWidth, Height: var sourceHeight },
+						ActualWidth: var actualWidth,
+						ActualHeight: var actualHeight
+					},
+					CurrentCanvas.Mapper: var mapper
+				},
+			})
+		{
+			return (-1, -1);
+		}
+
+		var scaleX = actualWidth / sourceWidth;
+		var scaleY = actualHeight / sourceHeight;
+		var scale = Math.Min(scaleX, scaleY);
+		var offsetX = (actualWidth - sourceWidth * scale) / 2;
+		var offsetY = (actualHeight - sourceHeight * scale) / 2;
+		var originalX = (x - offsetX) / scale;
+		var originalY = (y - offsetY) / scale;
+		var point = new Point(originalX, originalY);
+		return checker(point, mapper, out var cell1, out var cell2) ? (cell1, cell2) : (-1, -1);
+	}
 }
 
 /// <summary>
@@ -205,7 +239,7 @@ file static class ImageSourcePointMapper
 	}
 
 	/// <summary>
-	/// Try to get border clicked. This method will find for the nearest border 
+	/// Try to get border clicked. This method will find for the nearest border to user-clicked point.
 	/// </summary>
 	/// <param name="point">The point.</param>
 	/// <param name="mapper">The mapper instance.</param>
@@ -262,4 +296,134 @@ file static class ImageSourcePointMapper
 		(cell1, cell2) = (-1, -1);
 		return false;
 	}
+
+	/// <summary>
+	/// Try to get border or corner clicked. This method will find for the nearest border to user-clicked point.
+	/// </summary>
+	/// <param name="point">The point.</param>
+	/// <param name="mapper">The mapper instance.</param>
+	/// <param name="cell1">The cell 1 that provides the half of the border.</param>
+	/// <param name="cell2">The cell 2 that provides the other half of the border.</param>
+	/// <returns>A <see cref="bool"/> result indicating whether the border is correctly projected.</returns>
+	public static bool TryGetBorderOrCorner(Point point, PointMapper mapper, out Absolute cell1, out Absolute cell2)
+	{
+		// Find cell clicked.
+		if (!TryGetPoint(point, mapper, out var cell))
+		{
+			goto ReturnFalse;
+		}
+
+		var columnsCount = mapper.AbsoluteColumnsCount;
+		var rowsCount = mapper.AbsoluteRowsCount;
+		var cellRow = cell / columnsCount;
+		var cellColumn = cell % columnsCount;
+
+		// Corner points of the current cell.
+		var topLeft = mapper.GetPoint(cell, Alignment.TopLeft);
+		var topRight = mapper.GetPoint(cell, Alignment.TopRight);
+		var bottomLeft = mapper.GetPoint(cell, Alignment.BottomLeft);
+		var bottomRight = mapper.GetPoint(cell, Alignment.BottomRight);
+
+		// Distances to four borders.
+		var distanceUp = Math.Abs(point.Y - topLeft.Y);
+		var distanceDown = Math.Abs(point.Y - bottomLeft.Y);
+		var distanceLeft = Math.Abs(point.X - topLeft.X);
+		var distanceRight = Math.Abs(point.X - topRight.X);
+
+		// Decide whether this click looks like a corner click. Tune this threshold if needed.
+		const float cellSizeEpsilon = 0.2F;
+		var cornerEpsilon = mapper.CellSize * cellSizeEpsilon;
+		var verticalDistance = Math.Min(distanceUp, distanceDown);
+		var horizontalDistance = Math.Min(distanceLeft, distanceRight);
+		if (Math.Abs(verticalDistance - horizontalDistance) <= cornerEpsilon)
+		{
+			// Find the nearest corner of the current cell.
+			var dTopLeft = squaredDistance(point, topLeft);
+			var dTopRight = squaredDistance(point, topRight);
+			var dBottomLeft = squaredDistance(point, bottomLeft);
+			var dBottomRight = squaredDistance(point, bottomRight);
+
+			var minCornerDistance = Math.Min(Math.Min(dTopLeft, dTopRight), Math.Min(dBottomLeft, dBottomRight));
+
+			var (vertexRow, vertexCol) = minCornerDistance == dTopLeft ? (cellRow, cellColumn)
+				: minCornerDistance == dTopRight ? (cellRow, cellColumn + 1)
+				: minCornerDistance == dBottomLeft ? (cellRow + 1, cellColumn)
+				: (cellRow + 1, cellColumn + 1);
+
+			// A real corner must be shared by 4 cells.
+			if (vertexRow <= 0 || vertexRow >= rowsCount || vertexCol <= 0 || vertexCol >= columnsCount)
+			{
+				goto ReturnFalse;
+			}
+
+			// Four cells around this vertex:
+			// (vertexRow - 1, vertexCol - 1), (vertexRow - 1, vertexCol)
+			// (vertexRow,     vertexCol - 1), (vertexRow,     vertexCol)
+			cell1 = (vertexRow - 1) * columnsCount + (vertexCol - 1);
+			cell2 = vertexRow * columnsCount + vertexCol;
+			return true;
+		}
+
+		// Border mode: same logic as TryGetBorder.
+		var min = Math.Min(Math.Min(distanceUp, distanceDown), Math.Min(distanceLeft, distanceRight));
+		if (min == distanceUp)
+		{
+			(cell1, cell2) = (cell - columnsCount, cell);
+		}
+		else if (min == distanceDown)
+		{
+			(cell1, cell2) = (cell, cell + columnsCount);
+		}
+		else if (min == distanceLeft)
+		{
+			(cell1, cell2) = (cell - 1, cell);
+		}
+		else if (min == distanceRight)
+		{
+			(cell1, cell2) = (cell, cell + 1);
+		}
+		else
+		{
+			goto ReturnFalse;
+		}
+
+		// Check whether border overflows.
+		if (min == distanceUp && cellRow == 0
+			|| min == distanceDown && cellRow == rowsCount - 1
+			|| min == distanceLeft && cellColumn == 0
+			|| min == distanceRight && cellColumn == columnsCount - 1)
+		{
+			goto ReturnFalse;
+		}
+
+		return true;
+
+	ReturnFalse:
+		(cell1, cell2) = (-1, -1);
+		return false;
+
+
+		static double squaredDistance(GenericPoint a, GenericPoint b)
+		{
+			var dx = a.X - b.X;
+			var dy = a.Y - b.Y;
+			return dx * dx + dy * dy;
+		}
+	}
+}
+
+/// <summary>
+/// Represents a generic-typed point.
+/// </summary>
+file readonly union GenericPoint(Point, SKPoint)
+{
+	/// <summary>
+	/// Indicates the point X value.
+	/// </summary>
+	public double X => Value switch { Point p => p.X, SKPoint p => p.X, _ => throw new InvalidOperationException() };
+
+	/// <summary>
+	/// Indicates the point Y value.
+	/// </summary>
+	public double Y => Value switch { Point p => p.Y, SKPoint p => p.Y, _ => throw new InvalidOperationException() };
 }
