@@ -5,17 +5,17 @@ internal partial class Preferences
 	/// <summary>
 	/// Indicates border corner radius used by rendering templates.
 	/// </summary>
-	public Inherited<Scale> TemplateBorderCornerRadius { get; set; } = Inherited<Scale>.FromPropertyName(nameof(DefaultBorderCornerRadius));
+	public Inherited<Scale> TemplateBorderCornerRadius { get; set; } = Inherited<Scale>.FromPropertyName(nameof(DefaultBorderCornerRadiusScale));
 
 	/// <summary>
 	/// Indicates thick line width scale used by rendering templates.
 	/// </summary>
-	public Inherited<Scale> TemplateThickLineWidth { get; set; } = Inherited<Scale>.FromPropertyName(nameof(DefaultThickLineWidth));
+	public Inherited<Scale> TemplateThickLineWidth { get; set; } = Inherited<Scale>.FromPropertyName(nameof(DefaultThickLineWidthScale));
 
 	/// <summary>
 	/// Indicates thin line width scale used by rendering templates.
 	/// </summary>
-	public Inherited<Scale> TemplateThinLineWidth { get; set; } = Inherited<Scale>.FromPropertyName(nameof(DefaultThinLineWidth));
+	public Inherited<Scale> TemplateThinLineWidth { get; set; } = Inherited<Scale>.FromPropertyName(nameof(DefaultThinLineWidthScale));
 
 	/// <summary>
 	/// Indicates thick line colors used by rendering templates.

@@ -10,7 +10,7 @@ internal partial class Preferences
 	/// <summary>
 	/// Indicates the cell shape stroke width scale, related to cell size.
 	/// </summary>
-	public Inherited<Scale> CellShapeStrokeWidthScale { get; set; } = Inherited<Scale>.FromPropertyName(nameof(DefaultThinLineWidth));
+	public Inherited<Scale> CellShapeStrokeWidthScale { get; set; } = Inherited<Scale>.FromPropertyName(nameof(DefaultThinLineWidthScale));
 
 	/// <summary>
 	/// Indicates the cell shape stroke color.

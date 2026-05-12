@@ -30,12 +30,12 @@ internal partial class Preferences
 	/// <summary>
 	/// Indicates the cell seven segment display stroke width scale, related to cell size.
 	/// </summary>
-	public Inherited<Scale> CellSevenSegmentDisplayStrokeWidthScale { get; set; } = Inherited<Scale>.FromPropertyName(nameof(DefaultThinLineWidth));
+	public Inherited<Scale> CellSevenSegmentDisplayStrokeWidthScale { get; set; } = Inherited<Scale>.FromPropertyName(nameof(DefaultThinLineWidthScale));
 
 	/// <summary>
 	/// Indicates cell seven segment display phantom stroke width scale, related to cell size.
 	/// </summary>
-	public Inherited<Scale> CellSevenSegmentDisplayPhantomStrokeWidthScale { get; set; } = Inherited<Scale>.FromPropertyName(nameof(DefaultThinLineWidth));
+	public Inherited<Scale> CellSevenSegmentDisplayPhantomStrokeWidthScale { get; set; } = Inherited<Scale>.FromPropertyName(nameof(DefaultThinLineWidthScale));
 
 	/// <summary>
 	/// Indicates the cell seven segment display stroke color.

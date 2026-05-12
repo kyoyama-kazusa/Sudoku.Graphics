@@ -55,13 +55,14 @@
 				<vm:ToolItem ItemType="Candidate_Circle" Icon="/Assets/ToolItems/ToolItem_Candidate_Circle.png" />
 				<vm:ToolItem ItemType="Candidate_Cross" Icon="/Assets/ToolItems/ToolItem_Candidate_Cross.png" />
 			</vm:ToolItemGroup>
-			<vm:ToolItemGroup Title="{x:Static p:LocalizationResources.ItemTypeGroup_CellPair_TextIcon}">
+			<vm:ToolItemGroup Title="{x:Static p:LocalizationResources.ItemTypeGroup_CellPair_Icon}">
 				<vm:ToolItem ItemType="CellPairText_RomanNumeral" Icon="/Assets/ToolItems/ToolItem_CellPairText_RomanNumeral.png" />
 				<vm:ToolItem ItemType="CellPairText_Number" Icon="/Assets/ToolItems/ToolItem_CellPairText_Number.png" />
 				<vm:ToolItem ItemType="CellPairText_ComparisonOperator" Icon="/Assets/ToolItems/ToolItem_CellPairText_ComparisonOperator.png" />
 				<vm:ToolItem ItemType="CellPairText_Arrow" Icon="/Assets/ToolItems/ToolItem_CellPairText_Arrow.png" />
 				<vm:ToolItem ItemType="CellPairText_Raw" Icon="/Assets/ToolItems/ToolItem_CellPairText_Raw.png" />
 				<vm:ToolItem ItemType="CellPair_BridgeLine" Icon="/Assets/ToolItems/ToolItem_CellPair_BridgeLine.png" />
+				<vm:ToolItem ItemType="CellPair_Bar" Icon="/Assets/ToolItems/ToolItem_CellPair_Bar.png" />
 			</vm:ToolItemGroup>
 		</vm:ToolItemGroupCollection>
 

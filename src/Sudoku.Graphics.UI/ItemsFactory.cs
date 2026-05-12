@@ -518,4 +518,17 @@ public static class ItemsFactory
 			LinesMaxGapScale = ResolveProperty(() => App.UserPreferences.CellPairBridgeLinesMaxGapScale),
 			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellPairBridgeLinesStrokeWidthScale)
 		};
+
+	public static CellPairBarMarkItem CellPairBar(Absolute cell1, Absolute cell2)
+		=> new()
+		{
+			Cell1 = cell1,
+			Cell2 = cell2,
+			CornerRadiusScale = ResolveProperty(() => App.UserPreferences.CellPairBarCornerRadiusScale),
+			ShortSideScale = ResolveProperty(() => App.UserPreferences.CellPairBarShortSideScale),
+			LongSideScale = ResolveProperty(() => App.UserPreferences.CellPairBarLongSideScale),
+			FillColor = ResolveProperty(() => App.UserPreferences.CellPairBarFillColor),
+			StrokeColor = ResolveProperty(() => App.UserPreferences.CellPairBarStrokeColor),
+			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellPairBarStrokeWidthScale)
+		};
 }

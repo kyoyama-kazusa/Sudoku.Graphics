@@ -379,7 +379,7 @@
   <data name="ItemType_CellPairText_RomanNumeral" xml:space="preserve">
     <value>罗马数字</value>
   </data>
-  <data name="ItemTypeGroup_CellPair_TextIcon" xml:space="preserve">
+  <data name="ItemTypeGroup_CellPair_Icon" xml:space="preserve">
     <value>单元格对 - 图形</value>
   </data>
   <data name="MainWindow_CellPairNumber" xml:space="preserve">
@@ -408,5 +408,8 @@
   </data>
   <data name="ItemType_CellPair_BridgeLine" xml:space="preserve">
     <value>数桥连线</value>
+  </data>
+  <data name="ItemType_CellPair_Bar" xml:space="preserve">
+    <value>板子</value>
   </data>
 </root>

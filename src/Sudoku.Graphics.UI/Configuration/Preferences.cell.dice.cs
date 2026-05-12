@@ -10,7 +10,7 @@ internal partial class Preferences
 	/// <summary>
 	/// Indicates dice stroke thickness scale.
 	/// </summary>
-	public Inherited<Scale> CellDiceStrokeWidthScale { get; set; } = Inherited<Scale>.FromPropertyName(nameof(DefaultThinLineWidth));
+	public Inherited<Scale> CellDiceStrokeWidthScale { get; set; } = Inherited<Scale>.FromPropertyName(nameof(DefaultThinLineWidthScale));
 
 	/// <summary>
 	/// Indicates the dice size scale, related to cell size.

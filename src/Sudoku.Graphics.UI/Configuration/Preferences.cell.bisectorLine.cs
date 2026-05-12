@@ -10,7 +10,7 @@ internal partial class Preferences
 	/// <summary>
 	/// Indicates the cell bisector line stroke width scale, related to cell size.
 	/// </summary>
-	public Inherited<Scale> CellBisectorLineStrokeWidthScale { get; set; } = Inherited<Scale>.FromPropertyName(nameof(DefaultThickLineWidth));
+	public Inherited<Scale> CellBisectorLineStrokeWidthScale { get; set; } = Inherited<Scale>.FromPropertyName(nameof(DefaultThickLineWidthScale));
 
 	/// <summary>
 	/// Indicates the cell bisector line stroke color.

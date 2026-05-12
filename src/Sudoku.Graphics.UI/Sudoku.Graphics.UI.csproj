@@ -44,6 +44,9 @@
 		<Resource Include="Assets\ToolItems\ToolItem_CellPairText_RomanNumeral.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
+		<Resource Include="Assets\ToolItems\ToolItem_CellPair_Bar.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
 		<Resource Include="Assets\ToolItems\ToolItem_CellPair_BridgeLine.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>

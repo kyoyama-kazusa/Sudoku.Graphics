@@ -384,7 +384,7 @@
   <data name="ItemType_CellPairText_RomanNumeral" xml:space="preserve">
     <value>Roman numeral</value>
   </data>
-  <data name="ItemTypeGroup_CellPair_TextIcon" xml:space="preserve">
+  <data name="ItemTypeGroup_CellPair_Icon" xml:space="preserve">
     <value>Cell Pair Items</value>
   </data>
   <data name="MainWindow_CellPairNumber" xml:space="preserve">
@@ -413,5 +413,8 @@
   </data>
   <data name="ItemType_CellPair_BridgeLine" xml:space="preserve">
     <value>Bridge</value>
+  </data>
+  <data name="ItemType_CellPair_Bar" xml:space="preserve">
+    <value>Bar</value>
   </data>
 </root>

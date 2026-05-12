@@ -529,6 +529,15 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bar.
+        /// </summary>
+        public static string ItemType_CellPair_Bar {
+            get {
+                return ResourceManager.GetString("ItemType_CellPair_Bar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bridge.
         /// </summary>
         public static string ItemType_CellPair_BridgeLine {
@@ -720,9 +729,9 @@ namespace Sudoku.Graphics.UI.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Cell Pair Items.
         /// </summary>
-        public static string ItemTypeGroup_CellPair_TextIcon {
+        public static string ItemTypeGroup_CellPair_Icon {
             get {
-                return ResourceManager.GetString("ItemTypeGroup_CellPair_TextIcon", resourceCulture);
+                return ResourceManager.GetString("ItemTypeGroup_CellPair_Icon", resourceCulture);
             }
         }
         

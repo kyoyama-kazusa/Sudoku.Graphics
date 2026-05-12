@@ -10,7 +10,7 @@ internal partial class Preferences
 	/// <summary>
 	/// Indicates tetromino stroke thickness scale.
 	/// </summary>
-	public Inherited<Scale> CellTetrominoStrokeWidthScale { get; set; } = Inherited<Scale>.FromPropertyName(nameof(DefaultThinLineWidth));
+	public Inherited<Scale> CellTetrominoStrokeWidthScale { get; set; } = Inherited<Scale>.FromPropertyName(nameof(DefaultThinLineWidthScale));
 
 	/// <summary>
 	/// Indicates the tetromino small block size scale, related to cell size.

@@ -10,17 +10,17 @@ internal partial class Preferences
 	/// <summary>
 	/// Indicates border corner radius used by rendering templates.
 	/// </summary>
-	public Inherited<Scale> DefaultBorderCornerRadius { get; set; } = Inherited<Scale>.FromValue(0.25M);
+	public Inherited<Scale> DefaultBorderCornerRadiusScale { get; set; } = Inherited<Scale>.FromValue(0.25M);
 
 	/// <summary>
 	/// Indicates thick line width scale used by rendering templates.
 	/// </summary>
-	public Inherited<Scale> DefaultThickLineWidth { get; set; } = Inherited<Scale>.FromValue(0.06M);
+	public Inherited<Scale> DefaultThickLineWidthScale { get; set; } = Inherited<Scale>.FromValue(0.06M);
 
 	/// <summary>
 	/// Indicates thin line width scale used by rendering templates.
 	/// </summary>
-	public Inherited<Scale> DefaultThinLineWidth { get; set; } = Inherited<Scale>.FromValue(0.0225M);
+	public Inherited<Scale> DefaultThinLineWidthScale { get; set; } = Inherited<Scale>.FromValue(0.0225M);
 
 	/// <summary>
 	/// Indicates the default corner radius scale.
