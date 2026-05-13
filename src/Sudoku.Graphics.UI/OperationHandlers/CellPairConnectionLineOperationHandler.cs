@@ -40,20 +40,18 @@ public sealed class CellPairConnectionLineOperationHandler : OperationHandler
 
 		if (_startCell == -1 || _endCell == -1)
 		{
-			return;
+			goto ResetValues;
 		}
 
-		//if (!_startCell.IsSideWith(_endCell, Direction4.Up, mapper, true)
-		//	&& !_startCell.IsSideWith(_endCell, Direction4.Down, mapper, true)
-		//	&& !_startCell.IsSideWith(_endCell, Direction4.Left, mapper, true)
-		//	&& !_startCell.IsSideWith(_endCell, Direction4.Right, mapper, true))
-		//{
-		//	return;
-		//}
-
+		// Keeps '_startCell' is lower than '_endCell' in index order.
 		if (_startCell > _endCell)
 		{
 			(_startCell, _endCell) = (_endCell, _startCell);
+		}
+		if (!_startCell.IsOrientationWith(_endCell, Orientation4.Slash, mapper)
+			&& !_startCell.IsOrientationWith(_endCell, Orientation4.Backslash, mapper))
+		{
+			goto ResetValues;
 		}
 
 		var item = ItemsFactory.CellPairConnectionLine(_startCell, _endCell);

@@ -48,6 +48,32 @@ public readonly struct Absolute(int value) : IInteger<Absolute>, ILocator<Absolu
 		};
 	}
 
+	/// <summary>
+	/// Calculates whether the specified cell is lying in the specified orientation with the specified cell.
+	/// </summary>
+	/// <param name="other">The other cell.</param>
+	/// <param name="orientation">The orientation.</param>
+	/// <param name="mapper">The mapper.</param>
+	/// <returns>A <see cref="bool"/> result indicating that.</returns>
+	/// <exception cref="ArgumentOutOfRangeException">
+	/// Throws when <paramref name="orientation"/> is not defined or <see cref="Orientation4.None"/>.
+	/// </exception>
+	/// <seealso cref="Orientation4.None"/>
+	public bool IsOrientationWith(Absolute other, Orientation4 orientation, PointMapper mapper)
+	{
+		var columnsCount = mapper.AbsoluteColumnsCount;
+		var (row1, column1) = (this / columnsCount, this % columnsCount);
+		var (row2, column2) = (other / columnsCount, other % columnsCount);
+		return orientation switch
+		{
+			Orientation4.Horizontal => row1 == row2 && column1 == column2 - 1,
+			Orientation4.Vertical => row1 == row2 - 1 && column1 == column2,
+			Orientation4.Slash => row1 == row2 - 1 && column1 == column2 + 1,
+			Orientation4.Backslash => row1 == row2 - 1 && column1 == column2 - 1,
+			_ => throw new ArgumentOutOfRangeException(nameof(orientation))
+		};
+	}
+
 	/// <inheritdoc/>
 	public float GetLocatorMeasurer(float cellSize) => cellSize;
 

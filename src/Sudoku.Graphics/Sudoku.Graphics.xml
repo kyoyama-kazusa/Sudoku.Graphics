@@ -36,6 +36,19 @@
         <member name="M:Sudoku.Graphics.Absolute.IsSideWith(Sudoku.Graphics.Absolute,Sudoku.Graphics.Directions.Direction4,Sudoku.Graphics.PointMapper,System.Boolean)">
             <inheritdoc/>
         </member>
+        <member name="M:Sudoku.Graphics.Absolute.IsOrientationWith(Sudoku.Graphics.Absolute,Sudoku.Graphics.Directions.Orientation4,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Calculates whether the specified cell is lying in the specified orientation with the specified cell.
+            </summary>
+            <param name="other">The other cell.</param>
+            <param name="orientation">The orientation.</param>
+            <param name="mapper">The mapper.</param>
+            <returns>A <see cref="T:System.Boolean"/> result indicating that.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Throws when <paramref name="orientation"/> is not defined or <see cref="F:Sudoku.Graphics.Directions.Orientation4.None"/>.
+            </exception>
+            <seealso cref="F:Sudoku.Graphics.Directions.Orientation4.None"/>
+        </member>
         <member name="M:Sudoku.Graphics.Absolute.GetLocatorMeasurer(System.Single)">
             <inheritdoc/>
         </member>
