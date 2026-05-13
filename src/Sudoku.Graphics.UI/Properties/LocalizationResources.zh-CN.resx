@@ -412,4 +412,7 @@
   <data name="ItemType_CellPair_Bar" xml:space="preserve">
     <value>板子</value>
   </data>
+  <data name="ItemType_CellPair_ConnectionLine" xml:space="preserve">
+    <value>连接线</value>
+  </data>
 </root>

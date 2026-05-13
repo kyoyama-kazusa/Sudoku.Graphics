@@ -18,7 +18,7 @@ public sealed class CellPairBridgeLineOperationHandler : OperationHandler
 
 
 	/// <inheritdoc/>
-	public override bool UseDifferentInstancesBetweenEvents => false;
+	public override bool UsesDifferentInstancesBetweenEvents => false;
 
 	/// <inheritdoc/>
 	public override bool DiffersMousePositionsBetweenEvents => true;

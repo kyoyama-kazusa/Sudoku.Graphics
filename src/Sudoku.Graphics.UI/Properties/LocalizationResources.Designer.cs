@@ -547,6 +547,15 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Connection line.
+        /// </summary>
+        public static string ItemType_CellPair_ConnectionLine {
+            get {
+                return ResourceManager.GetString("ItemType_CellPair_ConnectionLine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Arrow.
         /// </summary>
         public static string ItemType_CellPairText_Arrow {

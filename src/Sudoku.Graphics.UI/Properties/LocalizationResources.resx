@@ -417,4 +417,7 @@
   <data name="ItemType_CellPair_Bar" xml:space="preserve">
     <value>Bar</value>
   </data>
+  <data name="ItemType_CellPair_ConnectionLine" xml:space="preserve">
+    <value>Connection line</value>
+  </data>
 </root>

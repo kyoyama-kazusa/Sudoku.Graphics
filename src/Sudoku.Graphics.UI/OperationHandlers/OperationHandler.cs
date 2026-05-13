@@ -10,7 +10,7 @@ public abstract class OperationHandler
 	/// Indicates whether the operation handler can be reused in different events, mouse down and up.
 	/// By default it's <see langword="true"/>.
 	/// </summary>
-	public virtual bool UseDifferentInstancesBetweenEvents => true;
+	public virtual bool UsesDifferentInstancesBetweenEvents => true;
 
 	/// <summary>
 	/// Indicates whether the operation handler will differ events, mouse down and up.

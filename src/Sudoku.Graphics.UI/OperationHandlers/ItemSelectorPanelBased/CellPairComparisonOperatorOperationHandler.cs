@@ -5,7 +5,7 @@
 /// </summary>
 /// <seealso cref="CellPairComparisonOperatorTextMarkItem"/>
 [OperationHandler(ItemType.CellPairText_ComparisonOperator)]
-public sealed class CellPairComparisonOperatorOperationHandler : CellPairBasedItemSelectorPanelOperationHandler
+public sealed class CellPairComparisonOperatorOperationHandler : CellPairBasedItemSelectorPanelOperationHandler<ITextDisplayItem>
 {
 	/// <inheritdoc/>
 	public override ItemType ItemType => ItemType.CellPairText_ComparisonOperator;

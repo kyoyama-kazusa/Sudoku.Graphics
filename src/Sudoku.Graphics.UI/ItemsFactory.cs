@@ -531,4 +531,14 @@ public static class ItemsFactory
 			StrokeColor = ResolveProperty(() => App.UserPreferences.CellPairBarStrokeColor),
 			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellPairBarStrokeWidthScale)
 		};
+
+	public static CellPairConnectionLineMarkItem CellPairConnectionLine(Absolute cell1, Absolute cell2)
+		=> new()
+		{
+			Cell1 = cell1,
+			Cell2 = cell2,
+			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellPairConnectionLineStrokeWidthScale),
+			StrokeColor = ResolveProperty(() => App.UserPreferences.CellPairConnectionLineStrokeColor),
+			SizeScale = ResolveProperty(() => App.UserPreferences.CellPairConnectionLineSizeScale)
+		};
 }

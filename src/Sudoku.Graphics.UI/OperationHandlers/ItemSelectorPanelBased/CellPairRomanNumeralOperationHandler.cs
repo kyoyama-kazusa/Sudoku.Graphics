@@ -5,7 +5,7 @@
 /// </summary>
 /// <seealso cref="CellPairRomanNumeralTextMarkItem"/>
 [OperationHandler(ItemType.CellPairText_RomanNumeral)]
-public sealed class CellPairRomanNumeralOperationHandler : CellPairBasedItemSelectorPanelOperationHandler
+public sealed class CellPairRomanNumeralOperationHandler : CellPairBasedItemSelectorPanelOperationHandler<ITextDisplayItem>
 {
 	/// <inheritdoc/>
 	public override ItemType ItemType => ItemType.CellPairText_RomanNumeral;

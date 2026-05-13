@@ -5,7 +5,7 @@
 /// </summary>
 /// <seealso cref="CellPairArrowTextMarkItem"/>
 [OperationHandler(ItemType.CellPairText_Arrow)]
-public sealed class CellPairArrowOperationHandler : CellPairBasedItemSelectorPanelOperationHandler
+public sealed class CellPairArrowOperationHandler : CellPairBasedItemSelectorPanelOperationHandler<ITextDisplayItem>
 {
 	/// <inheritdoc/>
 	public override ItemType ItemType => ItemType.CellPairText_Arrow;

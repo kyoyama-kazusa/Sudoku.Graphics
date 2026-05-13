@@ -63,6 +63,7 @@
 				<vm:ToolItem ItemType="CellPairText_Raw" Icon="/Assets/ToolItems/ToolItem_CellPairText_Raw.png" />
 				<vm:ToolItem ItemType="CellPair_BridgeLine" Icon="/Assets/ToolItems/ToolItem_CellPair_BridgeLine.png" />
 				<vm:ToolItem ItemType="CellPair_Bar" Icon="/Assets/ToolItems/ToolItem_CellPair_Bar.png" />
+				<vm:ToolItem ItemType="CellPair_ConnectionLine" Icon="/Assets/ToolItems/ToolItem_CellPair_ConnectionLine.png" />
 			</vm:ToolItemGroup>
 		</vm:ToolItemGroupCollection>
 

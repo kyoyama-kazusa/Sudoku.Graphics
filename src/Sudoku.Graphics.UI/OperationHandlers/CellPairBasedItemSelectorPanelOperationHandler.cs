@@ -3,7 +3,8 @@
 /// <summary>
 /// Represents a cell pair based item selector panel operation handler.
 /// </summary>
-public abstract class CellPairBasedItemSelectorPanelOperationHandler : OperationHandler
+/// <typeparam name="TDisplayItem">The type of display item.</typeparam>
+public abstract class CellPairBasedItemSelectorPanelOperationHandler<TDisplayItem> : OperationHandler where TDisplayItem : IDisplayItem
 {
 	/// <summary>
 	/// Indicates the changed button.
@@ -18,7 +19,7 @@ public abstract class CellPairBasedItemSelectorPanelOperationHandler : Operation
 	/// <summary>
 	/// Indicates display item factory.
 	/// </summary>
-	public abstract ReadOnlySpan<Func<ITextDisplayItem>> DisplayItemFactory { get; }
+	public abstract ReadOnlySpan<Func<TDisplayItem>> DisplayItemFactory { get; }
 
 	/// <summary>
 	/// Indicates the method that selects the item selector panel.
@@ -33,7 +34,7 @@ public abstract class CellPairBasedItemSelectorPanelOperationHandler : Operation
 	/// <summary>
 	/// Indicates item factory.
 	/// </summary>
-	public abstract Func<ITextDisplayItem?, Absolute, Absolute, Item?> ItemFactory { get; }
+	public abstract Func<TDisplayItem?, Absolute, Absolute, Item?> ItemFactory { get; }
 
 
 	/// <inheritdoc/>
@@ -63,7 +64,7 @@ public abstract class CellPairBasedItemSelectorPanelOperationHandler : Operation
 
 		var popup = PopupSelector(window);
 		var panel = PanelSelector(window);
-		var selectedItem = (ITextDisplayItem)e.SelectedItem!;
+		var selectedItem = (TDisplayItem)e.SelectedItem!;
 
 		popup.IsOpen = false;
 
