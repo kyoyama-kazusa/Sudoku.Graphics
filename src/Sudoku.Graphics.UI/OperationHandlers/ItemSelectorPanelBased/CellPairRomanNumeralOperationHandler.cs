@@ -36,7 +36,5 @@ public sealed class CellPairRomanNumeralOperationHandler : CellPairBasedItemSele
 	/// <inheritdoc/>
 	public override Func<ITextDisplayItem?, Absolute, Absolute, Item?> ItemFactory
 		=> static (item, cell1, cell2) =>
-			item is null
-				? null
-				: ItemsFactory.CellPairRomanNumeral(cell1, cell2, ((RomanNumeralDisplayItem)item).Value);
+			item is null ? null : ItemsFactory.CellPairRomanNumeral(cell1, cell2, ((RomanNumeralDisplayItem)item).Value);
 }

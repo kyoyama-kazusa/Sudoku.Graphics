@@ -54,6 +54,15 @@
 		<Resource Include="Assets\ToolItems\ToolItem_CellPair_ConnectionLine.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
+		<Resource Include="Assets\ToolItems\ToolItem_CellPair_Kropki.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Assets\ToolItems\ToolItem_CellPair_KropkiSquare.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Assets\ToolItems\ToolItem_CellPair_KropkiTriangle.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
 		<Resource Include="Assets\ToolItems\ToolItem_CellText_Arrow.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>

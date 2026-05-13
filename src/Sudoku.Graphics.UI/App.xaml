@@ -64,6 +64,9 @@
 				<vm:ToolItem ItemType="CellPair_BridgeLine" Icon="/Assets/ToolItems/ToolItem_CellPair_BridgeLine.png" />
 				<vm:ToolItem ItemType="CellPair_Bar" Icon="/Assets/ToolItems/ToolItem_CellPair_Bar.png" />
 				<vm:ToolItem ItemType="CellPair_ConnectionLine" Icon="/Assets/ToolItems/ToolItem_CellPair_ConnectionLine.png" />
+				<vm:ToolItem ItemType="CellPair_Kropki" Icon="/Assets/ToolItems/ToolItem_CellPair_Kropki.png" />
+				<vm:ToolItem ItemType="CellPair_KropkiSquare" Icon="/Assets/ToolItems/ToolItem_CellPair_KropkiSquare.png" />
+				<vm:ToolItem ItemType="CellPair_KropkiTriangle" Icon="/Assets/ToolItems/ToolItem_CellPair_KropkiTriangle.png" />
 			</vm:ToolItemGroup>
 		</vm:ToolItemGroupCollection>
 

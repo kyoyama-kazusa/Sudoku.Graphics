@@ -420,4 +420,13 @@
   <data name="ItemType_CellPair_ConnectionLine" xml:space="preserve">
     <value>Connection line</value>
   </data>
+  <data name="ItemType_CellPair_Kropki" xml:space="preserve">
+    <value>Kropki</value>
+  </data>
+  <data name="ItemType_CellPair_KropkiSquare" xml:space="preserve">
+    <value>Kropki (Square)</value>
+  </data>
+  <data name="ItemType_CellPair_KropkiTriangle" xml:space="preserve">
+    <value>Kropki (Triangle)</value>
+  </data>
 </root>

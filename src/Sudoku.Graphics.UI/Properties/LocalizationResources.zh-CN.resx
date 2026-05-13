@@ -415,4 +415,13 @@
   <data name="ItemType_CellPair_ConnectionLine" xml:space="preserve">
     <value>连接线</value>
   </data>
+  <data name="ItemType_CellPair_Kropki" xml:space="preserve">
+    <value>黑白点</value>
+  </data>
+  <data name="ItemType_CellPair_KropkiSquare" xml:space="preserve">
+    <value>黑白块</value>
+  </data>
+  <data name="ItemType_CellPair_KropkiTriangle" xml:space="preserve">
+    <value>黑白三角</value>
+  </data>
 </root>

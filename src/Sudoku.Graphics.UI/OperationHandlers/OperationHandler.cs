@@ -53,7 +53,8 @@ public abstract class OperationHandler
 	/// </summary>
 	/// <param name="context">The context.</param>
 	/// <returns>A <see cref="bool"/> result indicating whether the operation is available or not.</returns>
-	protected internal virtual bool IsAvailable(OperationHandlerContext context) => true;
+	protected internal virtual bool IsAvailable(OperationHandlerContext context)
+		=> context.MouseEventArgs.ChangedButton is MouseButton.Left or MouseButton.Right;
 
 
 	/// <summary>

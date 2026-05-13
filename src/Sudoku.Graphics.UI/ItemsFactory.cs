@@ -541,4 +541,41 @@ public static class ItemsFactory
 			StrokeColor = ResolveProperty(() => App.UserPreferences.CellPairConnectionLineStrokeColor),
 			SizeScale = ResolveProperty(() => App.UserPreferences.CellPairConnectionLineSizeScale)
 		};
+
+	public static CellPairKropkiMarkItem CellPairKropki(Absolute cell1, Absolute cell2, bool isSolid)
+		=> new()
+		{
+			Cell1 = cell1,
+			Cell2 = cell2,
+			IsSolid = isSolid,
+			SizeScale = ResolveProperty(() => App.UserPreferences.CellPairKropkiSizeScale),
+			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellPairKropkiStrokeWidthScale),
+			StrokeColor = ResolveProperty(() => App.UserPreferences.CellPairKropkiStrokeColor),
+			FillColor = ResolveProperty(() => App.UserPreferences.CellPairKropkiFillColor)
+		};
+
+	public static CellPairKropkiSquareMarkItem CellPairKropkiSquare(Absolute cell1, Absolute cell2, bool isSolid)
+		=> new()
+		{
+			Cell1 = cell1,
+			Cell2 = cell2,
+			IsSolid = isSolid,
+			SizeScale = ResolveProperty(() => App.UserPreferences.CellPairKropkiSquareSizeScale),
+			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellPairKropkiSquareStrokeWidthScale),
+			StrokeColor = ResolveProperty(() => App.UserPreferences.CellPairKropkiSquareStrokeColor),
+			FillColor = ResolveProperty(() => App.UserPreferences.CellPairKropkiSquareFillColor),
+			CornerRadiusScale = ResolveProperty(() => App.UserPreferences.CellPairKropkiSquareCornerRadiusScale)
+		};
+
+	public static CellPairKropkiTriangleMarkItem CellPairKropkiTriangle(Absolute cell1, Absolute cell2, bool isSolid)
+		=> new()
+		{
+			Cell1 = cell1,
+			Cell2 = cell2,
+			IsSolid = isSolid,
+			SizeScale = ResolveProperty(() => App.UserPreferences.CellPairKropkiTriangleSizeScale),
+			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellPairKropkiTriangleStrokeWidthScale),
+			StrokeColor = ResolveProperty(() => App.UserPreferences.CellPairKropkiTriangleStrokeColor),
+			FillColor = ResolveProperty(() => App.UserPreferences.CellPairKropkiTriangleFillColor)
+		};
 }

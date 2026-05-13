@@ -556,6 +556,33 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Kropki.
+        /// </summary>
+        public static string ItemType_CellPair_Kropki {
+            get {
+                return ResourceManager.GetString("ItemType_CellPair_Kropki", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kropki (Square).
+        /// </summary>
+        public static string ItemType_CellPair_KropkiSquare {
+            get {
+                return ResourceManager.GetString("ItemType_CellPair_KropkiSquare", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kropki (Triangle).
+        /// </summary>
+        public static string ItemType_CellPair_KropkiTriangle {
+            get {
+                return ResourceManager.GetString("ItemType_CellPair_KropkiTriangle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Arrow.
         /// </summary>
         public static string ItemType_CellPairText_Arrow {
