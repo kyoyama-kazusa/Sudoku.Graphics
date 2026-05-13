@@ -424,4 +424,7 @@
   <data name="ItemType_CellPair_KropkiTriangle" xml:space="preserve">
     <value>黑白三角</value>
   </data>
+  <data name="ItemType_CellPair_Battenburg" xml:space="preserve">
+    <value>双色蛋糕</value>
+  </data>
 </root>

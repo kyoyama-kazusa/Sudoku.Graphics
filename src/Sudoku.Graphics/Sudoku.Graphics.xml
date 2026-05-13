@@ -3024,7 +3024,7 @@
             Indicates the scale of size of mark, related to cell size.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairBattenburgMarkItem.UniformCornerRadius">
+        <member name="P:Sudoku.Graphics.Items.CellPairMarks.CellPairBattenburgMarkItem.UniformCornerRadiusScale">
             <summary>
             Indicates uniform corner radius.
             </summary>

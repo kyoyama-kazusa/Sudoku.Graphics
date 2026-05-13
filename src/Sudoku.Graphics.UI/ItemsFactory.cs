@@ -578,4 +578,17 @@ public static class ItemsFactory
 			StrokeColor = ResolveProperty(() => App.UserPreferences.CellPairKropkiTriangleStrokeColor),
 			FillColor = ResolveProperty(() => App.UserPreferences.CellPairKropkiTriangleFillColor)
 		};
+
+	public static CellPairBattenburgMarkItem CellPairBattenburg(Absolute cell1, Absolute cell2)
+		=> new()
+		{
+			Cell1 = cell1,
+			Cell2 = cell2,
+			Color1 = ResolveProperty(() => App.UserPreferences.CellPairBattenburgColor1),
+			Color2 = ResolveProperty(() => App.UserPreferences.CellPairBattenburgColor2),
+			UniformCornerRadiusScale = ResolveProperty(() => App.UserPreferences.CellPairBattenburgUniformCornerRadiusScale),
+			SizeScale = ResolveProperty(() => App.UserPreferences.CellPairBattenburgSizeScale),
+			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellPairBattenburgStrokeWidthScale),
+			StrokeColor = ResolveProperty(() => App.UserPreferences.CellPairBattenburgStrokeColor)
+		};
 }

@@ -10,12 +10,5 @@ public sealed class CellPairBarOperationHandler : CellPairGenericShapeOperationH
 	public override ItemType ItemType => ItemType.CellPair_Bar;
 
 	/// <inheritdoc/>
-	public override Func<Absolute, Absolute, PointMapper, IItem_CellPairProperty?> ItemFactory
-		=> static (cell1, cell2, mapper) =>
-			cell1.GetAdjacentAbsoluteIn(Direction4.Up, false, mapper) == cell2
-			|| cell1.GetAdjacentAbsoluteIn(Direction4.Down, false, mapper) == cell2
-			|| cell1.GetAdjacentAbsoluteIn(Direction4.Left, false, mapper) == cell2
-			|| cell1.GetAdjacentAbsoluteIn(Direction4.Right, false, mapper) == cell2
-				? ItemsFactory.CellPairBar(cell1, cell2)
-				: null;
+	public override Func<Absolute, Absolute, IItem_CellPairProperty> ItemFactory => ItemsFactory.CellPairBar;
 }

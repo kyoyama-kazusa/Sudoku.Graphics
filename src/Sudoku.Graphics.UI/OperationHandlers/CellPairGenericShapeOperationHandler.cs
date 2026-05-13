@@ -18,7 +18,7 @@ public abstract class CellPairGenericShapeOperationHandler : OperationHandler
 	/// <summary>
 	/// Indicates the item factory.
 	/// </summary>
-	public abstract Func<Absolute, Absolute, PointMapper, IItem_CellPairProperty?> ItemFactory { get; }
+	public abstract Func<Absolute, Absolute, IItem_CellPairProperty> ItemFactory { get; }
 
 
 	/// <inheritdoc/>
@@ -34,8 +34,13 @@ public abstract class CellPairGenericShapeOperationHandler : OperationHandler
 			return;
 		}
 
-		var (cell1, cell2) = context.GetBorder();
-		if (ItemFactory(cell1, cell2, mapper) is not Item item)
+		var (cell1, cell2) = context.GetBorderOrCorner();
+		if (cell1 == -1 || cell2 == -1)
+		{
+			return;
+		}
+
+		if (ItemFactory(cell1, cell2) is not Item item)
 		{
 			return;
 		}

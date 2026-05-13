@@ -429,4 +429,7 @@
   <data name="ItemType_CellPair_KropkiTriangle" xml:space="preserve">
     <value>Kropki (Triangle)</value>
   </data>
+  <data name="ItemType_CellPair_Battenburg" xml:space="preserve">
+    <value>Battenburg</value>
+  </data>
 </root>
