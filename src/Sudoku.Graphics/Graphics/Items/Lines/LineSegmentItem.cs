@@ -4,7 +4,7 @@
 /// Represents a line segment item.
 /// </summary>
 /// <param name="_isThick">Indicates whether the item is thick line.</param>
-public abstract record LineSegmentItem(bool _isThick) : LineItem, IItem_CellPairProperty
+public abstract record LineSegmentItem(bool _isThick) : LineItem, IItem_CellProperty, IItem_DirectionProperty<Direction4>
 {
 	/// <summary>
 	/// Indicates whether the item is thick.
@@ -16,10 +16,10 @@ public abstract record LineSegmentItem(bool _isThick) : LineItem, IItem_CellPair
 	public sealed override ItemType Type => _isThick ? ItemType.LineSegment_Thick : ItemType.LineSegment_Thin;
 
 	/// <inheritdoc/>
-	public required abstract Absolute Cell1 { get; init; }
+	public required abstract Direction4 Direction { get; init; }
 
 	/// <inheritdoc/>
-	public required abstract Absolute Cell2 { get; init; }
+	public required abstract Absolute Cell { get; init; }
 
 	/// <summary>
 	/// Indicates the line width scale.
@@ -40,20 +40,8 @@ public abstract record LineSegmentItem(bool _isThick) : LineItem, IItem_CellPair
 	/// <inheritdoc/>
 	protected internal sealed override void DrawTo(Canvas canvas)
 	{
-		var (cell1, cell2) = (Cell1, Cell2);
-		if (cell1 > cell2)
-		{
-			(cell1, cell2) = (cell2, cell1);
-		}
-
 		var backingCanvas = canvas.BackingCanvas;
 		var mapper = canvas.Mapper;
-		if (Absolute.GetAdjacentRelation(cell1, cell2, mapper) is not ({ IsDiagonal: false } relation and not Direction8.None))
-		{
-			return;
-		}
-
-		var direction = relation.AsDirection4();
 		using var lineStrokePaint = new SKPaint
 		{
 			Style = SKPaintStyle.Stroke,
@@ -65,31 +53,30 @@ public abstract record LineSegmentItem(bool _isThick) : LineItem, IItem_CellPair
 			PathEffect = LineDashSequence.IsEmpty ? null : LineDashSequence
 		};
 		drawLine(
-			mapper.GetPoint(cell2, Alignment.TopLeft),
-			mapper.GetPoint(cell2, Alignment.TopRight),
-			mapper.GetPoint(cell2, Alignment.BottomLeft),
-			mapper.GetPoint(cell2, Alignment.BottomRight),
-			direction,
+			mapper.GetPoint(Cell, Alignment.TopLeft),
+			mapper.GetPoint(Cell, Alignment.TopRight),
+			mapper.GetPoint(Cell, Alignment.BottomLeft),
+			mapper.GetPoint(Cell, Alignment.BottomRight),
 			lineStrokePaint
 		);
 
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		void drawLine(SKPoint topLeft, SKPoint topRight, SKPoint bottomLeft, SKPoint bottomRight, Direction4 direction, SKPaint paint)
+		void drawLine(SKPoint topLeft, SKPoint topRight, SKPoint bottomLeft, SKPoint bottomRight, SKPaint paint)
 		{
-			if (direction == Direction4.Up)
+			if (Direction == Direction4.Up)
 			{
 				backingCanvas.DrawLine(topLeft, topRight, paint);
 			}
-			if (direction == Direction4.Down)
+			if (Direction == Direction4.Down)
 			{
 				backingCanvas.DrawLine(bottomLeft, bottomRight, paint);
 			}
-			if (direction == Direction4.Left)
+			if (Direction == Direction4.Left)
 			{
 				backingCanvas.DrawLine(topLeft, bottomLeft, paint);
 			}
-			if (direction == Direction4.Right)
+			if (Direction == Direction4.Right)
 			{
 				backingCanvas.DrawLine(topRight, bottomRight, paint);
 			}

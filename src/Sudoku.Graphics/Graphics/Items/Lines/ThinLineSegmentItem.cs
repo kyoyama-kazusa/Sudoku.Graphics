@@ -6,10 +6,10 @@
 public sealed record ThinLineSegmentItem() : LineSegmentItem(false)
 {
 	/// <inheritdoc/>
-	public required override Absolute Cell1 { get; init; }
+	public required override Direction4 Direction { get; init; }
 
 	/// <inheritdoc/>
-	public required override Absolute Cell2 { get; init; }
+	public required override Absolute Cell { get; init; }
 
 	/// <inheritdoc/>
 	public required override Scale LineWidthScale { get; init; }

@@ -69,7 +69,19 @@ public sealed class OperationHandlerContext
 	{
 		unsafe
 		{
-			return GetBorderOrCornerCore(&ImageSourcePointMapper.TryGetBorder);
+			return GetBorderOrCornerCore(&ImageSourcePointMapper.TryGetBorder, (Absolute)(-1), (Absolute)(-1));
+		}
+	}
+
+	/// <summary>
+	/// When a user clicked a border, this method will calculate which border he clicked.
+	/// </summary>
+	/// <returns>The cell and the direction of border clicked.</returns>
+	public (Absolute Cell, Direction4 Direction) GetBorderWithDirection()
+	{
+		unsafe
+		{
+			return GetBorderOrCornerCore(&ImageSourcePointMapper.TryGetBorderRaw, (Absolute)(-1), Direction4.None);
 		}
 	}
 
@@ -82,7 +94,7 @@ public sealed class OperationHandlerContext
 	{
 		unsafe
 		{
-			return GetBorderOrCornerCore(&ImageSourcePointMapper.TryGetBorderOrCorner);
+			return GetBorderOrCornerCore(&ImageSourcePointMapper.TryGetBorderOrCorner, (Absolute)(-1), (Absolute)(-1));
 		}
 	}
 
@@ -161,13 +173,21 @@ public sealed class OperationHandlerContext
 	/// <summary>
 	/// The backing method of <see cref="GetBorderOrCorner"/> and <see cref="GetBorder"/>.
 	/// </summary>
+	/// <typeparam name="T1">The type of result value 1.</typeparam>
+	/// <typeparam name="T2">The type of result value 2.</typeparam>
 	/// <param name="checker">The checker method.</param>
+	/// <param name="defaultValue1">The default value of first value of return.</param>
+	/// <param name="defaultValue2">The default value of second value of return.</param>
 	/// <returns>A pair of cells.</returns>
 	/// <seealso cref="GetBorder"/>
 	/// <seealso cref="GetBorderOrCorner"/>
-	private unsafe (Absolute Cell1, Absolute Cell2) GetBorderOrCornerCore(
-		[DisallowNull, NotNull] delegate*<Point, PointMapper, out Absolute, out Absolute, bool> checker
+	private unsafe (T1, T2) GetBorderOrCornerCore<T1, T2>(
+		[DisallowNull, NotNull] delegate*<Point, PointMapper, out T1, out T2, bool> checker,
+		T1 defaultValue1,
+		T2 defaultValue2
 	)
+		where T1 : notnull
+		where T2 : notnull
 	{
 		if (this is not
 			{
@@ -184,7 +204,7 @@ public sealed class OperationHandlerContext
 				},
 			})
 		{
-			return (-1, -1);
+			return (defaultValue1, defaultValue2);
 		}
 
 		var scaleX = actualWidth / sourceWidth;
@@ -194,8 +214,9 @@ public sealed class OperationHandlerContext
 		var offsetY = (actualHeight - sourceHeight * scale) / 2;
 		var originalX = (x - offsetX) / scale;
 		var originalY = (y - offsetY) / scale;
-		var point = new Point(originalX, originalY);
-		return checker(point, mapper, out var cell1, out var cell2) ? (cell1, cell2) : (-1, -1);
+		return checker(new(originalX, originalY), mapper, out var resultValue1, out var resultValue2)
+			? (resultValue1, resultValue2)
+			: (defaultValue1, defaultValue2);
 	}
 }
 
@@ -294,6 +315,56 @@ file static class ImageSourcePointMapper
 
 	ReturnFalse:
 		(cell1, cell2) = (-1, -1);
+		return false;
+	}
+
+	/// <summary>
+	/// Try to get border clicked. This method will find for the nearest border to user-clicked point.
+	/// </summary>
+	/// <param name="point">The point.</param>
+	/// <param name="mapper">The mapper instance.</param>
+	/// <param name="cell">The cell that provides the half of the border.</param>
+	/// <param name="direction">The direction clicked.</param>
+	/// <returns>A <see cref="bool"/> result indicating whether the border is correctly projected.</returns>
+	public static bool TryGetBorderRaw(Point point, PointMapper mapper, out Absolute cell, out Direction4 direction)
+	{
+		// Find cell clicked.
+		if (!TryGetPoint(point, mapper, out cell))
+		{
+			goto ReturnFalse;
+		}
+
+		// Check distance to four borders.
+		var distanceUp = Math.Abs(point.Y - mapper.GetPoint(cell, Alignment.TopLeft).Y);
+		var distanceDown = Math.Abs(point.Y - mapper.GetPoint(cell, Alignment.BottomLeft).Y);
+		var distanceLeft = Math.Abs(point.X - mapper.GetPoint(cell, Alignment.TopLeft).X);
+		var distanceRight = Math.Abs(point.X - mapper.GetPoint(cell, Alignment.TopRight).X);
+		var min = Enumerable.Min([distanceUp, distanceDown, distanceLeft, distanceRight]);
+		if (min == distanceUp)
+		{
+			direction = Direction4.Up;
+		}
+		else if (min == distanceDown)
+		{
+			direction = Direction4.Down;
+		}
+		else if (min == distanceLeft)
+		{
+			direction = Direction4.Left;
+		}
+		else if (min == distanceRight)
+		{
+			direction = Direction4.Right;
+		}
+		else
+		{
+			goto ReturnFalse;
+		}
+
+		return true;
+
+	ReturnFalse:
+		(cell, direction) = (-1, Direction4.None);
 		return false;
 	}
 

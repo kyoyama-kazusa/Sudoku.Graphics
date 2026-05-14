@@ -4313,10 +4313,10 @@
         <member name="P:Sudoku.Graphics.Items.Lines.LineSegmentItem.Type">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.Lines.LineSegmentItem.Cell1">
+        <member name="P:Sudoku.Graphics.Items.Lines.LineSegmentItem.Direction">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.Lines.LineSegmentItem.Cell2">
+        <member name="P:Sudoku.Graphics.Items.Lines.LineSegmentItem.Cell">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.Lines.LineSegmentItem.LineWidthScale">
@@ -4358,10 +4358,10 @@
             Represents a thick line segment item.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.Lines.ThickLineSegmentItem.Cell1">
+        <member name="P:Sudoku.Graphics.Items.Lines.ThickLineSegmentItem.Direction">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.Lines.ThickLineSegmentItem.Cell2">
+        <member name="P:Sudoku.Graphics.Items.Lines.ThickLineSegmentItem.Cell">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.Lines.ThickLineSegmentItem.LineWidthScale">
@@ -4383,10 +4383,10 @@
             Represents a thin line segment item.
             </summary>
         </member>
-        <member name="P:Sudoku.Graphics.Items.Lines.ThinLineSegmentItem.Cell1">
+        <member name="P:Sudoku.Graphics.Items.Lines.ThinLineSegmentItem.Direction">
             <inheritdoc/>
         </member>
-        <member name="P:Sudoku.Graphics.Items.Lines.ThinLineSegmentItem.Cell2">
+        <member name="P:Sudoku.Graphics.Items.Lines.ThinLineSegmentItem.Cell">
             <inheritdoc/>
         </member>
         <member name="P:Sudoku.Graphics.Items.Lines.ThinLineSegmentItem.LineWidthScale">

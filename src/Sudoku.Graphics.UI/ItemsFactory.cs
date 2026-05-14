@@ -50,21 +50,21 @@ public static class ItemsFactory
 			FontWeight = ResolveProperty(() => App.UserPreferences.CandidateFontWeight)
 		};
 
-	public static ThickLineSegmentItem ThickLineSegment(Absolute cell1, Absolute cell2)
+	public static ThickLineSegmentItem ThickLineSegment(Absolute cell, Direction4 direction)
 		=> new()
 		{
-			Cell1 = cell1,
-			Cell2 = cell2,
+			Cell = cell,
+			Direction = direction,
 			LineWidthScale = ResolveProperty(() => App.UserPreferences.TemplateThickLineWidthScale),
 			LineColor = ResolveProperty(() => App.UserPreferences.TemplateThickLineColor),
 			LineDashSequence = ResolveProperty(() => App.UserPreferences.TemplateThickLineDashSequence)
 		};
 
-	public static ThinLineSegmentItem ThinLineSegment(Absolute cell1, Absolute cell2)
+	public static ThinLineSegmentItem ThinLineSegment(Absolute cell, Direction4 direction)
 		=> new()
 		{
-			Cell1 = cell1,
-			Cell2 = cell2,
+			Cell = cell,
+			Direction = direction,
 			LineWidthScale = ResolveProperty(() => App.UserPreferences.TemplateThinLineWidthScale),
 			LineColor = ResolveProperty(() => App.UserPreferences.TemplateThinLineColor),
 			LineDashSequence = ResolveProperty(() => App.UserPreferences.TemplateThinLineDashSequence)
