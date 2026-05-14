@@ -6,6 +6,9 @@
 [INotifyPropertyChanged]
 public partial class CreateNewCanvasWindow : Window
 {
+	/// <summary>
+	/// Initializes a <see cref="CreateNewCanvasWindow"/> instance.
+	/// </summary>
 	public CreateNewCanvasWindow()
 	{
 		InitializeComponent();
@@ -14,10 +17,19 @@ public partial class CreateNewCanvasWindow : Window
 	}
 
 
+	/// <summary>
+	/// Indicates whether the current mode is standard.
+	/// </summary>
 	public bool IsStandardMode => CreateCanvasMode == CurrentCreateTemplateType.StandardTemplate;
 
+	/// <summary>
+	/// Indicates whether the current mode is default.
+	/// </summary>
 	public bool IsDefaultMode => CreateCanvasMode == CurrentCreateTemplateType.DefaultTemplate;
 
+	/// <summary>
+	/// Indicates whether the current mode is empty.
+	/// </summary>
 	public bool IsEmptyMode => CreateCanvasMode == CurrentCreateTemplateType.EmptyTemplate;
 
 	[ObservableProperty]
@@ -60,6 +72,12 @@ public partial class CreateNewCanvasWindow : Window
 	public partial CurrentCreateTemplateType CreateCanvasMode { get; set; } = CurrentCreateTemplateType.StandardTemplate;
 
 
+	/// <summary>
+	/// Creates a template via the current-configured values.
+	/// </summary>
+	/// <param name="grid">The grid created.</param>
+	/// <returns>The template created.</returns>
+	/// <exception cref="NotSupportedException">Throws when the current mode is not supported.</exception>
 	public Template CreateTemplate(out SudokuGrid grid)
 	{
 		switch (CreateCanvasMode)
