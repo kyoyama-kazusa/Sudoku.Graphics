@@ -166,6 +166,21 @@ public enum ItemType
 	#endregion
 
 	//
+	// Line segments
+	//
+	#region Line segments
+	/// <summary>
+	/// Indicates the thick line segment.
+	/// </summary>
+	LineSegment_Thick,
+
+	/// <summary>
+	/// Indicates the thin line segment.
+	/// </summary>
+	LineSegment_Thin,
+	#endregion
+
+	//
 	// Text
 	//
 	#region Text

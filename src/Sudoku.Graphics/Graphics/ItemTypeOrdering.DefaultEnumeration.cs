@@ -59,6 +59,12 @@ public partial class ItemTypeOrdering
 				yield return ItemType.Text_Candidate;
 			}
 
+			// Line segment
+			{
+				yield return ItemType.LineSegment_Thin;
+				yield return ItemType.LineSegment_Thick;
+			}
+
 			// Cell text marks
 			{
 				yield return ItemType.CellText_Question;

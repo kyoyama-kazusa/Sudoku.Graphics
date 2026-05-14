@@ -710,6 +710,9 @@
         <member name="M:Sudoku.Graphics.Directions.Direction8Extensions.get_RotationDegree(Sudoku.Graphics.Directions.Direction8)">
             <inheritdoc cref="P:Sudoku.Graphics.Directions.Direction8Extensions.&lt;G&gt;$1C31DA024E5B9271B9DAD708D064BAF2.RotationDegree"/>
         </member>
+        <member name="M:Sudoku.Graphics.Directions.Direction8Extensions.AsDirection4(Sudoku.Graphics.Directions.Direction8)">
+            <inheritdoc cref="M:Sudoku.Graphics.Directions.Direction8Extensions.&lt;G&gt;$1C31DA024E5B9271B9DAD708D064BAF2.AsDirection4"/>
+        </member>
         <member name="T:Sudoku.Graphics.Directions.Direction8Extensions.&lt;G&gt;$1C31DA024E5B9271B9DAD708D064BAF2.&lt;M&gt;$86966439171B911499FB08F171AECF45">
             <param name="this">The current instance.</param>
         </member>
@@ -733,6 +736,14 @@
             </summary>
             <exception cref="T:System.ArgumentOutOfRangeException">Throws when the current instance is not defined.</exception>
             <seealso cref="F:Sudoku.Graphics.Directions.Direction8.None"/>
+        </member>
+        <member name="M:Sudoku.Graphics.Directions.Direction8Extensions.&lt;G&gt;$1C31DA024E5B9271B9DAD708D064BAF2.AsDirection4">
+            <summary>
+            Cast the current instance into <see cref="T:Sudoku.Graphics.Directions.Direction4"/> instance.
+            </summary>
+            <returns>A <see cref="T:Sudoku.Graphics.Directions.Direction4"/> instance.</returns>
+            <exception cref="T:System.InvalidCastException">Throws when the direction is diagonal.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">Throws when the value is not defined.</exception>
         </member>
         <member name="T:Sudoku.Graphics.Directions.Orientation2">
             <summary>
@@ -4282,6 +4293,50 @@
             Represents a line item.
             </summary>
         </member>
+        <member name="T:Sudoku.Graphics.Items.Lines.LineSegmentItem">
+            <summary>
+            Represents a line segment item.
+            </summary>
+            <param name="_isThick">Indicates whether the item is thick line.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.Lines.LineSegmentItem.#ctor(System.Boolean)">
+            <summary>
+            Represents a line segment item.
+            </summary>
+            <param name="_isThick">Indicates whether the item is thick line.</param>
+        </member>
+        <member name="F:Sudoku.Graphics.Items.Lines.LineSegmentItem._isThick">
+            <summary>
+            Indicates whether the item is thick.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.Lines.LineSegmentItem.Type">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.Lines.LineSegmentItem.Cell1">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.Lines.LineSegmentItem.Cell2">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.Lines.LineSegmentItem.LineWidthScale">
+            <summary>
+            Indicates the line width scale.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.Lines.LineSegmentItem.LineColor">
+            <summary>
+            Indicates the line color.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.Lines.LineSegmentItem.LineDashSequence">
+            <summary>
+            Indicates the line dash sequence.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.Lines.LineSegmentItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
         <member name="T:Sudoku.Graphics.Items.Lines.TemplateLineItem">
             <summary>
             Represents template line item.
@@ -4291,6 +4346,56 @@
             <inheritdoc/>
         </member>
         <member name="M:Sudoku.Graphics.Items.Lines.TemplateLineItem.DrawTo(Sudoku.Graphics.Canvas)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.Lines.ThickLineSegmentItem">
+            <summary>
+            Represents a thick line segment item.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.Lines.ThickLineSegmentItem.#ctor">
+            <summary>
+            Represents a thick line segment item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.Lines.ThickLineSegmentItem.Cell1">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.Lines.ThickLineSegmentItem.Cell2">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.Lines.ThickLineSegmentItem.LineWidthScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.Lines.ThickLineSegmentItem.LineColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.Lines.ThickLineSegmentItem.LineDashSequence">
+            <inheritdoc/>
+        </member>
+        <member name="T:Sudoku.Graphics.Items.Lines.ThinLineSegmentItem">
+            <summary>
+            Represents a thin line segment item.
+            </summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Items.Lines.ThinLineSegmentItem.#ctor">
+            <summary>
+            Represents a thin line segment item.
+            </summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.Lines.ThinLineSegmentItem.Cell1">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.Lines.ThinLineSegmentItem.Cell2">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.Lines.ThinLineSegmentItem.LineWidthScale">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.Lines.ThinLineSegmentItem.LineColor">
+            <inheritdoc/>
+        </member>
+        <member name="P:Sudoku.Graphics.Items.Lines.ThinLineSegmentItem.LineDashSequence">
             <inheritdoc/>
         </member>
         <member name="T:Sudoku.Graphics.Items.Lines.VariantLineItem">
@@ -4589,6 +4694,16 @@
         <member name="F:Sudoku.Graphics.ItemType.Candidate_Cross">
             <summary>
             Indicates candidate cross mark.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.LineSegment_Thick">
+            <summary>
+            Indicates the thick line segment.
+            </summary>
+        </member>
+        <member name="F:Sudoku.Graphics.ItemType.LineSegment_Thin">
+            <summary>
+            Indicates the thin line segment.
             </summary>
         </member>
         <member name="F:Sudoku.Graphics.ItemType.Text_Given">

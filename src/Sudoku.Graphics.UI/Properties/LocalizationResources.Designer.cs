@@ -700,6 +700,24 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Thick lines.
+        /// </summary>
+        public static string ItemType_LineSegment_Thick {
+            get {
+                return ResourceManager.GetString("ItemType_LineSegment_Thick", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thin lines.
+        /// </summary>
+        public static string ItemType_LineSegment_Thin {
+            get {
+                return ResourceManager.GetString("ItemType_LineSegment_Thin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Default.
         /// </summary>
         public static string ItemType_None {

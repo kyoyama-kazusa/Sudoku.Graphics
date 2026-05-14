@@ -8,7 +8,7 @@ internal partial class Preferences
 
 	public Inherited<Scale> SurroundingTrianglesSizeScale { get; set; } = Inherited<Scale>.FromValue(0.2M);
 
-	public Inherited<Scale> SurroundingTrianglesStrokeWidthScale { get; set; } = Inherited<Scale>.FromPropertyName(nameof(TemplateThinLineWidth));
+	public Inherited<Scale> SurroundingTrianglesStrokeWidthScale { get; set; } = Inherited<Scale>.FromPropertyName(nameof(TemplateThinLineWidthScale));
 
 	public Inherited<SerializableColor> SurroundingTrianglesStrokeColor { get; set; } = Inherited<SerializableColor>.FromPropertyName(nameof(DefaultThinLineColor));
 

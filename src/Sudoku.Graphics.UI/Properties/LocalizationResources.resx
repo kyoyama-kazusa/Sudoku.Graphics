@@ -435,4 +435,10 @@
   <data name="CreateNewCanvasWindow_EmptyTemplate" xml:space="preserve">
     <value>Empty Template</value>
   </data>
+  <data name="ItemType_LineSegment_Thick" xml:space="preserve">
+    <value>Thick lines</value>
+  </data>
+  <data name="ItemType_LineSegment_Thin" xml:space="preserve">
+    <value>Thin lines</value>
+  </data>
 </root>

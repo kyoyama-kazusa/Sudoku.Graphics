@@ -53,5 +53,23 @@ public static class Direction8Extensions
 				Direction8.LeftUp => 315,
 				_ => throw new ArgumentOutOfRangeException(nameof(@this))
 			};
+
+
+		/// <summary>
+		/// Cast the current instance into <see cref="Direction4"/> instance.
+		/// </summary>
+		/// <returns>A <see cref="Direction4"/> instance.</returns>
+		/// <exception cref="InvalidCastException">Throws when the direction is diagonal.</exception>
+		/// <exception cref="ArgumentOutOfRangeException">Throws when the value is not defined.</exception>
+		public Direction4 AsDirection4()
+			=> @this switch
+			{
+				Direction8.Up => Direction4.Up,
+				Direction8.Down => Direction4.Down,
+				Direction8.Left => Direction4.Left,
+				Direction8.Right => Direction4.Right,
+				{ IsDiagonal: true } => throw new InvalidCastException("Cannot cast diagonal direction."),
+				_ => throw new ArgumentOutOfRangeException(nameof(@this))
+			};
 	}
 }

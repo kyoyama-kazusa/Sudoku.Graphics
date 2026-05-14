@@ -16,6 +16,8 @@
 				<vm:ToolItem ItemType="Text_Given" Icon="/Assets/ToolItems/ToolItem_Text_Given.png" />
 				<vm:ToolItem ItemType="Text_Modifiable" Icon="/Assets/ToolItems/ToolItem_Text_Modifiable.png" />
 				<vm:ToolItem ItemType="Text_Candidate" Icon="/Assets/ToolItems/ToolItem_Text_Candidate.png" />
+				<vm:ToolItem ItemType="LineSegment_Thick" Icon="/Assets/ToolItems/ToolItem_ThickLineSegment.png" />
+				<vm:ToolItem ItemType="LineSegment_Thin" Icon="/Assets/ToolItems/ToolItem_ThinLineSegment.png" />
 			</vm:ToolItemGroup>
 			<vm:ToolItemGroup Title="{x:Static p:LocalizationResources.ItemTypeGroup_CellMark_ShapeBased}">
 				<vm:ToolItem ItemType="Cell_Square" Icon="/Assets/ToolItems/ToolItem_Cell_Square.png" />

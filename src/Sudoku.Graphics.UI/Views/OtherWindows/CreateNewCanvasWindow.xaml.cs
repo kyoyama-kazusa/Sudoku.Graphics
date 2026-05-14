@@ -100,13 +100,13 @@ public partial class CreateNewCanvasWindow : Window
 				return new StandardTemplate(BlockRowsCount, BlockColumnsCount, mapper)
 				{
 					IsBorderRoundedRectangle = IsBorderRoundedRectangle,
-					BorderCornerRadius = ResolveProperty(() => App.UserPreferences.TemplateBorderCornerRadius),
+					BorderCornerRadius = ResolveProperty(() => App.UserPreferences.TemplateBorderCornerRadiusScale),
 					ThickLineColor = ResolveProperty(() => App.UserPreferences.TemplateThickLineColor),
 					ThickLineDashSequence = ResolveProperty(() => App.UserPreferences.TemplateThickLineDashSequence),
-					ThickLineWidth = ResolveProperty(() => App.UserPreferences.TemplateThickLineWidth),
+					ThickLineWidth = ResolveProperty(() => App.UserPreferences.TemplateThickLineWidthScale),
 					ThinLineColor = ResolveProperty(() => App.UserPreferences.TemplateThinLineColor),
 					ThinLineDashSequence = ResolveProperty(() => App.UserPreferences.TemplateThinLineDashSequence),
-					ThinLineWidth = ResolveProperty(() => App.UserPreferences.TemplateThinLineWidth)
+					ThinLineWidth = ResolveProperty(() => App.UserPreferences.TemplateThinLineWidthScale)
 				};
 			}
 			case CurrentCreateTemplateType.DefaultTemplate:
@@ -127,14 +127,14 @@ public partial class CreateNewCanvasWindow : Window
 				{
 					Mapper = mapper,
 					IsBorderRoundedRectangle = IsBorderRoundedRectangle,
-					BorderCornerRadius = ResolveProperty(() => App.UserPreferences.TemplateBorderCornerRadius),
+					BorderCornerRadius = ResolveProperty(() => App.UserPreferences.TemplateBorderCornerRadiusScale),
 					DrawBordersAsThickLines = DrawBordersAsThickLines,
 					ThickLineColor = ResolveProperty(() => App.UserPreferences.TemplateThickLineColor),
 					ThickLineDashSequence = ResolveProperty(() => App.UserPreferences.TemplateThickLineDashSequence),
-					ThickLineWidth = ResolveProperty(() => App.UserPreferences.TemplateThickLineWidth),
+					ThickLineWidth = ResolveProperty(() => App.UserPreferences.TemplateThickLineWidthScale),
 					ThinLineColor = ResolveProperty(() => App.UserPreferences.TemplateThinLineColor),
 					ThinLineDashSequence = ResolveProperty(() => App.UserPreferences.TemplateThinLineDashSequence),
-					ThinLineWidth = ResolveProperty(() => App.UserPreferences.TemplateThinLineWidth)
+					ThinLineWidth = ResolveProperty(() => App.UserPreferences.TemplateThinLineWidthScale)
 				};
 			}
 			case CurrentCreateTemplateType.EmptyTemplate:

@@ -50,6 +50,26 @@ public static class ItemsFactory
 			FontWeight = ResolveProperty(() => App.UserPreferences.CandidateFontWeight)
 		};
 
+	public static ThickLineSegmentItem ThickLineSegment(Absolute cell1, Absolute cell2)
+		=> new()
+		{
+			Cell1 = cell1,
+			Cell2 = cell2,
+			LineWidthScale = ResolveProperty(() => App.UserPreferences.TemplateThickLineWidthScale),
+			LineColor = ResolveProperty(() => App.UserPreferences.TemplateThickLineColor),
+			LineDashSequence = ResolveProperty(() => App.UserPreferences.TemplateThickLineDashSequence)
+		};
+
+	public static ThinLineSegmentItem ThinLineSegment(Absolute cell1, Absolute cell2)
+		=> new()
+		{
+			Cell1 = cell1,
+			Cell2 = cell2,
+			LineWidthScale = ResolveProperty(() => App.UserPreferences.TemplateThinLineWidthScale),
+			LineColor = ResolveProperty(() => App.UserPreferences.TemplateThinLineColor),
+			LineDashSequence = ResolveProperty(() => App.UserPreferences.TemplateThinLineDashSequence)
+		};
+
 	public static CellTetrominoMarkItem Tetromino(Absolute cell, Tetromino piece, TetrominoRotationType rotationType)
 	{
 		var useSrsColors = ResolveProperty(() => App.UserPreferences.UseSrsPredefinedTetrominoFillColors);

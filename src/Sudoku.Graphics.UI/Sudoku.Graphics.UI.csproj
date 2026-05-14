@@ -162,6 +162,12 @@
 		<Resource Include="Assets\ToolItems\ToolItem_Text_Modifiable.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
+		<Resource Include="Assets\ToolItems\ToolItem_ThickLineSegment.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+		<Resource Include="Assets\ToolItems\ToolItem_ThinLineSegment.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
 		<Resource Include="Assets\Unused\Icon_Sample.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
