@@ -18,6 +18,8 @@ public partial class CreateNewCanvasWindow : Window
 
 	public bool IsDefaultMode => CreateCanvasMode == CurrentCreateTemplateType.DefaultTemplate;
 
+	public bool IsEmptyMode => CreateCanvasMode == CurrentCreateTemplateType.EmptyTemplate;
+
 	[ObservableProperty]
 	public partial bool IsBorderRoundedRectangle { get; set; } = false;
 
@@ -54,6 +56,7 @@ public partial class CreateNewCanvasWindow : Window
 	[ObservableProperty]
 	[NotifyPropertyChangedFor(nameof(IsStandardMode))]
 	[NotifyPropertyChangedFor(nameof(IsDefaultMode))]
+	[NotifyPropertyChangedFor(nameof(IsEmptyMode))]
 	public partial CurrentCreateTemplateType CreateCanvasMode { get; set; } = CurrentCreateTemplateType.StandardTemplate;
 
 
@@ -116,6 +119,17 @@ public partial class CreateNewCanvasWindow : Window
 					ThinLineWidth = ResolveProperty(() => App.UserPreferences.TemplateThinLineWidth)
 				};
 			}
+			case CurrentCreateTemplateType.EmptyTemplate:
+			{
+				var mapper = new PointMapper
+				{
+					CellSize = RenderedCellSize,
+					Margin = RenderedGridMargin,
+					TemplateSize = new() { RowsCount = RowsAndColumnsCount, ColumnsCount = RowsAndColumnsCount }
+				};
+				grid = new(mapper.AbsoluteRowsCount, mapper.AbsoluteColumnsCount, RowsAndColumnsCount);
+				return new SpecifiedTemplate(mapper);
+			}
 			default:
 			{
 				throw new NotSupportedException();
@@ -140,4 +154,7 @@ public partial class CreateNewCanvasWindow : Window
 
 	private void DefaultTemplateRadioButton_Checked(object sender, RoutedEventArgs e)
 		=> CreateCanvasMode = CurrentCreateTemplateType.DefaultTemplate;
+
+	private void EmptyTemplateRadioButton_Checked(object sender, RoutedEventArgs e)
+		=> CreateCanvasMode = CurrentCreateTemplateType.EmptyTemplate;
 }

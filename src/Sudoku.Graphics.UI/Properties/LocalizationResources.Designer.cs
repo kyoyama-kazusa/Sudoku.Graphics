@@ -205,6 +205,15 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Empty Template.
+        /// </summary>
+        public static string CreateNewCanvasWindow_EmptyTemplate {
+            get {
+                return ResourceManager.GetString("CreateNewCanvasWindow_EmptyTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enable rounded rectangle.
         /// </summary>
         public static string CreateNewCanvasWindow_IsBorderRoundedRectangle {

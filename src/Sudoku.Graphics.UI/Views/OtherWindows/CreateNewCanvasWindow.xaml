@@ -15,10 +15,11 @@
 	Height="450"
 	WindowStartupLocation="CenterOwner">
 	<Window.Resources>
-		<vcvt:TemplateModeToVisibilityConverter x:Key="TemplateModeToVisibilityConverter"/>
+		<vcvt:TemplateModeToVisibilityConverter x:Key="TemplateModeToVisibilityConverter" />
+		<vcvt:TemplateModeToVisibilityConverter x:Key="TemplateModeToVisibilityConverterReverted" IsReverted="True" />
 		<vcvt:ThreeStateBooleanToBooleanConverter x:Key="ThreeStateBooleanToBooleanConverter" TreatNullAsFalse="True" />
 	</Window.Resources>
-	
+
 	<ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
 		<StackPanel Orientation="Vertical">
 			<StackPanel.Resources>
@@ -49,6 +50,10 @@
 					Content="{x:Static p:LocalizationResources.CreateNewCanvasWindow_DefaultTemplate}"
 					IsChecked="{Binding IsDefaultMode,Mode=OneWay}"
 					Checked="DefaultTemplateRadioButton_Checked" />
+				<RadioButton
+					Content="{x:Static p:LocalizationResources.CreateNewCanvasWindow_EmptyTemplate}"
+					IsChecked="{Binding IsEmptyMode,Mode=OneWay}"
+					Checked="EmptyTemplateRadioButton_Checked" />
 			</StackPanel>
 			<StackPanel>
 				<TextBlock
@@ -92,7 +97,12 @@
 					Text="{x:Static p:LocalizationResources.CreateNewCanvasWindow_RenderedGridMargin}" />
 				<c:IntegerBox Value="{Binding RenderedGridMargin}" MinValue="0" MaxValue="100" />
 			</StackPanel>
-			<StackPanel Orientation="Vertical">
+			<StackPanel
+				Orientation="Vertical"
+				Visibility="{Binding
+					CreateCanvasMode,
+					Converter={StaticResource TemplateModeToVisibilityConverterReverted},
+					ConverterParameter={x:Static local:CurrentCreateTemplateType.EmptyTemplate}}">
 				<TextBlock
 					Style="{StaticResource PropertyNameTextBlockStyle}"
 					HorizontalAlignment="Left"
@@ -120,7 +130,11 @@
 					<c:IntegerBox Grid.Row="3" Grid.Column="1" Value="{Binding VectorRight}" MinValue="0" MaxValue="64" />
 				</Grid>
 			</StackPanel>
-			<StackPanel>
+			<StackPanel
+				Visibility="{Binding
+					CreateCanvasMode,
+					Converter={StaticResource TemplateModeToVisibilityConverterReverted},
+					ConverterParameter={x:Static local:CurrentCreateTemplateType.EmptyTemplate}}">
 				<CheckBox
 					Content="{x:Static p:LocalizationResources.CreateNewCanvasWindow_IsBorderRoundedRectangle}"
 					IsThreeState="False"

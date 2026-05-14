@@ -427,4 +427,7 @@
   <data name="ItemType_CellPair_Battenburg" xml:space="preserve">
     <value>双色蛋糕</value>
   </data>
+  <data name="CreateNewCanvasWindow_EmptyTemplate" xml:space="preserve">
+    <value>空白面板</value>
+  </data>
 </root>

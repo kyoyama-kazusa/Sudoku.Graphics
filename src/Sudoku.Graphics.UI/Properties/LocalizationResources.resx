@@ -432,4 +432,7 @@
   <data name="ItemType_CellPair_Battenburg" xml:space="preserve">
     <value>Battenburg</value>
   </data>
+  <data name="CreateNewCanvasWindow_EmptyTemplate" xml:space="preserve">
+    <value>Empty Template</value>
+  </data>
 </root>
