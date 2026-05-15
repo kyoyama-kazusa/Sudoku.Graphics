@@ -5645,6 +5645,46 @@
             Indicates the type is a candidate digit.
             </summary>
         </member>
+        <member name="T:Sudoku.Graphics.Semantic.EdgeKey">
+            <summary>
+            Represents a key of an edge (line segment).
+            </summary>
+            <param name="Cell1Row">Indicates the value Y1.</param>
+            <param name="Cell1Column">Indicates the value X1.</param>
+            <param name="Cell2Row">Indicates the value Y2.</param>
+            <param name="Cell2Column">Indicates the value X2.</param>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.EdgeKey.#ctor(Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute,Sudoku.Graphics.Absolute)">
+            <summary>
+            Represents a key of an edge (line segment).
+            </summary>
+            <param name="Cell1Row">Indicates the value Y1.</param>
+            <param name="Cell1Column">Indicates the value X1.</param>
+            <param name="Cell2Row">Indicates the value Y2.</param>
+            <param name="Cell2Column">Indicates the value X2.</param>
+        </member>
+        <member name="P:Sudoku.Graphics.Semantic.EdgeKey.Cell1Row">
+            <summary>Indicates the value Y1.</summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Semantic.EdgeKey.Cell1Column">
+            <summary>Indicates the value X1.</summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Semantic.EdgeKey.Cell2Row">
+            <summary>Indicates the value Y2.</summary>
+        </member>
+        <member name="P:Sudoku.Graphics.Semantic.EdgeKey.Cell2Column">
+            <summary>Indicates the value X2.</summary>
+        </member>
+        <member name="M:Sudoku.Graphics.Semantic.EdgeKey.Create(Sudoku.Graphics.Absolute,Sudoku.Graphics.Directions.Direction4,Sudoku.Graphics.PointMapper)">
+            <summary>
+            Creates an <see cref="T:Sudoku.Graphics.Semantic.EdgeKey"/> instance via the specified cell and direction.
+            </summary>
+            <param name="cell">The cell.</param>
+            <param name="direction">The direction.</param>
+            <param name="mapper">The point mapper instance.</param>
+            <returns>An <see cref="T:Sudoku.Graphics.Semantic.EdgeKey"/> instance.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Throws when <paramref name="direction"/> is not defined.</exception>
+        </member>
         <member name="T:Sudoku.Graphics.Semantic.SudokuGrid">
             <summary>
             Represents a sudoku grid.
