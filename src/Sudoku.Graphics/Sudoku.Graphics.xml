@@ -5825,7 +5825,7 @@
         <member name="P:Sudoku.Graphics.Semantic.SudokuGrid.FormatPattern">
             <remarks>
             Pattern:<br/>
-            <code>.{3}\\:\\s*.+(?:\\:\\s*.{3,}(?:\\s+.{3,})*)?</code><br/>
+            <code>.{3}\:\s*.+(?:\:\s*.{3,}(?:\s+.{3,})*)?</code><br/>
             Options:<br/>
             <code>RegexOptions.Compiled | RegexOptions.Singleline</code><br/>
             Explanation:<br/>

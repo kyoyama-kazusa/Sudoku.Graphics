@@ -411,21 +411,6 @@
             <param name="converter">The converter.</param>
             <returns>The result.</returns>
         </member>
-        <member name="T:System.Runtime.CompilerServices.IUnion">
-            <summary>
-            Represents a type that behaves like a union.
-            </summary>
-        </member>
-        <member name="P:System.Runtime.CompilerServices.IUnion.Value">
-            <summary>
-            Indicates the backing value of the union.
-            </summary>
-        </member>
-        <member name="T:System.Runtime.CompilerServices.UnionAttribute">
-            <summary>
-            Represents a type that is a union or a union-like type.
-            </summary>
-        </member>
         <member name="T:System.StringExtensions">
             <summary>
             Provides extension members on <see cref="T:System.String"/>.
