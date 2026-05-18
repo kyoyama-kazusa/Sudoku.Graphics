@@ -135,14 +135,5 @@ public sealed class Canvas : IDisposable
 	/// <param name="margin">The margin.</param>
 	/// <returns>The sample canvas.</returns>
 	public static Canvas GetSampleCanvas(float cellSize, float margin)
-		=> new(
-			new SpecifiedTemplate(
-				new()
-				{
-					CellSize = cellSize,
-					Margin = margin,
-					TemplateSize = new() { RowsCount = 1, ColumnsCount = 1 }
-				}
-			)
-		);
+		=> new(new SpecifiedTemplate(new() { CellSize = cellSize, Margin = margin, TemplateSize = new() { RowsCount = 1, ColumnsCount = 1 } }));
 }
