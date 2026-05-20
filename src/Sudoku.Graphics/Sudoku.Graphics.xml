@@ -3196,8 +3196,7 @@
             <param name="connector">The connector.</param>
             <param name="cellSize">The size of cell.</param>
             <param name="cornerRadiusScale">The scale of corner radius, related to half size of cell.</param>
-            <returns>A valid path instance.</returns>
-            <exception cref="T:System.ArgumentException">Throws when parameter <paramref name="connector"/> is invalid.</exception>
+            <returns>A valid path instance; if argument has invalid data, <see langword="null"/> will be returned.</returns>
         </member>
         <member name="M:Sudoku.Graphics.Items.CellPairMarks.ConnectorRenderer.BuildStraightPath(Sudoku.Graphics.Items.CellPairMarks.Connector,System.Single,Sudoku.Graphics.Scale)">
             <summary>
@@ -3206,8 +3205,7 @@
             <param name="c">The connector.</param>
             <param name="cellSize">The size of cell.</param>
             <param name="cornerRadiusScale">The scale of corner radius, related to half size of cell.</param>
-            <returns>A valid path instance.</returns>
-            <exception cref="T:System.InvalidOperationException">Throws when two cells are not in a same row or column.</exception>
+            <returns>A valid path instance. This method will return <see langword="null"/> if any argument has invalid data.</returns>
         </member>
         <member name="M:Sudoku.Graphics.Items.CellPairMarks.ConnectorRenderer.BuildOneTurnPath(Sudoku.Graphics.Items.CellPairMarks.Connector,System.Single,Sudoku.Graphics.Scale)">
             <summary>
@@ -3225,8 +3223,7 @@
             <param name="c">The connector.</param>
             <param name="cellSize">The size of cell.</param>
             <param name="cornerRadiusScale">The scale of corner radius, related to half size of cell.</param>
-            <returns>A valid path instance.</returns>
-            <exception cref="T:System.InvalidOperationException">Throws start and end direction are not in a same orientation.</exception>
+            <returns>A valid path instance. If any argument has invalid data, <see langword="null"/> will be returned.</returns>
         </member>
         <member name="M:Sudoku.Graphics.Items.CellPairMarks.ConnectorRenderer.BuildRoundedPath(System.Collections.Generic.List{SkiaSharp.SKPoint},System.Single)">
             <summary>

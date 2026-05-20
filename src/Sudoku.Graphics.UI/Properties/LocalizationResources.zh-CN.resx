@@ -413,7 +413,7 @@
     <value>板子</value>
   </data>
   <data name="ItemType_CellPair_ConnectionLine" xml:space="preserve">
-    <value>连接线</value>
+    <value>连接线（普通）</value>
   </data>
   <data name="ItemType_CellPair_Kropki" xml:space="preserve">
     <value>黑白点</value>
@@ -435,5 +435,41 @@
   </data>
   <data name="ItemType_LineSegment_Thin" xml:space="preserve">
     <value>细格线</value>
+  </data>
+  <data name="MainWindow_CellPairIslandConnectorDirection" xml:space="preserve">
+    <value>请选择连接线的方向：</value>
+  </data>
+  <data name="MainWindow_CellPairIslandConnectorUp" xml:space="preserve">
+    <value>上</value>
+  </data>
+  <data name="MainWindow_CellPairIslandConnectorDown" xml:space="preserve">
+    <value>下</value>
+  </data>
+  <data name="MainWindow_CellPairIslandConnectorLeft" xml:space="preserve">
+    <value>左</value>
+  </data>
+  <data name="MainWindow_CellPairIslandConnectorRight" xml:space="preserve">
+    <value>右</value>
+  </data>
+  <data name="MainWindow_CellPairIslandConnectorIslandType" xml:space="preserve">
+    <value>请选择连接线的类型（仅限非直连的模式）：</value>
+  </data>
+  <data name="MainWindow_CellPairIslandConnectorIslandTypeDirect" xml:space="preserve">
+    <value>直连</value>
+  </data>
+  <data name="MainWindow_CellPairIslandConnectorIslandTypeSingleCorner" xml:space="preserve">
+    <value>单拐点</value>
+  </data>
+  <data name="MainWindow_CellPairIslandConnectorIslandTypeDoubleCorner" xml:space="preserve">
+    <value>双拐点</value>
+  </data>
+  <data name="MainWindow_CellPairIslandConnectorOffset" xml:space="preserve">
+    <value>偏移（拐角距离连线起点之间的距离，仅限双拐点的模式）：</value>
+  </data>
+  <data name="ItemType_CellPair_IslandConnector" xml:space="preserve">
+    <value>连接线（复杂）</value>
+  </data>
+  <data name="MainWindow_CellPairIslandConnectorDirection2" xml:space="preserve">
+    <value>请选择另一边连接线的方向（仅限双拐点的模式）：</value>
   </data>
 </root>

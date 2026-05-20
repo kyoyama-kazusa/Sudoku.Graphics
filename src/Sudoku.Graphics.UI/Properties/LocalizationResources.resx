@@ -418,7 +418,7 @@
     <value>Bar</value>
   </data>
   <data name="ItemType_CellPair_ConnectionLine" xml:space="preserve">
-    <value>Connection line</value>
+    <value>Connector (Simple)</value>
   </data>
   <data name="ItemType_CellPair_Kropki" xml:space="preserve">
     <value>Kropki</value>
@@ -440,5 +440,41 @@
   </data>
   <data name="ItemType_LineSegment_Thin" xml:space="preserve">
     <value>Thin lines</value>
+  </data>
+  <data name="MainWindow_CellPairIslandConnectorDirection" xml:space="preserve">
+    <value>Select direction of connector:</value>
+  </data>
+  <data name="MainWindow_CellPairIslandConnectorUp" xml:space="preserve">
+    <value>Up</value>
+  </data>
+  <data name="MainWindow_CellPairIslandConnectorDown" xml:space="preserve">
+    <value>Down</value>
+  </data>
+  <data name="MainWindow_CellPairIslandConnectorLeft" xml:space="preserve">
+    <value>Left</value>
+  </data>
+  <data name="MainWindow_CellPairIslandConnectorRight" xml:space="preserve">
+    <value>Right</value>
+  </data>
+  <data name="MainWindow_CellPairIslandConnectorIslandType" xml:space="preserve">
+    <value>Select type of island connector (only available for direct mode):</value>
+  </data>
+  <data name="MainWindow_CellPairIslandConnectorIslandTypeDirect" xml:space="preserve">
+    <value>Direct</value>
+  </data>
+  <data name="MainWindow_CellPairIslandConnectorIslandTypeSingleCorner" xml:space="preserve">
+    <value>Single corner</value>
+  </data>
+  <data name="MainWindow_CellPairIslandConnectorIslandTypeDoubleCorner" xml:space="preserve">
+    <value>Double corners</value>
+  </data>
+  <data name="MainWindow_CellPairIslandConnectorOffset" xml:space="preserve">
+    <value>Offset (corners to the direct cell of the connection, only available for double corners mode):</value>
+  </data>
+  <data name="ItemType_CellPair_IslandConnector" xml:space="preserve">
+    <value>Connector (Split)</value>
+  </data>
+  <data name="MainWindow_CellPairIslandConnectorDirection2" xml:space="preserve">
+    <value>Select the other direction of connector (Only available for double corners mode):</value>
   </data>
 </root>

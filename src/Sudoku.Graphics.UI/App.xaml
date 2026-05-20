@@ -70,6 +70,7 @@
 				<vm:ToolItem ItemType="CellPair_KropkiSquare" Icon="/Assets/ToolItems/ToolItem_CellPair_KropkiSquare.png" />
 				<vm:ToolItem ItemType="CellPair_KropkiTriangle" Icon="/Assets/ToolItems/ToolItem_CellPair_KropkiTriangle.png" />
 				<vm:ToolItem ItemType="CellPair_Battenburg" Icon="/Assets/ToolItems/ToolItem_CellPair_Battenburg.png" />
+				<vm:ToolItem ItemType="CellPair_IslandConnector" Icon="/Assets/ToolItems/ToolItem_CellPair_IslandConnector.png" />
 			</vm:ToolItemGroup>
 		</vm:ToolItemGroupCollection>
 

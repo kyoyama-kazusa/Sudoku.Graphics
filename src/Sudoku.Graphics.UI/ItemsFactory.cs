@@ -611,4 +611,14 @@ public static class ItemsFactory
 			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellPairBattenburgStrokeWidthScale),
 			StrokeColor = ResolveProperty(() => App.UserPreferences.CellPairBattenburgStrokeColor)
 		};
+
+	public static CellPairIslandConnectorMarkItem CellPairIslandConnector(Absolute cell1, Absolute cell2, IslandConnector connector)
+		=> new()
+		{
+			Cell1 = cell1,
+			Cell2 = cell2,
+			StrokeWidthScale = 0.08M,
+			StrokeColor = SKColors.Black.WithAlpha(128),
+			IslandConnector = connector
+		};
 }

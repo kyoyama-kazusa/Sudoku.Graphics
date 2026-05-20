@@ -56,6 +56,11 @@ public sealed record CellPairIslandConnectorMarkItem : CellPairMarkItem
 			_ => throw new NotSupportedException()
 		};
 		using var path = ConnectorRenderer.BuildPath(connector, cellSize, CornerRadiusScale);
+		if (path is null)
+		{
+			return;
+		}
+
 		using var strokePaint = new SKPaint
 		{
 			IsAntialias = true,
@@ -65,7 +70,6 @@ public sealed record CellPairIslandConnectorMarkItem : CellPairMarkItem
 			StrokeJoin = SKStrokeJoin.Round,
 			StrokeCap = SKStrokeCap.Round
 		};
-
 		backingCanvas.DrawPath(path, strokePaint);
 	}
 }
@@ -132,15 +136,14 @@ file static class ConnectorRenderer
 	/// <param name="connector">The connector.</param>
 	/// <param name="cellSize">The size of cell.</param>
 	/// <param name="cornerRadiusScale">The scale of corner radius, related to half size of cell.</param>
-	/// <returns>A valid path instance.</returns>
-	/// <exception cref="ArgumentException">Throws when parameter <paramref name="connector"/> is invalid.</exception>
-	public static SKPath BuildPath(Connector connector, float cellSize, Scale cornerRadiusScale)
+	/// <returns>A valid path instance; if argument has invalid data, <see langword="null"/> will be returned.</returns>
+	public static SKPath? BuildPath(Connector connector, float cellSize, Scale cornerRadiusScale)
 		=> connector switch
 		{
 			{ StartDirection: null, EndDirection: null } => BuildStraightPath(connector, cellSize, cornerRadiusScale),
 			{ StartDirection: not null, EndDirection: null } => BuildOneTurnPath(connector, cellSize, cornerRadiusScale),
 			{ StartDirection: not null, EndDirection: not null } => BuildTwoTurnPath(connector, cellSize, cornerRadiusScale),
-			_ => throw new ArgumentException("Invalid connector configuration.", nameof(connector))
+			_ => null
 		};
 
 	/// <summary>
@@ -149,9 +152,8 @@ file static class ConnectorRenderer
 	/// <param name="c">The connector.</param>
 	/// <param name="cellSize">The size of cell.</param>
 	/// <param name="cornerRadiusScale">The scale of corner radius, related to half size of cell.</param>
-	/// <returns>A valid path instance.</returns>
-	/// <exception cref="InvalidOperationException">Throws when two cells are not in a same row or column.</exception>
-	private static SKPath BuildStraightPath(Connector c, float cellSize, Scale cornerRadiusScale)
+	/// <returns>A valid path instance. This method will return <see langword="null"/> if any argument has invalid data.</returns>
+	private static SKPath? BuildStraightPath(Connector c, float cellSize, Scale cornerRadiusScale)
 	{
 		var points = new List<SKPoint>();
 		if (float.NearlyEquals(c.StartPoint.Y, c.EndPoint.Y, Epsilon))
@@ -174,7 +176,7 @@ file static class ConnectorRenderer
 		}
 		else
 		{
-			throw new InvalidOperationException("Straight connector requires same row or same column.");
+			return null;
 		}
 
 		return BuildRoundedPath(points, cornerRadiusScale.Measure(cellSize / 2));
@@ -187,9 +189,14 @@ file static class ConnectorRenderer
 	/// <param name="cellSize">The size of cell.</param>
 	/// <param name="cornerRadiusScale">The scale of corner radius, related to half size of cell.</param>
 	/// <returns>A valid path.</returns>
-	private static SKPath BuildOneTurnPath(Connector c, float cellSize, Scale cornerRadiusScale)
+	private static SKPath? BuildOneTurnPath(Connector c, float cellSize, Scale cornerRadiusScale)
 	{
 		var startDir = c.StartDirection!.Value;
+		if (startDir == Direction4.None)
+		{
+			return null;
+		}
+
 		var start = GetSideCenter(c.StartPoint, startDir, cellSize);
 
 		// Smae row / column, create a straight line instead.
@@ -227,16 +234,21 @@ file static class ConnectorRenderer
 	/// <param name="c">The connector.</param>
 	/// <param name="cellSize">The size of cell.</param>
 	/// <param name="cornerRadiusScale">The scale of corner radius, related to half size of cell.</param>
-	/// <returns>A valid path instance.</returns>
-	/// <exception cref="InvalidOperationException">Throws start and end direction are not in a same orientation.</exception>
-	private static SKPath BuildTwoTurnPath(Connector c, float cellSize, Scale cornerRadiusScale)
+	/// <returns>A valid path instance. If any argument has invalid data, <see langword="null"/> will be returned.</returns>
+	private static SKPath? BuildTwoTurnPath(Connector c, float cellSize, Scale cornerRadiusScale)
 	{
 		var startDir = c.StartDirection!.Value;
 		var endDir = c.EndDirection!.Value;
+		if (startDir == Direction4.None || endDir == Direction4.None)
+		{
+			return null;
+		}
+
 		if (IsHorizontal(startDir) != IsHorizontal(endDir))
 		{
-			const string errorInfo = $"Two-turn connector currently expects {nameof(Connector.StartDirection)} and {nameof(Connector.EndDirection)} on the same axis.";
-			throw new InvalidOperationException(errorInfo);
+			//const string errorInfo = $"Two-turn connector currently expects {nameof(Connector.StartDirection)} and {nameof(Connector.EndDirection)} on the same axis.";
+			//throw new InvalidOperationException(errorInfo);
+			return null;
 		}
 
 		var start = GetSideCenter(c.StartPoint, startDir, cellSize);
@@ -338,7 +350,7 @@ file static class ConnectorRenderer
 			Direction4.Up => new SKPoint(topLeft.X + cellSize * 0.5F, topLeft.Y),
 			Direction4.Right => new SKPoint(topLeft.X + cellSize, topLeft.Y + cellSize * 0.5F),
 			Direction4.Down => new SKPoint(topLeft.X + cellSize * 0.5F, topLeft.Y + cellSize),
-			Direction4.Left => new SKPoint(topLeft.X, topLeft.Y + cellSize * 0.5f),
+			Direction4.Left => new SKPoint(topLeft.X, topLeft.Y + cellSize * 0.5F),
 			_ => throw new ArgumentOutOfRangeException(nameof(side))
 		};
 
@@ -359,7 +371,7 @@ file static class ConnectorRenderer
 	{
 		var dx = to.X - from.X;
 		var dy = to.Y - from.Y;
-		return MathF.Abs(dx) >= MathF.Abs(dy) ? new(MathF.Sign(dx), 0f) : new(0, MathF.Sign(dy));
+		return MathF.Abs(dx) >= MathF.Abs(dy) ? new(MathF.Sign(dx), 0) : new(0, MathF.Sign(dy));
 	}
 
 	/// <summary>

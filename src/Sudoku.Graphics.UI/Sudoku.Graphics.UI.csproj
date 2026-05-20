@@ -57,6 +57,9 @@
 		<Resource Include="Assets\ToolItems\ToolItem_CellPair_ConnectionLine.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>
+		<Resource Include="Assets\ToolItems\ToolItem_CellPair_IslandConnector.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
 		<Resource Include="Assets\ToolItems\ToolItem_CellPair_Kropki.png">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Resource>

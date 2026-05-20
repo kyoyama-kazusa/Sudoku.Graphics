@@ -565,11 +565,20 @@ namespace Sudoku.Graphics.UI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Connection line.
+        ///   Looks up a localized string similar to Connector (Simple).
         /// </summary>
         public static string ItemType_CellPair_ConnectionLine {
             get {
                 return ResourceManager.GetString("ItemType_CellPair_ConnectionLine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Connector (Split).
+        /// </summary>
+        public static string ItemType_CellPair_IslandConnector {
+            get {
+                return ResourceManager.GetString("ItemType_CellPair_IslandConnector", resourceCulture);
             }
         }
         
@@ -822,6 +831,105 @@ namespace Sudoku.Graphics.UI.Properties {
         public static string MainWindow_CellPairInputBridgeLinesCount {
             get {
                 return ResourceManager.GetString("MainWindow_CellPairInputBridgeLinesCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select direction of connector:.
+        /// </summary>
+        public static string MainWindow_CellPairIslandConnectorDirection {
+            get {
+                return ResourceManager.GetString("MainWindow_CellPairIslandConnectorDirection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select the other direction of connector (Only available for double corners mode):.
+        /// </summary>
+        public static string MainWindow_CellPairIslandConnectorDirection2 {
+            get {
+                return ResourceManager.GetString("MainWindow_CellPairIslandConnectorDirection2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Down.
+        /// </summary>
+        public static string MainWindow_CellPairIslandConnectorDown {
+            get {
+                return ResourceManager.GetString("MainWindow_CellPairIslandConnectorDown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select type of island connector (only available for direct mode):.
+        /// </summary>
+        public static string MainWindow_CellPairIslandConnectorIslandType {
+            get {
+                return ResourceManager.GetString("MainWindow_CellPairIslandConnectorIslandType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Direct.
+        /// </summary>
+        public static string MainWindow_CellPairIslandConnectorIslandTypeDirect {
+            get {
+                return ResourceManager.GetString("MainWindow_CellPairIslandConnectorIslandTypeDirect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Double corners.
+        /// </summary>
+        public static string MainWindow_CellPairIslandConnectorIslandTypeDoubleCorner {
+            get {
+                return ResourceManager.GetString("MainWindow_CellPairIslandConnectorIslandTypeDoubleCorner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Single corner.
+        /// </summary>
+        public static string MainWindow_CellPairIslandConnectorIslandTypeSingleCorner {
+            get {
+                return ResourceManager.GetString("MainWindow_CellPairIslandConnectorIslandTypeSingleCorner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Left.
+        /// </summary>
+        public static string MainWindow_CellPairIslandConnectorLeft {
+            get {
+                return ResourceManager.GetString("MainWindow_CellPairIslandConnectorLeft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Offset (corners to the direct cell of the connection, only available for double corners mode):.
+        /// </summary>
+        public static string MainWindow_CellPairIslandConnectorOffset {
+            get {
+                return ResourceManager.GetString("MainWindow_CellPairIslandConnectorOffset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Right.
+        /// </summary>
+        public static string MainWindow_CellPairIslandConnectorRight {
+            get {
+                return ResourceManager.GetString("MainWindow_CellPairIslandConnectorRight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Up.
+        /// </summary>
+        public static string MainWindow_CellPairIslandConnectorUp {
+            get {
+                return ResourceManager.GetString("MainWindow_CellPairIslandConnectorUp", resourceCulture);
             }
         }
         

@@ -58,17 +58,61 @@ public partial class MainWindow : Window
 		InitializeComponent();
 
 		DataContext = this;
+
+		InitializeValues();
 	}
 
 
 	[ObservableProperty]
-	public partial string CurrentModeString { get; set; } = LocalizationResources.ResourceManager.GetString("ItemType_None")!;
+	public partial string CurrentModeString { get; set; } = LocalizationResources.ItemType_None;
 
 	[ObservableProperty]
 	public partial ItemType CurrentItemType { get; set; } = ItemType.None;
 
 	[ObservableProperty]
 	public partial ImageSource? GridImageSource { get; set; }
+
+	internal bool IsDirectIslandMode => CurrentIslandConnectorMode == IslandConnectorMode.Direct;
+
+	internal bool IsSingleCornerIslandMode => CurrentIslandConnectorMode == IslandConnectorMode.SingleCorner;
+
+	internal bool IsDoubleCornersIslandMode => CurrentIslandConnectorMode == IslandConnectorMode.DoubleCorners;
+
+	internal bool IsDirection1Up => IslandCorner1Direction == Direction4.Up;
+
+	internal bool IsDirection1Down => IslandCorner1Direction == Direction4.Down;
+
+	internal bool IsDirection1Left => IslandCorner1Direction == Direction4.Left;
+
+	internal bool IsDirection1Right => IslandCorner1Direction == Direction4.Right;
+
+	internal bool IsDirection2Up => IslandCorner2Direction == Direction4.Up;
+
+	internal bool IsDirection2Down => IslandCorner2Direction == Direction4.Down;
+
+	internal bool IsDirection2Left => IslandCorner2Direction == Direction4.Left;
+
+	internal bool IsDirection2Right => IslandCorner2Direction == Direction4.Right;
+
+	[ObservableProperty]
+	[NotifyPropertyChangedFor(nameof(IsDirection1Up))]
+	[NotifyPropertyChangedFor(nameof(IsDirection1Down))]
+	[NotifyPropertyChangedFor(nameof(IsDirection1Left))]
+	[NotifyPropertyChangedFor(nameof(IsDirection1Right))]
+	internal partial Direction4 IslandCorner1Direction { get; set; }
+
+	[ObservableProperty]
+	[NotifyPropertyChangedFor(nameof(IsDirection2Up))]
+	[NotifyPropertyChangedFor(nameof(IsDirection2Down))]
+	[NotifyPropertyChangedFor(nameof(IsDirection2Left))]
+	[NotifyPropertyChangedFor(nameof(IsDirection2Right))]
+	internal partial Direction4 IslandCorner2Direction { get; set; }
+
+	[ObservableProperty]
+	[NotifyPropertyChangedFor(nameof(IsDirectIslandMode))]
+	[NotifyPropertyChangedFor(nameof(IsSingleCornerIslandMode))]
+	[NotifyPropertyChangedFor(nameof(IsDoubleCornersIslandMode))]
+	internal partial IslandConnectorMode CurrentIslandConnectorMode { get; set; }
 
 	/// <summary>
 	/// Indicates the current canvas.
@@ -96,6 +140,17 @@ public partial class MainWindow : Window
 
 	public ICommand QuitCommand => new RelayCommand(Close);
 
+
+	private void InitializeValues()
+	{
+		CurrentIslandConnectorMode = IslandConnectorMode.Direct;
+		IslandCorner1Direction = Direction4.Up;
+		IslandCorner2Direction = Direction4.Up;
+		IslandConnectorDirectModeRadioButton.IsChecked = true;
+		CellPairIslandConnectorDirection1UpRadioButton.IsChecked = true;
+		CellPairIslandConnectorDirection2UpRadioButton.IsChecked = true;
+		CellPairIslandConnectorOffsetInputBox.Value = 1;
+	}
 
 	private void OpenCreateCanvasWindowAndRenderPicture()
 	{
@@ -429,4 +484,13 @@ public partial class MainWindow : Window
 		_operationHandlerContext = null;
 		_previousOperationHandler = null;
 	}
+
+	private void IslandConnectorDirectionRadioButton_Click(object sender, RoutedEventArgs e)
+		=> IslandCorner1Direction = (Direction4)((RadioButton)sender).Tag;
+
+	private void IslandConnectorDirectionRadioButton2_Click(object sender, RoutedEventArgs e)
+		=> IslandCorner2Direction = (Direction4)((RadioButton)sender).Tag;
+
+	private void IslandConnectorModeRadioButton_Checked(object sender, RoutedEventArgs e)
+		=> CurrentIslandConnectorMode = (IslandConnectorMode)((RadioButton)sender).Tag;
 }
