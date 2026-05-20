@@ -617,8 +617,8 @@ public static class ItemsFactory
 		{
 			Cell1 = cell1,
 			Cell2 = cell2,
-			StrokeWidthScale = 0.08M,
-			StrokeColor = SKColors.Black.WithAlpha(128),
-			IslandConnector = connector
+			IslandConnector = connector,
+			StrokeWidthScale = ResolveProperty(() => App.UserPreferences.CellPairIslandConnectorStrokeWidthScale),
+			StrokeColor = ResolveProperty(() => App.UserPreferences.CellPairIslandConnectorStrokeColor)
 		};
 }
