@@ -103,13 +103,13 @@ public readonly struct Relative(int value) : IInteger<Relative>, ILocator<Relati
 	/// <inheritdoc/>
 	public static bool IsAlignedAs(LocatorGridAlignment gridAlignment, Relative first, Relative second, PointMapper mapper)
 		=> Absolute.IsAlignedAs(gridAlignment, first.ToAbsolute(mapper), second.ToAbsolute(mapper), mapper);
-	
 
-	/// <inheritdoc/>
-	public static implicit operator Relative(int value) => new(value);
 
 	/// <inheritdoc/>
 	public static implicit operator int(Relative value) => value._value;
+
+	/// <inheritdoc/>
+	public static implicit operator Relative(int value) => new(value);
 
 	/// <summary>
 	/// Explicit cast from <see cref="Absolute"/> to <see cref="Relative"/> value.

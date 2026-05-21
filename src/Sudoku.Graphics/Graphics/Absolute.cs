@@ -238,8 +238,8 @@ public readonly struct Absolute(int value) : IInteger<Absolute>, ILocator<Absolu
 
 
 	/// <inheritdoc/>
-	public static implicit operator Absolute(int value) => new(value);
+	public static implicit operator int(Absolute value) => value._value;
 
 	/// <inheritdoc/>
-	public static implicit operator int(Absolute value) => value._value;
+	public static implicit operator Absolute(int value) => new(value);
 }
