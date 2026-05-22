@@ -16,7 +16,6 @@ public partial class MainWindow
 				ItemOperationHandlerFactory.Add(itemType, () => (OperationHandler)Activator.CreateInstance(type)!);
 			}
 		}
-
 		BitmapEncoderFactory = new(StringComparer.OrdinalIgnoreCase)
 		{
 			{ ".jpg", static () => new JpegBitmapEncoder() },
@@ -24,7 +23,6 @@ public partial class MainWindow
 			{ ".png", static () => new PngBitmapEncoder() },
 			{ ".bmp", static () => new BmpBitmapEncoder() }
 		};
-
 		SerializerOptions = new()
 		{
 			WriteIndented = true,
